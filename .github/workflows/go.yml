@@ -21,3 +21,6 @@ jobs:
       uses: actions/checkout@v2
     - name: test
       run: go test -v ./ -count=1
+      env:
+        CC: clang
+        CXX: clang++

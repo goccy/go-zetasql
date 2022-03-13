@@ -1,0 +1,20 @@
+#define absl zetasql_analyzer_name_scope_absl
+
+#include "zetasql/analyzer/name_scope.h"
+#include "zetasql/analyzer/name_scope.cc"
+
+#include "go-zetasql/base/base/export.inc"
+#include "go-zetasql/base/map_util/export.inc"
+#include "go-zetasql/base/ret_check/export.inc"
+#include "go-zetasql/base/status/export.inc"
+#include "go-zetasql/parser/parser/export.inc"
+#include "go-zetasql/public/catalog/export.inc"
+#include "go-zetasql/public/id_string/export.inc"
+#include "go-zetasql/public/strings/export.inc"
+#include "go-zetasql/public/type/export.inc"
+#include "go-zetasql/resolved_ast/resolved_ast/export.inc"
+#include "go-absl/container/flat_hash_map/export.inc"
+#include "go-absl/memory/memory/export.inc"
+#include "go-absl/status/status/export.inc"
+#include "go-absl/status/statusor/export.inc"
+#include "go-absl/strings/strings/export.inc"

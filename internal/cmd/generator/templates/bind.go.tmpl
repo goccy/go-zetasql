@@ -1,0 +1,72 @@
+{{- $fqdn := .FQDN }}
+package {{ .Pkg }}
+
+/*
+#cgo CXXFLAGS: -std={{ .Compiler }}
+{{- if .DebugMode }}
+#cgo CXXFLAGS: -O0
+#cgo CXXFLAGS: -g
+{{- end }}
+{{- range .IncludePaths }}
+#cgo CXXFLAGS: -I{{ . }}
+{{- end }}
+#cgo CXXFLAGS: -Wno-char-subscripts
+#cgo CXXFLAGS: -Wno-sign-compare
+#cgo CXXFLAGS: -Wno-switch
+#cgo CXXFLAGS: -Wno-unused-function
+#cgo CXXFLAGS: -Wno-deprecated-declarations
+#cgo CXXFLAGS: -Wno-inconsistent-missing-override
+#cgo CXXFLAGS: -Wno-unknown-attributes
+#cgo CXXFLAGS: -Wno-macro-redefined
+#cgo CXXFLAGS: -Wno-shift-count-overflow
+#cgo CXXFLAGS: -Wno-enum-compare-switch
+#cgo CXXFLAGS: -Wno-return-type
+#cgo CXXFLAGS: -Wno-subobject-linkage
+#cgo CXXFLAGS: -Wno-unknown-warning-option
+#cgo CXXFLAGS: -DHAVE_PTHREAD
+{{- range .LDFlags }}
+#cgo LDFLAGS: {{ . }}
+{{- end }}
+
+#define GO_EXPORT(API) export_{{ $fqdn }}_ ## API
+#include "bridge.h"
+{{- range .BridgeHeaders }}
+#include "{{ . }}"
+{{- end }}
+*/
+import "C"
+import (
+	{{- range .ImportGoLibs }}
+	_ "{{ . }}"
+	{{- end }}
+	{{- if .ImportUnsafePkg }}
+	"unsafe"
+	{{- end }}
+)
+
+{{- range .Funcs }}
+
+func {{ .Name }}({{- range $index, $value := .Args }}arg{{ $index }} {{ $value.GO }},{{- end }}) {
+	{{ .BasePkg }}_{{ .Name }}(
+		{{- range $index, $value := .Args }}
+
+		{{- if .NeedsCast }}
+		{{ $value.GoToC $index }},
+		{{- else }}
+		arg{{ $index }},
+		{{- end }}
+
+		{{- end }}
+	)
+}
+
+func {{ .BasePkg }}_{{ .Name }}({{- range $index, $value := .Args }}arg{{ $index }} {{ $value.CGO }},{{- end }}) {
+	C.export_{{ $fqdn }}_{{ .Name }}({{- range $index, $value := .Args }}arg{{ $index }},{{- end }})
+}
+{{- end }}
+
+{{- range .ExportFuncs }}
+//export export_{{ $fqdn }}_{{ .Name }}
+//go:linkname export_{{ $fqdn }}_{{ .Name }} {{ .LibName }}.{{ .BasePkg }}_{{ .Name }}
+func export_{{ $fqdn }}_{{ .Name }}({{- range $index, $value := .Args }}arg{{ $index }} {{ $value.CGO }},{{- end }})
+{{- end }}

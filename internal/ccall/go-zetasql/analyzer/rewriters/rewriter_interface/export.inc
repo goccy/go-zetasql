@@ -1,0 +1,6 @@
+#ifndef ZETASQL_ANALYZER_REWRITERS_REWRITER_INTERFACE_EXPORT_H
+#define ZETASQL_ANALYZER_REWRITERS_REWRITER_INTERFACE_EXPORT_H
+
+#include "go-absl/status/statusor/export.inc"
+
+#endif

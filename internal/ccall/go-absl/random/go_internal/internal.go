@@ -1,0 +1,25 @@
+package go_internal
+
+import (
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/distribution_caller"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/explicit_seed_seq"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/fast_uniform_bits"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/fastmath"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/generate_real"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/iostream_state_saver"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/nonsecure_base"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/pcg_engine"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/platform"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/pool_urbg"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/randen"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/randen_engine"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/randen_hwaes"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/randen_hwaes_impl"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/randen_slow"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/salted_seed_seq"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/seed_material"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/sequence_urbg"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/traits"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/uniform_helper"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/random/go_internal/wide_multiply"
+)

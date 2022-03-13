@@ -1,0 +1,27 @@
+package container
+
+import (
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/btree"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/common"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/compressed_tuple"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/container_memory"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/counting_allocator"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/fixed_array"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/flat_hash_map"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/flat_hash_set"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/hash_function_defaults"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/hash_policy_traits"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/hashtable_debug"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/hashtable_debug_hooks"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/hashtablez_sampler"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/have_sse"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/inlined_vector"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/inlined_vector_internal"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/layout"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/node_hash_map"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/node_hash_set"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/node_slot_policy"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/raw_hash_map"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/raw_hash_set"
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/container/tracked"
+)

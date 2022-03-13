@@ -1,0 +1,6 @@
+#ifndef ZETASQL_PUBLIC_FUNCTIONS_ARITHMETICS_INTERNAL_EXPORT_H
+#define ZETASQL_PUBLIC_FUNCTIONS_ARITHMETICS_INTERNAL_EXPORT_H
+
+#include "go-zetasql/base/base/export.inc"
+
+#endif

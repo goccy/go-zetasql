@@ -1,0 +1,4716 @@
+- package: zetasql/public/sql_formatter
+  methods:
+    - name: FormatSql
+      args:
+        - string
+      ret:
+        - string
+        - struct
+- package: zetasql/parser/parser
+  methods:
+    - name: ParseStatement
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: ParseScript
+      args:
+        - string
+        - struct
+        - int
+      ret:
+        - struct
+        - struct
+    - name: ParseNextStatement
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - bool
+        - struct
+    - name: ParseNextScriptStatement
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - bool
+        - struct
+    - name: ParseType
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: ParseExpression
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Unparse
+      args:
+        - struct
+      ret:
+        - string
+    - name: ParseResumeLocation_FromStringView
+      args:
+        - string
+      ret:
+        - struct
+    - name: Status_OK
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Status_String
+      args:
+        - struct
+      ret:
+        - string
+    - name: ParserOutput_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ParserOutput_script
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ParserOutput_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ParserOutput_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNode_getId
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTNode_node_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTNode_SingleNodeDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTNode_set_parent
+      args:
+        - struct
+        - struct
+    - name: ASTNode_parent
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNode_AddChildren
+      args:
+        - struct
+        - struct
+    - name: ASTNode_AddChild
+      args:
+        - struct
+        - struct
+    - name: ASTNode_AddChildFront
+      args:
+        - struct
+        - struct
+    - name: ASTNode_num_children
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTNode_child
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTNode_mutable_child
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTNode_find_child_index
+      args:
+        - struct
+        - int
+      ret:
+        - int
+    - name: ASTNode_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: ASTNode_MoveStartLocation
+      args:
+        - struct
+        - int
+    - name: ASTNode_MoveStartLocationBack
+      args:
+        - struct
+        - int
+    - name: ASTNode_SetStartLocationToEndLocation
+      args:
+        - struct
+    - name: ASTNode_MoveEndLocationBack
+      args:
+        - struct
+        - int
+    - name: ASTNode_set_start_location
+      args:
+        - struct
+        - struct
+    - name: ASTNode_set_end_location
+      args:
+        - struct
+        - struct
+    - name: ASTNode_IsTableExpression
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsQueryExpression
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsExpression
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsLeaf
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsScriptStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsLoopStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsSqlStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsDdlStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsCreateStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_IsAlterStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTNode_GetNodeKindString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTNode_GetParseLocationRange
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNode_GetLocationString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTNode_NodeKindToString
+      args:
+        - int
+      ret:
+        - string
+    - name: ParseLocationPoint_filename
+      args:
+        - struct
+      ret:
+        - string
+    - name: ParseLocationPoint_GetByteOffset
+      args:
+        - struct
+      ret:
+        - int
+    - name: ParseLocationPoint_GetString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ParseLocationRange_start
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ParseLocationRange_end
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ParseLocationRange_GetString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTQueryStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTQueryExpression_set_parenthesized
+      args:
+        - struct
+        - int
+    - name: ASTQueryExpression_parenthesized
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTQuery_set_is_nested
+      args:
+        - struct
+        - int
+    - name: ASTQuery_is_nested
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTQuery_set_is_pivot_input
+      args:
+        - struct
+        - int
+    - name: ASTQuery_is_pivot_input
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTQuery_with_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTQuery_query_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTQuery_order_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTQuery_limit_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_set_distinct
+      args:
+        - struct
+        - int
+    - name: ASTSelect_distinct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTSelect_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_anonymization_options
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_select_as
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_select_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_from_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_where_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_group_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_having
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_qualify
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelect_window_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelectList_column_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTSelectList_column
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTSelectColumn_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelectColumn_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExpression_set_parenthesized
+      args:
+        - struct
+        - int
+    - name: ASTExpression_parenthesized
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTExpression_IsAllowedInComparison
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTLeaf_image
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTLeaf_set_image
+      args:
+        - struct
+        - string
+    - name: ASTIntLiteral_is_hex
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTIdentifier_GetAsString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTIdentifier_SetIdentifier
+      args:
+        - struct
+        - string
+    - name: ASTAlias_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlias_GetAsString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTPathExpression_num_names
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPathExpression_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTPathExpression_ToIdentifierPathString
+      args:
+        - struct
+        - uint32
+      ret:
+        - string
+    - name: ASTTablePathExpression_path_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_unnest_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_with_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_pivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_unpivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_for_system_time
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_sample_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTablePathExpression_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFromClause_table_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWhereClause_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBooleanLiteral_set_value
+      args:
+        - struct
+        - int
+    - name: ASTBooleanLiteral_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAndExpr_conjuncts_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTAndExpr_conjunct
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTBinaryExpression_set_op
+      args:
+        - struct
+        - int
+    - name: ASTBinaryExpression_op
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTBinaryExpression_set_is_not
+      args:
+        - struct
+        - int
+    - name: ASTBinaryExpression_is_not
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTBinaryExpression_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBinaryExpression_rhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBinaryExpression_GetSQLForOperator
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTStringLiteral_string_value
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTStringLiteral_set_string_value
+      args:
+        - struct
+        - string
+    - name: ASTOrExpr_disjuncts_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTOrExpr_disjunct
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTGroupingItem_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGroupingItem_rollup
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGroupBy_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGroupBy_grouping_items_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTGroupBy_grouping_item
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTOrderingExpression_set_ordering_spec
+      args:
+        - struct
+        - int
+    - name: ASTOrderingExpression_ordering_spec
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTOrderingExpression_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOrderingExpression_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOrderingExpression_null_order
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOrderBy_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOrderBy_ordering_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTOrderBy_ordering_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTLimitOffset_limit
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLimitOffset_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOnClause_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithClauseEntry_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithClauseEntry_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_set_join_type
+      args:
+        - struct
+        - int
+    - name: ASTJoin_join_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTJoin_set_join_hint
+      args:
+        - struct
+        - int
+    - name: ASTJoin_join_hint
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTJoin_set_natural
+      args:
+        - struct
+        - int
+    - name: ASTJoin_natural
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTJoin_set_unmatched_join_count
+      args:
+        - struct
+        - int
+    - name: ASTJoin_unmatched_join_count
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTJoin_set_transformation_needed
+      args:
+        - struct
+        - int
+    - name: ASTJoin_transformation_needed
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTJoin_set_contains_comma_join
+      args:
+        - struct
+        - int
+    - name: ASTJoin_contains_comma_join
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTJoin_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_rhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_on_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_using_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: JoinParseError_error_node
+      args:
+        - struct
+      ret:
+        - struct
+    - name: JoinParseError_message
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTJoin_parse_error
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTJoin_GetSQLForJoinType
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTJoin_GetSQLForJoinHint
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTWithClause_set_recursive
+      args:
+        - struct
+        - int
+    - name: ASTWithClause_recursive
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTWithClause_with_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTWithClause_with
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTHaving_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTType_type_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTType_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSimpleType_type_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTArrayType_element_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructField_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructField_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructType_struct_fields_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStructType_struct_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCastExpression_set_is_safe_cast
+      args:
+        - struct
+        - int
+    - name: ASTCastExpression_is_safe_cast
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCastExpression_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCastExpression_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCastExpression_format
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelectAs_set_as_mode
+      args:
+        - struct
+        - int
+    - name: ASTSelectAs_as_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTSelectAs_type_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSelectAs_is_select_as_struct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTSelectAs_is_select_as_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTRollup_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTRollup_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTFunctionCall_set_null_handling_modifier
+      args:
+        - struct
+        - int
+    - name: ASTFunctionCall_null_handling_modifier
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTFunctionCall_set_distinct
+      args:
+        - struct
+        - int
+    - name: ASTFunctionCall_distinct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionCall_set_is_current_date_time_without_parentheses
+      args:
+        - struct
+        - int
+    - name: ASTFunctionCall_is_current_date_time_without_parentheses
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionCall_function
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_having_modifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_clamped_between_modifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_order_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_limit_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_with_group_rows
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCall_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTFunctionCall_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTFunctionCall_HasModifiers
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTArrayConstructor_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTArrayConstructor_elements_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTArrayConstructor_element
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTStructConstructorArg_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructConstructorArg_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructConstructorWithParens_field_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStructConstructorWithParens_field_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTStructConstructorWithKeyword_struct_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructConstructorWithKeyword_fields_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStructConstructorWithKeyword_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTInExpression_set_is_not
+      args:
+        - struct
+        - int
+    - name: ASTInExpression_is_not
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTInExpression_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInExpression_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInExpression_in_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInExpression_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInExpression_unnest_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInList_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTInList_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTBetweenExpression_set_is_not
+      args:
+        - struct
+        - int
+    - name: ASTBetweenExpression_is_not
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTBetweenExpression_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBetweenExpression_low
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBetweenExpression_high
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDateOrTimeLiteral_set_type_kind
+      args:
+        - struct
+        - int
+    - name: ASTDateOrTimeLiteral_type_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTDateOrTimeLiteral_string_literal
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCaseValueExpression_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCaseValueExpression_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCaseNoValueExpression_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCaseNoValueExpression_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTArrayElement_array
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTArrayElement_position
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBitwiseShiftExpression_set_is_left_shift
+      args:
+        - struct
+        - int
+    - name: ASTBitwiseShiftExpression_is_left_shift
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTBitwiseShiftExpression_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBitwiseShiftExpression_rhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCollate_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotGeneralizedField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotGeneralizedField_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotIdentifier_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotIdentifier_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotStar_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotStarWithModifiers_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDotStarWithModifiers_modifiers
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExpressionSubquery_set_modifier
+      args:
+        - struct
+        - int
+    - name: ASTExpressionSubquery_modifier
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTExpressionSubquery_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExpressionSubquery_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExtractExpression_lhs_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExtractExpression_rhs_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExtractExpression_time_zone_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHavingModifier_set_modifier_kind
+      args:
+        - struct
+        - int
+    - name: ASTHavingModifier_modifier_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTHavingModifier_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIntervalExpr_interval_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIntervalExpr_date_part_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIntervalExpr_date_part_name_to
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNamedArgument_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNamedArgument_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNullOrder_set_nulls_first
+      args:
+        - struct
+        - int
+    - name: ASTNullOrder_nulls_first
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTOnOrUsingClauseList_on_or_using_clause_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTOnUsingClauseList_on_or_using_clause_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTParenthesizedJoin_join
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTParenthesizedJoin_sample_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPartitionBy_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPartitionBy_partitioning_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPartitionBy_partitioning_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTSetOperation_set_op_type
+      args:
+        - struct
+        - int
+    - name: ASTSetOperation_op_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTSetOperation_set_distinct
+      args:
+        - struct
+        - int
+    - name: ASTSetOperation_distinct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTSetOperation_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSetOperation_inputs_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTSetOperation_input
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTSetOperation_GetSQLForOperation
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTStarExceptList_identifiers_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStarExpcetList_identifier
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTStarModifiers_except_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStarModifiers_replace_items_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStarModifiers_replace_item
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTStarReplaceItem_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStarReplaceItem_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStarWithModifiers_modifiers
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableSubquery_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableSubquery_pivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableSubquery_unpivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableSubquery_sample_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableSubquery_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnaryExpression_set_op
+      args:
+        - struct
+        - int
+    - name: ASTUnaryExpression_op
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTUnaryExpression_operand
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnaryExpression_GetSQLForOperator
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTUnnestExpression_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowClause_windows_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTWindowClause_window
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTWindowDefinition_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowDefinition_window_spec
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowFrame_start_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowFrame_end_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowFrame_set_unit
+      args:
+        - struct
+        - int
+    - name: ASTWindowFrame_frame_unit
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTWindowFrame_GetFrameUnitString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTWindowFrameExpr_set_boundary_type
+      args:
+        - struct
+        - int
+    - name: ASTWindowFrameExpr_boundary_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTWindowFrameExpr_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_set_is_not
+      args:
+        - struct
+        - int
+    - name: ASTLikeExpression_is_not
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTLikeExpression_lhs
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_op
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_in_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLikeExpression_unnest_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowSpecification_base_window_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowSpecification_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowSpecification_order_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWindowSpecification_window_frame
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithOffset_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAnySomeAllOp_set_op
+      args:
+        - struct
+        - int
+    - name: ASTAnySomeAllOp_op
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTAnySomeAllOp_GetSQLForOperator
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTStatementList_set_variable_declarations_allowed
+      args:
+        - struct
+        - int
+    - name: ASTStatementList_variable_declarations_allowed
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTStatementList_statement_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStatementList_statement_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTHintedStatement_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHintedStatement_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExplainStatement_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescribeStatement_optional_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescribeStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescribeStatement_optional_from_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTShowStatement_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTShowStatement_optional_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTShowStatement_optional_like_string
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTransactionIsolationLevel_identifier1
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTransactionIsolationLevel_identifier2
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTransactionReadWriteMode_set_mode
+      args:
+        - struct
+        - int
+    - name: ASTTransactionReadWriteMode_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTransactionModeList_elements_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTransactionModeList_element
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTBeginStatement_mode_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSetTransactionStatement_mode_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStartBatchStatement_batch_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDdlStatement_GetDdlTarget
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropEntityStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropEntityStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropEntityStatement_entity_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropEntityStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropFunctionStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropFunctionStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropFunctionStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropFunctionStatement_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropTableFunctionStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropTableFunctionStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropTableFunctionStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword
+      args:
+        - struct
+        - int
+    - name: ASTDropAllRowAccessPoliciesStatement_has_access_keyword
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropAllRowAccessPoliciesStatement_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropMaterializedViewStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropMaterializedViewStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropMaterializedViewStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropSnapshotTableStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropSnapshotTableStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropSnapshotTableStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropSearchIndexStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropSearchIndexStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropSearchIndexStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropSearchIndexStatement_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameStatement_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameStatement_old_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameStatement_new_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTImportStatement_set_import_kind
+      args:
+        - struct
+        - int
+    - name: ASTImportStatement_import_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTImportStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTImportStatement_string_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTImportStatement_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTImportStatement_into_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTImportStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTModuleStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTModuleStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithConnectionClause_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIntoAlias_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIntoAlias_GetAsString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnnestExpressionWithOptAliasAndOffset_optional_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotExpression_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotExpression_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotValue_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotValue_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotExpressionList_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPivotExpressionList_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTPivotValueList_values_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPivotValueList_value
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTPivotClause_pivot_expressions
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotClause_for_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotClause_pivot_values
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPivotClause_output_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotInItem_unpivot_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotInItem_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotInItemList_in_items_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTUnpivotInItemList_in_item
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTUnpivotClause_set_null_filter
+      args:
+        - struct
+        - int
+    - name: ASTUnpivotClause_null_filter
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTUnpivotClause_unpivot_output_value_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotClause_unpivot_output_name_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotClause_unpivot_in_items
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotClause_output_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUsingClause_keys_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTUsingClause_key
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTForSystemTime_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTQualify_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTClampedBetweenModifier_low
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTClampedBetweenModifier_high
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFormatClause_format
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFormatClause_time_zone_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPathExpressionList_path_expression_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPathExpressionList_path_expression_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTParameterExpr_set_position
+      args:
+        - struct
+        - int
+    - name: ASTParameterExpr_position
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTParameterExpr_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSystemVariableExpr_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithGroupRows_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLambda_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLambda_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAnalyticFunctionCall_window_spec
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAnalyticFunctionCall_function
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAnalyticFunctionCall_function_with_group_rows
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCallWithGroupRows_function
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionCallWithGroupRows_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTClusterBy_clustering_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTClusterBy_clustering_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTNewConstructorArg_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNewConstructorArg_optional_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNewConstructorArg_optional_path_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNewConstructor_type_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTNewConstructor_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTNewConstructor_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTOptionsList_options_entries_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTOptionsList_options_entry
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTOptionsEntry_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTOptionsEntry_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateStatement_set_scope
+      args:
+        - struct
+        - int
+    - name: ASTCreateStatement_scope
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCreateStatement_set_is_or_replace
+      args:
+        - struct
+        - int
+    - name: ASTCreateStatement_is_or_replace
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateStatement_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ASTCreateStatement_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateStatement_is_default_scope
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateStatement_is_private
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateStatement_is_public
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateStatement_is_temp
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionParameter_set_procedure_parameter_mode
+      args:
+        - struct
+        - int
+    - name: ASTFunctionParameter_procedure_parameter_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTFunctionParameter_set_is_not_aggregate
+      args:
+        - struct
+        - int
+    - name: ASTFunctionParameter_is_not_aggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionParameter_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_templated_parameter_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_tvf_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_default_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionParameter_IsTableParameter
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionParameter_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFunctionParameters_parameter_entries_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTFunctionParameters_parameter_entry
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTFunctionDeclaration_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionDeclaration_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFunctionDeclaration_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTSqlFunctionBody_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFArgument_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFArgument_table_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFArgument_model_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFArgument_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFArgument_descriptor
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_pivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_unpivot_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_sample
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVF_argument_entries_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTVF_argument_entry
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTTableClause_table_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableClause_tvf
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTModelClause_model_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTConnectionClause_connection_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableDataSource_path_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableDataSource_for_system_time
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableDataSource_where_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCloneDataSourceList_data_sources_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCloneDataSourceList_data_source
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCloneDataStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCloneDataStatement_data_source_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateConstantStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateConstantStatement_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateDatabaseStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateDatabaseStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateProcedureStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateProcedureStatement_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateProcedureStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateProcedureStatement_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSchemaStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSchemaStatement_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSchemaStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTransformClause_select_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateModelStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateModelStatement_transform_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateModelStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateModelStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIndexItemList_ordering_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTIndexItemList_ordering_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTIndexStoringExpressionList_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTIndexStoringExpressionList_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTIndexUnnestExpressionList_unnest_expressions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTIndexUnnestExpressionList_unnest_expression
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_set_is_unique
+      args:
+        - struct
+        - int
+    - name: ASTCreateIndexStatement_is_unique
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateIndexStatement_set_is_search
+      args:
+        - struct
+        - int
+    - name: ASTCreateIndexStatement_is_search
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateIndexStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_optional_table_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_optional_index_unnest_expression_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_index_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_optional_index_storing_expressions
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateIndexStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportDataStatement_with_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportDataStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportDataStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportModelStatement_model_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportModelStatement_with_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExportModelStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCallStatement_procedure_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCallStatement_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCallStatement_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTDefineTableStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDefineTableStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWithPartitionColumnsClause_table_element_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSnapshotTableStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSnapshotTableStatement_clone_data_source
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateSnapshotTableStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTypeParameterList_parameters_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTypeParameterList_parameter
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTTVFSchema_columns_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTVFSchema_column
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTTVFSchemaColumn_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTVFSchemaColumn_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableAndColumnInfo_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableAndColumnInfo_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableAndColumnInfoList_table_and_column_info_entries_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTableAndColumnInfoList_table_and_column_info_entry
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTTemplatedParameterType_set_kind
+      args:
+        - struct
+        - int
+    - name: ASTTemplatedParameterType_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTAnalyzeStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAnalyzeStatement_table_and_column_info_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAssertStatement_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAssertStatement_description
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAssertRowsModified_num_rows
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTReturningClause_select_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTReturningClause_action_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_where
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDeleteStatement_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrimaryKeyColumnAttribute_set_enforced
+      args:
+        - struct
+        - int
+    - name: ASTPrimaryKeyColumnAttribute_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTForeignKeyColumnAttribute_constraint_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKeyColumnAttribute_reference
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnAttributeList_values_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTColumnAttributeList_value
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTStructColumnField_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructColumnField_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGeneratedColumnInfo_set_stored_mode
+      args:
+        - struct
+        - int
+    - name: ASTGeneratedColumnInfo_stored_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTGeneratedColumnInfo_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGeneratedColumnInfo_GetSqlForStoredMode
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTColumnDefinition_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnDefinition_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableElementList_elements_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTTableElementList_element
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTColumnList_identifiers_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTColumnList_identifier
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTColumnPosition_set_type
+      args:
+        - struct
+        - int
+    - name: ASTColumnPosition_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTColumnPosition_identifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertValuesRow_values_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTInsertValuesRow_value
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTInsertValuesRowList_rows_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTInsertValuesRowList_row
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTInsertStatement_set_parse_progress
+      args:
+        - struct
+        - int
+    - name: ASTInsertStatement_parse_progress
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTInsertStatement_set_insert_mode
+      args:
+        - struct
+        - int
+    - name: ASTInsertStatement_insert_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTInsertStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_rows
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTInsertStatement_GetSQLForInsertMode
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTUpdateSetValue_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateSetValue_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateItem_set_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateItem_insert_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateItem_delete_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateItem_update_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateItemList_update_items_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTUpdateItemList_update_item
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTUpdateStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_update_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_from_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_where
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUpdateStatement_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTruncateStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTruncateStatement_where
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeAction_set_action_type
+      args:
+        - struct
+        - int
+    - name: ASTMergeAction_action_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTMergeAction_insert_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeAction_insert_row
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeAction_update_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeWhenClause_set_match_type
+      args:
+        - struct
+        - int
+    - name: ASTMergeWhenClause_match_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTMergeWhenClause_search_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeWhenClause_action
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeWhenClause_GetSQLForMatchType
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTMergeWhenClauseList_clause_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTMergeWhenClauseList_clause_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTMergeStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeStatement_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeStatement_table_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeStatement_merge_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTMergeStatement_when_clauses
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrivilege_privilege_action
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrivilege_paths
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrivileges_privileges_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTPrivileges_privilege
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTPrivileges_is_all_privileges
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTGranteeList_grantee_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTGranteeList_grantee_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTGrantStatement_privileges
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGrantStatement_target_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGrantStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGrantStatement_grantee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRevokeStatement_privileges
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRevokeStatement_target_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRevokeStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRevokeStatement_grantee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRepeatableClause_argument
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFilterFieldsArg_set_filter_type
+      args:
+        - struct
+        - int
+    - name: ASTFilterFieldsArg_filter_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTFilterFieldsArg_path_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFilterFieldsArg_GetSQLForOperator
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTReplaceFieldsArg_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTReplaceFieldsArg_path_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTReplaceFieldsExpression_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTReplaceFieldsExpression_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTReplaceFieldsExpression_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTSampleSize_set_unit
+      args:
+        - struct
+        - int
+    - name: ASTSampleSize_unit
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTSampleSize_size
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleSize_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleSize_GetSQLForUnit
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTWithWeight_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleSuffix_weight
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleSuffix_repeat
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleClause_sample_method
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleClause_sample_size
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSampleClause_sample_suffix
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterAction_GetSQLForAlterAction
+      args:
+        - struct
+      ret:
+        - string
+    - name: ASTSetOptionsAction_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSetAsAction_json_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSetAsAction_text_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAddConstraintAction_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ASTAddConstraintAction_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAddConstraintAction_constraint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropPrimaryKeyAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropPrimaryKeyAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropConstraintAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropConstraintAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropConstraintAction_constraint_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterConstraintEnforcementAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterConstraintEnforcementAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterConstraintEnforcementAction_set_is_enforced
+      args:
+        - struct
+        - int
+    - name: ASTAlterConstraintEnforcementAction_is_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterConstraintEnforcementAction_constraint_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterConstraintSetOptionsAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterConstraintSetOptionsAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterConstraintSetOptionsAction_constraint_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterConstraintSetOptionsAction_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAddColumnAction_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ASTAddColumnAction_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAddColumnAction_column_definition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAddColumnAction_column_position
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAddColumnAction_fill_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropColumnAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropColumnAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropColumnAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameColumnAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTRenameColumnAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTRenameColumnAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameColumnAction_new_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnTypeAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterColumnTypeAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterColumnTypeAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnTypeAction_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnTypeAction_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnOptionsAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterColumnOptionsAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterColumnOptionsAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnOptionsAction_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnSetDefaultAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterColumnSetDefaultAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterColumnSetDefaultAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnSetDefaultAction_default_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnDropDefaultAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterColumnDropDefaultAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterColumnDropDefaultAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterColumnDropNotNullAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterColumnDropNotNullAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterColumnDropNotNullAction_column_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTGrantToClause_set_has_grant_keyword_and_parens
+      args:
+        - struct
+        - int
+    - name: ASTGrantToClause_has_grant_keyword_and_parens
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTGrantToClause_grantee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRestrictToClause_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAddToRestricteeListClause_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ASTAddToRestricteeListClause_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAddToRestricteeListClause_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRemoveFromRestricteeListClause_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTRemoveFromRestricteeListClause_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTRemoveFromRestricteeListClause_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTFilterUsingClause_set_has_filter_keyword
+      args:
+        - struct
+        - int
+    - name: ASTFilterUsingClause_has_filter_keyword
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTFilterUsingClause_predicate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRevokeFromClause_set_is_revoke_from_all
+      args:
+        - struct
+        - int
+    - name: ASTRevokeFromClause_is_revoke_from_all
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTRevokeFromClause_revoke_from_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRenameToClause_new_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSetCollateClause_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterActionList_actions_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTAlterActionList_action
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTAlterAllRowAccessPoliciesStatement_table_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterAllRowAccessPoliciesStatement_alter_action
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKeyActions_set_udpate_action
+      args:
+        - struct
+        - int
+    - name: ASTForeignKeyActions_udpate_action
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTForeignKeyActions_set_delete_action
+      args:
+        - struct
+        - int
+    - name: ASTForeignKeyActions_delete_action
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTForeignKeyReference_set_match
+      args:
+        - struct
+        - int
+    - name: ASTForeignKeyReference_match
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTForeignKeyReference_set_enforced
+      args:
+        - struct
+        - int
+    - name: ASTForeignKeyReference_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTForeignKeyReference_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKeyReference_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKeyReference_actions
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTScript_statement_list_node
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTScript_statement_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTScript_statement_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTElseifClause_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTElseifClause_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTElseifClause_if_stmt
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTElseifClauseList_elseif_clauses_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTElseifClauseList_elseif_clause
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTIfStatement_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIfStatement_then_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIfStatement_elseif_clauses
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTIfStatement_else_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWhenThenClause_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWhenThenClause_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWhenThenClause_case_stmt
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTWhenThenClauseList_when_then_clauses_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTWhenThenClauseList_when_then_clause
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCaseStatement_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCaseStatement_when_then_clauses
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCaseStatement_else_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHint_num_shards_hint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHint_hint_entries_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTHint_hint_entry
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTHintEntry_qualifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHintEntry_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTHintEntry_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUnpivotInItemLabel_label
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescriptor_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_type_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_generated_column_info
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_default_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_attributes
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTColumnSchema_ContainsAttribute
+      args:
+        - struct
+        - int
+      ret:
+        - bool
+    - name: ASTSimpleColumnSchema_type_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTArrayColumnSchema_element_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTTableConstraint_constraint_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrimaryKey_set_enforced
+      args:
+        - struct
+        - int
+    - name: ASTPrimaryKey_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTPrimaryKey_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTPrimaryKey_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKey_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKey_reference
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForeignKey_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCheckConstraint_set_is_enforced
+      args:
+        - struct
+        - int
+    - name: ASTCheckConstraint_is_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCheckConstraint_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCheckConstraint_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescriptorColumn_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDescriptorColumnList_descriptor_column_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTDescriptorColumnList_descriptor_column_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTCreateEntityStatement_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateEntityStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateEntityStatement_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateEntityStatement_json_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateEntityStatement_text_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRaiseStatement_message
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRaiseStatement_is_rethrow
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTExceptionHandler_statement_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExceptionHandlerList_exception_handler_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTExceptionHandlerList_exception_handler_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTBeginEndBlock_label
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBeginEndBlock_statement_list_node
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBeginEndBlock_handler_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBeginEndBlock_statement_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTBeginEndBlock_statement_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTBeginEndBlock_has_exception_handler
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTIdentifierList_identifier_list_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTIdentifierList_identifier_list
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTVariableDeclaration_variable_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTVariableDeclaration_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTVariableDeclaration_default_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUntilClause_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTUntilClause_repeat_stmt
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBreakContinueStatement_label
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTBreakContinueStatement_set_keyword
+      args:
+        - struct
+        - int
+    - name: ASTBreakContinueStatement_keyword
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTBreakStatement_set_keyword
+      args:
+        - struct
+        - int
+    - name: ASTBreakStatement_keyword
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTContinueStatement_set_keyword
+      args:
+        - struct
+        - int
+    - name: ASTContinueStatement_keyword
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTDropPrivilegeRestrictionStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropPrivilegeRestrictionStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropPrivilegeRestrictionStatement_privileges
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropPrivilegeRestrictionStatement_object_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropPrivilegeRestrictionStatement_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropRowAccessPolicyStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropRowAccessPolicyStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropRowAccessPolicyStatement_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropRowAccessPolicyStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreatePrivilegeRestrictionStatement_privileges
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreatePrivilegeRestrictionStatement_object_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreatePrivilegeRestrictionStatement_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreatePrivilegeRestrictionStatement_restrict_to
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateRowAccessPolicyStatement_set_has_access_keyword
+      args:
+        - struct
+        - int
+    - name: ASTCreateRowAccessPolicyStatement_has_access_keyword
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateRowAccessPolicyStatement_target_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateRowAccessPolicyStatement_grant_to
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateRowAccessPolicyStatement_filter_using
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateRowAccessPolicyStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTDropStatement_set_drop_mode
+      args:
+        - struct
+        - int
+    - name: ASTDropStatement_drop_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTDropStatement_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTDropStatement_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTDropStatement_set_schema_object_kind
+      args:
+        - struct
+        - int
+    - name: ASTDropStatement_schema_object_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTDropStatemnt_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSingleAssignment_variable
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSingleAssignment_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTParameterAssignment_parameter
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTParameterAssignment_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSystemVariableAssignment_system_variable
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTSystemVariableAssignment_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAssignmentFromStruct_variables
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAssignmentFromStruct_struct_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStmtBase_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStmtBase_table_element_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStmtBase_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStmtBase_like_table_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStmtBase_collate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStatement_clone_data_source
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStatement_copy_data_source
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStatement_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStatement_cluster_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateExternalTableStatement_with_partition_columns_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateExternalTableStatement_with_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateViewStatementBase_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateViewStatementBase_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateViewStatementBase_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateViewStatementBase_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateMaterializedViewStatement_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateMaterializedViewStatement_cluster_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLoopStatement_label
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLoopStatement_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLoopStatement_IsLoopStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTWhileStatement_condition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTRepeatStatement_until_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForInStatement_variable
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTForInStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterStatementBase_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ASTAlterStatementBase_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTAlterStatementBase_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterStatementBase_action_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterPrivilegeRestrictionStatement_privileges
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterPrivilegeRestrictionStatement_object_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterRowAccessPolicyStatement_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAlterEntityStatement_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStmtBase_set_determinism_level
+      args:
+        - struct
+        - int
+    - name: ASTCreateFunctionStmtBase_determinism_level
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCreateFunctionStmtBase_set_sql_security
+      args:
+        - struct
+        - int
+    - name: ASTCreateFunctionStmtBase_sql_security
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTCreateFunctionStmtBase_function_declaration
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStmtBase_language
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStmtBase_code
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStmtBase_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStatement_set_is_aggregate
+      args:
+        - struct
+        - int
+    - name: ASTCreateFunctionStatement_is_aggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateFunctionStatement_set_is_remote
+      args:
+        - struct
+        - int
+    - name: ASTCreateFunctionStatement_is_remote
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ASTCreateFunctionStatement_return_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStatement_sql_function_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateFunctionStatement_with_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableFunctionStatement_return_tvf_schema
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTCreateTableFunctionStatement_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTStructColumnSchema_struct_fields_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTStructColumnSchema_struct_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTExecuteIntoClause_identifiers
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExecuteUsingArgument_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExecuteUsingArgument_alias
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExecuteUsingClause_arguments_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTExecuteUsingClause_argument
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ASTExecuteImmediateStatement_sql
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExecuteImmediateStatement_into_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTExecuteImmediateStatement_using_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataFromFilesOptionsList_options_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataStatement_set_insertion_mode
+      args:
+        - struct
+        - int
+    - name: ASTAuxLoadDataStatement_insertion_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ASTAuxLoadDataStatement_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataStatement_cluster_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataStatement_from_files
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataStatement_with_partition_columns_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTAuxLoadDataStatement_with_connection_clause
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ASTLabel_name
+      args:
+        - struct
+      ret:
+        - struct

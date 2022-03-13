@@ -1,0 +1,187 @@
+- package: absl/time/internal/cctz/time_zone
+  methods:
+    - name: cctz_FixedOffsetFromName
+      args:
+        - string
+        - struct
+      ret:
+        - bool
+    - name: cctz_FixedOffsetToName
+      args:
+        - struct
+      ret:
+        - string
+    - name: cctz_FixedOffsetToAbbr
+      args:
+        - struct
+      ret:
+        - string
+    - name: cctz_detail_format
+      args:
+        - string
+        - struct
+        - struct
+        - struct
+      ret:
+        - string
+    - name: cctz_detail_parse
+      args:
+        - string
+        - string
+        - struct
+        - struct
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: TimeZoneIf_Load
+      args:
+        - string
+      ret:
+        - struct
+    - name: time_zone_Impl_UTC
+      ret:
+        - struct
+    - name: time_zone_Impl_LoadTimeZone
+      args:
+        - string
+        - struct
+      ret:
+        - bool
+    - name: time_zone_Impl_ClearTimeZoneMapTestOnly
+    - name: time_zone_Impl_UTCImpl
+      ret:
+        - struct
+    - name: TimeZoneInfo_Load
+      args:
+        - struct
+        - string
+      ret:
+        - bool
+    - name: TimeZoneInfo_BreakTime
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TimeZoneInfo_MakeTime
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TimeZoneInfo_Version
+      args:
+        - struct
+      ret:
+        - string
+    - name: TimeZoneInfo_Description
+      args:
+        - struct
+      ret:
+        - string
+    - name: TimeZoneInfo_NextTransition
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: TimeZoneInfo_PrevTransition
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: TimeZoneLibC_BreakTime
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TimeZoneLibC_MakeTime
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TimeZoneLibC_Version
+      args:
+        - struct
+      ret:
+        - string
+    - name: TimeZoneLibC_NextTransition
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: TimeZoneLibC_PrevTransition
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: time_zone_name
+      ret:
+        - string
+    - name: time_zone_lookup
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: time_zone_lookup2
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: time_zone_next_transition
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: time_zone_prev_transition
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: time_zone_version
+      args:
+        - struct
+      ret:
+        - string
+    - name: time_zone_description
+      args:
+        - struct
+      ret:
+        - string
+    - name: cctz_load_time_zone
+      args:
+        - string
+        - struct
+      ret:
+        - bool
+    - name: cctz_utc_time_zone
+      ret:
+        - struct
+    - name: cctz_fixed_time_zone
+      args:
+        - struct
+      ret:
+        - struct
+    - name: cctz_local_time_zone
+      ret:
+        - struct
+    - name: cctz_ParsePosixSpec
+      args:
+        - string
+        - struct
+      ret:
+        - bool

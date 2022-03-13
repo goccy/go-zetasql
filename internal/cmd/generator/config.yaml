@@ -1,0 +1,227 @@
+dependencies:
+  - name: absl
+    fqdn: @com_google_absl
+  - name: googletest
+    fqdn: @com_google_googletest
+  - name: protobuf
+    fqdn: @com_google_protobuf
+  - name: googleapis
+    fqdn: @com_googleapis_googleapis
+  - name: boringssl
+    fqdn: @boringssl
+  - name: re2
+    fqdn: @com_googlesource_code_re2
+    deps:
+      - base: absl/synchronization
+        pkg:  synchronization
+      - base: absl/hash
+        pkg:  hash
+      - base: absl/container
+        pkg:  raw_hash_set
+      - base: absl/strings
+        pkg:  str_format
+  - name: icu
+    fqdn: @icu
+  - name: farmhash
+    fqdn: @com_google_farmhash
+  - name: json
+    fqdn: @json
+  - name: benchmark
+    fqdn: @com_github_google_benchmark
+
+global_symbols:
+  - AbslInternalSleepFor
+  - AbslInternalReportFatalUsageError
+  - AbslInternalMutexYield
+  - AbslInternalPerThreadSemPost
+  - AbslInternalPerThreadSemWait
+  - AbslContainerInternalSampleEverything
+  - AbslInternalSpinLockDelay
+  - AbslInternalSpinLockWake
+  - AbslInternalAnnotateIgnoreReadsBegin
+  - AbslInternalAnnotateIgnoreReadsEnd
+  - ZetaSqlalloc
+  - ZetaSqlfree
+  - ZetaSqlrealloc
+  - FLAGS_nooutput_asc_explicitly
+  - FLAGS_nozetasql_use_customized_flex_istream
+  - FLAGS_output_asc_explicitly
+  - FLAGS_zetasql_use_customized_flex_istream
+  - FLAGS_zetasql_type_factory_nesting_depth_limit
+  - FLAGS_nozetasql_type_factory_nesting_depth_limit
+  - ZetaSqlFlexTokenizerBase
+  - ZetaSqlFlexLexer
+
+top_level_namespaces:
+  - absl
+  - google
+  - zetasql
+  - zetasql_base
+  - zetasql_bison_parser
+  - re2
+
+conflict_symbols:
+  - file:   absl/time/internal/cctz/src/time_zone_posix.cc
+    symbol: kDigits
+  - file:   absl/strings/numbers.cc
+    symbol: kAsciiToInt
+  - file:   absl/time/time.cc
+    symbol: unix_epoch
+  - file:   zetasql/public/types/simple_type.cc
+    symbol: TypeKindInfo
+  - file:   re2/nfa.cc
+    symbol: ExtraDebug
+  - file:   re2/onepass.cc
+    symbol: ExtraDebug
+  - file:   re2/prefilter.cc
+    symbol: ExtraDebug
+  - file:   re2/prefilter_tree.cc
+    symbol: ExtraDebug
+
+add_sources:
+  - file:   zetasql/parser/flex_tokenizer.flex.cc
+    source: flex_tokenizer_base.inc
+
+exclude_zetasql_dirs:
+  - testing
+  - testdata
+  - compliance
+  - jni
+  - tools
+  - local_service
+  - jdk
+  - benchmark
+
+protobuf_internal_export_name_files:
+  - protobuf/google/protobuf/descriptor.pb.h
+  - protobuf/google/protobuf/timestamp.pb.h
+  - protobuf/google/protobuf/any.pb.h
+  - protobuf/google/protobuf/api.pb.h
+  - protobuf/google/protobuf/duration.pb.h
+  - protobuf/google/protobuf/empty.pb.h
+  - protobuf/google/protobuf/field_mask.pb.h
+  - protobuf/google/protobuf/source_context.pb.h
+  - protobuf/google/protobuf/struct.pb.h
+  - protobuf/google/protobuf/type.pb.h
+  - protobuf/google/protobuf/wrappers.pb.h
+  - zetasql/public/proto/wire_format_annotation.pb.h
+
+cclib:
+  excludes:
+    - bison_keyword_token_codes_inc
+    - ^mock_helpers$
+    - ^test_payload$
+    - ^initialize_required_fields_test$
+    - benchmark
+    - bazel:flex
+
+protoc:
+  - name: zetasql/resolved_ast/serialization_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/value_cc_proto
+      - zetasql/public/annotation_cc_proto
+      - zetasql/public/parse_location_range_cc_proto
+  - name: zetasql/resolved_ast/resolved_ast_enums_cc_proto
+  - name: zetasql/resolved_ast/resolved_node_kind_cc_proto
+  - name: zetasql/resolved_ast/resolved_ast_cc_proto
+    deps:
+      - zetasql/resolved_ast/resolved_ast_enums_cc_proto
+      - zetasql/public/type_parameters_cc_proto
+      - zetasql/public/proto/type_annotation_cc_proto
+      - zetasql/proto/function_cc_proto
+  - name: zetasql/scripting/variable_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/value_cc_proto
+      - zetasql/public/type_parameters_cc_proto
+  - name: zetasql/scripting/script_executor_state_cc_proto
+    deps:
+      - zetasql/proto/function_cc_proto
+      - zetasql/scripting/variable_cc_proto
+      - zetasql/scripting/script_exception_cc_proto
+  - name: zetasql/scripting/script_exception_cc_proto
+  - name: zetasql/proto/options_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/options_cc_proto
+      - zetasql/public/builtin_function_cc_proto
+      - zetasql/resolved_ast/resolved_node_kind_cc_proto
+  - name: zetasql/proto/function_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/value_cc_proto
+      - zetasql/public/options_cc_proto
+      - zetasql/public/simple_table_cc_proto
+      - zetasql/public/simple_value_cc_proto
+      - zetasql/public/function_cc_proto
+      - zetasql/public/builtin_function_cc_proto
+      - zetasql/public/parse_resume_location_cc_proto
+      - zetasql/public/annotation_cc_proto
+      - zetasql/public/deprecation_warning_cc_proto
+      - zetasql/public/error_location_cc_proto
+      - zetasql/public/parse_location_range_cc_proto
+      - zetasql/resolved_ast/serialization_cc_proto
+  - name: zetasql/proto/simple_catalog_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/options_cc_proto
+      - zetasql/public/function_cc_proto
+      - zetasql/public/simple_table_cc_proto
+      - zetasql/public/simple_constant_cc_proto
+      - zetasql/public/simple_value_cc_proto
+      - zetasql/public/value_cc_proto
+      - zetasql/public/parse_resume_location_cc_proto
+      - zetasql/public/annotation_cc_proto
+      - zetasql/public/deprecation_warning_cc_proto
+      - zetasql/public/error_location_cc_proto
+      - zetasql/public/parse_location_range_cc_proto
+      - zetasql/public/builtin_function_cc_proto
+      - zetasql/resolved_ast/serialization_cc_proto
+      - zetasql/resolved_ast/resolved_node_kind_cc_proto
+      - zetasql/proto/options_cc_proto
+      - zetasql/proto/function_cc_proto
+  - name: zetasql/proto/internal_error_location_cc_proto
+    deps:
+      - zetasql/public/error_location_cc_proto
+  - name: zetasql/reference_impl/evaluator_table_iterator_cc_proto
+  - name: zetasql/parser/ast_enums_cc_proto
+  - name: zetasql/parser/parse_tree_cc_proto
+    deps:
+      - zetasql/parser/ast_enums_cc_proto
+      - zetasql/public/parse_location_range_cc_proto
+      - zetasql/public/type_cc_proto
+  - name: zetasql/public/parse_location_range_cc_proto
+  - name: zetasql/public/parse_resume_location_cc_proto
+  - name: zetasql/public/options_cc_proto
+  - name: zetasql/public/simple_value_cc_proto
+  - name: zetasql/public/function_cc_proto
+  - name: zetasql/public/proto/type_annotation_cc_proto
+  - name: zetasql/public/error_location_cc_proto
+  - name: zetasql/public/type_annotation_cc_proto
+    deps:
+      - zetasql/public/proto/type_annotation_cc_proto
+  - name: zetasql/public/type_parameters_cc_proto
+    deps:
+      - zetasql/public/simple_value_cc_proto
+  - name: zetasql/public/simple_constant_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/value_cc_proto
+  - name: zetasql/public/simple_table_cc_proto
+    deps:
+      - zetasql/public/type_cc_proto
+      - zetasql/public/annotation_cc_proto
+      - zetasql/public/simple_value_cc_proto
+  - name: zetasql/public/builtin_function_cc_proto
+  - name: zetasql/public/functions/datetime_cc_proto
+  - name: zetasql/public/functions/normalize_mode_cc_proto
+  - name: zetasql/public/value_cc_proto
+  - name: zetasql/public/annotation_cc_proto
+    deps:
+      - zetasql/public/simple_value_cc_proto
+  - name: zetasql/public/deprecation_warning_cc_proto
+    deps:
+      - zetasql/public/error_location_cc_proto
+  - name: zetasql/public/type_cc_proto
+  - name: zetasql/public/collation_cc_proto

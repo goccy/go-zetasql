@@ -1,0 +1,46 @@
+{{- $fqdn := .FQDN }}
+#ifndef {{ .FQDN }}_bind_cc
+#define {{ .FQDN }}_bind_cc
+
+// switch namespace
+{{- range .ReplaceNames }}
+#define {{ . }} {{ $fqdn }}_{{ . }}
+{{- end }}
+
+#define GO_EXPORT(def) export_{{ $fqdn }}_ ## def
+#define U_ICU_ENTRY_POINT_RENAME(x) GO_EXPORT(x)
+
+// include headers
+//#define private public
+{{- range .Headers }}
+#include "{{ . }}"
+{{- end }}
+//#undef private
+
+// include sources
+{{- range .Sources }}
+
+{{- .BeforeIncludeHook }}
+#include "{{ .Value }}"
+{{- .AfterIncludeHook }}
+
+{{- end }}
+
+// include dependencies
+{{- range .Deps }}
+#include "{{ . }}/export.inc"
+{{- end }}
+
+#include "bridge.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+#include "bridge.inc"
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* {{ .FQDN }}_bind_cc */

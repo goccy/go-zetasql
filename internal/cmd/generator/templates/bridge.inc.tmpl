@@ -1,0 +1,17 @@
+{{- $fqdn := .FQDN }}
+#ifndef {{ .FQDN }}_bridge_inc
+#define {{ .FQDN }}_bridge_inc
+
+#include "bridge.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+{{ .BindSourceCode }}
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* {{ .FQDN }}_bridge_inc */

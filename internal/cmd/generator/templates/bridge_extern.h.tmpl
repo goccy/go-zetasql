@@ -1,0 +1,3 @@
+{{- range .Funcs }}
+extern void GO_EXPORT({{ .Name }})({{- range $index, $value := .Args }}{{- if gt $index 0 }}, {{- end }}{{ $value.C }} arg{{ $index }}{{- end }});
+{{- end }}

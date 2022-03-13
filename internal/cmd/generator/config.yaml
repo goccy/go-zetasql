@@ -40,6 +40,7 @@ global_symbols:
   - AbslInternalSpinLockWake
   - AbslInternalAnnotateIgnoreReadsBegin
   - AbslInternalAnnotateIgnoreReadsEnd
+  - AbslInternalGetFileMappingHint
   - ZetaSqlalloc
   - ZetaSqlfree
   - ZetaSqlrealloc

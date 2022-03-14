@@ -62,4 +62,4 @@ Since go-zetasql builds all source code including dependencies at install time, 
 - [protobuf](https://github.com/protocolbuffers/protobuf): [License](https://github.com/protocolbuffers/protobuf/blob/master/LICENSE)
 - [icu](https://github.com/unicode-org/icu): [ICU License](https://github.com/unicode-org/icu/blob/main/icu4c/LICENSE)
 - [farmhash](https://github.com/google/farmhash): [MIT License](https://github.com/google/farmhash/blob/master/COPYING)
-- [googletest](https://github.com/google/googletest): [BSK 3-Clause](https://github.com/google/googletest/blob/main/LICENSE)
+- [googletest](https://github.com/google/googletest): [BSD 3-Clause](https://github.com/google/googletest/blob/main/LICENSE)

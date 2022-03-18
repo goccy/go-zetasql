@@ -24,6 +24,7 @@ package hashtable_debug_hooks
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_absl_container_hashtable_debug_hooks_ ## API
 #include "bridge.h"

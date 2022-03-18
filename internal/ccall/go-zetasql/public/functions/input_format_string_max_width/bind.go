@@ -24,6 +24,7 @@ package input_format_string_max_width
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_zetasql_public_functions_input_format_string_max_width_ ## API
 #include "bridge.h"

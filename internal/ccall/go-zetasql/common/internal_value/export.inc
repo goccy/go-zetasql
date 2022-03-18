@@ -5,7 +5,7 @@
 
 #include "go-zetasql/common/float_margin/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
 #include "go-absl/types/span/export.inc"
 

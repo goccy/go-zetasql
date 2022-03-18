@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_SQL_FUNCTION_INLINER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/sql_function_inliner.h"
+#include "zetasql/analyzer/rewriters/sql_function_inliner.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetSqlFunctionInliner() {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"
@@ -23,7 +26,7 @@ namespace zetasql {
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/sql_function/export.inc"
 #include "go-zetasql/public/templated_sql_function/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/rewrite_utils/export.inc"
 #include "go-absl/cleanup/cleanup/export.inc"

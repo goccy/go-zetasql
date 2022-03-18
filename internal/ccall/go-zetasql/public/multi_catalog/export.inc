@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_MULTI_CATALOG_EXPORT_H
 
 #include "zetasql/public/multi_catalog.h"
+#include "zetasql/public/multi_catalog.cc"
 
+#if 0
 namespace zetasql {
 
   class Procedure;
@@ -76,6 +78,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/constant/export.inc"

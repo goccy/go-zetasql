@@ -694,13 +694,13 @@ openCommonData(const char *path,          /*  Path from OpenChoice?          */
             }
 #if !defined(ICU_DATA_DIR_WINDOWS)
 // When using the Windows system data, we expect only a single data file.
-            int32_t i;
-            for(i = 0; i < commonDataIndex; ++i) {
-                if(gCommonICUDataArray[i]->pHeader == &U_ICUDATA_ENTRY_POINT) {
-                    /* The linked-in data is already in the list. */
-                    return NULL;
-                }
-            }
+//            int32_t i;
+            //          for(i = 0; i < commonDataIndex; ++i) {
+            //                if(gCommonICUDataArray[i]->pHeader == &U_ICUDATA_ENTRY_POINT) {
+            //      /* The linked-in data is already in the list. */
+            //        return NULL;
+            //   }
+            // }
 #endif
         }
 
@@ -719,7 +719,7 @@ openCommonData(const char *path,          /*  Path from OpenChoice?          */
         */
 #if !defined(ICU_DATA_DIR_WINDOWS)
 // When using the Windows system data, we expect only a single data file.
-        setCommonICUDataPointer(&U_ICUDATA_ENTRY_POINT, FALSE, pErrorCode);
+        //setCommonICUDataPointer(&U_ICUDATA_ENTRY_POINT, FALSE, pErrorCode);
         {
             Mutex lock;
             return gCommonICUDataArray[commonDataIndex];

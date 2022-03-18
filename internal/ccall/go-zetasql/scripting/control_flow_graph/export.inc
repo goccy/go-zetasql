@@ -2,7 +2,9 @@
 #define ZETASQL_SCRIPTING_CONTROL_FLOW_GRAPH_EXPORT_H
 
 #include "zetasql/scripting/control_flow_graph.h"
+#include "zetasql/scripting/control_flow_graph.cc"
 
+#if 0
 namespace zetasql {
 
   std::string ControlFlowEdgeKindString(ControlFlowEdge::Kind kind) {
@@ -53,6 +55,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/scripting/script_segment/export.inc"
 #include "go-zetasql/base/map_util/export.inc"

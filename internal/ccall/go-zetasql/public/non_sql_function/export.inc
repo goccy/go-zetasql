@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_NON_SQL_FUNCTION_EXPORT_H
 
 #include "zetasql/public/non_sql_function.h"
+#include "zetasql/public/non_sql_function.cc"
 
+#if 0
 namespace zetasql {
 
   const char NonSqlFunction::kNonSqlFunctionGroup[] = "Non_sql_function";
@@ -39,10 +41,11 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/error_helpers/export.inc"
 #include "go-zetasql/public/function/export.inc"
-#include "go-zetasql/public/parse_resume_function/export.inc"
+#include "go-zetasql/public/parse_resume_location/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/status/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"

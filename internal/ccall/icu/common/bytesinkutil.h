@@ -4,6 +4,9 @@
 // bytesinkutil.h
 // created: 2017sep14 Markus W. Scherer
 
+#ifndef BYTESINK_UTIL_H
+#define BYTESINK_UTIL_H
+
 #include "unicode/utypes.h"
 #include "unicode/bytestream.h"
 #include "unicode/edits.h"
@@ -81,3 +84,5 @@ private:
 };
 
 U_NAMESPACE_END
+
+#endif

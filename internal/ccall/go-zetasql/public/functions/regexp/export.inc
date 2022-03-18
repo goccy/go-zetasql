@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_REGEXP_EXPORT_H
 
 #include "zetasql/public/functions/regexp.h"
+#include "zetasql/public/functions/regexp.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -78,7 +80,7 @@ namespace zetasql {
 
   }
 }
-
+#endif
 
 #include "go-zetasql/public/functions/string/export.inc"
 #include "go-zetasql/public/functions/util/export.inc"
@@ -91,5 +93,7 @@ namespace zetasql {
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
 #include "go-absl/types/optional/export.inc"
+#include "go-re2/re2/export.inc"
+#include "go-icu/icu/export.inc"
 
 #endif

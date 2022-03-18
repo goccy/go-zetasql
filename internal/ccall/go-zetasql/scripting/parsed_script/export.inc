@@ -4,6 +4,9 @@
 #include "zetasql/scripting/break_continue_context.h"
 #include "zetasql/scripting/parsed_script.h"
 
+#include "zetasql/scripting/parsed_script.cc"
+
+#if 0
 namespace zetasql {
 
   absl::StatusOr<const ASTNode*> ParsedScript::FindScriptNodeFromPosition(const ParseLocationPoint& start_pos) const {
@@ -101,6 +104,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/scripting/control_flow_graph/export.inc"
 #include "go-zetasql/scripting/error_helpers/export.inc"

@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_NUMERIC_EXPORT_H
 
 #include "zetasql/public/functions/numeric.h"
+#include "zetasql/public/functions/numeric.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -16,6 +18,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/util/export.inc"
 #include "go-zetasql/base/base/export.inc"

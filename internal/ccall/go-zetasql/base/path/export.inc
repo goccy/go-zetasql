@@ -2,7 +2,9 @@
 #define ZETASQL_BASE_PATH_EXPORT_H
 
 #include "zetasql/base/path.h"
+#include "zetasql/base/path.cc"
 
+#if 0
 namespace zetasql_base {
 
   std::string JoinPath(absl::string_view path1, absl::string_view path2) {
@@ -42,6 +44,7 @@ namespace zetasql_base {
   }
 
 }
+#endif
 
 #include "go-absl/strings/strings/export.inc"
 

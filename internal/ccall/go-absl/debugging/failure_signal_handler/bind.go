@@ -24,6 +24,7 @@ package failure_signal_handler
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_absl_debugging_failure_signal_handler_ ## API
 #include "bridge.h"

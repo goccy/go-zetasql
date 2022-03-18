@@ -4,6 +4,10 @@
 #include "zetasql/public/analyzer.h"
 #include "zetasql/public/table_name_resolver.h"
 
+#include "zetasql/public/analyzer.cc"
+#include "zetasql/public/table_name_resolver.cc"
+
+#if 0
 namespace zetasql {
 
   absl::Status AnalyzeStatement(absl::string_view sql,
@@ -161,6 +165,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/analyzer_options/export.inc"
 #include "go-zetasql/public/analyzer_output/export.inc"
@@ -176,8 +181,8 @@ namespace zetasql {
 #include "go-zetasql/analyzer/analyzer_impl/export.inc"
 #include "go-zetasql/analyzer/resolver/export.inc"
 #include "go-zetasql/analyzer/rewrite_resolved_ast/export.inc"
-#include "go-zetasql/base/arena/export.inc"
 #include "go-zetasql/base/base/export.inc"
+#include "go-zetasql/base/arena/export.inc"
 #include "go-zetasql/base/map_util/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/source_location/export.inc"
@@ -185,7 +190,7 @@ namespace zetasql {
 #include "go-zetasql/base/strings/export.inc"
 #include "go-zetasql/common/errors/export.inc"
 #include "go-zetasql/parser/parser/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/validator/export.inc"

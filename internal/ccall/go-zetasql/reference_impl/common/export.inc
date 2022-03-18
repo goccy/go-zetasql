@@ -4,6 +4,10 @@
 #include "zetasql/reference_impl/common.h"
 #include "zetasql/reference_impl/variable_id.h"
 
+#include "zetasql/reference_impl/common.cc"
+#include "zetasql/reference_impl/variable_id.cc"
+
+#if 0
 namespace zetasql {
 
   absl::Status ValidateTypeSupportsEqualityComparison(const Type* type) {
@@ -43,7 +47,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/source_location/export.inc"

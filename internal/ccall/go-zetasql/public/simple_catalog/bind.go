@@ -24,6 +24,7 @@ package simple_catalog
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_zetasql_public_simple_catalog_ ## API
 #include "bridge.h"
@@ -34,6 +35,520 @@ import (
 	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone"
 	"unsafe"
 )
+
+func TypeFactory_MakeArrayType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	simple_catalog_TypeFactory_MakeArrayType(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func simple_catalog_TypeFactory_MakeArrayType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TypeFactory_MakeArrayType(arg0, arg1, arg2, arg3)
+}
+
+func TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	simple_catalog_TypeFactory_MakeStructType(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func simple_catalog_TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TypeFactory_MakeStructType(arg0, arg1, arg2, arg3)
+}
+
+func Int32Type(arg0 *unsafe.Pointer) {
+	simple_catalog_Int32Type(
+		arg0,
+	)
+}
+
+func simple_catalog_Int32Type(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Int32Type(arg0)
+}
+
+func Int64Type(arg0 *unsafe.Pointer) {
+	simple_catalog_Int64Type(
+		arg0,
+	)
+}
+
+func simple_catalog_Int64Type(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Int64Type(arg0)
+}
+
+func Uint32Type(arg0 *unsafe.Pointer) {
+	simple_catalog_Uint32Type(
+		arg0,
+	)
+}
+
+func simple_catalog_Uint32Type(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Uint32Type(arg0)
+}
+
+func Uint64Type(arg0 *unsafe.Pointer) {
+	simple_catalog_Uint64Type(
+		arg0,
+	)
+}
+
+func simple_catalog_Uint64Type(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Uint64Type(arg0)
+}
+
+func BoolType(arg0 *unsafe.Pointer) {
+	simple_catalog_BoolType(
+		arg0,
+	)
+}
+
+func simple_catalog_BoolType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BoolType(arg0)
+}
+
+func FloatType(arg0 *unsafe.Pointer) {
+	simple_catalog_FloatType(
+		arg0,
+	)
+}
+
+func simple_catalog_FloatType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FloatType(arg0)
+}
+
+func DoubleType(arg0 *unsafe.Pointer) {
+	simple_catalog_DoubleType(
+		arg0,
+	)
+}
+
+func simple_catalog_DoubleType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DoubleType(arg0)
+}
+
+func StringType(arg0 *unsafe.Pointer) {
+	simple_catalog_StringType(
+		arg0,
+	)
+}
+
+func simple_catalog_StringType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_StringType(arg0)
+}
+
+func BytesType(arg0 *unsafe.Pointer) {
+	simple_catalog_BytesType(
+		arg0,
+	)
+}
+
+func simple_catalog_BytesType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BytesType(arg0)
+}
+
+func DateType(arg0 *unsafe.Pointer) {
+	simple_catalog_DateType(
+		arg0,
+	)
+}
+
+func simple_catalog_DateType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DateType(arg0)
+}
+
+func TimestampType(arg0 *unsafe.Pointer) {
+	simple_catalog_TimestampType(
+		arg0,
+	)
+}
+
+func simple_catalog_TimestampType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TimestampType(arg0)
+}
+
+func TimeType(arg0 *unsafe.Pointer) {
+	simple_catalog_TimeType(
+		arg0,
+	)
+}
+
+func simple_catalog_TimeType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TimeType(arg0)
+}
+
+func DatetimeType(arg0 *unsafe.Pointer) {
+	simple_catalog_DatetimeType(
+		arg0,
+	)
+}
+
+func simple_catalog_DatetimeType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DatetimeType(arg0)
+}
+
+func IntervalType(arg0 *unsafe.Pointer) {
+	simple_catalog_IntervalType(
+		arg0,
+	)
+}
+
+func simple_catalog_IntervalType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_IntervalType(arg0)
+}
+
+func GeographyType(arg0 *unsafe.Pointer) {
+	simple_catalog_GeographyType(
+		arg0,
+	)
+}
+
+func simple_catalog_GeographyType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_GeographyType(arg0)
+}
+
+func NumericType(arg0 *unsafe.Pointer) {
+	simple_catalog_NumericType(
+		arg0,
+	)
+}
+
+func simple_catalog_NumericType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_NumericType(arg0)
+}
+
+func BigNumericType(arg0 *unsafe.Pointer) {
+	simple_catalog_BigNumericType(
+		arg0,
+	)
+}
+
+func simple_catalog_BigNumericType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BigNumericType(arg0)
+}
+
+func JsonType(arg0 *unsafe.Pointer) {
+	simple_catalog_JsonType(
+		arg0,
+	)
+}
+
+func simple_catalog_JsonType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_JsonType(arg0)
+}
+
+func StructType(arg0 *unsafe.Pointer) {
+	simple_catalog_StructType(
+		arg0,
+	)
+}
+
+func simple_catalog_StructType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_StructType(arg0)
+}
+
+func Int32ArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_Int32ArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_Int32ArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Int32ArrayType(arg0)
+}
+
+func Int64ArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_Int64ArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_Int64ArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Int64ArrayType(arg0)
+}
+
+func Uint32ArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_Uint32ArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_Uint32ArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Uint32ArrayType(arg0)
+}
+
+func Uint64ArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_Uint64ArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_Uint64ArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Uint64ArrayType(arg0)
+}
+
+func BoolArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_BoolArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_BoolArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BoolArrayType(arg0)
+}
+
+func FloatArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_FloatArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_FloatArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FloatArrayType(arg0)
+}
+
+func DoubleArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_DoubleArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_DoubleArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DoubleArrayType(arg0)
+}
+
+func StringArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_StringArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_StringArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_StringArrayType(arg0)
+}
+
+func BytesArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_BytesArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_BytesArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BytesArrayType(arg0)
+}
+
+func DateArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_DateArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_DateArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DateArrayType(arg0)
+}
+
+func DatetimeArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_DatetimeArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_DatetimeArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DatetimeArrayType(arg0)
+}
+
+func TimeArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_TimeArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_TimeArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TimeArrayType(arg0)
+}
+
+func IntervalArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_IntervalArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_IntervalArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_IntervalArrayType(arg0)
+}
+
+func GeographyArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_GeographyArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_GeographyArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_GeographyArrayType(arg0)
+}
+
+func NumericArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_NumericArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_NumericArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_NumericArrayType(arg0)
+}
+
+func BigNumericArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_BigNumericArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_BigNumericArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BigNumericArrayType(arg0)
+}
+
+func JsonArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_JsonArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_JsonArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_JsonArrayType(arg0)
+}
+
+func DepartEnumType(arg0 *unsafe.Pointer) {
+	simple_catalog_DepartEnumType(
+		arg0,
+	)
+}
+
+func simple_catalog_DepartEnumType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DepartEnumType(arg0)
+}
+
+func NormalizeModeEnumType(arg0 *unsafe.Pointer) {
+	simple_catalog_NormalizeModeEnumType(
+		arg0,
+	)
+}
+
+func simple_catalog_NormalizeModeEnumType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_NormalizeModeEnumType(arg0)
+}
+
+func SimpleColumn_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	simple_catalog_SimpleColumn_new(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func simple_catalog_SimpleColumn_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_SimpleColumn_new(arg0, arg1, arg2, arg3)
+}
+
+func SimpleColumn_new_with_opt(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 int, arg4 int, arg5 *unsafe.Pointer) {
+	simple_catalog_SimpleColumn_new_with_opt(
+		arg0,
+		arg1,
+		arg2,
+		C.int(arg3),
+		C.int(arg4),
+		arg5,
+	)
+}
+
+func simple_catalog_SimpleColumn_new_with_opt(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 C.int, arg4 C.int, arg5 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_SimpleColumn_new_with_opt(arg0, arg1, arg2, arg3, arg4, arg5)
+}
+
+func Table_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	simple_catalog_Table_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func simple_catalog_Table_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Table_new(arg0, arg1, arg2)
+}
+
+func Table_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Table_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Table_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Table_Name(arg0, arg1)
+}
+
+func Table_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Table_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Table_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Table_FullName(arg0, arg1)
+}
+
+func Table_NumColumns(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Table_NumColumns(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Table_NumColumns(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Table_NumColumns(arg0, arg1)
+}
+
+func Table_Column(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Table_Column(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Table_Column(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Table_Column(arg0, arg1, arg2)
+}
+
+func Table_PrimaryKey_num(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Table_PrimaryKey_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Table_PrimaryKey_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Table_PrimaryKey_num(arg0, arg1)
+}
+
+func Table_PrimaryKey(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Table_PrimaryKey(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Table_PrimaryKey(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Table_PrimaryKey(arg0, arg1, arg2)
+}
 
 //export export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName

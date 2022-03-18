@@ -2,7 +2,9 @@
 #define ABSL_FLAGS_USAGE_INTERNAL_EXPORT_H
 
 #include "absl/flags/internal/usage.h"
+#include "absl/flags/internal/usage.cc"
 
+#if 0
 namespace absl {
   namespace flags_internal {
 
@@ -47,6 +49,7 @@ namespace absl {
     }
   }
 }
+#endif
 
 #include "go-absl/flags/commandlineflag/export.inc"
 #include "go-absl/flags/config/export.inc"
@@ -56,7 +59,6 @@ namespace absl {
 #include "go-absl/flags/private_handle_accessor/export.inc"
 #include "go-absl/flags/program_name/export.inc"
 #include "go-absl/flags/reflection/export.inc"
-
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"

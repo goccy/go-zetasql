@@ -13,6 +13,10 @@
 #include "absl/random/uniform_real_distribution.h"
 #include "absl/random/zipf_distribution.h"
 
+#include "absl/random/discrete_distribution.cc"
+#include "absl/random/gaussian_distribution.cc"
+
+#if 0
 
 namespace absl {
   namespace random_internal {
@@ -30,20 +34,21 @@ namespace absl {
     const gaussian_distribution_base::Tables gaussian_distribution_base::zg_;
   }
 }
+#endif
 
 #include "go-absl/base/base_internal/export.inc"
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/meta/type_traits/export.inc"
 #include "go-absl/numeric/bits/export.inc"
-#include "go-absl/random/internal/distribution_caller/export.inc"
-#include "go-absl/random/internal/fast_uniform_bits/export.inc"
-#include "go-absl/random/internal/fastmath/export.inc"
-#include "go-absl/random/internal/generate_real/export.inc"
-#include "go-absl/random/internal/iostream_state_saver/export.inc"
-#include "go-absl/random/internal/traits/export.inc"
-#include "go-absl/random/internal/uniform_helper/export.inc"
-#include "go-absl/random/internal/wide_multiply/export.inc"
+#include "go-absl/random/go_internal/distribution_caller/export.inc"
+#include "go-absl/random/go_internal/fast_uniform_bits/export.inc"
+#include "go-absl/random/go_internal/fastmath/export.inc"
+#include "go-absl/random/go_internal/generate_real/export.inc"
+#include "go-absl/random/go_internal/iostream_state_saver/export.inc"
+#include "go-absl/random/go_internal/traits/export.inc"
+#include "go-absl/random/go_internal/uniform_helper/export.inc"
+#include "go-absl/random/go_internal/wide_multiply/export.inc"
 #include "go-absl/strings/strings/export.inc"
 
 #endif

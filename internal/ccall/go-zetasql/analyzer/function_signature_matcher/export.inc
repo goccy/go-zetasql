@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_FUNCTION_SIGNATURE_MATCHER_EXPORT_H
 
 #include "zetasql/analyzer/function_signature_matcher.h"
+#include "zetasql/analyzer/function_signature_matcher.cc"
 
+#if 0
 namespace zetasql {
 
   bool SignatureArgumentCountMatches(const FunctionSignature& signature,
@@ -36,6 +38,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/lambda_util/export.inc"
 #include "go-zetasql/base/base/export.inc"
@@ -51,8 +54,8 @@ namespace zetasql {
 #include "go-zetasql/public/language_options/export.inc"
 #include "go-zetasql/public/signature_match_result/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"

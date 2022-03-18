@@ -4,6 +4,10 @@
 #include "zetasql/resolved_ast/query_expression.h"
 #include "zetasql/resolved_ast/sql_builder.h"
 
+#include "zetasql/resolved_ast/query_expression.cc"
+#include "zetasql/resolved_ast/sql_builder.cc"
+
+#if 0
 namespace zetasql {
 
   void QueryExpression::ClearAllClauses() {
@@ -988,6 +992,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
@@ -1004,13 +1009,13 @@ namespace zetasql {
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/constant/export.inc"
 #include "go-zetasql/public/function/export.inc"
-#include "go-zetasql/public/functions/date_time_util/export.inc"
-#include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
-#include "go-zetasql/public/functions/normalize_mode_cc_proto/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/strings/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/functions/date_time_util/export.inc"
+#include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
+#include "go-zetasql/public/functions/normalize_mode_cc_proto/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/cleanup/cleanup/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"

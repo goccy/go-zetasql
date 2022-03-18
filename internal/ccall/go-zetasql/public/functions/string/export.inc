@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_STRING_EXPORT_H
 
 #include "zetasql/public/functions/string.h"
+#include "zetasql/public/functions/string.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -382,6 +384,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/normalize_mode_cc_proto/export.inc"
 #include "go-zetasql/public/functions/util/export.inc"

@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_PIVOT_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/pivot_rewriter.h"
+#include "zetasql/analyzer/rewriters/pivot_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetPivotRewriter() {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/analyzer/resolver/export.inc"
@@ -22,15 +25,15 @@ namespace zetasql {
 #include "go-zetasql/public/analyzer_options/export.inc"
 #include "go-zetasql/public/analyzer_output/export.inc"
 #include "go-zetasql/public/analyzer_output_properties/export.inc"
-#include "go-zetasql/public/annotation/collation/export.inc"
 #include "go-zetasql/public/builtin_function_cc_proto/export.inc"
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/parse_location/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/annotation/collation/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"

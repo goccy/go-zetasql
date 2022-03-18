@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_EXPR_MATCHING_HELPERS_EXPORT_H
 
 #include "zetasql/analyzer/expr_matching_helpers.h"
+#include "zetasql/analyzer/expr_matching_helpers.cc"
 
+#if 0
 namespace zetasql {
 
   absl::StatusOr<bool> IsSameExpressionForGroupBy(const ResolvedExpr* expr1,
@@ -21,10 +23,10 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/logging/export.inc"
 #include "go-zetasql/base/status/export.inc"
-#include "go-zetasql/base/strings/export.inc"
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/function_cc_proto/export.inc"
 #include "go-zetasql/public/type/export.inc"

@@ -4,6 +4,10 @@
 #include "zetasql/public/simple_catalog.h"
 #include "zetasql/public/table_from_proto.h"
 
+#include "zetasql/public/simple_catalog.cc"
+#include "zetasql/public/table_from_proto.cc"
+
+#if 0
 namespace zetasql {
 
   SimpleCatalog::SimpleCatalog(const std::string& name, TypeFactory* type_factory)
@@ -607,6 +611,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/builtin_function/export.inc"
 #include "go-zetasql/public/catalog/export.inc"
@@ -617,7 +622,6 @@ namespace zetasql {
 #include "go-zetasql/public/strings/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/value/export.inc"
-
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/case/export.inc"
 #include "go-zetasql/base/map_util/export.inc"
@@ -627,9 +631,8 @@ namespace zetasql {
 #include "go-zetasql/base/strings/export.inc"
 #include "go-zetasql/common/simple_evaluator_table_iterator/export.inc"
 #include "go-zetasql/proto/simple_catalog_cc_proto/export.inc"
-#include "go-zetasql/public/proto/type_annotation_c_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
-
+#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
@@ -638,5 +641,6 @@ namespace zetasql {
 #include "go-absl/strings/strings/export.inc"
 #include "go-absl/synchronization/synchronization/export.inc"
 #include "go-absl/types/span/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

@@ -2,6 +2,9 @@
 #define ZETASQL_PUBLIC_ANALYZER_OUTPUT_EXPORT_H
 
 #include "zetasql/public/analyzer_output.h"
+#include "zetasql/public/analyzer_output.cc"
+
+#if 0
 
 namespace zetasql {
 
@@ -46,13 +49,14 @@ namespace zetasql {
   AnalyzerOutput::~AnalyzerOutput() {}
 
 }
+#endif
 
 #include "go-zetasql/public/analyzer_options/export.inc"
 #include "go-zetasql/public/analyzer_output_properties/export.inc"
 #include "go-zetasql/public/id_string/export.inc"
 #include "go-zetasql/base/arena/export.inc"
 #include "go-zetasql/parser/parser/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-absl/status/status/export.inc"
 

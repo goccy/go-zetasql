@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_CYCLE_DETECTOR_EXPORT_H
 
 #include "zetasql/public/cycle_detector.h"
+#include "zetasql/public/cycle_detector.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status CycleDetector::ObjectInfo::DetectCycle(const std::string& object_type) const {
@@ -40,7 +42,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/map_util/export.inc"

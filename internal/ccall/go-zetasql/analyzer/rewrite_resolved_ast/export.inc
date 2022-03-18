@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITE_RESOLVED_AST_EXPORT_H
 
 #include "zetasql/analyzer/rewrite_resolved_ast.h"
+#include "zetasql/analyzer/rewrite_resolved_ast.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status InternalRewriteResolvedAst(const AnalyzerOptions& analyzer_options,
@@ -14,6 +16,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/registration/export.inc"
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
@@ -29,7 +32,7 @@ namespace zetasql {
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/validator/export.inc"
 #include "go-absl/algorithm/container/export.inc"

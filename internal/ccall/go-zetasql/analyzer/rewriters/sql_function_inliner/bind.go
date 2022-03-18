@@ -24,6 +24,7 @@ package sql_function_inliner
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_zetasql_analyzer_rewriters_sql_function_inliner_ ## API
 #include "bridge.h"

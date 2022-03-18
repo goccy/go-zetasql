@@ -3,6 +3,11 @@
 
 #include "zetasql/public/templated_sql_function.h"
 
+#define module_initialization_complete GO_EXPORT(templated_sql_function_module_initialization_complete)
+#include "zetasql/public/templated_sql_function.cc"
+#undef module_initialization_complete
+
+#if 0
 namespace zetasql {
 
   const char TemplatedSQLFunction::kTemplatedSQLFunctionGroup[] =
@@ -47,6 +52,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/error_location_cc_proto/export.inc"
 #include "go-zetasql/public/function/export.inc"
@@ -63,5 +69,6 @@ namespace zetasql {
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

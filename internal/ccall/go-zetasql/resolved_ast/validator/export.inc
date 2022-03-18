@@ -2,7 +2,9 @@
 #define ZETASQL_RESOLVED_AST_VALIDATOR_EXPORT_H
 
 #include "zetasql/resolved_ast/validator.h"
+#include "zetasql/resolved_ast/validator.cc"
 
+#if 0
 namespace zetasql {
 
   Validator::Validator(const LanguageOptions& language_options,
@@ -766,6 +768,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"

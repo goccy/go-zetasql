@@ -7,6 +7,13 @@
 #include "zetasql/public/procedure.h"
 #include "zetasql/public/table_valued_function.h"
 
+#include "zetasql/public/function.cc"
+#include "zetasql/public/function_signature.cc"
+#include "zetasql/public/input_argument_type.cc"
+#include "zetasql/public/procedure.cc"
+#include "zetasql/public/table_valued_function.cc"
+
+#if 0
 namespace zetasql {
 
   const FunctionEnums::WindowOrderSupport FunctionOptions::ORDER_UNSUPPORTED;
@@ -828,8 +835,8 @@ namespace zetasql {
                                                                const std::vector<TVFSchemaColumn>& extra_columns) const {
     return absl::OkStatus();
   }
-
 }
+#endif
 
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/deprecation_warning_cc_proto/export.inc"
@@ -850,7 +857,7 @@ namespace zetasql {
 #include "go-zetasql/base/strings/export.inc"
 #include "go-zetasql/common/errors/export.inc"
 #include "go-zetasql/proto/function_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/serialization_cc_proto/export.inc"
 #include "go-absl/algorithm/container/export.inc"
 #include "go-absl/base/core_headers/export.inc"

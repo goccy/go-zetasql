@@ -24,6 +24,7 @@ package aggregate_null_handling
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_zetasql_common_aggregate_null_handling_ ## API
 #include "bridge.h"

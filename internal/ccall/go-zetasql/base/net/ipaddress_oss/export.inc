@@ -2,7 +2,9 @@
 #define ZETASQL_BASE_NET_IPADDRESS_OSS_EXPORT_H
 
 #include "zetasql/base/net/ipaddress_oss.h"
+#include "zetasql/base/net/ipaddress_oss.cc"
 
+#if 0
 namespace zetasql::internal {
 
   IPAddress IPAddress::Any4() {
@@ -77,6 +79,7 @@ namespace zetasql::internal {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/endian/export.inc"
 #include "go-zetasql/base/logging/export.inc"
@@ -85,7 +88,7 @@ namespace zetasql::internal {
 #include "go-absl/numeric/int128/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
-#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/str_format/export.inc"
 
 #endif

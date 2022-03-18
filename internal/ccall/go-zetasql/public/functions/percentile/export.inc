@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_PERCENTILE_EXPORT_H
 
 #include "zetasql/public/functions/percentile.h"
+#include "zetasql/public/functions/percentile.cc"
 
+#if 0
 namespace zetasql {
 
   size_t PercentileHelper<double>::ComputePercentileIndex(size_t max_index, long double* left_weight, long double* right_weight) const {
@@ -43,6 +45,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/mathutil/export.inc"

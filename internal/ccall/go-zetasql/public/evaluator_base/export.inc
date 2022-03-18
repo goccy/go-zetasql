@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_EVALUATOR_BASE_EXPORT_H
 
 #include "zetasql/public/evaluator_base.h"
+#include "zetasql/public/evaluator_base.cc"
 
+#if 0
 namespace zetasql {
 
   namespace internal {
@@ -253,7 +255,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/public/analyzer/export.inc"
 #include "go-zetasql/public/catalog/export.inc"

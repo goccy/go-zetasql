@@ -2,7 +2,9 @@
 #define ABSL_RANDOM_INTERNAL_POOL_URBG_EXPORT_H
 
 #include "absl/random/internal/pool_urbg.h"
+#include "absl/random/internal/pool_urbg.cc"
 
+#if 0
 namespace absl {
   namespace random_internal {
 
@@ -23,15 +25,16 @@ namespace absl {
 
   }
 }
+#endif
 
+#include "go-absl/random/go_internal/randen/export.inc"
+#include "go-absl/random/go_internal/seed_material/export.inc"
+#include "go-absl/random/go_internal/traits/export.inc"
 #include "go-absl/base/base/export.inc"
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/base/endian/export.inc"
 #include "go-absl/base/raw_logging_internal/export.inc"
-#include "go-absl/random/internal/randen/export.inc"
-#include "go-absl/random/internal/seed_material/export.inc"
-#include "go-absl/random/internal/traits/export.inc"
 #include "go-absl/random/seed_gen_exception/export.inc"
 #include "go-absl/types/span/export.inc"
 

@@ -4714,3 +4714,187 @@
         - struct
       ret:
         - struct
+- package: zetasql/public/simple_catalog
+  methods:
+    - name: TypeFactory_MakeArrayType
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: TypeFactory_MakeStructType
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Int32Type
+      ret:
+        - struct
+    - name: Int64Type
+      ret:
+        - struct
+    - name: Uint32Type
+      ret:
+        - struct
+    - name: Uint64Type
+      ret:
+        - struct
+    - name: BoolType
+      ret:
+        - struct
+    - name: FloatType
+      ret:
+        - struct
+    - name: DoubleType
+      ret:
+        - struct
+    - name: StringType
+      ret:
+        - struct
+    - name: BytesType
+      ret:
+        - struct
+    - name: DateType
+      ret:
+        - struct
+    - name: TimestampType
+      ret:
+        - struct
+    - name: TimeType
+      ret:
+        - struct
+    - name: DatetimeType
+      ret:
+        - struct
+    - name: IntervalType
+      ret:
+        - struct
+    - name: GeographyType
+      ret:
+        - struct
+    - name: NumericType
+      ret:
+        - struct
+    - name: BigNumericType
+      ret:
+        - struct
+    - name: JsonType
+      ret:
+        - struct
+    - name: StructType
+      ret:
+        - struct
+    - name: Int32ArrayType
+      ret:
+        - struct
+    - name: Int64ArrayType
+      ret:
+        - struct
+    - name: Uint32ArrayType
+      ret:
+        - struct
+    - name: Uint64ArrayType
+      ret:
+        - struct
+    - name: BoolArrayType
+      ret:
+        - struct
+    - name: FloatArrayType
+      ret:
+        - struct
+    - name: DoubleArrayType
+      ret:
+        - struct
+    - name: StringArrayType
+      ret:
+        - struct
+    - name: BytesArrayType
+      ret:
+        - struct
+    - name: DateArrayType
+      ret:
+        - struct
+    - name: DatetimeArrayType
+      ret:
+        - struct
+    - name: TimeArrayType
+      ret:
+        - struct
+    - name: IntervalArrayType
+      ret:
+        - struct
+    - name: GeographyArrayType
+      ret:
+        - struct
+    - name: NumericArrayType
+      ret:
+        - struct
+    - name: BigNumericArrayType
+      ret:
+        - struct
+    - name: JsonArrayType
+      ret:
+        - struct
+    - name: DepartEnumType
+      ret:
+        - struct
+    - name: NormalizeModeEnumType
+      ret:
+        - struct
+    - name: SimpleColumn_new
+      args:
+        - string
+        - string
+        - struct
+      ret:
+        - struct
+    - name: SimpleColumn_new_with_opt
+      args:
+        - string
+        - string
+        - struct
+        - int
+        - int
+      ret:
+        - struct
+    - name: Table_new
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+    - name: Table_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Table_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Table_NumColumns
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_Column
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Table_PrimaryKey_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_PrimaryKey
+      args:
+        - struct
+        - int
+      ret:
+        - struct

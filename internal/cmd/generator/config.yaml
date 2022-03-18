@@ -105,6 +105,9 @@ protobuf_internal_export_name_files:
   - protobuf/google/protobuf/struct.pb.h
   - protobuf/google/protobuf/type.pb.h
   - protobuf/google/protobuf/wrappers.pb.h
+  - googleapis/google/type/date.pb.h
+  - googleapis/google/type/latlng.pb.h
+  - googleapis/google/type/timeofday.pb.h
   - zetasql/public/proto/wire_format_annotation.pb.h
 
 cclib:

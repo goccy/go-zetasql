@@ -19,9 +19,23 @@
 #include "zetasql/analyzer/resolver_alter_stmt.cc"
 #include "zetasql/analyzer/resolver_common_inl.h"
 #include "zetasql/analyzer/resolver_dml.cc"
+
+#define kOrderById GO_EXPORT(resolver_expr_kOrderById)
+#define kIsNullFnName GO_EXPORT(resolver_export_kIsNullFnName)
 #include "zetasql/analyzer/resolver_expr.cc"
+#undef kOrderById
+#undef kIsNullFnName
+
+#define kOrderById GO_EXPORT(resolver_query_kOrderById)
 #include "zetasql/analyzer/resolver_query.cc"
+#undef kOrderById
+
 #include "zetasql/analyzer/resolver_stmt.cc"
+
+#define CopyAnnotationRecursively GO_EXPORT(resolver_CopyAnnotationRecursively)
+#include "zetasql/testdata/sample_annotation.h"
+#include "zetasql/testdata/sample_annotation.cc"
+#undef CopyAnnotationRecursively
 
 #include "go-zetasql/analyzer/container_hash_equals/export.inc"
 #include "go-zetasql/analyzer/expr_matching_helpers/export.inc"
@@ -42,7 +56,7 @@
 #include "go-zetasql/common/string_util/export.inc"
 #include "go-zetasql/parser/parser/export.inc"
 #include "go-zetasql/proto/internal_error_location_cc_proto/export.inc"
-#include "go-zetasql/proto/type_annotation_cc_proto/export.inc"
+#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
 #include "go-zetasql/public/analyzer_options/export.inc"
 #include "go-zetasql/public/analyzer_output_properties/export.inc"
 #include "go-zetasql/public/annotation/collation/export.inc"
@@ -76,7 +90,7 @@
 #include "go-zetasql/public/templated_sql_function/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/type_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
 #include "go-zetasql/resolved_ast/make_node_vector/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"

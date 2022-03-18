@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_MAP_FUNCTION_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/map_function_rewriter.h"
+#include "zetasql/analyzer/rewriters/map_function_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetMapFunctionRewriter() {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/analyzer/substitute/export.inc"

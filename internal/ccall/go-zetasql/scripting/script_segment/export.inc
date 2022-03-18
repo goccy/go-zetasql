@@ -2,7 +2,9 @@
 #define ZETASQL_SCRIPTING_SCRIPT_SEGMENT_EXPORT_H
 
 #include "zetasql/scripting/script_segment.h"
+#include "zetasql/scripting/script_segment.cc"
 
+#if 0
 namespace zetasql {
 
   ScriptSegment::ScriptSegment(absl::string_view script, const ASTNode* node)
@@ -23,6 +25,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/parser/parser/export.inc"
 #include "go-zetasql/public/parse_location/export.inc"

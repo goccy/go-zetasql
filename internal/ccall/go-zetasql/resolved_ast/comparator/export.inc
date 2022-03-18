@@ -2,7 +2,9 @@
 #define ZETASQL_RESOLVED_AST_COMPARATOR_EXPORT_H
 
 #include "zetasql/resolved_ast/resolved_ast_comparator.h"
+#include "zetasql/resolved_ast/resolved_ast_comparator.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status* ResolvedASTComparator::stack_overflow_status_ = nullptr;
@@ -740,6 +742,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/base/base/export.inc"

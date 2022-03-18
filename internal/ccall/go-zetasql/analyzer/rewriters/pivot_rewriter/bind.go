@@ -24,6 +24,7 @@ package pivot_rewriter
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_zetasql_analyzer_rewriters_pivot_rewriter_ ## API
 #include "bridge.h"

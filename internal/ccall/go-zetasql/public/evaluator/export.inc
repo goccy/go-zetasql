@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_EVALUATOR_EXPORT_H
 
 #include "zetasql/public/evaluator.h"
+#include "zetasql/public/evaluator.cc"
 
+#if 0
 namespace zetasql {
 
   PreparedExpression::PreparedExpression(const std::string& sql,
@@ -41,6 +43,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/evaluator_base/export.inc"
 #include "go-zetasql/common/evaluator_registration_utils/export.inc"

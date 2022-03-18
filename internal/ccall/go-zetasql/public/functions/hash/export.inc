@@ -1,8 +1,10 @@
 #ifndef ZETASQL_PUBLIC_FUNCTIONS_HASH_EXPORT_H
 #define ZETASQL_PUBLIC_FUNCTIONS_HASH_EXPORT_H
 
-#include "zetasq/public/functions/hash.h"
+#include "zetasql/public/functions/hash.h"
+#include "zetasql/public/functions/hash.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -17,13 +19,14 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/endian/export.inc"
+#include "go-boringssl/boringssl/export.inc"
 #include "go-absl/base/base/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/strings/strings/export.inc"
-#include "go-boringssl/export.inc"
-#include "go-farmhash/export.inc"
+#include "go-farmhash/farmhash/export.inc"
 
 #endif

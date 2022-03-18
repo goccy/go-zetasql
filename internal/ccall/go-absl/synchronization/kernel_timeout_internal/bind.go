@@ -24,6 +24,7 @@ package kernel_timeout_internal
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 
 #define GO_EXPORT(API) export_absl_synchronization_kernel_timeout_internal_ ## API
 #include "bridge.h"

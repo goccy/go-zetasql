@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_JSON_FORMAT_EXPORT_H
 
 #include "zetasql/public/functions/json_format.h"
+#include "zetasql/public/functions/json_format.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -68,6 +70,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-zetasql/base/base/export.inc"

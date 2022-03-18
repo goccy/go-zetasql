@@ -1,6 +1,8 @@
 #ifndef PROTOBUF_EXPORT_H
 #define PROTOBUF_EXPORT_H
 
+#define InsertIfNotPresent protobuf_InsertIfNotPresent
+
 // protobuf lite sources
 #include "google/protobuf/stubs/bytestream.cc"
 #include "google/protobuf/stubs/bytestream.h"
@@ -141,5 +143,13 @@
 #include "google/protobuf/util/time_util.cc"
 #include "google/protobuf/util/type_resolver_util.cc"
 
+#include "google/type/date.pb.cc"
+#include "google/type/date.pb.h"
+#include "google/type/latlng.pb.h"
+#include "google/type/latlng.pb.cc"
+#include "google/type/timeofday.pb.h"
+#include "google/type/timeofday.pb.cc"
+
+#undef InsertIfNotPresent
 
 #endif

@@ -6,6 +6,9 @@
 #include "zetasql/reference_impl/operator.h"
 #include "zetasql/reference_impl/tuple.h"
 
+#include "zetasql/reference_impl/algebrizer.cc"
+
+#if 0
 namespace zetasql {
 
   Algebrizer::Algebrizer(const LanguageOptions& language_options,
@@ -579,6 +582,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/reference_impl/common/export.inc"
 #include "go-zetasql/reference_impl/evaluation/export.inc"
@@ -602,21 +606,20 @@ namespace zetasql {
 #include "go-zetasql/public/coercer/export.inc"
 #include "go-zetasql/public/evaluator_table_iterator/export.inc"
 #include "go-zetasql/public/function/export.inc"
-#include "go-zetasql/public/functions/json/export.inc"
 #include "go-zetasql/public/id_string/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
-#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
 #include "go-zetasql/public/simple_catalog/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/functions/json/export.inc"
+#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/serialization_cc_proto/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/cleanup/cleanup/export.inc"
-#include "go-absl/container/btree/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
 #include "go-absl/container/node_hash_map/export.inc"
@@ -631,5 +634,6 @@ namespace zetasql {
 #include "go-absl/types/span/export.inc"
 #include "go-absl/types/variant/export.inc"
 #include "go-protobuf/protobuf/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

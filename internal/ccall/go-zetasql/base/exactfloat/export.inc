@@ -2,7 +2,9 @@
 #define ZETASQL_BASE_EXACTFLOAT_EXPORT_H
 
 #include "zetasql/base/exactfloat.h"
+#include "zetasql/base/exactfloat.cc"
 
+#if 0
 namespace zetasql_base {
 
   const int ExactFloat::kMinExp;
@@ -256,8 +258,11 @@ namespace zetasql_base {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/base/base/export.inc"
+#include "go-boringssl/boringssl/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/container/fixed_array/export.inc"
+
+#endif

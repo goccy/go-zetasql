@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_LITERAL_REMOVER_EXPORT_H
 
 #include "zetasql/public/literal_remover.h"
+#include "zetasql/public/literal_remover.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status ReplaceLiteralsByParameters(const std::string& sql,
@@ -28,6 +30,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/analyzer_options/export.inc"
 #include "go-zetasql/public/analyzer_output/export.inc"

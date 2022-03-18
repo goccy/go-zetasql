@@ -3,6 +3,9 @@
 
 #include "zetasql/public/collator.h"
 
+#include "zetasql/public/collator_lite.cc"
+
+#if 0
 namespace zetasql {
 
   ZetaSqlCollator::~ZetaSqlCollator() {}
@@ -19,8 +22,8 @@ namespace zetasql {
     void RegisterIcuCollatorImpl(std::function<absl::StatusOr<std::unique_ptr<const ZetaSqlCollator>>(absl::string_view, CollatorLegacyUnicodeMode)> create_fn) {
     }
   }
-
 }
+#endif
 
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/status/export.inc"
@@ -29,5 +32,6 @@ namespace zetasql {
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
 #include "go-absl/synchronization/synchronization/export.inc"
+#include "go-icu/icu/export.inc"
 
 #endif

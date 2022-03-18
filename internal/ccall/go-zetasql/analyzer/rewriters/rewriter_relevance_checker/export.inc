@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_REWRITER_RELEVANCE_CHECKER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/rewriter_relevance_checker.h"
+#include "zetasql/analyzer/rewriters/rewriter_relevance_checker.cc"
 
+#if 0
 namespace zetasql {
 
   absl::StatusOr<absl::btree_set<ResolvedASTRewrite>> FindRelevantRewriters(const ResolvedNode* node) {
@@ -11,6 +13,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/builtin_function_cc_proto/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"

@@ -3,6 +3,9 @@
 
 #include "zetasql/public/analyzer_options.h"
 
+#include "zetasql/public/analyzer_options.cc"
+
+#if 0
 namespace zetasql {
 
   bool StringVectorCaseLess::operator()(const std::vector<std::string>& v1,
@@ -115,12 +118,13 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/id_string/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/base/base/export.inc"
-#include "go-zetasql/base/map_util/export.inc"
+#include "go-zetasql/base/strings/export.inc"
 #include "go-zetasql/parser/parser/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/container/btree/export.inc"

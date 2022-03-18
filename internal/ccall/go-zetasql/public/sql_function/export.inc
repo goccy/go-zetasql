@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_SQL_FUNCTION_EXPORT_H
 
 #include "zetasql/public/sql_function.h"
+#include "zetasql/public/sql_function.cc"
 
+#if 0
 namespace zetasql {
 
   const char SQLFunction::kSQLFunctionGroup[] = "Lazy_resolution_function";
@@ -39,7 +41,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/public/error_helpers/export.inc"
 #include "go-zetasql/public/function/export.inc"

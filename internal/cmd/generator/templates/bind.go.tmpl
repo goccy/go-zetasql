@@ -24,6 +24,7 @@ package {{ .Pkg }}
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 {{- range .LDFlags }}
 #cgo LDFLAGS: {{ . }}
 {{- end }}

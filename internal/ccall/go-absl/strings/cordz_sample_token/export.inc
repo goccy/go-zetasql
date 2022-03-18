@@ -2,7 +2,9 @@
 #define ABSL_STRINGS_CORDZ_SAMPLE_TOKEN_EXPORT_H
 
 #include "absl/strings/internal/cordz_sample_token.h"
+#include "absl/strings/internal/cordz_sample_token.cc"
 
+#if 0
 namespace absl {
   namespace cord_internal {
 
@@ -41,9 +43,10 @@ namespace absl {
 
   }
 }
+#endif
 
-#include "go-absl/base/config/export.inc"
 #include "go-absl/strings/cordz_handle/export.inc"
 #include "go-absl/strings/cordz_info/export.inc"
+#include "go-absl/base/config/export.inc"
 
 #endif

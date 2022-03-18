@@ -3,6 +3,11 @@
 
 #include "zetasql/common/builtin_function_internal.h"
 
+#include "zetasql/common/builtin_function_internal_1.cc"
+#include "zetasql/common/builtin_function_internal_2.cc"
+#include "zetasql/common/builtin_function_internal_3.cc"
+
+#if 0
 namespace zetasql {
 
   using ::zetasql::functions::DateTimestampPartToSQL;
@@ -544,7 +549,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/common/errors/export.inc"
 #include "go-zetasql/base/base/export.inc"
@@ -559,20 +564,21 @@ namespace zetasql {
 #include "go-zetasql/public/cycle_detector/export.inc"
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/function_cc_proto/export.inc"
-#include "go-zetasql/public/functions/date_time_util/export.inc"
-#include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
-#include "go-zetasql/public/functions/string_format/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/type_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/functions/date_time_util/export.inc"
+#include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
+#include "go-zetasql/public/functions/string_format/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
-#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/str_format/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

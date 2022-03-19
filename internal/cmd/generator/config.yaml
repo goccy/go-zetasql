@@ -49,9 +49,12 @@ global_symbols:
   - FLAGS_output_asc_explicitly
   - FLAGS_zetasql_use_customized_flex_istream
   - FLAGS_zetasql_type_factory_nesting_depth_limit
+  - FLAGS_zetasql_read_proto_field_optimized_path
   - FLAGS_nozetasql_type_factory_nesting_depth_limit
+  - FLAGS_nozetasql_read_proto_field_optimized_path
   - ZetaSqlFlexTokenizerBase
   - ZetaSqlFlexLexer
+  - UCaseMap
 
 top_level_namespaces:
   - absl

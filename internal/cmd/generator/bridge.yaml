@@ -4784,7 +4784,7 @@
     - name: JsonType
       ret:
         - struct
-    - name: StructType
+    - name: EmptyStructType
       ret:
         - struct
     - name: Int32ArrayType
@@ -4814,6 +4814,9 @@
     - name: BytesArrayType
       ret:
         - struct
+    - name: TimestampArrayType
+      ret:
+        - struct
     - name: DateArrayType
       ret:
         - struct
@@ -4838,7 +4841,7 @@
     - name: JsonArrayType
       ret:
         - struct
-    - name: DepartEnumType
+    - name: DatePartEnumType
       ret:
         - struct
     - name: NormalizeModeEnumType
@@ -4860,7 +4863,7 @@
         - int
       ret:
         - struct
-    - name: Table_new
+    - name: SimpleTable_new
       args:
         - string
         - struct
@@ -4897,4 +4900,4 @@
         - struct
         - int
       ret:
-        - struct
+        - int

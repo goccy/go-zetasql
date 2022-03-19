@@ -242,14 +242,14 @@ func simple_catalog_JsonType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_JsonType(arg0)
 }
 
-func StructType(arg0 *unsafe.Pointer) {
-	simple_catalog_StructType(
+func EmptyStructType(arg0 *unsafe.Pointer) {
+	simple_catalog_EmptyStructType(
 		arg0,
 	)
 }
 
-func simple_catalog_StructType(arg0 *unsafe.Pointer) {
-	C.export_zetasql_public_simple_catalog_StructType(arg0)
+func simple_catalog_EmptyStructType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_EmptyStructType(arg0)
 }
 
 func Int32ArrayType(arg0 *unsafe.Pointer) {
@@ -342,6 +342,16 @@ func simple_catalog_BytesArrayType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_BytesArrayType(arg0)
 }
 
+func TimestampArrayType(arg0 *unsafe.Pointer) {
+	simple_catalog_TimestampArrayType(
+		arg0,
+	)
+}
+
+func simple_catalog_TimestampArrayType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TimestampArrayType(arg0)
+}
+
 func DateArrayType(arg0 *unsafe.Pointer) {
 	simple_catalog_DateArrayType(
 		arg0,
@@ -422,14 +432,14 @@ func simple_catalog_JsonArrayType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_JsonArrayType(arg0)
 }
 
-func DepartEnumType(arg0 *unsafe.Pointer) {
-	simple_catalog_DepartEnumType(
+func DatePartEnumType(arg0 *unsafe.Pointer) {
+	simple_catalog_DatePartEnumType(
 		arg0,
 	)
 }
 
-func simple_catalog_DepartEnumType(arg0 *unsafe.Pointer) {
-	C.export_zetasql_public_simple_catalog_DepartEnumType(arg0)
+func simple_catalog_DatePartEnumType(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_DatePartEnumType(arg0)
 }
 
 func NormalizeModeEnumType(arg0 *unsafe.Pointer) {
@@ -470,16 +480,16 @@ func simple_catalog_SimpleColumn_new_with_opt(arg0 unsafe.Pointer, arg1 unsafe.P
 	C.export_zetasql_public_simple_catalog_SimpleColumn_new_with_opt(arg0, arg1, arg2, arg3, arg4, arg5)
 }
 
-func Table_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	simple_catalog_Table_new(
+func SimpleTable_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	simple_catalog_SimpleTable_new(
 		arg0,
 		arg1,
 		arg2,
 	)
 }
 
-func simple_catalog_Table_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_public_simple_catalog_Table_new(arg0, arg1, arg2)
+func simple_catalog_SimpleTable_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_SimpleTable_new(arg0, arg1, arg2)
 }
 
 func Table_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
@@ -538,15 +548,15 @@ func simple_catalog_Table_PrimaryKey_num(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_public_simple_catalog_Table_PrimaryKey_num(arg0, arg1)
 }
 
-func Table_PrimaryKey(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+func Table_PrimaryKey(arg0 unsafe.Pointer, arg1 int, arg2 *int) {
 	simple_catalog_Table_PrimaryKey(
 		arg0,
 		C.int(arg1),
-		arg2,
+		(*C.int)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_Table_PrimaryKey(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+func simple_catalog_Table_PrimaryKey(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
 	C.export_zetasql_public_simple_catalog_Table_PrimaryKey(arg0, arg1, arg2)
 }
 

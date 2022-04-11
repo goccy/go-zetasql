@@ -80,7 +80,7 @@ void GO_EXPORT(ParseExpression)(void * arg0,void * arg1,void ** arg2,void ** arg
 void GO_EXPORT(Unparse)(void * arg0,void ** arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
-  *arg1 = (void *)zetasql::Unparse(node).c_str();
+  *arg1 = (void *)((new std::string(zetasql::Unparse(node)))->c_str());
 }
 
 void GO_EXPORT(ParseResumeLocation_FromStringView)(void * arg0,void ** arg1)
@@ -96,7 +96,7 @@ void GO_EXPORT(Status_OK)(void * arg0,int* arg1){
 
 void GO_EXPORT(Status_String)(void * arg0,void ** arg1){
   absl::Status *status = (absl::Status *)arg0;
-  *arg1 = (void *)status->ToString().c_str();
+  *arg1 = (void *)((new std::string(status->ToString()))->c_str());
 }
 
 void GO_EXPORT(ParserOutput_statement)(void * arg0,void ** arg1) {
@@ -134,7 +134,7 @@ void GO_EXPORT(ASTNode_node_kind)(void * arg0,int* arg1)
 void GO_EXPORT(ASTNode_SingleNodeDebugString)(void * arg0,void ** arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
-  *arg1 = (void *)(node->SingleNodeDebugString().c_str());
+  *arg1 = (void *)((new std::string(node->SingleNodeDebugString()))->c_str());
 }
 
 void GO_EXPORT(ASTNode_set_parent)(void * arg0,void * arg1)
@@ -198,7 +198,7 @@ void GO_EXPORT(ASTNode_find_child_index)(void * arg0,int arg1, int *arg2)
 void GO_EXPORT(ASTNode_DebugString)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
-  *arg2 = (void *)node->DebugString(arg1).c_str();
+  *arg2 = (void *)((new std::string(node->DebugString(arg1)))->c_str());
 }
 
 void GO_EXPORT(ASTNode_MoveStartLocation)(void * arg0,int arg1)
@@ -314,7 +314,7 @@ void GO_EXPORT(ASTNode_IsAlterStatement)(void * arg0,int* arg1)
 void GO_EXPORT(ASTNode_GetNodeKindString)(void * arg0,void ** arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
-  *arg1 = (void *)node->GetNodeKindString().c_str();
+  *arg1 = (void *)((new std::string(node->GetNodeKindString()))->c_str());
 }
 
 void GO_EXPORT(ASTNode_GetParseLocationRange)(void * arg0,void ** arg1)
@@ -328,12 +328,12 @@ void GO_EXPORT(ASTNode_GetParseLocationRange)(void * arg0,void ** arg1)
 void GO_EXPORT(ASTNode_GetLocationString)(void * arg0,void ** arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
-  *arg1 = (void *)node->GetLocationString().c_str();
+  *arg1 = (void *)((new std::string(node->GetLocationString()))->c_str());
 }
 
 void GO_EXPORT(ASTNode_NodeKindToString)(int arg0,void ** arg1)
 {
-  *arg1 = (void *)zetasql::ASTNode::NodeKindToString((zetasql::ASTNodeKind)arg0).c_str();
+  *arg1 = (void *)((new std::string(zetasql::ASTNode::NodeKindToString((zetasql::ASTNodeKind)arg0)))->c_str());
 }
 
 void GO_EXPORT(ParseLocationPoint_filename)(void * arg0,void ** arg1)
@@ -351,7 +351,7 @@ void GO_EXPORT(ParseLocationPoint_GetByteOffset)(void * arg0,int* arg1)
 void GO_EXPORT(ParseLocationPoint_GetString)(void * arg0,void ** arg1)
 {
   zetasql::ParseLocationPoint *p = (zetasql::ParseLocationPoint *)arg0;
-  *arg1 = (void *)p->GetString().c_str();
+  *arg1 = (void *)((new std::string(p->GetString()))->c_str());
 }
 
 void GO_EXPORT(ParseLocationRange_start)(void * arg0,void ** arg1)
@@ -369,7 +369,7 @@ void GO_EXPORT(ParseLocationRange_end)(void * arg0,void ** arg1)
 void GO_EXPORT(ParseLocationRange_GetString)(void * arg0,void ** arg1)
 {
   zetasql::ParseLocationRange *r = (zetasql::ParseLocationRange *)arg0;
-  *arg1 = (void *)r->GetString().c_str();
+  *arg1 = (void *)((new std::string(r->GetString()))->c_str());
 }
 
 void GO_EXPORT(ASTQueryStatement_query)(void * arg0,void ** arg1)
@@ -573,7 +573,7 @@ void GO_EXPORT(ASTIntLiteral_is_hex)(void * arg0,int* arg1)
 void GO_EXPORT(ASTIdentifier_GetAsString)(void * arg0,void ** arg1)
 {
   zetasql::ASTIdentifier *node = (zetasql::ASTIdentifier *)arg0;
-  *arg1 = (void *)node->GetAsString().c_str();
+  *arg1 = (void *)((new std::string(node->GetAsString()))->c_str());
 }
 
 void GO_EXPORT(ASTIdentifier_SetIdentifier)(void * arg0,void * arg1)
@@ -591,7 +591,7 @@ void GO_EXPORT(ASTAlias_identifier)(void * arg0,void ** arg1)
 void GO_EXPORT(ASTAlias_GetAsString)(void * arg0,void ** arg1)
 {
   zetasql::ASTAlias *alias = (zetasql::ASTAlias *)arg0;
-  *arg1 = (void *)alias->GetAsString().c_str();
+  *arg1 = (void *)((new std::string(alias->GetAsString()))->c_str());
 }
 
 void GO_EXPORT(ASTPathExpression_num_names)(void * arg0,int* arg1)
@@ -609,7 +609,7 @@ void GO_EXPORT(ASTPathExpression_name)(void * arg0,int arg1,void ** arg2)
 void GO_EXPORT(ASTPathExpression_ToIdentifierPathString)(void * arg0,uint32_t arg1,void ** arg2)
 {
   zetasql::ASTPathExpression *expr = (zetasql::ASTPathExpression *)arg0;
-  *arg2 = (void *)expr->ToIdentifierPathString(arg1).c_str();
+  *arg2 = (void *)((new std::string(expr->ToIdentifierPathString(arg1)))->c_str());
 }
 
 void GO_EXPORT(ASTTablePathExpression_path_expr)(void * arg0,void ** arg1)
@@ -741,13 +741,13 @@ void GO_EXPORT(ASTBinaryExpression_rhs)(void * arg0,void ** arg1)
 void GO_EXPORT(ASTBinaryExpression_GetSQLForOperator)(void * arg0,void ** arg1)
 {
   zetasql::ASTBinaryExpression *expr = (zetasql::ASTBinaryExpression *)arg0;
-  *arg1 = (void *)expr->GetSQLForOperator().c_str();
+  *arg1 = (void *)((new std::string(expr->GetSQLForOperator()))->c_str());
 }
 
 void GO_EXPORT(ASTStringLiteral_string_value)(void * arg0,void ** arg1)
 {
   zetasql::ASTStringLiteral *lit = (zetasql::ASTStringLiteral *)arg0;
-  *arg1 = (void *)lit->string_value().c_str();
+  *arg1 = (void *)((new std::string(lit->string_value()))->c_str());
 }
 
 void GO_EXPORT(ASTStringLiteral_set_string_value)(void * arg0,void * arg1)
@@ -948,7 +948,7 @@ void GO_EXPORT(JoinParseError_error_node)(void * arg0,void ** arg1){
 
 void GO_EXPORT(JoinParseError_message)(void * arg0,void ** arg1){
   zetasql::ASTJoin::ParseError *err = (zetasql::ASTJoin::ParseError *)arg0;
-  *arg1 = (void *)err->message.c_str();
+  *arg1 = (void *)((new std::string(err->message))->c_str());
 }
 
 void GO_EXPORT(ASTJoin_parse_error)(void * arg0,void ** arg1){
@@ -958,12 +958,12 @@ void GO_EXPORT(ASTJoin_parse_error)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTJoin_GetSQLForJoinType)(void * arg0,void ** arg1){
   zetasql::ASTJoin *node = (zetasql::ASTJoin *)arg0;
-  *arg1 = (void *)node->GetSQLForJoinType().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForJoinType()))->c_str());
 }
 
 void GO_EXPORT(ASTJoin_GetSQLForJoinHint)(void * arg0,void ** arg1){
   zetasql::ASTJoin *node = (zetasql::ASTJoin *)arg0;
-  *arg1 = (void *)node->GetSQLForJoinHint().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForJoinHint()))->c_str());
 }
 
 void GO_EXPORT(ASTWithClause_set_recursive)(void * arg0,int arg1){
@@ -1553,7 +1553,7 @@ void GO_EXPORT(ASTSetOperation_input)(void * arg0,int arg1,void ** arg2){
 
 void GO_EXPORT(ASTSetOperation_GetSQLForOperation)(void * arg0,void ** arg1){
   zetasql::ASTSetOperation *node = (zetasql::ASTSetOperation *)arg0;
-  *arg1 = (void *)node->GetSQLForOperation().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForOperation()))->c_str());
 }
 
 void GO_EXPORT(ASTStarExceptList_identifiers_num)(void * arg0,int* arg1){
@@ -1638,7 +1638,7 @@ void GO_EXPORT(ASTUnaryExpression_operand)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTUnaryExpression_GetSQLForOperator)(void * arg0,void ** arg1){
   zetasql::ASTUnaryExpression *node = (zetasql::ASTUnaryExpression *)arg0;
-  *arg1 = (void *)node->GetSQLForOperator().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForOperator()))->c_str());
 }
 
 void GO_EXPORT(ASTUnnestExpression_expression)(void * arg0,void ** arg1){
@@ -1688,7 +1688,7 @@ void GO_EXPORT(ASTWindowFrame_frame_unit)(void * arg0,int* arg1){
 
 void GO_EXPORT(ASTWindowFrame_GetFrameUnitString)(void * arg0,void ** arg1){
   zetasql::ASTWindowFrame *node = (zetasql::ASTWindowFrame *)arg0;
-  *arg1 = (void *)node->GetFrameUnitString().c_str();
+  *arg1 = (void *)((new std::string(node->GetFrameUnitString()))->c_str());
 }
 
 void GO_EXPORT(ASTWindowFrameExpr_set_boundary_type)(void * arg0,int arg1){
@@ -1783,7 +1783,7 @@ void GO_EXPORT(ASTAnySomeAllOp_op)(void * arg0,int* arg1){
 
 void GO_EXPORT(ASTAnySomeAllOp_GetSQLForOperator)(void * arg0,void ** arg1){
   zetasql::ASTAnySomeAllOp *node = (zetasql::ASTAnySomeAllOp *)arg0;
-  *arg1 = (void *)node->GetSQLForOperator().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForOperator()))->c_str());
 }
 
 void GO_EXPORT(ASTStatementList_set_variable_declarations_allowed)(void * arg0,int arg1){
@@ -2093,7 +2093,7 @@ void GO_EXPORT(ASTIntoAlias_identifier)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTIntoAlias_GetAsString)(void * arg0,void ** arg1){
   zetasql::ASTIntoAlias *node = (zetasql::ASTIntoAlias *)arg0;
-  *arg1 = (void *)node->GetAsString().c_str();
+  *arg1 = (void *)((new std::string(node->GetAsString()))->c_str());
 }
 
 void GO_EXPORT(ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression)(void * arg0,void ** arg1){
@@ -3072,7 +3072,7 @@ void GO_EXPORT(ASTGeneratedColumnInfo_expression)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTGeneratedColumnInfo_GetSqlForStoredMode)(void * arg0,void ** arg1){
   zetasql::ASTGeneratedColumnInfo *node = (zetasql::ASTGeneratedColumnInfo *)arg0;
-  *arg1 = (void *)node->GetSqlForStoredMode().c_str();
+  *arg1 = (void *)((new std::string(node->GetSqlForStoredMode()))->c_str());
 }
 
 void GO_EXPORT(ASTColumnDefinition_name)(void * arg0,void ** arg1){
@@ -3192,7 +3192,7 @@ void GO_EXPORT(ASTInsertStatement_returning)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTInsertStatement_GetSQLForInsertMode)(void * arg0,void ** arg1){
   zetasql::ASTInsertStatement *node = (zetasql::ASTInsertStatement *)arg0;
-  *arg1 = (void *)node->GetSQLForInsertMode().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForInsertMode()))->c_str());
 }
 
 void GO_EXPORT(ASTUpdateSetValue_path)(void * arg0,void ** arg1){
@@ -3332,7 +3332,7 @@ void GO_EXPORT(ASTMergeWhenClause_action)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTMergeWhenClause_GetSQLForMatchType)(void * arg0,void ** arg1){
   zetasql::ASTMergeWhenClause *node = (zetasql::ASTMergeWhenClause *)arg0;
-  *arg1 = (void *)node->GetSQLForMatchType().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForMatchType()))->c_str());
 }
 
 void GO_EXPORT(ASTMergeWhenClauseList_clause_list_num)(void * arg0,int* arg1){
@@ -3467,7 +3467,7 @@ void GO_EXPORT(ASTFilterFieldsArg_path_expression)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTFilterFieldsArg_GetSQLForOperator)(void * arg0,void ** arg1){
   zetasql::ASTFilterFieldsArg *node = (zetasql::ASTFilterFieldsArg *)arg0;
-  *arg1 = (void *)node->GetSQLForOperator().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForOperator()))->c_str());
 }
 
 void GO_EXPORT(ASTReplaceFieldsArg_expression)(void * arg0,void ** arg1){
@@ -3517,7 +3517,7 @@ void GO_EXPORT(ASTSampleSize_partition_by)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTSampleSize_GetSQLForUnit)(void * arg0,void ** arg1){
   zetasql::ASTSampleSize *node = (zetasql::ASTSampleSize *)arg0;
-  *arg1 = (void *)node->GetSQLForUnit().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForUnit()))->c_str());
 }
 
 void GO_EXPORT(ASTWithWeight_alias)(void * arg0,void ** arg1){
@@ -3552,7 +3552,7 @@ void GO_EXPORT(ASTSampleClause_sample_suffix)(void * arg0,void ** arg1){
 
 void GO_EXPORT(ASTAlterAction_GetSQLForAlterAction)(void * arg0,void ** arg1){
   zetasql::ASTAlterAction *node = (zetasql::ASTAlterAction *)arg0;
-  *arg1 = (void *)node->GetSQLForAlterAction().c_str();
+  *arg1 = (void *)((new std::string(node->GetSQLForAlterAction()))->c_str());
 }
 
 void GO_EXPORT(ASTSetOptionsAction_options_list)(void * arg0,void ** arg1){

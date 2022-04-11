@@ -266,13 +266,13 @@ void GO_EXPORT(Type_Equivalent)(void * arg0,void * arg1,int* arg2)
 void GO_EXPORT(Type_ShortTypeName)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
-  *arg2 = (void *)type->ShortTypeName((zetasql::ProductMode)arg1).c_str();
+  *arg2 = (void *)((new std::string(type->ShortTypeName((zetasql::ProductMode)arg1)))->c_str());
 }
 
 void GO_EXPORT(Type_TypeName)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
-  *arg2 = (void *)type->TypeName((zetasql::ProductMode)arg1).c_str();
+  *arg2 = (void *)((new std::string(type->TypeName((zetasql::ProductMode)arg1)))->c_str());
 }
 
 void GO_EXPORT(Type_TypeNameWithParameters)(void * arg0,void * arg1,int arg2,void ** arg3,void ** arg4)
@@ -281,7 +281,7 @@ void GO_EXPORT(Type_TypeNameWithParameters)(void * arg0,void * arg1,int arg2,voi
   zetasql::TypeParameters *params = (zetasql::TypeParameters *)arg1;
   absl::StatusOr<std::string> ret = type->TypeNameWithParameters(*params, (zetasql::ProductMode)arg2);
   if (ret.ok()) {
-    *arg3 = (void *)ret.value().c_str();
+    *arg3 = (void *)((new std::string(ret.value()))->c_str());
     *arg4 = (void *)(new absl::Status(absl::OkStatus()));
   } else {
     *arg3 = nullptr;
@@ -292,7 +292,7 @@ void GO_EXPORT(Type_TypeNameWithParameters)(void * arg0,void * arg1,int arg2,voi
 void GO_EXPORT(Type_DebugString)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
-  *arg2 = (void *)type->DebugString(arg1).c_str();
+  *arg2 = (void *)((new std::string(type->DebugString(arg1)))->c_str());
 }
 
 void GO_EXPORT(Type_HasAnyFields)(void * arg0,int* arg1)
@@ -603,6 +603,7 @@ void GO_EXPORT(Value_int32_value)(void * arg0,int* arg1)
 void GO_EXPORT(Value_int64_value)(void * arg0,int64_t* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->int64_value();
 }
 
 void GO_EXPORT(Value_uint32_value)(void * arg0,uint32_t* arg1)
@@ -638,13 +639,13 @@ void GO_EXPORT(Value_double_value)(void * arg0,double* arg1)
 void GO_EXPORT(Value_string_value)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->string_value().c_str();
+  *arg1 = (void *)((new std::string(value->string_value()))->c_str());
 }
 
 void GO_EXPORT(Value_bytes_value)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->bytes_value().c_str();
+  *arg1 = (void *)((new std::string(value->bytes_value()))->c_str());
 }
 
 void GO_EXPORT(Value_date_value)(void * arg0,int* arg1)
@@ -662,7 +663,7 @@ void GO_EXPORT(Value_enum_value)(void * arg0,int* arg1)
 void GO_EXPORT(Value_enum_name)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->enum_name().c_str();
+  *arg1 = (void *)((new std::string(value->enum_name()))->c_str());
 }
 
 void GO_EXPORT(Value_ToUnixMicros)(void * arg0,int64_t* arg1)
@@ -705,13 +706,13 @@ void GO_EXPORT(Value_is_unparsed_json)(void * arg0,int* arg1)
 void GO_EXPORT(Value_json_value_unparsed)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->json_value_unparsed().c_str();
+  *arg1 = (void *)((new std::string(value->json_value_unparsed()))->c_str());
 }
 
 void GO_EXPORT(Value_json_string)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->json_string().c_str();
+  *arg1 = (void *)((new std::string(value->json_string()))->c_str());
 }
 
 void GO_EXPORT(Value_ToInt64)(void * arg0,int64_t* arg1)
@@ -801,37 +802,37 @@ void GO_EXPORT(Value_HashCode)(void * arg0,uint64_t* arg1)
 void GO_EXPORT(Value_ShortDebugString)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->ShortDebugString().c_str();
+  *arg1 = (void *)((new std::string(value->ShortDebugString()))->c_str());
 }
 
 void GO_EXPORT(Value_FullDebugString)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->FullDebugString().c_str();
+  *arg1 = (void *)((new std::string(value->FullDebugString()))->c_str());
 }
 
 void GO_EXPORT(Value_DebugString)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->DebugString().c_str();
+  *arg1 = (void *)((new std::string(value->DebugString()))->c_str());
 }
 
 void GO_EXPORT(Value_Format)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg1 = (void *)value->Format().c_str();
+  *arg1 = (void *)((new std::string(value->Format()))->c_str());
 }
 
 void GO_EXPORT(Value_GetSQL)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg2 = (void *)value->GetSQL((zetasql::ProductMode)arg1).c_str();
+  *arg2 = (void *)((new std::string(value->GetSQL((zetasql::ProductMode)arg1)))->c_str());
 }
 
 void GO_EXPORT(Value_GetSQLLiteral)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
-  *arg2 = (void *)value->GetSQLLiteral((zetasql::ProductMode)arg1).c_str();
+  *arg2 = (void *)((new std::string(value->GetSQLLiteral((zetasql::ProductMode)arg1)))->c_str());
 }
 
 void GO_EXPORT(Int64)(int64_t arg0,void ** arg1)
@@ -842,13 +843,13 @@ void GO_EXPORT(Int64)(int64_t arg0,void ** arg1)
 void GO_EXPORT(Column_Name)(void * arg0,void ** arg1)
 {
   zetasql::Column *col = (zetasql::Column *)arg0;
-  *arg1 = (void *)col->Name().c_str();
+  *arg1 = (void *)((new std::string(col->Name()))->c_str());
 }
 
 void GO_EXPORT(Column_FullName)(void * arg0,void ** arg1)
 {
   zetasql::Column *col = (zetasql::Column *)arg0;
-  *arg1 = (void *)col->FullName().c_str();
+  *arg1 = (void *)((new std::string(col->FullName()))->c_str());
 }
 
 void GO_EXPORT(Column_Type)(void * arg0,void ** arg1)
@@ -900,13 +901,13 @@ void GO_EXPORT(SimpleColumn_SetIsPseudoColumn)(void * arg0,int arg1)
 void GO_EXPORT(Table_Name)(void * arg0,void ** arg1)
 {
   zetasql::Table *table = (zetasql::Table *)arg0;
-  *arg1 = (void *)table->Name().c_str();
+  *arg1 = (void *)((new std::string(table->Name()))->c_str());
 }
 
 void GO_EXPORT(Table_FullName)(void * arg0,void ** arg1)
 {
   zetasql::Table *table = (zetasql::Table *)arg0;
-  *arg1 = (void *)table->FullName().c_str();
+  *arg1 = (void *)((new std::string(table->FullName()))->c_str());
 }
 
 void GO_EXPORT(Table_NumColumns)(void * arg0,int* arg1)
@@ -991,7 +992,7 @@ void GO_EXPORT(Table_SupportsAnonymization)(void * arg0,int* arg1)
 void GO_EXPORT(Table_GetTableTypeName)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::Table *table = (zetasql::Table *)arg0;
-  *arg2 = (void *)table->GetTableTypeName((zetasql::ProductMode)arg1).c_str();
+  *arg2 = (void *)((new std::string(table->GetTableTypeName((zetasql::ProductMode)arg1)))->c_str());
 }
 
 void GO_EXPORT(SimpleTable_new)(void * arg0,void * arg1,int arg2,void ** arg3)
@@ -1073,7 +1074,7 @@ void GO_EXPORT(SimpleTable_ResetAnonymizationInfo)(void *arg0)
 void GO_EXPORT(Catalog_FullName)(void * arg0,void ** arg1)
 {
   zetasql::Catalog *catalog = (zetasql::Catalog *)arg0;
-  *arg1 = (void *)catalog->FullName().c_str();
+  *arg1 = (void *)((new std::string(catalog->FullName()))->c_str());
 }
 
 void GO_EXPORT(Catalog_FindTable)(void * arg0,void * arg1,void **arg2,void ** arg3)
@@ -1118,7 +1119,7 @@ void GO_EXPORT(Catalog_SuggestTable)(void * arg0,void * arg1,void ** arg2)
     pathvec.push_back(std::string(data[i]));
   }
   const absl::Span<const std::string> path(pathvec);
-  *arg2 = (void *)catalog->SuggestTable(path).c_str();
+  *arg2 = (void *)((new std::string(catalog->SuggestTable(path)))->c_str());
 }
 
 void GO_EXPORT(EnumerableCatalog_Catalogs)(void * arg0,void **arg1,void ** arg2)
@@ -1225,7 +1226,7 @@ void GO_EXPORT(SimpleCatalog_table_names_num)(void * arg0,int* arg1)
 void GO_EXPORT(SimpleCatalog_table_name)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
-  *arg2 = (void *)catalog->table_names()[arg1].c_str();
+  *arg2 = (void *)((new std::string(catalog->table_names()[arg1]))->c_str());
 }
 
 void GO_EXPORT(SimpleCatalog_GetType)(void * arg0,void * arg1,void ** arg2,void ** arg3)
@@ -1297,7 +1298,7 @@ void GO_EXPORT(SimpleCatalog_catalog_names_num)(void * arg0,int* arg1)
 void GO_EXPORT(SimpleCatalog_catalog_name)(void * arg0,int arg1,void ** arg2)
 {
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
-  *arg2 = (void *)catalog->catalog_names()[arg1].c_str();
+  *arg2 = (void *)((new std::string(catalog->catalog_names()[arg1]))->c_str());
 }
 
 void GO_EXPORT(SimpleCatalog_AddTable)(void * arg0,void * arg1)

@@ -40,7 +40,7 @@ void GO_EXPORT(Node_IsStatement)(void * arg0,int* arg1)
 void GO_EXPORT(Node_DebugString)(void * arg0,void ** arg1)
 {
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
-  *arg1 = (void *)node->DebugString().c_str();
+  *arg1 = (void *)((new std::string(node->DebugString()))->c_str());
 }
 
 void GO_EXPORT(Node_GetChildNodes_num)(void * arg0,int* arg1)

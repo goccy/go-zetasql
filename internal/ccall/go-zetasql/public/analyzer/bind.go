@@ -36,6 +36,19 @@ import (
 	"unsafe"
 )
 
+func AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	analyzer_AnalyzeStatement(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func analyzer_AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzeStatement(arg0, arg1, arg2, arg3)
+}
+
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)

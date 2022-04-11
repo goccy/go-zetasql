@@ -4716,6 +4716,275 @@
         - struct
 - package: zetasql/public/simple_catalog
   methods:
+    - name: Type_Kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: Type_IsInt32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInt64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUint32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUint64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBool
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFloat
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDouble
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsString
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBytes
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsTimestamp
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsTime
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDatetime
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInterval
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsNumericType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBigNumericType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsJsonType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFeatureV12CivilTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_UsingFeatureV12CivilTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsCivilDateOrTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsGeography
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsJson
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsEnum
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsArray
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsStruct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsProto
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsStructOrProto
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFloatingPoint
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsNumerical
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsSignedInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUnsignedInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsSimpleType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsExtendedType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsGrouping
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsPartitioning
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsEquality
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Type_Equivalent
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Type_ShortTypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_TypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_TypeNameWithParameters
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - string
+        - struct
+    - name: Type_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_HasAnyFields
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_NestingDepth
+      args:
+        - struct
+      ret:
+        - int
+    - name: Type_ValidateAndResolveTypeParameters
+      args:
+        - struct
+        - struct
+        - int
+        - int
+      ret:
+        - struct
+        - struct
+    - name: Type_ValidateResolvedTypeParameters
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
     - name: TypeFactory_MakeArrayType
       args:
         - struct
@@ -4727,6 +4996,7 @@
       args:
         - struct
         - struct
+        - int
       ret:
         - struct
         - struct
@@ -4847,6 +5117,31 @@
     - name: NormalizeModeEnumType
       ret:
         - struct
+    - name: Column_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Column_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Column_Type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Column_IsPseudoColumn
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Column_IsWritableColumn
+      args:
+        - struct
+      ret:
+        - bool
     - name: SimpleColumn_new
       args:
         - string
@@ -4863,12 +5158,15 @@
         - int
       ret:
         - struct
-    - name: SimpleTable_new
+    - name: SimpleColumn_AnnotatedType
       args:
-        - string
         - struct
       ret:
         - struct
+    - name: SimpleColumn_SetIsPseudoColumn
+      args:
+        - struct
+        - int
     - name: Table_Name
       args:
         - struct
@@ -4901,3 +5199,255 @@
         - int
       ret:
         - int
+    - name: Table_FindColumnByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Table_IsValueTable
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Table_GetSerializationId
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_CreateEvaluatorTableIterator
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+        - struct
+    - name: Table_GetAnonymizationInfo
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Table_SupportsAnonymization
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Table_GetTableTypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: SimpleTable_new
+      args:
+        - string
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: SimpleTable_AllowAnonymousColumnName
+      args:
+        - struct
+      ret:
+        - bool
+    - name: SimpleTable_set_allow_anonymous_column_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_AllowDuplicateColumnNames
+      args:
+        - struct
+      ret:
+        - bool
+    - name: SimpleTable_set_allow_duplicate_column_names
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_AddColumn
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: SimpleTable_SetPrimaryKey
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_set_full_name
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: SimpleTable_SetAnonymizationInfo
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: SimpleTable_ResetAnonymizationInfo
+      args:
+        - struct
+    - name: Catalog_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Catalog_FindTable
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_FindType
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_SuggestTable
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: EnumerableCatalog_Catalogs
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: EnumerableCatalog_Tables
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: EnumerableCatalog_Types
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_new
+      args:
+        - string
+      ret:
+        - struct
+    - name: SimpleCatalog_GetTable
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetTables
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_table_names_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: SimpleCatalog_table_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleCatalog_GetType
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetTypes
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetCatalog
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetCatalogs
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_catalog_names_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: SimpleCatalog_catalog_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleCatalog_AddTable
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddTableWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddType
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddTypeIfNotPresent
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - bool
+    - name: SimpleCatalog_AddCatalog
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddCatalogWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddZetaSQLFunctions
+      args:
+        - struct
+- package: zetasql/public/analyzer
+  methods:
+    - name: AnalyzeStatement
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+        - struct

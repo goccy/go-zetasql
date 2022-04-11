@@ -49,6 +49,106 @@ func analyzer_AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *u
 	C.export_zetasql_public_analyzer_AnalyzeStatement(arg0, arg1, arg2, arg3)
 }
 
+func AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOutput_resolved_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOutput_resolved_statement(arg0, arg1)
+}
+
+func Node_node_kind(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_Node_node_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_node_kind(arg0, arg1)
+}
+
+func Node_IsScan(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_Node_IsScan(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_IsScan(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_IsScan(arg0, arg1)
+}
+
+func Node_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_Node_IsExpression(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_IsExpression(arg0, arg1)
+}
+
+func Node_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_Node_IsStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_IsStatement(arg0, arg1)
+}
+
+func Node_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_Node_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_Node_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_Node_DebugString(arg0, arg1)
+}
+
+func Node_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_Node_GetChildNodes_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_GetChildNodes_num(arg0, arg1)
+}
+
+func Node_GetChildNode(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	analyzer_Node_GetChildNode(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func analyzer_Node_GetChildNode(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_Node_GetChildNode(arg0, arg1, arg2)
+}
+
+func Node_GetTreeDepth(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_Node_GetTreeDepth(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Node_GetTreeDepth(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Node_GetTreeDepth(arg0, arg1)
+}
+
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)

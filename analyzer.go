@@ -52,9 +52,6 @@ func (o *AnalyzerOptions) InScopeExpressionColumnType() types.Type {
 	return nil
 }
 
-type ResolvedASTRewrite struct{}
-type ResolvedExpr struct{}
-
 func newAnalyzerOutput(raw unsafe.Pointer) *AnalyzerOutput {
 	if raw == nil {
 		return nil
@@ -64,11 +61,11 @@ func newAnalyzerOutput(raw unsafe.Pointer) *AnalyzerOutput {
 
 func (o *AnalyzerOutput) Statement() resolved_ast.StatementNode {
 	var v unsafe.Pointer
-	//internal.AnalyzerOutput_resolved_statement(o.raw, &v)
+	internal.AnalyzerOutput_resolved_statement(o.raw, &v)
 	return newResolvedNode(v).(resolved_ast.StatementNode)
 }
 
-func (o *AnalyzerOutput) ResolvedExpr() *ResolvedExpr {
+func (o *AnalyzerOutput) Expr() resolved_ast.ExprNode {
 	return nil
 }
 
@@ -96,16 +93,6 @@ func (o *AnalyzerOutput) MaxColumnID() int {
 type AnalyzerOutputProperties struct {
 	HasFlatten       bool
 	HasAnonymization bool
-}
-
-func (p *AnalyzerOutputProperties) IsRelevant(rewrite ResolvedASTRewrite) bool {
-	return false
-}
-
-func (p *AnalyzerOutputProperties) MarkRelevant(rewrite ResolvedASTRewrite) {}
-
-func (p *AnalyzerOutputProperties) RelevantRewrites() []ResolvedASTRewrite {
-	return nil
 }
 
 func (o *AnalyzerOutput) AnalyzerOutputProperties() *AnalyzerOutputProperties {

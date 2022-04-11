@@ -1,10 +1,10 @@
 package zetasql_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/goccy/go-zetasql"
+	ast "github.com/goccy/go-zetasql/resolved_ast"
 	"github.com/goccy/go-zetasql/types"
 )
 
@@ -22,5 +22,11 @@ func TestAnalyzer(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fmt.Println("out = ", out)
+	stmt := out.Statement()
+	if err := ast.Walk(stmt, func(n ast.Node) error {
+		t.Logf("%T %s", n, n.DebugString())
+		return nil
+	}); err != nil {
+		t.Fatal(err)
+	}
 }

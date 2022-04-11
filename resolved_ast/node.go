@@ -4,7 +4,7 @@ import (
 	"unsafe"
 
 	"github.com/goccy/go-zetasql/constant"
-	//internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/types"
 )
@@ -65,41 +65,41 @@ type BaseNode struct {
 
 func (n *BaseNode) Kind() Kind {
 	var v int
-	//internal.Node_node_kind(n.raw, &v)
+	internal.Node_node_kind(n.raw, &v)
 	return Kind(v)
 }
 
 func (n *BaseNode) IsScan() bool {
 	var v bool
-	//internal.Node_IsScan(n.raw, &v)
+	internal.Node_IsScan(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsExpression() bool {
 	var v bool
-	//internal.Node_IsExpression(n.raw, &v)
+	internal.Node_IsExpression(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsStatement() bool {
 	var v bool
-	//internal.Node_IsStatement(n.raw, &v)
+	internal.Node_IsStatement(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) DebugString() string {
 	var v unsafe.Pointer
-	//internal.Node_DebugString(n.raw, &v)
+	internal.Node_DebugString(n.raw, &v)
 	return helper.PtrToString(v)
 }
 
 func (n *BaseNode) ChildNodes() []Node {
 	var num int
-	//internal.Node_GetChildNodes_num(n.raw, &num)
+	internal.Node_GetChildNodes_num(n.raw, &num)
 	ret := make([]Node, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		//internal.Node_GetChildNode(n.raw, i, &v)
+		internal.Node_GetChildNode(n.raw, i, &v)
 		ret = append(ret, newNode(v))
 	}
 	return ret
@@ -107,7 +107,7 @@ func (n *BaseNode) ChildNodes() []Node {
 
 func (n *BaseNode) TreeDepth() int {
 	var v int
-	//internal.Node_GetTreeDepth(n.raw, &v)
+	internal.Node_GetTreeDepth(n.raw, &v)
 	return v
 }
 
@@ -7922,7 +7922,7 @@ func newNode(v unsafe.Pointer) Node {
 		return nil
 	}
 	var kind int
-	//internal.Node_node_kind(v, &kind)
+	internal.Node_node_kind(v, &kind)
 	switch Kind(kind) {
 	case Literal:
 		return newLiteralNode(v)

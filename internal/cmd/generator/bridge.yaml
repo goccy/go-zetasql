@@ -5451,3 +5451,49 @@
       ret:
         - struct
         - struct
+    - name: AnalyzerOutput_resolved_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Node_node_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: Node_IsScan
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Node_IsExpression
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Node_IsStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Node_DebugString
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Node_GetChildNodes_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: Node_GetChildNode
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Node_GetTreeDepth
+      args:
+        - struct
+      ret:
+        - int

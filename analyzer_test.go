@@ -5,15 +5,16 @@ import (
 	"testing"
 
 	"github.com/goccy/go-zetasql"
+	"github.com/goccy/go-zetasql/types"
 )
 
 func TestAnalyzer(t *testing.T) {
 	const tableName = "z_table"
-	catalog := zetasql.NewSimpleCatalog("z_catalog")
+	catalog := types.NewSimpleCatalog("z_catalog")
 	catalog.AddTable(
-		zetasql.NewSimpleTable(tableName, []zetasql.Column{
-			zetasql.NewSimpleColumn(tableName, "col1", zetasql.Int64Type()),
-			zetasql.NewSimpleColumn(tableName, "col2", zetasql.StringType()),
+		types.NewSimpleTable(tableName, []types.Column{
+			types.NewSimpleColumn(tableName, "col1", types.Int64Type()),
+			types.NewSimpleColumn(tableName, "col2", types.StringType()),
 		}),
 	)
 	catalog.AddZetaSQLBuiltinFunctions()

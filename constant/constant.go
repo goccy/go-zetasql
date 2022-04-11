@@ -1,3 +1,3 @@
-package zetasql
+package constant
 
 type Constant interface{}

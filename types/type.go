@@ -1,4 +1,4 @@
-package zetasql
+package types
 
 import (
 	"reflect"
@@ -470,7 +470,7 @@ func (t *ztype) TypeNameWithParameters(param *TypeParameters, mode ProductMode) 
 		status unsafe.Pointer
 	)
 	internal.Type_TypeNameWithParameters(t.raw, param.raw, int(mode), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return "", st.Error()
 	}
@@ -511,7 +511,7 @@ func (t *ztype) ValidateAndResolveTypeParameters(values []TypeParameterValue, mo
 	)
 	data, len := typeParamValueToPtr(values)
 	internal.Type_ValidateAndResolveTypeParameters(t.raw, data, len, int(mode), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -523,7 +523,7 @@ func (t *ztype) ValidateResolvedTypeParameters(params *TypeParameters, mode Prod
 		status unsafe.Pointer
 	)
 	internal.Type_ValidateResolvedTypeParameters(t.raw, params.raw, int(mode), &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}
@@ -630,7 +630,7 @@ func (f *typeFactory) createArrayType(elem Type) (*ArrayType, error) {
 		status unsafe.Pointer
 	)
 	internal.TypeFactory_MakeArrayType(f.raw, elem.getRaw(), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -653,7 +653,7 @@ func (f *typeFactory) createStructType(fields []*StructField) (*StructType, erro
 	)
 	data, len := fieldsToPtr(fields)
 	internal.TypeFactory_MakeStructType(f.raw, data, len, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}

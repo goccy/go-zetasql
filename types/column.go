@@ -1,4 +1,4 @@
-package zetasql
+package types
 
 import (
 	"unsafe"

@@ -4,7 +4,7 @@ import (
 	"unsafe"
 
 	"github.com/goccy/go-zetasql/constant"
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	//internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/types"
 )
@@ -52,7 +52,7 @@ type ArgumentNode interface {
 }
 
 type ExprNode interface {
-	AnnotatedType() types.AnnotatedType
+	AnnotatedType() *types.AnnotatedType
 	Type() types.Type
 	SetType(types.Type)
 	TypeAnnotationMap() types.AnnotationMap
@@ -65,41 +65,41 @@ type BaseNode struct {
 
 func (n *BaseNode) Kind() Kind {
 	var v int
-	internal.Node_node_kind(n.raw, &v)
+	//internal.Node_node_kind(n.raw, &v)
 	return Kind(v)
 }
 
 func (n *BaseNode) IsScan() bool {
 	var v bool
-	internal.Node_IsScan(n.raw, &v)
+	//internal.Node_IsScan(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsExpression() bool {
 	var v bool
-	internal.Node_IsExpression(n.raw, &v)
+	//internal.Node_IsExpression(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsStatement() bool {
 	var v bool
-	internal.Node_IsStatement(n.raw, &v)
+	//internal.Node_IsStatement(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) DebugString() string {
 	var v unsafe.Pointer
-	internal.Node_DebugString(n.raw, &v)
+	//internal.Node_DebugString(n.raw, &v)
 	return helper.PtrToString(v)
 }
 
 func (n *BaseNode) ChildNodes() []Node {
 	var num int
-	internal.Node_GetChildNodes_num(n.raw, &num)
+	//internal.Node_GetChildNodes_num(n.raw, &num)
 	ret := make([]Node, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internal.Node_GetChildNode(n.raw, i, &v)
+		//internal.Node_GetChildNode(n.raw, i, &v)
 		ret = append(ret, newNode(v))
 	}
 	return ret
@@ -107,7 +107,7 @@ func (n *BaseNode) ChildNodes() []Node {
 
 func (n *BaseNode) TreeDepth() int {
 	var v int
-	internal.Node_GetTreeDepth(n.raw, &v)
+	//internal.Node_GetTreeDepth(n.raw, &v)
 	return v
 }
 
@@ -115,12 +115,30 @@ func (n *BaseNode) getRaw() unsafe.Pointer {
 	return n.raw
 }
 
-type BaseArgument struct {
+type BaseArgumentNode struct {
 	*BaseNode
 }
 
-type BaseExpr struct {
+type BaseExprNode struct {
 	*BaseNode
+}
+
+func (n *BaseExprNode) AnnotatedType() *types.AnnotatedType {
+	return nil
+}
+
+func (n *BaseExprNode) Type() types.Type {
+	return nil
+}
+
+func (n *BaseExprNode) SetType(v types.Type) {
+}
+
+func (n *BaseExprNode) TypeAnnotationMap() types.AnnotationMap {
+	return nil
+}
+
+func (n *BaseExprNode) SetTypeAnnotationMap(v types.AnnotationMap) {
 }
 
 // LiteralNode any literal value, including NULL literals.
@@ -214,11 +232,11 @@ type ColumnRefNode struct {
 	*BaseExprNode
 }
 
-func (n *ColumnRefNode) Column() *ColumnNode {
+func (n *ColumnRefNode) Column() *Column {
 	return nil
 }
 
-func (n *ColumnRefNode) SetColumn(v *ColumnNode) {
+func (n *ColumnRefNode) SetColumn(v *Column) {
 
 }
 
@@ -283,14 +301,14 @@ type InlineLambdaNode struct {
 	*BaseArgumentNode
 }
 
-func (n *InlineLambdaNode) ArgumentList() []*ColumnNode {
+func (n *InlineLambdaNode) ArgumentList() []*Column {
 	return nil
 }
 
-func (n *InlineLambdaNode) SetArgumentList(v []*ColumnNode) {
+func (n *InlineLambdaNode) SetArgumentList(v []*Column) {
 }
 
-func (n *InlineLambdaNode) AddArgument(v *ColumnNode) {
+func (n *InlineLambdaNode) AddArgument(v *Column) {
 }
 
 func (n *InlineLambdaNode) ParameterList() []*ColumnRefNode {
@@ -385,12 +403,11 @@ type BaseFunctionCallNode struct {
 	*BaseExprNode
 }
 
-func (n *BaseFunctionCallNode) Function() types.Function {
+func (n *BaseFunctionCallNode) Function() *types.Function {
 	return nil
 }
 
-func (n *BaseFunctionCallNode) SetFunction(v types.Function) {
-	return nil
+func (n *BaseFunctionCallNode) SetFunction(v *types.Function) {
 }
 
 func (n *BaseFunctionCallNode) Signature() *types.FunctionSignature {
@@ -437,14 +454,14 @@ func (n *BaseFunctionCallNode) SetHintList(v []*OptionNode) {
 func (n *BaseFunctionCallNode) AddHint(v *OptionNode) {
 }
 
-func (n *BaseFunctionCallNode) CollationList() []*CollationNode {
+func (n *BaseFunctionCallNode) CollationList() []*Collation {
 	return nil
 }
 
-func (n *BaseFunctionCallNode) SetCollationList(v []*CollationNode) {
+func (n *BaseFunctionCallNode) SetCollationList(v []*Collation) {
 }
 
-func (n *BaseFunctionCallNode) AddCollation(v *CollationNode) {
+func (n *BaseFunctionCallNode) AddCollation(v *Collation) {
 }
 
 // FunctionCallNode a regular function call.
@@ -454,11 +471,11 @@ type FunctionCallNode struct {
 	*BaseFunctionCallNode
 }
 
-func (n *FunctionCallNode) FunctionCallInfo() *FunctionCallInfoNode {
+func (n *FunctionCallNode) FunctionCallInfo() *FunctionCallInfo {
 	return nil
 }
 
-func (n *FunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfoNode) {
+func (n *FunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfo) {
 }
 
 type BaseNonScalarFunctionCallNode struct {
@@ -530,11 +547,11 @@ func (n *AggregateFunctionCallNode) Limit() ExprNode {
 func (n *AggregateFunctionCallNode) SetLimit(v ExprNode) {
 }
 
-func (n *AggregateFunctionCallNode) FunctionCallInfo() *FunctionCallInfoNode {
+func (n *AggregateFunctionCallNode) FunctionCallInfo() *FunctionCallInfo {
 	return nil
 }
 
-func (n *AggregateFunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfoNode) {
+func (n *AggregateFunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfo) {
 }
 
 // AnalyticFunctionCallNode an analytic function call.
@@ -575,11 +592,11 @@ func (n *ExtendedCastElementNode) ToType() types.Type {
 func (n *ExtendedCastElementNode) SetToType(v types.Type) {
 }
 
-func (n *ExtendedCastElementNode) Function() types.Function {
+func (n *ExtendedCastElementNode) Function() *types.Function {
 	return nil
 }
 
-func (n *ExtendedCastElementNode) SetFunction(v types.Function) {
+func (n *ExtendedCastElementNode) SetFunction(v *types.Function) {
 }
 
 // ExtendedCastNode describes overall cast operation between two values where at least one
@@ -1057,11 +1074,11 @@ func (n *SubqueryExprNode) SetInExpr(v ExprNode) {
 
 // InCollation field is only populated for subqueries of type IN to specify the
 // operation collation to use to compare <in_expr> with the rows from <subquery>.
-func (n *SubqueryExprNode) InCollation() *CollationNode {
+func (n *SubqueryExprNode) InCollation() *Collation {
 	return nil
 }
 
-func (n *SubqueryExprNode) SetInCollation(v *CollationNode) {
+func (n *SubqueryExprNode) SetInCollation(v *Collation) {
 }
 
 func (n *SubqueryExprNode) Subquery() *ScanNode {
@@ -1133,9 +1150,9 @@ func (n *LetExprNode) SetExpr(v ExprNode) {
 // of its single input scan (LimitOffsetScan, ProjectScan, or WithScan).
 type ScanNode interface {
 	Node
-	ColumnList() []*ColumnNode
-	SetColumnList([]*ColumnNode)
-	AddColumn(*ColumnNode)
+	ColumnList() []*Column
+	SetColumnList([]*Column)
+	AddColumn(*Column)
 	HintList() []*OptionNode
 	SetHintList([]*OptionNode)
 	AddHint(*OptionNode)
@@ -1147,15 +1164,15 @@ type BaseScanNode struct {
 	*BaseNode
 }
 
-func (n *BaseScanNode) ColumnList() []*ColumnNode {
+func (n *BaseScanNode) ColumnList() []*Column {
 	return nil
 }
 
-func (n *BaseScanNode) SetColumnList(v []*ColumnNode) {
+func (n *BaseScanNode) SetColumnList(v []*Column) {
 
 }
 
-func (n *BaseScanNode) AddColumn(v *ColumnNode) {
+func (n *BaseScanNode) AddColumn(v *Column) {
 
 }
 
@@ -1222,14 +1239,14 @@ type DescriptorNode struct {
 	*BaseArgumentNode
 }
 
-func (n *DescriptorNode) DescriptorColumnList() []*ColumnNode {
+func (n *DescriptorNode) DescriptorColumnList() []*Column {
 	return nil
 }
 
-func (n *DescriptorNode) SetDescriptorColumnList(v []*ColumnNode) {
+func (n *DescriptorNode) SetDescriptorColumnList(v []*Column) {
 }
 
-func (n *DescriptorNode) AddDescriptorColumn(v *ColumnNode) {
+func (n *DescriptorNode) AddDescriptorColumn(v *Column) {
 }
 
 func (n *DescriptorNode) DescriptorColumnNameList() []string {
@@ -1282,11 +1299,11 @@ type TableScanNode struct {
 	*BaseScanNode
 }
 
-func (n *TableScanNode) Table() schema.Table {
+func (n *TableScanNode) Table() types.Table {
 	return nil
 }
 
-func (n *TableScanNode) SetTable(v schema.Table) {
+func (n *TableScanNode) SetTable(v types.Table) {
 }
 
 func (n *TableScanNode) ForSystemTimeExpr() ExprNode {
@@ -1395,11 +1412,11 @@ func (n *ArrayScanNode) ArrayExpr() ExprNode {
 func (n *ArrayScanNode) SetArrayExpr(v ExprNode) {
 }
 
-func (n *ArrayScanNode) ElementColumn() *ColumnNode {
+func (n *ArrayScanNode) ElementColumn() *Column {
 	return nil
 }
 
-func (n *ArrayScanNode) SetElementColumn(v *ColumnNode) {
+func (n *ArrayScanNode) SetElementColumn(v *Column) {
 }
 
 func (n *ArrayScanNode) ArrayOffsetColumn() *ColumnHolderNode {
@@ -1423,16 +1440,16 @@ func (n *ArrayScanNode) IsOuter() bool {
 func (n *ArrayScanNode) SetIsOuter(v bool) {
 }
 
-// ColumnHolderNode this wrapper is used for an optional ColumnNode inside another node.
+// ColumnHolderNode this wrapper is used for an optional Column inside another node.
 type ColumnHolderNode struct {
 	*BaseArgumentNode
 }
 
-func (n *ColumnHolderNode) Column() *ColumnNode {
+func (n *ColumnHolderNode) Column() *Column {
 	return nil
 }
 
-func (n *ColumnHolderNode) SetColumn(v *ColumnNode) {
+func (n *ColumnHolderNode) SetColumn(v *Column) {
 }
 
 // FilterScanNode scan rows from input_scan, and emit all rows where filter_expr evaluates to true.
@@ -1515,14 +1532,14 @@ func (n *BaseAggregateScanNode) SetGroupByList(v []*ComputedColumnNode) {
 func (n *BaseAggregateScanNode) AddGroupBy(v *ComputedColumnNode) {
 }
 
-func (n *BaseAggregateScanNode) CollationList() []*CollationNode {
+func (n *BaseAggregateScanNode) CollationList() []*Collation {
 	return nil
 }
 
-func (n *BaseAggregateScanNode) SetCollationList(v []*CollationNode) {
+func (n *BaseAggregateScanNode) SetCollationList(v []*Collation) {
 }
 
-func (n *BaseAggregateScanNode) AddCollation(v *CollationNode) {
+func (n *BaseAggregateScanNode) AddCollation(v *Collation) {
 }
 
 func (n *BaseAggregateScanNode) AggregateList() []*ComputedColumnNode {
@@ -1625,14 +1642,14 @@ func (n *SetOperationItemNode) Scan() ScanNode {
 func (n *SetOperationItemNode) SetScan(v ScanNode) {
 }
 
-func (n *SetOperationItemNode) OutputColumnList() []*ColumnNode {
+func (n *SetOperationItemNode) OutputColumnList() []*Column {
 	return nil
 }
 
-func (n *SetOperationItemNode) SetOutputColumnList(v []*ColumnNode) {
+func (n *SetOperationItemNode) SetOutputColumnList(v []*Column) {
 }
 
-func (n *SetOperationItemNode) AddOutputColumn(v *ColumnNode) {
+func (n *SetOperationItemNode) AddOutputColumn(v *Column) {
 }
 
 // SetOperationScanNode apply a set operation (specified by <op_type>) on two or more input scans.
@@ -1876,15 +1893,13 @@ func (n *SampleScanNode) PartitionByList() []ExprNode {
 }
 
 func (n *SampleScanNode) SetPartitionByList(v []ExprNode) {
-	return nil
 }
 
 func (n *SampleScanNode) AddPartitionBy(v ExprNode) {
-	return nil
 }
 
 // ComputedColumnNode this is used when an expression is computed and given a name (a new
-// ColumnNode) that can be referenced elsewhere.  The new ColumnNode
+// Column) that can be referenced elsewhere.  The new Column
 // can appear in a column_list or in ColumnRefsNode in other expressions,
 // when appropriate.  This node is not an expression itself - it is a
 // container that holds an expression.
@@ -1892,11 +1907,11 @@ type ComputedColumnNode struct {
 	*BaseArgumentNode
 }
 
-func (n *ComputedColumnNode) Column() *ColumnNode {
+func (n *ComputedColumnNode) Column() *Column {
 	return nil
 }
 
-func (n *ComputedColumnNode) SetColumn(v *ColumnNode) {
+func (n *ComputedColumnNode) SetColumn(v *Column) {
 }
 
 func (n *ComputedColumnNode) Expr() ExprNode {
@@ -1958,11 +1973,11 @@ func (n *OrderByItemNode) NullOrder() NullOrderMode {
 func (n *OrderByItemNode) SetNullOrder(v NullOrderMode) {
 }
 
-func (n *OrderByItemNode) Collation() *CollationNode {
+func (n *OrderByItemNode) Collation() *Collation {
 	return nil
 }
 
-func (n *OrderByItemNode) SetCollation(v *CollationNode) {
+func (n *OrderByItemNode) SetCollation(v *Collation) {
 }
 
 // ColumnAnnotationsNode this is used in CREATE TABLE statements to provide column annotations
@@ -2027,7 +2042,6 @@ func (n *ColumnAnnotationsNode) TypeParameters() *types.TypeParameters {
 }
 
 func (n *ColumnAnnotationsNode) SetTypeParameters(v *types.TypeParameters) {
-	return nil
 }
 
 // GeneratedColumnInfoNode <expression> indicates the expression that defines the column.
@@ -2118,7 +2132,6 @@ func (n *ColumnDefinitionNode) Type() types.Type {
 }
 
 func (n *ColumnDefinitionNode) SetType(v types.Type) {
-	return nil
 }
 
 func (n *ColumnDefinitionNode) Annotations() *ColumnAnnotationsNode {
@@ -2135,11 +2148,11 @@ func (n *ColumnDefinitionNode) IsHidden() bool {
 func (n *ColumnDefinitionNode) SetIsHidden(v bool) {
 }
 
-func (n *ColumnDefinitionNode) Column() *ColumnNode {
+func (n *ColumnDefinitionNode) Column() *Column {
 	return nil
 }
 
-func (n *ColumnDefinitionNode) SetColumn(v *ColumnNode) {
+func (n *ColumnDefinitionNode) SetColumn(v *Column) {
 }
 
 func (n *ColumnDefinitionNode) GeneratedColumnInfo() *GeneratedColumnInfoNode {
@@ -2279,11 +2292,11 @@ func (n *ForeignKeyNode) SetReferencingColumnOffsetList(v []int) {
 func (n *ForeignKeyNode) AddReferencingColumnOffset(v int) {
 }
 
-func (n *ForeignKeyNode) ReferencedTable() schema.Table {
+func (n *ForeignKeyNode) ReferencedTable() types.Table {
 	return nil
 }
 
-func (n *ForeignKeyNode) SetReferencedTable(v schema.Table) {
+func (n *ForeignKeyNode) SetReferencedTable(v types.Table) {
 }
 
 func (n *ForeignKeyNode) ReferencedColumnOffsetList() []int {
@@ -2407,11 +2420,11 @@ func (n *OutputColumnNode) Name() string {
 func (n *OutputColumnNode) SetName(v string) {
 }
 
-func (n *OutputColumnNode) Column() *ColumnNode {
+func (n *OutputColumnNode) Column() *Column {
 	return nil
 }
 
-func (n *OutputColumnNode) SetColumn(v *ColumnNode) {
+func (n *OutputColumnNode) SetColumn(v *Column) {
 }
 
 // ProjectScanNode a project node computes new expression values, and possibly drops
@@ -2653,14 +2666,14 @@ func (n *FunctionArgumentNode) DescriptorArg() *DescriptorNode {
 func (n *FunctionArgumentNode) SetDescriptorArg(v *DescriptorNode) {
 }
 
-func (n *FunctionArgumentNode) ArgumentColumnList() []*ColumnNode {
+func (n *FunctionArgumentNode) ArgumentColumnList() []*Column {
 	return nil
 }
 
-func (n *FunctionArgumentNode) SetArgumentColumnList(v []*ColumnNode) {
+func (n *FunctionArgumentNode) SetArgumentColumnList(v []*Column) {
 }
 
-func (n *FunctionArgumentNode) AddArgumentColumn(v *ColumnNode) {
+func (n *FunctionArgumentNode) AddArgumentColumn(v *Column) {
 }
 
 func (n *FunctionArgumentNode) InlineLambda() *InlineLambdaNode {
@@ -2864,11 +2877,11 @@ func (n *UnnestItemNode) ArrayExpr() ExprNode {
 func (n *UnnestItemNode) SetArrayExpr(v ExprNode) {
 }
 
-func (n *UnnestItemNode) ElementColumn() *ColumnNode {
+func (n *UnnestItemNode) ElementColumn() *Column {
 	return nil
 }
 
-func (n *UnnestItemNode) SetElementColumn(v *ColumnNode) {
+func (n *UnnestItemNode) SetElementColumn(v *Column) {
 }
 
 func (n *UnnestItemNode) ArrayOffsetColumn() *ColumnHolderNode {
@@ -3096,14 +3109,14 @@ func (n *BaseCreateTableStmtNode) SetColumnDefinitionList(v []*ColumnDefinitionN
 func (n *BaseCreateTableStmtNode) AddColumnDefinition(v *ColumnDefinitionNode) {
 }
 
-func (n *BaseCreateTableStmtNode) PseudoColumnList() []*ColumnNode {
+func (n *BaseCreateTableStmtNode) PseudoColumnList() []*Column {
 	return nil
 }
 
-func (n *BaseCreateTableStmtNode) SetPseudoColumnList(v []*ColumnNode) {
+func (n *BaseCreateTableStmtNode) SetPseudoColumnList(v []*Column) {
 }
 
-func (n *BaseCreateTableStmtNode) AddPseudoColumn(v *ColumnNode) {
+func (n *BaseCreateTableStmtNode) AddPseudoColumn(v *Column) {
 }
 
 func (n *BaseCreateTableStmtNode) PrimaryKey() *PrimaryKeyNode {
@@ -3140,12 +3153,11 @@ func (n *BaseCreateTableStmtNode) IsValueTable() bool {
 func (n *BaseCreateTableStmtNode) SetIsValueTable(v bool) {
 }
 
-func (n *BaseCreateTableStmtNode) LikeTable() schema.Table {
+func (n *BaseCreateTableStmtNode) LikeTable() types.Table {
 	return nil
 }
 
-func (n *BaseCreateTableStmtNode) SetLikeTable(v schema.Table) {
-	return nil
+func (n *BaseCreateTableStmtNode) SetLikeTable(v types.Table) {
 }
 
 func (n *BaseCreateTableStmtNode) CollationName() ExprNode {
@@ -3586,7 +3598,6 @@ func (n *ExportModelStmtNode) ModelNamePath() []string {
 }
 
 func (n *ExportModelStmtNode) SetModelNamePath(v []string) {
-	n
 }
 
 func (n *ExportModelStmtNode) AddModelName(v string) {
@@ -3956,7 +3967,7 @@ func (n *DropMaterializedViewStmtNode) NamePath() []string {
 	return nil
 }
 
-func (n *DropMaterializedViewStmtNode) SetNamePath(v []string) n {
+func (n *DropMaterializedViewStmtNode) SetNamePath(v []string) {
 }
 
 func (n *DropMaterializedViewStmtNode) AddName(v string) {
@@ -4250,14 +4261,14 @@ type WindowOrderingNode struct {
 	*BaseArgumentNode
 }
 
-func (n *WindowOrderingNode) OrderByItemList() []*OrderByItem {
+func (n *WindowOrderingNode) OrderByItemList() []*OrderByItemNode {
 	return nil
 }
 
-func (n *WindowOrderingNode) SetOrderByItemList(v []*OrderByItem) {
+func (n *WindowOrderingNode) SetOrderByItemList(v []*OrderByItemNode) {
 }
 
-func (n *WindowOrderingNode) AddOrderByItem(v *OrderByItem) {
+func (n *WindowOrderingNode) AddOrderByItem(v *OrderByItemNode) {
 }
 
 func (n *WindowOrderingNode) HintList() []*OptionNode {
@@ -4519,14 +4530,14 @@ func (n *InsertStmtNode) Returning() *ReturningClauseNode {
 func (n *InsertStmtNode) SetReturning(v *ReturningClauseNode) {
 }
 
-func (n *InsertStmtNode) InsertColumnList() []*ColumnNode {
+func (n *InsertStmtNode) InsertColumnList() []*Column {
 	return nil
 }
 
-func (n *InsertStmtNode) SetInsertColumnList(v []*ColumnNode) {
+func (n *InsertStmtNode) SetInsertColumnList(v []*Column) {
 }
 
-func (n *InsertStmtNode) AddInsertColumn(v *ColumnNode) {
+func (n *InsertStmtNode) AddInsertColumn(v *Column) {
 }
 
 func (n *InsertStmtNode) QueryParameterList() []*ColumnRefNode {
@@ -4546,14 +4557,14 @@ func (n *InsertStmtNode) Query() ScanNode {
 func (n *InsertStmtNode) SetQuery(v ScanNode) {
 }
 
-func (n *InsertStmtNode) QueryOutputColumnList() []*ColumnNode {
+func (n *InsertStmtNode) QueryOutputColumnList() []*Column {
 	return nil
 }
 
-func (n *InsertStmtNode) SetQueryOutputColumnList(v []*ColumnNode) {
+func (n *InsertStmtNode) SetQueryOutputColumnList(v []*Column) {
 }
 
-func (n *InsertStmtNode) AddQueryOutputColumn(v *ColumnNode) {
+func (n *InsertStmtNode) AddQueryOutputColumn(v *Column) {
 }
 
 func (n *InsertStmtNode) RowList() []*InsertRowNode {
@@ -4570,7 +4581,7 @@ func (n *InsertStmtNode) AddRow(v *InsertRowNode) {
 // UPDATE statement.
 //
 // For top-level DELETE statements, <table_scan> gives the table to
-// scan and creates ColumnNodes for its columns.  Those columns can
+// scan and creates Columns for its columns.  Those columns can
 // be referenced inside the <where_expr>.
 //
 // For nested DELETEs, there is no <table_scan>.  The <where_expr> can
@@ -4613,11 +4624,11 @@ func (n *DeleteStmtNode) Returning() *ReturningClauseNode {
 func (n *DeleteStmtNode) SetReturning(v *ReturningClauseNode) {
 }
 
-func (n *DeleteStmtNode) ArrayOffsetColumn() *ColumnHolder {
+func (n *DeleteStmtNode) ArrayOffsetColumn() *ColumnHolderNode {
 	return nil
 }
 
-func (n *DeleteStmtNode) SetArrayOffsetColumn(v *ColumnHolder) {
+func (n *DeleteStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
 }
 
 func (n *DeleteStmtNode) WhereExpr() ExprNode {
@@ -4639,7 +4650,7 @@ func (n *DeleteStmtNode) SetWhereExpr(v ExprNode) {
 //
 // For an array element update (e.g. SET a.b[<expr>].c = <value>),
 //   - <target> is set to the array,
-//   - <element_column> is a new ColumnNode that can be used inside the
+//   - <element_column> is a new Column that can be used inside the
 //     update items to refer to the array element.
 //   - <array_update_list> will have a node corresponding to the offset into
 //     that array and the modification to that array element.
@@ -4688,7 +4699,7 @@ func (n *DeleteStmtNode) SetWhereExpr(v ExprNode) {
 //
 // For nested DML, <target> and <element_column> will both be set, and one or
 // more of the nested statement lists will be non-empty. <target> must have
-// ARRAY type, and <element_column> introduces a ColumnNode representing
+// ARRAY type, and <element_column> introduces a Column representing
 // elements of that array. The nested statement lists will always be empty in
 // a UpdateItemNode child of a UpdateArrayItemNode.
 type UpdateItemNode struct {
@@ -4697,7 +4708,7 @@ type UpdateItemNode struct {
 
 // Target the target entity to be updated.
 //
-// This is an expression evaluated using the ColumnNodes visible
+// This is an expression evaluated using the Columns visible
 // inside this statement.  This expression can contain only
 // ColumnRefNodes, GetProtoFieldNode and GetStructFieldNodes.
 //
@@ -4746,7 +4757,7 @@ func (n *UpdateItemNode) SetValue() *DMLValueNode {
 func (n *UpdateItemNode) SetSetValue(v *DMLValueNode) {
 }
 
-// ElementColumn the ColumnNode introduced to represent the elements of the
+// ElementColumn the Column introduced to represent the elements of the
 // array being updated.  This works similarly to
 // ArrayScan.ElementColumn().
 //
@@ -4854,7 +4865,7 @@ func (n *UpdateArrayItemNode) SetUpdateItem(v *UpdateItemNode) {
 // UPDATE statement.
 //
 // For top-level UPDATE statements, <table_scan> gives the table to
-// scan and creates ColumnNodes for its columns.  Those columns can be
+// scan and creates Columns for its columns.  Those columns can be
 // referenced in the <update_item_list>. The top-level UPDATE statement may
 // also have <from_scan>, the output of which is joined with
 // the <table_scan> using expressions in the <where_expr>. The columns
@@ -4924,11 +4935,11 @@ func (n *UpdateStmtNode) Returning() *ReturningClauseNode {
 func (n *UpdateStmtNode) SetReturning(v *ReturningClauseNode) {
 }
 
-func (n *UpdateStmtNode) ArrayOffsetColumn() *ColumnHolder {
+func (n *UpdateStmtNode) ArrayOffsetColumn() *ColumnHolderNode {
 	return nil
 }
 
-func (n *UpdateStmtNode) SetArrayOffsetColumn(v *ColumnHolder) {
+func (n *UpdateStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
 }
 
 func (n *UpdateStmtNode) WhereExpr() ExprNode {
@@ -5023,14 +5034,14 @@ func (n *MergeWhenNode) ActionType() ActionType {
 func (n *MergeWhenNode) SetActionType(v ActionType) {
 }
 
-func (n *MergeWhenNode) InsertColumnList() []*ColumnNode {
+func (n *MergeWhenNode) InsertColumnList() []*Column {
 	return nil
 }
 
-func (n *MergeWhenNode) SetInsertColumnList(v []*ColumnNode) {
+func (n *MergeWhenNode) SetInsertColumnList(v []*Column) {
 }
 
-func (n *MergeWhenNode) AddInsertColumn(v *ColumnNode) {
+func (n *MergeWhenNode) AddInsertColumn(v *Column) {
 }
 
 func (n *MergeWhenNode) InsertRow() *InsertRowNode {
@@ -5047,13 +5058,13 @@ func (n *MergeWhenNode) UpdateItemList() []*UpdateItemNode {
 func (n *MergeWhenNode) SetUpdateItemList(v []*UpdateItemNode) {
 }
 
-func (n *MergeWhenNode) AddUpdateItem(v *UpdateImteNode) {
+func (n *MergeWhenNode) AddUpdateItem(v *UpdateItemNode) {
 
 }
 
 // MergeStmtNode represents a MERGE statement.
 //
-// <table_scan> gives the target table to scan and creates ColumnNodes
+// <table_scan> gives the target table to scan and creates Columns
 // for its columns.
 //
 // <column_access_list> indicates for each column, whether it was read and/or
@@ -5396,11 +5407,11 @@ func (n *AddColumnActionNode) IsIfNotExists() bool {
 func (n *AddColumnActionNode) SetIsIfNotExists(v bool) {
 }
 
-func (n *AddColumnActionNode) ColumnDefinition() *ColumnDefinition {
+func (n *AddColumnActionNode) ColumnDefinition() *ColumnDefinitionNode {
 	return nil
 }
 
-func (n *AddColumnActionNode) SetColumnDefinition(v *ColumnDefinition) {
+func (n *AddColumnActionNode) SetColumnDefinition(v *ColumnDefinitionNode) {
 }
 
 // AddConstraintActionNode
@@ -5423,11 +5434,11 @@ func (n *AddConstraintActionNode) Constraint() *ConstraintNode {
 func (n *AddConstraintActionNode) SetConstraint(v *ConstraintNode) {
 }
 
-func (n *AddConstraintActionNode) Table() schema.Table {
+func (n *AddConstraintActionNode) Table() types.Table {
 	return nil
 }
 
-func (n *AddConstraintActionNode) SetTable(v schema.Table) {
+func (n *AddConstraintActionNode) SetTable(v types.Table) {
 }
 
 // DropConstraintActionNode
@@ -5549,7 +5560,7 @@ func (n *AlterColumnSetDefaultActionNode) SetDefaultValue(v *ColumnDefaultValueN
 //   ALTER COLUMN [IF EXISTS] <column> DROP DEFAULT
 //
 // Removes the DEFAULT constraint from the given column.
-type AlterColumnDropDefaultAction struct {
+type AlterColumnDropDefaultActionNode struct {
 	*BaseAlterColumnActionNode
 }
 
@@ -6169,7 +6180,7 @@ func (n *RenameToActionNode) AddNewPath(v string) {
 // <object_type> is a string identifier, which is currently either TABLE or
 //               VIEW, which tells the engine how to look up the name.
 type AlterPrivilegeRestrictionStmtNode struct {
-	*BaseAlterObjectStmtNode
+	*AlterObjectStmtNode
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) ColumnPrivilegeList() []*PrivilegeNode {
@@ -6200,7 +6211,7 @@ func (n *AlterPrivilegeRestrictionStmtNode) SetObjectType(v string) {
 //              resolving and validation. Consumers can use either the table
 //              object inside it or base <name_path> to reference the table.
 type AlterRowAccessPolicyStmtNode struct {
-	*BaseAlterObjectStmtNode
+	*AlterObjectStmtNode
 }
 
 func (n *AlterRowAccessPolicyStmtNode) Name() string {
@@ -6228,7 +6239,7 @@ func (n *AlterRowAccessPolicyStmtNode) SetTableScan(v *TableScanNode) {
 //              resolving and validation. Consumers can use either the table
 //              object inside it or base <name_path> to reference the table.
 type AlterAllRowAccessPoliciesStmtNode struct {
-	*BaseAlterObjectStmtNode
+	*AlterObjectStmtNode
 }
 
 func (n *AlterAllRowAccessPoliciesStmtNode) TableScan() *TableScanNode {
@@ -6236,7 +6247,6 @@ func (n *AlterAllRowAccessPoliciesStmtNode) TableScan() *TableScanNode {
 }
 
 func (n *AlterAllRowAccessPoliciesStmtNode) SetTableScan(v *TableScanNode) {
-	return nil
 }
 
 // CreateConstantStmtNode this statement creates a user-defined named constant:
@@ -6355,8 +6365,8 @@ func (n *CreateConstantStmtNode) SetExpr(v ExprNode) {
 // UDF's <aggregate_expression_list>, and then add an additional Project
 // to compute the final <function_expression>, which should produce the
 // value for the original AggregateScanNode's computed column for the
-// UDF.  Some rewrites of the ColumnNode references inside the UDF will
-// be required.  TODO If using ColumnNodes makes this renaming
+// UDF.  Some rewrites of the Column references inside the UDF will
+// be required.  TODO If using Columns makes this renaming
 // too complicated, we could switch to use ArgumentRefNodes, or
 // something new.
 type CreateFunctionStmtNode struct {
@@ -6468,7 +6478,6 @@ func (n *CreateFunctionStmtNode) Connection() *ConnectionNode {
 }
 
 func (n *CreateFunctionStmtNode) SetConnection(v *ConnectionNode) {
-	return nil
 }
 
 // ArgumentDefNode this represents an argument definition, e.g. in a function's argument
@@ -7014,11 +7023,11 @@ type AggregateHavingModifierNode struct {
 	*BaseArgumentNode
 }
 
-func (n *AggregateHavingModifierNode) Kind() HavingModifierKind {
+func (n *AggregateHavingModifierNode) ModifierKind() HavingModifierKind {
 	return HavingModifierKind(0)
 }
 
-func (n *AggregateHavingModifierNode) SetKind(v HavingModifierKind) {
+func (n *AggregateHavingModifierNode) SetModifierKind(v HavingModifierKind) {
 }
 
 func (n *AggregateHavingModifierNode) HavingExpr() ExprNode {
@@ -7034,7 +7043,7 @@ func (n *AggregateHavingModifierNode) SetHavingExpr(v ExprNode) {
 //
 // <column_definition_list> matches 1:1 with the <output_column_list> in
 // BaseCreateViewNode and provides explicit definition for each
-// ColumnNode produced by <query>. Output column names and types must
+// Column produced by <query>. Output column names and types must
 // match column definition names and types. If the table is a value table,
 // <column_definition_list> must have exactly one column, with a generated
 // name such as "$struct".
@@ -7283,7 +7292,7 @@ func (n *CreateEntityStmtNode) AddOption(v *OptionNode) {
 //
 // <entity_type> engine-specific entity type to be altered.
 type AlterEntityStmtNode struct {
-	*BaseAlterObjectStmtNode
+	*AlterObjectStmtNode
 }
 
 func (n *AlterEntityStmtNode) EntityType() string {
@@ -7311,11 +7320,11 @@ type PivotColumnNode struct {
 }
 
 // Column the output column used to represent the result of the pivot.
-func (n *PivotColumnNode) Column() *ColumnNode {
+func (n *PivotColumnNode) Column() *Column {
 	return nil
 }
 
-func (n *PivotColumnNode) SetColumn(v *ColumnNode) {
+func (n *PivotColumnNode) SetColumn(v *Column) {
 }
 
 // PivotExprIndex specifies the index of the pivot expression
@@ -7549,24 +7558,24 @@ func (n *UnpivotScanNode) SetInputScan(v ScanNode) {
 // ValueColumnList list of one or more new columns added by UNPIVOT.
 // These new column(s) store the value of input columns that are in
 // the UNPIVOT IN clause.
-func (n *UnpivotScanNode) ValueColumnList() []*ColumnNode {
+func (n *UnpivotScanNode) ValueColumnList() []*Column {
 	return nil
 }
 
-func (n *UnpivotScanNode) SetValueColumnList(v []*ColumnNode) {
+func (n *UnpivotScanNode) SetValueColumnList(v []*Column) {
 }
 
-func (n *UnpivotScanNode) AddValueColumn(v *ColumnNode) {
+func (n *UnpivotScanNode) AddValueColumn(v *Column) {
 }
 
 // LabelColumn this is a new column added in the output for storing labels for
 // input columns groups that are present in the IN clause. Its
 // values are taken from <label_list>.
-func (n *UnpivotScanNode) LabelColumn() *ColumnNode {
+func (n *UnpivotScanNode) LabelColumn() *Column {
 	return nil
 }
 
-func (n *UnpivotScanNode) SetLabelColumn(v *ColumnNode) {
+func (n *UnpivotScanNode) SetLabelColumn(v *Column) {
 }
 
 // LabelList string or integer literal for each column group in
@@ -7668,11 +7677,11 @@ type TableAndColumnInfoNode struct {
 	*BaseArgumentNode
 }
 
-func (n *TableAndColumnInfoNode) Table() schema.Table {
+func (n *TableAndColumnInfoNode) Table() types.Table {
 	return nil
 }
 
-func (n *TableAndColumnInfoNode) SetTable(v schema.Table) {
+func (n *TableAndColumnInfoNode) SetTable(v types.Table) {
 }
 
 func (n *TableAndColumnInfoNode) ColumnIndexList() []int {
@@ -7815,14 +7824,14 @@ func (n *AuxLoadDataStmtNode) SetColumnDefinitionList(v []*ColumnDefinitionNode)
 func (n *AuxLoadDataStmtNode) AddColumnDefinition(v *ColumnDefinitionNode) {
 }
 
-func (n *AuxLoadDataStmtNode) PseudoColumnList() []*ColumnNode {
+func (n *AuxLoadDataStmtNode) PseudoColumnList() []*Column {
 	return nil
 }
 
-func (n *AuxLoadDataStmtNode) SetPseudoColumnList(v []*ColumnNode) {
+func (n *AuxLoadDataStmtNode) SetPseudoColumnList(v []*Column) {
 }
 
-func (n *AuxLoadDataStmtNode) AddPseudoColumn(v *ColumnNode) {
+func (n *AuxLoadDataStmtNode) AddPseudoColumn(v *Column) {
 }
 
 func (n *AuxLoadDataStmtNode) PrimaryKey() *PrimaryKeyNode {
@@ -7913,7 +7922,7 @@ func newNode(v unsafe.Pointer) Node {
 		return nil
 	}
 	var kind int
-	internal.Node_node_kind(v, &kind)
+	//internal.Node_node_kind(v, &kind)
 	switch Kind(kind) {
 	case Literal:
 		return newLiteralNode(v)
@@ -7938,7 +7947,7 @@ func newNode(v unsafe.Pointer) Node {
 	case AggregateFunctionCall:
 		return newAggregateFunctionCallNode(v)
 	case AnalyticFunctionCall:
-		return newAnalyticFunctinoCallNode(v)
+		return newAnalyticFunctionCallNode(v)
 	case ExtendedCastElement:
 		return newExtendedCastElementNode(v)
 	case ExtendedCast:
@@ -8104,7 +8113,7 @@ func newNode(v unsafe.Pointer) Node {
 	case Option:
 		return newOptionNode(v)
 	case WindowPartitioning:
-		return newWindowPartioningNode(v)
+		return newWindowPartitioningNode(v)
 	case WindowOrdering:
 		return newWindowOrderingNode(v)
 	case WindowFrame:
@@ -8381,7 +8390,7 @@ func newFunctionCallNode(v unsafe.Pointer) *FunctionCallNode {
 	return &FunctionCallNode{BaseFunctionCallNode: newBaseFunctionCallNode(v)}
 }
 
-func newBaseNonScalarFunctionCallNode(v unsafe.Poiner) *BaseNonScalarFunctionCallNode {
+func newBaseNonScalarFunctionCallNode(v unsafe.Pointer) *BaseNonScalarFunctionCallNode {
 	if v == nil {
 		return nil
 	}
@@ -8605,6 +8614,13 @@ func newAnonymizedAggregateScanNode(v unsafe.Pointer) *AnonymizedAggregateScanNo
 	return &AnonymizedAggregateScanNode{BaseAggregateScanNode: newBaseAggregateScanNode(v)}
 }
 
+func newSetOperationItemNode(v unsafe.Pointer) *SetOperationItemNode {
+	if v == nil {
+		return nil
+	}
+	return &SetOperationItemNode{BaseArgumentNode: newBaseArgumentNode(v)}
+}
+
 func newSetOperationScanNode(v unsafe.Pointer) *SetOperationScanNode {
 	if v == nil {
 		return nil
@@ -8687,6 +8703,13 @@ func newColumnDefinitionNode(v unsafe.Pointer) *ColumnDefinitionNode {
 		return nil
 	}
 	return &ColumnDefinitionNode{BaseArgumentNode: newBaseArgumentNode(v)}
+}
+
+func newBaseConstraintNode(v unsafe.Pointer) *BaseConstraintNode {
+	if v == nil {
+		return nil
+	}
+	return &BaseConstraintNode{BaseArgumentNode: newBaseArgumentNode(v)}
 }
 
 func newPrimaryKeyNode(v unsafe.Pointer) *PrimaryKeyNode {
@@ -8997,11 +9020,11 @@ func newWithScanNode(v unsafe.Pointer) *WithScanNode {
 	return &WithScanNode{BaseScanNode: newBaseScanNode(v)}
 }
 
-func newWithEntryScanNode(v unsafe.Pointer) *WithEntryScanNode {
+func newWithEntryNode(v unsafe.Pointer) *WithEntryNode {
 	if v == nil {
 		return nil
 	}
-	return &WithEntryScanNode{BaseArgumentNode: newBaseArgumentNode(v)}
+	return &WithEntryNode{BaseArgumentNode: newBaseArgumentNode(v)}
 }
 
 func newOptionNode(v unsafe.Pointer) *OptionNode {
@@ -9065,6 +9088,20 @@ func newAssertStmtNode(v unsafe.Pointer) *AssertStmtNode {
 		return nil
 	}
 	return &AssertStmtNode{BaseStatementNode: newBaseStatementNode(v)}
+}
+
+func newAssertRowsModifiedNode(v unsafe.Pointer) *AssertRowsModifiedNode {
+	if v == nil {
+		return nil
+	}
+	return &AssertRowsModifiedNode{BaseArgumentNode: newBaseArgumentNode(v)}
+}
+
+func newInsertRowNode(v unsafe.Pointer) *InsertRowNode {
+	if v == nil {
+		return nil
+	}
+	return &InsertRowNode{BaseArgumentNode: newBaseArgumentNode(v)}
 }
 
 func newInsertStmtNode(v unsafe.Pointer) *InsertStmtNode {
@@ -9414,21 +9451,21 @@ func newAlterPrivilegeRestrictionStmtNode(v unsafe.Pointer) *AlterPrivilegeRestr
 	if v == nil {
 		return nil
 	}
-	return &AlterPrivilegeRestrictionStmtNode{BaseAlterObjectStmtNode: newBaseAlterObjectStmtNode(v)}
+	return &AlterPrivilegeRestrictionStmtNode{AlterObjectStmtNode: newAlterObjectStmtNode(v)}
 }
 
 func newAlterRowAccessPolicyStmtNode(v unsafe.Pointer) *AlterRowAccessPolicyStmtNode {
 	if v == nil {
 		return nil
 	}
-	return &AlterRowAccessPolicyStmtNode{BaseAlterObjectStmtNode: newBaseAlterObjectStmtNode(v)}
+	return &AlterRowAccessPolicyStmtNode{AlterObjectStmtNode: newAlterObjectStmtNode(v)}
 }
 
 func newAlterAllRowAccessPoliciesStmtNode(v unsafe.Pointer) *AlterAllRowAccessPoliciesStmtNode {
 	if v == nil {
 		return nil
 	}
-	return &AlterAllRowAccessPoliciesStmtNode{BaseAlterObjectStmtNode: newBaseAlterObjectStmtNode(v)}
+	return &AlterAllRowAccessPoliciesStmtNode{AlterObjectStmtNode: newAlterObjectStmtNode(v)}
 }
 
 func newCreateConstantStmtNode(v unsafe.Pointer) *CreateConstantStmtNode {
@@ -9456,7 +9493,7 @@ func newArgumentRefNode(v unsafe.Pointer) *ArgumentRefNode {
 	if v == nil {
 		return nil
 	}
-	return &ArgumentRefNode{BaseArgumentNode: newBaseArgumentNode(v)}
+	return &ArgumentRefNode{BaseExprNode: newBaseExprNode(v)}
 }
 
 func newCreateTableFunctionStmtNode(v unsafe.Pointer) *CreateTableFunctionStmtNode {
@@ -9550,11 +9587,11 @@ func newExecuteImmediateArgumentNode(v unsafe.Pointer) *ExecuteImmediateArgument
 	return &ExecuteImmediateArgumentNode{BaseArgumentNode: newBaseArgumentNode(v)}
 }
 
-func newExecuteImmediateStatementNode(v unsafe.Pointer) *ExecuteImmediateStatementNode {
+func newExecuteImmediateStmtNode(v unsafe.Pointer) *ExecuteImmediateStmtNode {
 	if v == nil {
 		return nil
 	}
-	return &ExecuteImmediateStatementNode{BaseStatementNode: newBaseStatementNode(v)}
+	return &ExecuteImmediateStmtNode{BaseStatementNode: newBaseStatementNode(v)}
 }
 
 func newAssignmentStmtNode(v unsafe.Pointer) *AssignmentStmtNode {
@@ -9575,7 +9612,7 @@ func newAlterEntityStmtNode(v unsafe.Pointer) *AlterEntityStmtNode {
 	if v == nil {
 		return nil
 	}
-	return &AlterEntityStmtNode{BaseAlterObjectStmtNode: newBaseAlterObjectStmtNode(v)}
+	return &AlterEntityStmtNode{AlterObjectStmtNode: newAlterObjectStmtNode(v)}
 }
 
 func newPivotColumnNode(v unsafe.Pointer) *PivotColumnNode {

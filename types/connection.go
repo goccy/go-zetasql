@@ -1,4 +1,4 @@
-package zetasql
+package types
 
 type Connection interface {
 	Name() string

@@ -1,4 +1,4 @@
-package zetasql
+package types
 
 import (
 	"reflect"
@@ -106,7 +106,7 @@ func (t *BaseTable) CreateEvaluatorTableIterator(columnIdxs []int) (*EvaluatorTa
 	)
 	data, len := intSlice(columnIdxs)
 	internal.Table_CreateEvaluatorTableIterator(t.raw, data, len, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -164,7 +164,7 @@ func NewSimpleTable(name string, columns []Column) *SimpleTable {
 func (t *SimpleTable) AddColumn(col Column) error {
 	var status unsafe.Pointer
 	internal.SimpleTable_AddColumn(t.raw, col.getRaw(), &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}
@@ -180,7 +180,7 @@ func (t *SimpleTable) SetPrimaryKey(primaryKey []int) error {
 	var status unsafe.Pointer
 	data, len := intSlice(primaryKey)
 	internal.SimpleTable_SetPrimaryKey(t.raw, data, len, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}
@@ -190,7 +190,7 @@ func (t *SimpleTable) SetPrimaryKey(primaryKey []int) error {
 func (t *SimpleTable) SetFullName(fullName string) error {
 	var status unsafe.Pointer
 	internal.SimpleTable_set_full_name(t.raw, helper.StringToPtr(fullName), &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}
@@ -216,7 +216,7 @@ func (t *SimpleTable) AllowDuplicateColumnNames() bool {
 func (t *SimpleTable) SetAllowAnonymousColumnName(value bool) error {
 	var status unsafe.Pointer
 	internal.SimpleTable_set_allow_anonymous_column_name(t.raw, helper.BoolToInt(value), &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}
@@ -226,7 +226,7 @@ func (t *SimpleTable) SetAllowAnonymousColumnName(value bool) error {
 func (t *SimpleTable) SetAllowDuplicateColumnNames(value bool) error {
 	var status unsafe.Pointer
 	internal.SimpleTable_set_allow_duplicate_column_names(t.raw, helper.BoolToInt(value), &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return st.Error()
 	}

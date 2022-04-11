@@ -14,6 +14,8 @@ type SetOperationType int
 
 type SampleUnit int
 
+type FrameUnit int
+
 type NullOrderMode int
 
 type StoredMode int
@@ -49,3 +51,7 @@ type ImportKind int
 type HavingModifierKind int
 
 type InsertionMode int
+
+type InsertMode int
+
+type DeterminismLevel int

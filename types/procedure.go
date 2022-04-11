@@ -1,4 +1,4 @@
-package zetasql
+package types
 
 type Procedure interface {
 	Name() string

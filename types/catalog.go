@@ -1,9 +1,10 @@
-package zetasql
+package types
 
 import (
 	"reflect"
 	"unsafe"
 
+	"github.com/goccy/go-zetasql/constant"
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/simple_catalog"
 	"github.com/goccy/go-zetasql/internal/helper"
 )
@@ -19,7 +20,7 @@ type Catalog interface {
 	FindTableValuedFunction(path []string) (TableValuedFunction, error)
 	FindProcedure(path []string) (Procedure, error)
 	FindType(path []string) (Type, error)
-	FindConstant(path []string) (Constant, error)
+	FindConstant(path []string) (constant.Constant, error)
 	FindConversion(from, to Type) (Conversion, error)
 	ExtendedTypeSuperTypes(typ Type) (*TypeListView, error)
 	SuggestTable(mistypedPath []string) string
@@ -66,7 +67,7 @@ func (c *BaseCatalog) FindTable(path []string) (Table, error) {
 		status unsafe.Pointer
 	)
 	internal.Catalog_FindTable(c.raw, helper.StringsToPtr(path), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -99,14 +100,14 @@ func (c *BaseCatalog) FindType(path []string) (Type, error) {
 		status unsafe.Pointer
 	)
 	internal.Catalog_FindType(c.raw, unsafe.Pointer(&path), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
 	return newType(v), nil
 }
 
-func (c *BaseCatalog) FindConstant(path []string) (Constant, error) {
+func (c *BaseCatalog) FindConstant(path []string) (constant.Constant, error) {
 	return nil, nil
 }
 
@@ -157,7 +158,7 @@ func (c *BaseEnumerableCatalog) Catalogs() ([]Catalog, error) {
 		status unsafe.Pointer
 	)
 	internal.EnumerableCatalog_Catalogs(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -175,7 +176,7 @@ func (c *BaseEnumerableCatalog) Tables() ([]Table, error) {
 		status unsafe.Pointer
 	)
 	internal.EnumerableCatalog_Tables(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -193,7 +194,7 @@ func (c *BaseEnumerableCatalog) Types() ([]Type, error) {
 		status unsafe.Pointer
 	)
 	internal.EnumerableCatalog_Types(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -234,7 +235,7 @@ func (c *SimpleCatalog) Table(name string) (Table, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetTable(c.raw, helper.StringToPtr(name), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -249,7 +250,7 @@ func (c *SimpleCatalog) Tables() ([]Table, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetTables(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -328,7 +329,7 @@ func (c *SimpleCatalog) Type(name string) (Type, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetType(c.raw, helper.StringToPtr(name), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -341,7 +342,7 @@ func (c *SimpleCatalog) Types() ([]Type, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetTypes(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -360,7 +361,7 @@ func (c *SimpleCatalog) Catalog(name string) (Catalog, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetCatalog(c.raw, helper.StringToPtr(name), &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -373,7 +374,7 @@ func (c *SimpleCatalog) Catalogs() ([]Catalog, error) {
 		status unsafe.Pointer
 	)
 	internal.SimpleCatalog_GetCatalogs(c.raw, &v, &status)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
@@ -398,11 +399,11 @@ func (c *SimpleCatalog) CatalogNames() []string {
 	return ret
 }
 
-func (c *SimpleCatalog) Constant(name string) (Constant, error) {
+func (c *SimpleCatalog) Constant(name string) (constant.Constant, error) {
 	return nil, nil
 }
 
-func (c *SimpleCatalog) Constants() ([]Constant, error) {
+func (c *SimpleCatalog) Constants() ([]constant.Constant, error) {
 	return nil, nil
 }
 
@@ -476,14 +477,18 @@ func (c *SimpleCatalog) AddProcedureWithName(name string, proc Procedure) {
 
 }
 
-func (c *SimpleCatalog) AddConstant(cons Constant) {
+func (c *SimpleCatalog) AddConstant(cons constant.Constant) {
 
 }
 
-func (c *SimpleCatalog) AddConstantWithName(name string, cons Constant) {
+func (c *SimpleCatalog) AddConstantWithName(name string, cons constant.Constant) {
 
 }
 
 func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions() {
 	internal.SimpleCatalog_AddZetaSQLFunctions(c.raw)
+}
+
+func getRawCatalog(c Catalog) unsafe.Pointer {
+	return c.getRaw()
 }

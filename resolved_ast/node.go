@@ -147,32 +147,55 @@ type LiteralNode struct {
 }
 
 func (n *LiteralNode) Value() constant.Value {
-	return nil
+	var v unsafe.Pointer
+	internal.Literal_value(n.raw, &v)
+	return newValue(v)
 }
 
 func (n *LiteralNode) SetValue(v constant.Value) {
-
+	internal.Literal_set_value(n.raw, getRawValue(v))
 }
 
+// HasExplicitType if true, then the literal is explicitly typed and cannot be used
+// for literal coercions.
+//
+// This exists mainly for resolver bookkeeping and should be ignored by engines.
 func (n *LiteralNode) HasExplicitType() bool {
-	return false
+	var v bool
+	internal.Literal_has_explicit_type(n.raw, &v)
+	return v
 }
 
 func (n *LiteralNode) SetHasExplicitType(v bool) {
+	internal.Literal_set_has_explicit_type(n.raw, helper.BoolToInt(v))
 }
 
+// FloatLiteralID distinct ID of the literal, if it is a floating point value,
+// within the resolved AST. When coercing from floating point
+// to NUMERIC, the resolver uses the float_literal_id to find the
+// original image of the literal to avoid precision loss. An ID of 0
+// represents a literal without a cached image.
 func (n *LiteralNode) FloatLiteralID() int {
-	return 0
+	var v int
+	internal.Literal_float_literal_id(n.raw, &v)
+	return v
 }
 
 func (n *LiteralNode) SetFloatLiteralID(v int) {
+	internal.Literal_set_float_literal_id(n.raw, v)
 }
 
+// PreserveInLiteralRemover indicates whether ReplaceLiteralsByParameters() should leave
+// this literal value in place, rather than replace it with a query
+// parameter.
 func (n *LiteralNode) PreserveInLiteralRemover() bool {
-	return false
+	var v bool
+	internal.Literal_preserve_in_literal_remover(n.raw, &v)
+	return v
 }
 
 func (n *LiteralNode) SetPreserveInLiteralRemover(v bool) {
+	internal.Literal_set_preserve_in_literal_remover(n.raw, helper.BoolToInt(v))
 }
 
 type ParameterNode struct {
@@ -253,11 +276,11 @@ type ConstantNode struct {
 	*BaseExprNode
 }
 
-func (n *ConstantNode) Constant() constant.Constant {
+func (n *ConstantNode) Constant() types.Constant {
 	return nil
 }
 
-func (n *ConstantNode) SetConstant(v constant.Constant) {
+func (n *ConstantNode) SetConstant(v types.Constant) {
 }
 
 // SystemVariableNode reference to a system variable.

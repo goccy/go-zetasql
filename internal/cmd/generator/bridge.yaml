@@ -5117,6 +5117,256 @@
     - name: NormalizeModeEnumType
       ret:
         - struct
+    - name: Value_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Value_type_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_physical_byte_size
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_is_null
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_empty_array
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_valid
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_has_content
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_int32_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_int64_value
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_uint32_value
+      args:
+        - struct
+      ret:
+        - uint32
+    - name: Value_uint64_value
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_bool_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_float_value
+      args:
+        - struct
+      ret:
+        - float32
+    - name: Value_double_value
+      args:
+        - struct
+      ret:
+        - float64
+    - name: Value_string_value
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_bytes_value
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_date_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_enum_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_enum_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_ToUnixMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToUnixNanos
+      args:
+        - struct
+      ret:
+        - int64
+        - struct
+    - name: Value_ToPacked64TimeMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToPacked64DatetimeMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_is_validated_json
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_unparsed_json
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_json_value_unparsed
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_json_string
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_ToInt64
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToUint64
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_ToDouble
+      args:
+        - struct
+      ret:
+        - float64
+    - name: Value_num_fields
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Value_FindFieldByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Value_empty
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_num_elements
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_element
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Value_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Value_SqlEquals
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Value_LessThan
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Value_SqlLessThan
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Value_HashCode
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_ShortDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_FullDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_Format
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_GetSQL
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Value_GetSQLLiteral
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Int64
+      args:
+        - int64
+      ret:
+        - struct
     - name: Column_Name
       args:
         - struct
@@ -5496,4 +5746,40 @@
       args:
         - struct
       ret:
+        - int
+    - name: Literal_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Literal_set_value
+      args:
+        - struct
+        - struct
+    - name: Literal_has_explicit_type
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Literal_set_has_explicit_type
+      args:
+        - struct
+        - int
+    - name: Literal_float_literal_id
+      args:
+        - struct
+      ret:
+        - int
+    - name: Literal_set_float_literal_id
+      args:
+        - struct
+        - int
+    - name: Literal_preserve_in_literal_remover
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Literal_set_preserve_in_literal_remover
+      args:
+        - struct
         - int

@@ -1,3 +1,3 @@
-package constant
+package types
 
 type Constant interface{}

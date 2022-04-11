@@ -149,6 +149,94 @@ func analyzer_Node_GetTreeDepth(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_public_analyzer_Node_GetTreeDepth(arg0, arg1)
 }
 
+func Literal_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_Literal_value(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_Literal_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_Literal_value(arg0, arg1)
+}
+
+func Literal_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_Literal_set_value(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_Literal_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_Literal_set_value(arg0, arg1)
+}
+
+func Literal_has_explicit_type(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_Literal_has_explicit_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Literal_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Literal_has_explicit_type(arg0, arg1)
+}
+
+func Literal_set_has_explicit_type(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_Literal_set_has_explicit_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_Literal_set_has_explicit_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_Literal_set_has_explicit_type(arg0, arg1)
+}
+
+func Literal_float_literal_id(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_Literal_float_literal_id(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Literal_float_literal_id(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Literal_float_literal_id(arg0, arg1)
+}
+
+func Literal_set_float_literal_id(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_Literal_set_float_literal_id(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_Literal_set_float_literal_id(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_Literal_set_float_literal_id(arg0, arg1)
+}
+
+func Literal_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_Literal_preserve_in_literal_remover(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_Literal_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_Literal_preserve_in_literal_remover(arg0, arg1)
+}
+
+func Literal_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_Literal_set_preserve_in_literal_remover(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_Literal_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_Literal_set_preserve_in_literal_remover(arg0, arg1)
+}
+
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)

@@ -4,7 +4,6 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/goccy/go-zetasql/constant"
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/simple_catalog"
 	"github.com/goccy/go-zetasql/internal/helper"
 )
@@ -20,7 +19,7 @@ type Catalog interface {
 	FindTableValuedFunction(path []string) (TableValuedFunction, error)
 	FindProcedure(path []string) (Procedure, error)
 	FindType(path []string) (Type, error)
-	FindConstant(path []string) (constant.Constant, error)
+	FindConstant(path []string) (Constant, error)
 	FindConversion(from, to Type) (Conversion, error)
 	ExtendedTypeSuperTypes(typ Type) (*TypeListView, error)
 	SuggestTable(mistypedPath []string) string
@@ -107,7 +106,7 @@ func (c *BaseCatalog) FindType(path []string) (Type, error) {
 	return newType(v), nil
 }
 
-func (c *BaseCatalog) FindConstant(path []string) (constant.Constant, error) {
+func (c *BaseCatalog) FindConstant(path []string) (Constant, error) {
 	return nil, nil
 }
 
@@ -399,11 +398,11 @@ func (c *SimpleCatalog) CatalogNames() []string {
 	return ret
 }
 
-func (c *SimpleCatalog) Constant(name string) (constant.Constant, error) {
+func (c *SimpleCatalog) Constant(name string) (Constant, error) {
 	return nil, nil
 }
 
-func (c *SimpleCatalog) Constants() ([]constant.Constant, error) {
+func (c *SimpleCatalog) Constants() ([]Constant, error) {
 	return nil, nil
 }
 
@@ -477,11 +476,11 @@ func (c *SimpleCatalog) AddProcedureWithName(name string, proc Procedure) {
 
 }
 
-func (c *SimpleCatalog) AddConstant(cons constant.Constant) {
+func (c *SimpleCatalog) AddConstant(cons Constant) {
 
 }
 
-func (c *SimpleCatalog) AddConstantWithName(name string, cons constant.Constant) {
+func (c *SimpleCatalog) AddConstantWithName(name string, cons Constant) {
 
 }
 

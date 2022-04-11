@@ -552,6 +552,293 @@ void GO_EXPORT(NormalizeModeEnumType)(void ** arg0)
   *arg0 = (void *)zetasql::types::NormalizeModeEnumType();
 }
 
+void GO_EXPORT(Value_type)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->type();
+}
+
+void GO_EXPORT(Value_type_kind)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->type_kind();
+}
+
+void GO_EXPORT(Value_physical_byte_size)(void * arg0,uint64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->physical_byte_size();
+}
+
+void GO_EXPORT(Value_is_null)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->is_null();
+}
+
+void GO_EXPORT(Value_is_empty_array)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->is_empty_array();
+}
+
+void GO_EXPORT(Value_is_valid)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->is_valid();
+}
+
+void GO_EXPORT(Value_has_content)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->has_content();
+}
+
+void GO_EXPORT(Value_int32_value)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->int32_value();
+}
+
+void GO_EXPORT(Value_int64_value)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+}
+
+void GO_EXPORT(Value_uint32_value)(void * arg0,uint32_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->uint32_value();
+}
+
+void GO_EXPORT(Value_uint64_value)(void * arg0,uint64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->uint64_value();
+}
+
+void GO_EXPORT(Value_bool_value)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->bool_value();
+}
+
+void GO_EXPORT(Value_float_value)(void * arg0,float* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->float_value();
+}
+
+void GO_EXPORT(Value_double_value)(void * arg0,double* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->double_value();
+}
+
+void GO_EXPORT(Value_string_value)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->string_value().c_str();
+}
+
+void GO_EXPORT(Value_bytes_value)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->bytes_value().c_str();
+}
+
+void GO_EXPORT(Value_date_value)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->date_value();
+}
+
+void GO_EXPORT(Value_enum_value)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->enum_value();
+}
+
+void GO_EXPORT(Value_enum_name)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->enum_name().c_str();
+}
+
+void GO_EXPORT(Value_ToUnixMicros)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToUnixMicros();
+}
+
+void GO_EXPORT(Value_ToUnixNanos)(void * arg0,int64_t* arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  absl::Status ret = value->ToUnixNanos(arg1);
+  *arg2 = (void *)(new absl::Status(ret));
+}
+
+void GO_EXPORT(Value_ToPacked64TimeMicros)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToPacked64TimeMicros();
+}
+
+void GO_EXPORT(Value_ToPacked64DatetimeMicros)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToPacked64DatetimeMicros();
+}
+
+void GO_EXPORT(Value_is_validated_json)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->is_validated_json();
+}
+
+void GO_EXPORT(Value_is_unparsed_json)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->is_unparsed_json();
+}
+
+void GO_EXPORT(Value_json_value_unparsed)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->json_value_unparsed().c_str();
+}
+
+void GO_EXPORT(Value_json_string)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->json_string().c_str();
+}
+
+void GO_EXPORT(Value_ToInt64)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToInt64();
+}
+
+void GO_EXPORT(Value_ToUint64)(void * arg0,uint64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToUint64();
+}
+
+void GO_EXPORT(Value_ToDouble)(void * arg0,double* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->ToDouble();
+}
+
+void GO_EXPORT(Value_num_fields)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->num_fields();
+}
+
+void GO_EXPORT(Value_field)(void * arg0,int arg1, void** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)(new zetasql::Value(value->field(arg1)));
+}
+
+void GO_EXPORT(Value_FindFieldByName)(void * arg0,void * arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)(new zetasql::Value(value->FindFieldByName((char *)arg1)));
+}
+
+void GO_EXPORT(Value_empty)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->empty();
+}
+
+void GO_EXPORT(Value_num_elements)(void * arg0,int* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->num_elements();
+}
+
+void GO_EXPORT(Value_element)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)(new zetasql::Value(value->element(arg1)));
+}
+
+void GO_EXPORT(Value_Equals)(void * arg0,void * arg1,int* arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = value->Equals(*(zetasql::Value *)arg1);
+}
+
+void GO_EXPORT(Value_SqlEquals)(void * arg0,void * arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)(new zetasql::Value(value->SqlEquals(*(zetasql::Value *)arg1)));
+}
+
+void GO_EXPORT(Value_LessThan)(void * arg0,void * arg1,int* arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = value->LessThan(*(zetasql::Value *)arg1);
+}
+
+void GO_EXPORT(Value_SqlLessThan)(void * arg0,void * arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)(new zetasql::Value(value->SqlLessThan(*(zetasql::Value *)arg1)));
+}
+
+void GO_EXPORT(Value_HashCode)(void * arg0,uint64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = value->HashCode();
+}
+
+void GO_EXPORT(Value_ShortDebugString)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->ShortDebugString().c_str();
+}
+
+void GO_EXPORT(Value_FullDebugString)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->FullDebugString().c_str();
+}
+
+void GO_EXPORT(Value_DebugString)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->DebugString().c_str();
+}
+
+void GO_EXPORT(Value_Format)(void * arg0,void ** arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg1 = (void *)value->Format().c_str();
+}
+
+void GO_EXPORT(Value_GetSQL)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)value->GetSQL((zetasql::ProductMode)arg1).c_str();
+}
+
+void GO_EXPORT(Value_GetSQLLiteral)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  *arg2 = (void *)value->GetSQLLiteral((zetasql::ProductMode)arg1).c_str();
+}
+
+void GO_EXPORT(Int64)(int64_t arg0,void ** arg1)
+{
+  *arg1 = (void *)(new zetasql::Value(zetasql::values::Int64(arg0)));
+}
+
 void GO_EXPORT(Column_Name)(void * arg0,void ** arg1)
 {
   zetasql::Column *col = (zetasql::Column *)arg0;

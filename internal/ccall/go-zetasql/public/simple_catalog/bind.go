@@ -1028,6 +1028,544 @@ func simple_catalog_NormalizeModeEnumType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_NormalizeModeEnumType(arg0)
 }
 
+func Value_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_type(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_type(arg0, arg1)
+}
+
+func Value_type_kind(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Value_type_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_type_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_type_kind(arg0, arg1)
+}
+
+func Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *uint64) {
+	simple_catalog_Value_physical_byte_size(
+		arg0,
+		(*C.ulonglong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+	C.export_zetasql_public_simple_catalog_Value_physical_byte_size(arg0, arg1)
+}
+
+func Value_is_null(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_is_null(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_is_null(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_is_null(arg0, arg1)
+}
+
+func Value_is_empty_array(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_is_empty_array(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_is_empty_array(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_is_empty_array(arg0, arg1)
+}
+
+func Value_is_valid(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_is_valid(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_is_valid(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_is_valid(arg0, arg1)
+}
+
+func Value_has_content(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_has_content(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_has_content(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_has_content(arg0, arg1)
+}
+
+func Value_int32_value(arg0 unsafe.Pointer, arg1 *int32) {
+	simple_catalog_Value_int32_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_int32_value(arg0, arg1)
+}
+
+func Value_int64_value(arg0 unsafe.Pointer, arg1 *int64) {
+	simple_catalog_Value_int64_value(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_int64_value(arg0 unsafe.Pointer, arg1 *C.longlong) {
+	C.export_zetasql_public_simple_catalog_Value_int64_value(arg0, arg1)
+}
+
+func Value_uint32_value(arg0 unsafe.Pointer, arg1 *uint32) {
+	simple_catalog_Value_uint32_value(
+		arg0,
+		(*C.uint)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint) {
+	C.export_zetasql_public_simple_catalog_Value_uint32_value(arg0, arg1)
+}
+
+func Value_uint64_value(arg0 unsafe.Pointer, arg1 *uint64) {
+	simple_catalog_Value_uint64_value(
+		arg0,
+		(*C.ulonglong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_uint64_value(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+	C.export_zetasql_public_simple_catalog_Value_uint64_value(arg0, arg1)
+}
+
+func Value_bool_value(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_bool_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_bool_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_bool_value(arg0, arg1)
+}
+
+func Value_float_value(arg0 unsafe.Pointer, arg1 *float32) {
+	simple_catalog_Value_float_value(
+		arg0,
+		(*C.float)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_float_value(arg0 unsafe.Pointer, arg1 *C.float) {
+	C.export_zetasql_public_simple_catalog_Value_float_value(arg0, arg1)
+}
+
+func Value_double_value(arg0 unsafe.Pointer, arg1 *float64) {
+	simple_catalog_Value_double_value(
+		arg0,
+		(*C.double)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_double_value(arg0 unsafe.Pointer, arg1 *C.double) {
+	C.export_zetasql_public_simple_catalog_Value_double_value(arg0, arg1)
+}
+
+func Value_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_string_value(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_string_value(arg0, arg1)
+}
+
+func Value_bytes_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_bytes_value(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_bytes_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_bytes_value(arg0, arg1)
+}
+
+func Value_date_value(arg0 unsafe.Pointer, arg1 *int32) {
+	simple_catalog_Value_date_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_date_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_date_value(arg0, arg1)
+}
+
+func Value_enum_value(arg0 unsafe.Pointer, arg1 *int32) {
+	simple_catalog_Value_enum_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_enum_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_enum_value(arg0, arg1)
+}
+
+func Value_enum_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_enum_name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_enum_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_enum_name(arg0, arg1)
+}
+
+func Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *int64) {
+	simple_catalog_Value_ToUnixMicros(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+	C.export_zetasql_public_simple_catalog_Value_ToUnixMicros(arg0, arg1)
+}
+
+func Value_ToUnixNanos(arg0 unsafe.Pointer, arg1 *int64, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_ToUnixNanos(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+		arg2,
+	)
+}
+
+func simple_catalog_Value_ToUnixNanos(arg0 unsafe.Pointer, arg1 *C.longlong, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_ToUnixNanos(arg0, arg1, arg2)
+}
+
+func Value_ToPacked64TimeMicros(arg0 unsafe.Pointer, arg1 *int64) {
+	simple_catalog_Value_ToPacked64TimeMicros(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToPacked64TimeMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+	C.export_zetasql_public_simple_catalog_Value_ToPacked64TimeMicros(arg0, arg1)
+}
+
+func Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *int64) {
+	simple_catalog_Value_ToPacked64DatetimeMicros(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+	C.export_zetasql_public_simple_catalog_Value_ToPacked64DatetimeMicros(arg0, arg1)
+}
+
+func Value_is_validated_json(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_is_validated_json(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_is_validated_json(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_is_validated_json(arg0, arg1)
+}
+
+func Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_is_unparsed_json(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_is_unparsed_json(arg0, arg1)
+}
+
+func Value_json_value_unparsed(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_json_value_unparsed(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_json_value_unparsed(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_json_value_unparsed(arg0, arg1)
+}
+
+func Value_json_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_json_string(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_json_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_json_string(arg0, arg1)
+}
+
+func Value_ToInt64(arg0 unsafe.Pointer, arg1 *int64) {
+	simple_catalog_Value_ToInt64(
+		arg0,
+		(*C.longlong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToInt64(arg0 unsafe.Pointer, arg1 *C.longlong) {
+	C.export_zetasql_public_simple_catalog_Value_ToInt64(arg0, arg1)
+}
+
+func Value_ToUint64(arg0 unsafe.Pointer, arg1 *uint64) {
+	simple_catalog_Value_ToUint64(
+		arg0,
+		(*C.ulonglong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToUint64(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+	C.export_zetasql_public_simple_catalog_Value_ToUint64(arg0, arg1)
+}
+
+func Value_ToDouble(arg0 unsafe.Pointer, arg1 *float64) {
+	simple_catalog_Value_ToDouble(
+		arg0,
+		(*C.double)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_ToDouble(arg0 unsafe.Pointer, arg1 *C.double) {
+	C.export_zetasql_public_simple_catalog_Value_ToDouble(arg0, arg1)
+}
+
+func Value_num_fields(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Value_num_fields(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_num_fields(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_num_fields(arg0, arg1)
+}
+
+func Value_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_field(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Value_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_field(arg0, arg1, arg2)
+}
+
+func Value_FindFieldByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_FindFieldByName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func simple_catalog_Value_FindFieldByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_FindFieldByName(arg0, arg1, arg2)
+}
+
+func Value_empty(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Value_empty(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_empty(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_empty(arg0, arg1)
+}
+
+func Value_num_elements(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Value_num_elements(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_num_elements(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_num_elements(arg0, arg1)
+}
+
+func Value_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_element(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Value_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_element(arg0, arg1, arg2)
+}
+
+func Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	simple_catalog_Value_Equals(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func simple_catalog_Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_Equals(arg0, arg1, arg2)
+}
+
+func Value_SqlEquals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_SqlEquals(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func simple_catalog_Value_SqlEquals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_SqlEquals(arg0, arg1, arg2)
+}
+
+func Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	simple_catalog_Value_LessThan(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func simple_catalog_Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_public_simple_catalog_Value_LessThan(arg0, arg1, arg2)
+}
+
+func Value_SqlLessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_SqlLessThan(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func simple_catalog_Value_SqlLessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_SqlLessThan(arg0, arg1, arg2)
+}
+
+func Value_HashCode(arg0 unsafe.Pointer, arg1 *uint64) {
+	simple_catalog_Value_HashCode(
+		arg0,
+		(*C.ulonglong)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Value_HashCode(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+	C.export_zetasql_public_simple_catalog_Value_HashCode(arg0, arg1)
+}
+
+func Value_ShortDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_ShortDebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_ShortDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_ShortDebugString(arg0, arg1)
+}
+
+func Value_FullDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_FullDebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_FullDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_FullDebugString(arg0, arg1)
+}
+
+func Value_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_DebugString(arg0, arg1)
+}
+
+func Value_Format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Value_Format(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Value_Format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_Format(arg0, arg1)
+}
+
+func Value_GetSQL(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_GetSQL(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Value_GetSQL(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_GetSQL(arg0, arg1, arg2)
+}
+
+func Value_GetSQLLiteral(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Value_GetSQLLiteral(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Value_GetSQLLiteral(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Value_GetSQLLiteral(arg0, arg1, arg2)
+}
+
+func Int64(arg0 int64, arg1 *unsafe.Pointer) {
+	simple_catalog_Int64(
+		C.longlong(arg0),
+		arg1,
+	)
+}
+
+func simple_catalog_Int64(arg0 C.longlong, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Int64(arg0, arg1)
+}
+
 func Column_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	simple_catalog_Column_Name(
 		arg0,

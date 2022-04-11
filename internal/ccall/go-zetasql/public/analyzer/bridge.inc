@@ -64,3 +64,51 @@ void GO_EXPORT(Node_GetTreeDepth)(void * arg0,int* arg1)
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
   *arg1 = node->GetTreeDepth();
 }
+
+void GO_EXPORT(Literal_value)(void * arg0,void ** arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  *arg1 = (void *)(new zetasql::Value(node->value()));
+}
+
+void GO_EXPORT(Literal_set_value)(void * arg0,void * arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  node->set_value(*(zetasql::Value *)arg1);
+}
+
+void GO_EXPORT(Literal_has_explicit_type)(void * arg0,int* arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  *arg1 = node->has_explicit_type();
+}
+
+void GO_EXPORT(Literal_set_has_explicit_type)(void * arg0,int arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  node->set_has_explicit_type(arg1);
+}
+
+void GO_EXPORT(Literal_float_literal_id)(void * arg0,int* arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  *arg1 = node->float_literal_id();
+}
+
+void GO_EXPORT(Literal_set_float_literal_id)(void * arg0,int arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  node->set_float_literal_id(arg1);
+}
+
+void GO_EXPORT(Literal_preserve_in_literal_remover)(void * arg0,int* arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  *arg1 = node->preserve_in_literal_remover();
+}
+
+void GO_EXPORT(Literal_set_preserve_in_literal_remover)(void * arg0,int arg1)
+{
+  zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
+  node->set_preserve_in_literal_remover(arg1);
+}

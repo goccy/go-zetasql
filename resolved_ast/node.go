@@ -52,11 +52,12 @@ type ArgumentNode interface {
 }
 
 type ExprNode interface {
-	AnnotatedType() *types.AnnotatedType
+	Node
+	//AnnotatedType() *types.AnnotatedType
 	Type() types.Type
 	SetType(types.Type)
-	TypeAnnotationMap() types.AnnotationMap
-	SetTypeAnnotationMap(types.AnnotationMap)
+	TypeAnnotationMap() *types.AnnotationMap
+	SetTypeAnnotationMap(*types.AnnotationMap)
 }
 
 type BaseNode struct {
@@ -65,41 +66,41 @@ type BaseNode struct {
 
 func (n *BaseNode) Kind() Kind {
 	var v int
-	internal.Node_node_kind(n.raw, &v)
+	internal.ResolvedNode_node_kind(n.raw, &v)
 	return Kind(v)
 }
 
 func (n *BaseNode) IsScan() bool {
 	var v bool
-	internal.Node_IsScan(n.raw, &v)
+	internal.ResolvedNode_IsScan(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsExpression() bool {
 	var v bool
-	internal.Node_IsExpression(n.raw, &v)
+	internal.ResolvedNode_IsExpression(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) IsStatement() bool {
 	var v bool
-	internal.Node_IsStatement(n.raw, &v)
+	internal.ResolvedNode_IsStatement(n.raw, &v)
 	return v
 }
 
 func (n *BaseNode) DebugString() string {
 	var v unsafe.Pointer
-	internal.Node_DebugString(n.raw, &v)
+	internal.ResolvedNode_DebugString(n.raw, &v)
 	return helper.PtrToString(v)
 }
 
 func (n *BaseNode) ChildNodes() []Node {
 	var num int
-	internal.Node_GetChildNodes_num(n.raw, &num)
+	internal.ResolvedNode_GetChildNodes_num(n.raw, &num)
 	ret := make([]Node, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internal.Node_GetChildNode(n.raw, i, &v)
+		internal.ResolvedNode_GetChildNode(n.raw, i, &v)
 		ret = append(ret, newNode(v))
 	}
 	return ret
@@ -107,7 +108,7 @@ func (n *BaseNode) ChildNodes() []Node {
 
 func (n *BaseNode) TreeDepth() int {
 	var v int
-	internal.Node_GetTreeDepth(n.raw, &v)
+	internal.ResolvedNode_GetTreeDepth(n.raw, &v)
 	return v
 }
 
@@ -123,22 +124,24 @@ type BaseExprNode struct {
 	*BaseNode
 }
 
-func (n *BaseExprNode) AnnotatedType() *types.AnnotatedType {
-	return nil
-}
-
 func (n *BaseExprNode) Type() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExpr_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *BaseExprNode) SetType(v types.Type) {
+	internal.ResolvedExpr_set_type(n.raw, getRawType(v))
 }
 
-func (n *BaseExprNode) TypeAnnotationMap() types.AnnotationMap {
-	return nil
+func (n *BaseExprNode) TypeAnnotationMap() *types.AnnotationMap {
+	var v unsafe.Pointer
+	internal.ResolvedExpr_type_annotation_map(n.raw, &v)
+	return newAnnotationMap(v)
 }
 
-func (n *BaseExprNode) SetTypeAnnotationMap(v types.AnnotationMap) {
+func (n *BaseExprNode) SetTypeAnnotationMap(v *types.AnnotationMap) {
+	internal.ResolvedExpr_set_type_annotation_map(n.raw, getRawAnnotationMap(v))
 }
 
 // LiteralNode any literal value, including NULL literals.
@@ -148,12 +151,12 @@ type LiteralNode struct {
 
 func (n *LiteralNode) Value() constant.Value {
 	var v unsafe.Pointer
-	internal.Literal_value(n.raw, &v)
+	internal.ResolvedLiteral_value(n.raw, &v)
 	return newValue(v)
 }
 
 func (n *LiteralNode) SetValue(v constant.Value) {
-	internal.Literal_set_value(n.raw, getRawValue(v))
+	internal.ResolvedLiteral_set_value(n.raw, getRawValue(v))
 }
 
 // HasExplicitType if true, then the literal is explicitly typed and cannot be used
@@ -162,12 +165,12 @@ func (n *LiteralNode) SetValue(v constant.Value) {
 // This exists mainly for resolver bookkeeping and should be ignored by engines.
 func (n *LiteralNode) HasExplicitType() bool {
 	var v bool
-	internal.Literal_has_explicit_type(n.raw, &v)
+	internal.ResolvedLiteral_has_explicit_type(n.raw, &v)
 	return v
 }
 
 func (n *LiteralNode) SetHasExplicitType(v bool) {
-	internal.Literal_set_has_explicit_type(n.raw, helper.BoolToInt(v))
+	internal.ResolvedLiteral_set_has_explicit_type(n.raw, helper.BoolToInt(v))
 }
 
 // FloatLiteralID distinct ID of the literal, if it is a floating point value,
@@ -177,12 +180,12 @@ func (n *LiteralNode) SetHasExplicitType(v bool) {
 // represents a literal without a cached image.
 func (n *LiteralNode) FloatLiteralID() int {
 	var v int
-	internal.Literal_float_literal_id(n.raw, &v)
+	internal.ResolvedLiteral_float_literal_id(n.raw, &v)
 	return v
 }
 
 func (n *LiteralNode) SetFloatLiteralID(v int) {
-	internal.Literal_set_float_literal_id(n.raw, v)
+	internal.ResolvedLiteral_set_float_literal_id(n.raw, v)
 }
 
 // PreserveInLiteralRemover indicates whether ReplaceLiteralsByParameters() should leave
@@ -190,38 +193,56 @@ func (n *LiteralNode) SetFloatLiteralID(v int) {
 // parameter.
 func (n *LiteralNode) PreserveInLiteralRemover() bool {
 	var v bool
-	internal.Literal_preserve_in_literal_remover(n.raw, &v)
+	internal.ResolvedLiteral_preserve_in_literal_remover(n.raw, &v)
 	return v
 }
 
 func (n *LiteralNode) SetPreserveInLiteralRemover(v bool) {
-	internal.Literal_set_preserve_in_literal_remover(n.raw, helper.BoolToInt(v))
+	internal.ResolvedLiteral_set_preserve_in_literal_remover(n.raw, helper.BoolToInt(v))
 }
 
+// ParameterNode
 type ParameterNode struct {
 	*BaseExprNode
 }
 
+// Name if non-empty, the name of the parameter.
+//
+// A ParameterNode will have either a name or a position but not both.
 func (n *ParameterNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedParameter_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
-func (n *ParameterNode) SetName(s string) {
+func (n *ParameterNode) SetName(v string) {
+	internal.ResolvedParameter_set_name(n.raw, helper.StringToPtr(v))
 }
 
+// Position if non-zero, the 1-based position of the positional parameter.
+//
+// A ParameterNode will have either a name or a position but not both.
 func (n *ParameterNode) Position() int {
-	return 0
+	var v int
+	internal.ResolvedParameter_position(n.raw, &v)
+	return v
 }
 
 func (n *ParameterNode) SetPosition(v int) {
-
+	internal.ResolvedParameter_set_position(n.raw, v)
 }
 
+// IsUntyped if true, then the parameter has no specified type.
+//
+// This exists mainly for resolver bookkeeping and should be ignored by engines.
 func (n *ParameterNode) IsUntyped() bool {
-	return false
+	var v bool
+	internal.ResolvedParameter_is_untyped(n.raw, &v)
+	return v
 }
 
 func (n *ParameterNode) SetIsUntyped(v bool) {
+	internal.ResolvedParameter_set_is_untyped(n.raw, helper.BoolToInt(v))
 }
 
 // ExpressionColumnNode represents a column when analyzing a standalone expression.
@@ -234,11 +255,13 @@ type ExpressionColumnNode struct {
 }
 
 func (n *ExpressionColumnNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedExpressionColumn_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ExpressionColumnNode) SetName(v string) {
-
+	internal.ResolvedExpressionColumn_set_name(n.raw, helper.StringToPtr(v))
 }
 
 // ColumnRefNode an expression referencing the value of some column visible in the current Scan node.
@@ -256,19 +279,23 @@ type ColumnRefNode struct {
 }
 
 func (n *ColumnRefNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnRef_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *ColumnRefNode) SetColumn(v *Column) {
-
+	internal.ResolvedColumnRef_set_column(n.raw, v.raw)
 }
 
 func (n *ColumnRefNode) IsCorrelated() bool {
-	return false
+	var v bool
+	internal.ResolvedColumnRef_is_correlated(n.raw, &v)
+	return v
 }
 
 func (n *ColumnRefNode) SetIsCorrelated(v bool) {
-
+	internal.ResolvedColumnRef_set_is_correlated(n.raw, helper.BoolToInt(v))
 }
 
 // ConstantNode reference to a named constant.
@@ -276,11 +303,15 @@ type ConstantNode struct {
 	*BaseExprNode
 }
 
+// Constant the matching Constant from the Catalog.
 func (n *ConstantNode) Constant() types.Constant {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedConstant_constant(n.raw, &v)
+	return newConstant(v)
 }
 
 func (n *ConstantNode) SetConstant(v types.Constant) {
+	internal.ResolvedConstant_set_constant(n.raw, getRawConstant(v))
 }
 
 // SystemVariableNode reference to a system variable.
@@ -288,14 +319,19 @@ type SystemVariableNode struct {
 	*BaseExprNode
 }
 
-func (n *SystemVariableNode) NamePaths() []string {
-	return nil
+// NamePath path to system variable.
+func (n *SystemVariableNode) NamePath() []string {
+	var v unsafe.Pointer
+	internal.ResolvedSystemVariable_name_path(n.raw, &v)
+	return helper.PtrToStrings(v)
 }
 
 func (n *SystemVariableNode) SetNamePath(v []string) {
+	internal.ResolvedSystemVariable_set_name_path(n.raw, helper.StringsToPtr(v))
 }
 
 func (n *SystemVariableNode) AddNamePath(v string) {
+	internal.ResolvedSystemVariable_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // InlineLambdaNode a lambda expression, used inline as a function argument.
@@ -325,30 +361,53 @@ type InlineLambdaNode struct {
 }
 
 func (n *InlineLambdaNode) ArgumentList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInlineLambda_argument_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *InlineLambdaNode) SetArgumentList(v []*Column) {
+	internal.ResolvedInlineLambda_set_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *InlineLambdaNode) AddArgument(v *Column) {
+	internal.ResolvedInlineLambda_add_argument(n.raw, v.raw)
 }
 
 func (n *InlineLambdaNode) ParameterList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInlineLambda_parameter_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *InlineLambdaNode) SetParameterList(v []*ColumnRefNode) {
+	internal.ResolvedInlineLambda_set_parameter_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *InlineLambdaNode) AddParameter(v *ColumnRefNode) {
+	internal.ResolvedInlineLambda_add_parameter(n.raw, v.getRaw())
 }
 
 func (n *InlineLambdaNode) Body() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInlineLambda_body(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *InlineLambdaNode) SetBody(v ExprNode) {
+	internal.ResolvedInlineLambda_set_body(n.raw, v.getRaw())
 }
 
 // FilterFieldArgNode an argument to the FILTER_FIELDS() function which specifies a sign to show
@@ -357,11 +416,17 @@ type FilterFieldArgNode struct {
 	*BaseArgumentNode
 }
 
+// Include true if we want to include this proto path in the resulting proto
+// (though we may still remove paths below it).
+// If false, we will remove this path (but may still include paths below it).
 func (n *FilterFieldArgNode) Include() bool {
-	return false
+	var v bool
+	internal.ResolvedFilterFieldArg_include(n.raw, &v)
+	return v
 }
 
 func (n *FilterFieldArgNode) SetInclude(v bool) {
+	internal.ResolvedFilterFieldArg_set_include(n.raw, helper.BoolToInt(v))
 }
 
 // FilterFieldNode represents a call to the FILTER_FIELDS() function. This function can be
@@ -398,93 +463,188 @@ type FilterFieldNode struct {
 
 // Expr the proto to modify.
 func (n *FilterFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFilterField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FilterFieldNode) SetExpr(v ExprNode) {
-
+	internal.ResolvedFilterField_set_expr(n.raw, v.getRaw())
 }
 
 func (n *FilterFieldNode) FilterFieldArgList() []*FilterFieldArgNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFilterField_filter_field_arg_list(n.raw, &v)
+	var ret []*FilterFieldArgNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newFilterFieldArgNode(p))
+	})
+	return ret
 }
 
 func (n *FilterFieldNode) SetFilterFieldArgList(v []*FilterFieldArgNode) {
+	internal.ResolvedFilterField_set_filter_field_arg_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *FilterFieldNode) AddFilterFieldArg(v *FilterFieldArgNode) {
+	internal.ResolvedFilterField_add_filter_field_arg_list(n.raw, v.getRaw())
 }
 
+// ResetClearedRequiredFields if true, will reset cleared required fields into a default value.
 func (n *FilterFieldNode) ResetClearedRequiredFields() bool {
-	return false
+	var v bool
+	internal.ResolvedFilterField_reset_cleared_required_fields(n.raw, &v)
+	return v
 }
 
 func (n *FilterFieldNode) SetResetClearedRequiredFields(v bool) {
+	internal.ResolvedFilterField_set_reset_cleared_required_fields(n.raw, helper.BoolToInt(v))
 }
 
+// BaseFunctionCallNode common base node for scalar and aggregate function calls.
+//
+// <argument_list> contains a list of arguments of type ExprNode.
+//
+// <generic_argument_list> contains an alternative list of generic arguments.
+// This is used for function calls that accept non-expression arguments (i.e.
+// arguments that aren't part of the type system, like lambdas).
+//
+// If all arguments of this function call are ExprNodes, <argument_list>
+// is used. If any of the argument is not a ExprNode,
+// <generic_argument_list> will be used. Only one of <argument_list> or
+// <generic_argument_list> can be non-empty.
+//
+// <collation_list> (only set when FEATURE_V_1_3_COLLATION_SUPPORT is
+// enabled) is the operation collation to use.
+// (broken link) lists the functions affected by
+// collation, where this can show up.
+// <collation_list> is a vector for future extension. For now, functions
+// could have at most one element in the <collation_list>.
 type BaseFunctionCallNode struct {
 	*BaseExprNode
 }
 
+// Function the matching Function from the Catalog.
 func (n *BaseFunctionCallNode) Function() *types.Function {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_function(n.raw, &v)
+	return newFunction(v)
 }
 
 func (n *BaseFunctionCallNode) SetFunction(v *types.Function) {
+	internal.ResolvedFunctionCallBase_set_function(n.raw, getRawFunction(v))
 }
 
+// Signature the concrete FunctionSignature reflecting the matching Function
+// signature and the function's resolved input <argument_list>.
+// The function has the mode AGGREGATE iff it is an aggregate
+// function, in which case this node must be either
+// AggregateFunctionCallNode or AnalyticFunctionCallNode.
 func (n *BaseFunctionCallNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *BaseFunctionCallNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedFunctionCallBase_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 func (n *BaseFunctionCallNode) ArgumentList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_argument_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *BaseFunctionCallNode) SetArgumentList(v []ExprNode) {
+	internal.ResolvedFunctionCallBase_set_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseFunctionCallNode) AddArgument(v ExprNode) {
+	internal.ResolvedFunctionCallBase_add_argument_list(n.raw, v.getRaw())
 }
 
 func (n *BaseFunctionCallNode) GenericArgumentList() []*FunctionArgumentNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_generic_argument_list(n.raw, &v)
+	var ret []*FunctionArgumentNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newFunctionArgumentNode(p))
+	})
+	return ret
 }
 
 func (n *BaseFunctionCallNode) SetGenericArgumentList(v []*FunctionArgumentNode) {
+	internal.ResolvedFunctionCallBase_set_generic_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseFunctionCallNode) AddGenericArgument(v *FunctionArgumentNode) {
+	internal.ResolvedFunctionCallBase_add_generic_argument_list(n.raw, v.getRaw())
 }
 
+// ErrorMode if error_mode=SAFE_ERROR_MODE, and if this function call returns a
+// semantic error (based on input data, not transient server
+// problems), return NULL instead of an error. This is used for
+// functions called using SAFE, as in SAFE.FUNCTION(...).
 func (n *BaseFunctionCallNode) ErrorMode() ErrorMode {
-	return ErrorMode(0)
+	var v int
+	internal.ResolvedFunctionCallBase_error_mode(n.raw, &v)
+	return ErrorMode(v)
 }
 
 func (n *BaseFunctionCallNode) SetErrorMode(v ErrorMode) {
+	internal.ResolvedFunctionCallBase_set_error_mode(n.raw, int(v))
 }
 
+// HintList function call hints.
 func (n *BaseFunctionCallNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseFunctionCallNode) SetHintList(v []*OptionNode) {
+	internal.ResolvedFunctionCallBase_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseFunctionCallNode) AddHint(v *OptionNode) {
+	internal.ResolvedFunctionCallBase_add_hint_list(n.raw, v.getRaw())
 }
 
 func (n *BaseFunctionCallNode) CollationList() []*Collation {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallBase_collation_list(n.raw, &v)
+	var ret []*Collation
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newCollation(p))
+	})
+	return ret
 }
 
 func (n *BaseFunctionCallNode) SetCollationList(v []*Collation) {
+	internal.ResolvedFunctionCallBase_set_collation_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *BaseFunctionCallNode) AddCollation(v *Collation) {
+	internal.ResolvedFunctionCallBase_add_collation_list(n.raw, v.raw)
 }
 
 // FunctionCallNode a regular function call.
@@ -494,47 +654,108 @@ type FunctionCallNode struct {
 	*BaseFunctionCallNode
 }
 
+// FunctionCallInfo this contains optional custom information about a particular function call.
+//
+// If some Function subclass requires computing additional
+// information at resolving time, that extra information can be
+// stored as a subclass of FunctionCallInfoNode here.
+// For example, TemplatedSQLFunction stores the resolved template
+// body here as a TemplatedSQLFunctionCall.
+//
+// This field is ignorable because for most types of function calls,
+// there is no extra information to consider besides the arguments
+// and other fields from BaseFunctionCallNode.
 func (n *FunctionCallNode) FunctionCallInfo() *FunctionCallInfo {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCall_function_call_info(n.raw, &v)
+	return newFunctionCallInfo(v)
 }
 
 func (n *FunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfo) {
+	internal.ResolvedFunctionCall_set_function_call_info(n.raw, v.raw)
 }
 
+// BaseNonScalarFunctionCallNode common base node for scalar and aggregate function calls.
 type BaseNonScalarFunctionCallNode struct {
 	*BaseFunctionCallNode
 }
 
+// Distinct apply DISTINCT to the stream of input values before calling function.
 func (n *BaseNonScalarFunctionCallNode) Distinct() bool {
-	return false
+	var v bool
+	internal.ResolvedNonScalarFunctionCallBase_distinct(n.raw, &v)
+	return v
 }
 
 func (n *BaseNonScalarFunctionCallNode) SetDistinct(v bool) {
+	internal.ResolvedNonScalarFunctionCallBase_set_distinct(n.raw, helper.BoolToInt(v))
 }
 
+// NullHandlingModifier apply IGNORE/RESPECT NULLS filtering to the stream of input values.
 func (n *BaseNonScalarFunctionCallNode) NullHandlingModifier() NullHandlingModifier {
-	return NullHandlingModifier(0)
+	var v int
+	internal.ResolvedNonScalarFunctionCallBase_null_handling_modifier(n.raw, &v)
+	return NullHandlingModifier(v)
 }
 
 func (n *BaseNonScalarFunctionCallNode) SetNullHandlingModifier(v NullHandlingModifier) {
-
+	internal.ResolvedNonScalarFunctionCallBase_set_null_handling_modifier(n.raw, int(v))
 }
 
+// WithGroupRowsSubquery holds a table subquery defined in WITH GROUP_ROWS(...) that is
+// evaluated over the input rows of a AggregateScanNode
+// corresponding to the current group. The function itself is
+// evaluated over the rows returned from the subquery.
+//
+// The subquery should refer to a special TVF GROUP_ROWS(), which
+// resolves as GroupRowsScanNode. The subquery will be run for
+// each group produced by AggregateScanNode.
+//
+// GROUP_ROWS() produces a row for each source row in the
+// AggregateScanNode's input that matches current group.
+//
+// The subquery cannot reference any Columns from the outer
+// query except what comes in via <with_group_rows_parameter_list>,
+// and GROUP_ROWS().
+//
+// The subquery can return more than one column, and these columns
+// can be referenced by the function.
+//
+// The subquery can be correlated. In this case the
+// <with_group_rows_parameter_list> gives the set of Columns
+// from outside the subquery that are used inside. The subuery cannot
+// refer to correlated columns that are used as aggregation input in
+// the immediate outer query. The same rules apply to
+// <with_group_rows_parameter_list> as in SubqueryExprNode.
 func (n *BaseNonScalarFunctionCallNode) WithGroupRowsSubquery() *ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedNonScalarFunctionCallBase_with_group_rows_subquery(n.raw, &v)
+	return newScanNode(v)
 }
 
 func (n *BaseNonScalarFunctionCallNode) SetWithGroupRowsSubquery(v *ScanNode) {
+	internal.ResolvedNonScalarFunctionCallBase_set_with_group_rows_subquery(n.raw, v.getRaw())
 }
 
+// WithGroupRowsParameterList correlated parameters to <with_group_rows_subquery>.
 func (n *BaseNonScalarFunctionCallNode) WithGroupRowsParameterList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedNonScalarFunctionCallBase_with_group_rows_parameter_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *BaseNonScalarFunctionCallNode) SetWithGroupRowsParameterList(v []*ColumnRefNode) {
+	internal.ResolvedNonScalarFunctionCallBase_set_with_group_rows_parameter_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseNonScalarFunctionCallNode) AddWithGroupRowsParameter(v *ColumnRefNode) {
+	internal.ResolvedNonScalarFunctionCallBase_add_with_group_rows_parameter_list(n.raw, v.getRaw())
 }
 
 // AggregateFunctionCallNode an aggregate function call.
@@ -546,35 +767,66 @@ type AggregateFunctionCallNode struct {
 
 // HavingModifier apply HAVING MAX/MIN filtering to the stream of input values.
 func (n *AggregateFunctionCallNode) HavingModifier() *AggregateHavingModifierNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateFunctionCall_having_modifier(n.raw, &v)
+	return newAggregateHavingModifierNode(v)
 }
 
 func (n *AggregateFunctionCallNode) SetHavingModifier(v *AggregateHavingModifierNode) {
-
+	internal.ResolvedAggregateFunctionCall_set_having_modifier(n.raw, v.getRaw())
 }
 
+// OrderByItemList apply ordering to the stream of input values before calling function.
 func (n *AggregateFunctionCallNode) OrderByItemList() []*OrderByItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateFunctionCall_order_by_item_list(n.raw, &v)
+	var ret []*OrderByItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOrderByItemNode(p))
+	})
+	return ret
 }
 
 func (n *AggregateFunctionCallNode) SetOrderByItemList(v []*OrderByItemNode) {
+	internal.ResolvedAggregateFunctionCall_set_order_by_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AggregateFunctionCallNode) AddOrderByItem(v *OrderByItemNode) {
+	internal.ResolvedAggregateFunctionCall_add_order_by_item_list(n.raw, v.getRaw())
 }
 
 func (n *AggregateFunctionCallNode) Limit() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateFunctionCall_limit(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *AggregateFunctionCallNode) SetLimit(v ExprNode) {
+	internal.ResolvedAggregateFunctionCall_set_limit(n.raw, v.getRaw())
 }
 
+// FunctionCallInfo this contains optional custom information about a particular
+// function call. Functions may introduce subclasses of this class to
+// add custom information as needed on a per-function basis.
+//
+// This field is ignorable because for most types of function calls,
+// there is no extra information to consider besides the arguments
+// and other fields from BaseFunctionCallNode. However, for
+// example, the TemplateSQLFunction in
+// zetasql/public/templated_sql_function.h defines the
+// TemplatedSQLFunctionCall subclass which includes the
+// fully-resolved function body in context of the actual concrete
+// types of the arguments provided to the function call.
 func (n *AggregateFunctionCallNode) FunctionCallInfo() *FunctionCallInfo {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateFunctionCall_function_call_info(n.raw, &v)
+	return newFunctionCallInfo(v)
 }
 
 func (n *AggregateFunctionCallNode) SetFunctionCallInfo(v *FunctionCallInfo) {
+	internal.ResolvedAggregateFunctionCall_set_function_call_info(n.raw, v.raw)
 }
 
 // AnalyticFunctionCallNode an analytic function call.
@@ -588,11 +840,13 @@ type AnalyticFunctionCallNode struct {
 }
 
 func (n *AnalyticFunctionCallNode) WindowFrame() *WindowFrameNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticFunctionCall_window_frame(n.raw, &v)
+	return newWindowFrameNode(v)
 }
 
 func (n *AnalyticFunctionCallNode) SetWindowFrame(v *WindowFrameNode) {
-
+	internal.ResolvedAnalyticFunctionCall_set_window_frame(n.raw, v.getRaw())
 }
 
 // ExtendedCastElementNode describes a leaf extended cast of ExtendedCastNode.
@@ -602,24 +856,33 @@ type ExtendedCastElementNode struct {
 }
 
 func (n *ExtendedCastElementNode) FromType() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExtendedCastElement_from_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *ExtendedCastElementNode) SetFromType(v types.Type) {
+	internal.ResolvedExtendedCastElement_set_from_type(n.raw, getRawType(v))
 }
 
 func (n *ExtendedCastElementNode) ToType() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExtendedCastElement_to_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *ExtendedCastElementNode) SetToType(v types.Type) {
+	internal.ResolvedExtendedCastElement_set_to_type(n.raw, getRawType(v))
 }
 
 func (n *ExtendedCastElementNode) Function() *types.Function {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExtendedCastElement_function(n.raw, &v)
+	return newFunction(v)
 }
 
 func (n *ExtendedCastElementNode) SetFunction(v *types.Function) {
+	internal.ResolvedExtendedCastElement_set_function(n.raw, getRawFunction(v))
 }
 
 // ExtendedCastNode describes overall cast operation between two values where at least one
@@ -634,13 +897,23 @@ type ExtendedCastNode struct {
 // For structs, there can be multiple cast elements (one for each distinct pair of field types).
 // For non-struct types, there will be just a single element.
 func (n *ExtendedCastNode) ElementList() []*ExtendedCastElementNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExtendedCast_element_list(n.raw, &v)
+	var ret []*ExtendedCastElementNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newExtendedCastElementNode(p))
+	})
+	return ret
 }
 
 func (n *ExtendedCastNode) SetElementList(v []*ExtendedCastElementNode) {
+	internal.ResolvedExtendedCast_set_element_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ExtendedCastNode) AddElement(v *ExtendedCastElementNode) {
+	internal.ResolvedExtendedCast_add_element_list(n.raw, v.getRaw())
 }
 
 // CastNode a cast expression, casting the result of an input expression to the target Type.
@@ -653,45 +926,62 @@ type CastNode struct {
 }
 
 func (n *CastNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCast_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CastNode) SetExpr(v ExprNode) {
+	internal.ResolvedCast_set_expr(n.raw, v.getRaw())
 }
 
+// ReturnNullOnError whether to return NULL if the cast fails.
+// This is set to true for SAFE_CAST.
 func (n *CastNode) ReturnNullOnError() bool {
-	return false
+	var v bool
+	internal.ResolvedCast_return_null_on_error(n.raw, &v)
+	return v
 }
 
 func (n *CastNode) SetReturnNullOnError(v bool) {
+	internal.ResolvedCast_set_return_null_on_error(n.raw, helper.BoolToInt(v))
 }
 
 // ExtendedCast if at least one of types involved in this cast is or contains an
 // extended (TYPE_EXTENDED) type, this field contains information
 // necessary to execute this cast.
 func (n *CastNode) ExtendedCast() *ExtendedCastNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCast_extended_cast(n.raw, &v)
+	return newExtendedCastNode(v)
 }
 
 func (n *CastNode) SetExtendedCast(v *ExtendedCastNode) {
+	internal.ResolvedCast_set_extended_cast(n.raw, v.getRaw())
 }
 
 // Format the format string specified by the optional FORMAT clause.
 // It is nullptr when the clause does not exist.
 func (n *CastNode) Format() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCast_format(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CastNode) SetFormat(v ExprNode) {
+	internal.ResolvedCast_set_format(n.raw, v.getRaw())
 }
 
 // TimeZone the time zone expression by the optional AT TIME ZONE clause.
 // It is nullptr when the clause does not exist.
 func (n *CastNode) TimeZone() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCast_time_zone(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CastNode) SetTimeZone(v ExprNode) {
+	internal.ResolvedCast_set_time_zone(n.raw, v.getRaw())
 }
 
 // TypeParameters contains the TypeParametersProto, which stores the type parameters
@@ -709,10 +999,13 @@ func (n *CastNode) SetTimeZone(v ExprNode) {
 //   CAST(1.234 as NUMERIC(2,1)) should return a NumericValue of 1.2
 //
 func (n *CastNode) TypeParameters() *types.TypeParameters {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCast_type_parameters(n.raw, &v)
+	return newTypeParameters(v)
 }
 
 func (n *CastNode) SetTypeParameters(v *types.TypeParameters) {
+	internal.ResolvedCast_set_type_parameters(n.raw, getRawTypeParameters(v))
 }
 
 // MakeStructNode construct a struct value.
@@ -724,13 +1017,23 @@ type MakeStructNode struct {
 }
 
 func (n *MakeStructNode) FieldList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMakeStruct_field_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *MakeStructNode) SetFieldList(v []ExprNode) {
+	internal.ResolvedMakeStruct_set_field_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *MakeStructNode) AddField(v ExprNode) {
+	internal.ResolvedMakeStruct_add_field_list(n.raw, v.getRaw())
 }
 
 // MakeProtoNode construct a proto value.
@@ -742,13 +1045,23 @@ type MakeProtoNode struct {
 }
 
 func (n *MakeProtoNode) FieldList() []*MakeProtoFieldNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMakeProto_field_list(n.raw, &v)
+	var ret []*MakeProtoFieldNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newMakeProtoFieldNode(p))
+	})
+	return ret
 }
 
 func (n *MakeProtoNode) SetFieldList(v []*MakeProtoFieldNode) {
+	internal.ResolvedMakeProtoNode_set_field_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *MakeProtoNode) AddField(v *MakeProtoFieldNode) {
+	internal.ResolvedMakeProto_add_field_list(n.raw, v.getRaw())
 }
 
 // MakeProtoFieldNode one field assignment in a MakeProtoNode expression.
@@ -762,18 +1075,26 @@ type MakeProtoFieldNode struct {
 	*BaseArgumentNode
 }
 
+// Format provides the Format annotation that should be used when building this field.
+// The annotation specifies both the ZetaSQL type and the encoding format for this field.
 func (n *MakeProtoFieldNode) Format() Format {
-	return Format(0)
+	var v int
+	internal.ResolvedMakeProtoField_format(n.raw, &v)
+	return Format(v)
 }
 
 func (n *MakeProtoFieldNode) SetFormat(v Format) {
+	internal.ResolvedMakeProtoField_set_format(n.raw, int(v))
 }
 
 func (n *MakeProtoFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMakeProtoField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *MakeProtoFieldNode) SetExpr(v ExprNode) {
+	internal.ResolvedMakeProtoField_set_expr(n.raw, v.getRaw())
 }
 
 // GetStructFieldNode get the field in position FieldIdx (0-based) from Expr, which has a STRUCT type.
@@ -782,29 +1103,38 @@ type GetStructFieldNode struct {
 }
 
 func (n *GetStructFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGetStructField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *GetStructFieldNode) SetExpr(v ExprNode) {
+	internal.ResolvedGetStructField_set_expr(n.raw, v.getRaw())
 }
 
 func (n *GetStructFieldNode) FieldIdx() int {
-	return 0
+	var v int
+	internal.ResolvedGetStructField_field_idx(n.raw, &v)
+	return v
 }
 
 func (n *GetStructFieldNode) SetFieldIdx(v int) {
+	internal.ResolvedGetStructField_set_field_idx(n.raw, v)
 }
 
-// GetProtoFieldNode
+// GetProtoFieldNode.
 type GetProtoFieldNode struct {
 	*BaseExprNode
 }
 
 func (n *GetProtoFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGetProtoField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *GetProtoFieldNode) SetExpr(v ExprNode) {
+	internal.ResolvedGetProtoField_set_expr(n.raw, v.getRaw())
 }
 
 // DefaultValue to use when the proto field is not set.
@@ -822,10 +1152,13 @@ func (n *GetProtoFieldNode) SetExpr(v ExprNode) {
 //
 // TODO Make un-ignorable after clients migrate to start using it.
 func (n *GetProtoFieldNode) DefaultValue() constant.Value {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGetProtoField_default_value(n.raw, &v)
+	return newValue(v)
 }
 
 func (n *GetProtoFieldNode) SetDefaultValue(v constant.Value) {
+	internal.ResolvedGetProtoField_set_default_value(n.raw, getRawValue(v))
 }
 
 // HasBit indicates whether to return a bool indicating if a value was
@@ -834,10 +1167,13 @@ func (n *GetProtoFieldNode) SetDefaultValue(v constant.Value) {
 // ReturnDefaultValueWhenUnset is true, and vice versa.
 // Expression type will be BOOL.
 func (n *GetProtoFieldNode) HasBit() bool {
-	return false
+	var v bool
+	internal.ResolvedGetProtoField_get_has_bit(n.raw, &v)
+	return v
 }
 
 func (n *GetProtoFieldNode) SetHasBit(v bool) {
+	internal.ResolvedGetProtoField_set_get_has_bit(n.raw, helper.BoolToInt(v))
 }
 
 // Format provides the Format annotation that should be used when reading
@@ -845,10 +1181,13 @@ func (n *GetProtoFieldNode) SetHasBit(v bool) {
 // the encoding format for this field. This cannot be set when
 // HasBit is true.
 func (n *GetProtoFieldNode) Format() Format {
-	return Format(0)
+	var v int
+	internal.ResolvedGetProtoField_format(n.raw, &v)
+	return Format(v)
 }
 
 func (n *GetProtoFieldNode) SetFormat(v Format) {
+	internal.ResolvedGetProtoField_set_format(n.raw, int(v))
 }
 
 // ReturnDefaultValueWhenUnset indicates that the default value should be returned if Expr
@@ -861,10 +1200,13 @@ func (n *GetProtoFieldNode) SetFormat(v Format) {
 // proto2 field, then it must be annotated with
 // zetasql.UseDefaults=true. This cannot be set when HasBit is true or the field is required.
 func (n *GetProtoFieldNode) ReturnDefaultValueWhenUnset() bool {
-	return false
+	var v bool
+	internal.ResolvedGetProtoField_return_default_value_when_unset(n.raw, &v)
+	return v
 }
 
 func (n *GetProtoFieldNode) SetReturnDefaultValueWhenUnset(v bool) {
+	internal.ResolvedGetProtoField_set_return_default_value_when_unset(n.raw, helper.BoolToInt(v))
 }
 
 // GetJsonFieldNode get the field FieldName from Expr, which has a JSON type.
@@ -873,17 +1215,23 @@ type GetJsonFieldNode struct {
 }
 
 func (n *GetJsonFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGetJsonField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *GetJsonFieldNode) SetExpr(v ExprNode) {
+	internal.ResolvedGetJsonField_set_expr(n.raw, v.getRaw())
 }
 
 func (n *GetJsonFieldNode) FieldName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedGetJsonField_field_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *GetJsonFieldNode) SetFieldName(v string) {
+	internal.ResolvedGetJsonField_set_field_name(n.raw, helper.StringToPtr(v))
 }
 
 // FlattenNode constructs an initial input ARRAY<T> from expr.
@@ -900,10 +1248,13 @@ type FlattenNode struct {
 }
 
 func (n *FlattenNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFlatten_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FlattenNode) SetExpr(v ExprNode) {
+	internal.ResolvedFlatten_set_expr(n.raw, v.getRaw())
 }
 
 // FieldList list of 'get' fields to evaluate in order (0 or more struct get
@@ -914,13 +1265,24 @@ func (n *FlattenNode) SetExpr(v ExprNode) {
 // The 'get' fields may either be a Get*Field or an array
 // offset function around a Get*Field.
 func (n *FlattenNode) GetFieldList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFlatten_get_field_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *FlattenNode) SetGetFieldList(v []ExprNode) {
+	internal.ResolvedFlatten_set_get_field_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
+
 }
 
 func (n *FlattenNode) AddGetField(v ExprNode) {
+	internal.ResolvedFlatten_add_get_field_list(n.raw, v.getRaw())
 }
 
 // FlattenArgNode argument for a child of FlattenNode.
@@ -952,21 +1314,43 @@ type ReplaceFieldItemNode struct {
 	*BaseArgumentNode
 }
 
+// Expr the value that the final field in <proto_field_path> will be set to.
+//
+// If <expr> is NULL, the field will be unset. If <proto_field_path>
+// is a required field, the engine must return an error if it is set to NULL.
 func (n *ReplaceFieldItemNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReplaceFieldItem_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ReplaceFieldItemNode) SetExpr(v ExprNode) {
+	internal.ResolvedReplaceFieldItem_set_expr(n.raw, v.getRaw())
 }
 
+// StructIndexPath a vector of integers that denotes the path to a struct field that
+// will be modified. The integer values in this vector correspond to
+// field positions (0-based) in a STRUCT. If <proto_field_path>
+// is also non-empty, then the field corresponding to the last index
+// in this vector should be of proto type.
 func (n *ReplaceFieldItemNode) StructIndexPath() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReplaceFieldItem_struct_index_path(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *ReplaceFieldItemNode) SetStructIndexPath(v []int) {
+	internal.ResolvedReplaceFieldItem_set_struct_index_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *ReplaceFieldItemNode) AddStructIndexPath(v int) {
+	internal.ResolvedReplaceFieldItem_add_struct_index_path(n.raw, v)
 }
 
 // ReplaceFieldNode represents a call to the REPLACE_FIELDS() function.
@@ -977,11 +1361,15 @@ type ReplaceFieldNode struct {
 	*BaseExprNode
 }
 
+// Expr the proto/struct to modify.
 func (n *ReplaceFieldNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReplaceField_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ReplaceFieldNode) SetExpr(v ExprNode) {
+	internal.ResolvedReplaceField_set_expr(n.raw, v.getRaw())
 }
 
 // ReplaceFieldItemList the list of field paths to be modified along with their new values.
@@ -992,13 +1380,23 @@ func (n *ReplaceFieldNode) SetExpr(v ExprNode) {
 // - Modifying a subfield of a NULL-valued proto-valued field is an error.
 // - Clearing a required field or subfield is an error.
 func (n *ReplaceFieldNode) ReplaceFieldItemList() []*ReplaceFieldItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReplaceField_replace_field_item_list(n.raw, &v)
+	var ret []*ReplaceFieldItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newReplaceFieldItemNode(p))
+	})
+	return ret
 }
 
 func (n *ReplaceFieldNode) SetReplaceFieldItemList(v []*ReplaceFieldItemNode) {
+	internal.ResolvedReplaceField_set_replace_field_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ReplaceFieldNode) AddReplaceFieldItem(v *ReplaceFieldItemNode) {
+	internal.ResolvedReplaceField_add_replace_field_item_list(n.raw, v.getRaw())
 }
 
 // SubqueryExprNode a subquery in an expression (not a FROM clause).
@@ -1072,56 +1470,89 @@ type SubqueryExprNode struct {
 }
 
 func (n *SubqueryExprNode) SubqueryType() SubqueryType {
-	return SubqueryType(0)
+	var v int
+	internal.ResolvedSubqueryExpr_subquery_type(n.raw, &v)
+	return SubqueryType(v)
 }
 
 func (n *SubqueryExprNode) SetSubqueryType(v SubqueryType) {
+	internal.ResolvedSubqueryExpr_set_subquery_type(n.raw, int(v))
 }
 
 func (n *SubqueryExprNode) ParameterList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSubqueryExpr_parameter_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *SubqueryExprNode) SetParameterList(v []*ColumnRefNode) {
+	internal.ResolvedSubqueryExpr_set_parameter_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *SubqueryExprNode) AddParameter(v *ColumnRefNode) {
+	internal.ResolvedSubqueryExpr_add_parameter_list(n.raw, v.getRaw())
 }
 
+// InExpr field is only populated for subqueries of type IN or LIKE ANY|SOME|ALL.
 func (n *SubqueryExprNode) InExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSubqueryExpr_in_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *SubqueryExprNode) SetInExpr(v ExprNode) {
+	internal.ResolvedSubqueryExpr_set_in_expr(n.raw, v.getRaw())
 }
 
 // InCollation field is only populated for subqueries of type IN to specify the
 // operation collation to use to compare <in_expr> with the rows from <subquery>.
 func (n *SubqueryExprNode) InCollation() *Collation {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSubqueryExpr_in_collation(n.raw, &v)
+	return newCollation(v)
 }
 
 func (n *SubqueryExprNode) SetInCollation(v *Collation) {
+	internal.ResolvedSubqueryExpr_set_in_collation(n.raw, v.raw)
 }
 
 func (n *SubqueryExprNode) Subquery() *ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSubqueryExpr_subquery(n.raw, &v)
+	return newScanNode(v)
 }
 
 func (n *SubqueryExprNode) SetSubquery(v *ScanNode) {
+	internal.ResolvedSubqueryExpr_set_subquery(n.raw, v.getRaw())
 }
 
 // HintList
 // NOTE: Hints currently happen only for EXISTS, IN, or a LIKE
 // expression subquery but not for ARRAY or SCALAR subquery.
 func (n *SubqueryExprNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSubqueryExpr_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *SubqueryExprNode) SetHintList(v []*OptionNode) {
+	internal.ResolvedSubqueryExpr_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *SubqueryExprNode) AddHint(v *OptionNode) {
+	internal.ResolvedSubqueryExpr_add_hint_list(n.raw, v.getRaw())
 }
 
 // LetExprNode introduces one or more columns in <assignment_list> that
@@ -1140,20 +1571,33 @@ type LetExprNode struct {
 }
 
 func (n *LetExprNode) AssignmentList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedLetExpr_assignment_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *LetExprNode) SetAssignmentList(v []*ComputedColumnNode) {
+	internal.ResolvedLetExpr_set_assignment_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *LetExprNode) AddAssignment(v *ComputedColumnNode) {
+	internal.ResolvedLetExpr_add_assignment_list(n.raw, v.getRaw())
 }
 
 func (n *LetExprNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedLetExpr_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *LetExprNode) SetExpr(v ExprNode) {
+	internal.ResolvedLetExpr_set_expr(n.raw, v.getRaw())
 }
 
 // ScanNode common interface for all Scans, which are nodes that produce rows
@@ -1188,35 +1632,53 @@ type BaseScanNode struct {
 }
 
 func (n *BaseScanNode) ColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedScan_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *BaseScanNode) SetColumnList(v []*Column) {
-
+	internal.ResolvedScan_set_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *BaseScanNode) AddColumn(v *Column) {
-
+	internal.ResolvedScan_add_column_list(n.raw, v.raw)
 }
 
 func (n *BaseScanNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedScan_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseScanNode) SetHintList(v []*OptionNode) {
-
+	internal.ResolvedScan_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseScanNode) AddHint(v *OptionNode) {
-
+	internal.ResolvedScan_add_hint_list(n.raw, v.getRaw())
 }
 
 func (n *BaseScanNode) IsOrdered() bool {
-	return false
+	var v bool
+	internal.ResolvedScan_is_ordered(n.raw, &v)
+	return v
 }
 
 func (n *BaseScanNode) SetIsOrdered(v bool) {
-
+	internal.ResolvedScan_set_is_ordered(n.raw, helper.BoolToInt(v))
 }
 
 // ModelNode represents a machine learning model as a TVF argument.
@@ -1227,11 +1689,13 @@ type ModelNode struct {
 }
 
 func (n *ModelNode) Model() types.Model {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedModel_model(n.raw, &v)
+	return newModel(v)
 }
 
 func (n *ModelNode) SetModel(v types.Model) {
-
+	internal.ResolvedModel_set_model(n.raw, getRawModel(v))
 }
 
 // ConnectionNode represents a connection object as a TVF argument.
@@ -1242,10 +1706,13 @@ type ConnectionNode struct {
 }
 
 func (n *ConnectionNode) Connection() types.Connection {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedConnection_connection(n.raw, &v)
+	return newConnection(v)
 }
 
 func (n *ConnectionNode) SetConnection(v types.Connection) {
+	internal.ResolvedConnection_set_connection(n.raw, getRawConnection(v))
 }
 
 // DescriptorNode represents a descriptor object as a TVF argument.
@@ -1263,25 +1730,43 @@ type DescriptorNode struct {
 }
 
 func (n *DescriptorNode) DescriptorColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDescriptor_descriptor_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *DescriptorNode) SetDescriptorColumnList(v []*Column) {
+	internal.ResolvedDescriptor_set_descriptor_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *DescriptorNode) AddDescriptorColumn(v *Column) {
+	internal.ResolvedDescriptor_add_descriptor_column_list(n.raw, v.raw)
 }
 
 func (n *DescriptorNode) DescriptorColumnNameList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDescriptor_descriptor_column_name_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DescriptorNode) SetDescriptorColumnNameList(v []string) {
-
+	internal.ResolvedDescriptor_set_descriptor_column_name_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *DescriptorNode) AddDescriptorColumnName(v string) {
-
+	internal.ResolvedDescriptor_add_descriptor_column_name_list(n.raw, helper.StringToPtr(v))
 }
 
 // SingleRowScanNode scan that produces a single row with no columns.
@@ -1323,34 +1808,53 @@ type TableScanNode struct {
 }
 
 func (n *TableScanNode) Table() types.Table {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTableScan_table(n.raw, &v)
+	return newTable(v)
 }
 
 func (n *TableScanNode) SetTable(v types.Table) {
+	internal.ResolvedTableScan_set_table(n.raw, getRawTable(v))
 }
 
 func (n *TableScanNode) ForSystemTimeExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTableScan_for_system_time_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *TableScanNode) SetForSystemTimeExpr(v ExprNode) {
+	internal.ResolvedTableScan_set_for_system_time_expr(n.raw, v.getRaw())
 }
 
 func (n *TableScanNode) ColumnIndexList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTableScan_column_index_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *TableScanNode) SetColumnIndexList(v []int) {
+	internal.ResolvedTableScan_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *TableScanNode) AddColumnIndex(v int) {
+	internal.ResolvedTableScan_add_column_index_list(n.raw, v)
 }
 
 func (n *TableScanNode) Alias() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedTableScan_alias(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *TableScanNode) SetAlias(v string) {
+	internal.ResolvedTableScan_set_alias(n.raw, helper.StringToPtr(v))
 }
 
 // JoinScanNode scan that joins two input scans.
@@ -1363,31 +1867,43 @@ type JoinScanNode struct {
 }
 
 func (n *JoinScanNode) JoinType() JoinType {
-	return JoinType(0)
+	var v int
+	internal.ResolvedJoinScan_join_type(n.raw, &v)
+	return JoinType(v)
 }
 
 func (n *JoinScanNode) SetJoinType(v JoinType) {
+	internal.ResolvedJoinScan_set_join_type(n.raw, int(v))
 }
 
 func (n *JoinScanNode) LeftScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedJoinScan_left_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *JoinScanNode) SetLeftScan(v ScanNode) {
+	internal.ResolvedJoinScan_set_left_scan(n.raw, v.getRaw())
 }
 
 func (n *JoinScanNode) RightScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedJoinScan_right_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *JoinScanNode) SetRightScan(v ScanNode) {
+	internal.ResolvedJoinScan_set_right_scan(n.raw, v.getRaw())
 }
 
 func (n *JoinScanNode) JoinExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedJoinScan_join_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *JoinScanNode) SetJoinExpr(v ExprNode) {
+	internal.ResolvedJoinScan_set_join_expr(n.raw, v.getRaw())
 }
 
 // ArrayScanNode scan an array value, produced from some expression.
@@ -1422,45 +1938,63 @@ type ArrayScanNode struct {
 }
 
 func (n *ArrayScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArrayScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *ArrayScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedArrayScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *ArrayScanNode) ArrayExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArrayScan_array_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ArrayScanNode) SetArrayExpr(v ExprNode) {
+	internal.ResolvedArrayScan_set_array_expr(n.raw, v.getRaw())
 }
 
 func (n *ArrayScanNode) ElementColumn() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArrayScan_element_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *ArrayScanNode) SetElementColumn(v *Column) {
+	internal.ResolvedArrayScan_set_element_column(n.raw, v.raw)
 }
 
 func (n *ArrayScanNode) ArrayOffsetColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArrayScan_array_offset_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *ArrayScanNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
+	internal.ResolvedArrayScan_set_array_offset_column(n.raw, v.getRaw())
 }
 
 func (n *ArrayScanNode) JoinExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArrayScan_join_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ArrayScanNode) SetJoinExpr(v ExprNode) {
+	internal.ResolvedArrayScan_set_join_expr(n.raw, v.getRaw())
 }
 
 func (n *ArrayScanNode) IsOuter() bool {
-	return false
+	var v bool
+	internal.ResolvedArrayScan_is_outer(n.raw, &v)
+	return v
 }
 
 func (n *ArrayScanNode) SetIsOuter(v bool) {
+	internal.ResolvedArrayScan_set_is_outer(n.raw, helper.BoolToInt(v))
 }
 
 // ColumnHolderNode this wrapper is used for an optional Column inside another node.
@@ -1469,10 +2003,13 @@ type ColumnHolderNode struct {
 }
 
 func (n *ColumnHolderNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnHolder_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *ColumnHolderNode) SetColumn(v *Column) {
+	internal.ResolvedColumnHolder_set_column(n.raw, v.raw)
 }
 
 // FilterScanNode scan rows from input_scan, and emit all rows where filter_expr evaluates to true.
@@ -1483,17 +2020,23 @@ type FilterScanNode struct {
 }
 
 func (n *FilterScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFilterScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *FilterScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedFilterScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *FilterScanNode) FilterExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFilterScan_filter_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FilterScanNode) SetFilterExpr(v ExprNode) {
+	internal.ResolvedFilterScan_set_filter_expr(n.raw, v.getRaw())
 }
 
 // GroupingSetNode list of group by columns that form a grouping set.
@@ -1506,13 +2049,23 @@ type GroupingSetNode struct {
 }
 
 func (n *GroupingSetNode) GroupByColumnList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGroupingSet_group_by_column_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *GroupingSetNode) SetGroupByColumnList(v []*ColumnRefNode) {
+	internal.ResolvedGroupingSet_set_group_by_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *GroupingSetNode) AddGroupByColumn(v *ColumnRefNode) {
+	internal.ResolvedGroupingSet_add_group_by_column_list(n.raw, v.getRaw())
 }
 
 // BaseAggregateScanNode base node for aggregation scans.
@@ -1539,40 +2092,73 @@ type BaseAggregateScanNode struct {
 }
 
 func (n *BaseAggregateScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScanBase_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *BaseAggregateScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedAggregateScanBase_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *BaseAggregateScanNode) GroupByList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScanBase_group_by_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *BaseAggregateScanNode) SetGroupByList(v []*ComputedColumnNode) {
+	internal.ResolvedAggregateScanBase_set_group_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseAggregateScanNode) AddGroupBy(v *ComputedColumnNode) {
+	internal.ResolvedAggregateScanBase_add_group_by_list(n.raw, v.getRaw())
 }
 
 func (n *BaseAggregateScanNode) CollationList() []*Collation {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScanBase_collation_list(n.raw, &v)
+	var ret []*Collation
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newCollation(p))
+	})
+	return ret
 }
 
 func (n *BaseAggregateScanNode) SetCollationList(v []*Collation) {
+	internal.ResolvedAggregateScanBase_set_collation_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *BaseAggregateScanNode) AddCollation(v *Collation) {
+	internal.ResolvedAggregateScanBase_add_collation_list(n.raw, v.raw)
 }
 
 func (n *BaseAggregateScanNode) AggregateList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScanBase_aggregate_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *BaseAggregateScanNode) SetAggregateList(v []*ComputedColumnNode) {
+	internal.ResolvedAggregateScanBase_set_aggregate_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseAggregateScanNode) AddAggregate(v *ComputedColumnNode) {
+	internal.ResolvedAggregateScanBase_add_aggregate_list(n.raw, v.getRaw())
 }
 
 // AggregateScanNode apply aggregation to rows produced from input_scan,
@@ -1597,23 +2183,43 @@ type AggregateScanNode struct {
 }
 
 func (n *AggregateScanNode) GroupingSetList() []*GroupingSetNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScan_grouping_set_list(n.raw, &v)
+	var ret []*GroupingSetNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newGroupingSetNode(p))
+	})
+	return ret
 }
 
 func (n *AggregateScanNode) SetGroupingSetList(v []*GroupingSetNode) {
+	internal.ResolvedAggregateScan_set_grouping_set_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AggregateScanNode) AddGroupingSet(v *GroupingSetNode) {
+	internal.ResolvedAggregateScan_add_grouping_set_list(n.raw, v.getRaw())
 }
 
 func (n *AggregateScanNode) RollupColumnList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateScan_rollup_column_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *AggregateScanNode) SetRollupColumnList(v []*ColumnRefNode) {
+	internal.ResolvedAggregateScan_set_rollup_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AggregateScanNode) AddRollupColumn(v *ColumnRefNode) {
+	internal.ResolvedAggregateScan_add_rollup_column_list(n.raw, v.getRaw())
 }
 
 // AnonymizedAggregateScanNode apply differentially private aggregation (anonymization) to rows produced
@@ -1634,20 +2240,33 @@ type AnonymizedAggregateScanNode struct {
 }
 
 func (n *AnonymizedAggregateScanNode) KThresholdExpr() *ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnonymizedAggregateScan_k_threshold_expr(n.raw, &v)
+	return newColumnRefNode(v)
 }
 
 func (n *AnonymizedAggregateScanNode) SetKThresholdExpr(v *ColumnRefNode) {
+	internal.ResolvedAnonymizedAggregateScan_set_k_threshold_expr(n.raw, v.getRaw())
 }
 
 func (n *AnonymizedAggregateScanNode) AnonymizationOptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnonymizedAggregateScan_anonymization_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AnonymizedAggregateScanNode) SetAnonymizationOptionList(v []*OptionNode) {
+	internal.ResolvedAnonymizedAggregateScan_set_anonymization_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AnonymizedAggregateScanNode) AddAnonymizationOption(v *OptionNode) {
+	internal.ResolvedAnonymizedAggregateScan_add_anonymization_option_list(n.raw, v.getRaw())
 }
 
 // SetOperationItemNode this is one input item in a SetOperationNode.
@@ -1659,20 +2278,33 @@ type SetOperationItemNode struct {
 }
 
 func (n *SetOperationItemNode) Scan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetOperationItem_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *SetOperationItemNode) SetScan(v ScanNode) {
+	internal.ResolvedSetOperationItem_set_scan(n.raw, v.getRaw())
 }
 
 func (n *SetOperationItemNode) OutputColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetOperationItem_output_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *SetOperationItemNode) SetOutputColumnList(v []*Column) {
+	internal.ResolvedSetOperationItem_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *SetOperationItemNode) AddOutputColumn(v *Column) {
+	internal.ResolvedSetOperationItem_add_output_column_list(n.raw, v.raw)
 }
 
 // SetOperationScanNode apply a set operation (specified by <op_type>) on two or more input scans.
@@ -1703,20 +2335,33 @@ type SetOperationScanNode struct {
 }
 
 func (n *SetOperationScanNode) OpType() SetOperationType {
-	return SetOperationType(0)
+	var v int
+	internal.ResolvedSetOperationScan_op_type(n.raw, &v)
+	return SetOperationType(v)
 }
 
 func (n *SetOperationScanNode) SetOpType(v SetOperationType) {
+	internal.ResolvedSetOperationScan_set_op_type(n.raw, int(v))
 }
 
 func (n *SetOperationScanNode) InputItemList() []*SetOperationItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetOperationScan_input_item_list(n.raw, &v)
+	var ret []*SetOperationItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newSetOperationItemNode(p))
+	})
+	return ret
 }
 
 func (n *SetOperationScanNode) SetInputItemList(v []*SetOperationItemNode) {
+	internal.ResolvedSetOperationScan_set_input_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *SetOperationScanNode) AddInputItem(v *SetOperationItemNode) {
+	internal.ResolvedSetOperationScan_add_input_item_list(n.raw, v.getRaw())
 }
 
 // OrderByScanNode apply ordering to rows produced from input_scan, and output ordered
@@ -1743,20 +2388,33 @@ type OrderByScanNode struct {
 }
 
 func (n *OrderByScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOrderByScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *OrderByScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedOrderByScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *OrderByScanNode) OrderByItemList() []*OrderByItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOrderByScan_order_by_item_list(n.raw, &v)
+	var ret []*OrderByItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOrderByItemNode(p))
+	})
+	return ret
 }
 
 func (n *OrderByScanNode) SetOrderByItemList(v []*OrderByItemNode) {
+	internal.ResolvedOrderByScan_set_order_by_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *OrderByScanNode) AddOrderByItem(v *OrderByItemNode) {
+	internal.ResolvedOrderByScan_add_order_by_item_list(n.raw, v.getRaw())
 }
 
 // LimitOffsetScanNode apply a LIMIT and optional OFFSET to the rows from input_scan. Emit all
@@ -1776,24 +2434,33 @@ type LimitOffsetScanNode struct {
 }
 
 func (n *LimitOffsetScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedLimitOffsetScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *LimitOffsetScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedLimitOffsetScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *LimitOffsetScanNode) Limit() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedLimitOffsetScan_limit(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *LimitOffsetScanNode) SetLimit(v ExprNode) {
+	internal.ResolvedLimitOffsetScan_set_limit(n.raw, v.getRaw())
 }
 
 func (n *LimitOffsetScanNode) Offset() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedLimitOffsetScan_offset(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *LimitOffsetScanNode) SetOffset(v ExprNode) {
+	internal.ResolvedLimitOffsetScan_set_offset(n.raw, v.getRaw())
 }
 
 // WithRefScanNode scan the subquery defined in a WITH statement.
@@ -1806,10 +2473,13 @@ type WithRefScanNode struct {
 }
 
 func (n *WithRefScanNode) WithQueryName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedWithRefScan_with_query_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *WithRefScanNode) SetWithQueryName(v string) {
+	internal.ResolvedWithRefScan_set_with_query_name(n.raw, helper.StringToPtr(v))
 }
 
 // AnalyticScanNode apply analytic functions to rows produced from input_scan.
@@ -1826,20 +2496,33 @@ type AnalyticScanNode struct {
 }
 
 func (n *AnalyticScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *AnalyticScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedAnalyticScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *AnalyticScanNode) FunctionGroupList() []*AnalyticFunctionGroupNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticScan_function_group_list(n.raw, &v)
+	var ret []*AnalyticFunctionGroupNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newAnalyticFunctionGroupNode(p))
+	})
+	return ret
 }
 
 func (n *AnalyticScanNode) SetFunctionGroupList(v []*AnalyticFunctionGroupNode) {
+	internal.ResolvedAnalyticScan_set_function_group_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AnalyticScanNode) AddFunctionGroup(v *AnalyticFunctionGroupNode) {
+	internal.ResolvedAnalyticScan_add_function_group_list(n.raw, v.getRaw())
 }
 
 // SampleScanNode samples rows from <input_scan>.
@@ -1870,55 +2553,83 @@ type SampleScanNode struct {
 }
 
 func (n *SampleScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *SampleScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedSampleScan_set_input_scan(n.raw, v.getRaw())
 }
 
 func (n *SampleScanNode) Method() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_method(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *SampleScanNode) SetMethod(v string) {
+	internal.ResolvedSampleScan_set_method(n.raw, helper.StringToPtr(v))
 }
 
 func (n *SampleScanNode) Size() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_size(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *SampleScanNode) SetSize(v ExprNode) {
+	internal.ResolvedSampleScan_set_size(n.raw, v.getRaw())
 }
 
 func (n *SampleScanNode) Unit() SampleUnit {
-	return SampleUnit(0)
+	var v int
+	internal.ResolvedSampleScan_unit(n.raw, &v)
+	return SampleUnit(v)
 }
 
 func (n *SampleScanNode) SetUnit(v SampleUnit) {
+	internal.ResolvedSampleScan_set_unit(n.raw, int(v))
 }
 
 func (n *SampleScanNode) RepeatableArgument() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_repeatable_argument(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *SampleScanNode) SetRepeatableArgument(v ExprNode) {
+	internal.ResolvedSampleScan_set_repeatable_argument(n.raw, v.getRaw())
 }
 
 func (n *SampleScanNode) WeightColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_weight_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *SampleScanNode) SetWeightColumn(v *ColumnHolderNode) {
+	internal.ResolvedSampleScan_set_weight_column(n.raw, v.getRaw())
 }
 
 func (n *SampleScanNode) PartitionByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSampleScan_partition_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *SampleScanNode) SetPartitionByList(v []ExprNode) {
+	internal.ResolvedSampleScan_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *SampleScanNode) AddPartitionBy(v ExprNode) {
+	internal.ResolvedSampleScan_add_partition_by_list(n.raw, v.getRaw())
 }
 
 // ComputedColumnNode this is used when an expression is computed and given a name (a new
@@ -1931,17 +2642,23 @@ type ComputedColumnNode struct {
 }
 
 func (n *ComputedColumnNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedComputedColumn_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *ComputedColumnNode) SetColumn(v *Column) {
+	internal.ResolvedComputedColumn_set_column(n.raw, v.raw)
 }
 
 func (n *ComputedColumnNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedComputedColumn_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ComputedColumnNode) SetExpr(v ExprNode) {
+	internal.ResolvedComputedColumn_set_expr(n.raw, v.getRaw())
 
 }
 
@@ -1969,38 +2686,53 @@ type OrderByItemNode struct {
 }
 
 func (n *OrderByItemNode) ColumnRef() *ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOrderByItem_column_ref(n.raw, &v)
+	return newColumnRefNode(v)
 }
 
 func (n *OrderByItemNode) SetColumnRef(v *ColumnRefNode) {
+	internal.ResolvedOrderByItem_set_column_ref(n.raw, v.getRaw())
 }
 
 func (n *OrderByItemNode) CollationName() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOrderByItem_collation_name(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *OrderByItemNode) SetCollationName(v ExprNode) {
+	internal.ResolvedOrderByItem_set_collation_name(n.raw, v.getRaw())
 }
 
 func (n *OrderByItemNode) IsDescending() bool {
-	return false
+	var v bool
+	internal.ResolvedOrderByItem_is_descending(n.raw, &v)
+	return v
 }
 
 func (n *OrderByItemNode) SetIsDescending(v bool) {
+	internal.ResolvedOrderByItem_set_is_descending(n.raw, helper.BoolToInt(v))
 }
 
 func (n *OrderByItemNode) NullOrder() NullOrderMode {
-	return NullOrderMode(0)
+	var v int
+	internal.ResolvedOrderByItem_null_order(n.raw, &v)
+	return NullOrderMode(v)
 }
 
 func (n *OrderByItemNode) SetNullOrder(v NullOrderMode) {
+	internal.ResolvedOrderByItem_set_null_order(n.raw, int(v))
 }
 
 func (n *OrderByItemNode) Collation() *Collation {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOrderByItem_collation(n.raw, &v)
+	return newCollation(v)
 }
 
 func (n *OrderByItemNode) SetCollation(v *Collation) {
+	internal.ResolvedOrderByItem_set_collation(n.raw, v.raw)
 }
 
 // ColumnAnnotationsNode this is used in CREATE TABLE statements to provide column annotations
@@ -2027,44 +2759,78 @@ type ColumnAnnotationsNode struct {
 // CollationName can only be a string literal, and is only set
 // when FEATURE_V_1_3_COLLATION_SUPPORT is enabled.
 func (n *ColumnAnnotationsNode) CollationName() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnAnnotations_collation_name(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ColumnAnnotationsNode) SetCollationName(v ExprNode) {
+	internal.ResolvedColumnAnnotations_set_collation_name(n.raw, v.getRaw())
 }
 
 func (n *ColumnAnnotationsNode) NotNull() bool {
-	return false
+	var v bool
+	internal.ResolvedColumnAnnotations_not_null(n.raw, &v)
+	return v
 }
 
 func (n *ColumnAnnotationsNode) SetNotNull(v bool) {
+	internal.ResolvedColumnAnnotations_set_not_null(n.raw, helper.BoolToInt(v))
 }
 
 func (n *ColumnAnnotationsNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnAnnotations_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *ColumnAnnotationsNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedColumnAnnotations_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ColumnAnnotationsNode) AddOption(v *OptionNode) {
+	internal.ResolvedColumnAnnotations_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *ColumnAnnotationsNode) ChildList() []*ColumnAnnotationsNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnAnnotations_child_list(n.raw, &v)
+	var ret []*ColumnAnnotationsNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnAnnotationsNode(p))
+	})
+	return ret
 }
 
 func (n *ColumnAnnotationsNode) SetChildList(v []*ColumnAnnotationsNode) {
+	internal.ResolvedColumnAnnotations_set_child_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ColumnAnnotationsNode) AddChild(v *ColumnAnnotationsNode) {
+	internal.ResolvedColumnAnnotations_add_child_list(n.raw, v.getRaw())
 }
 
+// TypeParameters child_list in <type_parameters> is not used in here.
+// Instead we use child_list of this node (ColumnAnnotationsNode)
+// to store type parameters of subfields of STRUCT or ARRAY. Users
+// can access the full type parameters with child_list by calling
+// ColumnDefinitionNode.FullTypeParameters() function.
 func (n *ColumnAnnotationsNode) TypeParameters() *types.TypeParameters {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnAnnotations_type_parameters(n.raw, &v)
+	return newTypeParameters(v)
 }
 
 func (n *ColumnAnnotationsNode) SetTypeParameters(v *types.TypeParameters) {
+	internal.ResolvedColumnAnnotations_set_type_parameters(n.raw, getRawTypeParameters(v))
 }
 
 // GeneratedColumnInfoNode <expression> indicates the expression that defines the column.
@@ -2086,17 +2852,23 @@ type GeneratedColumnInfoNode struct {
 }
 
 func (n *GeneratedColumnInfoNode) Expression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGeneratedColumnInfo_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *GeneratedColumnInfoNode) SetExpression(v ExprNode) {
+	internal.ResolvedGeneratedColumnInfo_set_expression(n.raw, v.getRaw())
 }
 
 func (n *GeneratedColumnInfoNode) StoredMode() StoredMode {
-	return StoredMode(0)
+	var v int
+	internal.ResolvedGeneratedColumnInfo_stored_mode(n.raw, &v)
+	return StoredMode(v)
 }
 
 func (n *GeneratedColumnInfoNode) SetStoredMode(v StoredMode) {
+	internal.ResolvedGeneratedColumnInfo_set_stored_mode(n.raw, int(v))
 }
 
 // ColumnDefaultValueNode <expression> is the default value expression of the column.
@@ -2114,17 +2886,23 @@ type ColumnDefaultValueNode struct {
 }
 
 func (n *ColumnDefaultValueNode) Expression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefaultValue_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ColumnDefaultValueNode) SetExpression(v ExprNode) {
+	internal.ResolvedColumnDefaultValue_set_expression(n.raw, v.getRaw())
 }
 
 func (n *ColumnDefaultValueNode) SQL() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefaultValue_sql(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ColumnDefaultValueNode) SetSQL(v string) {
+	internal.ResolvedColumnDefaultValue_set_sql(n.raw, helper.StringToPtr(v))
 }
 
 // ColumnDefinitionNode this is used in CREATE TABLE statements to provide an explicit column definition.
@@ -2144,52 +2922,73 @@ type ColumnDefinitionNode struct {
 }
 
 func (n *ColumnDefinitionNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ColumnDefinitionNode) SetName(v string) {
+	internal.ResolvedColumnDefinition_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ColumnDefinitionNode) Type() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *ColumnDefinitionNode) SetType(v types.Type) {
+	internal.ResolvedColumnDefinition_set_type(n.raw, getRawType(v))
 }
 
 func (n *ColumnDefinitionNode) Annotations() *ColumnAnnotationsNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_annotations(n.raw, &v)
+	return newColumnAnnotationsNode(v)
 }
 
 func (n *ColumnDefinitionNode) SetAnnotations(v *ColumnAnnotationsNode) {
+	internal.ResolvedColumnDefinition_set_annotations(n.raw, v.getRaw())
 }
 
 func (n *ColumnDefinitionNode) IsHidden() bool {
-	return false
+	var v bool
+	internal.ResolvedColumnDefinition_is_hidden(n.raw, &v)
+	return v
 }
 
 func (n *ColumnDefinitionNode) SetIsHidden(v bool) {
+	internal.ResolvedColumnDefinition_set_is_hidden(n.raw, helper.BoolToInt(v))
 }
 
 func (n *ColumnDefinitionNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *ColumnDefinitionNode) SetColumn(v *Column) {
+	internal.ResolvedColumnDefinition_set_column(n.raw, v.raw)
 }
 
 func (n *ColumnDefinitionNode) GeneratedColumnInfo() *GeneratedColumnInfoNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_generated_column_info(n.raw, &v)
+	return newGeneratedColumnInfoNode(v)
 }
 
 func (n *ColumnDefinitionNode) SetGeneratedColumnInfo(v *GeneratedColumnInfoNode) {
+	internal.ResolvedColumnDefinition_set_generated_column_info(n.raw, v.getRaw())
 }
 
 func (n *ColumnDefinitionNode) DefaultValue() *ColumnDefaultValueNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumnDefinition_default_value(n.raw, &v)
+	return newColumnDefaultValueNode(v)
 }
 
 func (n *ColumnDefinitionNode) SetDefaultValue(v *ColumnDefaultValueNode) {
+	internal.ResolvedColumnDefinition_set_default_value(n.raw, v.getRaw())
 }
 
 // ConstraintNode intermediate node for constraints.
@@ -2215,47 +3014,83 @@ type PrimaryKeyNode struct {
 }
 
 func (n *PrimaryKeyNode) ColumnOffsetList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPrimaryKey_column_offset_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *PrimaryKeyNode) SetColumnOffsetList(v []int) {
+	internal.ResolvedPrimaryKey_set_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *PrimaryKeyNode) AddColumnOffset(v int) {
+	internal.ResolvedPrimaryKey_add_column_offset_list(n.raw, v)
 }
 
 func (n *PrimaryKeyNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPrimaryKey_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *PrimaryKeyNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedPrimaryKey_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PrimaryKeyNode) AddOption(v *OptionNode) {
+	internal.ResolvedPrimaryKey_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *PrimaryKeyNode) Unenforced() bool {
-	return false
+	var v bool
+	internal.ResolvedPrimaryKey_unenforced(n.raw, &v)
+	return v
 }
 
 func (n *PrimaryKeyNode) SetUnenforced(v bool) {
+	internal.ResolvedPrimaryKey_set_unenforced(n.raw, helper.BoolToInt(v))
 }
 
 func (n *PrimaryKeyNode) ConstraintName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedPrimaryKey_constraint_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *PrimaryKeyNode) SetConstraintName(v string) {
+	internal.ResolvedPrimaryKey_set_constraint_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *PrimaryKeyNode) ColumnNameList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPrimaryKey_column_name_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *PrimaryKeyNode) SetColumnNameList(v []string) {
+	internal.ResolvedPrimaryKey_set_column_name_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *PrimaryKeyNode) AddColumnName(v string) {
+	internal.ResolvedPrimaryKey_add_column_name_list(n.raw, helper.StringToPtr(v))
 }
 
 // ForeignKeyNode this represents the FOREIGN KEY constraint on a table. It is of the form:
@@ -2299,85 +3134,144 @@ type ForeignKeyNode struct {
 }
 
 func (n *ForeignKeyNode) ConstraintName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_constraint_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ForeignKeyNode) SetConstraintName(v string) {
+	internal.ResolvedForeignKey_set_constraint_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ForeignKeyNode) ReferencingColumnOffsetList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_referencing_column_offset_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *ForeignKeyNode) SetReferencingColumnOffsetList(v []int) {
+	internal.ResolvedForeignKey_set_referencing_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *ForeignKeyNode) AddReferencingColumnOffset(v int) {
+	internal.ResolvedForeignKey_add_referencing_column_offset_list(n.raw, v)
 }
 
 func (n *ForeignKeyNode) ReferencedTable() types.Table {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_referenced_table(n.raw, &v)
+	return newTable(v)
 }
 
 func (n *ForeignKeyNode) SetReferencedTable(v types.Table) {
+	internal.ResolvedForeignKey_set_referenced_table(n.raw, getRawTable(v))
 }
 
 func (n *ForeignKeyNode) ReferencedColumnOffsetList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_referenced_column_offset_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *ForeignKeyNode) SetReferencedColumnOffsetList(v []int) {
+	internal.ResolvedForeignKey_set_referenced_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *ForeignKeyNode) AddReferencedColumnOffset(v int) {
+	internal.ResolvedForeignKey_add_referenced_column_offset_list(n.raw, v)
 }
 
 func (n *ForeignKeyNode) MatchMode() MatchMode {
-	return MatchMode(0)
+	var v int
+	internal.ResolvedForeignKey_match_mode(n.raw, &v)
+	return MatchMode(v)
 }
 
 func (n *ForeignKeyNode) SetMatchMode(v MatchMode) {
+	internal.ResolvedForeignKey_set_match_mode(n.raw, int(v))
 }
 
 func (n *ForeignKeyNode) UpdateAction() ActionOperation {
-	return ActionOperation(0)
+	var v int
+	internal.ResolvedForeignKey_update_action(n.raw, &v)
+	return ActionOperation(v)
 }
 
 func (n *ForeignKeyNode) SetUpdateAction(v ActionOperation) {
+	internal.ResolvedForeignKey_set_update_action(n.raw, int(v))
 }
 
 func (n *ForeignKeyNode) DeleteAction() ActionOperation {
-	return ActionOperation(0)
+	var v int
+	internal.ResolvedForeignKey_delete_action(n.raw, &v)
+	return ActionOperation(v)
 }
 
 func (n *ForeignKeyNode) SetDeleteAction(v ActionOperation) {
+	internal.ResolvedForeignKey_set_delete_action(n.raw, int(v))
 }
 
 func (n *ForeignKeyNode) Enforced() bool {
-	return false
+	var v bool
+	internal.ResolvedForeignKey_enforced(n.raw, &v)
+	return v
 }
 
 func (n *ForeignKeyNode) SetEnforced(v bool) {
+	internal.ResolvedForeignKey_set_enforced(n.raw, helper.BoolToInt(v))
 }
 
 func (n *ForeignKeyNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
+
 }
 
 func (n *ForeignKeyNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedForeignKey_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ForeignKeyNode) AddOption(v *OptionNode) {
+	internal.ResolvedForeignKey_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *ForeignKeyNode) ReferencingColumnList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedForeignKey_referencing_column_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ForeignKeyNode) SetReferencingColumnList(v []string) {
+	internal.ResolvedForeignKey_set_referencing_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *ForeignKeyNode) AddReferencingColumn(v string) {
+	internal.ResolvedForeignKey_add_referencing_column_list(n.raw, helper.StringToPtr(v))
 }
 
 // CheckConstraintNode this represents the ZETASQL_CHECK constraint on a table. It is of the form:
@@ -2400,34 +3294,53 @@ type CheckConstraintNode struct {
 }
 
 func (n *CheckConstraintNode) ConstraintName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCheckConstraint_constraint_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CheckConstraintNode) SetConstraintName(v string) {
+	internal.ResolvedCheckConstraint_set_constraint_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CheckConstraintNode) Expression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCheckConstraint_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CheckConstraintNode) SetExpression(v ExprNode) {
+	internal.ResolvedCheckConstraint_set_expression(n.raw, v.getRaw())
 }
 
 func (n *CheckConstraintNode) Enforced() bool {
-	return false
+	var v bool
+	internal.ResolvedCheckConstraint_enforced(n.raw, &v)
+	return v
 }
 
 func (n *CheckConstraintNode) SetEnforced(v bool) {
+	internal.ResolvedCheckConstraint_set_enforced(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CheckConstraintNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCheckConstraint_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CheckConstraintNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCheckConstraint_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CheckConstraintNode) AddOption(v *OptionNode) {
+	internal.ResolvedCheckConstraint_add_option_list(n.raw, v.getRaw())
 }
 
 // OutputColumnNode this is used in QueryStmtNode to provide a user-visible name
@@ -2437,17 +3350,23 @@ type OutputColumnNode struct {
 }
 
 func (n *OutputColumnNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedOutputColumn_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *OutputColumnNode) SetName(v string) {
+	internal.ResolvedOutputColumn_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *OutputColumnNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOutputColumn_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *OutputColumnNode) SetColumn(v *Column) {
+	internal.ResolvedOutputColumn_set_column(n.raw, v.raw)
 }
 
 // ProjectScanNode a project node computes new expression values, and possibly drops
@@ -2465,20 +3384,33 @@ type ProjectScanNode struct {
 }
 
 func (n *ProjectScanNode) ExprList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedProjectScan_expr_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *ProjectScanNode) SetExprList(v []*ComputedColumnNode) {
+	internal.ResolvedProjectScan_set_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ProjectScanNode) AddExpr(v *ComputedColumnNode) {
+	internal.ResolvedProjectScan_add_expr_list(n.raw, v.getRaw())
 }
 
 func (n *ProjectScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedProjectScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *ProjectScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedProjectScan_set_input_scan(n.raw, v.getRaw())
 }
 
 // TVFScanNode this scan represents a call to a table-valued function (TVF). Each TVF
@@ -2550,51 +3482,83 @@ type TVFScanNode struct {
 }
 
 func (n *TVFScanNode) TVF() *types.TableValuedFunction {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_tvf(n.raw, &v)
+	return newTableValuedFunction(v)
 }
 
 func (n *TVFScanNode) SetTVF(v *types.TableValuedFunction) {
+	internal.ResolvedTVFScan_set_tvf(n.raw, getRawTableValuedFunction(v))
 }
 
 func (n *TVFScanNode) Signature() *types.TVFSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_signature(n.raw, &v)
+	return newTVFSignature(v)
 }
 
 func (n *TVFScanNode) SetSignature(v *types.TVFSignature) {
+	internal.ResolvedTVFScan_set_signature(n.raw, getRawTVFSignature(v))
 }
 
 func (n *TVFScanNode) ArgumentList() []*FunctionArgumentNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_argument_list(n.raw, &v)
+	var ret []*FunctionArgumentNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newFunctionArgumentNode(p))
+	})
+	return ret
 }
 
 func (n *TVFScanNode) SetArgumentList(v []*FunctionArgumentNode) {
+	internal.ResolvedTVFScan_set_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *TVFScanNode) AddArgument(v *FunctionArgumentNode) {
+	internal.ResolvedTVFScan_add_argument_list(n.raw, v.getRaw())
 }
 
 func (n *TVFScanNode) ColumnIndexList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_column_index_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *TVFScanNode) SetColumnIndexList(v []int) {
+	internal.ResolvedTVFScan_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *TVFScanNode) AddColumnIndex(v int) {
+	internal.ResolvedTVFScan_add_column_index_list(n.raw, v)
 }
 
 func (n *TVFScanNode) Alias() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_alias(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *TVFScanNode) SetAlias(v string) {
+	internal.ResolvedTVFScan_set_alias(n.raw, helper.StringToPtr(v))
 }
 
 func (n *TVFScanNode) FunctionCallSignature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTVFScan_function_call_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *TVFScanNode) SetFunctionCallSignature(v *types.FunctionSignature) {
+	internal.ResolvedTVFScan_set_function_call_signature(n.raw, getRawFunctionSignature(v))
 }
 
 // GroupRowsScanNode represents a call to a special TVF GROUP_ROWS().
@@ -2614,20 +3578,33 @@ type GroupRowsScanNode struct {
 }
 
 func (n *GroupRowsScanNode) InputColumnList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGroupRowsScan_input_column_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *GroupRowsScanNode) SetInputColumnList(v []*ComputedColumnNode) {
+	internal.ResolvedGroupRowsScan_set_input_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *GroupRowsScanNode) AddInputColumn(v *ComputedColumnNode) {
+	internal.ResolvedGroupRowsScan_add_input_column_list(n.raw, v.getRaw())
 }
 
 func (n *GroupRowsScanNode) Alias() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedGroupRowsScan_alias(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *GroupRowsScanNode) SetAlias(v string) {
+	internal.ResolvedGroupRowsScan_set_alias(n.raw, helper.StringToPtr(v))
 }
 
 // FunctionArgumentNode this represents a generic argument to a function.
@@ -2655,55 +3632,83 @@ type FunctionArgumentNode struct {
 }
 
 func (n *FunctionArgumentNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FunctionArgumentNode) SetExpr(v ExprNode) {
+	internal.ResolvedFunctionArgument_set_expr(n.raw, v.getRaw())
 }
 
 func (n *FunctionArgumentNode) Scan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_scan(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FunctionArgumentNode) SetScan(v ScanNode) {
+	internal.ResolvedFunctionArgument_set_scan(n.raw, v.getRaw())
 }
 
 func (n *FunctionArgumentNode) Model() *ModelNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_model(n.raw, &v)
+	return newModelNode(v)
 }
 
 func (n *FunctionArgumentNode) SetModel(v *ModelNode) {
+	internal.ResolvedFunctionArgument_set_model(n.raw, v.getRaw())
 }
 
 func (n *FunctionArgumentNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *FunctionArgumentNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedFunctionArgument_set_connection(n.raw, v.getRaw())
 }
 
 func (n *FunctionArgumentNode) DescriptorArg() *DescriptorNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_descriptor_arg(n.raw, &v)
+	return newDescriptorNode(v)
 }
 
 func (n *FunctionArgumentNode) SetDescriptorArg(v *DescriptorNode) {
+	internal.ResolvedFunctionArgument_set_descriptor_arg(n.raw, v.getRaw())
 }
 
 func (n *FunctionArgumentNode) ArgumentColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_argument_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *FunctionArgumentNode) SetArgumentColumnList(v []*Column) {
+	internal.ResolvedFunctionArgument_set_argument_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *FunctionArgumentNode) AddArgumentColumn(v *Column) {
+	internal.ResolvedFunctionArgument_add_argument_column_list(n.raw, v.raw)
 }
 
 func (n *FunctionArgumentNode) InlineLambda() *InlineLambdaNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionArgument_inline_lambda(n.raw, &v)
+	return newInlineLambdaNode(v)
 }
 
 func (n *FunctionArgumentNode) SetInlineLambda(v *InlineLambdaNode) {
+	internal.ResolvedFunctionArgument_set_inline_lambda(n.raw, v.getRaw())
 }
 
 // StatementNode the base node of all ZetaSQL statements.
@@ -2720,13 +3725,23 @@ type BaseStatementNode struct {
 }
 
 func (n *BaseStatementNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedStatement_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseStatementNode) SetHintList(v []*OptionNode) {
+	internal.ResolvedStatement_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseStatementNode) AddHint(v *OptionNode) {
+	internal.ResolvedStatement_add_hint_list(n.raw, v.getRaw())
 }
 
 // ExplainStmtNode an Explain statement. This is always the root of a statement hierarchy.
@@ -2738,10 +3753,13 @@ type ExplainStmtNode struct {
 }
 
 func (n *ExplainStmtNode) Statement() StatementNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExplainStmt_statement(n.raw, &v)
+	return newNode(v).(StatementNode)
 }
 
 func (n *ExplainStmtNode) SetStatement(v StatementNode) {
+	internal.ResolvedExplainStmt_set_statement(n.raw, v.getRaw())
 }
 
 // QueryStmtNode a SQL query statement.
@@ -2757,27 +3775,47 @@ type QueryStmtNode struct {
 }
 
 func (n *QueryStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedQueryStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *QueryStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedQueryStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *QueryStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedQueryStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
+// IsValueTable if true, the result of this query is a value table. Rather than
+// producing rows with named columns, it produces rows with a single
+// unnamed value type.  output_column_list will have exactly one
+// column, with an empty name.
 func (n *QueryStmtNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedQueryStmt_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *QueryStmtNode) SetIsValueTable(v bool) {
+	internal.ResolvedQueryStmt_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
 func (n *QueryStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedQueryStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *QueryStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedQueryStmt_set_query(n.raw, v.getRaw())
 }
 
 // CreateDatabaseStmtNode this statement:
@@ -2789,23 +3827,43 @@ type CreateDatabaseStmtNode struct {
 }
 
 func (n *CreateDatabaseStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateDatabaseStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateDatabaseStmtNode) SetNamePath(v []string) {
+	internal.ResolvedCreateDatabaseStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *CreateDatabaseStmtNode) AddName(v string) {
+func (n *CreateDatabaseStmtNode) AddNamePath(v string) {
+	internal.ResolvedCreateDatabaseStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateDatabaseStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateDatabaseStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateDatabaseStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateDatabaseStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateDatabaseStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateDatabaseStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // CreateStatementNode common base node for CREATE statements with standard modifiers like
@@ -2822,7 +3880,7 @@ type CreateStatementNode interface {
 	StatementNode
 	NamePath() []string
 	SetNamePath([]string)
-	AddName(string)
+	AddNamePath(string)
 	CreateScope() CreateScope
 	SetCreateScope(CreateScope)
 	CreateMode() CreateMode
@@ -2835,27 +3893,43 @@ type BaseCreateStatementNode struct {
 }
 
 func (n *BaseCreateStatementNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateStatement_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateStatementNode) SetNamePath(v []string) {
+	internal.ResolvedCreateStatement_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *BaseCreateStatementNode) AddName(v string) {
+func (n *BaseCreateStatementNode) AddNamePath(v string) {
+	internal.ResolvedCreateStatement_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *BaseCreateStatementNode) CreateScope() CreateScope {
-	return CreateScope(0)
+	var v int
+	internal.ResolvedCreateStatement_create_scope(n.raw, &v)
+	return CreateScope(v)
 }
 
 func (n *BaseCreateStatementNode) SetCreateScope(v CreateScope) {
+	internal.ResolvedCreateStatement_set_create_scope(n.raw, int(v))
 }
 
 func (n *BaseCreateStatementNode) CreateMode() CreateMode {
-	return CreateMode(0)
+	var v int
+	internal.ResolvedCreateStatement_create_mode(n.raw, &v)
+	return CreateMode(v)
 }
 
 func (n *BaseCreateStatementNode) SetCreateMode(v CreateMode) {
+	internal.ResolvedCreateStatement_set_create_mode(n.raw, int(v))
 }
 
 // IndexItemNode represents one of indexed items in CREATE INDEX statement, with the
@@ -2865,17 +3939,23 @@ type IndexItemNode struct {
 }
 
 func (n *IndexItemNode) ColumnRef() *ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedIndexItem_column_ref(n.raw, &v)
+	return newColumnRefNode(v)
 }
 
 func (n *IndexItemNode) SetColumnRef(v *ColumnRefNode) {
+	internal.ResolvedIndexItem_set_column_ref(n.raw, v.getRaw())
 }
 
 func (n *IndexItemNode) Descending() bool {
-	return false
+	var v bool
+	internal.ResolvedIndexItem_descending(n.raw, &v)
+	return v
 }
 
 func (n *IndexItemNode) SetDescending(v bool) {
+	internal.ResolvedIndexItem_set_descending(n.raw, helper.BoolToInt(v))
 }
 
 // UnnestItemNode this is used in CREATE INDEX STMT to represent the unnest operation
@@ -2894,24 +3974,33 @@ type UnnestItemNode struct {
 }
 
 func (n *UnnestItemNode) ArrayExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnnestItem_array_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *UnnestItemNode) SetArrayExpr(v ExprNode) {
+	internal.ResolvedUnnestItem_set_array_expr(n.raw, v.getRaw())
 }
 
 func (n *UnnestItemNode) ElementColumn() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnnestItem_element_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *UnnestItemNode) SetElementColumn(v *Column) {
+	internal.ResolvedUnnestItem_set_element_column(n.raw, v.raw)
 }
 
 func (n *UnnestItemNode) ArrayOffsetColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnnestItem_array_offset_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *UnnestItemNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
+	internal.ResolvedUnnestItem_set_array_offset_column(n.raw, v.getRaw())
 }
 
 // CreateIndexStmtNode this statement:
@@ -2945,91 +4034,165 @@ type CreateIndexStmtNode struct {
 }
 
 func (n *CreateIndexStmtNode) TableNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_table_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetTableNamePath(v []string) {
+	internal.ResolvedCreateIndexStmt_set_table_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *CreateIndexStmtNode) AddTableName(v string) {
+func (n *CreateIndexStmtNode) AddTableNamePath(v string) {
+	internal.ResolvedCreateIndexStmt_add_table_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateIndexStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *CreateIndexStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedCreateIndexStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 func (n *CreateIndexStmtNode) IsUnique() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateIndexStmt_is_unique(n.raw, &v)
+	return v
 }
 
 func (n *CreateIndexStmtNode) SetIsUnique(v bool) {
+	internal.ResolvedCreateIndexStmt_set_is_unique(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateIndexStmtNode) IsSearch() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateIndexStmt_is_search(n.raw, &v)
+	return v
 }
 
 func (n *CreateIndexStmtNode) SetIsSearch(v bool) {
+	internal.ResolvedCreateIndexStmt_set_is_search(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateIndexStmtNode) IndexAllColumns() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateIndexStmt_index_all_columns(n.raw, &v)
+	return v
 }
 
 func (n *CreateIndexStmtNode) SetIndexAllColumns(v bool) {
+	internal.ResolvedCreateIndexStmt_set_index_all_columns(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateIndexStmtNode) IndexItemList() []*IndexItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_index_item_list(n.raw, &v)
+	var ret []*IndexItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newIndexItemNode(p))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetIndexItemList(v []*IndexItemNode) {
+	internal.ResolvedCreateIndexStmt_set_index_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateIndexStmtNode) AddIndexItem(v *IndexItemNode) {
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_add_index_item_list(n.raw, &v)
+	return newIndexItemNode(v)
 }
 
 func (n *CreateIndexStmtNode) StoringExpressionList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_storing_expression_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetStoringExpressionList(v []ExprNode) {
+	internal.ResolvedCreateIndexStmt_set_storing_expression_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateIndexStmtNode) AddStoringExpression(v ExprNode) {
+	internal.ResolvedCreateIndexStmt_add_storing_expression_list(n.raw, v.getRaw())
 }
 
 func (n *CreateIndexStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateIndexStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateIndexStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateIndexStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *CreateIndexStmtNode) ComputedColumnsList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_computed_columns_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetComputedColumnList(v []*ComputedColumnNode) {
+	internal.ResolvedCreateIndexStmt_set_computed_columns_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateIndexStmtNode) AddComputedColumn(v *ComputedColumnNode) {
+	internal.ResolvedCreateIndexStmt_add_computed_columns_list(n.raw, v.raw)
 }
 
 func (n *CreateIndexStmtNode) UnnestExpressionList() []*UnnestItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateIndexStmt_unnest_expressions_list(n.raw, &v)
+	var ret []*UnnestItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUnnestItemNode(p))
+	})
+	return ret
 }
 
 func (n *CreateIndexStmtNode) SetUnnestExpressionList(v []*UnnestItemNode) {
+	internal.ResolvedCreateIndexStmt_set_unnest_expressions_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateIndexStmtNode) AddUnnestExpression(v *UnnestItemNode) {
+	internal.ResolvedCreateIndexStmt_add_unnest_expressions_list(n.raw, v.getRaw())
 }
 
 // CreateSchemaStmtNode this statement:
@@ -3053,20 +4216,33 @@ type CreateSchemaStmtNode struct {
 }
 
 func (n *CreateSchemaStmtNode) CollationName() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateSchemaStmt_collation_name(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CreateSchemaStmtNode) SetCollationName(v ExprNode) {
+	internal.ResolvedCreateSchemaStmt_set_collation_name(n.raw, v.getRaw())
 }
 
 func (n *CreateSchemaStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateSchemaStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateSchemaStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateSchemaStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateSchemaStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateSchemaStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // BaseCreateTableStmtNode this statement:
@@ -3113,81 +4289,143 @@ type BaseCreateTableStmtNode struct {
 }
 
 func (n *BaseCreateTableStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateTableStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateTableStmtBase_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateTableStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateTableStmtBase_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateTableStmtNode) ColumnDefinitionList() []*ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_column_definition_list(n.raw, &v)
+	var ret []*ColumnDefinitionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnDefinitionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateTableStmtNode) SetColumnDefinitionList(v []*ColumnDefinitionNode) {
+	internal.ResolvedCreateTableStmtBase_set_column_definition_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateTableStmtNode) AddColumnDefinition(v *ColumnDefinitionNode) {
+	internal.ResolvedCreateTableStmtBase_add_column_definition_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateTableStmtNode) PseudoColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_pseudo_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateTableStmtNode) SetPseudoColumnList(v []*Column) {
+	internal.ResolvedCreateTableStmtBase_set_pseudo_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *BaseCreateTableStmtNode) AddPseudoColumn(v *Column) {
+	internal.ResolvedCreateTableStmtBase_add_pseudo_column_list(n.raw, v.raw)
 }
 
 func (n *BaseCreateTableStmtNode) PrimaryKey() *PrimaryKeyNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_primary_key(n.raw, &v)
+	return newPrimaryKeyNode(v)
 }
 
 func (n *BaseCreateTableStmtNode) SetPrimaryKey(v *PrimaryKeyNode) {
+	internal.ResolvedCreateTableStmtBase_set_primary_key(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateTableStmtNode) ForeignKeyList() []*ForeignKeyNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_foreign_key_list(n.raw, &v)
+	var ret []*ForeignKeyNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newForeignKeyNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateTableStmtNode) SetForeignKeyList(v []*ForeignKeyNode) {
+	internal.ResolvedCreateTableStmtBase_set_foreign_key_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateTableStmtNode) AddForeignKey(v *ForeignKeyNode) {
+	internal.ResolvedCreateTableStmtBase_add_foreign_key_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateTableStmtNode) CheckConstraintList() []*CheckConstraintNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_check_constraint_list(n.raw, &v)
+	var ret []*CheckConstraintNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newCheckConstraintNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateTableStmtNode) SetCheckConstraintList(v []*CheckConstraintNode) {
+	internal.ResolvedCreateTableStmtBase_set_check_constraint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateTableStmtNode) AddCheckConstraint(v *CheckConstraintNode) {
+	internal.ResolvedCreateTableStmtBase_add_check_constraint_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateTableStmtNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateTableStmtBase_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *BaseCreateTableStmtNode) SetIsValueTable(v bool) {
+	internal.ResolvedCreateTableStmtBase_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
 func (n *BaseCreateTableStmtNode) LikeTable() types.Table {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_like_table(n.raw, &v)
+	return newTable(v)
 }
 
 func (n *BaseCreateTableStmtNode) SetLikeTable(v types.Table) {
+	internal.ResolvedCreateTableStmtBase_set_like_table(n.raw, getRawTable(v))
 }
 
 func (n *BaseCreateTableStmtNode) CollationName() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmtBase_collation_name(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *BaseCreateTableStmtNode) SetCollationName(v ExprNode) {
+	internal.ResolvedCreateTableStmtBase_set_collation_name(n.raw, v.getRaw())
 }
 
 // CreateTableStmtNode this statement:
@@ -3223,37 +4461,63 @@ type CreateTableStmtNode struct {
 }
 
 func (n *CreateTableStmtNode) CloneFrom() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmt_clone_from(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateTableStmtNode) SetCloneFrom(v ScanNode) {
+	internal.ResolvedCreateTableStmt_set_clone_from(n.raw, v.getRaw())
 }
 
 func (n *CreateTableStmtNode) CopyFrom() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmt_copy_from(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateTableStmtNode) SetCopyFrom(v ScanNode) {
+	internal.ResolvedCreateTableStmt_set_copy_from(n.raw, v.getRaw())
 }
 
 func (n *CreateTableStmtNode) PartitionByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmt_partition_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateTableStmtNode) SetPartitionByList(v []ExprNode) {
+	internal.ResolvedCreateTableStmt_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableStmtNode) AddPartitionBy(v ExprNode) {
+	internal.ResolvedCreateTableStmt_add_partition_by_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableStmtNode) ClusterByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableStmt_cluster_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateTableStmtNode) SetClusterByList(v []ExprNode) {
+	internal.ResolvedCreateTableStmt_set_cluster_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableStmtNode) AddClusterBy(v ExprNode) {
+	internal.ResolvedCreateTableStmt_add_cluster_by_list(n.raw, v.getRaw())
 }
 
 // CreateTableAsSelectStmt this statement:
@@ -3281,40 +4545,73 @@ type CreateTableAsSelectStmtNode struct {
 }
 
 func (n *CreateTableAsSelectStmtNode) PartitionByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableAsSelectStmt_partition_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateTableAsSelectStmtNode) SetPartitionByList(v []ExprNode) {
+	internal.ResolvedCreateTableAsSelectStmt_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableAsSelectStmtNode) AddPartitionBy(v ExprNode) {
+	internal.ResolvedCreateTableAsSelectStmt_add_partition_by_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableAsSelectStmtNode) ClusterByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableAsSelectStmt_cluster_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateTableAsSelectStmtNode) SetClusterByList(v []ExprNode) {
+	internal.ResolvedCreateTableAsSelectStmt_set_cluster_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableAsSelectStmtNode) AddClusterBy(v ExprNode) {
+	internal.ResolvedCreateTableAsSelectStmt_add_cluster_by_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableAsSelectStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableAsSelectStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateTableAsSelectStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedCreateTableAsSelectStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableAsSelectStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedCreateTableAsSelectStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableAsSelectStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableAsSelectStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateTableAsSelectStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedCreateTableAsSelectStmt_set_query(n.raw, v.getRaw())
 }
 
 // CreateModelStmtNode this statement:
@@ -3363,70 +4660,133 @@ type CreateModelStmtNode struct {
 }
 
 func (n *CreateModelStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateModelStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateModelStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedCreateModelStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedCreateModelStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateModelStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedCreateModelStmt_set_query(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) TransformInputColumnList() []*ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.transform_input_column_list(n.raw, &v)
+	var ret []*ColumnDefinitionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnDefinitionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetTransformInputColumnList(v []*ColumnDefinitionNode) {
+	internal.ResolvedCreateModelStmt_set_transform_input_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddTransformInputColumn(v *ColumnDefinitionNode) {
+	internal.ResolvedCreateModelStmt_add_transform_input_column_list(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) TransformList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_transform_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetTransformList(v []*ComputedColumnNode) {
+	internal.ResolvedCreateModelStmt_set_transform_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddTransform(v *ComputedColumnNode) {
+	internal.ResolvedCreateModelStmt_add_transform_list(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) TransformOutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_transform_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetTransformOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedCreateModelStmt_set_transform_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddTransformOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedCreateModelStmt_add_transform_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *CreateModelStmtNode) TransformAnalyticFunctionGroupList() []*AnalyticFunctionGroupNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateModelStmt_transform_analytic_function_group_list(n.raw, &v)
+	var ret []*AnalyticFunctionGroupNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newAnalyticFunctionGroupNode(p))
+	})
+	return ret
 }
 
 func (n *CreateModelStmtNode) SetTransformAnalyticFunctionGroupList(v []*AnalyticFunctionGroupNode) {
+	internal.ResolvedCreateModelStmt_set_transform_analytic_function_group_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateModelStmtNode) AddTransformAnalyticFunctionGroup(v *AnalyticFunctionGroupNode) {
+	internal.ResolvedCreateModelStmt_add_transform_analytic_function_group_list(n.raw, v.getRaw())
 }
 
 // BaseCreateView common node for CREATE view/materialized view:
@@ -3462,65 +4822,109 @@ type BaseCreateViewNode struct {
 }
 
 func (n *BaseCreateViewNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateViewBase_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateViewNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateViewBase_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateViewNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateViewBase_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateViewNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateViewBase_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *BaseCreateViewNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedCreateViewBase_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *BaseCreateViewNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedCreateViewBase_add_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateViewNode) HasExplicitColumns() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateViewBase_has_explicit_columns(n.raw, &v)
+	return v
 }
 
 func (n *BaseCreateViewNode) SetHasExplicitColumns(v bool) {
+	internal.ResolvedCreateViewBase_set_has_explicit_columns(n.raw, helper.BoolToInt(v))
 }
 
 func (n *BaseCreateViewNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateViewBase_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *BaseCreateViewNode) SetQuery(v ScanNode) {
+	internal.ResolvedCreateViewBase_set_query(n.raw, v.getRaw())
 }
 
 func (n *BaseCreateViewNode) SQL() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateViewBase_sql(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *BaseCreateViewNode) SetSQL(v string) {
+	internal.ResolvedCreateViewBase_set_sql(n.raw, helper.StringToPtr(v))
 }
 
 func (n *BaseCreateViewNode) SQLSecurity() SQLSecurity {
-	return SQLSecurity(0)
+	var v int
+	internal.ResolvedCreateViewBase_sql_security(n.raw, &v)
+	return SQLSecurity(v)
 }
 
 func (n *BaseCreateViewNode) SetSQLSecurity(v SQLSecurity) {
+	internal.ResolvedCreateViewBase_set_sql_security(n.raw, int(v))
 }
 
+// IsValueTable if true, this view produces a value table. Rather than producing
+// rows with named columns, it produces rows with a single unnamed
+// value type.  output_column_list will have exactly one column, with
+// an empty name.
 func (n *BaseCreateViewNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateViewBase_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *BaseCreateViewNode) SetIsValueTable(v bool) {
+	internal.ResolvedCreateViewBase_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
+// Recursive true if the view uses the RECURSIVE keyword. <query>
+// can be a RecursiveScanNode only if this is true.
 func (n *BaseCreateViewNode) Recursive() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateViewBase_recursive(n.raw, &v)
+	return v
 }
 
 func (n *BaseCreateViewNode) SetRecursive(v bool) {
+	internal.ResolvedCreateViewBase_set_recursive(n.raw, helper.BoolToInt(v))
 }
 
 // CreateViewStmtNode this statement:
@@ -3536,13 +4940,23 @@ type WithPartitionColumnsNode struct {
 }
 
 func (n *WithPartitionColumnsNode) ColumnDefinitionList() []*ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWithPartitionColumns_column_definition_list(n.raw, &v)
+	var ret []*ColumnDefinitionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnDefinitionNode(p))
+	})
+	return ret
 }
 
 func (n *WithPartitionColumnsNode) SetColumnDefinitionList(v []*ColumnDefinitionNode) {
+	internal.ResolvedWithPartitionColumns_set_column_definition_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WithPartitionColumnsNode) AddColumnDefinition(v *ColumnDefinitionNode) {
+	internal.ResolvedWithPartitionColumns_add_column_definition_list(n.raw, v.getRaw())
 }
 
 // CreateSnapshotTableStmtNode this statement:
@@ -3566,20 +4980,33 @@ type CreateSnapshotTableStmtNode struct {
 }
 
 func (n *CreateSnapshotTableStmtNode) CloneFrom() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateSnapshotTableStmt_clone_from(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateSnapshotTableStmtNode) SetCloneFrom(v ScanNode) {
+	internal.ResolvedCreateSnapshotTableStmt_set_clone_from(n.raw, v.getRaw())
 }
 
 func (n *CreateSnapshotTableStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateSnapshotTableStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateSnapshotTableStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateSnapshotTableStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateSnapshotTableStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateSnapshotTableStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // CreateExternalTableStmtNode this statement:
@@ -3593,17 +5020,23 @@ type CreateExternalTableStmtNode struct {
 }
 
 func (n *CreateExternalTableStmtNode) WithPartitionColumns() *WithPartitionColumnsNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateExternalTableStmt_with_partition_columns(n.raw, &v)
+	return newWithPartitionColumnsNode(v)
 }
 
 func (n *CreateExternalTableStmtNode) SetWithPartitionColumns(v *WithPartitionColumnsNode) {
+	internal.ResolvedCreateExternalTableStmt_set_with_partition_columns(n.raw, v.getRaw())
 }
 
 func (n *CreateExternalTableStmtNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateExternalTableStmt_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *CreateExternalTableStmtNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedCreateExternalTableStmt_set_connection(n.raw, v.getRaw())
 }
 
 // ExportModelStmtNode this statement:
@@ -3617,30 +5050,53 @@ type ExportModelStmtNode struct {
 }
 
 func (n *ExportModelStmtNode) ModelNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportModelStmt_model_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ExportModelStmtNode) SetModelNamePath(v []string) {
+	internal.ResolvedExportModelStmt_set_model_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
-func (n *ExportModelStmtNode) AddModelName(v string) {
+func (n *ExportModelStmtNode) AddModelNamePath(v string) {
+	internal.ResolvedExportModelStmt_add_model_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ExportModelStmtNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportModelStmt_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *ExportModelStmtNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedExportModelStmt_set_connection(n.raw, v.getRaw())
 }
 
 func (n *ExportModelStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportModelStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *ExportModelStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedExportModelStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ExportModelStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedExportModelStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // ExportDataStmtNode this statement:
@@ -3662,44 +5118,77 @@ type ExportDataStmtNode struct {
 }
 
 func (n *ExportDataStmtNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportDataStmt_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *ExportDataStmtNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedExportDataStmt_set_connection(n.raw, v.getRaw())
 }
 
 func (n *ExportDataStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportDataStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *ExportDataStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedExportDataStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ExportDataStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedExportDataStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *ExportDataStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportDataStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *ExportDataStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedExportDataStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ExportDataStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedExportDataStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
+// IsValueTable if true, the result of this query is a value table. Rather than
+// producing rows with named columns, it produces rows with a single
+// unnamed value type.  output_column_list will have exactly one
+// column, with an empty name.
 func (n *ExportDataStmtNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedExportDataStmt_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *ExportDataStmtNode) SetIsValueTable(v bool) {
+	internal.ResolvedExportDataStmt_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
 func (n *ExportDataStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExportDataStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *ExportDataStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedExportDataStmt_set_query(n.raw, v.getRaw())
 }
 
 // DefineTableStmtNode this statement: DEFINE TABLE name (...);
@@ -3713,23 +5202,43 @@ type DefineTableStmtNode struct {
 }
 
 func (n *DefineTableStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDefineTableStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DefineTableStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDefineTableStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DefineTableStmtNode) AddName(v string) {
+func (n *DefineTableStmtNode) AddNamePath(v string) {
+	internal.ResolvedDefineTableStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DefineTableStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDefineTableStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *DefineTableStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedDefineTableStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *DefineTableStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedDefineTableStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // DescribeStmtNode this statement:
@@ -3745,30 +5254,53 @@ type DescribeStmtNode struct {
 }
 
 func (n *DescribeStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDescribeStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DescribeStmtNode) SetObjectType(v string) {
+	internal.ResolvedDescribeStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DescribeStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDescribeStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DescribeStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDescribeStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DescribeStmtNode) AddName(v string) {
+func (n *DescribeStmtNode) AddNamePath(v string) {
+	internal.ResolvedDescribeStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DescribeStmtNode) FromNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDescribeStmt_from_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DescribeStmtNode) SetFromNamePath(v []string) {
+	internal.ResolvedDescribeStmt_set_from_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DescribeStmtNode) AddFromName(v string) {
+func (n *DescribeStmtNode) AddFromNamePath(v string) {
+	internal.ResolvedDescribeStmt_add_from_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // ShowStmtNode this statement:
@@ -3786,27 +5318,43 @@ type ShowStmtNode struct {
 }
 
 func (n *ShowStmtNode) Identifier() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedShowStmt_identifier(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ShowStmtNode) SetIdentifier(v string) {
+	internal.ResolvedShowStmt_set_identifier(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ShowStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedShowStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ShowStmtNode) SetNamePath(v []string) {
+	internal.ResolvedShowStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ShowStmtNode) AddName(v string) {
+func (n *ShowStmtNode) AddNamePath(v string) {
+	internal.ResolvedShowStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ShowStmtNode) LikeExpr() *LiteralNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedShowStmt_like_expr(n.raw, &v)
+	return newLiteralNode(v)
 }
 
 func (n *ShowStmtNode) SetLikeExpr(v *LiteralNode) {
+	internal.ResolvedShowStmt_set_like_expr(n.raw, v.getRaw())
 }
 
 // BeginStmtNode this statement:
@@ -3833,20 +5381,33 @@ type BeginStmtNode struct {
 }
 
 func (n *BeginStmtNode) ReadWriteMode() ReadWriteMode {
-	return ReadWriteMode(0)
+	var v int
+	internal.ResolvedBeginStmt_read_write_mode(n.raw, &v)
+	return ReadWriteMode(v)
 }
 
 func (n *BeginStmtNode) SetReadWriteMode(v ReadWriteMode) {
+	internal.ResolvedBeginStmt_set_read_write_mode(n.raw, int(v))
 }
 
 func (n *BeginStmtNode) IsolationLevelList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedBeginStmt_isolation_level_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *BeginStmtNode) SetIsolationLevelList(v []string) {
+	internal.ResolvedBeginStmt_set_isolation_level_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *BeginStmtNode) AddIsolationLevel(v string) {
+	internal.ResolvedBeginStmt_add_isolation_level_list(n.raw, helper.StringToPtr(v))
 }
 
 // SetTransactionStmtNode this statement:
@@ -3873,20 +5434,33 @@ type SetTransactionStmtNode struct {
 }
 
 func (n *SetTransactionStmtNode) ReadWriteMode() ReadWriteMode {
-	return ReadWriteMode(0)
+	var v int
+	internal.ResolvedSetTransactionStmt_isolation_level_list(n.raw, &v)
+	return ReadWriteMode(v)
 }
 
 func (n *SetTransactionStmtNode) SetReadWriteMode(v ReadWriteMode) {
+	internal.ResolvedSetTransactionStmt_set_isolation_level_list(n.raw, int(v))
 }
 
 func (n *SetTransactionStmtNode) IsolationLevelList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetTransactionStmt_isolation_level_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *SetTransactionStmtNode) SetIsolationLevelList(v []string) {
+	internal.ResolvedSetTransactionStmt_set_isolation_level_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *SetTransactionStmtNode) AddIsolationLevel(v string) {
+	internal.ResolvedSetTransactionStmt_add_isolation_level_list(n.raw, helper.StringToPtr(v))
 }
 
 // CommitStmtNode this statement:
@@ -3911,10 +5485,13 @@ type StartBatchStmtNode struct {
 }
 
 func (n *StartBatchStmtNode) BatchType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedStartBatchStmt_batch_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *StartBatchStmtNode) SetBatchType(v string) {
+	internal.ResolvedStartBatchStmt_set_batch_type(n.raw, helper.StringToPtr(v))
 }
 
 // RunBatchStmtNode this statement: RUN BATCH;
@@ -3940,34 +5517,53 @@ type DropStmtNode struct {
 }
 
 func (n *DropStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropStmtNode) SetObjectType(v string) {
+	internal.ResolvedDropStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropStmtNode) AddName(v string) {
+func (n *DropStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropStmtNode) DropMode() DropMode {
-	return DropMode(0)
+	var v int
+	internal.ResolvedDropStmt_drop_mode(n.raw, &v)
+	return DropMode(v)
 }
 
 func (n *DropStmtNode) SetDropMode(v DropMode) {
+	internal.ResolvedDropStmt_set_drop_mode(n.raw, int(v))
 }
 
 // DropMaterializedViewStmtNode this statement:
@@ -3980,20 +5576,33 @@ type DropMaterializedViewStmtNode struct {
 }
 
 func (n *DropMaterializedViewStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropMaterializedViewStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropMaterializedViewStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropMaterializedViewStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropMaterializedViewStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropMaterializedViewStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropMaterializedViewStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropMaterializedViewStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropMaterializedViewStmtNode) AddName(v string) {
+func (n *DropMaterializedViewStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropMaterializedViewStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // DropSnapshotTableStmtNode this statement:
@@ -4006,20 +5615,33 @@ type DropSnapshotTableStmtNode struct {
 }
 
 func (n *DropSnapshotTableStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropSnapshotTableStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropSnapshotTableStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropSnapshotTableStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropSnapshotTableStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropSnapshotTableStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropSnapshotTableStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropSnapshotTableStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropSnapshotTableStmtNode) AddName(v string) {
+func (n *DropSnapshotTableStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropSnapshotTableStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // RecursiveRefScanNode scan the previous iteration of the recursive alias currently being
@@ -4071,24 +5693,33 @@ type RecursiveScanNode struct {
 }
 
 func (n *RecursiveScanNode) OpType() RecursiveSetOperationType {
-	return RecursiveSetOperationType(0)
+	var v int
+	internal.ResolvedRecursiveScan_op_type(n.raw, &v)
+	return RecursiveSetOperationType(v)
 }
 
 func (n *RecursiveScanNode) SetOpType(v RecursiveSetOperationType) {
+	internal.ResolvedRecursiveScan_set_op_type(n.raw, int(v))
 }
 
 func (n *RecursiveScanNode) NonRecursiveTerm() *SetOperationItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRecursiveScan_non_recursive_term(n.raw, &v)
+	return newSetOperationItemNode(v)
 }
 
 func (n *RecursiveScanNode) SetNonRecursiveTerm(v *SetOperationItemNode) {
+	internal.ResolvedRecursiveScan_set_non_recursive_term(n.raw, v.getRaw())
 }
 
 func (n *RecursiveScanNode) RecursiveTerm() *SetOperationItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRecursiveScan_recursive_term(n.raw, &v)
+	return newSetOperationItemNode(v)
 }
 
 func (n *RecursiveScanNode) SetRecursiveTerm(v *SetOperationItemNode) {
+	internal.ResolvedRecursiveScan_set_recursive_term(n.raw, v.getRaw())
 }
 
 // WithScanNode this represents a SQL WITH query (or subquery) like
@@ -4147,28 +5778,44 @@ type WithScanNode struct {
 }
 
 func (n *WithScanNode) WithEntryList() []*WithEntryNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWithScan_with_entry_list(n.raw, &v)
+	var ret []*WithEntryNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newWithEntryNode(p))
+	})
+	return ret
 }
 
 func (n *WithScanNode) SetWithEntryList(v []*WithEntryNode) {
+	internal.ResolvedWithScan_set_with_entry_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WithScanNode) AddWithEntry(v *WithEntryNode) {
+	internal.ResolvedWithScan_add_with_entry_list(n.raw, v.getRaw())
 }
 
 func (n *WithScanNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWithScan_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *WithScanNode) SetQuery(v ScanNode) {
+	internal.ResolvedWithScan_set_query(n.raw, v.getRaw())
 }
 
 // Recursive true if the WITH clause uses the recursive keyword.
 func (n *WithScanNode) Recursive() bool {
-	return false
+	var v bool
+	internal.ResolvedWithScan_recursive(n.raw, &v)
+	return v
 }
 
 func (n *WithScanNode) SetRecursive(v bool) {
+	internal.ResolvedWithScan_set_recursive(n.raw, helper.BoolToInt(v))
 }
 
 // WithEntryNode represents one aliased subquery introduced in a WITH clause.
@@ -4183,17 +5830,23 @@ type WithEntryNode struct {
 }
 
 func (n *WithEntryNode) WithQueryName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedWithEntry_with_query_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *WithEntryNode) SetWithQueryName(v string) {
+	internal.ResolvedWithEntry_set_with_query_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *WithEntryNode) WithSubquery() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWithEntry_with_subquery(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *WithEntryNode) SetWithSubquery(v ScanNode) {
+	internal.ResolvedWithEntry_set_with_subquery(n.raw, v.getRaw())
 }
 
 // OptionNode represents one SQL hint key/value pair.
@@ -4229,24 +5882,33 @@ type OptionNode struct {
 }
 
 func (n *OptionNode) Qualifier() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedOption_qualifier(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *OptionNode) SetQualifier(v string) {
+	internal.ResolvedOption_set_qualifier(n.raw, helper.StringToPtr(v))
 }
 
 func (n *OptionNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedOption_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *OptionNode) SetName(v string) {
+	internal.ResolvedOption_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *OptionNode) Value() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedOption_value(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *OptionNode) SetValue(v ExprNode) {
+	internal.ResolvedOption_set_value(n.raw, v.getRaw())
 }
 
 // WindowPartitioningNode window partitioning specification for an analytic function call.
@@ -4257,23 +5919,43 @@ type WindowPartitioningNode struct {
 }
 
 func (n *WindowPartitioningNode) PartitionByList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowPartitioning_partition_by_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *WindowPartitioningNode) SetPartitionByList(v []*ColumnRefNode) {
+	internal.ResolvedWindowPartitioning_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WindowPartitioningNode) AddPartitionBy(v *ColumnRefNode) {
+	internal.ResolvedWindowPartitioning_add_partition_by_list(n.raw, v.getRaw())
 }
 
 func (n *WindowPartitioningNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowPartitioning_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *WindowPartitioningNode) SetHintList(v []*OptionNode) {
+	internal.ResolvedWindowPartitioning_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WindowPartitioningNode) AddHint(v *OptionNode) {
+	internal.ResolvedWindowPartitioning_add_hint_list(n.raw, v.getRaw())
 }
 
 // WindowOrderingNode window ordering specification for an analytic function call.
@@ -4285,23 +5967,43 @@ type WindowOrderingNode struct {
 }
 
 func (n *WindowOrderingNode) OrderByItemList() []*OrderByItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowOrdering_order_by_item_list(n.raw, &v)
+	var ret []*OrderByItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOrderByItemNode(p))
+	})
+	return ret
 }
 
 func (n *WindowOrderingNode) SetOrderByItemList(v []*OrderByItemNode) {
+	internal.ResolvedWindowOrdering_set_order_by_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WindowOrderingNode) AddOrderByItem(v *OrderByItemNode) {
+	internal.ResolvedWindowOrdering_add_order_by_item_list(n.raw, v.getRaw())
 }
 
 func (n *WindowOrderingNode) HintList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowOrdering_hint_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *WindowOrderingNode) SetHintList(v []*OptionNode) {
+	internal.ResolvedWindowOrdering_set_hint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *WindowOrderingNode) AddHint(v *OptionNode) {
+	internal.ResolvedWindowOrdering_add_hint_list(n.raw, v.getRaw())
 }
 
 // WindowFrameNode window framing specification for an analytic function call.
@@ -4320,24 +6022,33 @@ type WindowFrameNode struct {
 }
 
 func (n *WindowFrameNode) FrameUnit() FrameUnit {
-	return FrameUnit(0)
+	var v int
+	internal.ResolvedWindowFrame_frame_unit(n.raw, &v)
+	return FrameUnit(v)
 }
 
 func (n *WindowFrameNode) SetFrameUnit(v FrameUnit) {
+	internal.ResolvedWindowFrame_set_frame_unit(n.raw, int(v))
 }
 
 func (n *WindowFrameNode) StartExpr() *WindowFrameExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowFrame_start_expr(n.raw, &v)
+	return newWindowFrameExprNode(v)
 }
 
 func (n *WindowFrameNode) SetStartExpr(v *WindowFrameExprNode) {
+	internal.ResolvedWindowFrame_set_start_expr(n.raw, v.getRaw())
 }
 
 func (n *WindowFrameNode) EndExpr() *WindowFrameExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowFrame_end_expr(n.raw, &v)
+	return newWindowFrameExprNode(v)
 }
 
 func (n *WindowFrameNode) SetEndExpr(v *WindowFrameExprNode) {
+	internal.ResolvedWindowFrame_set_end_expr(n.raw, v.getRaw())
 }
 
 // AnalyticFunctionGroupNode represents a group of analytic function calls that shares PARTITION
@@ -4355,27 +6066,43 @@ type AnalyticFunctionGroupNode struct {
 }
 
 func (n *AnalyticFunctionGroupNode) PartitionBy() *WindowPartitioningNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticFunctionGroup_partition_by(n.raw, &v)
+	return newWindowPartitioningNode(v)
 }
 
 func (n *AnalyticFunctionGroupNode) SetPartitionBy(v *WindowPartitioningNode) {
+	internal.ResolvedAnalyticFunctionGroup_set_partition_by(n.raw, v.getRaw())
 }
 
 func (n *AnalyticFunctionGroupNode) OrderBy() *WindowOrderingNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticFunctionGroup_order_by(n.raw, &v)
+	return newWindowOrderingNode(v)
 }
 
 func (n *AnalyticFunctionGroupNode) SetOrderBy(v *WindowOrderingNode) {
+	internal.ResolvedAnalyticFunctionGroup_set_order_by(n.raw, v.getRaw())
 }
 
 func (n *AnalyticFunctionGroupNode) AnalyticFunctionList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyticFunctionGroup_analytic_function_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *AnalyticFunctionGroupNode) SetAnalyticFunctionList(v []*ComputedColumnNode) {
+	internal.ResolvedAnalyticFunctionGroup_set_analytic_function_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AnalyticFunctionGroupNode) AddAnalyticFunction(v *ComputedColumnNode) {
+	internal.ResolvedAnalyticFunctionGroup_add_analytic_function_list(n.raw, v.getRaw())
 }
 
 // WindowFrameExprNode window frame boundary expression that determines the first/last row of
@@ -4391,17 +6118,23 @@ type WindowFrameExprNode struct {
 }
 
 func (n *WindowFrameExprNode) BoundaryType() BoundaryType {
-	return BoundaryType(0)
+	var v int
+	internal.ResolvedWindowFrameExpr_boundary_type(n.raw, &v)
+	return BoundaryType(v)
 }
 
 func (n *WindowFrameExprNode) SetBoundaryType(v BoundaryType) {
+	internal.ResolvedWindowFrameExpr_set_boundary_type(n.raw, int(v))
 }
 
 func (n *WindowFrameExprNode) Expression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedWindowFrameExpr_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *WindowFrameExprNode) SetExpression(v ExprNode) {
+	internal.ResolvedWindowFrameExpr_set_expression(n.raw, v.getRaw())
 }
 
 // DMLValueNode represents a value inside an INSERT or UPDATE statement.
@@ -4414,10 +6147,13 @@ type DMLValueNode struct {
 }
 
 func (n *DMLValueNode) Value() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDMLValue_value(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *DMLValueNode) SetValue(v ExprNode) {
+	internal.ResolvedDMLValue_set_value(n.raw, v.getRaw())
 }
 
 // DMLDefaultNode represents the value DEFAULT that shows up (in place of a
@@ -4441,17 +6177,23 @@ type AssertStmtNode struct {
 }
 
 func (n *AssertStmtNode) Expression() ExprNode {
+	var v unsafe.Pointer
+	internal.ResolvedAssertStmt_expression(n.raw, &v)
 	return nil
 }
 
 func (n *AssertStmtNode) SetExpression(v ExprNode) {
+	internal.ResolvedAssertStmt_set_expression(n.raw, v.getRaw())
 }
 
 func (n *AssertStmtNode) Description() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedAssertStmt_description(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *AssertStmtNode) SetDescription(v string) {
+	internal.ResolvedAssertStmt_set_description(n.raw, helper.StringToPtr(v))
 }
 
 // AssertRowsModifiedNode represents the ASSERT ROWS MODIFIED clause on a DML statement.
@@ -4464,10 +6206,13 @@ type AssertRowsModifiedNode struct {
 }
 
 func (n *AssertRowsModifiedNode) Rows() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAssertRowsModified_rows(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *AssertRowsModifiedNode) SetRows(v ExprNode) {
+	internal.ResolvedAssertRowsModified_set_rows(n.raw, v.getRaw())
 }
 
 // InsertRowNode represents one row in the VALUES clause of an INSERT.
@@ -4476,13 +6221,23 @@ type InsertRowNode struct {
 }
 
 func (n *InsertRowNode) ValueList() []*DMLValueNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertRow_value_list(n.raw, &v)
+	var ret []*DMLValueNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newDMLValueNode(p))
+	})
+	return ret
 }
 
 func (n *InsertRowNode) SetValueList(v []*DMLValueNode) {
+	internal.ResolvedInsertRow_set_value_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *InsertRowNode) AddValue(v *DMLValueNode) {
+	internal.ResolvedInsertRow_add_value_list(n.raw, v.getRaw())
 }
 
 // InsertStmtNode represents an INSERT statement, or a nested INSERT inside an
@@ -4526,78 +6281,134 @@ type InsertStmtNode struct {
 }
 
 func (n *InsertStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *InsertStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedInsertStmt_set_table_scan(n.raw, v.getRaw())
 }
 
+// InsertMode behavior on duplicate rows (normally defined to mean duplicate primary keys).
 func (n *InsertStmtNode) InsertMode() InsertMode {
-	return InsertMode(0)
+	var v int
+	internal.ResolvedInsertStmt_insert_mode(n.raw, &v)
+	return InsertMode(v)
 }
 
 func (n *InsertStmtNode) SetInsertMode(v InsertMode) {
+	internal.ResolvedInsertStmt_set_insert_mode(n.raw, int(v))
 }
 
 func (n *InsertStmtNode) AssertRowsModified() *AssertRowsModifiedNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_assert_rows_modified(n.raw, &v)
+	return newAssertRowsModifiedNode(v)
 }
 
 func (n *InsertStmtNode) SetAssertRowsModified(v *AssertRowsModifiedNode) {
+	internal.ResolvedInsertStmt_set_assert_rows_modified(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) Returning() *ReturningClauseNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_returning(n.raw, &v)
+	return newReturningClauseNode(v)
 }
 
 func (n *InsertStmtNode) SetReturning(v *ReturningClauseNode) {
+	internal.ResolvedInsertStmt_set_returning(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) InsertColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_insert_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *InsertStmtNode) SetInsertColumnList(v []*Column) {
+	internal.ResolvedInsertStmt_set_insert_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *InsertStmtNode) AddInsertColumn(v *Column) {
+	internal.ResolvedInsertStmt_add_insert_column_list(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) QueryParameterList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_query_parameter_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *InsertStmtNode) SetQueryParameterList(v []*ColumnRefNode) {
+	internal.ResolvedInsertStmt_set_query_parameter_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *InsertStmtNode) AddQueryParameter(v *ColumnRefNode) {
+	internal.ResolvedInsertStmt_add_query_parameter_list(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *InsertStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedInsertStmt_set_query(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) QueryOutputColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_query_output_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *InsertStmtNode) SetQueryOutputColumnList(v []*Column) {
+	internal.ResolvedInsertStmt_set_query_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *InsertStmtNode) AddQueryOutputColumn(v *Column) {
+	internal.ResolvedInsertStmt_add_query_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *InsertStmtNode) RowList() []*InsertRowNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedInsertStmt_row_list(n.raw, &v)
+	var ret []*InsertRowNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newInsertRowNode(p))
+	})
+	return ret
 }
 
 func (n *InsertStmtNode) SetRowList(v []*InsertRowNode) {
+	internal.ResolvedInsertStmt_set_row_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *InsertStmtNode) AddRow(v *InsertRowNode) {
+	internal.ResolvedInsertStmt_add_row_list(n.raw, v.getRaw())
 }
 
 // DeleteStmtNode represents a DELETE statement or a nested DELETE inside an
@@ -4627,38 +6438,53 @@ type DeleteStmtNode struct {
 }
 
 func (n *DeleteStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDeleteStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *DeleteStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedDeleteStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 func (n *DeleteStmtNode) AssertRowsModified() *AssertRowsModifiedNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDeleteStmt_assert_rows_modified(n.raw, &v)
+	return newAssertRowsModifiedNode(v)
 }
 
 func (n *DeleteStmtNode) SetAssertRowsModified(v *AssertRowsModifiedNode) {
+	internal.ResolvedDeleteStmt_set_assert_rows_modified(n.raw, v.getRaw())
 }
 
 func (n *DeleteStmtNode) Returning() *ReturningClauseNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDeleteStmt_returning(n.raw, &v)
+	return newReturningClauseNode(v)
 }
 
 func (n *DeleteStmtNode) SetReturning(v *ReturningClauseNode) {
+	internal.ResolvedDeleteStmt_set_returning(n.raw, v.getRaw())
 }
 
 func (n *DeleteStmtNode) ArrayOffsetColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDeleteStmt_array_offset_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *DeleteStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
+	internal.ResolvedDeleteStmt_set_array_offset_column(n.raw, v.getRaw())
 }
 
 func (n *DeleteStmtNode) WhereExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDeleteStmt_where_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *DeleteStmtNode) SetWhereExpr(v ExprNode) {
+	internal.ResolvedDeleteStmt_set_where_expr(n.raw, v.getRaw())
 }
 
 // UpdateItemNode represents one item inside the SET clause of an UPDATE.
@@ -4761,10 +6587,13 @@ type UpdateItemNode struct {
 // they are not treated the same.  Here, they express a path inside
 // an object that is being mutated, so they have reference semantics.
 func (n *UpdateItemNode) Target() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_target(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *UpdateItemNode) SetTarget(v ExprNode) {
+	internal.ResolvedUpdateItem_set_target(n.raw, v.getRaw())
 }
 
 // SetValue set the target entity to this value.  The types must match.
@@ -4774,10 +6603,13 @@ func (n *UpdateItemNode) SetTarget(v ExprNode) {
 // This is mutually exclusive with all fields below, which are used
 // for nested updates only.
 func (n *UpdateItemNode) SetValue() *DMLValueNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_set_value(n.raw, &v)
+	return newDMLValueNode(v)
 }
 
 func (n *UpdateItemNode) SetSetValue(v *DMLValueNode) {
+	internal.ResolvedUpdateItem_set_set_value(n.raw, v.getRaw())
 }
 
 // ElementColumn the Column introduced to represent the elements of the
@@ -4789,10 +6621,13 @@ func (n *UpdateItemNode) SetSetValue(v *DMLValueNode) {
 //
 // This column can be referenced inside the nested statements below.
 func (n *UpdateItemNode) ElementColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_element_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *UpdateItemNode) SetElementColumn(v *ColumnHolderNode) {
+	internal.ResolvedUpdateItem_set_element_column(n.raw, v.getRaw())
 }
 
 // ArrayUpdateList array element modifications to apply. Each item runs on the value
@@ -4805,13 +6640,23 @@ func (n *UpdateItemNode) SetElementColumn(v *ColumnHolderNode) {
 // TODO: Consider generalizing this to allow
 // SET a[<expr1>].b = ..., a[<expr2>].c = ...
 func (n *UpdateItemNode) ArrayUpdateList() []*UpdateArrayItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_array_update_list(n.raw, &v)
+	var ret []*UpdateArrayItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUpdateArrayItemNode(p))
+	})
+	return ret
 }
 
 func (n *UpdateItemNode) SetArrayUpdateList(v []*UpdateArrayItemNode) {
+	internal.ResolvedUpdateItem_set_array_update_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UpdateItemNode) AddArrayUpdate(v *UpdateArrayItemNode) {
+	internal.ResolvedUpdateItem_add_array_update_list(n.raw, v.getRaw())
 }
 
 // DeleteList nested DELETE statements to apply.  Each delete runs on one value
@@ -4821,13 +6666,23 @@ func (n *UpdateItemNode) AddArrayUpdate(v *UpdateArrayItemNode) {
 //
 // It is legal for the same input element to match multiple DELETEs.
 func (n *UpdateItemNode) DeleteList() []*DeleteStmtNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_delete_list(n.raw, &v)
+	var ret []*DeleteStmtNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newDeleteStmtNode(p))
+	})
+	return ret
 }
 
 func (n *UpdateItemNode) SetDeleteList(v []*DeleteStmtNode) {
+	internal.ResolvedUpdateItem_set_delete_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UpdateItemNode) AddDelete(v *DeleteStmtNode) {
+	internal.ResolvedUpdateItem_add_delete_list(n.raw, v.getRaw())
 }
 
 // UpdateList nested UPDATE statements to apply.  Each update runs on one value
@@ -4837,13 +6692,23 @@ func (n *UpdateItemNode) AddDelete(v *DeleteStmtNode) {
 //
 // It is an error if any element is matched by multiple UPDATEs.
 func (n *UpdateItemNode) UpdateList() []*UpdateStmtNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_update_list(n.raw, &v)
+	var ret []*UpdateStmtNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUpdateStmtNode(p))
+	})
+	return ret
 }
 
 func (n *UpdateItemNode) SetUpdateList(v []*UpdateStmtNode) {
+	internal.ResolvedUpdateItem_set_update_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UpdateItemNode) AddUpdate(v *UpdateStmtNode) {
+	internal.ResolvedUpdateItem_add_update_list(n.raw, v.getRaw())
 }
 
 // InsertList nested INSERT statements to apply.  Each insert will produce zero
@@ -4853,13 +6718,23 @@ func (n *UpdateItemNode) AddUpdate(v *UpdateStmtNode) {
 //
 // For nested UPDATEs, insert_mode will always be the default, and has no effect.
 func (n *UpdateItemNode) InsertList() []*InsertStmtNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateItem_insert_list(n.raw, &v)
+	var ret []*InsertStmtNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newInsertStmtNode(p))
+	})
+	return ret
 }
 
 func (n *UpdateItemNode) SetInsertList(v []*InsertStmtNode) {
+	internal.ResolvedUpdateItem_set_insert_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UpdateItemNode) AddInsert(v *InsertStmtNode) {
+	internal.ResolvedUpdateItem_add_insert_list(n.raw, v.getRaw())
 }
 
 // UpdateArrayItemNode for an array element modification, this node represents the offset
@@ -4870,18 +6745,26 @@ type UpdateArrayItemNode struct {
 	*BaseArgumentNode
 }
 
+// Offset the array offset to be modified.
 func (n *UpdateArrayItemNode) Offset() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateArrayItem_offset(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *UpdateArrayItemNode) SetOffset(v ExprNode) {
+	internal.ResolvedUpdateArrayItem_set_offset(n.raw, v.getRaw())
 }
 
+// UpdateItem the modification to perform to the array element.
 func (n *UpdateArrayItemNode) UpdateItem() *UpdateItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateArrayItem_update_item(n.raw, &v)
+	return newUpdateItemNode(v)
 }
 
 func (n *UpdateArrayItemNode) SetUpdateItem(v *UpdateItemNode) {
+	internal.ResolvedUpdateArrayItem_set_update_item(n.raw, v.getRaw())
 }
 
 // UpdateStmtNode represents an UPDATE statement, or a nested UPDATE inside an
@@ -4928,65 +6811,103 @@ type UpdateStmtNode struct {
 }
 
 func (n *UpdateStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *UpdateStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedUpdateStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) ColumnAccessList() []ObjectAccess {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_column_access_list(n.raw, &v)
+	var ret []ObjectAccess
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, ObjectAccess(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *UpdateStmtNode) SetColumnAccessList(v []ObjectAccess) {
+	internal.ResolvedUpdateStmt_set_column_access_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *UpdateStmtNode) AddColumnAccess(v ObjectAccess) {
+	internal.ResolvedUpdateStmt_add_column_access_list(n.raw, int(v))
 }
 
 func (n *UpdateStmtNode) AssertRowsModified() *AssertRowsModifiedNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_assert_rows_modified(n.raw, &v)
+	return newAssertRowsModifiedNode(v)
 }
 
 func (n *UpdateStmtNode) SetAssertRowsModified(v *AssertRowsModifiedNode) {
+	internal.ResolvedUpdateStmt_set_assert_rows_modified(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) Returning() *ReturningClauseNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_returning(n.raw, &v)
+	return newReturningClauseNode(v)
 }
 
 func (n *UpdateStmtNode) SetReturning(v *ReturningClauseNode) {
+	internal.ResolvedUpdateStmt_set_returning(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) ArrayOffsetColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_array_offset_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *UpdateStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
+	internal.ResolvedUpdateStmt_set_array_offset_column(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) WhereExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_where_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *UpdateStmtNode) SetWhereExpr(v ExprNode) {
+	internal.ResolvedUpdateStmt_set_where_expr(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) UpdateItemList() []*UpdateItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_update_item_list(n.raw, &v)
+	var ret []*UpdateItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUpdateItemNode(p))
+	})
+	return ret
 }
 
 func (n *UpdateStmtNode) SetUpdateItemList(v []*UpdateItemNode) {
+	internal.ResolvedUpdateStmt_set_update_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UpdateStmtNode) AddUpdateItemList(v *UpdateItemNode) {
+	internal.ResolvedUpdateStmt_add_update_item_list(n.raw, v.getRaw())
 }
 
 func (n *UpdateStmtNode) FromScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUpdateStmt_from_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *UpdateStmtNode) SetFromScan(v ScanNode) {
+	internal.ResolvedUpdateStmt_set_from_scan(n.raw, v.getRaw())
 }
 
 // MergeWhenNode this is used by MergeStmtNode to represent one WHEN ... THEN clause
@@ -5037,52 +6958,83 @@ type MergeWhenNode struct {
 }
 
 func (n *MergeWhenNode) MatchType() MatchType {
-	return MatchType(0)
+	var v int
+	internal.ResolvedMergeWhen_match_type(n.raw, &v)
+	return MatchType(v)
 }
 
 func (n *MergeWhenNode) SetMatchType(v MatchType) {
+	internal.ResolvedMergeWhen_set_match_type(n.raw, int(v))
 }
 
 func (n *MergeWhenNode) MatchExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeWhen_match_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *MergeWhenNode) SetMatchExpr(v ExprNode) {
+	internal.ResolvedMergeWhen_set_match_expr(n.raw, v.getRaw())
 }
 
 func (n *MergeWhenNode) ActionType() ActionType {
-	return ActionType(0)
+	var v int
+	internal.ResolvedMergeWhen_action_type(n.raw, &v)
+	return ActionType(v)
 }
 
 func (n *MergeWhenNode) SetActionType(v ActionType) {
+	internal.ResolvedMergeWhen_set_action_type(n.raw, int(v))
 }
 
 func (n *MergeWhenNode) InsertColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeWhen_insert_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *MergeWhenNode) SetInsertColumnList(v []*Column) {
+	internal.ResolvedMergeWhen_set_insert_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *MergeWhenNode) AddInsertColumn(v *Column) {
+	internal.ResolvedMergeWhen_add_insert_column_list(n.raw, v.raw)
 }
 
 func (n *MergeWhenNode) InsertRow() *InsertRowNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeWhen_insert_row(n.raw, &v)
+	return newInsertRowNode(v)
 }
 
 func (n *MergeWhenNode) SetInsertRow(v *InsertRowNode) {
+	internal.ResolvedMergeWhen_set_insert_row(n.raw, v.getRaw())
 }
 
 func (n *MergeWhenNode) UpdateItemList() []*UpdateItemNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeWhen_update_item_list(n.raw, &v)
+	var ret []*UpdateItemNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUpdateItemNode(p))
+	})
+	return ret
 }
 
 func (n *MergeWhenNode) SetUpdateItemList(v []*UpdateItemNode) {
+	internal.ResolvedMergeWhen_set_update_item_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *MergeWhenNode) AddUpdateItem(v *UpdateItemNode) {
-
+	internal.ResolvedMergeWhen_add_update_item_list(n.raw, v.getRaw())
 }
 
 // MergeStmtNode represents a MERGE statement.
@@ -5109,28 +7061,74 @@ type MergeStmtNode struct {
 	*BaseStatementNode
 }
 
+func (n *MergeStmtNode) TableScan() *TableScanNode {
+	var v unsafe.Pointer
+	internal.ResolvedMergeStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
+}
+
+func (n *MergeStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedMergeStmt_set_table_scan(n.raw, v.getRaw())
+}
+
+func (n *MergeStmtNode) ColumnAccessList() []ObjectAccess {
+	var v unsafe.Pointer
+	internal.ResolvedMergeStmt_column_access_list(n.raw, &v)
+	var ret []ObjectAccess
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, ObjectAccess(uintptr(p)))
+	})
+	return ret
+}
+
+func (n *MergeStmtNode) SetColumnAccessList(v []ObjectAccess) {
+	internal.ResolvedMergeStmt_set_column_access_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
+}
+
+func (n *MergeStmtNode) AddColumnAccess(v ObjectAccess) {
+	internal.ResolvedMergeStmt_add_column_access_list(n.raw, int(v))
+}
+
 func (n *MergeStmtNode) FromScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeStmt_from_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *MergeStmtNode) SetFromScan(v ScanNode) {
+	internal.ResolvedMergeStmt_set_from_scan(n.raw, v.getRaw())
 }
 
 func (n *MergeStmtNode) MergeExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeStmt_merge_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *MergeStmtNode) SetMergeExpr(v ExprNode) {
+	internal.ResolvedMergeStmt_set_merge_expr(n.raw, v.getRaw())
 }
 
 func (n *MergeStmtNode) WhenClauseList() []*MergeWhenNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedMergeStmt_when_clause_list(n.raw, &v)
+	var ret []*MergeWhenNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newMergeWhenNode(p))
+	})
+	return ret
 }
 
 func (n *MergeStmtNode) SetWhenClauseList(v []*MergeWhenNode) {
+	internal.ResolvedMergeStmt_set_when_clause_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *MergeStmtNode) AddWhenClause(v *MergeWhenNode) {
+	internal.ResolvedMergeStmt_add_when_clause_list(n.raw, v.getRaw())
 }
 
 // TruncateStmtNode represents a TRUNCATE TABLE statement.
@@ -5150,17 +7148,23 @@ type TruncateStmtNode struct {
 }
 
 func (n *TruncateStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTruncateStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *TruncateStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedTruncateStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 func (n *TruncateStmtNode) WhereExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTruncateStmt_where_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *TruncateStmtNode) SetWhereExpr(v ExprNode) {
+	internal.ResolvedTruncateStmt_set_where_expr(n.raw, v.getRaw())
 }
 
 // ObjectUnitNode a reference to a unit of an object (e.g. a column or field of a table).
@@ -5171,13 +7175,23 @@ type ObjectUnitNode struct {
 }
 
 func (n *ObjectUnitNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedObjectUnit_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ObjectUnitNode) SetNamePath(v []string) {
+	internal.ResolvedObjectUnit_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ObjectUnitNode) AddName(v string) {
+func (n *ObjectUnitNode) AddNamePath(v string) {
+	internal.ResolvedObjectUnit_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // PrivilegeNode a grantable privilege.
@@ -5191,20 +7205,33 @@ type PrivilegeNode struct {
 }
 
 func (n *PrivilegeNode) ActionType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedPrivilege_action_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *PrivilegeNode) SetActionType(v string) {
+	internal.ResolvedPrivilege_set_action_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *PrivilegeNode) UnitList() []*ObjectUnitNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPrivilege_unit_list(n.raw, &v)
+	var ret []*ObjectUnitNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newObjectUnitNode(p))
+	})
+	return ret
 }
 
 func (n *PrivilegeNode) SetUnitList(v []*ObjectUnitNode) {
+	internal.ResolvedPrivilege_set_unit_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PrivilegeNode) AddUnit(v *ObjectUnitNode) {
+	internal.ResolvedPrivilege_add_unit_list(n.raw, v.getRaw())
 }
 
 // GrantOrRevokeStmtNode common node of GRANT/REVOKE statements.
@@ -5227,50 +7254,93 @@ type GrantOrRevokeStmtNode struct {
 }
 
 func (n *GrantOrRevokeStmtNode) PrivilegeList() []*PrivilegeNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGrantOrRevokeStmt_privilege_list(n.raw, &v)
+	var ret []*PrivilegeNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newPrivilegeNode(p))
+	})
+	return ret
 }
 
 func (n *GrantOrRevokeStmtNode) SetPrivilegeList(v []*PrivilegeNode) {
+	internal.ResolvedGrantOrRevokeStmt_set_privilege_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *GrantOrRevokeStmtNode) AddPrivilege(v *PrivilegeNode) {
+	internal.ResolvedGrantOrRevokeStmt_add_privilege_list(n.raw, v.getRaw())
 }
 
 func (n *GrantOrRevokeStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedGrantOrRevokeStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *GrantOrRevokeStmtNode) SetObjectType(v string) {
+	internal.ResolvedGrantOrRevokeStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *GrantOrRevokeStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGrantOrRevokeStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *GrantOrRevokeStmtNode) SetNamePath(v []string) {
+	internal.ResolvedGrantOrRevokeStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *GrantOrRevokeStmtNode) AddName(v string) {
+func (n *GrantOrRevokeStmtNode) AddNamePath(v string) {
+	internal.ResolvedGrantOrRevokeStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *GrantOrRevokeStmtNode) GranteeList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGrantOrRevokeStmt_grantee_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *GrantOrRevokeStmtNode) SetGranteeList(v []string) {
+	internal.ResolvedGrantOrRevokeStmt_set_grantee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *GrantOrRevokeStmtNode) AddGrantee(v string) {
+	internal.ResolvedGrantOrRevokeStmt_add_grantee_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *GrantOrRevokeStmtNode) GranteeExprList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGrantOrRevokeStmt_grantee_expr_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *GrantOrRevokeStmtNode) SetGranteeExprList(v []ExprNode) {
+	internal.ResolvedGrantOrRevokeStmt_set_grantee_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *GrantOrRevokeStmtNode) AddGranteeExpr(v ExprNode) {
+	internal.ResolvedGrantOrRevokeStmt_add_grantee_expr_list(n.raw, v.getRaw())
 }
 
 // GrantStmtNode a GRANT statement.
@@ -5300,30 +7370,53 @@ type AlterObjectStmtNode struct {
 }
 
 func (n *AlterObjectStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterObjectStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *AlterObjectStmtNode) SetNamePath(v []string) {
+	internal.ResolvedAlterObjectStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *AlterObjectStmtNode) AddName(v string) {
+func (n *AlterObjectStmtNode) AddNamePath(v string) {
+	internal.ResolvedAlterObjectStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *AlterObjectStmtNode) AlterActionList() []*AlterActionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterObjectStmt_alter_action_list(n.raw, &v)
+	var ret []*AlterActionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newAlterActionNode(p))
+	})
+	return ret
 }
 
 func (n *AlterObjectStmtNode) SetAlterActionList(v []*AlterActionNode) {
+	internal.ResolvedAlterObjectStmt_set_alter_action_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AlterObjectStmtNode) AddAlterAction(v *AlterActionNode) {
+	internal.ResolvedAlterObjectStmt_add_alter_action_list(n.raw, v.getRaw())
 }
 
 func (n *AlterObjectStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAlterObjectStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *AlterObjectStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedAlterObjectStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 // AlterDatabaseStmtNode this statement:
@@ -5385,17 +7478,23 @@ type BaseAlterColumnActionNode struct {
 }
 
 func (n *BaseAlterColumnActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAlterColumnAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *BaseAlterColumnActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedAlterColumnAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *BaseAlterColumnActionNode) Column() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnAction_column(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *BaseAlterColumnActionNode) SetColumn(v string) {
+	internal.ResolvedAlterColumnAction_set_column(n.raw, helper.StringToPtr(v))
 }
 
 // SetOptionsActionNode
@@ -5408,13 +7507,23 @@ type SetOptionsActionNode struct {
 }
 
 func (n *SetOptionsActionNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetOptionsAction_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *SetOptionsActionNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedSetOptionsAction_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *SetOptionsActionNode) AddOption(v *OptionNode) {
+	internal.ResolvedSetOptionsAction_add_option_list(n.raw, v.getRaw())
 }
 
 // AddColumnActionNode
@@ -5424,17 +7533,23 @@ type AddColumnActionNode struct {
 }
 
 func (n *AddColumnActionNode) IsIfNotExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAddColumnAction_is_if_not_exists(n.raw, &v)
+	return v
 }
 
 func (n *AddColumnActionNode) SetIsIfNotExists(v bool) {
+	internal.ResolvedAddColumnAction_set_is_if_not_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *AddColumnActionNode) ColumnDefinition() *ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAddColumnAction_column_definition(n.raw, &v)
+	return newColumnDefinitionNode(v)
 }
 
 func (n *AddColumnActionNode) SetColumnDefinition(v *ColumnDefinitionNode) {
+	internal.ResolvedAddColumnAction_set_column_definition(n.raw, v.getRaw())
 }
 
 // AddConstraintActionNode
@@ -5444,24 +7559,33 @@ type AddConstraintActionNode struct {
 }
 
 func (n *AddConstraintActionNode) IsIfNotExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAddConstraintAction_is_if_not_exists(n.raw, &v)
+	return v
 }
 
 func (n *AddConstraintActionNode) SetIsIfNotExists(v bool) {
+	internal.ResolvedAddConstraintAction_set_is_if_not_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *AddConstraintActionNode) Constraint() *ConstraintNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAddConstraintAction_constraint(n.raw, &v)
+	return newConstraintNode(v)
 }
 
 func (n *AddConstraintActionNode) SetConstraint(v *ConstraintNode) {
+	internal.ResolvedAddConstraintAction_set_constraint(n.raw, v.getRaw())
 }
 
 func (n *AddConstraintActionNode) Table() types.Table {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAddConstraintAction_table(n.raw, &v)
+	return newTable(v)
 }
 
 func (n *AddConstraintActionNode) SetTable(v types.Table) {
+	internal.ResolvedAddConstraintAction_set_table(n.raw, getRawTable(v))
 }
 
 // DropConstraintActionNode
@@ -5471,17 +7595,23 @@ type DropConstraintActionNode struct {
 }
 
 func (n *DropConstraintActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropConstraintAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropConstraintActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropConstraintAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropConstraintActionNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropConstraintAction_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropConstraintActionNode) SetName(v string) {
+	internal.ResolvedDropConstraintAction_set_name(n.raw, helper.StringToPtr(v))
 }
 
 // DropPrimaryKeyActionNode
@@ -5491,10 +7621,13 @@ type DropPrimaryKeyActionNode struct {
 }
 
 func (n *DropPrimaryKeyActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropPrimaryKeyAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropPrimaryKeyActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropPrimaryKeyAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 // AlterColumnOptionsActionNode
@@ -5503,13 +7636,23 @@ type AlterColumnOptionsActionNode struct {
 }
 
 func (n *AlterColumnOptionsActionNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnOptionsAction_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AlterColumnOptionsActionNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedAlterColumnOptionsAction_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AlterColumnOptionsActionNode) AddOption(v *OptionNode) {
+	internal.ResolvedAlterColumnOptionsAction_add_option_list(n.raw, v.getRaw())
 }
 
 // AlterColumnDropNotNullActionNode
@@ -5532,10 +7675,13 @@ type AlterColumnSetDataTypeActionNode struct {
 
 // UpdatedType the new type for the column.
 func (n *AlterColumnSetDataTypeActionNode) UpdatedType() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnSetDataTypeAction_updated_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *AlterColumnSetDataTypeActionNode) SetUpdatedType(v types.Type) {
+	internal.ResolvedAlterColumnSetDataTypeAction_set_updated_type(n.raw, getRawType(v))
 }
 
 // UpdatedTypeParameters the new type parameters for the column, if the new type has
@@ -5543,19 +7689,25 @@ func (n *AlterColumnSetDataTypeActionNode) SetUpdatedType(v types.Type) {
 // populated for ARRAY and STRUCT types.
 // TODO Use updated_annotations to pass type parameters.
 func (n *AlterColumnSetDataTypeActionNode) UpdatedTypeParameters() *types.TypeParameters {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnSetDataTypeAction_updated_type_parameters(n.raw, &v)
+	return newTypeParameters(v)
 }
 
 func (n *AlterColumnSetDataTypeActionNode) SetUpdatedTypeParameters(v *types.TypeParameters) {
+	internal.ResolvedAlterColumnSetDataTypeAction_set_updated_type_parameters(n.raw, getRawTypeParameters(v))
 }
 
 // UpdatedAnnotations the new annotations for the column including the new collation
 // specifications. Changing options using SET DATA TYPE action is not allowed.
 func (n *AlterColumnSetDataTypeActionNode) UpdatedAnnotations() *ColumnAnnotationsNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnSetDataTypeAction_updated_annotations(n.raw, &v)
+	return newColumnAnnotationsNode(v)
 }
 
 func (n *AlterColumnSetDataTypeActionNode) SetUpdatedAnnotations(v *ColumnAnnotationsNode) {
+	internal.ResolvedAlterColumnSetDataTypeAction_set_updated_annotations(n.raw, v.getRaw())
 }
 
 // AlterColumnSetDefaultActionNode alter column set default action:
@@ -5573,10 +7725,13 @@ type AlterColumnSetDefaultActionNode struct {
 }
 
 func (n *AlterColumnSetDefaultActionNode) DefaultValue() *ColumnDefaultValueNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterColumnSetDefaultAction_default_value(n.raw, &v)
+	return newColumnDefaultValueNode(v)
 }
 
 func (n *AlterColumnSetDefaultActionNode) SetDefaultValue(v *ColumnDefaultValueNode) {
+	internal.ResolvedAlterColumnSetDefaultAction_set_default_value(n.raw, v.getRaw())
 }
 
 // AlterColumnDropDefaultAction this ALTER action:
@@ -5596,17 +7751,23 @@ type DropColumnActionNode struct {
 }
 
 func (n *DropColumnActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropColumnAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropColumnActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropColumnAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropColumnActionNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropColumnAction_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropColumnActionNode) SetName(v string) {
+	internal.ResolvedDropColumnAction_set_name(n.raw, helper.StringToPtr(v))
 }
 
 // RenameColumnActionNode
@@ -5625,24 +7786,33 @@ type RenameColumnActionNode struct {
 }
 
 func (n *RenameColumnActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedRenameColumnAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *RenameColumnActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedRenameColumnAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *RenameColumnActionNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedRenameColumnAction_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *RenameColumnActionNode) SetName(v string) {
+	internal.ResolvedRenameColumnAction_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *RenameColumnActionNode) NewName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedRenameColumnAction_new_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *RenameColumnActionNode) SetNewName(v string) {
+	internal.ResolvedRenameColumnAction_set_new_name(n.raw, helper.StringToPtr(v))
 }
 
 // SetAsActionNode
@@ -5656,17 +7826,23 @@ type SetAsActionNode struct {
 }
 
 func (n *SetAsActionNode) EntityBodyJSON() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedSetAsAction_entity_body_json(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *SetAsActionNode) SetEntityBodyJSON(v string) {
+	internal.ResolvedSetAsAction_set_entity_body_json(n.raw, helper.StringToPtr(v))
 }
 
 func (n *SetAsActionNode) EntityBodyText() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedSetAsAction_entity_body_text(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *SetAsActionNode) SetEntityBodyText(v string) {
+	internal.ResolvedSetAsAction_set_entity_body_text(n.raw, helper.StringToPtr(v))
 }
 
 // SetCollateClauseNode
@@ -5682,10 +7858,13 @@ type SetCollateClauseNode struct {
 }
 
 func (n *SetCollateClauseNode) CollationName() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedSetCollateClause_collation_name(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *SetCollateClauseNode) SetCollationName(v ExprNode) {
+	internal.ResolvedSetCollateClause_set_collation_name(n.raw, v.getRaw())
 }
 
 // AlterTableSetOptionsStmtNode this statement:
@@ -5702,30 +7881,53 @@ type AlterTableSetOptionsStmtNode struct {
 }
 
 func (n *AlterTableSetOptionsStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterTableSetOptionsStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *AlterTableSetOptionsStmtNode) SetNamePath(v []string) {
+	internal.ResolvedAlterTableSetOptionsStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *AlterTableSetOptionsStmtNode) AddName(v string) {
+func (n *AlterTableSetOptionsStmtNode) AddNamePath(v string) {
+	internal.ResolvedAlterTableSetOptionsStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *AlterTableSetOptionsStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterTableSetOptionsStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AlterTableSetOptionsStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedAlterTableSetOptionsStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AlterTableSetOptionsStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedAlterTableSetOptionsStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *AlterTableSetOptionsStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAlterTableSetOptionsStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *AlterTableSetOptionsStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedAlterTableSetOptionsStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 // RenameStmtNode this statement:
@@ -5742,30 +7944,53 @@ type RenameStmtNode struct {
 }
 
 func (n *RenameStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedRenameStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *RenameStmtNode) SetObjectType(v string) {
+	internal.ResolvedRenameStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *RenameStmtNode) OldNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRenameStmt_old_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *RenameStmtNode) SetOldNamePath(v []string) {
+	internal.ResolvedRenameStmt_set_old_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *RenameStmtNode) AddOldName(v string) {
+func (n *RenameStmtNode) AddOldNamePath(v string) {
+	internal.ResolvedRenameStmt_add_old_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *RenameStmtNode) NewNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRenameStmt_new_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *RenameStmtNode) SetNewNamePath(v []string) {
+	internal.ResolvedRenameStmt_set_new_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *RenameStmtNode) AddNewName(v string) {
+	internal.ResolvedRenameStmt_add_new_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // CreatePrivilegeRestrictionStmtNode this statement:
@@ -5785,30 +8010,53 @@ type CreatePrivilegeRestrictionStmtNode struct {
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) ColumnPrivilegeList() []*PrivilegeNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreatePrivilegeRestrictionStmt_column_privilege_list(n.raw, &v)
+	var ret []*PrivilegeNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newPrivilegeNode(p))
+	})
+	return ret
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) SetColumnPrivilegeList(v []*PrivilegeNode) {
+	internal.ResolvedCreatePrivilegeRestrictionStmt_set_column_privilege_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) AddColumnPrivilege(v *PrivilegeNode) {
+	internal.ResolvedCreatePrivilegeRestrictionStmt_add_column_privilege_list(n.raw, v.getRaw())
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreatePrivilegeRestrictionStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) SetObjectType(v string) {
+	internal.ResolvedCreatePrivilegeRestrictionStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) RestricteeList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreatePrivilegeRestrictionStmt_restrictee_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) SetRestricteeList(v []ExprNode) {
+	internal.ResolvedCreatePrivilegeRestrictionStmt_set_restrictee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreatePrivilegeRestrictionStmtNode) AddRestrictee(v ExprNode) {
+	internal.ResolvedCreatePrivilegeRestrictionStmt_add_restrictee_list(n.raw, v.getRaw())
 }
 
 // CreateRowAccessPolicyStmtNode this statement:
@@ -5845,68 +8093,113 @@ type CreateRowAccessPolicyStmtNode struct {
 }
 
 func (n *CreateRowAccessPolicyStmtNode) CreateMode() CreateMode {
-	return CreateMode(0)
+	var v int
+	internal.ResolvedCreateRowAccessPolicyStmt_create_mode(n.raw, &v)
+	return CreateMode(v)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetCreateMode(v CreateMode) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_create_mode(n.raw, int(v))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetName(v string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) TargetNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_target_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetTargetNamePath(v []string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_target_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *CreateRowAccessPolicyStmtNode) AddTargetName(v string) {
+func (n *CreateRowAccessPolicyStmtNode) AddTargetNamePath(v string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_add_target_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) GranteeList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_grantee_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetGranteeList(v []string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_grantee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) AddGrantee(v string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_add_grantee_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) GranteeExprList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_grantee_expr_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetGranteeExprList(v []ExprNode) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_grantee_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateRowAccessPolicyStmtNode) AddGranteeExpr(v ExprNode) {
+	internal.ResolvedCreateRowAccessPolicyStmt_add_grantee_expr_list(n.raw, v.getRaw())
 }
 
 func (n *CreateRowAccessPolicyStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 func (n *CreateRowAccessPolicyStmtNode) Predicate() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_predicate(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetPredicate(v ExprNode) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_predicate(n.raw, v.getRaw())
 }
 
 func (n *CreateRowAccessPolicyStmtNode) PredicateStr() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateRowAccessPolicyStmt_predicate_str(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetPredicateStr(v string) {
+	internal.ResolvedCreateRowAccessPolicyStmt_set_predicate_str(n.raw, helper.StringToPtr(v))
 }
 
 // DropPrivilegeRestrictionStmtNode this statement:
@@ -5923,37 +8216,63 @@ type DropPrivilegeRestrictionStmtNode struct {
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropPrivilegeRestrictionStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) SetObjectType(v string) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropPrivilegeRestrictionStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropPrivilegeRestrictionStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropPrivilegeRestrictionStmtNode) AddName(v string) {
+func (n *DropPrivilegeRestrictionStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) ColumnPrivilegeList() []*PrivilegeNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropPrivilegeRestrictionStmt_column_privilege_list(n.raw, &v)
+	var ret []*PrivilegeNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newPrivilegeNode(p))
+	})
+	return ret
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) SetColumnPrivilegeList(v []*PrivilegeNode) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_set_column_privilege_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *DropPrivilegeRestrictionStmtNode) AddColumnPrivilege(v *PrivilegeNode) {
+	internal.ResolvedDropPrivilegeRestrictionStmt_add_column_privilege_list(n.raw, v.getRaw())
 }
 
 // DropRowAccessPolicyStmtNode this statement:
@@ -5970,34 +8289,53 @@ type DropRowAccessPolicyStmtNode struct {
 }
 
 func (n *DropRowAccessPolicyStmtNode) IsDropAll() bool {
-	return false
+	var v bool
+	internal.ResolvedDropRowAccessPolicyStmt_is_drop_all(n.raw, &v)
+	return v
 }
 
 func (n *DropRowAccessPolicyStmtNode) SetIsDropAll(v bool) {
+	internal.ResolvedDropRowAccessPolicyStmt_set_is_drop_all(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropRowAccessPolicyStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropRowAccessPolicyStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropRowAccessPolicyStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropRowAccessPolicyStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropRowAccessPolicyStmtNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropRowAccessPolicyStmt_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropRowAccessPolicyStmtNode) SetName(v string) {
+	internal.ResolvedDropRowAccessPolicyStmt_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropRowAccessPolicyStmtNode) TargetNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropRowAccessPolicyStmt_target_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropRowAccessPolicyStmtNode) SetTargetNamePath(v []string) {
+	internal.ResolvedDropRowAccessPolicyStmt_set_target_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropRowAccessPolicyStmtNode) AddTargetName(v string) {
+func (n *DropRowAccessPolicyStmtNode) AddTargetNamePath(v string) {
+	internal.ResolvedDropRowAccessPolicyStmt_add_target_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // DropSearchIndexStmtNode
@@ -6010,27 +8348,43 @@ type DropSearchIndexStmtNode struct {
 }
 
 func (n *DropSearchIndexStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropSearchIndexStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropSearchIndexStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropSearchIndexStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropSearchIndexStmtNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedDropSearchIndexStmt_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *DropSearchIndexStmtNode) SetName(v string) {
+	internal.ResolvedDropSearchIndexStmt_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *DropSearchIndexStmtNode) TableNamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropSearchIndexStmt_table_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropSearchIndexStmtNode) SetTableNamePath(v []string) {
+	internal.ResolvedDropSearchIndexStmt_set_table_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropSearchIndexStmtNode) AddTableName(v string) {
+func (n *DropSearchIndexStmtNode) AddTableNamePath(v string) {
+	internal.ResolvedDropSearchIndexStmt_add_table_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // GrantToActionNode
@@ -6042,13 +8396,23 @@ type GrantToActionNode struct {
 }
 
 func (n *GrantToActionNode) GranteeExprList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedGrantToAction_grantee_expr_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *GrantToActionNode) SetGranteeExprList(v []ExprNode) {
+	internal.ResolvedGrantToAction_set_grantee_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *GrantToActionNode) AddGranteeExpr(v ExprNode) {
+	internal.ResolvedGrantToAction_add_grantee_expr_list(n.raw, v.getRaw())
 }
 
 // RestrictToActionNode this action for ALTER PRIVILEGE RESTRICTION statement:
@@ -6062,13 +8426,23 @@ type RestrictToActionNode struct {
 }
 
 func (n *RestrictToActionNode) RestricteeList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRestrictToAction_restrictee_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *RestrictToActionNode) SetRestricteeList(v []ExprNode) {
+	internal.ResolvedRestrictToAction_set_restrictee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *RestrictToActionNode) AddRestrictee(v ExprNode) {
+	internal.ResolvedRestrictToAction_add_restrictee_list(n.raw, v.getRaw())
 }
 
 // AddToRestricteeListActionNode This action for ALTER PRIVILEGE RESTRICTION statement:
@@ -6082,20 +8456,33 @@ type AddToRestricteeListActionNode struct {
 }
 
 func (n *AddToRestricteeListActionNode) IsIfNotExists() bool {
-	return false
+	var v bool
+	internal.ResolvedAddToRestricteeListAction_is_if_not_exists(n.raw, &v)
+	return v
 }
 
 func (n *AddToRestricteeListActionNode) SetIsIfNotExists(v bool) {
+	internal.ResolvedAddToRestricteeListAction_set_is_if_not_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *AddToRestricteeListActionNode) RestricteeList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAddToRestricteeListAction_restrictee_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *AddToRestricteeListActionNode) SetRestricteeList(v []ExprNode) {
+	internal.ResolvedAddToRestricteeListAction_set_restrictee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AddToRestricteeListActionNode) AddRestrictee(v ExprNode) {
+	internal.ResolvedAddToRestricteeListAction_add_restrictee_list(n.raw, v.getRaw())
 }
 
 // RemoveFromRestricteeListActionNode this action for ALTER PRIVILEGE RESTRICTION statement:
@@ -6109,20 +8496,33 @@ type RemoveFromRestricteeListActionNode struct {
 }
 
 func (n *RemoveFromRestricteeListActionNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedRemoveFromRestricteeListAction_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *RemoveFromRestricteeListActionNode) SetIsIfExists(v bool) {
+	internal.ResolvedRemoveFromRestricteeListAction_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *RemoveFromRestricteeListActionNode) RestricteeList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRemoveFromRestricteeListAction_restrictee_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *RemoveFromRestricteeListActionNode) SetRestricteeList(v []ExprNode) {
+	internal.ResolvedRemoveFromRestricteeListAction_set_restrictee_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *RemoveFromRestricteeListActionNode) AddRestrictee(v ExprNode) {
+	internal.ResolvedRemoveFromRestricteeListAction_add_restrictee_list(n.raw, v.getRaw())
 }
 
 // FilterUsingActionNode FILTER USING action for ALTER ROW ACCESS POLICY statement
@@ -6135,17 +8535,23 @@ type FilterUsingActionNode struct {
 }
 
 func (n *FilterUsingActionNode) Predicate() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFilterUsingAction_predicate(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *FilterUsingActionNode) SetPredicate(v ExprNode) {
+	internal.ResolvedFilterUsingAction_set_predicate(n.raw, v.getRaw())
 }
 
 func (n *FilterUsingActionNode) PredicateStr() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedFilterUsingAction_predicate_str(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *FilterUsingActionNode) SetPredicateStr(v string) {
+	internal.ResolvedFilterUsingAction_set_predicate_str(n.raw, helper.StringToPtr(v))
 }
 
 // RevokeFromActionNode REVOKE FROM action for ALTER ROW ACCESS POLICY statement
@@ -6158,20 +8564,33 @@ type RevokeFromActionNode struct {
 }
 
 func (n *RevokeFromActionNode) RevokeeExprList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRevokeFromAction_revokee_expr_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *RevokeFromActionNode) SetRevokeeExprList(v []ExprNode) {
+	internal.ResolvedRevokeFromAction_set_revokee_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *RevokeFromActionNode) AddRevokeeExpr(v ExprNode) {
+	internal.ResolvedRevokeFromAction_add_revokee_expr_list(n.raw, v.getRaw())
 }
 
 func (n *RevokeFromActionNode) IsRevokeFromAll() bool {
-	return false
+	var v bool
+	internal.ResolvedRevokeFromAction_is_revoke_from_all(n.raw, &v)
+	return v
 }
 
 func (n *RevokeFromActionNode) SetIsRevokeFromAll(v bool) {
+	internal.ResolvedRevokeFromAction_set_is_revoke_from_all(n.raw, helper.BoolToInt(v))
 }
 
 // RenameToActionNode RENAME TO action for ALTER ROW ACCESS POLICY statement
@@ -6184,13 +8603,23 @@ type RenameToActionNode struct {
 }
 
 func (n *RenameToActionNode) NewPath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedRenameToAction_new_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(v))
+	})
+	return ret
 }
 
 func (n *RenameToActionNode) SetNewPath(v []string) {
+	internal.ResolvedRenameToAction_set_new_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *RenameToActionNode) AddNewPath(v string) {
+	internal.ResolvedRenameToAction_add_new_path(n.raw, helper.StringToPtr(v))
 }
 
 // AlterPrivilegeRestrictionStmtNode this statement:
@@ -6207,20 +8636,33 @@ type AlterPrivilegeRestrictionStmtNode struct {
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) ColumnPrivilegeList() []*PrivilegeNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterPrivilegeRestrictionStmt_column_privilege_list(n.raw, &v)
+	var ret []*PrivilegeNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newPrivilegeNode(p))
+	})
+	return ret
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) SetColumnPrivilegeList(v []*PrivilegeNode) {
+	internal.ResolvedAlterPrivilegeRestrictionStmt_set_column_privilege_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) AddColumnPrivilege(v *PrivilegeNode) {
+	internal.ResolvedAlterPrivilegeRestrictionStmt_add_column_privilege_list(n.raw, v.getRaw())
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) ObjectType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedAlterPrivilegeRestrictionStmt_object_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *AlterPrivilegeRestrictionStmtNode) SetObjectType(v string) {
+	internal.ResolvedAlterPrivilegeRestrictionStmt_set_object_type(n.raw, helper.StringToPtr(v))
 }
 
 // AlterRowAccessPolicyStmtNode this statement:
@@ -6238,17 +8680,23 @@ type AlterRowAccessPolicyStmtNode struct {
 }
 
 func (n *AlterRowAccessPolicyStmtNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedAlterRowAccessPolicyStmt_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *AlterRowAccessPolicyStmtNode) SetName(v string) {
+	internal.ResolvedAlterRowAccessPolicyStmt_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *AlterRowAccessPolicyStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterRowAccessPolicyStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *AlterRowAccessPolicyStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedAlterRowAccessPolicyStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 // AlterAllRowAccessPoliciesStmtNode this statement:
@@ -6266,10 +8714,13 @@ type AlterAllRowAccessPoliciesStmtNode struct {
 }
 
 func (n *AlterAllRowAccessPoliciesStmtNode) TableScan() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAlterAllRowAccessPoliciesStmt_table_scan(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *AlterAllRowAccessPoliciesStmtNode) SetTableScan(v *TableScanNode) {
+	internal.ResolvedAlterAllRowAccessPoliciesStmt_set_table_scan(n.raw, v.getRaw())
 }
 
 // CreateConstantStmtNode this statement creates a user-defined named constant:
@@ -6287,10 +8738,13 @@ type CreateConstantStmtNode struct {
 }
 
 func (n *CreateConstantStmtNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateConstantStmt_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CreateConstantStmtNode) SetExpr(v ExprNode) {
+	internal.ResolvedCreateConstantStmt_set_expr(n.raw, v.getRaw())
 }
 
 // CreateFunctionStmtNode this statement creates a user-defined function:
@@ -6397,110 +8851,173 @@ type CreateFunctionStmtNode struct {
 }
 
 func (n *CreateFunctionStmtNode) HasExplicitReturnType() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateFunctionStmt_has_explicit_return_type(n.raw, &v)
+	return v
 }
 
 func (n *CreateFunctionStmtNode) SetHasExplicitReturnType(v bool) {
+	internal.ResolvedCreateFunctionStmt_set_has_explicit_return_type(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateFunctionStmtNode) ReturnType() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_return_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *CreateFunctionStmtNode) SetReturnType(v types.Type) {
+	internal.ResolvedCreateFunctionStmt_set_return_type(n.raw, getRawType(v))
 }
 
 func (n *CreateFunctionStmtNode) ArgumentNameList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_argument_name_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateFunctionStmtNode) SetArgumentNameList(v []string) {
+	internal.ResolvedCreateFunctionStmt_set_argument_name_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *CreateFunctionStmtNode) AddArgumentName(v string) {
+	internal.ResolvedCreateFunctionStmt_add_argument_name_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateFunctionStmtNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *CreateFunctionStmtNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedCreateFunctionStmt_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 func (n *CreateFunctionStmtNode) IsAggregate() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateFunctionStmt_is_aggregate(n.raw, &v)
+	return v
 }
 
 func (n *CreateFunctionStmtNode) SetIsAggregate(v bool) {
+	internal.ResolvedCreateFunctionStmt_set_is_aggregate(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateFunctionStmtNode) Language() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_language(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateFunctionStmtNode) SetLanguage(v string) {
+	internal.ResolvedCreateFunctionStmt_set_language(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateFunctionStmtNode) Code() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_code(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateFunctionStmtNode) SetCode(v string) {
+	internal.ResolvedCreateFunctionStmt_set_code(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateFunctionStmtNode) AggregateExpressionList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_aggregate_expression_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateFunctionStmtNode) SetAggregateExpressionList(v []*ComputedColumnNode) {
+	internal.ResolvedCreateFunctionStmt_set_aggregate_expression_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateFunctionStmtNode) AddAggregateExpression(v *ComputedColumnNode) {
+	internal.ResolvedCreateFunctionStmt_add_aggregate_expression_list(n.raw, v.getRaw())
 }
 
 func (n *CreateFunctionStmtNode) FunctionExpression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_function_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *CreateFunctionStmtNode) SetFunctionExpression(v ExprNode) {
+	internal.ResolvedCreateFunctionStmt_set_function_expression(n.raw, v.getRaw())
 }
 
 func (n *CreateFunctionStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateFunctionStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateFunctionStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateFunctionStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateFunctionStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *CreateFunctionStmtNode) SQLSecurity() SQLSecurity {
-	return SQLSecurity(0)
+	var v int
+	internal.ResolvedCreateFunctionStmt_sql_security(n.raw, &v)
+	return SQLSecurity(v)
 }
 
 func (n *CreateFunctionStmtNode) SetSQLSecurity(v SQLSecurity) {
+	internal.ResolvedCreateFunctionStmt_set_sql_security(n.raw, int(v))
 }
 
 func (n *CreateFunctionStmtNode) DeterminismLevel() DeterminismLevel {
-	return DeterminismLevel(0)
+	var v int
+	internal.ResolvedCreateFunctionStmt_determinism_level(n.raw, &v)
+	return DeterminismLevel(v)
 }
 
 func (n *CreateFunctionStmtNode) SetDeterminismLevel(v DeterminismLevel) {
+	internal.ResolvedCreateFunctionStmt_set_determinism_level(n.raw, int(v))
 }
 
 func (n *CreateFunctionStmtNode) IsRemote() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateFunctionStmt_is_remote(n.raw, &v)
+	return v
 }
 
 func (n *CreateFunctionStmtNode) SetIsRemote(v bool) {
+	internal.ResolvedCreateFunctionStmt_set_is_remote(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateFunctionStmtNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateFunctionStmt_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *CreateFunctionStmtNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedCreateFunctionStmt_set_connection(n.raw, v.getRaw())
 }
 
 // ArgumentDefNode this represents an argument definition, e.g. in a function's argument
@@ -6523,24 +9040,33 @@ type ArgumentDefNode struct {
 }
 
 func (n *ArgumentDefNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedArgumentDef_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ArgumentDefNode) SetName(v string) {
+	internal.ResolvedArgumentDef_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ArgumentDefNode) Type() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArgumentDef_type(n.raw, &v)
+	return newType(v)
 }
 
 func (n *ArgumentDefNode) SetType(v types.Type) {
+	internal.ResolvedArgumentDef_set_type(n.raw, getRawType(v))
 }
 
 func (n *ArgumentDefNode) ArgumentKind() ArgumentKind {
-	return ArgumentKind(0)
+	var v int
+	internal.ResolvedArgumentDef_argument_kind(n.raw, &v)
+	return ArgumentKind(v)
 }
 
 func (n *ArgumentDefNode) SetArgumentKind(v ArgumentKind) {
+	internal.ResolvedArgumentDef_set_argument_kind(n.raw, int(v))
 }
 
 // ArgumentRefNode this represents an argument reference, e.g. in a function's body.
@@ -6557,17 +9083,23 @@ type ArgumentRefNode struct {
 }
 
 func (n *ArgumentRefNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedArgumentRef_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ArgumentRefNode) SetName(v string) {
+	internal.ResolvedArgumentRef_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ArgumentRefNode) ArgumentKind() ArgumentKind {
-	return ArgumentKind(0)
+	var v int
+	internal.ResolvedArgumentRef_argument_kind(n.raw, &v)
+	return ArgumentKind(v)
 }
 
 func (n *ArgumentRefNode) SetArgumentKind(v ArgumentKind) {
+	internal.ResolvedArgumentRef_set_argument_kind(n.raw, int(v))
 }
 
 // CreateTableFunctionStmtNode this statement creates a user-defined table-valued function:
@@ -6666,82 +9198,133 @@ type CreateTableFunctionStmtNode struct {
 }
 
 func (n *CreateTableFunctionStmtNode) ArgumentNameList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_argument_name_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *CreateTableFunctionStmtNode) SetArgumentNameList(v []string) {
+	internal.ResolvedCreateTableFunctionStmt_set_argument_name_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *CreateTableFunctionStmtNode) AddArgumentName(v string) {
+	internal.ResolvedCreateTableFunctionStmt_add_argument_name_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateTableFunctionStmtNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *CreateTableFunctionStmtNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedCreateTableFunctionStmt_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 func (n *CreateTableFunctionStmtNode) HasExplicitReturnSchema() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateTableFunctionStmt_has_explicit_return_schema(n.raw, &v)
+	return v
 }
 
 func (n *CreateTableFunctionStmtNode) SetHasExplicitReturnSchema(v bool) {
+	internal.ResolvedCreateTableFunctionStmt_set_has_explicit_return_schema(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateTableFunctionStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateTableFunctionStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateTableFunctionStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableFunctionStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateTableFunctionStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableFunctionStmtNode) Language() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_language(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateTableFunctionStmtNode) SetLanguage(v string) {
+	internal.ResolvedCreateTableFunctionStmt_set_language(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateTableFunctionStmtNode) Code() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_code(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateTableFunctionStmtNode) SetCode(v string) {
+	internal.ResolvedCreateTableFunctionStmt_set_code(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateTableFunctionStmtNode) Query() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_query(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CreateTableFunctionStmtNode) SetQuery(v ScanNode) {
+	internal.ResolvedCreateTableFunctionStmt_set_query(n.raw, v.getRaw())
 }
 
 func (n *CreateTableFunctionStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *CreateTableFunctionStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedCreateTableFunctionStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateTableFunctionStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedCreateTableFunctionStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *CreateTableFunctionStmtNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedCreateTableFunctionStmt_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *CreateTableFunctionStmtNode) SetIsValueTable(v bool) {
+	internal.ResolvedCreateTableFunctionStmt_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
 func (n *CreateTableFunctionStmtNode) SQLSecurity() SQLSecurity {
-	return SQLSecurity(0)
+	var v int
+	internal.ResolvedCreateTableFunctionStmt_sql_security(n.raw, &v)
+	return SQLSecurity(v)
 }
 
 func (n *CreateTableFunctionStmtNode) SetSQLSecurity(v SQLSecurity) {
+	internal.ResolvedCreateTableFunctionStmt_set_sql_security(n.raw, int(v))
 }
 
 // RelationArgumentScanNode this represents a relation argument reference in a table-valued function's body.
@@ -6756,20 +9339,26 @@ type RelationArgumentScanNode struct {
 // a TVF SQL function body with one of possibly several relation
 // arguments in the TVF call.
 func (n *RelationArgumentScanNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedRelationArgumentScan_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *RelationArgumentScanNode) SetName(v string) {
+	internal.ResolvedRelationArgumentScan_set_name(n.raw, helper.StringToPtr(v))
 }
 
 // IsValueTable if true, the result of this query is a value table. Rather than
 // producing rows with named columns, it produces rows with a single
 // unnamed value type.
 func (n *RelationArgumentScanNode) IsValueTable() bool {
-	return false
+	var v bool
+	internal.ResolvedRelationArgumentScan_is_value_table(n.raw, &v)
+	return v
 }
 
 func (n *RelationArgumentScanNode) SetIsValueTable(v bool) {
+	internal.ResolvedRelationArgumentScan_set_is_value_table(n.raw, helper.BoolToInt(v))
 }
 
 // ArgumentListNode this statement: [ (<arg_list>) ];
@@ -6787,13 +9376,23 @@ type ArgumentListNode struct {
 }
 
 func (n *ArgumentListNode) ArgList() []*ArgumentDefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedArgumentList_arg_list(n.raw, &v)
+	var ret []*ArgumentDefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newArgumentDefNode(p))
+	})
+	return ret
 }
 
 func (n *ArgumentListNode) SetArgList(v []*ArgumentDefNode) {
+	internal.ResolvedArgumentList_set_arg_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ArgumentListNode) AddArg(v *ArgumentDefNode) {
+	internal.ResolvedArgumentList_add_arg_list(n.raw, v.getRaw())
 }
 
 // FunctionSignatureHolderNode this wrapper is used for an optional FunctionSignature.
@@ -6802,10 +9401,13 @@ type FunctionSignatureHolderNode struct {
 }
 
 func (n *FunctionSignatureHolderNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedFunctionSignatureHolder_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *FunctionSignatureHolderNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedFunctionSignatureHolder_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 // DropFunctionStmtNode this statement: DROP FUNCTION [IF EXISTS] <name_path>
@@ -6828,20 +9430,33 @@ type DropFunctionStmtNode struct {
 }
 
 func (n *DropFunctionStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropFunctionStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropFunctionStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropFunctionStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropFunctionStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropFunctionStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropFunctionStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropFunctionStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropFunctionStmtNode) AddName(v string) {
+func (n *DropFunctionStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropFunctionStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // Arguments
@@ -6850,10 +9465,13 @@ func (n *DropFunctionStmtNode) AddName(v string) {
 // to the empty string irrespective of whether or not argument names
 // were given in the DROP FUNCTION statement.
 func (n *DropFunctionStmtNode) Arguments() *ArgumentListNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropFunctionStmt_arguments(n.raw, &v)
+	return newArgumentListNode(v)
 }
 
 func (n *DropFunctionStmtNode) SetArguments(v *ArgumentListNode) {
+	internal.ResolvedDropFunctionStmt_set_arguments(n.raw, v.getRaw())
 }
 
 // Signature
@@ -6862,10 +9480,13 @@ func (n *DropFunctionStmtNode) SetArguments(v *ArgumentListNode) {
 // with this signature.  Additionally, the return type will always be
 // <void>, since return types are ignored for DROP FUNCTION.
 func (n *DropFunctionStmtNode) Signature() *FunctionSignatureHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropFunctionStmt_signature(n.raw, &v)
+	return newFunctionSignatureHolderNode(v)
 }
 
 func (n *DropFunctionStmtNode) SetSignature(v *FunctionSignatureHolderNode) {
+	internal.ResolvedDropFunctionStmt_set_signature(n.raw, v.getRaw())
 }
 
 // DropTableFunctionStmtNode this statement: DROP TABLE FUNCTION [IF EXISTS] <name_path>;
@@ -6877,20 +9498,33 @@ type DropTableFunctionStmtNode struct {
 }
 
 func (n *DropTableFunctionStmtNode) IsIfExists() bool {
-	return false
+	var v bool
+	internal.ResolvedDropTableFunctionStmt_is_if_exists(n.raw, &v)
+	return v
 }
 
 func (n *DropTableFunctionStmtNode) SetIsIfExists(v bool) {
+	internal.ResolvedDropTableFunctionStmt_set_is_if_exists(n.raw, helper.BoolToInt(v))
 }
 
 func (n *DropTableFunctionStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedDropTableFunctionStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *DropTableFunctionStmtNode) SetNamePath(v []string) {
+	internal.ResolvedDropTableFunctionStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *DropTableFunctionStmtNode) AddName(v string) {
+func (n *DropTableFunctionStmtNode) AddNamePath(v string) {
+	internal.ResolvedDropTableFunctionStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 // CallStmtNode this statement: CALL <procedure>;
@@ -6903,27 +9537,43 @@ type CallStmtNode struct {
 }
 
 func (n *CallStmtNode) Procedure() types.Procedure {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCallStmt_procedure(n.raw, &v)
+	return newProcedure(v)
 }
 
 func (n *CallStmtNode) SetProcedure(v types.Procedure) {
+	internal.ResolvedCallStmt_set_procedure(n.raw, getRawProcedure(v))
 }
 
 func (n *CallStmtNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCallStmt_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *CallStmtNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedCallStmt_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 func (n *CallStmtNode) ArgumentList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCallStmt_argument_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CallStmtNode) SetArgumentList(v []ExprNode) {
+	internal.ResolvedCallStmt_set_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CallStmtNode) AddArgument(v ExprNode) {
+	internal.ResolvedCallStmt_add_argument_list(n.raw, v.getRaw())
 }
 
 // ImportStmtNode this statement: IMPORT <import_kind>
@@ -6954,57 +9604,103 @@ type ImportStmtNode struct {
 }
 
 func (n *ImportStmtNode) ImportKind() ImportKind {
-	return ImportKind(0)
+	var v int
+	internal.ResolvedImportStmt_import_kind(n.raw, &v)
+	return ImportKind(v)
 }
 
 func (n *ImportStmtNode) SetImportKind(v ImportKind) {
+	internal.ResolvedImportStmt_set_import_kind(n.raw, int(v))
 }
 
 func (n *ImportStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedImportStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ImportStmtNode) SetNamePath(v []string) {
+	internal.ResolvedImportStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ImportStmtNode) AddName(v string) {
+func (n *ImportStmtNode) AddNamePath(v string) {
+	internal.ResolvedImportStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ImportStmtNode) FilePath() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedImportStmt_file_path(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ImportStmtNode) SetFilePath(v string) {
+	internal.ResolvedImportStmt_set_file_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ImportStmtNode) AliasPath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedImportStmt_alias_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ImportStmtNode) SetAliasPath(v []string) {
+	internal.ResolvedImportStmt_set_alias_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ImportStmtNode) AddAlias(v string) {
+func (n *ImportStmtNode) AddAliasPath(v string) {
+	internal.ResolvedImportStmt_add_alias_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ImportStmtNode) IntoAliasPath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedImportStmt_into_alias_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ImportStmtNode) SetIntoAliasPath(v []string) {
+	internal.ResolvedImportStmt_set_into_alias_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ImportStmtNode) AddIntoAlias(v string) {
+func (n *ImportStmtNode) AddIntoAliasPath(v string) {
+	internal.ResolvedImportStmt_add_into_alias_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ImportStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedImportStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *ImportStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedImportStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ImportStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedImportStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // ModuleStmtNode this statement: MODULE <name_path> [<option_list>];
@@ -7016,23 +9712,43 @@ type ModuleStmtNode struct {
 }
 
 func (n *ModuleStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedModuleStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ModuleStmtNode) SetNamePath(v []string) {
+	internal.ResolvedModuleStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *ModuleStmtNode) AddName(v string) {
+func (n *ModuleStmtNode) AddNamePath(v string) {
+	internal.ResolvedModuleStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ModuleStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedModuleStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *ModuleStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedModuleStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ModuleStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedModuleStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // AggregateHavingModifierNode this represents a HAVING MAX or HAVING MIN modifier in an aggregate
@@ -7047,17 +9763,23 @@ type AggregateHavingModifierNode struct {
 }
 
 func (n *AggregateHavingModifierNode) ModifierKind() HavingModifierKind {
-	return HavingModifierKind(0)
+	var v int
+	internal.ResolvedAggregateHavingModifier_kind(n.raw, &v)
+	return HavingModifierKind(v)
 }
 
 func (n *AggregateHavingModifierNode) SetModifierKind(v HavingModifierKind) {
+	internal.ResolvedAggregateHavingModifier_set_kind(n.raw, int(v))
 }
 
 func (n *AggregateHavingModifierNode) HavingExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAggregateHavingModifier_having_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *AggregateHavingModifierNode) SetHavingExpr(v ExprNode) {
+	internal.ResolvedAggregateHavingModifier_set_having_expr(n.raw, v.getRaw())
 }
 
 // CreateMaterializedViewStmtNode this statement:
@@ -7087,33 +9809,63 @@ type CreateMaterializedViewStmtNode struct {
 }
 
 func (n *CreateMaterializedViewStmtNode) ColumnDefinitionList() []*ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateMaterializedViewStmt_column_definition_list(n.raw, &v)
+	var ret []*ColumnDefinitionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnDefinitionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateMaterializedViewStmtNode) SetColumnDefinitionList(v []*ColumnDefinitionNode) {
+	internal.ResolvedCreateMaterializedViewStmt_set_column_definition_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateMaterializedViewStmtNode) AddColumnDefinition(v *ColumnDefinitionNode) {
+	internal.ResolvedCreateMaterializedViewStmt_add_column_definition_list(n.raw, v.getRaw())
 }
 
 func (n *CreateMaterializedViewStmtNode) PartitionByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateMaterializedViewStmt_partition_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateMaterializedViewStmtNode) SetPartitionByList(v []ExprNode) {
+	internal.ResolvedCreateMaterializedViewStmt_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateMaterializedViewStmtNode) AddPartitionBy(v ExprNode) {
+	internal.ResolvedCreateMaterializedViewStmt_add_partition_by_list(n.raw, v.getRaw())
 }
 
 func (n *CreateMaterializedViewStmtNode) ClusterByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateMaterializedViewStmt_cluster_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *CreateMaterializedViewStmtNode) SetClusterByList(v []ExprNode) {
+	internal.ResolvedCreateMaterializedViewStmt_set_cluster_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateMaterializedViewStmtNode) AddClusterBy(v ExprNode) {
+	internal.ResolvedCreateMaterializedViewStmt_add_cluster_by_list(n.raw, v.getRaw())
 }
 
 // CreateProcedureStmtNode this statement creates a user-defined procedure:
@@ -7147,37 +9899,63 @@ type CreateProcedureStmtNode struct {
 }
 
 func (n *CreateProcedureStmtNode) ArgumentNameList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateProcedureStmt_argument_name_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.StringToPtr(p))
+	})
+	return ret
 }
 
 func (n *CreateProcedureStmtNode) SetArgumentNameList(v []string) {
+	internal.ResolvedCreateProcedureStmt_set_argument_name_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *CreateProcedureStmtNode) AddArgumentName(v string) {
+	internal.ResolvedCreateProcedureStmt_add_argument_name_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateProcedureStmtNode) Signature() *types.FunctionSignature {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateProcedureStmt_signature(n.raw, &v)
+	return newFunctionSignature(v)
 }
 
 func (n *CreateProcedureStmtNode) SetSignature(v *types.FunctionSignature) {
+	internal.ResolvedCreateProcedureStmt_set_signature(n.raw, getRawFunctionSignature(v))
 }
 
 func (n *CreateProcedureStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateProcedureStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateProcedureStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateProcedureStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateProcedureStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateProcedureStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *CreateProcedureStmtNode) ProcedureBody() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateProcedureStmt_procedure_body(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateProcedureStmtNode) SetProcedureBody(v string) {
+	internal.ResolvedCreateProcedureStmt_set_procedure_body(n.raw, helper.StringToPtr(v))
 }
 
 // ExecuteImmediateArgumentNode an argument for an EXECUTE IMMEDIATE's USING clause.
@@ -7189,17 +9967,23 @@ type ExecuteImmediateArgumentNode struct {
 }
 
 func (n *ExecuteImmediateArgumentNode) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedExecuteImmediateArgument_name(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ExecuteImmediateArgumentNode) SetName(v string) {
+	internal.ResolvedExecuteImmediateArgument_set_name(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ExecuteImmediateArgumentNode) Expression() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExecuteImmediateArgument_expression(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *ExecuteImmediateArgumentNode) SetExpression(v ExprNode) {
+	internal.ResolvedExecuteImmediateArgument_set_expression(n.raw, v.getRaw())
 }
 
 // ExecuteImmediateStmtNode an EXECUTE IMMEDIATE statement
@@ -7217,30 +10001,53 @@ type ExecuteImmediateStmtNode struct {
 }
 
 func (n *ExecuteImmediateStmtNode) SQL() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedExecuteImmediateStmt_sql(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *ExecuteImmediateStmtNode) SetSQL(v string) {
+	internal.ResolvedExecuteImmediateStmt_set_sql(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ExecuteImmediateStmtNode) IntoIdentifierList() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExecuteImmediateStmt_into_identifier_list(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *ExecuteImmediateStmtNode) SetIntoIdentifierList(v []string) {
+	internal.ResolvedExecuteImmediateStmt_set_into_identifier_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
 func (n *ExecuteImmediateStmtNode) AddIntoIdentifier(v string) {
+	internal.ResolvedExecuteImmediateStmt_add_into_identifier_list(n.raw, helper.StringToPtr(v))
 }
 
 func (n *ExecuteImmediateStmtNode) UsingArgumentList() []*ExecuteImmediateArgumentNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedExecuteImmediateStmt_using_argument_list(n.raw, &v)
+	var ret []*ExecuteImmediateArgumentNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newExecuteImmediateArgumentNode(p))
+	})
+	return ret
 }
 
 func (n *ExecuteImmediateStmtNode) SetUsingArgumentList(v []*ExecuteImmediateArgumentNode) {
+	internal.ResolvedExecuteImmediateStmt_set_using_argument_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ExecuteImmediateStmtNode) AddUsingArgument(v *ExecuteImmediateArgumentNode) {
+	internal.ResolvedExecuteImmediateStmt_add_using_argument_list(n.raw, v.getRaw())
 }
 
 // AssignmentStmtNode an assignment of a value to another value.
@@ -7248,18 +10055,28 @@ type AssignmentStmtNode struct {
 	*BaseStatementNode
 }
 
+// Target target of the assignment.
+// currently, this will be either SystemVariableNode, or a chain of GetFieldNode operations around it.
 func (n *AssignmentStmtNode) Target() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAssignmentStmt_target(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *AssignmentStmtNode) SetTarget(v ExprNode) {
+	internal.ResolvedAssignmentStmt_set_target(n.raw, v.getRaw())
 }
 
+// Expr value to assign into the target.
+// This will always be the same type as the target.
 func (n *AssignmentStmtNode) Expr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAssignmentStmt_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *AssignmentStmtNode) SetExpr(v ExprNode) {
+	internal.ResolvedAssignmentStmt_set_expr(n.raw, v.getRaw())
 }
 
 // CreateEntityStmtNode this statement:
@@ -7279,34 +10096,53 @@ type CreateEntityStmtNode struct {
 }
 
 func (n *CreateEntityStmtNode) EntityType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateEntityStmt_entity_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateEntityStmtNode) SetEntityType(v string) {
+	internal.ResolvedCreateEntityStmt_set_entity_type(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateEntityStmtNode) EntityBodyJSON() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateEntityStmt_entity_body_json(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateEntityStmtNode) SetEntityBodyJSON(v string) {
+	internal.ResolvedCreateEntityStmt_set_entity_body_json(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateEntityStmtNode) EntityBodyText() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCreateEntityStmt_entity_body_text(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *CreateEntityStmtNode) SetEntityBodyText(v string) {
+	internal.ResolvedCreateEntityStmt_set_entity_body_text(n.raw, helper.StringToPtr(v))
 }
 
 func (n *CreateEntityStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCreateEntityStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *CreateEntityStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedCreateEntityStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *CreateEntityStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedCreateEntityStmt_add_option_list(n.raw, v.getRaw())
 }
 
 // AlterEntityStmtNode this statement:
@@ -7319,10 +10155,13 @@ type AlterEntityStmtNode struct {
 }
 
 func (n *AlterEntityStmtNode) EntityType() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedAlterEntityStmt_entity_type(n.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *AlterEntityStmtNode) SetEntityType(v string) {
+	internal.ResolvedAlterEntityStmt_set_entity_type(n.raw, helper.StringToPtr(v))
 }
 
 // PivotColumnNode represents a column produced by aggregating a particular pivot
@@ -7344,20 +10183,26 @@ type PivotColumnNode struct {
 
 // Column the output column used to represent the result of the pivot.
 func (n *PivotColumnNode) Column() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotColumn_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *PivotColumnNode) SetColumn(v *Column) {
+	internal.ResolvedPivotColumn_set_column(n.raw, v.raw)
 }
 
 // PivotExprIndex specifies the index of the pivot expression
 // within the enclosing PivotScanNode's <pivot_expr_list> used to
 // determine the result of the column.
 func (n *PivotColumnNode) PivotExprIndex() int {
-	return 0
+	var v int
+	internal.ResolvedPivotColumn_pivot_expr_index(n.raw, &v)
+	return v
 }
 
 func (n *PivotColumnNode) SetPivotExprIndex(v int) {
+	internal.ResolvedPivotColumn_set_pivot_expr_index(n.raw, v)
 }
 
 // PivotValueIndex specifies the index of the pivot value within
@@ -7365,10 +10210,13 @@ func (n *PivotColumnNode) SetPivotExprIndex(v int) {
 // determine the subset of input rows the pivot expression should be
 // evaluated over.
 func (n *PivotColumnNode) PivotValueIndex() int {
-	return 0
+	var v int
+	internal.ResolvedPivotColumn_pivot_value_index(n.raw, &v)
+	return v
 }
 
 func (n *PivotColumnNode) SetPivotValueIndex(v int) {
+	internal.ResolvedPivotColumn_set_pivot_value_index(n.raw, v)
 }
 
 // PivotScanNode a scan produced by the following SQL fragment:
@@ -7380,12 +10228,15 @@ type PivotScanNode struct {
 	*BaseScanNode
 }
 
-// InputScan input to the PIVOT clause
+// InputScan input to the PIVOT clause.
 func (n *PivotScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *PivotScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedPivotScan_set_input_scan(n.raw, v.getRaw())
 }
 
 // GroupByList the columns from <input_scan> to group by.
@@ -7396,26 +10247,46 @@ func (n *PivotScanNode) SetInputScan(v ScanNode) {
 // Each element is a ComputedColumnNode. The expression is always
 // a ColumnRefNode that references a column from <input_scan>.
 func (n *PivotScanNode) GroupByList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_group_by_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *PivotScanNode) SetGroupByList(v []*ComputedColumnNode) {
+	internal.ResolvedPivotScan_set_group_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PivotScanNode) AddGroupBy(v *ComputedColumnNode) {
+	internal.ResolvedPivotScan_add_group_by_list(n.raw, v.getRaw())
 }
 
 // PivotExprList pivot expressions which aggregate over the subset of <input_scan>
 // where <for_expr> matches each value in <pivot_value_list>, plus
 // all columns in <group_by_list>.
 func (n *PivotScanNode) PivotExprList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_pivot_expr_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *PivotScanNode) SetPivotExprList(v []ExprNode) {
+	internal.ResolvedPivotScan_set_pivot_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PivotScanNode) AddPivotExpr(v ExprNode) {
+	internal.ResolvedPivotScan_add_pivot_expr_list(n.raw, v.getRaw())
 }
 
 // ForExpr expression following the FOR keyword, to be evaluated over each row
@@ -7423,10 +10294,13 @@ func (n *PivotScanNode) AddPivotExpr(v ExprNode) {
 // <pivot_value_list> to determine which columns the aggregation
 // results of <pivot_expr_list> should go to.
 func (n *PivotScanNode) ForExpr() ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_for_expr(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 func (n *PivotScanNode) SetForExpr(v ExprNode) {
+	internal.ResolvedPivotScan_set_for_expr(n.raw, v.getRaw())
 }
 
 // PivotValueList a list of pivot values within the IN list, to be compared against
@@ -7439,26 +10313,48 @@ func (n *PivotScanNode) SetForExpr(v ExprNode) {
 // All pivot values in this list must have the same type as
 // <for_expr> and must be constant.
 func (n *PivotScanNode) PivotValueList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_pivot_value_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *PivotScanNode) SetPivotValueList(v []ExprNode) {
+	internal.ResolvedPivotScan_set_pivot_value_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PivotScanNode) AddPivotValue(v ExprNode) {
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_add_pivot_value_list(n.raw, &v)
+	return newNode(v).(ExprNode)
 }
 
 // PivotColumnList list of columns created to store the output pivot columns.
 // Each is computed using one of pivot_expr_list and one of
 // pivot_value_list.
 func (n *PivotScanNode) PivotColumnList() []*PivotColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedPivotScan_pivot_column_list(n.raw, &v)
+	var ret []*PivotColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newPivotColumnNode(p))
+	})
+	return ret
 }
 
 func (n *PivotScanNode) SetPivotColumnList(v []*PivotColumnNode) {
+	internal.ResolvedPivotScan_set_pivot_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *PivotScanNode) AddPivotColumn(v *PivotColumnNode) {
+	internal.ResolvedPivotScan_add_pivot_column_list(n.raw, v.getRaw())
 }
 
 // ReturningClauseNode represents the returning clause on a DML statement.
@@ -7472,36 +10368,59 @@ type ReturningClauseNode struct {
 // can have columns computed in the <expr_list> or an <action_column>
 // as the last column.
 func (n *ReturningClauseNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReturningClause_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *ReturningClauseNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedReturningClause_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ReturningClauseNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedReturningClause_add_output_column_list(n.raw, v.getRaw())
 }
 
 // ActionColumn represents the WITH ACTION column in <output_column_list> as a
 // string type column. There are four valid values for this action
 // column: "INSERT", "REPLACE", "UPDATE", and "DELETE".
 func (n *ReturningClauseNode) ActionColumn() *ColumnHolderNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReturningClause_action_column(n.raw, &v)
+	return newColumnHolderNode(v)
 }
 
 func (n *ReturningClauseNode) SetActionColumn(v *ColumnHolderNode) {
+	internal.ResolvedReturningClause_set_action_column(n.raw, v.getRaw())
 }
 
 // ExprList represents the computed expressions so they can be referenced in
 // <output_column_list>. Worth noting, it can't see <action_column>
 // and can only access columns from the DML statement target table.
 func (n *ReturningClauseNode) ExprList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedReturningClause_expr_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *ReturningClauseNode) SetExprList(v []*ComputedColumnNode) {
+	internal.ResolvedReturningClause_set_expr_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *ReturningClauseNode) AddExpr(v *ComputedColumnNode) {
+	internal.ResolvedReturningClause_add_expr_list(n.raw, v.getRaw())
 }
 
 // UnpivotArgNode a column group in the UNPIVOT IN clause.
@@ -7517,13 +10436,23 @@ type UnpivotArgNode struct {
 // of UnpivotScanNode. The size of this vector is
 // the same as <value_column_list>.
 func (n *UnpivotArgNode) ColumnList() []*ColumnRefNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotArg_column_list(n.raw, &v)
+	var ret []*ColumnRefNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnRefNode(p))
+	})
+	return ret
 }
 
 func (n *UnpivotArgNode) SetColumnList(v []*ColumnRefNode) {
+	internal.ResolvedUnpivotArg_set_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UnpivotArgNode) AddColumn(v *ColumnRefNode) {
+	internal.ResolvedUnpivotArg_add_column_list(n.raw, v.getRaw())
 }
 
 // UnpivotScanNode a scan produced by the following SQL fragment:
@@ -7572,45 +10501,71 @@ type UnpivotScanNode struct {
 }
 
 func (n *UnpivotScanNode) InputScan() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_input_scan(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *UnpivotScanNode) SetInputScan(v ScanNode) {
+	internal.ResolvedUnpivotScan_set_input_scan(n.raw, v.getRaw())
 }
 
 // ValueColumnList list of one or more new columns added by UNPIVOT.
 // These new column(s) store the value of input columns that are in
 // the UNPIVOT IN clause.
 func (n *UnpivotScanNode) ValueColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_value_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *UnpivotScanNode) SetValueColumnList(v []*Column) {
+	internal.ResolvedUnpivotScan_set_value_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *UnpivotScanNode) AddValueColumn(v *Column) {
+	internal.ResolvedUnpivotScan_add_value_column_list(n.raw, v.raw)
 }
 
 // LabelColumn this is a new column added in the output for storing labels for
 // input columns groups that are present in the IN clause. Its
 // values are taken from <label_list>.
 func (n *UnpivotScanNode) LabelColumn() *Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_label_column(n.raw, &v)
+	return newColumn(v)
 }
 
 func (n *UnpivotScanNode) SetLabelColumn(v *Column) {
+	internal.ResolvedUnpivotScan_set_label_column(n.raw, v.raw)
 }
 
 // LabelList string or integer literal for each column group in
 // <unpivot_arg_list>.
 func (n *UnpivotScanNode) LabelList() []*LiteralNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_label_list(n.raw, &v)
+	var ret []*LiteralNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newLiteralNode(p))
+	})
+	return ret
 }
 
 func (n *UnpivotScanNode) SetLabelList(v []*LiteralNode) {
+	internal.ResolvedUnpivotScan_set_label_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UnpivotScanNode) AddLabel(v *LiteralNode) {
+	internal.ResolvedUnpivotScan_add_label_list(n.raw, v.getRaw())
 }
 
 // UnpivotArgList the list of groups of columns in the UNPIVOT IN list. Each group
@@ -7619,13 +10574,23 @@ func (n *UnpivotScanNode) AddLabel(v *LiteralNode) {
 // new <value_column_list> and the column group labels/names
 // in the <label_column>.
 func (n *UnpivotScanNode) UnpivotArgList() []*UnpivotArgNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_unpivot_arg_list(n.raw, &v)
+	var ret []*UnpivotArgNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newUnpivotArgNode(p))
+	})
+	return ret
 }
 
 func (n *UnpivotScanNode) SetUnpivotArgList(v []*UnpivotArgNode) {
+	internal.ResolvedUnpivotScan_set_unpivot_arg_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UnpivotScanNode) AddUnpivotArg(v *UnpivotArgNode) {
+	internal.ResolvedUnpivotScan_add_unpivot_arg_list(n.raw, v.getRaw())
 }
 
 // ProjectedInputColumnList the columns from <input_scan> that are not unpivoted in UNPIVOT
@@ -7636,22 +10601,35 @@ func (n *UnpivotScanNode) AddUnpivotArg(v *UnpivotArgNode) {
 // The expression of each ComputedColumnNode is a
 // ColumnRefNode that references a column from <input_scan>.
 func (n *UnpivotScanNode) ProjectedInputColumnList() []*ComputedColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedUnpivotScan_projected_input_column_list(n.raw, &v)
+	var ret []*ComputedColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newComputedColumnNode(p))
+	})
+	return ret
 }
 
 func (n *UnpivotScanNode) SetProjectedInputColumnList(v []*ComputedColumnNode) {
+	internal.ResolvedUnpivotScan_set_projected_input_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *UnpivotScanNode) AddProjectedInputColumn(v *ComputedColumnNode) {
+	internal.ResolvedUnpivotScan_add_projected_input_column_list(n.raw, v.getRaw())
 }
 
 // IncludeNulls whether we need to include the rows from output where ALL columns
 // from <value_column_list> are null.
 func (n *UnpivotScanNode) IncludeNulls() bool {
-	return false
+	var v bool
+	internal.ResolvedUnpivotScan_include_nulls(n.raw, &v)
+	return v
 }
 
 func (n *UnpivotScanNode) SetIncludeNulls(v bool) {
+	internal.ResolvedUnpivotScan_set_include_nulls(n.raw, helper.BoolToInt(v))
 }
 
 // CloneDataStmtNode
@@ -7678,17 +10656,23 @@ type CloneDataStmtNode struct {
 }
 
 func (n *CloneDataStmtNode) TargetTable() *TableScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCloneDataStmt_target_table(n.raw, &v)
+	return newTableScanNode(v)
 }
 
 func (n *CloneDataStmtNode) SetTargetTable(v *TableScanNode) {
+	internal.ResolvedCloneDataStmt_set_target_table(n.raw, v.getRaw())
 }
 
 func (n *CloneDataStmtNode) CloneFrom() ScanNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCloneDataStmt_clone_from(n.raw, &v)
+	return newNode(v).(ScanNode)
 }
 
 func (n *CloneDataStmtNode) SetCloneFrom(v ScanNode) {
+	internal.ResolvedCloneDataStmt_set_clone_from(n.raw, v.getRaw())
 }
 
 // TableAndColumnInfoNode identifies the <table> and <column_index_list> (which can be empty) that
@@ -7701,20 +10685,33 @@ type TableAndColumnInfoNode struct {
 }
 
 func (n *TableAndColumnInfoNode) Table() types.Table {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTableAndColumnInfo_table(n.raw, &v)
+	return newTable(v)
 }
 
 func (n *TableAndColumnInfoNode) SetTable(v types.Table) {
+	internal.ResolvedTableAndColumnInfo_set_table(n.raw, getRawTable(v))
 }
 
 func (n *TableAndColumnInfoNode) ColumnIndexList() []int {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedTableAndColumnInfo_column_index_list(n.raw, &v)
+	var ret []int
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, int(uintptr(p)))
+	})
+	return ret
 }
 
 func (n *TableAndColumnInfoNode) SetColumnIndexList(v []int) {
+	internal.ResolvedTableAndColumnInfo_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return unsafe.Pointer(&v[i])
+	}))
 }
 
 func (n *TableAndColumnInfoNode) AddColumnIndex(v int) {
+	internal.ResolvedTableAndColumnInfo_add_column_index_list(n.raw, v)
 }
 
 // AnalyzeStmtNode represents the ANALYZE statement:
@@ -7729,23 +10726,43 @@ type AnalyzeStmtNode struct {
 }
 
 func (n *AnalyzeStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyzeStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AnalyzeStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedAnalyzeStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AnalyzeStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedAnalyzeStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *AnalyzeStmtNode) TableAndColumnIndexList() []*TableAndColumnInfoNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAnalyzeStmt_table_and_column_index_list(n.raw, &v)
+	var ret []*TableAndColumnInfoNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newTableAndColumnInfoNode(p))
+	})
+	return ret
 }
 
 func (n *AnalyzeStmtNode) SetTableAndColumnIndexList(v []*TableAndColumnInfoNode) {
+	internal.ResolvedAnalyzeStmt_set_table_and_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AnalyzeStmtNode) AddTableAndColumnIndex(v *TableAndColumnInfoNode) {
+	internal.ResolvedAnalyzeStmt_add_table_and_column_index_list(n.raw, v.getRaw())
 }
 
 // AuxLoadDataStmtNode
@@ -7811,131 +10828,243 @@ type AuxLoadDataStmtNode struct {
 }
 
 func (n *AuxLoadDataStmtNode) InsertionMode() InsertionMode {
-	return InsertionMode(0)
+	var v int
+	internal.ResolvedAuxLoadDataStmt_insertion_mode(n.raw, &v)
+	return InsertionMode(v)
 }
 
 func (n *AuxLoadDataStmtNode) SetInsertionMode(v InsertionMode) {
+	internal.ResolvedAuxLoadDataStmt_set_insertion_mode(n.raw, int(v))
 }
 
 func (n *AuxLoadDataStmtNode) NamePath() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_name_path(n.raw, &v)
+	var ret []string
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, helper.PtrToString(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetNamePath(v []string) {
+	internal.ResolvedAuxLoadDataStmt_set_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return helper.StringToPtr(v[i])
+	}))
 }
 
-func (n *AuxLoadDataStmtNode) AddName(v string) {
+func (n *AuxLoadDataStmtNode) AddNamePath(v string) {
+	internal.ResolvedAuxLoadDataStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
 func (n *AuxLoadDataStmtNode) OutputColumnList() []*OutputColumnNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_output_column_list(n.raw, &v)
+	var ret []*OutputColumnNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOutputColumnNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetOutputColumnList(v []*OutputColumnNode) {
+	internal.ResolvedAuxLoadDataStmt_set_output_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddOutputColumn(v *OutputColumnNode) {
+	internal.ResolvedAuxLoadDataStmt_add_output_column_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) ColumnDefinitionList() []*ColumnDefinitionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_column_definition_list(n.raw, &v)
+	var ret []*ColumnDefinitionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumnDefinitionNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetColumnDefinitionList(v []*ColumnDefinitionNode) {
+	internal.ResolvedAuxLoadDataStmt_set_column_definition_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddColumnDefinition(v *ColumnDefinitionNode) {
+	internal.ResolvedAuxLoadDataStmt_add_column_definition_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) PseudoColumnList() []*Column {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_pseudo_column_list(n.raw, &v)
+	var ret []*Column
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newColumn(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetPseudoColumnList(v []*Column) {
+	internal.ResolvedAuxLoadDataStmt_set_pseudo_column_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].raw
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddPseudoColumn(v *Column) {
+	internal.ResolvedAuxLoadDataStmt_add_pseudo_column_list(n.raw, v.raw)
 }
 
 func (n *AuxLoadDataStmtNode) PrimaryKey() *PrimaryKeyNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_primary_key(n.raw, &v)
+	return newPrimaryKeyNode(v)
 }
 
 func (n *AuxLoadDataStmtNode) SetPrimaryKey(v *PrimaryKeyNode) {
+	internal.ResolvedAuxLoadDataStmt_set_primary_key(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) ForeignKeyList() []*ForeignKeyNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_foreign_key_list(n.raw, &v)
+	var ret []*ForeignKeyNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newForeignKeyNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetForeignKeyList(v []*ForeignKeyNode) {
+	internal.ResolvedAuxLoadDataStmt_set_foreign_key_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddForeignKey(v *ForeignKeyNode) {
+	internal.ResolvedAuxLoadDataStmt_add_foreign_key_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) CheckConstraintList() []*CheckConstraintNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_check_constraint_list(n.raw, &v)
+	var ret []*CheckConstraintNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newCheckConstraintNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetCheckConstraintList(v []*CheckConstraintNode) {
+	internal.ResolvedAuxLoadDataStmt_set_check_constraint_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddCheckConstraint(v *CheckConstraintNode) {
+	internal.ResolvedAuxLoadDataStmt_add_check_constraint_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) PartitionByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_partition_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetPartitionByList(v []ExprNode) {
+	internal.ResolvedAuxLoadDataStmt_set_partition_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddPartitionBy(v ExprNode) {
+	internal.ResolvedAuxLoadDataStmt_add_partition_by_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) ClusterByList() []ExprNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_cluster_by_list(n.raw, &v)
+	var ret []ExprNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newNode(p).(ExprNode))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetClusterByList(v []ExprNode) {
+	internal.ResolvedAuxLoadDataStmt_set_cluster_by_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddClusterBy(v ExprNode) {
+	internal.ResolvedAuxLoadDataStmt_add_cluster_by_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) OptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetOptionList(v []*OptionNode) {
+	internal.ResolvedAuxLoadDataStmt_set_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddOption(v *OptionNode) {
+	internal.ResolvedAuxLoadDataStmt_add_option_list(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) WithPartitionColumns() *WithPartitionColumnsNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_with_partition_columns(n.raw, &v)
+	return newWithPartitionColumnsNode(v)
 }
 
 func (n *AuxLoadDataStmtNode) SetWithPartitionColumns(v *WithPartitionColumnsNode) {
+	internal.ResolvedAuxLoadDataStmt_set_with_partition_columns(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) Connection() *ConnectionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_connection(n.raw, &v)
+	return newConnectionNode(v)
 }
 
 func (n *AuxLoadDataStmtNode) SetConnection(v *ConnectionNode) {
+	internal.ResolvedAuxLoadDataStmt_set_connection(n.raw, v.getRaw())
 }
 
 func (n *AuxLoadDataStmtNode) FromFilesOptionList() []*OptionNode {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedAuxLoadDataStmt_from_files_option_list(n.raw, &v)
+	var ret []*OptionNode
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newOptionNode(p))
+	})
+	return ret
 }
 
 func (n *AuxLoadDataStmtNode) SetFromFilesOptionList(v []*OptionNode) {
+	internal.ResolvedAuxLoadDataStmt_set_from_files_option_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+		return v[i].getRaw()
+	}))
 }
 
 func (n *AuxLoadDataStmtNode) AddFromFilesOption(v *OptionNode) {
+	internal.ResolvedAuxLoadDataStmt_add_from_files_option_list(n.raw, v.getRaw())
 }
 
 type TVFArgumentNode = FunctionArgumentNode
@@ -7945,7 +11074,7 @@ func newNode(v unsafe.Pointer) Node {
 		return nil
 	}
 	var kind int
-	internal.Node_node_kind(v, &kind)
+	internal.ResolvedNode_node_kind(v, &kind)
 	switch Kind(kind) {
 	case Literal:
 		return newLiteralNode(v)

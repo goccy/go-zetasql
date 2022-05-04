@@ -64,7 +64,7 @@ func (c *Column) Type() types.Type {
 	return nil
 }
 
-func (c *Column) TypeAnnotationMap() types.AnnotationMap {
+func (c *Column) TypeAnnotationMap() *types.AnnotationMap {
 	return nil
 }
 

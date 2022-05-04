@@ -197,12 +197,11 @@ func (c *BaseEnumerableCatalog) Types() ([]Type, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	types := *(*[]unsafe.Pointer)(unsafe.Pointer(&v))
-	ret := make([]Type, 0, len(types))
-	for _, typ := range types {
-		ret = append(ret, newType(typ))
-	}
-	return ret, nil
+	var types []Type
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		types = append(types, newType(p))
+	})
+	return types, nil
 }
 
 func (c *BaseEnumerableCatalog) Functions() ([]Function, error) {

@@ -1,8 +1,11 @@
 package types
 
+import "unsafe"
+
 type FunctionSignature struct{}
 
 type Function struct {
+	raw unsafe.Pointer
 }
 
 func (f *Function) Name() string {
@@ -61,3 +64,11 @@ func (f *Function) IsScalar() bool      { return false }
 func (f *Function) IsAggregate() bool   { return false }
 func (f *Function) IsAnalytic() bool    { return false }
 func (f *Function) DebugString() string { return "" }
+
+func newFunction(v unsafe.Pointer) *Function {
+	return &Function{raw: v}
+}
+
+func getRawFunction(v *Function) unsafe.Pointer {
+	return v.raw
+}

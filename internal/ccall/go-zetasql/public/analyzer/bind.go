@@ -60,181 +60,500 @@ func analyzer_AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsaf
 	C.export_zetasql_public_analyzer_AnalyzerOutput_resolved_statement(arg0, arg1)
 }
 
-func Node_node_kind(arg0 unsafe.Pointer, arg1 *int) {
-	analyzer_Node_node_kind(
+func ResolvedNode_node_kind(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedNode_node_kind(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_node_kind(arg0, arg1)
+func analyzer_ResolvedNode_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_node_kind(arg0, arg1)
 }
 
-func Node_IsScan(arg0 unsafe.Pointer, arg1 *bool) {
-	analyzer_Node_IsScan(
+func ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedNode_IsScan(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_IsScan(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_IsScan(arg0, arg1)
+func analyzer_ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_IsScan(arg0, arg1)
 }
 
-func Node_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
-	analyzer_Node_IsExpression(
+func ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedNode_IsExpression(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_IsExpression(arg0, arg1)
+func analyzer_ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_IsExpression(arg0, arg1)
 }
 
-func Node_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	analyzer_Node_IsStatement(
+func ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedNode_IsStatement(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_IsStatement(arg0, arg1)
+func analyzer_ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_IsStatement(arg0, arg1)
 }
 
-func Node_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	analyzer_Node_DebugString(
+func ResolvedNode_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedNode_DebugString(
 		arg0,
 		arg1,
 	)
 }
 
-func analyzer_Node_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_public_analyzer_Node_DebugString(arg0, arg1)
+func analyzer_ResolvedNode_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedNode_DebugString(arg0, arg1)
 }
 
-func Node_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *int) {
-	analyzer_Node_GetChildNodes_num(
+func ResolvedNode_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedNode_GetChildNodes_num(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_GetChildNodes_num(arg0, arg1)
+func analyzer_ResolvedNode_GetChildNodes_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_GetChildNodes_num(arg0, arg1)
 }
 
-func Node_GetChildNode(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	analyzer_Node_GetChildNode(
+func ResolvedNode_GetChildNode(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	analyzer_ResolvedNode_GetChildNode(
 		arg0,
 		C.int(arg1),
 		arg2,
 	)
 }
 
-func analyzer_Node_GetChildNode(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_public_analyzer_Node_GetChildNode(arg0, arg1, arg2)
+func analyzer_ResolvedNode_GetChildNode(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedNode_GetChildNode(arg0, arg1, arg2)
 }
 
-func Node_GetTreeDepth(arg0 unsafe.Pointer, arg1 *int) {
-	analyzer_Node_GetTreeDepth(
+func ResolvedNode_GetTreeDepth(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedNode_GetTreeDepth(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Node_GetTreeDepth(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Node_GetTreeDepth(arg0, arg1)
+func analyzer_ResolvedNode_GetTreeDepth(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedNode_GetTreeDepth(arg0, arg1)
 }
 
-func Literal_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	analyzer_Literal_value(
+func ResolvedExpr_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedExpr_type(
 		arg0,
 		arg1,
 	)
 }
 
-func analyzer_Literal_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_public_analyzer_Literal_value(arg0, arg1)
+func analyzer_ResolvedExpr_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpr_type(arg0, arg1)
 }
 
-func Literal_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	analyzer_Literal_set_value(
+func ResolvedExpr_set_type(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedExpr_set_type(
 		arg0,
 		arg1,
 	)
 }
 
-func analyzer_Literal_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_public_analyzer_Literal_set_value(arg0, arg1)
+func analyzer_ResolvedExpr_set_type(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpr_set_type(arg0, arg1)
 }
 
-func Literal_has_explicit_type(arg0 unsafe.Pointer, arg1 *bool) {
-	analyzer_Literal_has_explicit_type(
+func ResolvedExpr_type_annotation_map(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedExpr_type_annotation_map(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedExpr_type_annotation_map(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpr_type_annotation_map(arg0, arg1)
+}
+
+func ResolvedExpr_set_type_annotation_map(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedExpr_set_type_annotation_map(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedExpr_set_type_annotation_map(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpr_set_type_annotation_map(arg0, arg1)
+}
+
+func ResolvedLiteral_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedLiteral_value(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedLiteral_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_value(arg0, arg1)
+}
+
+func ResolvedLiteral_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedLiteral_set_value(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedLiteral_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_set_value(arg0, arg1)
+}
+
+func ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedLiteral_has_explicit_type(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Literal_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Literal_has_explicit_type(arg0, arg1)
+func analyzer_ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_has_explicit_type(arg0, arg1)
 }
 
-func Literal_set_has_explicit_type(arg0 unsafe.Pointer, arg1 int) {
-	analyzer_Literal_set_has_explicit_type(
+func ResolvedLiteral_set_has_explicit_type(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedLiteral_set_has_explicit_type(
 		arg0,
 		C.int(arg1),
 	)
 }
 
-func analyzer_Literal_set_has_explicit_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_public_analyzer_Literal_set_has_explicit_type(arg0, arg1)
+func analyzer_ResolvedLiteral_set_has_explicit_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_set_has_explicit_type(arg0, arg1)
 }
 
-func Literal_float_literal_id(arg0 unsafe.Pointer, arg1 *int) {
-	analyzer_Literal_float_literal_id(
+func ResolvedLiteral_float_literal_id(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedLiteral_float_literal_id(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Literal_float_literal_id(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Literal_float_literal_id(arg0, arg1)
+func analyzer_ResolvedLiteral_float_literal_id(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_float_literal_id(arg0, arg1)
 }
 
-func Literal_set_float_literal_id(arg0 unsafe.Pointer, arg1 int) {
-	analyzer_Literal_set_float_literal_id(
+func ResolvedLiteral_set_float_literal_id(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedLiteral_set_float_literal_id(
 		arg0,
 		C.int(arg1),
 	)
 }
 
-func analyzer_Literal_set_float_literal_id(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_public_analyzer_Literal_set_float_literal_id(arg0, arg1)
+func analyzer_ResolvedLiteral_set_float_literal_id(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_set_float_literal_id(arg0, arg1)
 }
 
-func Literal_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *bool) {
-	analyzer_Literal_preserve_in_literal_remover(
+func ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedLiteral_preserve_in_literal_remover(
 		arg0,
 		(*C.int)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_Literal_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_public_analyzer_Literal_preserve_in_literal_remover(arg0, arg1)
+func analyzer_ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_preserve_in_literal_remover(arg0, arg1)
 }
 
-func Literal_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 int) {
-	analyzer_Literal_set_preserve_in_literal_remover(
+func ResolvedLiteral_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedLiteral_set_preserve_in_literal_remover(
 		arg0,
 		C.int(arg1),
 	)
 }
 
-func analyzer_Literal_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_public_analyzer_Literal_set_preserve_in_literal_remover(arg0, arg1)
+func analyzer_ResolvedLiteral_set_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedLiteral_set_preserve_in_literal_remover(arg0, arg1)
+}
+
+func ResolvedParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedParameter_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_name(arg0, arg1)
+}
+
+func ResolvedParameter_set_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedParameter_set_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedParameter_set_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_set_name(arg0, arg1)
+}
+
+func ResolvedParameter_position(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedParameter_position(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedParameter_position(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_position(arg0, arg1)
+}
+
+func ResolvedParameter_set_position(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedParameter_set_position(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_ResolvedParameter_set_position(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_set_position(arg0, arg1)
+}
+
+func ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedParameter_is_untyped(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_is_untyped(arg0, arg1)
+}
+
+func ResolvedParameter_set_is_untyped(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedParameter_set_is_untyped(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_ResolvedParameter_set_is_untyped(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedParameter_set_is_untyped(arg0, arg1)
+}
+
+func ResolvedExpressionColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedExpressionColumn_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedExpressionColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpressionColumn_name(arg0, arg1)
+}
+
+func ResolvedExpressionColumn_set_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedExpressionColumn_set_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedExpressionColumn_set_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedExpressionColumn_set_name(arg0, arg1)
+}
+
+func ResolvedColumnRef_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumnRef_column(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumnRef_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumnRef_column(arg0, arg1)
+}
+
+func ResolvedColumnRef_set_column(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedColumnRef_set_column(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumnRef_set_column(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumnRef_set_column(arg0, arg1)
+}
+
+func ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedColumnRef_is_correlated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedColumnRef_is_correlated(arg0, arg1)
+}
+
+func ResolvedColumnRef_set_is_correlated(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_ResolvedColumnRef_set_is_correlated(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_ResolvedColumnRef_set_is_correlated(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_ResolvedColumnRef_set_is_correlated(arg0, arg1)
+}
+
+func ResolvedConstant_constant(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedConstant_constant(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedConstant_constant(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedConstant_constant(arg0, arg1)
+}
+
+func ResolvedConstant_set_constant(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedConstant_set_constant(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedConstant_set_constant(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedConstant_set_constant(arg0, arg1)
+}
+
+func ResolvedSystemVariable_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedSystemVariable_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedSystemVariable_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedSystemVariable_name_path(arg0, arg1)
+}
+
+func ResolvedSystemVariable_set_name_path(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedSystemVariable_set_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedSystemVariable_set_name_path(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedSystemVariable_set_name_path(arg0, arg1)
+}
+
+func ResolvedSystemVariable_add_name_path(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedSystemVariable_add_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedSystemVariable_add_name_path(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedSystemVariable_add_name_path(arg0, arg1)
+}
+
+func ResolvedInlineLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_argument_list(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_argument_list(arg0, arg1)
+}
+
+func ResolvedInlineLambda_set_argument_list(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_set_argument_list(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_set_argument_list(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_set_argument_list(arg0, arg1)
+}
+
+func ResolvedInlineLambda_add_argument(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_add_argument(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_add_argument(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_add_argument(arg0, arg1)
+}
+
+func ResolvedInlineLambda_parameter_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_parameter_list(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_parameter_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_parameter_list(arg0, arg1)
+}
+
+func ResolvedInlineLambda_set_parameter_list(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_set_parameter_list(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_set_parameter_list(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_set_parameter_list(arg0, arg1)
+}
+
+func ResolvedInlineLambda_add_parameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_add_parameter(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_add_parameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_add_parameter(arg0, arg1)
+}
+
+func ResolvedInlineLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_body(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_body(arg0, arg1)
+}
+
+func ResolvedInlineLambda_set_body(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	analyzer_ResolvedInlineLambda_set_body(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedInlineLambda_set_body(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedInlineLambda_set_body(arg0, arg1)
 }
 
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName

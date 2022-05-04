@@ -186,6 +186,10 @@ func newType(v unsafe.Pointer) Type {
 	return &ztype{raw: v}
 }
 
+func getRawType(v Type) unsafe.Pointer {
+	return v.getRaw()
+}
+
 type ztype struct {
 	raw unsafe.Pointer
 }

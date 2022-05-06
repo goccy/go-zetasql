@@ -232,3 +232,11 @@ func (t *SimpleTable) SetAllowDuplicateColumnNames(value bool) error {
 	}
 	return nil
 }
+
+func newTable(v unsafe.Pointer) Table {
+	return &SimpleTable{BaseTable: &BaseTable{raw: v}}
+}
+
+func getRawTable(v Table) unsafe.Pointer {
+	return v.getRaw()
+}

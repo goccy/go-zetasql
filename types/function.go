@@ -2,7 +2,9 @@ package types
 
 import "unsafe"
 
-type FunctionSignature struct{}
+type FunctionSignature struct {
+	raw unsafe.Pointer
+}
 
 type Function struct {
 	raw unsafe.Pointer
@@ -70,5 +72,13 @@ func newFunction(v unsafe.Pointer) *Function {
 }
 
 func getRawFunction(v *Function) unsafe.Pointer {
+	return v.raw
+}
+
+func newFunctionSignature(v unsafe.Pointer) *FunctionSignature {
+	return &FunctionSignature{raw: v}
+}
+
+func getRawFunctionSignature(v *FunctionSignature) unsafe.Pointer {
 	return v.raw
 }

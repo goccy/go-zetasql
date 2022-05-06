@@ -727,13 +727,13 @@ func (n *BaseNonScalarFunctionCallNode) SetNullHandlingModifier(v NullHandlingMo
 // refer to correlated columns that are used as aggregation input in
 // the immediate outer query. The same rules apply to
 // <with_group_rows_parameter_list> as in SubqueryExprNode.
-func (n *BaseNonScalarFunctionCallNode) WithGroupRowsSubquery() *ScanNode {
+func (n *BaseNonScalarFunctionCallNode) WithGroupRowsSubquery() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedNonScalarFunctionCallBase_with_group_rows_subquery(n.raw, &v)
-	return newScanNode(v)
+	return newNode(v).(ScanNode)
 }
 
-func (n *BaseNonScalarFunctionCallNode) SetWithGroupRowsSubquery(v *ScanNode) {
+func (n *BaseNonScalarFunctionCallNode) SetWithGroupRowsSubquery(v ScanNode) {
 	internal.ResolvedNonScalarFunctionCallBase_set_with_group_rows_subquery(n.raw, v.getRaw())
 }
 
@@ -1055,7 +1055,7 @@ func (n *MakeProtoNode) FieldList() []*MakeProtoFieldNode {
 }
 
 func (n *MakeProtoNode) SetFieldList(v []*MakeProtoFieldNode) {
-	internal.ResolvedMakeProtoNode_set_field_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
+	internal.ResolvedMakeProto_set_field_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
 		return v[i].getRaw()
 	}))
 }
@@ -1077,13 +1077,13 @@ type MakeProtoFieldNode struct {
 
 // Format provides the Format annotation that should be used when building this field.
 // The annotation specifies both the ZetaSQL type and the encoding format for this field.
-func (n *MakeProtoFieldNode) Format() Format {
+func (n *MakeProtoFieldNode) Format() FieldFormat {
 	var v int
 	internal.ResolvedMakeProtoField_format(n.raw, &v)
-	return Format(v)
+	return FieldFormat(v)
 }
 
-func (n *MakeProtoFieldNode) SetFormat(v Format) {
+func (n *MakeProtoFieldNode) SetFormat(v FieldFormat) {
 	internal.ResolvedMakeProtoField_set_format(n.raw, int(v))
 }
 
@@ -1180,13 +1180,13 @@ func (n *GetProtoFieldNode) SetHasBit(v bool) {
 // this field.  The annotation specifies both the ZetaSQL type and
 // the encoding format for this field. This cannot be set when
 // HasBit is true.
-func (n *GetProtoFieldNode) Format() Format {
+func (n *GetProtoFieldNode) Format() FieldFormat {
 	var v int
 	internal.ResolvedGetProtoField_format(n.raw, &v)
-	return Format(v)
+	return FieldFormat(v)
 }
 
-func (n *GetProtoFieldNode) SetFormat(v Format) {
+func (n *GetProtoFieldNode) SetFormat(v FieldFormat) {
 	internal.ResolvedGetProtoField_set_format(n.raw, int(v))
 }
 
@@ -1522,13 +1522,13 @@ func (n *SubqueryExprNode) SetInCollation(v *Collation) {
 	internal.ResolvedSubqueryExpr_set_in_collation(n.raw, v.raw)
 }
 
-func (n *SubqueryExprNode) Subquery() *ScanNode {
+func (n *SubqueryExprNode) Subquery() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedSubqueryExpr_subquery(n.raw, &v)
-	return newScanNode(v)
+	return newNode(v).(ScanNode)
 }
 
-func (n *SubqueryExprNode) SetSubquery(v *ScanNode) {
+func (n *SubqueryExprNode) SetSubquery(v ScanNode) {
 	internal.ResolvedSubqueryExpr_set_subquery(n.raw, v.getRaw())
 }
 
@@ -3481,13 +3481,13 @@ type TVFScanNode struct {
 	*BaseScanNode
 }
 
-func (n *TVFScanNode) TVF() *types.TableValuedFunction {
+func (n *TVFScanNode) TVF() types.TableValuedFunction {
 	var v unsafe.Pointer
 	internal.ResolvedTVFScan_tvf(n.raw, &v)
 	return newTableValuedFunction(v)
 }
 
-func (n *TVFScanNode) SetTVF(v *types.TableValuedFunction) {
+func (n *TVFScanNode) SetTVF(v types.TableValuedFunction) {
 	internal.ResolvedTVFScan_set_tvf(n.raw, getRawTableValuedFunction(v))
 }
 
@@ -3644,7 +3644,7 @@ func (n *FunctionArgumentNode) SetExpr(v ExprNode) {
 func (n *FunctionArgumentNode) Scan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedFunctionArgument_scan(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newNode(v).(ScanNode)
 }
 
 func (n *FunctionArgumentNode) SetScan(v ScanNode) {
@@ -4110,9 +4110,7 @@ func (n *CreateIndexStmtNode) SetIndexItemList(v []*IndexItemNode) {
 }
 
 func (n *CreateIndexStmtNode) AddIndexItem(v *IndexItemNode) {
-	var v unsafe.Pointer
-	internal.ResolvedCreateIndexStmt_add_index_item_list(n.raw, &v)
-	return newIndexItemNode(v)
+	internal.ResolvedCreateIndexStmt_add_index_item_list(n.raw, v.getRaw())
 }
 
 func (n *CreateIndexStmtNode) StoringExpressionList() []ExprNode {
@@ -4711,7 +4709,7 @@ func (n *CreateModelStmtNode) SetQuery(v ScanNode) {
 
 func (n *CreateModelStmtNode) TransformInputColumnList() []*ColumnDefinitionNode {
 	var v unsafe.Pointer
-	internal.transform_input_column_list(n.raw, &v)
+	internal.ResolvedCreateModelStmt_transform_input_column_list(n.raw, &v)
 	var ret []*ColumnDefinitionNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
 		ret = append(ret, newColumnDefinitionNode(p))
@@ -5061,7 +5059,7 @@ func (n *ExportModelStmtNode) ModelNamePath() []string {
 
 func (n *ExportModelStmtNode) SetModelNamePath(v []string) {
 	internal.ResolvedExportModelStmt_set_model_name_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return v[i].getRaw()
+		return helper.StringToPtr(v[i])
 	}))
 }
 
@@ -5435,12 +5433,12 @@ type SetTransactionStmtNode struct {
 
 func (n *SetTransactionStmtNode) ReadWriteMode() ReadWriteMode {
 	var v int
-	internal.ResolvedSetTransactionStmt_isolation_level_list(n.raw, &v)
+	internal.ResolvedSetTransactionStmt_read_write_mode(n.raw, &v)
 	return ReadWriteMode(v)
 }
 
 func (n *SetTransactionStmtNode) SetReadWriteMode(v ReadWriteMode) {
-	internal.ResolvedSetTransactionStmt_set_isolation_level_list(n.raw, int(v))
+	internal.ResolvedSetTransactionStmt_set_read_write_mode(n.raw, int(v))
 }
 
 func (n *SetTransactionStmtNode) IsolationLevelList() []string {
@@ -6338,7 +6336,7 @@ func (n *InsertStmtNode) SetInsertColumnList(v []*Column) {
 }
 
 func (n *InsertStmtNode) AddInsertColumn(v *Column) {
-	internal.ResolvedInsertStmt_add_insert_column_list(n.raw, v.getRaw())
+	internal.ResolvedInsertStmt_add_insert_column_list(n.raw, v.raw)
 }
 
 func (n *InsertStmtNode) QueryParameterList() []*ColumnRefNode {
@@ -6388,7 +6386,7 @@ func (n *InsertStmtNode) SetQueryOutputColumnList(v []*Column) {
 }
 
 func (n *InsertStmtNode) AddQueryOutputColumn(v *Column) {
-	internal.ResolvedInsertStmt_add_query_output_column_list(n.raw, v.getRaw())
+	internal.ResolvedInsertStmt_add_query_output_column_list(n.raw, v.raw)
 }
 
 func (n *InsertStmtNode) RowList() []*InsertRowNode {
@@ -7389,23 +7387,23 @@ func (n *AlterObjectStmtNode) AddNamePath(v string) {
 	internal.ResolvedAlterObjectStmt_add_name_path(n.raw, helper.StringToPtr(v))
 }
 
-func (n *AlterObjectStmtNode) AlterActionList() []*AlterActionNode {
+func (n *AlterObjectStmtNode) AlterActionList() []AlterActionNode {
 	var v unsafe.Pointer
 	internal.ResolvedAlterObjectStmt_alter_action_list(n.raw, &v)
-	var ret []*AlterActionNode
+	var ret []AlterActionNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newAlterActionNode(p))
+		ret = append(ret, newNode(p).(AlterActionNode))
 	})
 	return ret
 }
 
-func (n *AlterObjectStmtNode) SetAlterActionList(v []*AlterActionNode) {
+func (n *AlterObjectStmtNode) SetAlterActionList(v []AlterActionNode) {
 	internal.ResolvedAlterObjectStmt_set_alter_action_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
 		return v[i].getRaw()
 	}))
 }
 
-func (n *AlterObjectStmtNode) AddAlterAction(v *AlterActionNode) {
+func (n *AlterObjectStmtNode) AddAlterAction(v AlterActionNode) {
 	internal.ResolvedAlterObjectStmt_add_alter_action_list(n.raw, v.getRaw())
 }
 
@@ -7568,13 +7566,13 @@ func (n *AddConstraintActionNode) SetIsIfNotExists(v bool) {
 	internal.ResolvedAddConstraintAction_set_is_if_not_exists(n.raw, helper.BoolToInt(v))
 }
 
-func (n *AddConstraintActionNode) Constraint() *ConstraintNode {
+func (n *AddConstraintActionNode) Constraint() ConstraintNode {
 	var v unsafe.Pointer
 	internal.ResolvedAddConstraintAction_constraint(n.raw, &v)
-	return newConstraintNode(v)
+	return newNode(v).(ConstraintNode)
 }
 
-func (n *AddConstraintActionNode) SetConstraint(v *ConstraintNode) {
+func (n *AddConstraintActionNode) SetConstraint(v ConstraintNode) {
 	internal.ResolvedAddConstraintAction_set_constraint(n.raw, v.getRaw())
 }
 
@@ -9903,7 +9901,7 @@ func (n *CreateProcedureStmtNode) ArgumentNameList() []string {
 	internal.ResolvedCreateProcedureStmt_argument_name_list(n.raw, &v)
 	var ret []string
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, helper.StringToPtr(p))
+		ret = append(ret, helper.PtrToString(p))
 	})
 	return ret
 }
@@ -10329,9 +10327,7 @@ func (n *PivotScanNode) SetPivotValueList(v []ExprNode) {
 }
 
 func (n *PivotScanNode) AddPivotValue(v ExprNode) {
-	var v unsafe.Pointer
-	internal.ResolvedPivotScan_add_pivot_value_list(n.raw, &v)
-	return newNode(v).(ExprNode)
+	internal.ResolvedPivotScan_add_pivot_value_list(n.raw, v.getRaw())
 }
 
 // PivotColumnList list of columns created to store the output pivot columns.

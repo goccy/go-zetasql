@@ -6137,7 +6137,6 @@
     - name: ResolvedExtendedCastElement_set_from_type
       args:
         - struct
-      ret:
         - struct
     - name: ResolvedExtendedCastElement_to_type
       args:
@@ -6147,7 +6146,6 @@
     - name: ResolvedExtendedCastElement_set_to_type
       args:
         - struct
-      ret:
         - struct
     - name: ResolvedExtendedCastElement_function
       args:
@@ -6157,7 +6155,6 @@
     - name: ResolvedExtendedCastElement_set_function
       args:
         - struct
-      ret:
         - struct
     - name: ResolvedExtendedCast_element_list
       args:
@@ -6300,11 +6297,11 @@
     - name: ResolvedGetProtoField_default_value
       args:
         - struct
+      ret:
         - struct
     - name: ResolvedGetProtoField_set_default_value
       args:
         - struct
-      ret:
         - struct
     - name: ResolvedGetProtoField_get_has_bit
       args:
@@ -11237,7 +11234,7 @@
     - name: ResolvedTableAndColumnInfo_add_column_index_list
       args:
         - struct
-        - struct
+        - int
     - name: ResolvedAnalyzeStmt_option_list
       args:
         - struct

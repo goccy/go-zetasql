@@ -1,6 +1,11 @@
 package resolved_ast
 
-import "unsafe"
+import (
+	"unsafe"
+
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	"github.com/goccy/go-zetasql/internal/helper"
+)
 
 // FunctionCallInfo contains custom information about a particular function call.
 // ZetaSQL passes it to the engine in the FunctionCallNode. Functions may
@@ -11,7 +16,9 @@ type FunctionCallInfo struct {
 }
 
 func (f *FunctionCallInfo) DebugString() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedFunctionCallInfo_DebugString(f.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func newFunctionCallInfo(v unsafe.Pointer) *FunctionCallInfo {

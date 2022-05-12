@@ -260,6 +260,9 @@ func (g *Generator) generate(f *ParsedFile) error {
 		if err := g.generateBridgeExternH(outputDir, lib); err != nil {
 			return err
 		}
+		if err := g.generateBridgeCCInc(outputDir); err != nil {
+			return err
+		}
 		if err := g.generateBridgeInc(outputDir); err != nil {
 			return err
 		}
@@ -276,6 +279,9 @@ func (g *Generator) generate(f *ParsedFile) error {
 			return err
 		}
 		if err := g.generateBridgeExternH(outputDir, lib); err != nil {
+			return err
+		}
+		if err := g.generateBridgeCCInc(outputDir); err != nil {
 			return err
 		}
 		if err := g.generateBridgeInc(outputDir); err != nil {
@@ -364,6 +370,16 @@ func (g *Generator) generateBindGO(outputDir string, lib *Lib) error {
 		return err
 	}
 	if err := os.WriteFile(filepath.Join(outputDir, "bind.go"), output, 0o600); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *Generator) generateBridgeCCInc(outputDir string) error {
+	if existsFile(filepath.Join(outputDir, "bridge_cc.inc")) {
+		return nil
+	}
+	if err := os.WriteFile(filepath.Join(outputDir, "bridge_cc.inc"), nil, 0o600); err != nil {
 		return err
 	}
 	return nil

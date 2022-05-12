@@ -41,6 +41,10 @@ func newAnnotatedType(raw unsafe.Pointer) *AnnotatedType {
 	return &AnnotatedType{raw: raw}
 }
 
+func getRawAnnotatedType(v *AnnotatedType) unsafe.Pointer {
+	return v.raw
+}
+
 type TypeKind int
 
 const (

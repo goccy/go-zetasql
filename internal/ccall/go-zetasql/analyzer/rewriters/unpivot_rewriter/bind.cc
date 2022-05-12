@@ -123,6 +123,8 @@
 
 #include "bridge.h"
 
+#include "bridge_cc.inc"
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -132,5 +134,12 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
+
+#undef GET_LIST
+#undef GET_UNIQUE_PTR_LIST
+#undef GET_STRS
+#undef SET_LIST
+#undef SET_UNIQUE_PTR_LIST
+#undef ADD_UNIQUE_PTR_LIST
 
 #endif /* zetasql_analyzer_rewriters_unpivot_rewriter_bind_cc */

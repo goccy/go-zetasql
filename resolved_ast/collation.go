@@ -1,8 +1,11 @@
 package resolved_ast
 
 import (
-	"go/types"
 	"unsafe"
+
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	"github.com/goccy/go-zetasql/internal/helper"
+	"github.com/goccy/go-zetasql/types"
 )
 
 // Collation is used with types.Type to indicate the resolved collation
@@ -17,11 +20,15 @@ type Collation struct {
 
 // Empty returns true if current type has no collation and has no children with collation.
 func (c *Collation) Empty() bool {
-	return false
+	var v bool
+	internal.ResolvedCollation_Empty(c.raw, &v)
+	return v
 }
 
 func (c *Collation) Equals(that *Collation) bool {
-	return false
+	var v bool
+	internal.ResolvedCollation_Equals(c.raw, that.raw, &v)
+	return v
 }
 
 // HasCompatibleStructure returns true if this Collation has compatible nested structure with
@@ -38,21 +45,39 @@ func (c *Collation) Equals(that *Collation) bool {
 // * This instance has exactly one child and <type> is an ARRAY, and the child
 //   has a compatible structure with the array's element type.
 func (c *Collation) HasCompatibleStructure(typ types.Type) bool {
-	return false
+	var v bool
+	internal.ResolvedCollation_HasCompatibleStructure(c.raw, getRawType(typ), &v)
+	return v
 }
 
 // HasCollation collation on current type (STRING), not on subfields.
 func (c *Collation) HasCollation() bool {
-	return false
+	var v bool
+	internal.ResolvedCollation_HasCollation(c.raw, &v)
+	return v
 }
 
 func (c *Collation) CollationName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedCollation_CollationName(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 // ChildList children only exist if any of the children have a collation.
 func (c *Collation) ChildList() []*Collation {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedCollation_child_list(c.raw, &v)
+	var ret []*Collation
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newCollation(p))
+	})
+	return ret
+}
+
+func (c *Collation) DebugString() string {
+	var v unsafe.Pointer
+	internal.ResolvedCollation_DebugString(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func newCollation(v unsafe.Pointer) *Collation {

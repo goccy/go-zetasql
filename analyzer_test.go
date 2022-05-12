@@ -1,6 +1,7 @@
 package zetasql_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/goccy/go-zetasql"
@@ -28,5 +29,28 @@ func TestAnalyzer(t *testing.T) {
 		return nil
 	}); err != nil {
 		t.Fatal(err)
+	}
+	query := stmt.(*ast.QueryStmtNode)
+	outputColumns := query.OutputColumnList()
+	if len(outputColumns) != 2 {
+		t.Fatal("failed to get output column list")
+	}
+	col1 := outputColumns[0].Column()
+	col2 := outputColumns[1].Column()
+	if col1.Name() != "col1" || col2.Name() != "col2" {
+		t.Fatalf("failed to get column name")
+	}
+	if col1.Type().TypeName(0) != "INT64" || col2.Type().TypeName(0) != "STRING" {
+		t.Fatalf("failed to get column type")
+	}
+	project := query.Query().(*ast.ProjectScanNode)
+	filter := project.InputScan().(*ast.FilterScanNode)
+	if filter.InputScan().(*ast.TableScanNode).Table().Name() != "z_table" {
+		t.Fatal("failed to get table name")
+	}
+	funcCall := filter.FilterExpr().(*ast.FunctionCallNode)
+	fmt.Println("signature = ", funcCall.Signature())
+	for _, arg := range funcCall.ArgumentList() {
+		fmt.Printf("arg = %T\n", arg)
 	}
 }

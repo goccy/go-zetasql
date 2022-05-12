@@ -31,6 +31,12 @@ func newAnnotationMap(unsafe.Pointer) *types.AnnotationMap
 //go:linkname getRawAnnotationMap github.com/goccy/go-zetasql/types.getRawAnnotationMap
 func getRawAnnotationMap(*types.AnnotationMap) unsafe.Pointer
 
+//go:linkname newAnnotatedType github.com/goccy/go-zetasql/types.newAnnotatedType
+func newAnnotatedType(unsafe.Pointer) *types.AnnotatedType
+
+//go:linkname getRawAnnotatedType github.com/goccy/go-zetasql/types.getRawAnnotatedType
+func getRawAnnotatedType(*types.AnnotatedType) unsafe.Pointer
+
 //go:linkname newConstant github.com/goccy/go-zetasql/types.newConstant
 func newConstant(unsafe.Pointer) types.Constant
 

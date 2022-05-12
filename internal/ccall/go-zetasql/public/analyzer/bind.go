@@ -14273,6 +14273,227 @@ func analyzer_ResolvedAuxLoadDataStmt_add_from_files_option_list(arg0 unsafe.Poi
 	C.export_zetasql_public_analyzer_ResolvedAuxLoadDataStmt_add_from_files_option_list(arg0, arg1)
 }
 
+func ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedColumn_IsInitialized(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_IsInitialized(arg0, arg1)
+}
+
+func ResolvedColumn_Clear(arg0 unsafe.Pointer) {
+	analyzer_ResolvedColumn_Clear(
+		arg0,
+	)
+}
+
+func analyzer_ResolvedColumn_Clear(arg0 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_Clear(arg0)
+}
+
+func ResolvedColumn_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_DebugString(arg0, arg1)
+}
+
+func ResolvedColumn_ShortDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_ShortDebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_ShortDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_ShortDebugString(arg0, arg1)
+}
+
+func ResolvedColumn_column_id(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_ResolvedColumn_column_id(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedColumn_column_id(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_column_id(arg0, arg1)
+}
+
+func ResolvedColumn_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_table_name(arg0, arg1)
+}
+
+func ResolvedColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_name(arg0, arg1)
+}
+
+func ResolvedColumn_table_name_id(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_table_name_id(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_table_name_id(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_table_name_id(arg0, arg1)
+}
+
+func ResolvedColumn_name_id(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_name_id(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_name_id(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_name_id(arg0, arg1)
+}
+
+func ResolvedColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_type(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_type(arg0, arg1)
+}
+
+func ResolvedColumn_type_annotation_map(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_type_annotation_map(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_type_annotation_map(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_type_annotation_map(arg0, arg1)
+}
+
+func ResolvedColumn_annotated_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedColumn_annotated_type(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedColumn_annotated_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedColumn_annotated_type(arg0, arg1)
+}
+
+func ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedCollation_Empty(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_Empty(arg0, arg1)
+}
+
+func ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	analyzer_ResolvedCollation_Equals(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func analyzer_ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_Equals(arg0, arg1, arg2)
+}
+
+func ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	analyzer_ResolvedCollation_HasCompatibleStructure(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func analyzer_ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_HasCompatibleStructure(arg0, arg1, arg2)
+}
+
+func ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_ResolvedCollation_HasCollation(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_HasCollation(arg0, arg1)
+}
+
+func ResolvedCollation_CollationName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedCollation_CollationName(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedCollation_CollationName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_CollationName(arg0, arg1)
+}
+
+func ResolvedCollation_child_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedCollation_child_list(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedCollation_child_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_child_list(arg0, arg1)
+}
+
+func ResolvedCollation_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedCollation_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedCollation_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedCollation_DebugString(arg0, arg1)
+}
+
+func ResolvedFunctionCallInfo_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedFunctionCallInfo_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedFunctionCallInfo_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedFunctionCallInfo_DebugString(arg0, arg1)
+}
+
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)

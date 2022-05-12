@@ -11427,3 +11427,103 @@
       args:
         - struct
         - struct
+    - name: ResolvedColumn_IsInitialized
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedColumn_Clear
+      args:
+        - struct
+    - name: ResolvedColumn_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_ShortDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_column_id
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedColumn_table_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_table_name_id
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_name_id
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumn_type_annotation_map
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumn_annotated_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCollation_Empty
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_HasCompatibleStructure
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_HasCollation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_CollationName
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCollation_child_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCollation_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedFunctionCallInfo_DebugString
+      args:
+        - struct
+      ret:
+        - string

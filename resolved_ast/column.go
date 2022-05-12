@@ -3,6 +3,8 @@ package resolved_ast
 import (
 	"unsafe"
 
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/types"
 )
 
@@ -26,50 +28,73 @@ type Column struct {
 }
 
 func (c *Column) IsInitialized() bool {
-	return false
+	var v bool
+	internal.ResolvedColumn_IsInitialized(c.raw, &v)
+	return v
 }
 
 func (c *Column) Clear() {
+	internal.ResolvedColumn_Clear(c.raw)
 }
 
 func (c *Column) DebugString() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_DebugString(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) ShortDebugString() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_ShortDebugString(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) ColumnID() int {
-	return 0
+	var v int
+	internal.ResolvedColumn_column_id(c.raw, &v)
+	return v
 }
 
 func (c *Column) TableName() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_table_name(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) Name() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_name(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) TableNameID() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_table_name_id(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) NameID() string {
-	return ""
+	var v unsafe.Pointer
+	internal.ResolvedColumn_name_id(c.raw, &v)
+	return helper.PtrToString(v)
 }
 
 func (c *Column) Type() types.Type {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumn_type(c.raw, &v)
+	return newType(v)
 }
 
 func (c *Column) TypeAnnotationMap() *types.AnnotationMap {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumn_type_annotation_map(c.raw, &v)
+	return newAnnotationMap(v)
 }
 
 func (c *Column) AnnotatedType() *types.AnnotatedType {
-	return nil
+	var v unsafe.Pointer
+	internal.ResolvedColumn_annotated_type(c.raw, &v)
+	return newAnnotatedType(v)
 }
 
 func newColumn(v unsafe.Pointer) *Column {

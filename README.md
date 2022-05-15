@@ -9,41 +9,46 @@ ZetaSQL can parse all queries related to Cloud Spanner and BigQuery. This functi
 
 # Features
 
-- No need to install zetasql
-  - go-zetasql contains all the source code needed to build zetasql and builds at `go get github.com/goccy/go-zetasql` timing. Therefore, there is no need to install dependent libraries separately.
+- No need to install ZetaSQL library
+  - go-zetasql contains all the source code needed to build ZetaSQL and builds at `go get github.com/goccy/go-zetasql` timing. Therefore, there is no need to install dependent libraries separately.
 
-- Can access all the APIs of the zetasql parser
-  - The zetasql parser is not publicly available, but it is available in go-zetasql
+- Can create a portable single binary even though it using cgo
+  - You can create a static binary even with `CGO_ENABLED=1` by specifying the following options at build time: `--ldflags '-extldflags "-static"'`
+
+- Can access all the APIs of the ZetaSQL parser
+  - The ZetaSQL parser is not publicly available, but it is available in go-zetasql
 
 - Can access analyzer APIs
 
 # Status
 
-Among the functions of zetasql, you can use the functions of the following packages. Will be added sequentially
+In the feaatures of ZetaSQL, you can use the functions of the following packages. Will be added sequentially.
 
-|  Package |  Supported |
-| ----     | ----       |
-|  parser  |  yes       |
-|  public  |  partial   |
-| analyzer |  yes       |
-| scripting | no        |
-| reference_impl | no   |
+| Package        | Supported  |
+| ----           | ----       |
+| parser         | yes        |
+| public         | partial    |
+| analyzer       | yes        |
+| scripting      | no         |
+| reference_impl | no         |
 
 # Prerequisites
 
 go-zetasql uses cgo. Therefore, `CGO_ENABLED=1` is required to build.  
 Also, the compiler recommends `clang++`. Please set `CXX=clang++` to install.
 
-|  Environment Name |  Value  |
-| ---- | ---- |
-|  CGO_ENABLED  |  1  ( required ) |
-|  CXX  |  clang++ ( recommended )  |
+|  Environment Name |  Value                   |
+| ----              | ----                     |
+|  CGO_ENABLED      |  1  ( required )         |
+|  CXX              |  clang++ ( recommended ) |
 
 # Installation
 
 ```
 go get github.com/goccy/go-zetasql
 ```
+
+The first time you run it, it takes time to build all the ZetaSQL code used by go-zetasql.
 
 # License
 

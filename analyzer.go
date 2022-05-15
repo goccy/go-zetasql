@@ -411,28 +411,28 @@ func AnalyzeStatement(sql string, catalog types.Catalog, opt *AnalyzerOptions) (
 //
 // After an error, <resume_location> may not be updated and analyzing further
 // statements is not supported.
-func AnalyzeNextStatement(loc *ParseResumeLocation, opt *AnalyzerOptions, catalog types.Catalog) (*AnalyzerOutput, bool, error) {
-	return nil, false, nil
+func AnalyzeNextStatement(loc *ParseResumeLocation, catalog types.Catalog, opt *AnalyzerOptions) (*AnalyzerOutput, bool, error) {
+	return nil, false, fmt.Errorf("go-zetasql: unimplemented")
 }
 
-func AnalyzeExpression(sql string, opt *AnalyzerOptions, catalog types.Catalog, targetType types.Type) (*AnalyzerOutput, error) {
-	return nil, nil
+func AnalyzeExpression(sql string, catalog types.Catalog, targetType types.Type, opt *AnalyzerOptions) (*AnalyzerOutput, error) {
+	return nil, fmt.Errorf("go-zetasql: unimplemented")
 }
 
-func AnalyzeType(typeName string, opt *AnalyzerOptions, catalog types.Catalog, targetType types.Type) ([]types.Type, error) {
-	return nil, nil
+func AnalyzeType(typeName string, catalog types.Catalog, targetType types.Type, opt *AnalyzerOptions) ([]types.Type, error) {
+	return nil, fmt.Errorf("go-zetasql: unimplemented")
 }
 
 type TableNameSet struct{}
 
 func ExtractTableNamesFromStatement(sql string) (*TableNameSet, error) {
-	return nil, nil
+	return nil, fmt.Errorf("go-zetasql: unimplemented")
 }
 
 func ExtractTableNamesFromNextStatement(loc *ParseResumeLocation) (*TableNameSet, bool, error) {
-	return nil, false, nil
+	return nil, false, fmt.Errorf("go-zetasql: unimplemented")
 }
 
 func ExtractTableNamesFromScript(sql string) (*TableNameSet, error) {
-	return nil, nil
+	return nil, fmt.Errorf("go-zetasql: unimplemented")
 }

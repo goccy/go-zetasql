@@ -1,4 +1,4 @@
-package constant
+package types
 
 import (
 	"time"
@@ -6,15 +6,14 @@ import (
 
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/simple_catalog"
 	"github.com/goccy/go-zetasql/internal/helper"
-	"github.com/goccy/go-zetasql/types"
 )
 
 type Value interface {
 	// Type returns the type of the value.
-	Type() types.Type
+	Type() Type
 
 	// TypeKind returns the type kind of the value.
-	TypeKind() types.TypeKind
+	TypeKind() TypeKind
 
 	// PhysicalByteSize returns the estimated size of the in-memory C++ representation of this value.
 	PhysicalByteSize() uint64
@@ -107,10 +106,10 @@ type Value interface {
 	JSONValueUnparsed() string
 	JSONString() string
 
-	// ToInt64 for bool, int32, int64, date, enum types.
+	// ToInt64 for bool, int32, int64, date, enum
 	ToInt64() int64
 
-	// ToUint64 for bool, uint32, uint64 types.
+	// ToUint64 for bool, uint32, uint64
 	ToUint64() uint64
 	ToDouble() float64
 
@@ -133,7 +132,7 @@ type Value interface {
 
 	// Equals returns true if 'this' equals 'that' or both are null. This is *not* SQL
 	// equality which returns null when either value is null. Returns false if
-	// 'this' and 'that' have different types. For floating point values, returns
+	// 'this' and 'that' have different  For floating point values, returns
 	// 'true' if both values are NaN of the same type.
 	// For protos, returns true if the protos have the equivalent descriptors
 	// (using Type::Equivalent) and the values are equivalent according to
@@ -208,14 +207,14 @@ type Value interface {
 	// GetSQLLiteral() is used in ZetaSQL's FORMAT() function implementation
 	// (Format() in zetasql/public_functions/format.cc) so we cannot change
 	// the output without breaking existing ZetaSQL function semantics.
-	SQL(mode types.ProductMode) string
+	SQL(mode ProductMode) string
 
 	// SQLLiteral returns a SQL expression that is compatible as a literal for this value.
 	// This won't include CASTs except for non-finite floating point values, and
 	// won't necessarily produce the exact same type when parsed on its own, but
 	// it should be the closest SQL literal form for this value.  Returned type
 	// names are sensitive to the SQL ProductMode (INTERNAL or EXTERNAL).
-	SQLLiteral(mode types.ProductMode) string
+	SQLLiteral(mode ProductMode) string
 	getRaw() unsafe.Pointer
 }
 
@@ -223,16 +222,16 @@ type value struct {
 	raw unsafe.Pointer
 }
 
-func (v *value) Type() types.Type {
+func (v *value) Type() Type {
 	var ret unsafe.Pointer
 	internal.Value_type(v.raw, &ret)
 	return newType(ret)
 }
 
-func (v *value) TypeKind() types.TypeKind {
+func (v *value) TypeKind() TypeKind {
 	var ret int
 	internal.Value_type_kind(v.raw, &ret)
-	return types.TypeKind(ret)
+	return TypeKind(ret)
 }
 
 func (v *value) PhysicalByteSize() uint64 {
@@ -517,13 +516,13 @@ func (v *value) Format() string {
 	return helper.PtrToString(ret)
 }
 
-func (v *value) SQL(mode types.ProductMode) string {
+func (v *value) SQL(mode ProductMode) string {
 	var ret unsafe.Pointer
 	internal.Value_GetSQL(v.raw, int(mode), &ret)
 	return helper.PtrToString(ret)
 }
 
-func (v *value) SQLLiteral(mode types.ProductMode) string {
+func (v *value) SQLLiteral(mode ProductMode) string {
 	var ret unsafe.Pointer
 	internal.Value_GetSQLLiteral(v.raw, int(mode), &ret)
 	return helper.PtrToString(ret)
@@ -549,6 +548,3 @@ func Int64(v int64) Value {
 	internal.Int64(v, &ret)
 	return newValue(ret)
 }
-
-//go:linkname newType github.com/goccy/go-zetasql/types.newType
-func newType(unsafe.Pointer) types.Type

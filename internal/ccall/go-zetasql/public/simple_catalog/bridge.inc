@@ -1342,3 +1342,546 @@ void GO_EXPORT(SimpleCatalog_AddZetaSQLFunctions)(void * arg0)
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
   catalog->AddZetaSQLFunctions();
 }
+
+void GO_EXPORT(Function_Name)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = (void *)((new std::string(f->Name()))->c_str());
+}
+
+void GO_EXPORT(Function_FunctionNamePath)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  GET_STRS(f->FunctionNamePath, arg1);
+}
+
+void GO_EXPORT(Function_FullName)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg2 = (void *)((new std::string(f->FullName(arg1)))->c_str());
+}
+
+void GO_EXPORT(Function_SQLName)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = (void *)((new std::string(f->SQLName()))->c_str());
+}
+
+void GO_EXPORT(Function_QualifiedSQLName)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg2 = (void *)((new std::string(f->QualifiedSQLName(arg1)))->c_str());
+}
+
+void GO_EXPORT(Function_Group)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = (void *)((new std::string(f->GetGroup()))->c_str());
+}
+
+void GO_EXPORT(Function_IsZetaSQLBuiltin)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->IsZetaSQLBuiltin();
+}
+
+void GO_EXPORT(Function_ArgumentsAreCoercible)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->ArgumentsAreCoercible();
+}
+
+void GO_EXPORT(Function_NumSignatures)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->NumSignatures();
+}
+
+void GO_EXPORT(Function_signatures)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  GET_LIST(f->signatures, arg1);
+}
+
+void GO_EXPORT(Function_ResetSignatures)(void * arg0,void * arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  SET_LIST(f->ResetSignatures, zetasql::FunctionSignature, arg1);
+}
+
+void GO_EXPORT(Function_AddSignature)(void * arg0,void * arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  f->AddSignature(*(zetasql::FunctionSignature *)arg1);
+}
+
+void GO_EXPORT(Function_mode)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->mode();
+}
+
+void GO_EXPORT(Function_IsScalar)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->IsScalar();
+}
+
+void GO_EXPORT(Function_IsAggregate)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->IsAggregate();
+}
+
+void GO_EXPORT(Function_IsAnalytic)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->IsAnalytic();
+}
+
+void GO_EXPORT(Function_DebugString)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg2 = (void *)((new std::string(f->DebugString(arg1)))->c_str());
+}
+
+void GO_EXPORT(Function_GetSQL)(void * arg0,void * arg1,void * arg2,void ** arg3)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  const std::vector<std::string> &inputs = slice_to_vec<std::string>(arg1);
+  *arg3 = (void *)((new std::string(f->GetSQL(inputs, (const zetasql::FunctionSignature *)arg2)))->c_str());
+}
+
+void GO_EXPORT(Function_SupportsOverClause)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsOverClause();
+}
+
+void GO_EXPORT(Function_SupportsWindowOrdering)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsWindowOrdering();
+}
+
+void GO_EXPORT(Function_RequiresWindowOrdering)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->RequiresWindowOrdering();
+}
+
+void GO_EXPORT(Function_SupportsWindowFraming)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsWindowFraming();
+}
+
+void GO_EXPORT(Function_SupportsOrderingArguments)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsOrderingArguments();
+}
+
+void GO_EXPORT(Function_SupportsLimitArguments)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsLimitArguments();
+}
+
+void GO_EXPORT(Function_SupportsNullHandlingModifier)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsNullHandlingModifier();
+}
+
+void GO_EXPORT(Function_SupportsSafeErrorMode)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsSafeErrorMode();
+}
+
+void GO_EXPORT(Function_SupportsHavingModifier)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsHavingModifier();
+}
+
+void GO_EXPORT(Function_SupportsDistinctModifier)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsDistinctModifier();
+}
+
+void GO_EXPORT(Function_SupportsClampedBetweenModifier)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->SupportsClampedBetweenModifier();
+}
+
+void GO_EXPORT(Function_IsDeprecated)(void * arg0,int* arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = f->IsDeprecated();
+}
+
+void GO_EXPORT(Function_alias_name)(void * arg0,void ** arg1)
+{
+  zetasql::Function *f = (zetasql::Function *)arg0;
+  *arg1 = (void *)((new std::string(f->alias_name()))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentType_required)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->required();
+}
+
+void GO_EXPORT(FunctionArgumentType_repeated)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->repeated();
+}
+
+void GO_EXPORT(FunctionArgumentType_optional)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->optional();
+}
+
+void GO_EXPORT(FunctionArgumentType_cardinality)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->cardinality();
+}
+
+void GO_EXPORT(FunctionArgumentType_must_be_constant)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->must_be_constant();
+}
+
+void GO_EXPORT(FunctionArgumentType_has_argument_name)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->has_argument_name();
+}
+
+void GO_EXPORT(FunctionArgumentType_argument_name)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = (void *)((new std::string(type->argument_name()))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentType_num_occurrences)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->num_occurrences();
+}
+
+void GO_EXPORT(FunctionArgumentType_set_num_occurrences)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  type->set_num_occurrences(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentType_IncrementNumOccurrences)(void * arg0)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  type->IncrementNumOccurrences();
+}
+
+void GO_EXPORT(FunctionArgumentType_type)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = (void *)type->type();
+}
+
+void GO_EXPORT(FunctionArgumentType_kind)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->kind();
+}
+
+void GO_EXPORT(FunctionArgumentType_labmda)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = (void *)(new zetasql::FunctionArgumentType::ArgumentTypeLambda(type->lambda()));
+}
+
+void GO_EXPORT(FunctionArgumentType_IsConcrete)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsConcrete();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsTemplated)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsTemplated();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsScalar)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsScalar();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsRelation)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsRelation();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsModel)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsModel();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsConnection)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsConnection();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsLambda)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsLambda();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsFixedRelation)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsFixedRelation();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsVoid)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsVoid();
+}
+
+void GO_EXPORT(FunctionArgumentType_IsDescriptor)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->IsDescriptor();
+}
+
+void GO_EXPORT(FunctionArgumentType_TemplatedKindIsRelated)(void * arg0,int arg1,int* arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = type->TemplatedKindIsRelated((zetasql::SignatureArgumentKind)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentType_AllowCoercionFrom)(void * arg0,void * arg1,int* arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = type->AllowCoercionFrom((const zetasql::Type *)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentType_HasDefault)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = type->HasDefault();
+}
+
+void GO_EXPORT(FunctionArgumentType_GetDefault)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  std::optional<zetasql::Value> ret = type->GetDefault();
+  if (ret) {
+    *arg1 = (void *)(new zetasql::Value(ret.value()));
+  }
+}
+
+void GO_EXPORT(FunctionArgumentType_UserFacingName)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = (void *)((new std::string(type->UserFacingName((zetasql::ProductMode)arg1)))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentType_UserFacingNameWithCardinality)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = (void *)((new std::string(type->UserFacingNameWithCardinality((zetasql::ProductMode)arg1)))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentType_IsValid)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = (void *)(new absl::Status(type->IsValid((zetasql::ProductMode)arg1)));
+}
+
+void GO_EXPORT(FunctionArgumentType_DebugString)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = (void *)((new std::string(type->DebugString(arg1)))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentType_GetSQLDeclaration)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg2 = (void *)((new std::string(type->GetSQLDeclaration((zetasql::ProductMode)arg1)))->c_str());
+}
+
+void GO_EXPORT(ArgumentTypeLambda_argument_types)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType::ArgumentTypeLambda *lambda = (zetasql::FunctionArgumentType::ArgumentTypeLambda *)arg0;
+  GET_LIST(lambda->argument_types, arg1);
+}
+
+void GO_EXPORT(ArgumentTypeLambda_body_type)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType::ArgumentTypeLambda *lambda = (zetasql::FunctionArgumentType::ArgumentTypeLambda *)arg0;
+  *arg1 = (void *)(new zetasql::FunctionArgumentType(lambda->body_type()));
+}
+
+void GO_EXPORT(FunctionSignature_arguments)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  GET_LIST(sig->arguments, arg1);
+}
+
+void GO_EXPORT(FunctionSignature_concret_arguments)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  int num = sig->NumConcreteArguments();
+  GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
+  void **data = (void **)malloc(sizeof(void *) * num);
+  for (int i = 0; i < sig->NumConcreteArguments(); i++) {
+    data[i] =(void *)(new zetasql::FunctionArgumentType(sig->ConcreteArgument(i)));
+  }
+  slice->data = (void *)data;
+  slice->len = num;
+  slice->cap = num;
+  *arg1 = (void *)data;
+}
+
+void GO_EXPORT(FunctionSignature_result_type)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = (void *)(new zetasql::FunctionArgumentType(sig->result_type()));
+}
+
+void GO_EXPORT(FunctionSignature_IsConcrete)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->IsConcrete();
+}
+
+void GO_EXPORT(FunctionSignature_HasConcreteArguments)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->HasConcreteArguments();
+}
+
+void GO_EXPORT(FunctionSignature_IsValid)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg2 = (void *)(new absl::Status(sig->IsValid((zetasql::ProductMode)arg1)));
+}
+
+void GO_EXPORT(FunctionSignature_IsValidForFunction)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = (void *)(new absl::Status(sig->IsValidForFunction()));
+}
+
+void GO_EXPORT(FunctionSignature_IsValidForTableValuedFunction)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = (void *)(new absl::Status(sig->IsValidForTableValuedFunction()));
+}
+
+void GO_EXPORT(FunctionSignature_IsValidForProcedure)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = (void *)(new absl::Status(sig->IsValidForProcedure()));
+}
+
+void GO_EXPORT(FunctionSignature_FirstRepeatedArgumentIndex)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->FirstRepeatedArgumentIndex();
+}
+
+void GO_EXPORT(FunctionSignature_LastRepeatedArgumentIndex)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->LastRepeatedArgumentIndex();
+}
+
+void GO_EXPORT(FunctionSignature_NumRequiredArguments)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->NumRequiredArguments();
+}
+
+void GO_EXPORT(FunctionSignature_NumRepeatedArguments)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->NumRepeatedArguments();
+}
+
+void GO_EXPORT(FunctionSignature_NumOptionalArguments)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->NumOptionalArguments();
+}
+
+void GO_EXPORT(FunctionSignature_DebugString)(void * arg0,void * arg1,int arg2,void ** arg3)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg3 = (void *)((new std::string(sig->DebugString((char *)arg1, arg2)))->c_str());
+}
+
+void GO_EXPORT(FunctionSignature_GetSQLDeclaration)(void * arg0,void * arg1,int arg2,void ** arg3)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  const std::vector<std::string> &names = slice_to_vec<std::string>(arg1);
+  *arg3 = (void *)((new std::string(sig->GetSQLDeclaration(names, (zetasql::ProductMode)arg2)))->c_str());
+}
+
+void GO_EXPORT(FunctionSignature_IsDeprecated)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->IsDeprecated();
+}
+
+void GO_EXPORT(FunctionSignature_SetIsDeprecated)(void * arg0,int arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  sig->SetIsDeprecated(arg1);
+}
+
+void GO_EXPORT(FunctionSignature_IsInternal)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->IsInternal();
+}
+
+void GO_EXPORT(FunctionSignature_options)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = (void *)(new zetasql::FunctionSignatureOptions(sig->options()));
+}
+
+void GO_EXPORT(FunctionSignature_SetConcreteResultType)(void * arg0,void * arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  sig->SetConcreteResultType((const zetasql::Type *)arg1);
+}
+
+void GO_EXPORT(FunctionSignature_IsTemplated)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->IsTemplated();
+}
+
+void GO_EXPORT(FunctionSignature_AllArgumentsHaveDefaults)(void * arg0,int* arg1)
+{
+  zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
+  *arg1 = sig->AllArgumentsHaveDefaults();
+}
+

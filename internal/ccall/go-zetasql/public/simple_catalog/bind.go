@@ -2248,6 +2248,990 @@ func simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0)
 }
 
+func Function_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_Name(arg0, arg1)
+}
+
+func Function_FunctionNamePath(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_FunctionNamePath(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_FunctionNamePath(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_FunctionNamePath(arg0, arg1)
+}
+
+func Function_FullName(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Function_FullName(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Function_FullName(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_FullName(arg0, arg1, arg2)
+}
+
+func Function_SQLName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_SQLName(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_SQLName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_SQLName(arg0, arg1)
+}
+
+func Function_QualifiedSQLName(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Function_QualifiedSQLName(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Function_QualifiedSQLName(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_QualifiedSQLName(arg0, arg1, arg2)
+}
+
+func Function_Group(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_Group(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_Group(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_Group(arg0, arg1)
+}
+
+func Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_IsZetaSQLBuiltin(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_IsZetaSQLBuiltin(arg0, arg1)
+}
+
+func Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_ArgumentsAreCoercible(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_ArgumentsAreCoercible(arg0, arg1)
+}
+
+func Function_NumSignatures(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Function_NumSignatures(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_NumSignatures(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_NumSignatures(arg0, arg1)
+}
+
+func Function_signatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_signatures(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_signatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_signatures(arg0, arg1)
+}
+
+func Function_ResetSignatures(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	simple_catalog_Function_ResetSignatures(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_ResetSignatures(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_ResetSignatures(arg0, arg1)
+}
+
+func Function_AddSignature(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	simple_catalog_Function_AddSignature(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_AddSignature(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_AddSignature(arg0, arg1)
+}
+
+func Function_mode(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_Function_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_mode(arg0, arg1)
+}
+
+func Function_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_IsScalar(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_IsScalar(arg0, arg1)
+}
+
+func Function_IsAggregate(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_IsAggregate(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_IsAggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_IsAggregate(arg0, arg1)
+}
+
+func Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_IsAnalytic(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_IsAnalytic(arg0, arg1)
+}
+
+func Function_DebugString(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_Function_DebugString(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_Function_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_DebugString(arg0, arg1, arg2)
+}
+
+func Function_GetSQL(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	simple_catalog_Function_GetSQL(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func simple_catalog_Function_GetSQL(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_GetSQL(arg0, arg1, arg2, arg3)
+}
+
+func Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsOverClause(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsOverClause(arg0, arg1)
+}
+
+func Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsWindowOrdering(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsWindowOrdering(arg0, arg1)
+}
+
+func Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_RequiresWindowOrdering(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_RequiresWindowOrdering(arg0, arg1)
+}
+
+func Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsWindowFraming(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsWindowFraming(arg0, arg1)
+}
+
+func Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsOrderingArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsOrderingArguments(arg0, arg1)
+}
+
+func Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsLimitArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsLimitArguments(arg0, arg1)
+}
+
+func Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsNullHandlingModifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsNullHandlingModifier(arg0, arg1)
+}
+
+func Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsSafeErrorMode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsSafeErrorMode(arg0, arg1)
+}
+
+func Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsHavingModifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsHavingModifier(arg0, arg1)
+}
+
+func Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsDistinctModifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsDistinctModifier(arg0, arg1)
+}
+
+func Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_SupportsClampedBetweenModifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_SupportsClampedBetweenModifier(arg0, arg1)
+}
+
+func Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_Function_IsDeprecated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_Function_IsDeprecated(arg0, arg1)
+}
+
+func Function_alias_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Function_alias_name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Function_alias_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Function_alias_name(arg0, arg1)
+}
+
+func FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_required(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_required(arg0, arg1)
+}
+
+func FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_repeated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_repeated(arg0, arg1)
+}
+
+func FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_optional(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_optional(arg0, arg1)
+}
+
+func FunctionArgumentType_cardinality(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionArgumentType_cardinality(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_cardinality(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_cardinality(arg0, arg1)
+}
+
+func FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_must_be_constant(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_must_be_constant(arg0, arg1)
+}
+
+func FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_has_argument_name(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_has_argument_name(arg0, arg1)
+}
+
+func FunctionArgumentType_argument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_argument_name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_argument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_argument_name(arg0, arg1)
+}
+
+func FunctionArgumentType_num_occurrences(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionArgumentType_num_occurrences(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_num_occurrences(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_num_occurrences(arg0, arg1)
+}
+
+func FunctionArgumentType_set_num_occurrences(arg0 unsafe.Pointer, arg1 int) {
+	simple_catalog_FunctionArgumentType_set_num_occurrences(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_set_num_occurrences(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_set_num_occurrences(arg0, arg1)
+}
+
+func FunctionArgumentType_IncrementNumOccurrences(arg0 unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_IncrementNumOccurrences(
+		arg0,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IncrementNumOccurrences(arg0 unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IncrementNumOccurrences(arg0)
+}
+
+func FunctionArgumentType_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_type(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_type(arg0, arg1)
+}
+
+func FunctionArgumentType_kind(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionArgumentType_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_kind(arg0, arg1)
+}
+
+func FunctionArgumentType_labmda(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_labmda(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_labmda(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_labmda(arg0, arg1)
+}
+
+func FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsConcrete(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsConcrete(arg0, arg1)
+}
+
+func FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsTemplated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsTemplated(arg0, arg1)
+}
+
+func FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsScalar(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsScalar(arg0, arg1)
+}
+
+func FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsRelation(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsRelation(arg0, arg1)
+}
+
+func FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsModel(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsModel(arg0, arg1)
+}
+
+func FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsConnection(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsConnection(arg0, arg1)
+}
+
+func FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsLambda(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsLambda(arg0, arg1)
+}
+
+func FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsFixedRelation(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsFixedRelation(arg0, arg1)
+}
+
+func FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsVoid(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsVoid(arg0, arg1)
+}
+
+func FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_IsDescriptor(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsDescriptor(arg0, arg1)
+}
+
+func FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 int, arg2 *bool) {
+	simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(
+		arg0,
+		C.int(arg1),
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	simple_catalog_FunctionArgumentType_AllowCoercionFrom(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_AllowCoercionFrom(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionArgumentType_HasDefault(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_HasDefault(arg0, arg1)
+}
+
+func FunctionArgumentType_GetDefault(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_GetDefault(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_GetDefault(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_GetDefault(arg0, arg1)
+}
+
+func FunctionArgumentType_UserFacingName(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_UserFacingName(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_UserFacingName(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_UserFacingName(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_UserFacingNameWithCardinality(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_UserFacingNameWithCardinality(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_UserFacingNameWithCardinality(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_UserFacingNameWithCardinality(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_IsValid(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_IsValid(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_IsValid(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsValid(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_DebugString(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_DebugString(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_DebugString(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionArgumentType_GetSQLDeclaration(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionArgumentType_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionArgumentType_GetSQLDeclaration(arg0, arg1, arg2)
+}
+
+func ArgumentTypeLambda_argument_types(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_ArgumentTypeLambda_argument_types(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_ArgumentTypeLambda_argument_types(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_ArgumentTypeLambda_argument_types(arg0, arg1)
+}
+
+func ArgumentTypeLambda_body_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_ArgumentTypeLambda_body_type(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_ArgumentTypeLambda_body_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_ArgumentTypeLambda_body_type(arg0, arg1)
+}
+
+func FunctionSignature_arguments(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_arguments(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_arguments(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_arguments(arg0, arg1)
+}
+
+func FunctionSignature_concret_arguments(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_concret_arguments(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_concret_arguments(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_concret_arguments(arg0, arg1)
+}
+
+func FunctionSignature_result_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_result_type(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_result_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_result_type(arg0, arg1)
+}
+
+func FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_IsConcrete(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsConcrete(arg0, arg1)
+}
+
+func FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_HasConcreteArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_HasConcreteArguments(arg0, arg1)
+}
+
+func FunctionSignature_IsValid(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_IsValid(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func simple_catalog_FunctionSignature_IsValid(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsValid(arg0, arg1, arg2)
+}
+
+func FunctionSignature_IsValidForFunction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_IsValidForFunction(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_IsValidForFunction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsValidForFunction(arg0, arg1)
+}
+
+func FunctionSignature_IsValidForTableValuedFunction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_IsValidForTableValuedFunction(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_IsValidForTableValuedFunction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsValidForTableValuedFunction(arg0, arg1)
+}
+
+func FunctionSignature_IsValidForProcedure(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_IsValidForProcedure(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_IsValidForProcedure(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsValidForProcedure(arg0, arg1)
+}
+
+func FunctionSignature_FirstRepeatedArgumentIndex(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionSignature_FirstRepeatedArgumentIndex(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_FirstRepeatedArgumentIndex(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_FirstRepeatedArgumentIndex(arg0, arg1)
+}
+
+func FunctionSignature_LastRepeatedArgumentIndex(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionSignature_LastRepeatedArgumentIndex(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_LastRepeatedArgumentIndex(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_LastRepeatedArgumentIndex(arg0, arg1)
+}
+
+func FunctionSignature_NumRequiredArguments(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionSignature_NumRequiredArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_NumRequiredArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_NumRequiredArguments(arg0, arg1)
+}
+
+func FunctionSignature_NumRepeatedArguments(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionSignature_NumRepeatedArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_NumRepeatedArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_NumRepeatedArguments(arg0, arg1)
+}
+
+func FunctionSignature_NumOptionalArguments(arg0 unsafe.Pointer, arg1 *int) {
+	simple_catalog_FunctionSignature_NumOptionalArguments(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_NumOptionalArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_NumOptionalArguments(arg0, arg1)
+}
+
+func FunctionSignature_DebugString(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_DebugString(
+		arg0,
+		arg1,
+		C.int(arg2),
+		arg3,
+	)
+}
+
+func simple_catalog_FunctionSignature_DebugString(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_DebugString(arg0, arg1, arg2, arg3)
+}
+
+func FunctionSignature_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_GetSQLDeclaration(
+		arg0,
+		arg1,
+		C.int(arg2),
+		arg3,
+	)
+}
+
+func simple_catalog_FunctionSignature_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_GetSQLDeclaration(arg0, arg1, arg2, arg3)
+}
+
+func FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_IsDeprecated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsDeprecated(arg0, arg1)
+}
+
+func FunctionSignature_SetIsDeprecated(arg0 unsafe.Pointer, arg1 int) {
+	simple_catalog_FunctionSignature_SetIsDeprecated(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func simple_catalog_FunctionSignature_SetIsDeprecated(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_SetIsDeprecated(arg0, arg1)
+}
+
+func FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_IsInternal(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsInternal(arg0, arg1)
+}
+
+func FunctionSignature_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_FunctionSignature_options(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_options(arg0, arg1)
+}
+
+func FunctionSignature_SetConcreteResultType(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	simple_catalog_FunctionSignature_SetConcreteResultType(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_FunctionSignature_SetConcreteResultType(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_SetConcreteResultType(arg0, arg1)
+}
+
+func FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_IsTemplated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_IsTemplated(arg0, arg1)
+}
+
+func FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *bool) {
+	simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(arg0, arg1)
+}
+
 //export export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)

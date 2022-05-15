@@ -3,15 +3,14 @@ package resolved_ast
 import (
 	"unsafe"
 
-	"github.com/goccy/go-zetasql/constant"
 	"github.com/goccy/go-zetasql/types"
 )
 
-//go:linkname newValue github.com/goccy/go-zetasql/constant.newValue
-func newValue(unsafe.Pointer) constant.Value
+//go:linkname newValue github.com/goccy/go-zetasql/types.newValue
+func newValue(unsafe.Pointer) types.Value
 
-//go:linkname getRawValue github.com/goccy/go-zetasql/constant.getRawValue
-func getRawValue(constant.Value) unsafe.Pointer
+//go:linkname getRawValue github.com/goccy/go-zetasql/types.getRawValue
+func getRawValue(types.Value) unsafe.Pointer
 
 //go:linkname newType github.com/goccy/go-zetasql/types.newType
 func newType(unsafe.Pointer) types.Type
@@ -26,10 +25,10 @@ func newTypeParameters(unsafe.Pointer) *types.TypeParameters
 func getRawTypeParameters(*types.TypeParameters) unsafe.Pointer
 
 //go:linkname newAnnotationMap github.com/goccy/go-zetasql/types.newAnnotationMap
-func newAnnotationMap(unsafe.Pointer) *types.AnnotationMap
+func newAnnotationMap(unsafe.Pointer) types.AnnotationMap
 
 //go:linkname getRawAnnotationMap github.com/goccy/go-zetasql/types.getRawAnnotationMap
-func getRawAnnotationMap(*types.AnnotationMap) unsafe.Pointer
+func getRawAnnotationMap(types.AnnotationMap) unsafe.Pointer
 
 //go:linkname newAnnotatedType github.com/goccy/go-zetasql/types.newAnnotatedType
 func newAnnotatedType(unsafe.Pointer) *types.AnnotatedType

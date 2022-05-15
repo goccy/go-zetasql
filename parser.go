@@ -74,14 +74,6 @@ func ParseStatement(stmt string) (ast.StatementNode, error) {
 	return parserOut.Statement()
 }
 
-type ErrorMessageMode int
-
-const (
-	ErrorMessageWithPayload ErrorMessageMode = iota
-	ErrorMessageOneLine
-	ErrorMessageMultiLineWithCaret
-)
-
 func ParseScript(script string, mode ErrorMessageMode) (ast.ScriptNode, error) {
 	var (
 		out    unsafe.Pointer

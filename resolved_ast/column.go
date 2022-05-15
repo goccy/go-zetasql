@@ -85,7 +85,7 @@ func (c *Column) Type() types.Type {
 	return newType(v)
 }
 
-func (c *Column) TypeAnnotationMap() *types.AnnotationMap {
+func (c *Column) TypeAnnotationMap() types.AnnotationMap {
 	var v unsafe.Pointer
 	internal.ResolvedColumn_type_annotation_map(c.raw, &v)
 	return newAnnotationMap(v)

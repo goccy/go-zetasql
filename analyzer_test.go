@@ -1,7 +1,6 @@
 package zetasql_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/goccy/go-zetasql"
@@ -19,7 +18,7 @@ func TestAnalyzer(t *testing.T) {
 		}),
 	)
 	catalog.AddZetaSQLBuiltinFunctions()
-	out, err := zetasql.AnalyzeStatement("SELECT * FROM z_table WHERE col1 = 1000", catalog)
+	out, err := zetasql.AnalyzeStatement("SELECT * FROM z_table WHERE col1 = 1000", catalog, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -49,8 +48,18 @@ func TestAnalyzer(t *testing.T) {
 		t.Fatal("failed to get table name")
 	}
 	funcCall := filter.FilterExpr().(*ast.FunctionCallNode)
-	fmt.Println("signature = ", funcCall.Signature())
-	for _, arg := range funcCall.ArgumentList() {
-		fmt.Printf("arg = %T\n", arg)
+	fn := funcCall.Function()
+	if !fn.IsZetaSQLBuiltin() || fn.Name() != "$equal" {
+		t.Fatalf("failed to get function: %s", fn.Name())
+	}
+	fnArgs := funcCall.ArgumentList()
+	if len(fnArgs) != 2 {
+		t.Fatalf("failed to get function arguments: %d", len(fnArgs))
+	}
+	if fnArgs[0].(*ast.ColumnRefNode).Column().Name() != "col1" {
+		t.Fatal("failed to get function argument column name")
+	}
+	if fnArgs[1].(*ast.LiteralNode).Value().Int64Value() != 1000 {
+		t.Fatal("failed to get function argument value")
 	}
 }

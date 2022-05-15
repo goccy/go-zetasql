@@ -3,7 +3,6 @@ package resolved_ast
 import (
 	"unsafe"
 
-	"github.com/goccy/go-zetasql/constant"
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/types"
@@ -56,8 +55,8 @@ type ExprNode interface {
 	//AnnotatedType() *types.AnnotatedType
 	Type() types.Type
 	SetType(types.Type)
-	TypeAnnotationMap() *types.AnnotationMap
-	SetTypeAnnotationMap(*types.AnnotationMap)
+	TypeAnnotationMap() types.AnnotationMap
+	SetTypeAnnotationMap(types.AnnotationMap)
 }
 
 type BaseNode struct {
@@ -134,13 +133,13 @@ func (n *BaseExprNode) SetType(v types.Type) {
 	internal.ResolvedExpr_set_type(n.raw, getRawType(v))
 }
 
-func (n *BaseExprNode) TypeAnnotationMap() *types.AnnotationMap {
+func (n *BaseExprNode) TypeAnnotationMap() types.AnnotationMap {
 	var v unsafe.Pointer
 	internal.ResolvedExpr_type_annotation_map(n.raw, &v)
 	return newAnnotationMap(v)
 }
 
-func (n *BaseExprNode) SetTypeAnnotationMap(v *types.AnnotationMap) {
+func (n *BaseExprNode) SetTypeAnnotationMap(v types.AnnotationMap) {
 	internal.ResolvedExpr_set_type_annotation_map(n.raw, getRawAnnotationMap(v))
 }
 
@@ -149,13 +148,13 @@ type LiteralNode struct {
 	*BaseExprNode
 }
 
-func (n *LiteralNode) Value() constant.Value {
+func (n *LiteralNode) Value() types.Value {
 	var v unsafe.Pointer
 	internal.ResolvedLiteral_value(n.raw, &v)
 	return newValue(v)
 }
 
-func (n *LiteralNode) SetValue(v constant.Value) {
+func (n *LiteralNode) SetValue(v types.Value) {
 	internal.ResolvedLiteral_set_value(n.raw, getRawValue(v))
 }
 
@@ -1151,13 +1150,13 @@ func (n *GetProtoFieldNode) SetExpr(v ExprNode) {
 // In that case, the default value is returned.
 //
 // TODO Make un-ignorable after clients migrate to start using it.
-func (n *GetProtoFieldNode) DefaultValue() constant.Value {
+func (n *GetProtoFieldNode) DefaultValue() types.Value {
 	var v unsafe.Pointer
 	internal.ResolvedGetProtoField_default_value(n.raw, &v)
 	return newValue(v)
 }
 
-func (n *GetProtoFieldNode) SetDefaultValue(v constant.Value) {
+func (n *GetProtoFieldNode) SetDefaultValue(v types.Value) {
 	internal.ResolvedGetProtoField_set_default_value(n.raw, getRawValue(v))
 }
 
@@ -1345,7 +1344,7 @@ func (n *ReplaceFieldItemNode) StructIndexPath() []int {
 
 func (n *ReplaceFieldItemNode) SetStructIndexPath(v []int) {
 	internal.ResolvedReplaceFieldItem_set_struct_index_path(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -1839,7 +1838,7 @@ func (n *TableScanNode) ColumnIndexList() []int {
 
 func (n *TableScanNode) SetColumnIndexList(v []int) {
 	internal.ResolvedTableScan_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -3025,7 +3024,7 @@ func (n *PrimaryKeyNode) ColumnOffsetList() []int {
 
 func (n *PrimaryKeyNode) SetColumnOffsetList(v []int) {
 	internal.ResolvedPrimaryKey_set_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -3155,7 +3154,7 @@ func (n *ForeignKeyNode) ReferencingColumnOffsetList() []int {
 
 func (n *ForeignKeyNode) SetReferencingColumnOffsetList(v []int) {
 	internal.ResolvedForeignKey_set_referencing_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -3185,7 +3184,7 @@ func (n *ForeignKeyNode) ReferencedColumnOffsetList() []int {
 
 func (n *ForeignKeyNode) SetReferencedColumnOffsetList(v []int) {
 	internal.ResolvedForeignKey_set_referenced_column_offset_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -3533,7 +3532,7 @@ func (n *TVFScanNode) ColumnIndexList() []int {
 
 func (n *TVFScanNode) SetColumnIndexList(v []int) {
 	internal.ResolvedTVFScan_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -6830,7 +6829,7 @@ func (n *UpdateStmtNode) ColumnAccessList() []ObjectAccess {
 
 func (n *UpdateStmtNode) SetColumnAccessList(v []ObjectAccess) {
 	internal.ResolvedUpdateStmt_set_column_access_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -7081,7 +7080,7 @@ func (n *MergeStmtNode) ColumnAccessList() []ObjectAccess {
 
 func (n *MergeStmtNode) SetColumnAccessList(v []ObjectAccess) {
 	internal.ResolvedMergeStmt_set_column_access_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 
@@ -10702,7 +10701,7 @@ func (n *TableAndColumnInfoNode) ColumnIndexList() []int {
 
 func (n *TableAndColumnInfoNode) SetColumnIndexList(v []int) {
 	internal.ResolvedTableAndColumnInfo_set_column_index_list(n.raw, helper.SliceToPtr(v, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(&v[i])
+		return unsafe.Pointer(uintptr(v[i]))
 	}))
 }
 

@@ -15,6 +15,8 @@ ZetaSQL can parse all queries related to Cloud Spanner and BigQuery. This functi
 - Can access all the APIs of the zetasql parser
   - The zetasql parser is not publicly available, but it is available in go-zetasql
 
+- Can access analyzer APIs
+
 # Status
 
 Among the functions of zetasql, you can use the functions of the following packages. Will be added sequentially
@@ -23,7 +25,7 @@ Among the functions of zetasql, you can use the functions of the following packa
 | ----     | ----       |
 |  parser  |  yes       |
 |  public  |  partial   |
-| analyzer | no         |
+| analyzer |  yes       |
 | scripting | no        |
 | reference_impl | no   |
 

@@ -901,13 +901,207 @@ static std::unique_ptr<const zetasql::ResolvedScan> make_unique_scan(void *arg)
   return nullptr;
 }
 
-void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void ** arg2,void ** arg3)
-{
-  zetasql::AnalyzerOptions opt;
+void GO_EXPORT(AnalyzerOptions_new)(void ** arg0){
+  *arg0 = (void *)(new zetasql::AnalyzerOptions());
+}
+
+void GO_EXPORT(AnalyzerOptions_AddQueryParameter)(void * arg0,void * arg1,void * arg2,void ** arg3){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg3 = (void *)(new absl::Status(opt->AddQueryParameter((char *)arg1, (const zetasql::Type *)arg2)));
+}
+
+typedef struct {
+  void *name;
+  void *type;
+} query_param_t;
+
+void GO_EXPORT(AnalyzerOptions_query_parameters)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  auto params = opt->query_parameters();
+  GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
+  void **data = (void **)malloc(sizeof(void *) * params.size());
+  int idx = 0;
+  for (auto it = params.begin(); it != params.end(); it++) {
+    query_param_t *param = (query_param_t *)malloc(sizeof(query_param_t));
+    param->name = (void *)((new std::string(it->first))->c_str());
+    param->type = (void *)it->second;
+    data[idx] = (void *)param;
+  }
+  slice->data = data;
+  slice->cap = params.size();
+  slice->len = params.size();
+  *arg1 = (void *)slice;
+}
+
+void GO_EXPORT(AnalyzerOptions_clear_query_parameters)(void * arg0){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->clear_query_parameters();
+}
+
+void GO_EXPORT(AnalyzerOptions_AddPositionalQueryParameter)(void * arg0,void * arg1,void ** arg2){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg2 = (void *)(new absl::Status(opt->AddPositionalQueryParameter((const zetasql::Type *)arg1)));
+}
+
+void GO_EXPORT(AnalyzerOptions_positional_query_parameters)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  auto params = opt->positional_query_parameters();
+  GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
+  void **data = (void **)malloc(sizeof(void *) * params.size());
+  for (int i = 0; i < params.size(); i++) {
+    data[i] = (void *)params[i];
+  }
+  slice->data = data;
+  slice->cap = params.size();
+  slice->len = params.size();
+  *arg1 = (void *)slice;
+}
+
+void GO_EXPORT(AnalyzerOptions_clear_positional_query_parameters)(void * arg0){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->clear_positional_query_parameters();
+}
+
+void GO_EXPORT(AnalyzerOptions_AddExpressionColumn)(void * arg0,void * arg1,void * arg2,void ** arg3){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg3 = (void *)(new absl::Status(opt->AddExpressionColumn((char *)arg1, (const zetasql::Type *)arg2)));
+}
+
+void GO_EXPORT(AnalyzerOptions_SetInScopeExpressionColumn)(void * arg0,void * arg1,void * arg2,void ** arg3){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg3 = (void *)(new absl::Status(opt->SetInScopeExpressionColumn((char *)arg1, (const zetasql::Type *)arg2)));
+}
+
+void GO_EXPORT(AnalyzerOptions_expression_columns)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  auto columns = opt->expression_columns();
+  GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
+  void **data = (void **)malloc(sizeof(void *) * columns.size());
+  int idx = 0;
+  for (auto it = columns.begin(); it != columns.end(); it++) {
+    query_param_t *param = (query_param_t *)malloc(sizeof(query_param_t));
+    param->name = (void *)((new std::string(it->first))->c_str());
+    param->type = (void *)it->second;
+    data[idx] = (void *)param;
+  }
+  slice->data = data;
+  slice->cap = columns.size();
+  slice->len = columns.size();
+  *arg1 = (void *)slice;
+}
+
+void GO_EXPORT(AnalyzerOptions_has_in_scope_expression_column)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->has_in_scope_expression_column();
+}
+
+void GO_EXPORT(AnalyzerOptions_in_scope_expression_column_name)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = (void *)((new std::string(opt->in_scope_expression_column_name()))->c_str());
+}
+
+void GO_EXPORT(AnalyzerOptions_in_scope_expression_column_type)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = (void *)opt->in_scope_expression_column_type();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_error_message_mode)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_error_message_mode((zetasql::ErrorMessageMode)arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_error_message_mode)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->error_message_mode();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_statement_context)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_statement_context((zetasql::StatementContext)arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_statement_context)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->statement_context();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_parse_location_record_type)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_parse_location_record_type((zetasql::ParseLocationRecordType)arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_parse_location_record_type)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->parse_location_record_type();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_create_new_column_for_each_projected_output)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_create_new_column_for_each_projected_output(arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_create_new_column_for_each_projected_output)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->create_new_column_for_each_projected_output();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_allow_undeclared_parameters)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_allow_undeclared_parameters(arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_allow_undeclared_parameters)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->allow_undeclared_parameters();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_parameter_mode)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_parameter_mode((zetasql::ParameterMode)arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_parameter_mode)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->parameter_mode();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_prune_unused_columns)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_prune_unused_columns(arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_prune_unused_columns)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->prune_unused_columns();
+}
+
+void GO_EXPORT(AnalyzerOptions_set_preserve_column_aliases)(void * arg0,int arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_preserve_column_aliases(arg1);
+}
+
+void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,int* arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = opt->preserve_column_aliases();
+}
+
+void GO_EXPORT(ValidateAnalyzerOptions)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = (void *)(new absl::Status(zetasql::ValidateAnalyzerOptions(*opt)));
+}
+
+void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,void ** arg4){
   std::unique_ptr<const zetasql::AnalyzerOutput> out;
-  absl::Status ret = zetasql::AnalyzeStatement((char *)arg0, opt, (zetasql::Catalog *)arg1, nullptr, &out);
-  *(std::unique_ptr<const zetasql::AnalyzerOutput> *)arg2 = std::move(out);
-  *arg3 = (void *)(new absl::Status(ret));
+  auto typeFactory = new zetasql::TypeFactory(); // FIXME: typeFactory will be leaked.
+  absl::Status ret = zetasql::AnalyzeStatement(
+    (char *)arg0,
+    *(zetasql::AnalyzerOptions *)arg1,
+    (zetasql::Catalog *)arg2,
+    typeFactory,
+    &out
+  );
+  *(std::unique_ptr<const zetasql::AnalyzerOutput> *)arg3 = std::move(out);
+  *arg4 = (void *)(new absl::Status(ret));
 }
 
 void GO_EXPORT(AnalyzerOutput_resolved_statement)(void * arg0,void ** arg1)

@@ -5692,11 +5692,606 @@
     - name: SimpleCatalog_AddZetaSQLFunctions
       args:
         - struct
+    - name: Function_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_FunctionNamePath
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Function_FullName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_SQLName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_QualifiedSQLName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_Group
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_IsZetaSQLBuiltin
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_ArgumentsAreCoercible
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_NumSignatures
+      args:
+        - struct
+      ret:
+        - int
+    - name: Function_signatures
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Function_ResetSignatures
+      args:
+        - struct
+        - struct
+    - name: Function_AddSignature
+      args:
+        - struct
+        - struct
+    - name: Function_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: Function_IsScalar
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsAggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsAnalytic
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_GetSQL
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Function_SupportsOverClause
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsWindowOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_RequiresWindowOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsWindowFraming
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsOrderingArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsLimitArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsNullHandlingModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsSafeErrorMode
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsHavingModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsDistinctModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsClampedBetweenModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsDeprecated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_alias_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentType_required
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_repeated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_optional
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_cardinality
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_must_be_constant
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_has_argument_name
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_argument_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentType_num_occurrences
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_set_num_occurrences
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentType_IncrementNumOccurrences
+      args:
+        - struct
+    - name: FunctionArgumentType_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_labmda
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_IsConcrete
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsScalar
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsRelation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsModel
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsConnection
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsLambda
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsFixedRelation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsVoid
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsDescriptor
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_TemplatedKindIsRelated
+      args:
+        - struct
+        - int
+      ret:
+        - bool
+    - name: FunctionArgumentType_AllowCoercionFrom
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_HasDefault
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_GetDefault
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_UserFacingName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_UserFacingNameWithCardinality
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_IsValid
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: FunctionArgumentType_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_GetSQLDeclaration
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: ArgumentTypeLambda_argument_types
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ArgumentTypeLambda_body_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_arguments
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_concret_arguments
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_result_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsConcrete
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_HasConcreteArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_IsValid
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForFunction
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForTableValuedFunction
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForProcedure
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_FirstRepeatedArgumentIndex
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_LastRepeatedArgumentIndex
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumRequiredArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumRepeatedArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumOptionalArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_DebugString
+      args:
+        - struct
+        - string
+        - int
+      ret:
+        - string
+    - name: FunctionSignature_GetSQLDeclaration
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionSignature_IsDeprecated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_SetIsDeprecated
+      args:
+        - struct
+        - int
+    - name: FunctionSignature_IsInternal
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_options
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_SetConcreteResultType
+      args:
+        - struct
+        - struct
+    - name: FunctionSignature_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_AllArgumentsHaveDefaults
+      args:
+        - struct
+      ret:
+        - bool
+
 - package: zetasql/public/analyzer
   methods:
+    - name: AnalyzerOptions_new
+      ret:
+        - struct
+    - name: AnalyzerOptions_AddQueryParameter
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_query_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_clear_query_parameters
+      args:
+        - struct
+    - name: AnalyzerOptions_AddPositionalQueryParameter
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_positional_query_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_clear_positional_query_parameters
+      args:
+        - struct
+    - name: AnalyzerOptions_AddExpressionColumn
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_SetInScopeExpressionColumn
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_expression_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_has_in_scope_expression_column
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_in_scope_expression_column_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: AnalyzerOptions_in_scope_expression_column_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_set_error_message_mode
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_error_message_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_statement_context
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_statement_context
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_parse_location_record_type
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_parse_location_record_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_create_new_column_for_each_projected_output
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_create_new_column_for_each_projected_output
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_allow_undeclared_parameters
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_allow_undeclared_parameters
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_parameter_mode
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_parameter_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_prune_unused_columns
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_prune_unused_columns
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_preserve_column_aliases
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_preserve_column_aliases
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ValidateAnalyzerOptions
+      args:
+        - struct
+      ret:
+        - struct
     - name: AnalyzeStatement
       args:
         - string
+        - struct
         - struct
       ret:
         - struct

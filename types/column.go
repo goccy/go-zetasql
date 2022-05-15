@@ -13,7 +13,7 @@ type Column interface {
 	Name() string
 	FullName() string
 	Type() Type
-	TypeAnnotationMap() *AnnotationMap
+	TypeAnnotationMap() AnnotationMap
 	IsPseudoColumn() bool
 	IsWritableColumn() bool
 	getRaw() unsafe.Pointer
@@ -45,7 +45,7 @@ func (c *BaseColumn) Type() Type {
 	return newType(v)
 }
 
-func (c *BaseColumn) TypeAnnotationMap() *AnnotationMap {
+func (c *BaseColumn) TypeAnnotationMap() AnnotationMap {
 	return nil
 }
 

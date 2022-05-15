@@ -30,8 +30,18 @@ type TypeParameterValue struct {
 	raw unsafe.Pointer
 }
 
+// AnnotatedType holds unowned pointers to Type and AnnoationMap.
+// <annotation_map> could be nil to indicate that the <type> doesn't have annotation.
 type AnnotatedType struct {
 	raw unsafe.Pointer
+}
+
+func (t *AnnotatedType) Type() Type {
+	return nil
+}
+
+func (t *AnnotatedType) AnnotationMap() AnnotationMap {
+	return nil
 }
 
 func newAnnotatedType(raw unsafe.Pointer) *AnnotatedType {
@@ -48,81 +58,81 @@ func getRawAnnotatedType(v *AnnotatedType) unsafe.Pointer {
 type TypeKind int
 
 const (
-	UnknownType TypeKind = 0
-	Int32                = 1
-	Int64                = 2
-	Uint32               = 3
-	Uint64               = 4
-	Bool                 = 5
-	Float                = 6
-	Double               = 7
-	String               = 8
-	Bytes                = 9
-	Date                 = 10
-	Timestamp            = 19
-	Enum                 = 15
-	Array                = 16
-	Struct               = 17
-	Proto                = 18
-	Time                 = 20
-	Datetime             = 21
-	Geography            = 22
-	Numeric              = 23
-	BigNumeric           = 24
-	Extended             = 25
-	Json                 = 26
-	Internal             = 27
+	UNKNOWN     TypeKind = 0
+	INT32                = 1
+	INT64                = 2
+	UINT32               = 3
+	UINT64               = 4
+	BOOL                 = 5
+	FLOAT                = 6
+	DOUBLE               = 7
+	STRING               = 8
+	BYTES                = 9
+	DATE                 = 10
+	TIMESTAMP            = 19
+	ENUM                 = 15
+	ARRAY                = 16
+	STRUCT               = 17
+	PROTO                = 18
+	TIME                 = 20
+	DATETIME             = 21
+	GEOGRAPHY            = 22
+	NUMERIC              = 23
+	BIG_NUMERIC          = 24
+	EXTENDED             = 25
+	JSON                 = 26
+	INTERNAL             = 27
 )
 
 func (k TypeKind) String() string {
 	switch k {
-	case UnknownType:
+	case UNKNOWN:
 		return "UNKNOWN"
-	case Int32:
+	case INT32:
 		return "INT32"
-	case Int64:
+	case INT64:
 		return "INT64"
-	case Uint32:
+	case UINT32:
 		return "UINT32"
-	case Uint64:
+	case UINT64:
 		return "UINT64"
-	case Bool:
+	case BOOL:
 		return "BOOL"
-	case Float:
+	case FLOAT:
 		return "FLOAT"
-	case Double:
+	case DOUBLE:
 		return "DOUBLE"
-	case String:
+	case STRING:
 		return "STRING"
-	case Bytes:
+	case BYTES:
 		return "BYTES"
-	case Date:
+	case DATE:
 		return "DATE"
-	case Timestamp:
+	case TIMESTAMP:
 		return "TIMESTAMP"
-	case Enum:
+	case ENUM:
 		return "ENUM"
-	case Array:
+	case ARRAY:
 		return "ARRAY"
-	case Struct:
+	case STRUCT:
 		return "STRUCT"
-	case Proto:
+	case PROTO:
 		return "PROTO"
-	case Time:
+	case TIME:
 		return "TIME"
-	case Datetime:
+	case DATETIME:
 		return "DATETIME"
-	case Geography:
+	case GEOGRAPHY:
 		return "GEOGRAPHY"
-	case Numeric:
+	case NUMERIC:
 		return "NUMERIC"
-	case BigNumeric:
+	case BIG_NUMERIC:
 		return "BIGNUMERIC"
-	case Extended:
+	case EXTENDED:
 		return "EXTENDED"
-	case Json:
+	case JSON:
 		return "JSON"
-	case Internal:
+	case INTERNAL:
 		return "INTERNAL"
 	}
 	return ""

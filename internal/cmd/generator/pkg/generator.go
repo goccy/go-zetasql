@@ -585,7 +585,7 @@ func (g *Generator) createBindGoParamDarwin(lib *Lib) *BindGoParam {
 }
 
 func (g *Generator) createBindGoParam(lib *Lib, ldflags []string) *BindGoParam {
-	param := &BindGoParam{}
+	param := &BindGoParam{DebugMode: false}
 	param.Pkg = g.goPkgName(lib)
 	param.Compiler = g.cgoCompiler(lib)
 	param.LDFlags = ldflags

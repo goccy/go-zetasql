@@ -36,8 +36,18 @@ import (
 	"unsafe"
 )
 
-func AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	analyzer_AnalyzeStatement(
+func AnalyzerOptions_new(arg0 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_new(
+		arg0,
+	)
+}
+
+func analyzer_AnalyzerOptions_new(arg0 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_new(arg0)
+}
+
+func AnalyzerOptions_AddQueryParameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_AddQueryParameter(
 		arg0,
 		arg1,
 		arg2,
@@ -45,8 +55,333 @@ func AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Poi
 	)
 }
 
-func analyzer_AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	C.export_zetasql_public_analyzer_AnalyzeStatement(arg0, arg1, arg2, arg3)
+func analyzer_AnalyzerOptions_AddQueryParameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_AddQueryParameter(arg0, arg1, arg2, arg3)
+}
+
+func AnalyzerOptions_query_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_query_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_query_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_query_parameters(arg0, arg1)
+}
+
+func AnalyzerOptions_clear_query_parameters(arg0 unsafe.Pointer) {
+	analyzer_AnalyzerOptions_clear_query_parameters(
+		arg0,
+	)
+}
+
+func analyzer_AnalyzerOptions_clear_query_parameters(arg0 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_clear_query_parameters(arg0)
+}
+
+func AnalyzerOptions_AddPositionalQueryParameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_AddPositionalQueryParameter(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func analyzer_AnalyzerOptions_AddPositionalQueryParameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_AddPositionalQueryParameter(arg0, arg1, arg2)
+}
+
+func AnalyzerOptions_positional_query_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_positional_query_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_positional_query_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_positional_query_parameters(arg0, arg1)
+}
+
+func AnalyzerOptions_clear_positional_query_parameters(arg0 unsafe.Pointer) {
+	analyzer_AnalyzerOptions_clear_positional_query_parameters(
+		arg0,
+	)
+}
+
+func analyzer_AnalyzerOptions_clear_positional_query_parameters(arg0 unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_clear_positional_query_parameters(arg0)
+}
+
+func AnalyzerOptions_AddExpressionColumn(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_AddExpressionColumn(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func analyzer_AnalyzerOptions_AddExpressionColumn(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_AddExpressionColumn(arg0, arg1, arg2, arg3)
+}
+
+func AnalyzerOptions_SetInScopeExpressionColumn(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_SetInScopeExpressionColumn(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func analyzer_AnalyzerOptions_SetInScopeExpressionColumn(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_SetInScopeExpressionColumn(arg0, arg1, arg2, arg3)
+}
+
+func AnalyzerOptions_expression_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_expression_columns(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_expression_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_expression_columns(arg0, arg1)
+}
+
+func AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_AnalyzerOptions_has_in_scope_expression_column(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_has_in_scope_expression_column(arg0, arg1)
+}
+
+func AnalyzerOptions_in_scope_expression_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_in_scope_expression_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_in_scope_expression_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_in_scope_expression_column_name(arg0, arg1)
+}
+
+func AnalyzerOptions_in_scope_expression_column_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_in_scope_expression_column_type(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_in_scope_expression_column_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_in_scope_expression_column_type(arg0, arg1)
+}
+
+func AnalyzerOptions_set_error_message_mode(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_error_message_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_error_message_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_error_message_mode(arg0, arg1)
+}
+
+func AnalyzerOptions_error_message_mode(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_AnalyzerOptions_error_message_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_error_message_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_error_message_mode(arg0, arg1)
+}
+
+func AnalyzerOptions_set_statement_context(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_statement_context(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_statement_context(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_statement_context(arg0, arg1)
+}
+
+func AnalyzerOptions_statement_context(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_AnalyzerOptions_statement_context(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_statement_context(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_statement_context(arg0, arg1)
+}
+
+func AnalyzerOptions_set_parse_location_record_type(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_parse_location_record_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_parse_location_record_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_parse_location_record_type(arg0, arg1)
+}
+
+func AnalyzerOptions_parse_location_record_type(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_AnalyzerOptions_parse_location_record_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_parse_location_record_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_parse_location_record_type(arg0, arg1)
+}
+
+func AnalyzerOptions_set_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_create_new_column_for_each_projected_output(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_create_new_column_for_each_projected_output(arg0, arg1)
+}
+
+func AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(arg0, arg1)
+}
+
+func AnalyzerOptions_set_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_allow_undeclared_parameters(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_allow_undeclared_parameters(arg0, arg1)
+}
+
+func AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_AnalyzerOptions_allow_undeclared_parameters(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_allow_undeclared_parameters(arg0, arg1)
+}
+
+func AnalyzerOptions_set_parameter_mode(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_parameter_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_parameter_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_parameter_mode(arg0, arg1)
+}
+
+func AnalyzerOptions_parameter_mode(arg0 unsafe.Pointer, arg1 *int) {
+	analyzer_AnalyzerOptions_parameter_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_parameter_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_parameter_mode(arg0, arg1)
+}
+
+func AnalyzerOptions_set_prune_unused_columns(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_prune_unused_columns(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_prune_unused_columns(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_prune_unused_columns(arg0, arg1)
+}
+
+func AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_AnalyzerOptions_prune_unused_columns(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_prune_unused_columns(arg0, arg1)
+}
+
+func AnalyzerOptions_set_preserve_column_aliases(arg0 unsafe.Pointer, arg1 int) {
+	analyzer_AnalyzerOptions_set_preserve_column_aliases(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func analyzer_AnalyzerOptions_set_preserve_column_aliases(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_set_preserve_column_aliases(arg0, arg1)
+}
+
+func AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *bool) {
+	analyzer_AnalyzerOptions_preserve_column_aliases(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func analyzer_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_preserve_column_aliases(arg0, arg1)
+}
+
+func ValidateAnalyzerOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ValidateAnalyzerOptions(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ValidateAnalyzerOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ValidateAnalyzerOptions(arg0, arg1)
+}
+
+func AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	analyzer_AnalyzeStatement(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		arg4,
+	)
+}
+
+func analyzer_AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzeStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
 func AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {

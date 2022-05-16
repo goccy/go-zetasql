@@ -347,12 +347,12 @@ void GO_EXPORT(TypeFactory_MakeStructType)(void * arg0,void * arg1,int arg2,void
 {
   zetasql::TypeFactory *factory = (zetasql::TypeFactory *)arg0;
   const zetasql::StructType::StructField **data = (const zetasql::StructType::StructField **)arg1;
-  std::vector<const zetasql::StructType::StructField> fields;
+  std::vector<zetasql::StructType::StructField> fields;
   for (int i = 0; i < arg2; i++) {
     fields.push_back(*data[i]);
   }
   const zetasql::StructType *out = nullptr;
-  absl::Status ret = factory->MakeStructType(fields, &out);
+  absl::Status ret = factory->MakeStructTypeFromVector(fields, &out);
   *arg3 = (void *)out;
   *arg4 = (void *)(new absl::Status(ret));
 }

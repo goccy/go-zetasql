@@ -10,6 +10,8 @@ package simple_catalog
 #cgo CXXFLAGS: -I../../../json
 #cgo CXXFLAGS: -I../../../googleapis
 #cgo CXXFLAGS: -I../../../flex/src
+#cgo CXXFLAGS: -Wno-final-dtor-non-final-class
+#cgo CXXFLAGS: -Wno-implicit-const-int-float-conversion
 #cgo CXXFLAGS: -Wno-char-subscripts
 #cgo CXXFLAGS: -Wno-sign-compare
 #cgo CXXFLAGS: -Wno-switch
@@ -1054,11 +1056,11 @@ func simple_catalog_Value_type_kind(arg0 unsafe.Pointer, arg1 *C.int) {
 func Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *uint64) {
 	simple_catalog_Value_physical_byte_size(
 		arg0,
-		(*C.ulonglong)(unsafe.Pointer(arg1)),
+		(*C.uint64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+func simple_catalog_Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 	C.export_zetasql_public_simple_catalog_Value_physical_byte_size(arg0, arg1)
 }
 
@@ -1142,11 +1144,11 @@ func simple_catalog_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint) {
 func Value_uint64_value(arg0 unsafe.Pointer, arg1 *uint64) {
 	simple_catalog_Value_uint64_value(
 		arg0,
-		(*C.ulonglong)(unsafe.Pointer(arg1)),
+		(*C.uint64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_uint64_value(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+func simple_catalog_Value_uint64_value(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 	C.export_zetasql_public_simple_catalog_Value_uint64_value(arg0, arg1)
 }
 
@@ -1341,11 +1343,11 @@ func simple_catalog_Value_ToInt64(arg0 unsafe.Pointer, arg1 *C.longlong) {
 func Value_ToUint64(arg0 unsafe.Pointer, arg1 *uint64) {
 	simple_catalog_Value_ToUint64(
 		arg0,
-		(*C.ulonglong)(unsafe.Pointer(arg1)),
+		(*C.uint64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_ToUint64(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+func simple_catalog_Value_ToUint64(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 	C.export_zetasql_public_simple_catalog_Value_ToUint64(arg0, arg1)
 }
 
@@ -1480,11 +1482,11 @@ func simple_catalog_Value_SqlLessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, 
 func Value_HashCode(arg0 unsafe.Pointer, arg1 *uint64) {
 	simple_catalog_Value_HashCode(
 		arg0,
-		(*C.ulonglong)(unsafe.Pointer(arg1)),
+		(*C.uint64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_HashCode(arg0 unsafe.Pointer, arg1 *C.ulonglong) {
+func simple_catalog_Value_HashCode(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 	C.export_zetasql_public_simple_catalog_Value_HashCode(arg0, arg1)
 }
 

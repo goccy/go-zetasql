@@ -10,6 +10,9 @@ package {{ .Pkg }}
 {{- range .IncludePaths }}
 #cgo CXXFLAGS: -I{{ . }}
 {{- end }}
+{{- range .CXXFlags }}
+#cgo CXXFLAGS: {{ . }}
+{{- end }}
 #cgo CXXFLAGS: -Wno-char-subscripts
 #cgo CXXFLAGS: -Wno-sign-compare
 #cgo CXXFLAGS: -Wno-switch

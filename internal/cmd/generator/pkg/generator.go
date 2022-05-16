@@ -480,6 +480,7 @@ type BindGoParam struct {
 	FQDN            string
 	ImportUnsafePkg bool
 	IncludePaths    []string
+	CXXFlags        []string
 	LDFlags         []string
 	BridgeHeaders   []string
 	ImportGoLibs    []string
@@ -562,7 +563,11 @@ func (g *Generator) createBindGoParamLinux(lib *Lib) *BindGoParam {
 		}
 		ldflags = append(ldflags, flag.Flag)
 	}
-	return g.createBindGoParam(lib, ldflags)
+	cxxflags := []string{
+		"-Wno-final-dtor-non-final-class",
+		"-Wno-implicit-const-int-float-conversion",
+	}
+	return g.createBindGoParam(lib, cxxflags, ldflags)
 }
 
 func (g *Generator) createBindGoParamDarwin(lib *Lib) *BindGoParam {
@@ -573,13 +578,14 @@ func (g *Generator) createBindGoParamDarwin(lib *Lib) *BindGoParam {
 		}
 		ldflags = append(ldflags, flag.Flag)
 	}
-	return g.createBindGoParam(lib, ldflags)
+	return g.createBindGoParam(lib, nil, ldflags)
 }
 
-func (g *Generator) createBindGoParam(lib *Lib, ldflags []string) *BindGoParam {
+func (g *Generator) createBindGoParam(lib *Lib, cxxflags, ldflags []string) *BindGoParam {
 	param := &BindGoParam{DebugMode: false}
 	param.Pkg = g.goPkgName(lib)
 	param.Compiler = g.cgoCompiler(lib)
+	param.CXXFlags = cxxflags
 	param.LDFlags = ldflags
 	prefix := strings.ReplaceAll(lib.BasePkg, "/", "_")
 	param.FQDN = fmt.Sprintf("%s_%s", prefix, lib.Name)
@@ -736,7 +742,7 @@ func (g *Generator) toCGOType(typ string) string {
 	case "int64":
 		return "C.longlong"
 	case "uint64":
-		return "C.ulonglong"
+		return "C.uint64_t"
 	case "float32":
 		return "C.float"
 	case "float64":

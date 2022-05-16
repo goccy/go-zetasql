@@ -334,43 +334,35 @@ func (g *Generator) generateBridgeExternH(outputDir string, lib *Lib) error {
 }
 
 func (g *Generator) generateBindGO(outputDir string, lib *Lib) error {
-	if lib.NeedsBuildConstraint() {
-		{
-			// for darwin ( currently windows not supported )
-			output, err := g.generateGoSourceByTemplate(
-				"templates/bind.go.tmpl",
-				g.createBindGoParamDarwin(lib),
-			)
-			if err != nil {
-				return err
-			}
-			if err := os.WriteFile(filepath.Join(outputDir, "bind_darwin.go"), output, 0o600); err != nil {
-				return err
-			}
+	{
+		// for darwin ( currently windows not supported )
+		output, err := g.generateGoSourceByTemplate(
+			"templates/bind.go.tmpl",
+			g.createBindGoParamDarwin(lib),
+		)
+		if err != nil {
+			return err
 		}
-		{
-			output, err := g.generateGoSourceByTemplate(
-				"templates/bind.go.tmpl",
-				g.createBindGoParamLinux(lib),
-			)
-			if err != nil {
-				return err
-			}
-			if err := os.WriteFile(filepath.Join(outputDir, "bind_linux.go"), output, 0o600); err != nil {
-				return err
-			}
+		if err := os.WriteFile(filepath.Join(outputDir, "bind_darwin.go"), output, 0o600); err != nil {
+			return err
 		}
-		return nil
 	}
-	output, err := g.generateGoSourceByTemplate(
-		"templates/bind.go.tmpl",
-		g.createBindGoParamLinux(lib),
-	)
-	if err != nil {
-		return err
+	{
+		output, err := g.generateGoSourceByTemplate(
+			"templates/bind.go.tmpl",
+			g.createBindGoParamLinux(lib),
+		)
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile(filepath.Join(outputDir, "bind_linux.go"), output, 0o600); err != nil {
+			return err
+		}
 	}
-	if err := os.WriteFile(filepath.Join(outputDir, "bind.go"), output, 0o600); err != nil {
-		return err
+	if existsFile(filepath.Join(outputDir, "bind.go")) {
+		if err := os.Remove(filepath.Join(outputDir, "bind.go")); err != nil {
+			return err
+		}
 	}
 	return nil
 }
@@ -563,7 +555,7 @@ func (g *Generator) extendLibs(lib *Lib) []string {
 }
 
 func (g *Generator) createBindGoParamLinux(lib *Lib) *BindGoParam {
-	ldflags := []string{}
+	ldflags := []string{"-ldl"}
 	for _, flag := range lib.LinkerFlags {
 		if flag.OSType == Darwin || flag.OSType == Windows {
 			continue

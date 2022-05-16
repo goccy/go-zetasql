@@ -740,7 +740,7 @@ func (g *Generator) toCGOType(typ string) string {
 	case "uint", "uint8", "uint16", "uint32":
 		return "C.uint"
 	case "int64":
-		return "C.longlong"
+		return "C.int64_t"
 	case "uint64":
 		return "C.uint64_t"
 	case "float32":

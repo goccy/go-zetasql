@@ -1119,11 +1119,11 @@ func simple_catalog_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int) {
 func Value_int64_value(arg0 unsafe.Pointer, arg1 *int64) {
 	simple_catalog_Value_int64_value(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_int64_value(arg0 unsafe.Pointer, arg1 *C.longlong) {
+func simple_catalog_Value_int64_value(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 	C.export_zetasql_public_simple_catalog_Value_int64_value(arg0, arg1)
 }
 
@@ -1240,45 +1240,45 @@ func simple_catalog_Value_enum_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *int64) {
 	simple_catalog_Value_ToUnixMicros(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+func simple_catalog_Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 	C.export_zetasql_public_simple_catalog_Value_ToUnixMicros(arg0, arg1)
 }
 
 func Value_ToUnixNanos(arg0 unsafe.Pointer, arg1 *int64, arg2 *unsafe.Pointer) {
 	simple_catalog_Value_ToUnixNanos(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 		arg2,
 	)
 }
 
-func simple_catalog_Value_ToUnixNanos(arg0 unsafe.Pointer, arg1 *C.longlong, arg2 *unsafe.Pointer) {
+func simple_catalog_Value_ToUnixNanos(arg0 unsafe.Pointer, arg1 *C.int64_t, arg2 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_Value_ToUnixNanos(arg0, arg1, arg2)
 }
 
 func Value_ToPacked64TimeMicros(arg0 unsafe.Pointer, arg1 *int64) {
 	simple_catalog_Value_ToPacked64TimeMicros(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_ToPacked64TimeMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+func simple_catalog_Value_ToPacked64TimeMicros(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 	C.export_zetasql_public_simple_catalog_Value_ToPacked64TimeMicros(arg0, arg1)
 }
 
 func Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *int64) {
 	simple_catalog_Value_ToPacked64DatetimeMicros(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *C.longlong) {
+func simple_catalog_Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 	C.export_zetasql_public_simple_catalog_Value_ToPacked64DatetimeMicros(arg0, arg1)
 }
 
@@ -1329,11 +1329,11 @@ func simple_catalog_Value_json_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer)
 func Value_ToInt64(arg0 unsafe.Pointer, arg1 *int64) {
 	simple_catalog_Value_ToInt64(
 		arg0,
-		(*C.longlong)(unsafe.Pointer(arg1)),
+		(*C.int64_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_ToInt64(arg0 unsafe.Pointer, arg1 *C.longlong) {
+func simple_catalog_Value_ToInt64(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 	C.export_zetasql_public_simple_catalog_Value_ToInt64(arg0, arg1)
 }
 
@@ -1557,12 +1557,12 @@ func simple_catalog_Value_GetSQLLiteral(arg0 unsafe.Pointer, arg1 C.int, arg2 *u
 
 func Int64(arg0 int64, arg1 *unsafe.Pointer) {
 	simple_catalog_Int64(
-		C.longlong(arg0),
+		C.int64_t(arg0),
 		arg1,
 	)
 }
 
-func simple_catalog_Int64(arg0 C.longlong, arg1 *unsafe.Pointer) {
+func simple_catalog_Int64(arg0 C.int64_t, arg1 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_Int64(arg0, arg1)
 }
 

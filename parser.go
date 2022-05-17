@@ -6,7 +6,7 @@ import (
 	"unsafe"
 
 	"github.com/goccy/go-zetasql/ast"
-	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/parser/parser"
+	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 )
 
 var (
@@ -73,14 +73,6 @@ func ParseStatement(stmt string) (ast.StatementNode, error) {
 	parserOut := &parserOutput{raw: out}
 	return parserOut.Statement()
 }
-
-type ErrorMessageMode int
-
-const (
-	ErrorMessageWithPayload ErrorMessageMode = iota
-	ErrorMessageOneLine
-	ErrorMessageMultiLineWithCaret
-)
 
 func ParseScript(script string, mode ErrorMessageMode) (ast.ScriptNode, error) {
 	var (

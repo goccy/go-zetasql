@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_UUID_EXPORT_H
 
 #include "zetasql/public/functions/uuid.h"
+#include "zetasql/public/functions/uuid.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -12,6 +14,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/base/status/export.inc"
 #include "go-absl/random/bit_gen_ref/export.inc"

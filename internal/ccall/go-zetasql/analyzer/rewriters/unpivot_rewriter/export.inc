@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_UNPIVOT_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/unpivot_rewriter.h"
+#include "zetasql/analyzer/rewriters/unpivot_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetUnpivotRewriter() {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/base/base/export.inc"
@@ -23,7 +26,7 @@ namespace zetasql {
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/id_string/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/rewrite_utils/export.inc"
 #include "go-absl/status/status/export.inc"

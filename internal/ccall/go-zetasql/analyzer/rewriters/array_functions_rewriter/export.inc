@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_ARRAY_FUNCTIONS_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/array_functions_rewriter.h"
+#include "zetasql/analyzer/rewriters/array_functions_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetArrayFilterTransformRewriter() {
@@ -14,6 +16,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/analyzer/substitute/export.inc"
@@ -26,7 +29,7 @@ namespace zetasql {
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"

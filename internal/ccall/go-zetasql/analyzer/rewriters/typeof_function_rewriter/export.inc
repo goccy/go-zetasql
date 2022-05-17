@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_TYPEOF_FUNCTION_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/typeof_function_rewriter.h"
+#include "zetasql/analyzer/rewriters/typeof_function_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   const Rewriter* GetTypeofFunctionRewriter() {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/rewriters/rewriter_interface/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"
@@ -22,8 +25,8 @@ namespace zetasql {
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/rewrite_utils/export.inc"
 #include "go-absl/status/status/export.inc"

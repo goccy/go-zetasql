@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_COMMON_PROTO_EXPORT_H
 
 #include "zetasql/public/functions/common_proto.h"
+#include "zetasql/public/functions/common_proto.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -16,7 +18,7 @@ namespace zetasql {
 
   }
 }
-
+#endif
 
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-zetasql/base/status/export.inc"

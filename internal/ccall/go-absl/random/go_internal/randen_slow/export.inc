@@ -2,7 +2,9 @@
 #define ABSL_RANDOM_INTERNAL_RANDEN_SLOW_EXPORT_H
 
 #include "absl/random/internal/randen_slow.h"
+#include "absl/random/internal/randen_slow.cc"
 
+#if 0
 namespace absl {
   namespace random_internal {
 
@@ -18,12 +20,12 @@ namespace absl {
 
   }
 }
+#endif
 
-
+#include "go-absl/random/go_internal/platform/export.inc"
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/base/endian/export.inc"
 #include "go-absl/numeric/int128/export.inc"
-#include "go-absl/random/internal/platform/export.inc"
 
 #endif

@@ -49,9 +49,18 @@ global_symbols:
   - FLAGS_output_asc_explicitly
   - FLAGS_zetasql_use_customized_flex_istream
   - FLAGS_zetasql_type_factory_nesting_depth_limit
+  - FLAGS_zetasql_read_proto_field_optimized_path
+  - FLAGS_zetasql_format_max_output_width
+  - FLAGS_zetasql_min_length_required_for_edit_distance
+  - FLAGS_zetasql_simple_iterator_call_time_now_rows_period
   - FLAGS_nozetasql_type_factory_nesting_depth_limit
+  - FLAGS_nozetasql_read_proto_field_optimized_path
+  - FLAGS_nozetasql_format_max_output_width
+  - FLAGS_nozetasql_min_length_required_for_edit_distance
+  - FLAGS_nozetasql_simple_iterator_call_time_now_rows_period
   - ZetaSqlFlexTokenizerBase
   - ZetaSqlFlexLexer
+  - UCaseMap
 
 top_level_namespaces:
   - absl
@@ -105,6 +114,9 @@ protobuf_internal_export_name_files:
   - protobuf/google/protobuf/struct.pb.h
   - protobuf/google/protobuf/type.pb.h
   - protobuf/google/protobuf/wrappers.pb.h
+  - googleapis/google/type/date.pb.h
+  - googleapis/google/type/latlng.pb.h
+  - googleapis/google/type/timeofday.pb.h
   - zetasql/public/proto/wire_format_annotation.pb.h
 
 cclib:

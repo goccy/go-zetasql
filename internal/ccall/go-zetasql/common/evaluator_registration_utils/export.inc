@@ -2,13 +2,16 @@
 #define ZETASQL_COMMON_EVALUATOR_REGISTRATION_UTILS_EXPORT_H
 
 #include "zetasql/common/evaluator_registration_utils.h"
+#include "zetasql/common/evaluator_registration_utils.cc"
 
+#if 0
 namespace zetasql::internal {
 
   void EnableFullEvaluatorFeatures() {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/status/export.inc"
 #include "go-zetasql/public/collator/export.inc"

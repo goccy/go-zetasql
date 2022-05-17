@@ -4714,3 +4714,7411 @@
         - struct
       ret:
         - struct
+- package: zetasql/public/simple_catalog
+  methods:
+    - name: Type_Kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: Type_IsInt32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInt64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUint32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUint64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBool
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFloat
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDouble
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsString
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBytes
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsTimestamp
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsTime
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsDatetime
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInterval
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsNumericType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsBigNumericType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsJsonType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFeatureV12CivilTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_UsingFeatureV12CivilTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsCivilDateOrTimeType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsGeography
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsJson
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsEnum
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsArray
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsStruct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsProto
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsStructOrProto
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsFloatingPoint
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsNumerical
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger32
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsInteger64
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsSignedInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsUnsignedInteger
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsSimpleType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_IsExtendedType
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsGrouping
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsPartitioning
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_SupportsEquality
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Type_Equivalent
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Type_ShortTypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_TypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_TypeNameWithParameters
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - string
+        - struct
+    - name: Type_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Type_HasAnyFields
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Type_NestingDepth
+      args:
+        - struct
+      ret:
+        - int
+    - name: Type_ValidateAndResolveTypeParameters
+      args:
+        - struct
+        - struct
+        - int
+        - int
+      ret:
+        - struct
+        - struct
+    - name: Type_ValidateResolvedTypeParameters
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+    - name: TypeFactory_MakeArrayType
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: TypeFactory_MakeStructType
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+        - struct
+    - name: Int32Type
+      ret:
+        - struct
+    - name: Int64Type
+      ret:
+        - struct
+    - name: Uint32Type
+      ret:
+        - struct
+    - name: Uint64Type
+      ret:
+        - struct
+    - name: BoolType
+      ret:
+        - struct
+    - name: FloatType
+      ret:
+        - struct
+    - name: DoubleType
+      ret:
+        - struct
+    - name: StringType
+      ret:
+        - struct
+    - name: BytesType
+      ret:
+        - struct
+    - name: DateType
+      ret:
+        - struct
+    - name: TimestampType
+      ret:
+        - struct
+    - name: TimeType
+      ret:
+        - struct
+    - name: DatetimeType
+      ret:
+        - struct
+    - name: IntervalType
+      ret:
+        - struct
+    - name: GeographyType
+      ret:
+        - struct
+    - name: NumericType
+      ret:
+        - struct
+    - name: BigNumericType
+      ret:
+        - struct
+    - name: JsonType
+      ret:
+        - struct
+    - name: EmptyStructType
+      ret:
+        - struct
+    - name: Int32ArrayType
+      ret:
+        - struct
+    - name: Int64ArrayType
+      ret:
+        - struct
+    - name: Uint32ArrayType
+      ret:
+        - struct
+    - name: Uint64ArrayType
+      ret:
+        - struct
+    - name: BoolArrayType
+      ret:
+        - struct
+    - name: FloatArrayType
+      ret:
+        - struct
+    - name: DoubleArrayType
+      ret:
+        - struct
+    - name: StringArrayType
+      ret:
+        - struct
+    - name: BytesArrayType
+      ret:
+        - struct
+    - name: TimestampArrayType
+      ret:
+        - struct
+    - name: DateArrayType
+      ret:
+        - struct
+    - name: DatetimeArrayType
+      ret:
+        - struct
+    - name: TimeArrayType
+      ret:
+        - struct
+    - name: IntervalArrayType
+      ret:
+        - struct
+    - name: GeographyArrayType
+      ret:
+        - struct
+    - name: NumericArrayType
+      ret:
+        - struct
+    - name: BigNumericArrayType
+      ret:
+        - struct
+    - name: JsonArrayType
+      ret:
+        - struct
+    - name: DatePartEnumType
+      ret:
+        - struct
+    - name: NormalizeModeEnumType
+      ret:
+        - struct
+    - name: Value_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Value_type_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_physical_byte_size
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_is_null
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_empty_array
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_valid
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_has_content
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_int32_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_int64_value
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_uint32_value
+      args:
+        - struct
+      ret:
+        - uint32
+    - name: Value_uint64_value
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_bool_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_float_value
+      args:
+        - struct
+      ret:
+        - float32
+    - name: Value_double_value
+      args:
+        - struct
+      ret:
+        - float64
+    - name: Value_string_value
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_bytes_value
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_date_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_enum_value
+      args:
+        - struct
+      ret:
+        - int32
+    - name: Value_enum_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_ToUnixMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToUnixNanos
+      args:
+        - struct
+      ret:
+        - int64
+        - struct
+    - name: Value_ToPacked64TimeMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToPacked64DatetimeMicros
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_is_validated_json
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_is_unparsed_json
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_json_value_unparsed
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_json_string
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_ToInt64
+      args:
+        - struct
+      ret:
+        - int64
+    - name: Value_ToUint64
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_ToDouble
+      args:
+        - struct
+      ret:
+        - float64
+    - name: Value_num_fields
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Value_FindFieldByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Value_empty
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Value_num_elements
+      args:
+        - struct
+      ret:
+        - int
+    - name: Value_element
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Value_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Value_SqlEquals
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Value_LessThan
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: Value_SqlLessThan
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Value_HashCode
+      args:
+        - struct
+      ret:
+        - uint64
+    - name: Value_ShortDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_FullDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_Format
+      args:
+        - struct
+      ret:
+        - string
+    - name: Value_GetSQL
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Value_GetSQLLiteral
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Int64
+      args:
+        - int64
+      ret:
+        - struct
+    - name: Column_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Column_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Column_Type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Column_IsPseudoColumn
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Column_IsWritableColumn
+      args:
+        - struct
+      ret:
+        - bool
+    - name: SimpleColumn_new
+      args:
+        - string
+        - string
+        - struct
+      ret:
+        - struct
+    - name: SimpleColumn_new_with_opt
+      args:
+        - string
+        - string
+        - struct
+        - int
+        - int
+      ret:
+        - struct
+    - name: SimpleColumn_AnnotatedType
+      args:
+        - struct
+      ret:
+        - struct
+    - name: SimpleColumn_SetIsPseudoColumn
+      args:
+        - struct
+        - int
+    - name: Table_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Table_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Table_NumColumns
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_Column
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Table_PrimaryKey_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_PrimaryKey
+      args:
+        - struct
+        - int
+      ret:
+        - int
+    - name: Table_FindColumnByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Table_IsValueTable
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Table_GetSerializationId
+      args:
+        - struct
+      ret:
+        - int
+    - name: Table_CreateEvaluatorTableIterator
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+        - struct
+    - name: Table_GetAnonymizationInfo
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Table_SupportsAnonymization
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Table_GetTableTypeName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: SimpleTable_new
+      args:
+        - string
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: SimpleTable_AllowAnonymousColumnName
+      args:
+        - struct
+      ret:
+        - bool
+    - name: SimpleTable_set_allow_anonymous_column_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_AllowDuplicateColumnNames
+      args:
+        - struct
+      ret:
+        - bool
+    - name: SimpleTable_set_allow_duplicate_column_names
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_AddColumn
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: SimpleTable_SetPrimaryKey
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleTable_set_full_name
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: SimpleTable_SetAnonymizationInfo
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: SimpleTable_ResetAnonymizationInfo
+      args:
+        - struct
+    - name: Catalog_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Catalog_FindTable
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_FindType
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_SuggestTable
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: EnumerableCatalog_Catalogs
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: EnumerableCatalog_Tables
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: EnumerableCatalog_Types
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_new
+      args:
+        - string
+      ret:
+        - struct
+    - name: SimpleCatalog_GetTable
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetTables
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_table_names_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: SimpleCatalog_table_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleCatalog_GetType
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetTypes
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetCatalog
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetCatalogs
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_catalog_names_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: SimpleCatalog_catalog_name
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: SimpleCatalog_AddTable
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddTableWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddType
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddTypeIfNotPresent
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - bool
+    - name: SimpleCatalog_AddCatalog
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddCatalogWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddZetaSQLFunctions
+      args:
+        - struct
+    - name: Function_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_FunctionNamePath
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Function_FullName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_SQLName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_QualifiedSQLName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_Group
+      args:
+        - struct
+      ret:
+        - string
+    - name: Function_IsZetaSQLBuiltin
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_ArgumentsAreCoercible
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_NumSignatures
+      args:
+        - struct
+      ret:
+        - int
+    - name: Function_signatures
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Function_ResetSignatures
+      args:
+        - struct
+        - struct
+    - name: Function_AddSignature
+      args:
+        - struct
+        - struct
+    - name: Function_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: Function_IsScalar
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsAggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsAnalytic
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: Function_GetSQL
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Function_SupportsOverClause
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsWindowOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_RequiresWindowOrdering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsWindowFraming
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsOrderingArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsLimitArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsNullHandlingModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsSafeErrorMode
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsHavingModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsDistinctModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_SupportsClampedBetweenModifier
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_IsDeprecated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: Function_alias_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentType_required
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_repeated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_optional
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_cardinality
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_must_be_constant
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_has_argument_name
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_argument_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentType_num_occurrences
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_set_num_occurrences
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentType_IncrementNumOccurrences
+      args:
+        - struct
+    - name: FunctionArgumentType_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentType_labmda
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_IsConcrete
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsScalar
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsRelation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsModel
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsConnection
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsLambda
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsFixedRelation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsVoid
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_IsDescriptor
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_TemplatedKindIsRelated
+      args:
+        - struct
+        - int
+      ret:
+        - bool
+    - name: FunctionArgumentType_AllowCoercionFrom
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_HasDefault
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentType_GetDefault
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_UserFacingName
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_UserFacingNameWithCardinality
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_IsValid
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: FunctionArgumentType_DebugString
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentType_GetSQLDeclaration
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: ArgumentTypeLambda_argument_types
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ArgumentTypeLambda_body_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_arguments
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_concret_arguments
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_result_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsConcrete
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_HasConcreteArguments
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_IsValid
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForFunction
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForTableValuedFunction
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_IsValidForProcedure
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_FirstRepeatedArgumentIndex
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_LastRepeatedArgumentIndex
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumRequiredArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumRepeatedArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_NumOptionalArguments
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionSignature_DebugString
+      args:
+        - struct
+        - string
+        - int
+      ret:
+        - string
+    - name: FunctionSignature_GetSQLDeclaration
+      args:
+        - struct
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionSignature_IsDeprecated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_SetIsDeprecated
+      args:
+        - struct
+        - int
+    - name: FunctionSignature_IsInternal
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_options
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionSignature_SetConcreteResultType
+      args:
+        - struct
+        - struct
+    - name: FunctionSignature_IsTemplated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionSignature_AllArgumentsHaveDefaults
+      args:
+        - struct
+      ret:
+        - bool
+
+- package: zetasql/public/analyzer
+  methods:
+    - name: AnalyzerOptions_new
+      ret:
+        - struct
+    - name: AnalyzerOptions_AddQueryParameter
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_query_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_clear_query_parameters
+      args:
+        - struct
+    - name: AnalyzerOptions_AddPositionalQueryParameter
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_positional_query_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_clear_positional_query_parameters
+      args:
+        - struct
+    - name: AnalyzerOptions_AddExpressionColumn
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_SetInScopeExpressionColumn
+      args:
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_expression_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_has_in_scope_expression_column
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_in_scope_expression_column_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: AnalyzerOptions_in_scope_expression_column_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_set_error_message_mode
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_error_message_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_statement_context
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_statement_context
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_parse_location_record_type
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_parse_location_record_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_create_new_column_for_each_projected_output
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_create_new_column_for_each_projected_output
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_allow_undeclared_parameters
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_allow_undeclared_parameters
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_parameter_mode
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_parameter_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: AnalyzerOptions_set_prune_unused_columns
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_prune_unused_columns
+      args:
+        - struct
+      ret:
+        - bool
+    - name: AnalyzerOptions_set_preserve_column_aliases
+      args:
+        - struct
+        - int
+    - name: AnalyzerOptions_preserve_column_aliases
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ValidateAnalyzerOptions
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzeStatement
+      args:
+        - string
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: AnalyzerOutput_resolved_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedNode_node_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedNode_IsScan
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedNode_IsExpression
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedNode_IsStatement
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedNode_DebugString
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedNode_GetChildNodes_num
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedNode_GetChildNode
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: ResolvedNode_GetTreeDepth
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedExpr_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExpr_set_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedExpr_type_annotation_map
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExpr_set_type_annotation_map
+      args:
+        - struct
+        - struct
+    - name: ResolvedLiteral_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLiteral_set_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedLiteral_has_explicit_type
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedLiteral_set_has_explicit_type
+      args:
+        - struct
+        - int
+    - name: ResolvedLiteral_float_literal_id
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedLiteral_set_float_literal_id
+      args:
+        - struct
+        - int
+    - name: ResolvedLiteral_preserve_in_literal_remover
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedLiteral_set_preserve_in_literal_remover
+      args:
+        - struct
+        - int
+    - name: ResolvedParameter_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedParameter_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedParameter_position
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedParameter_set_position
+      args:
+        - struct
+        - int
+    - name: ResolvedParameter_is_untyped
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedParameter_set_is_untyped
+      args:
+        - struct
+        - int
+    - name: ResolvedExpressionColumn_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedExpressionColumn_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedColumnRef_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnRef_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnRef_is_correlated
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedColumnRef_set_is_correlated
+      args:
+        - struct
+        - int
+    - name: ResolvedConstant_constant
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedConstant_set_constant
+      args:
+        - struct
+        - struct
+    - name: ResolvedSystemVariable_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSystemVariable_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedSystemVariable_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedInlineLambda_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInlineLambda_set_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInlineLambda_add_argument
+      args:
+        - struct
+        - struct
+    - name: ResolvedInlineLambda_parameter_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInlineLambda_set_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInlineLambda_add_parameter
+      args:
+        - struct
+        - struct
+    - name: ResolvedInlineLambda_body
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInlineLambda_set_body
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterFieldArg_include
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedFilterFieldArg_set_include
+      args:
+        - struct
+        - int
+    - name: ResolvedFilterField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFilterField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterField_filter_field_arg_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFilterField_set_filter_field_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterField_add_filter_field_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterField_reset_cleared_required_fields
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedFilterField_set_reset_cleared_required_fields
+      args:
+        - struct
+        - int
+    - name: ResolvedFunctionCallBase_function
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_function
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_add_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_generic_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_generic_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_add_generic_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_error_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedFunctionCallBase_set_error_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedFunctionCallBase_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_collation_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCallBase_set_collation_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCallBase_add_collation_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionCall_function_call_info
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionCall_set_function_call_info
+      args:
+        - struct
+        - struct
+    - name: ResolvedNonScalarFunctionCallBase_distinct
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedNonScalarFunctionCallBase_set_distinct
+      args:
+        - struct
+        - int
+    - name: ResolvedNonScalarFunctionCallBase_null_handling_modifier
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedNonScalarFunctionCallBase_set_null_handling_modifier
+      args:
+        - struct
+        - int
+    - name: ResolvedNonScalarFunctionCallBase_with_group_rows_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedNonScalarFunctionCallBase_set_with_group_rows_subquery
+      args:
+        - struct
+        - struct
+    - name: ResolvedNonScalarFunctionCallBase_with_group_rows_parameter_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedNonScalarFunctionCallBase_set_with_group_rows_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedNonScalarFunctionCallBase_add_with_group_rows_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateFunctionCall_having_modifier
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateFunctionCall_set_having_modifier
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateFunctionCall_order_by_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateFunctionCall_set_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateFunctionCall_add_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateFunctionCall_limit
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateFunctionCall_set_limit
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateFunctionCall_function_call_info
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateFunctionCall_set_function_call_info
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticFunctionCall_window_frame
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticFunctionCall_set_window_frame
+      args:
+        - struct
+        - struct
+    - name: ResolvedExtendedCastElement_from_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExtendedCastElement_set_from_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedExtendedCastElement_to_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExtendedCastElement_set_to_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedExtendedCastElement_function
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExtendedCastElement_set_function
+      args:
+        - struct
+        - struct
+    - name: ResolvedExtendedCast_element_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExtendedCast_set_element_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExtendedCast_add_element_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCast_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCast_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedCast_return_null_on_error
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCast_set_return_null_on_error
+      args:
+        - struct
+        - int
+    - name: ResolvedCast_extended_cast
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCast_set_extended_cast
+      args:
+        - struct
+        - struct
+    - name: ResolvedCast_format
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCast_set_format
+      args:
+        - struct
+        - struct
+    - name: ResolvedCast_time_zone
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCast_set_time_zone
+      args:
+        - struct
+        - struct
+    - name: ResolvedCast_type_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCast_set_type_parameters
+      args:
+        - struct
+        - struct
+    - name: ResolvedMakeStruct_field_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMakeStruct_set_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMakeStruct_add_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMakeProto_field_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMakeProto_set_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMakeProto_add_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMakeProtoField_format
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedMakeProtoField_set_format
+      args:
+        - struct
+        - int
+    - name: ResolvedMakeProtoField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMakeProtoField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedGetStructField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGetStructField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedGetStructField_field_idx
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedGetStructField_set_field_idx
+      args:
+        - struct
+        - int
+    - name: ResolvedGetProtoField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGetProtoField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedGetProtoField_default_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGetProtoField_set_default_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedGetProtoField_get_has_bit
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedGetProtoField_set_get_has_bit
+      args:
+        - struct
+        - int
+    - name: ResolvedGetProtoField_format
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedGetProtoField_set_format
+      args:
+        - struct
+        - int
+    - name: ResolvedGetProtoField_return_default_value_when_unset
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedGetProtoField_set_return_default_value_when_unset
+      args:
+        - struct
+        - int
+    - name: ResolvedGetJsonField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGetJsonField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedGetJsonField_field_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedGetJsonField_set_field_name
+      args:
+        - struct
+        - string
+    - name: ResolvedFlatten_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFlatten_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedFlatten_get_field_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFlatten_set_get_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFlatten_add_get_field_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReplaceFieldItem_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReplaceFieldItem_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedReplaceFieldItem_struct_index_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReplaceFieldItem_set_struct_index_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedReplaceFieldItem_add_struct_index_path
+      args:
+        - struct
+        - int
+    - name: ResolvedReplaceField_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReplaceField_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedReplaceField_replace_field_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReplaceField_set_replace_field_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReplaceField_add_replace_field_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_subquery_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedSubqueryExpr_set_subquery_type
+      args:
+        - struct
+        - int
+    - name: ResolvedSubqueryExpr_parameter_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSubqueryExpr_set_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_add_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_in_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSubqueryExpr_set_in_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_in_collation
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSubqueryExpr_set_in_collation
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSubqueryExpr_set_subquery
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSubqueryExpr_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSubqueryExpr_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedLetExpr_assignment_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLetExpr_set_assignment_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedLetExpr_add_assignment_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedLetExpr_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLetExpr_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedScan_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedScan_set_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedScan_add_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedScan_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedScan_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedScan_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedScan_is_ordered
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedScan_set_is_ordered
+      args:
+        - struct
+        - int
+    - name: ResolvedModel_model
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedModel_set_model
+      args:
+        - struct
+        - struct
+    - name: ResolvedConnection_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedConnection_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescriptor_descriptor_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDescriptor_set_descriptor_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescriptor_add_descriptor_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescriptor_descriptor_column_name_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDescriptor_set_descriptor_column_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescriptor_add_descriptor_column_name_list
+      args:
+        - struct
+        - string
+    - name: ResolvedTableScan_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTableScan_set_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableScan_for_system_time_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTableScan_set_for_system_time_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableScan_column_index_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTableScan_set_column_index_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableScan_add_column_index_list
+      args:
+        - struct
+        - int
+    - name: ResolvedTableScan_alias
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedTableScan_set_alias
+      args:
+        - struct
+        - string
+    - name: ResolvedJoinScan_join_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedJoinScan_set_join_type
+      args:
+        - struct
+        - int
+    - name: ResolvedJoinScan_left_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedJoinScan_set_left_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedJoinScan_right_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedJoinScan_set_right_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedJoinScan_join_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedJoinScan_set_join_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArrayScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_array_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArrayScan_set_array_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_element_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArrayScan_set_element_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_array_offset_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArrayScan_set_array_offset_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_join_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArrayScan_set_join_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedArrayScan_is_outer
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedArrayScan_set_is_outer
+      args:
+        - struct
+        - int
+    - name: ResolvedColumnHolder_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnHolder_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFilterScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterScan_filter_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFilterScan_set_filter_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedGroupingSet_group_by_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGroupingSet_set_group_by_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGroupingSet_add_group_by_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScanBase_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_group_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScanBase_set_group_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_add_group_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_collation_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScanBase_set_collation_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_add_collation_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_aggregate_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScanBase_set_aggregate_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScanBase_add_aggregate_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScan_grouping_set_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScan_set_grouping_set_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScan_add_grouping_set_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScan_rollup_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateScan_set_rollup_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateScan_add_rollup_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnonymizedAggregateScan_k_threshold_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnonymizedAggregateScan_set_k_threshold_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnonymizedAggregateScan_anonymization_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnonymizedAggregateScan_set_anonymization_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnonymizedAggregateScan_add_anonymization_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOperationItem_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetOperationItem_set_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOperationItem_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetOperationItem_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOperationItem_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOperationScan_op_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedSetOperationScan_set_op_type
+      args:
+        - struct
+        - int
+    - name: ResolvedSetOperationScan_input_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetOperationScan_set_input_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOperationScan_add_input_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOrderByScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByScan_order_by_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOrderByScan_set_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByScan_add_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedLimitOffsetScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLimitOffsetScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedLimitOffsetScan_limit
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLimitOffsetScan_set_limit
+      args:
+        - struct
+        - struct
+    - name: ResolvedLimitOffsetScan_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedLimitOffsetScan_set_offset
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithRefScan_with_query_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedWithRefScan_set_with_query_name
+      args:
+        - struct
+        - string
+    - name: ResolvedAnalyticScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticScan_function_group_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticScan_set_function_group_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticScan_add_function_group_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSampleScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_method
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedSampleScan_set_method
+      args:
+        - struct
+        - string
+    - name: ResolvedSampleScan_size
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSampleScan_set_size
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_unit
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedSampleScan_set_unit
+      args:
+        - struct
+        - int
+    - name: ResolvedSampleScan_repeatable_argument
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSampleScan_set_repeatable_argument
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_weight_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSampleScan_set_weight_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSampleScan_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSampleScan_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedComputedColumn_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedComputedColumn_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedComputedColumn_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedComputedColumn_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByItem_column_ref
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOrderByItem_set_column_ref
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByItem_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOrderByItem_set_collation_name
+      args:
+        - struct
+        - struct
+    - name: ResolvedOrderByItem_is_descending
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedOrderByItem_set_is_descending
+      args:
+        - struct
+        - int
+    - name: ResolvedOrderByItem_null_order
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedOrderByItem_set_null_order
+      args:
+        - struct
+        - int
+    - name: ResolvedOrderByItem_collation
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOrderByItem_set_collation
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnAnnotations_set_collation_name
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_not_null
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedColumnAnnotations_set_not_null
+      args:
+        - struct
+        - int
+    - name: ResolvedColumnAnnotations_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnAnnotations_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_child_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnAnnotations_set_child_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_add_child_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnAnnotations_type_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnAnnotations_set_type_parameters
+      args:
+        - struct
+        - struct
+    - name: ResolvedGeneratedColumnInfo_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGeneratedColumnInfo_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedGeneratedColumnInfo_stored_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedGeneratedColumnInfo_set_stored_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedColumnDefaultValue_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefaultValue_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnDefaultValue_sql
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumnDefaultValue_set_sql
+      args:
+        - struct
+        - string
+    - name: ResolvedColumnDefinition_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumnDefinition_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedColumnDefinition_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefinition_set_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnDefinition_annotations
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefinition_set_annotations
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnDefinition_is_hidden
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedColumnDefinition_set_is_hidden
+      args:
+        - struct
+        - int
+    - name: ResolvedColumnDefinition_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefinition_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnDefinition_generated_column_info
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefinition_set_generated_column_info
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumnDefinition_default_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumnDefinition_set_default_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrimaryKey_column_offset_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPrimaryKey_set_column_offset_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrimaryKey_add_column_offset_list
+      args:
+        - struct
+        - int
+    - name: ResolvedPrimaryKey_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPrimaryKey_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrimaryKey_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrimaryKey_unenforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedPrimaryKey_set_unenforced
+      args:
+        - struct
+        - int
+    - name: ResolvedPrimaryKey_constraint_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedPrimaryKey_set_constraint_name
+      args:
+        - struct
+        - string
+    - name: ResolvedPrimaryKey_column_name_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPrimaryKey_set_column_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrimaryKey_add_column_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_constraint_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedForeignKey_set_constraint_name
+      args:
+        - struct
+        - string
+    - name: ResolvedForeignKey_referencing_column_offset_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedForeignKey_set_referencing_column_offset_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_add_referencing_column_offset_list
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_referenced_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedForeignKey_set_referenced_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_referenced_column_offset_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedForeignKey_set_referenced_column_offset_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_add_referenced_column_offset_list
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_match_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedForeignKey_set_match_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_update_action
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedForeignKey_set_update_action
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_delete_action
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedForeignKey_set_delete_action
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedForeignKey_set_enforced
+      args:
+        - struct
+        - int
+    - name: ResolvedForeignKey_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedForeignKey_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_referencing_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedForeignKey_set_referencing_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedForeignKey_add_referencing_column_list
+      args:
+        - struct
+        - string
+    - name: ResolvedCheckConstraint_constraint_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCheckConstraint_set_constraint_name
+      args:
+        - struct
+        - string
+    - name: ResolvedCheckConstraint_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCheckConstraint_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedCheckConstraint_enforced
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCheckConstraint_set_enforced
+      args:
+        - struct
+        - int
+    - name: ResolvedCheckConstraint_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCheckConstraint_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCheckConstraint_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedOutputColumn_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedOutputColumn_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedOutputColumn_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOutputColumn_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedProjectScan_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedProjectScan_set_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedProjectScan_add_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedProjectScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedProjectScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_tvf
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTVFScan_set_tvf
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTVFScan_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTVFScan_set_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_add_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_column_index_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTVFScan_set_column_index_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTVFScan_add_column_index_list
+      args:
+        - struct
+        - int
+    - name: ResolvedTVFScan_alias
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedTVFScan_set_alias
+      args:
+        - struct
+        - string
+    - name: ResolvedTVFScan_function_call_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTVFScan_set_function_call_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedGroupRowsScan_input_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGroupRowsScan_set_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGroupRowsScan_add_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGroupRowsScan_alias
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedGroupRowsScan_set_alias
+      args:
+        - struct
+        - string
+    - name: ResolvedFunctionArgument_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_model
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_model
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_descriptor_arg
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_descriptor_arg
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_argument_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_argument_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_add_argument_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionArgument_inline_lambda
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionArgument_set_inline_lambda
+      args:
+        - struct
+        - struct
+    - name: ResolvedStatement_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedStatement_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedStatement_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExplainStmt_statement
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExplainStmt_set_statement
+      args:
+        - struct
+        - struct
+    - name: ResolvedQueryStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedQueryStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedQueryStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedQueryStmt_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedQueryStmt_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedQueryStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedQueryStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateDatabaseStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateDatabaseStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateDatabaseStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateDatabaseStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateDatabaseStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateDatabaseStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateStatement_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateStatement_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateStatement_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateStatement_create_scope
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateStatement_set_create_scope
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateStatement_create_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateStatement_set_create_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedIndexItem_column_ref
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedIndexItem_set_column_ref
+      args:
+        - struct
+        - struct
+    - name: ResolvedIndexItem_descending
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedIndexItem_set_descending
+      args:
+        - struct
+        - int
+    - name: ResolvedUnnestItem_array_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnnestItem_set_array_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnnestItem_element_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnnestItem_set_element_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnnestItem_array_offset_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnnestItem_set_array_offset_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_table_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_table_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_table_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateIndexStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_is_unique
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateIndexStmt_set_is_unique
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateIndexStmt_is_search
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateIndexStmt_set_is_search
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateIndexStmt_index_all_columns
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateIndexStmt_set_index_all_columns
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateIndexStmt_index_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_index_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_index_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_storing_expression_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_storing_expression_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_storing_expression_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_computed_columns_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_computed_columns_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_computed_columns_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_unnest_expressions_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateIndexStmt_set_unnest_expressions_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateIndexStmt_add_unnest_expressions_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSchemaStmt_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateSchemaStmt_set_collation_name
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSchemaStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateSchemaStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSchemaStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_column_definition_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_add_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_pseudo_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_pseudo_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_add_pseudo_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_primary_key
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_primary_key
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_foreign_key_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_foreign_key_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_add_foreign_key_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_check_constraint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_check_constraint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_add_check_constraint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateTableStmtBase_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateTableStmtBase_like_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_like_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmtBase_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmtBase_set_collation_name
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_clone_from
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmt_set_clone_from
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_copy_from
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmt_set_copy_from
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmt_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_cluster_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableStmt_set_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableStmt_add_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_cluster_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_set_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_add_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableAsSelectStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_transform_input_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_transform_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_transform_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_transform_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_transform_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_transform_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_transform_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_transform_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_transform_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_transform_analytic_function_group_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateModelStmt_set_transform_analytic_function_group_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateModelStmt_add_transform_analytic_function_group_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateViewBase_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateViewBase_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_has_explicit_columns
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateViewBase_set_has_explicit_columns
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateViewBase_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateViewBase_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateViewBase_sql
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateViewBase_set_sql
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateViewBase_sql_security
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateViewBase_set_sql_security
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateViewBase_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateViewBase_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateViewBase_recursive
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateViewBase_set_recursive
+      args:
+        - struct
+        - int
+    - name: ResolvedWithPartitionColumns_column_definition_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWithPartitionColumns_set_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithPartitionColumns_add_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSnapshotTableStmt_clone_from
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateSnapshotTableStmt_set_clone_from
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSnapshotTableStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateSnapshotTableStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateSnapshotTableStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateExternalTableStmt_with_partition_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateExternalTableStmt_set_with_partition_columns
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateExternalTableStmt_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateExternalTableStmt_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportModelStmt_model_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportModelStmt_set_model_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportModelStmt_add_model_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportModelStmt_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportModelStmt_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportModelStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportModelStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportModelStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportDataStmt_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportDataStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportDataStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExportDataStmt_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedExportDataStmt_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedExportDataStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExportDataStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedDefineTableStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDefineTableStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDefineTableStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedDefineTableStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDefineTableStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDefineTableStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescribeStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDescribeStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedDescribeStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDescribeStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescribeStmt_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescribeStmt_from_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDescribeStmt_set_from_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDescribeStmt_add_from_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedShowStmt_identifier
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedShowStmt_set_identifier
+      args:
+        - struct
+        - string
+    - name: ResolvedShowStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedShowStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedShowStmt_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedShowStmt_like_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedShowStmt_set_like_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedBeginStmt_read_write_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedBeginStmt_set_read_write_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedBeginStmt_isolation_level_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedBeginStmt_set_isolation_level_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedBeginStmt_add_isolation_level_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetTransactionStmt_read_write_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedSetTransactionStmt_set_read_write_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedSetTransactionStmt_isolation_level_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetTransactionStmt_set_isolation_level_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetTransactionStmt_add_isolation_level_list
+      args:
+        - struct
+        - string
+    - name: ResolvedStartBatchStmt_batch_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedStartBatchStmt_set_batch_type
+      args:
+        - struct
+        - string
+    - name: ResolvedDropStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedDropStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedDropStmt_drop_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedDropStmt_set_drop_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedDropMaterializedViewStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropMaterializedViewStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropMaterializedViewStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropMaterializedViewStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropMaterializedViewStmt_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropSnapshotTableStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropSnapshotTableStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropSnapshotTableStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropSnapshotTableStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropSnapshotTableStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedRecursiveScan_op_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedRecursiveScan_set_op_type
+      args:
+        - struct
+        - int
+    - name: ResolvedRecursiveScan_non_recursive_term
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRecursiveScan_set_non_recursive_term
+      args:
+        - struct
+        - struct
+    - name: ResolvedRecursiveScan_recursive_term
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRecursiveScan_set_recursive_term
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithScan_with_entry_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWithScan_set_with_entry_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithScan_add_with_entry_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithScan_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWithScan_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedWithScan_recursive
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedWithScan_set_recursive
+      args:
+        - struct
+        - int
+    - name: ResolvedWithEntry_with_query_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedWithEntry_set_with_query_name
+      args:
+        - struct
+        - string
+    - name: ResolvedWithEntry_with_subquery
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWithEntry_set_with_subquery
+      args:
+        - struct
+        - struct
+    - name: ResolvedOption_qualifier
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedOption_set_qualifier
+      args:
+        - struct
+        - string
+    - name: ResolvedOption_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedOption_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedOption_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedOption_set_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowPartitioning_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowPartitioning_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowPartitioning_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowPartitioning_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowPartitioning_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowPartitioning_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowOrdering_order_by_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowOrdering_set_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowOrdering_add_order_by_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowOrdering_hint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowOrdering_set_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowOrdering_add_hint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowFrame_frame_unit
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedWindowFrame_set_frame_unit
+      args:
+        - struct
+        - int
+    - name: ResolvedWindowFrame_start_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowFrame_set_start_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowFrame_end_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowFrame_set_end_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_partition_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_set_partition_by
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_order_by
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_set_order_by
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_analytic_function_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_set_analytic_function_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyticFunctionGroup_add_analytic_function_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedWindowFrameExpr_boundary_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedWindowFrameExpr_set_boundary_type
+      args:
+        - struct
+        - int
+    - name: ResolvedWindowFrameExpr_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedWindowFrameExpr_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedDMLValue_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDMLValue_set_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedAssertStmt_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAssertStmt_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedAssertStmt_description
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedAssertStmt_set_description
+      args:
+        - struct
+        - string
+    - name: ResolvedAssertRowsModified_rows
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAssertRowsModified_set_rows
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertRow_value_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertRow_set_value_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertRow_add_value_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_insert_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedInsertStmt_set_insert_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedInsertStmt_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_assert_rows_modified
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_returning
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_insert_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_insert_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_add_insert_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_query_parameter_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_query_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_add_query_parameter_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_query_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_query_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_add_query_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_row_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedInsertStmt_set_row_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedInsertStmt_add_row_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDeleteStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDeleteStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedDeleteStmt_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDeleteStmt_set_assert_rows_modified
+      args:
+        - struct
+        - struct
+    - name: ResolvedDeleteStmt_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDeleteStmt_set_returning
+      args:
+        - struct
+        - struct
+    - name: ResolvedDeleteStmt_array_offset_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDeleteStmt_set_array_offset_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedDeleteStmt_where_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDeleteStmt_set_where_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_target
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_target
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_set_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_set_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_element_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_element_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_array_update_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_array_update_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_add_array_update_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_delete_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_delete_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_add_delete_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_update_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_update_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_add_update_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_insert_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateItem_set_insert_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateItem_add_insert_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateArrayItem_offset
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateArrayItem_set_offset
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateArrayItem_update_item
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateArrayItem_set_update_item
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_column_access_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_column_access_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_add_column_access_list
+      args:
+        - struct
+        - int
+    - name: ResolvedUpdateStmt_assert_rows_modified
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_assert_rows_modified
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_returning
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_returning
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_array_offset_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_array_offset_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_where_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_where_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_update_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_update_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_add_update_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUpdateStmt_from_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUpdateStmt_set_from_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_match_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedMergeWhen_set_match_type
+      args:
+        - struct
+        - int
+    - name: ResolvedMergeWhen_match_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeWhen_set_match_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_action_type
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedMergeWhen_set_action_type
+      args:
+        - struct
+        - int
+    - name: ResolvedMergeWhen_insert_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeWhen_set_insert_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_add_insert_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_insert_row
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeWhen_set_insert_row
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_update_item_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeWhen_set_update_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeWhen_add_update_item_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_column_access_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeStmt_set_column_access_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_add_column_access_list
+      args:
+        - struct
+        - int
+    - name: ResolvedMergeStmt_from_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeStmt_set_from_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_merge_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeStmt_set_merge_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_when_clause_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedMergeStmt_set_when_clause_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedMergeStmt_add_when_clause_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTruncateStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTruncateStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedTruncateStmt_where_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTruncateStmt_set_where_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedObjectUnit_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedObjectUnit_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedObjectUnit_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrivilege_action_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedPrivilege_set_action_type
+      args:
+        - struct
+        - string
+    - name: ResolvedPrivilege_unit_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPrivilege_set_unit_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPrivilege_add_unit_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_privilege_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_set_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_add_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedGrantOrRevokeStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedGrantOrRevokeStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedGrantOrRevokeStmt_grantee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_set_grantee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_add_grantee_list
+      args:
+        - struct
+        - string
+    - name: ResolvedGrantOrRevokeStmt_grantee_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_set_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantOrRevokeStmt_add_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterObjectStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterObjectStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterObjectStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedAlterObjectStmt_alter_action_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterObjectStmt_set_alter_action_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterObjectStmt_add_alter_action_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterObjectStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAlterObjectStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAlterColumnAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAlterColumnAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAlterColumnAction_column
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedAlterColumnAction_set_column
+      args:
+        - struct
+        - string
+    - name: ResolvedSetOptionsAction_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetOptionsAction_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedSetOptionsAction_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAddColumnAction_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAddColumnAction_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAddColumnAction_column_definition
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAddColumnAction_set_column_definition
+      args:
+        - struct
+        - struct
+    - name: ResolvedAddConstraintAction_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAddConstraintAction_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAddConstraintAction_constraint
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAddConstraintAction_set_constraint
+      args:
+        - struct
+        - struct
+    - name: ResolvedAddConstraintAction_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAddConstraintAction_set_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropConstraintAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropConstraintAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropConstraintAction_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropConstraintAction_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedDropPrimaryKeyAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropPrimaryKeyAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAlterColumnOptionsAction_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterColumnOptionsAction_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterColumnOptionsAction_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_updated_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_set_updated_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_updated_type_parameters
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_set_updated_type_parameters
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_updated_annotations
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterColumnSetDataTypeAction_set_updated_annotations
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterColumnSetDefaultAction_default_value
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterColumnSetDefaultAction_set_default_value
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropColumnAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropColumnAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropColumnAction_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropColumnAction_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedRenameColumnAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedRenameColumnAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedRenameColumnAction_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedRenameColumnAction_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedRenameColumnAction_new_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedRenameColumnAction_set_new_name
+      args:
+        - struct
+        - string
+    - name: ResolvedSetAsAction_entity_body_json
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedSetAsAction_set_entity_body_json
+      args:
+        - struct
+        - string
+    - name: ResolvedSetAsAction_entity_body_text
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedSetAsAction_set_entity_body_text
+      args:
+        - struct
+        - string
+    - name: ResolvedSetCollateClause_collation_name
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedSetCollateClause_set_collation_name
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedAlterTableSetOptionsStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterTableSetOptionsStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAlterTableSetOptionsStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedRenameStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedRenameStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedRenameStmt_old_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRenameStmt_set_old_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedRenameStmt_add_old_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedRenameStmt_new_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRenameStmt_set_new_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedRenameStmt_add_new_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedCreatePrivilegeRestrictionStmt_column_privilege_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreatePrivilegeRestrictionStmt_set_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreatePrivilegeRestrictionStmt_add_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreatePrivilegeRestrictionStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreatePrivilegeRestrictionStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedCreatePrivilegeRestrictionStmt_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreatePrivilegeRestrictionStmt_set_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreatePrivilegeRestrictionStmt_add_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_create_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateRowAccessPolicyStmt_set_create_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateRowAccessPolicyStmt_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateRowAccessPolicyStmt_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateRowAccessPolicyStmt_target_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_set_target_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_add_target_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateRowAccessPolicyStmt_grantee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_set_grantee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_add_grantee_list
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateRowAccessPolicyStmt_grantee_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_set_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_add_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_predicate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_set_predicate
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateRowAccessPolicyStmt_predicate_str
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateRowAccessPolicyStmt_set_predicate_str
+      args:
+        - struct
+        - string
+    - name: ResolvedDropPrivilegeRestrictionStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropPrivilegeRestrictionStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedDropPrivilegeRestrictionStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropPrivilegeRestrictionStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropPrivilegeRestrictionStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropPrivilegeRestrictionStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropPrivilegeRestrictionStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedDropPrivilegeRestrictionStmt_column_privilege_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropPrivilegeRestrictionStmt_set_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropPrivilegeRestrictionStmt_add_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropRowAccessPolicyStmt_is_drop_all
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropRowAccessPolicyStmt_set_is_drop_all
+      args:
+        - struct
+        - int
+    - name: ResolvedDropRowAccessPolicyStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropRowAccessPolicyStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropRowAccessPolicyStmt_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropRowAccessPolicyStmt_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedDropRowAccessPolicyStmt_target_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropRowAccessPolicyStmt_set_target_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropRowAccessPolicyStmt_add_target_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropSearchIndexStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropSearchIndexStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropSearchIndexStmt_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedDropSearchIndexStmt_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedDropSearchIndexStmt_table_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropSearchIndexStmt_set_table_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropSearchIndexStmt_add_table_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedGrantToAction_grantee_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedGrantToAction_set_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedGrantToAction_add_grantee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRestrictToAction_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRestrictToAction_set_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRestrictToAction_add_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAddToRestricteeListAction_is_if_not_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedAddToRestricteeListAction_set_is_if_not_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedAddToRestricteeListAction_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAddToRestricteeListAction_set_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAddToRestricteeListAction_add_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRemoveFromRestricteeListAction_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedRemoveFromRestricteeListAction_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedRemoveFromRestricteeListAction_restrictee_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRemoveFromRestricteeListAction_set_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRemoveFromRestricteeListAction_add_restrictee_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterUsingAction_predicate
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFilterUsingAction_set_predicate
+      args:
+        - struct
+        - struct
+    - name: ResolvedFilterUsingAction_predicate_str
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedFilterUsingAction_set_predicate_str
+      args:
+        - struct
+        - string
+    - name: ResolvedRevokeFromAction_revokee_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRevokeFromAction_set_revokee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRevokeFromAction_add_revokee_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedRevokeFromAction_is_revoke_from_all
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedRevokeFromAction_set_is_revoke_from_all
+      args:
+        - struct
+        - int
+    - name: ResolvedRenameToAction_new_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedRenameToAction_set_new_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedRenameToAction_add_new_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterPrivilegeRestrictionStmt_column_privilege_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterPrivilegeRestrictionStmt_set_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterPrivilegeRestrictionStmt_add_column_privilege_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterPrivilegeRestrictionStmt_object_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedAlterPrivilegeRestrictionStmt_set_object_type
+      args:
+        - struct
+        - string
+    - name: ResolvedAlterRowAccessPolicyStmt_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedAlterRowAccessPolicyStmt_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedAlterRowAccessPolicyStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterRowAccessPolicyStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterAllRowAccessPoliciesStmt_table_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAlterAllRowAccessPoliciesStmt_set_table_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateConstantStmt_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateConstantStmt_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_has_explicit_return_type
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateFunctionStmt_set_has_explicit_return_type
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateFunctionStmt_return_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_return_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_argument_name_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_argument_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_add_argument_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_is_aggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateFunctionStmt_set_is_aggregate
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateFunctionStmt_language
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateFunctionStmt_set_language
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateFunctionStmt_code
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateFunctionStmt_set_code
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateFunctionStmt_aggregate_expression_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_aggregate_expression_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_add_aggregate_expression_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_function_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_function_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateFunctionStmt_sql_security
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateFunctionStmt_set_sql_security
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateFunctionStmt_determinism_level
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateFunctionStmt_set_determinism_level
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateFunctionStmt_is_remote
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateFunctionStmt_set_is_remote
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateFunctionStmt_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateFunctionStmt_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedArgumentDef_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedArgumentDef_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedArgumentDef_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArgumentDef_set_type
+      args:
+        - struct
+        - struct
+    - name: ResolvedArgumentDef_argument_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedArgumentDef_set_argument_kind
+      args:
+        - struct
+        - int
+    - name: ResolvedArgumentRef_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedArgumentRef_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedArgumentRef_argument_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedArgumentRef_set_argument_kind
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateTableFunctionStmt_argument_name_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_set_argument_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_add_argument_name_list
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateTableFunctionStmt_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_has_explicit_return_schema
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateTableFunctionStmt_set_has_explicit_return_schema
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateTableFunctionStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_language
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateTableFunctionStmt_set_language
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateTableFunctionStmt_code
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateTableFunctionStmt_set_code
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateTableFunctionStmt_query
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_set_query
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateTableFunctionStmt_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCreateTableFunctionStmt_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedCreateTableFunctionStmt_sql_security
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedCreateTableFunctionStmt_set_sql_security
+      args:
+        - struct
+        - int
+    - name: ResolvedRelationArgumentScan_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedRelationArgumentScan_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedRelationArgumentScan_is_value_table
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedRelationArgumentScan_set_is_value_table
+      args:
+        - struct
+        - int
+    - name: ResolvedArgumentList_arg_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedArgumentList_set_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedArgumentList_add_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedFunctionSignatureHolder_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedFunctionSignatureHolder_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropFunctionStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropFunctionStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropFunctionStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropFunctionStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropFunctionStmt_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropFunctionStmt_arguments
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropFunctionStmt_set_arguments
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropFunctionStmt_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropFunctionStmt_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropTableFunctionStmt_is_if_exists
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedDropTableFunctionStmt_set_is_if_exists
+      args:
+        - struct
+        - int
+    - name: ResolvedDropTableFunctionStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedDropTableFunctionStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedDropTableFunctionStmt_add_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedCallStmt_procedure
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCallStmt_set_procedure
+      args:
+        - struct
+        - struct
+    - name: ResolvedCallStmt_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCallStmt_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedCallStmt_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCallStmt_set_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCallStmt_add_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedImportStmt_import_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedImportStmt_set_import_kind
+      args:
+        - struct
+        - int
+    - name: ResolvedImportStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedImportStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedImportStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedImportStmt_file_path
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedImportStmt_set_file_path
+      args:
+        - struct
+        - string
+    - name: ResolvedImportStmt_alias_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedImportStmt_set_alias_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedImportStmt_add_alias_path
+      args:
+        - struct
+        - string
+    - name: ResolvedImportStmt_into_alias_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedImportStmt_set_into_alias_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedImportStmt_add_into_alias_path
+      args:
+        - struct
+        - string
+    - name: ResolvedImportStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedImportStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedImportStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedModuleStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedModuleStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedModuleStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedModuleStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedModuleStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedModuleStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAggregateHavingModifier_kind
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedAggregateHavingModifier_set_kind
+      args:
+        - struct
+        - int
+    - name: ResolvedAggregateHavingModifier_having_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAggregateHavingModifier_set_having_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_column_definition_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_set_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_add_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_cluster_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_set_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateMaterializedViewStmt_add_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateProcedureStmt_argument_name_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateProcedureStmt_set_argument_name_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateProcedureStmt_add_argument_name_list
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateProcedureStmt_signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateProcedureStmt_set_signature
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateProcedureStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateProcedureStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateProcedureStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateProcedureStmt_procedure_body
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateProcedureStmt_set_procedure_body
+      args:
+        - struct
+        - string
+    - name: ResolvedExecuteImmediateArgument_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedExecuteImmediateArgument_set_name
+      args:
+        - struct
+        - string
+    - name: ResolvedExecuteImmediateArgument_expression
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExecuteImmediateArgument_set_expression
+      args:
+        - struct
+        - struct
+    - name: ResolvedExecuteImmediateStmt_sql
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedExecuteImmediateStmt_set_sql
+      args:
+        - struct
+        - string
+    - name: ResolvedExecuteImmediateStmt_into_identifier_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExecuteImmediateStmt_set_into_identifier_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExecuteImmediateStmt_add_into_identifier_list
+      args:
+        - struct
+        - string
+    - name: ResolvedExecuteImmediateStmt_using_argument_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedExecuteImmediateStmt_set_using_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedExecuteImmediateStmt_add_using_argument_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAssignmentStmt_target
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAssignmentStmt_set_target
+      args:
+        - struct
+        - struct
+    - name: ResolvedAssignmentStmt_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAssignmentStmt_set_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateEntityStmt_entity_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateEntityStmt_set_entity_type
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateEntityStmt_entity_body_json
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateEntityStmt_set_entity_body_json
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateEntityStmt_entity_body_text
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCreateEntityStmt_set_entity_body_text
+      args:
+        - struct
+        - string
+    - name: ResolvedCreateEntityStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCreateEntityStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedCreateEntityStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAlterEntityStmt_entity_type
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedAlterEntityStmt_set_entity_type
+      args:
+        - struct
+        - string
+    - name: ResolvedPivotColumn_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotColumn_set_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotColumn_pivot_expr_index
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedPivotColumn_set_pivot_expr_index
+      args:
+        - struct
+        - int
+    - name: ResolvedPivotColumn_pivot_value_index
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedPivotColumn_set_pivot_value_index
+      args:
+        - struct
+        - int
+    - name: ResolvedPivotScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_group_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_group_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_add_group_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_pivot_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_pivot_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_add_pivot_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_for_expr
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_for_expr
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_pivot_value_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_pivot_value_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_add_pivot_value_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_pivot_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedPivotScan_set_pivot_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedPivotScan_add_pivot_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReturningClause_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReturningClause_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReturningClause_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReturningClause_action_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReturningClause_set_action_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedReturningClause_expr_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedReturningClause_set_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedReturningClause_add_expr_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotArg_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotArg_set_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotArg_add_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_input_scan
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_input_scan
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_value_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_value_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_add_value_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_label_column
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_label_column
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_label_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_label_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_add_label_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_unpivot_arg_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_unpivot_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_add_unpivot_arg_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_projected_input_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedUnpivotScan_set_projected_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_add_projected_input_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedUnpivotScan_include_nulls
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedUnpivotScan_set_include_nulls
+      args:
+        - struct
+        - int
+    - name: ResolvedCloneDataStmt_target_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCloneDataStmt_set_target_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedCloneDataStmt_clone_from
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCloneDataStmt_set_clone_from
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableAndColumnInfo_table
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTableAndColumnInfo_set_table
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableAndColumnInfo_column_index_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedTableAndColumnInfo_set_column_index_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedTableAndColumnInfo_add_column_index_list
+      args:
+        - struct
+        - int
+    - name: ResolvedAnalyzeStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyzeStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyzeStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyzeStmt_table_and_column_index_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAnalyzeStmt_set_table_and_column_index_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAnalyzeStmt_add_table_and_column_index_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_insertion_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedAuxLoadDataStmt_set_insertion_mode
+      args:
+        - struct
+        - int
+    - name: ResolvedAuxLoadDataStmt_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_name_path
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_name_path
+      args:
+        - struct
+        - string
+    - name: ResolvedAuxLoadDataStmt_output_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_output_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_column_definition_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_column_definition_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_pseudo_column_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_pseudo_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_pseudo_column_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_primary_key
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_primary_key
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_foreign_key_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_foreign_key_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_foreign_key_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_check_constraint_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_check_constraint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_check_constraint_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_partition_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_partition_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_cluster_by_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_cluster_by_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_with_partition_columns
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_with_partition_columns
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_connection
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_connection
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_from_files_option_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedAuxLoadDataStmt_set_from_files_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedAuxLoadDataStmt_add_from_files_option_list
+      args:
+        - struct
+        - struct
+    - name: ResolvedColumn_IsInitialized
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedColumn_Clear
+      args:
+        - struct
+    - name: ResolvedColumn_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_ShortDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_column_id
+      args:
+        - struct
+      ret:
+        - int
+    - name: ResolvedColumn_table_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_table_name_id
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_name_id
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedColumn_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumn_type_annotation_map
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedColumn_annotated_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCollation_Empty
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_Equals
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_HasCompatibleStructure
+      args:
+        - struct
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_HasCollation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: ResolvedCollation_CollationName
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedCollation_child_list
+      args:
+        - struct
+      ret:
+        - struct
+    - name: ResolvedCollation_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: ResolvedFunctionCallInfo_DebugString
+      args:
+        - struct
+      ret:
+        - string

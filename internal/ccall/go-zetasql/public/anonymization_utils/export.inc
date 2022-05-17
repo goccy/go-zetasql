@@ -3,6 +3,9 @@
 
 #include "zetasql/public/anonymization_utils.h"
 
+#include "zetasql/public/anonymization_utils.cc"
+
+#if 0
 namespace zetasql {
   namespace anonymization {
 
@@ -18,6 +21,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/value/export.inc"

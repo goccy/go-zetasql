@@ -4,6 +4,9 @@
 #include "absl/flags/internal/parse.h"
 #include "absl/flags/parse.h"
 
+#include "absl/flags/parse.cc"
+
+#if 0
 namespace absl {
   namespace flags_internal {
 
@@ -24,6 +27,7 @@ namespace absl {
     return v;
   }
 }
+#endif
 
 #include "go-absl/flags/commandlineflag/export.inc"
 #include "go-absl/flags/commandlineflag_internal/export.inc"
@@ -35,7 +39,6 @@ namespace absl {
 #include "go-absl/flags/reflection/export.inc"
 #include "go-absl/flags/usage/export.inc"
 #include "go-absl/flags/usage_internal/export.inc"
-
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/strings/strings/export.inc"

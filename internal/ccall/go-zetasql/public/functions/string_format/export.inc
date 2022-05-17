@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_STRING_FORMAT_EXPORT_H
 
 #include "zetasql/public/functions/string_format.h"
+#include "zetasql/public/functions/string_format.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
     namespace string_format_internal {
@@ -269,6 +271,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/convert_proto/export.inc"
 #include "go-zetasql/public/functions/format_max_output_width/export.inc"
@@ -284,11 +287,13 @@ namespace zetasql {
 #include "go-absl/flags/flag/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
+#include "go-absl/strings/strings/export.inc"
 #include "go-absl/strings/cord/export.inc"
 #include "go-absl/strings/str_format/export.inc"
-#include "go-absl/strings/strings/export.inc"
 #include "go-absl/time/time/export.inc"
 #include "go-absl/types/span/export.inc"
 #include "go-protobuf/protobuf/export.inc"
+#include "go-re2/re2/export.inc"
+#include "go-icu/icu/export.inc"
 
 #endif

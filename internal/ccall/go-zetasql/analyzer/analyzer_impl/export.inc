@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_ANALYZER_IMPL_EXPORT_H
 
 #include "zetasql/analyzer/analyzer_impl.h"
+#include "zetasql/analyzer/analyzer_impl.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status InternalAnalyzeExpression(absl::string_view sql, const AnalyzerOptions& options, Catalog* catalog,
@@ -25,6 +27,7 @@ namespace zetasql {
     return absl::OkStatus();
   }
 }
+#endif
 
 #include "go-zetasql/analyzer/resolver/export.inc"
 #include "go-zetasql/analyzer/rewrite_resolved_ast/export.inc"
@@ -37,7 +40,7 @@ namespace zetasql {
 #include "go-zetasql/public/analyzer_output/export.inc"
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/language_options/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/resolved_ast/validator/export.inc"
 #include "go-absl/flags/flag/export.inc"

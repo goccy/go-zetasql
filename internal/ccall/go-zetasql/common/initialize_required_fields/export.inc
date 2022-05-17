@@ -2,7 +2,9 @@
 #define ZETASQL_COMMON_INITIALIZE_REQUIRED_FIELDS_EXPORT_H
 
 #include "zetasql/common/initialize_required_fields.h"
+#include "zetasql/common/initialize_required_fields.cc"
 
+#if 0
 namespace zetasql {
 
   bool InitializeRequiredField(const google::protobuf::Reflection* reflection,
@@ -21,6 +23,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-protobuf/protobuf/export.inc"
 

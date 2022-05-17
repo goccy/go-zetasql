@@ -10,6 +10,9 @@ package {{ .Pkg }}
 {{- range .IncludePaths }}
 #cgo CXXFLAGS: -I{{ . }}
 {{- end }}
+{{- range .CXXFlags }}
+#cgo CXXFLAGS: {{ . }}
+{{- end }}
 #cgo CXXFLAGS: -Wno-char-subscripts
 #cgo CXXFLAGS: -Wno-sign-compare
 #cgo CXXFLAGS: -Wno-switch
@@ -24,6 +27,7 @@ package {{ .Pkg }}
 #cgo CXXFLAGS: -Wno-subobject-linkage
 #cgo CXXFLAGS: -Wno-unknown-warning-option
 #cgo CXXFLAGS: -DHAVE_PTHREAD
+#cgo CXXFLAGS: -DU_COMMON_IMPLEMENTATION
 {{- range .LDFlags }}
 #cgo LDFLAGS: {{ . }}
 {{- end }}

@@ -2,7 +2,9 @@
 #define ABSL_DEBUGGING_EXAMINE_STACK_EXPORT_H
 
 #include "absl/debugging/internal/examine_stack.h"
+#include "absl/debugging/internal/examine_stack.cc"
 
+#if 0
 namespace absl {
   namespace debugging_internal {
     void* GetProgramCounter(void* vuc) {
@@ -27,11 +29,12 @@ namespace absl {
     }
   }
 }
+#endif
 
+#include "go-absl/debugging/stacktrace/export.inc"
+#include "go-absl/debugging/symbolize/export.inc"
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/base/raw_logging_internal/export.inc"
-#include "go-absl/debugging/stacktrace/export.inc"
-#include "go-absl/debugging/symbolize/export.inc"
 
 #endif

@@ -1,8 +1,10 @@
 #ifndef ZETASQL_COMMON_PROTO_FROM_ITERATOR_EXPORT_H
 #define ZETASQL_COMMON_PROTO_FROM_ITERATOR_EXPORT_H
 
-#include "zetasql/commoon/proto_from_iterator.h"
+#include "zetasql/common/proto_from_iterator.h"
+#include "zetasql/common/proto_from_iterator.cc"
 
+#if 0
 namespace zetasql {
 
   IteratorProtoDescriptorOptions::IteratorProtoDescriptorOptions() {
@@ -28,14 +30,15 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/status/export.inc"
 #include "go-zetasql/public/evaluator_table_iterator/export.inc"
 #include "go-zetasql/public/proto_value_conversion/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"

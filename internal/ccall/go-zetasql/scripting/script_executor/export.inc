@@ -5,6 +5,11 @@
 #include "zetasql/scripting/script_executor_impl.h"
 #include "zetasql/scripting/serialization_helpers.h"
 
+#include "zetasql/scripting/script_executor.cc"
+#include "zetasql/scripting/script_executor_impl.cc"
+#include "zetasql/scripting/serialization_helpers.cc"
+
+#if 0
 namespace zetasql {
 
   void ScriptExecutorOptions::PopulateFromAnalyzerOptions(const AnalyzerOptions& analyzer_options) {
@@ -454,6 +459,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/scripting/control_flow_graph/export.inc"
 #include "go-zetasql/scripting/error_helpers/export.inc"
@@ -482,11 +488,12 @@ namespace zetasql {
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/parse_location/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
 #include "go-absl/time/time/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

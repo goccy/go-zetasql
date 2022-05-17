@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_PARSE_DATE_TIME_EXPORT_H
 
 #include "zetasql/public/functions/parse_date_time.h"
+#include "zetasql/public/functions/parse_date_time.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -102,7 +104,7 @@ namespace zetasql {
 
   }
 }
-
+#endif
 
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-zetasql/public/functions/datetime_cc_proto/export.inc"

@@ -2,7 +2,9 @@
 #define ZETASQL_COMMON_AGGREGATE_NULL_HANDLING_EXPORT_H
 
 #include "zetasql/common/aggregate_null_handling.h"
+#include "zetasql/common/aggregate_null_handling.cc"
 
+#if 0
 namespace zetasql {
 
   bool IgnoresNullArguments(const ResolvedNonScalarFunctionCallBase* aggregate_function) {
@@ -10,6 +12,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/case/export.inc"
 #include "go-zetasql/base/map_util/export.inc"

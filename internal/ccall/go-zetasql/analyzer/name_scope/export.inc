@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_NAME_SCOPE_EXPORT_H
 
 #include "zetasql/analyzer/name_scope.h"
+#include "zetasql/analyzer/name_scope.cc"
 
+#if 0
 namespace zetasql {
 
   std::string ValidNamePath::DebugString() const {
@@ -253,6 +255,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/map_util/export.inc"

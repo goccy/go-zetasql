@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_TO_JSON_EXPORT_H
 
 #include "zetasql/public/functions/to_json.h"
+#include "zetasql/public/functions/to_json.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -13,6 +15,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/json_format/export.inc"
 #include "go-zetasql/base/logging/export.inc"
@@ -25,8 +28,8 @@ namespace zetasql {
 #include "go-zetasql/public/options_cc_proto/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/type_cc_proto/export.inc"
-#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-protobuf/protobuf/export.inc"

@@ -3,6 +3,19 @@
 
 #include "zetasql/public/functions/cast_date_time.h"
 
+#define kNaiveNumSecondsPerMinute GO_EXPORT(cast_date_time_kNaiveNumSecondsPerMinute)
+#define kNaiveNumSecondsPerHour GO_EXPORT(cast_date_time_kNaiveNumSecondsPerHour)
+#define kNaiveNumSecondsPerDay GO_EXPORT(cast_date_time_kNaiveNumSecondsPerDay)
+#define kNaiveNumMicrosPerDay GO_EXPORT(cast_date_time_kNaiveNumMicrosPerDay)
+#define powers_of_ten GO_EXPORT(cast_date_time_powers_of_ten)
+#include "zetasql/public/functions/cast_date_time.cc"
+#undef kNaiveNumSecondsPerMinute
+#undef kNaiveNumSecondsPerHour
+#undef kNaiveNumSecondsPerDay
+#undef kNaiveNumMicrosPerDay
+#undef powers_of_ten
+
+#if 0
 namespace zetasql {
   namespace functions {
     namespace cast_date_time_internal {
@@ -141,7 +154,7 @@ namespace zetasql {
 
   }
 }
-
+#endif
 
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
@@ -163,8 +176,9 @@ namespace zetasql {
 #include "go-absl/flags/flag/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
-#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/time/time/export.inc"
+#include "go-icu/icu/export.inc"
 
 #endif

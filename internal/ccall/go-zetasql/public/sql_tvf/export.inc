@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_SQL_TVF_EXPORT_H
 
 #include "zetasql/public/sql_tvf.h"
+#include "zetasql/public/sql_tvf.cc"
 
+#if 0
 namespace zetasql {
 
   const char SQLTableValuedFunction::kSQLTableValuedFunctionGroup[] =
@@ -38,6 +40,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"

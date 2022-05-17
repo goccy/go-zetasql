@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_CONVERT_STRING_EXPORT_H
 
 #include "zetasql/public/functions/convert_string.h"
+#include "zetasql/public/functions/convert_string.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -98,6 +100,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/util/export.inc"
 #include "go-zetasql/base/case/export.inc"

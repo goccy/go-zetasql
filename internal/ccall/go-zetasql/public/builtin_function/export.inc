@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_BUILTIN_FUNCTION_EXPORT_H
 
 #include "zetasql/public/builtin_function.h"
+#include "zetasql/public/builtin_function.cc"
 
+#if 0
 namespace zetasql {
 
   const std::string FunctionSignatureIdToName(FunctionSignatureId id) {
@@ -21,6 +23,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/builtin_function_cc_proto/export.inc"
 #include "go-zetasql/public/builtin_function_options/export.inc"

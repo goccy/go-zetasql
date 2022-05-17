@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_STRING_WITH_COLLATION_EXPORT_H
 
 #include "zetasql/public/functions/string_with_collation.h"
+#include "zetasql/public/functions/string_with_collation.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -74,14 +76,14 @@ namespace zetasql {
 
   }
 }
+#endif
 
-
-#include "go-zetasql/public/functions/arithmetics/export.inc"
 #include "go-zetasql/public/functions/string/export.inc"
 #include "go-zetasql/public/functions/util/export.inc"
 #include "go-zetasql/base/status/export.inc"
 #include "go-zetasql/common/utf_util/export.inc"
 #include "go-zetasql/public/collator_lite/export.inc"
+#include "go-zetasql/public/functions/arithmetics/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"

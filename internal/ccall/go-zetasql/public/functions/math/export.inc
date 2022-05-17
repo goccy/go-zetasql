@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_MATH_EXPORT_H
 
 #include "zetasql/public/functions/math.h"
+#include "zetasql/public/functions/math.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -148,6 +150,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/arithmetics/export.inc"
 #include "go-zetasql/public/functions/util/export.inc"

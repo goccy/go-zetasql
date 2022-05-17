@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_LAMBDA_UTIL_EXPORT_H
 
 #include "zetasql/analyzer/lambda_util.h"
+#include "zetasql/analyzer/lambda_util.cc"
 
+#if 0
 namespace zetasql {
 
   absl::StatusOr<std::vector<IdString>> ExtractLambdaArgumentNames(const ASTLambda* ast_lambda) {
@@ -16,6 +18,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/logging/export.inc"
 #include "go-zetasql/base/status/export.inc"

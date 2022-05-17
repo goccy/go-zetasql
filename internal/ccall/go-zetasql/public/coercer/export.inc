@@ -4,6 +4,13 @@
 #include "zetasql/public/cast.h"
 #include "zetasql/public/coercer.h"
 
+#define FCT GO_EXPORT(cast_FCT)
+#include "zetasql/public/cast.cc"
+#undef FCT
+
+#include "zetasql/public/coercer.cc"
+
+#if 0
 namespace zetasql {
 
   bool SupportsImplicitCoercion(CastFunctionType type) {
@@ -100,7 +107,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/public/catalog/export.inc"
 #include "go-zetasql/public/civil_time/export.inc"
@@ -114,7 +121,6 @@ namespace zetasql {
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/type_cc_proto/export.inc"
 #include "go-zetasql/public/value/export.inc"
-
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/map_util/export.inc"
 #include "go-zetasql/base/source_location/export.inc"
@@ -130,8 +136,7 @@ namespace zetasql {
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-zetasql/public/functions/datetime_cc_proto/export.inc"
 #include "go-zetasql/public/functions/string/export.inc"
-#include "go-zetasql/public/types/export.inc"
-
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/algorithm/container/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
@@ -139,9 +144,10 @@ namespace zetasql {
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
-#include "go-absl/strings/cord/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/cord/export.inc"
 #include "go-absl/time/time/export.inc"
 #include "go-absl/types/optional/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_TEMPLATED_SQL_TVF_EXPORT_H
 
 #include "zetasql/public/templated_sql_tvf.h"
+#include "zetasql/public/templated_sql_tvf.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status TemplatedSQLTVF::Serialize(FileDescriptorSetMap* file_descriptor_set_map,
@@ -40,6 +42,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/public/analyzer/export.inc"
 #include "go-zetasql/public/catalog/export.inc"
@@ -68,10 +71,11 @@ namespace zetasql {
 #include "go-zetasql/proto/function_cc_proto/export.inc"
 #include "go-zetasql/proto/internal_error_location_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
-#include "go-zetasql/resolved_ast/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
-#include "go-zetasql/resolved_ast/resolved_ast/resolved_node_kind_cc_proto/export.inc"
+#include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
+#include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

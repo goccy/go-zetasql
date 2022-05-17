@@ -3,6 +3,9 @@
 
 #include "zetasql/public/anon_function.h"
 
+#include "zetasql/public/anon_function.cc"
+
+#if 0
 namespace zetasql {
 
   AnonFunction::AnonFunction(const std::string& name, const std::string& group,
@@ -19,7 +22,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/function_cc_proto/export.inc"

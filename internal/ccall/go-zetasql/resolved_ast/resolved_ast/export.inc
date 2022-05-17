@@ -10,6 +10,14 @@
 #include "zetasql/resolved_ast/resolved_node.h"
 #include "zetasql/resolved_ast/resolved_node_kind.h"
 
+#include "zetasql/resolved_ast/resolved_ast.cc"
+#include "zetasql/resolved_ast/resolved_ast_deep_copy_visitor.cc"
+#include "zetasql/resolved_ast/resolved_ast_helper.cc"
+#include "zetasql/resolved_ast/resolved_collation.cc"
+#include "zetasql/resolved_ast/resolved_column.cc"
+#include "zetasql/resolved_ast/resolved_node.cc"
+
+#if 0
 namespace zetasql {
 
   absl::StatusOr<std::unique_ptr<ResolvedNode>> ResolvedNode::RestoreFrom(const AnyResolvedNodeProto& proto, const RestoreParams& params) {
@@ -12591,6 +12599,8 @@ namespace zetasql {
 
 }
 
+#endif
+
 #include "go-zetasql/resolved_ast/resolved_ast_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"
@@ -12607,14 +12617,14 @@ namespace zetasql {
 #include "go-zetasql/public/id_string/export.inc"
 #include "go-zetasql/public/parse_location/export.inc"
 #include "go-zetasql/public/parse_location_range_cc_proto/export.inc"
-#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
 #include "go-zetasql/public/simple_catalog/export.inc"
 #include "go-zetasql/public/strings/export.inc"
 #include "go-zetasql/public/type/export.inc"
 #include "go-zetasql/public/type_annotation_cc_proto/export.inc"
 #include "go-zetasql/public/type_parameters_cc_proto/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
+#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"

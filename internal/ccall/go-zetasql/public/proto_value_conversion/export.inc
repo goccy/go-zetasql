@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_PROTO_VALUE_CONVERSION_EXPORT_H
 
 #include "zetasql/public/proto_value_conversion.h"
+#include "zetasql/public/proto_value_conversion.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status MergeValueToProtoField(const Value& value,
@@ -31,7 +33,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/public/json_value/export.inc"
 #include "go-zetasql/public/numeric_value/export.inc"
@@ -42,11 +44,12 @@ namespace zetasql {
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/source_location/export.inc"
 #include "go-zetasql/base/status/export.inc"
-#include "go-zetasql/proto/type_annotation_cc_proto/export.inc"
+#include "go-zetasql/public/proto/type_annotation_cc_proto/export.inc"
 #include "go-zetasql/public/functions/date_time_util/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/cord/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

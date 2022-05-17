@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_ANONIMIZATION_REWRITER_EXPORT_H
 
 #include "zetasql/analyzer/anonymization_rewriter.h"
+#include "zetasql/analyzer/anonymization_rewriter.cc"
 
+#if 0
 namespace zetasql {
 
   absl::StatusOr<RewriteForAnonymizationOutput>
@@ -19,6 +21,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/analyzer/expr_matching_helpers/export.inc"
 #include "go-zetasql/analyzer/name_scope/export.inc"
@@ -43,10 +46,10 @@ namespace zetasql {
 #include "go-zetasql/public/parse_location/export.inc"
 #include "go-zetasql/public/strings/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
 #include "go-zetasql/public/value/export.inc"
-#include "go-zetasql/resolved_ast/make_node_vector/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
+#include "go-zetasql/resolved_ast/make_node_vector/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast_enums_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/resolved_node_kind_cc_proto/export.inc"
 #include "go-zetasql/resolved_ast/rewrite_utils/export.inc"
@@ -55,8 +58,8 @@ namespace zetasql {
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
-#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/types/span/export.inc"
 
 #endif

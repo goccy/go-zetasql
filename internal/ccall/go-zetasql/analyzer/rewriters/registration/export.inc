@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_REWRITERS_REGISTRATION_EXPORT_H
 
 #include "zetasql/analyzer/rewriters/registration.h"
+#include "zetasql/analyzer/rewriters/registration.cc"
 
+#if 0
 namespace zetasql {
 
   RewriteRegistry& RewriteRegistry::global_instance() {
@@ -24,6 +26,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/logging/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"

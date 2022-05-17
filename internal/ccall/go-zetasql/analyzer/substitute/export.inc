@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_SUBSTITUTE_EXPORT_H
 
 #include "zetasql/analyzer/substitute.h"
+#include "zetasql/analyzer/substitute.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status ExpectAnalyzeSubstituteSuccess(zetasql_base::StatusBuilder status_builder) {
@@ -20,7 +22,7 @@ namespace zetasql {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/analyzer/analyzer_impl/export.inc"
 #include "go-zetasql/base/logging/export.inc"
@@ -34,10 +36,10 @@ namespace zetasql {
 #include "go-zetasql/public/function_cc_proto/export.inc"
 #include "go-zetasql/public/multi_catalog/export.inc"
 #include "go-zetasql/public/options_cc_proto/export.inc"
-#include "go-zetasql/public/resolved_ast/resolved_ast/export.inc"
-#include "go-zetasql/public/resolved_ast/rewrite_utils/export.inc"
 #include "go-zetasql/public/simple_catalog/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
+#include "go-zetasql/resolved_ast/resolved_ast/export.inc"
+#include "go-zetasql/resolved_ast/rewrite_utils/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
 #include "go-absl/memory/memory/export.inc"

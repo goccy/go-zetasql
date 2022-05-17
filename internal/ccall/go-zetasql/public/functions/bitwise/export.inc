@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_BITWISE_EXPORT_H
 
 #include "zetasql/public/functions/bitwise.h"
+#include "zetasql/public/functions/bitwise.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -26,9 +28,11 @@ namespace zetasql {
     }
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/util/export.inc"
 #include "go-zetasql/base/base/export.inc"
+#include "go-zetasql/base/bits/export.inc"
 #include "go-zetasql/base/status/export.inc"
 #include "go-absl/base/base/export.inc"
 #include "go-absl/base/core_headers/export.inc"

@@ -1,0 +1,26 @@
+#define GO_EXPORT(def) export_zetasql_ ## def
+#define U_ICU_ENTRY_POINT_RENAME(x) GO_EXPORT(x)
+
+{{- range . }}
+#include "go-{{ . }}/export.inc"
+{{- end }}
+
+{{- range . }}
+#include "go-{{ . }}/bridge.h"
+{{- end }}
+
+{{- range . }}
+#include "go-{{ . }}/bridge_cc.inc"
+{{- end }}
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+{{- range . }}
+#include "go-{{ . }}/bridge.inc"
+{{- end }}
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */

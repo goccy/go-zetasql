@@ -2,7 +2,9 @@
 #define ZETASQL_BASE_CLOCK_EXPORT_H
 
 #include "zetasql/base/clock.h"
+#include "zetasql/base/clock.cc"
 
+#if 0
 namespace zetasql_base {
 
   Clock* Clock::RealClock() {
@@ -27,9 +29,11 @@ namespace zetasql_base {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-absl/base/core_headers/export.inc"
 #include "go-absl/synchronization/synchronization/export.inc"
 #include "go-absl/time/time/export.inc"
+
+#endif

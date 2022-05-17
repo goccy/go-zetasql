@@ -2,7 +2,9 @@
 #define ABSL_BASE_SCOPED_SET_ENV_EXPORT_H
 
 #include "absl/base/internal/scoped_set_env.h"
+#include "absl/base/internal/scoped_set_env.cc"
 
+#if 0
 namespace absl {
   namespace base_internal {
 
@@ -15,6 +17,7 @@ namespace absl {
 
   }
 }
+#endif
 
 #include "go-absl/base/config/export.inc"
 #include "go-absl/base/raw_logging_internal/export.inc"

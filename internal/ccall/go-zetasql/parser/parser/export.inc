@@ -1318,9 +1318,9 @@ namespace zetasql {
 #include "go-zetasql/parser/flex_istream/export.inc"
 #include "go-zetasql/parser/keywords/export.inc"
 #include "go-zetasql/parser/parse_tree/export.inc"
+#include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/arena/export.inc"
 #include "go-zetasql/base/arena_allocator/export.inc"
-#include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/map_util/export.inc"
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/base/status/export.inc"
@@ -1349,5 +1349,6 @@ namespace zetasql {
 #include "go-absl/strings/strings/export.inc"
 #include "go-absl/types/span/export.inc"
 #include "go-absl/types/variant/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

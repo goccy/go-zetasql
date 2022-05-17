@@ -18,6 +18,8 @@ ZetaSQL can parse all queries related to Cloud Spanner and BigQuery. This functi
 - Can access all the APIs of the ZetaSQL parser
   - The ZetaSQL parser is not publicly available, but it is available in go-zetasql
 
+- Can access analyzer APIs
+
 # Status
 
 In the feaatures of ZetaSQL, you can use the functions of the following packages. Will be added sequentially.
@@ -26,7 +28,7 @@ In the feaatures of ZetaSQL, you can use the functions of the following packages
 | ----           | ----       |
 | parser         | yes        |
 | public         | partial    |
-| analyzer       | no         |
+| analyzer       | yes        |
 | scripting      | no         |
 | reference_impl | no         |
 
@@ -62,4 +64,4 @@ Since go-zetasql builds all source code including dependencies at install time, 
 - [protobuf](https://github.com/protocolbuffers/protobuf): [License](https://github.com/protocolbuffers/protobuf/blob/master/LICENSE)
 - [icu](https://github.com/unicode-org/icu): [ICU License](https://github.com/unicode-org/icu/blob/main/icu4c/LICENSE)
 - [farmhash](https://github.com/google/farmhash): [MIT License](https://github.com/google/farmhash/blob/master/COPYING)
-- [googletest](https://github.com/google/googletest): [BSD 3-Clause](https://github.com/google/googletest/blob/main/LICENSE)
+- [googletest](https://github.com/google/googletest): [BSK 3-Clause](https://github.com/google/googletest/blob/main/LICENSE)

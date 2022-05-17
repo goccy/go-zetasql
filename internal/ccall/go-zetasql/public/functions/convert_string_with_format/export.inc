@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_CONVERT_STRING_WITH_FORMAT_EXPORT_H
 
 #include "zetasql/public/functions/convert_string_with_format.h"
+#include "zetasql/public/functions/convert_string_with_format.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
     namespace internal {
@@ -82,6 +84,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/convert/export.inc"
 #include "go-zetasql/public/functions/format_max_output_width/export.inc"
@@ -94,5 +97,6 @@ namespace zetasql {
 #include "go-absl/flags/flag/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

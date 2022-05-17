@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_LIKE_EXPORT_H
 
 #include "zetasql/public/functions/like.h"
+#include "zetasql/public/functions/like.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -27,7 +29,7 @@ namespace zetasql {
 
   }
 }
-
+#endif
 
 #include "go-zetasql/base/base/export.inc"
 #include "go-zetasql/base/status/export.inc"
@@ -36,5 +38,6 @@ namespace zetasql {
 #include "go-absl/memory/memory/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

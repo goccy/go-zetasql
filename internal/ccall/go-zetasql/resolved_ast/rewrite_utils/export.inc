@@ -2,7 +2,9 @@
 #define ZETASQL_RESOLVED_AST_REWRITE_UTILS_EXPORT_H
 
 #include "zetasql/resolved_ast/rewrite_utils.h"
+#include "zetasql/resolved_ast/rewrite_utils.cc"
 
+#if 0
 namespace zetasql {
 
   ResolvedColumn ColumnFactory::MakeCol(const std::string& table_name,
@@ -40,6 +42,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-zetasql/base/base/export.inc"

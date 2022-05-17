@@ -4,7 +4,7 @@ import "C"
 import (
 	"unsafe"
 
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/sql_formatter"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 )
 
 func FormatSQL(sql string) (string, error) {

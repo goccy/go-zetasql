@@ -4,6 +4,10 @@
 #include "zetasql/public/catalog.h"
 #include "zetasql/public/catalog_helper.h"
 
+#include "zetasql/public/catalog.cc"
+#include "zetasql/public/catalog_helper.cc"
+
+#if 0
 namespace zetasql {
 
   absl::Status Catalog::FindTable(const absl::Span<const std::string>& path,
@@ -270,25 +274,25 @@ namespace zetasql {
                           const std::vector<std::string>& possible_names) {
     return "";
   }
-
 }
+#endif
 
-
-#include "go-zetasql/public/evaluator_table_iterator"
-#include "go-zetasql/public/options_cc_proto"
-#include "go-zetasql/public/strings"
-#include "go-zetasql/public/type"
-#include "go-zetasql/base/base"
-#include "go-zetasql/base/edit_distance"
-#include "go-zetasql/base/ret_check"
-#include "go-zetasql/base/source_location"
-#include "go-zetasql/base/status"
-#include "go-absl/base/core_headers"
-#include "go-absl/container/flat_hash_set"
-#include "go-absl/flags/flag"
-#include "go-absl/status/statusor"
-#include "go-absl/strings/strings"
-#include "go-absl/types/span"
-#include "go-absl/types/variant"
+#include "go-zetasql/public/evaluator_table_iterator/export.inc"
+#include "go-zetasql/public/options_cc_proto/export.inc"
+#include "go-zetasql/public/strings/export.inc"
+#include "go-zetasql/public/type/export.inc"
+#include "go-zetasql/base/base/export.inc"
+#include "go-zetasql/base/edit_distance/export.inc"
+#include "go-zetasql/base/ret_check/export.inc"
+#include "go-zetasql/base/source_location/export.inc"
+#include "go-zetasql/base/status/export.inc"
+#include "go-absl/base/core_headers/export.inc"
+#include "go-absl/container/flat_hash_set/export.inc"
+#include "go-absl/flags/flag/export.inc"
+#include "go-absl/status/statusor/export.inc"
+#include "go-absl/strings/strings/export.inc"
+#include "go-absl/types/span/export.inc"
+#include "go-absl/types/variant/export.inc"
+#include "go-protobuf/protobuf/export.inc"
 
 #endif

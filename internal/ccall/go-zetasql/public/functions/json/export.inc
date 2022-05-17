@@ -2,7 +2,9 @@
 #define ZETASQL_PUBLIC_FUNCTIONS_JSON_EXPORT_H
 
 #include "zetasql/public/functions/json.h"
+#include "zetasql/public/functions/json.cc"
 
+#if 0
 namespace zetasql {
   namespace functions {
 
@@ -82,6 +84,7 @@ namespace zetasql {
 
   }
 }
+#endif
 
 #include "go-zetasql/public/functions/json_format/export.inc"
 #include "go-zetasql/public/functions/json_internal/export.inc"
@@ -94,5 +97,6 @@ namespace zetasql {
 #include "go-absl/status/status/export.inc"
 #include "go-absl/status/statusor/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-re2/re2/export.inc"
 
 #endif

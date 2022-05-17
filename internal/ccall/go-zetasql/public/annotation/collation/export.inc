@@ -3,6 +3,9 @@
 
 #include "zetasql/public/annotation/collation.h"
 
+#include "zetasql/public/annotation/collation.cc"
+
+#if 0
 namespace zetasql {
 
   absl::Status CollationAnnotation::CheckAndPropagateForColumnRef(const ResolvedColumnRef& column_ref,
@@ -46,6 +49,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/ret_check/export.inc"
 #include "go-zetasql/common/errors/export.inc"
@@ -54,7 +58,7 @@ namespace zetasql {
 #include "go-zetasql/public/function/export.inc"
 #include "go-zetasql/public/function_cc_proto/export.inc"
 #include "go-zetasql/public/type/export.inc"
-#include "go-zetasql/public/types/export.inc"
+#include "go-zetasql/public/types/types/export.inc"
 #include "go-zetasql/resolved_ast/resolved_ast/export.inc"
 #include "go-absl/status/status/export.inc"
 #include "go-absl/strings/strings/export.inc"

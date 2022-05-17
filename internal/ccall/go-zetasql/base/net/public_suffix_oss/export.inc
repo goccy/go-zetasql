@@ -3,7 +3,9 @@
 
 #include "zetasql/base/net/public_suffix_oss.h"
 #include "zetasql/base/net/public_suffix_list_data.h"
+#include "zetasql/base/net/public_suffix_oss.cc"
 
+#if 0
 namespace zetasql::internal {
 
   PublicSuffixRulesBuilder& PublicSuffixRulesBuilder::AddRule(absl::string_view rule, PublicSuffixRules::DomainType domain_type) {
@@ -58,14 +60,15 @@ namespace zetasql::internal {
   }
 
 }
-
+#endif
 
 #include "go-zetasql/base/logging/export.inc"
 #include "go-absl/container/flat_hash_map/export.inc"
 #include "go-absl/container/flat_hash_set/export.inc"
 #include "go-absl/container/inlined_vector/export.inc"
 #include "go-absl/functional/function_ref/export.inc"
-#include "go-absl/strings/str_format/export.inc"
 #include "go-absl/strings/strings/export.inc"
+#include "go-absl/strings/str_format/export.inc"
+#include "go-icu/icu/export.inc"
 
 #endif

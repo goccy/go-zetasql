@@ -2,7 +2,9 @@
 #define ZETASQL_ANALYZER_FILTER_FIELDS_PATH_VALIDATOR_EXPORT_H
 
 #include "zetasql/analyzer/filter_fields_path_validator.h"
+#include "zetasql/analyzer/filter_fields_path_validator.cc"
 
+#if 0
 namespace zetasql {
 
   absl::Status FilterFieldsPathValidator::ValidateFieldPath(bool include,
@@ -19,6 +21,7 @@ namespace zetasql {
   }
 
 }
+#endif
 
 #include "go-zetasql/base/logging/export.inc"
 #include "go-zetasql/base/map_util/export.inc"

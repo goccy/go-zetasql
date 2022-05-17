@@ -128,11 +128,4 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#undef GET_LIST
-#undef GET_UNIQUE_PTR_LIST
-#undef GET_STRS
-#undef SET_LIST
-#undef SET_UNIQUE_PTR_LIST
-#undef ADD_UNIQUE_PTR_LIST
-
 #endif /* zetasql_analyzer_rewriters_let_expr_rewriter_bind_cc */

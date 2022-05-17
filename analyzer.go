@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/resolved_ast"
 	"github.com/goccy/go-zetasql/types"

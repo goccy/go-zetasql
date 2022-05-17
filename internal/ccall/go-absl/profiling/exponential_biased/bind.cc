@@ -118,11 +118,4 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#undef GET_LIST
-#undef GET_UNIQUE_PTR_LIST
-#undef GET_STRS
-#undef SET_LIST
-#undef SET_UNIQUE_PTR_LIST
-#undef ADD_UNIQUE_PTR_LIST
-
 #endif /* absl_profiling_exponential_biased_bind_cc */

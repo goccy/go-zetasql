@@ -288,6 +288,9 @@ func (g *Generator) generate(f *ParsedFile) error {
 			return err
 		}
 	}
+	if err := g.generateRootBindGO(filepath.Join(ccallDir(), "go-zetasql")); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -361,6 +364,35 @@ func (g *Generator) generateBindGO(outputDir string, lib *Lib) error {
 	}
 	if existsFile(filepath.Join(outputDir, "bind.go")) {
 		if err := os.Remove(filepath.Join(outputDir, "bind.go")); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (g *Generator) generateRootBindGO(outputDir string) error {
+	{
+		// for darwin ( currently windows not supported )
+		output, err := g.generateGoSourceByTemplate(
+			"templates/bind.go.tmpl",
+			g.createRootBindGoParamDarwin(),
+		)
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile(filepath.Join(outputDir, "bind_darwin.go"), output, 0o600); err != nil {
+			return err
+		}
+	}
+	{
+		output, err := g.generateGoSourceByTemplate(
+			"templates/bind.go.tmpl",
+			g.createRootBindGoParamLinux(),
+		)
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile(filepath.Join(outputDir, "bind_linux.go"), output, 0o600); err != nil {
 			return err
 		}
 	}
@@ -581,6 +613,75 @@ func (g *Generator) createBindGoParamDarwin(lib *Lib) *BindGoParam {
 	return g.createBindGoParam(lib, nil, ldflags)
 }
 
+func (g *Generator) createRootBindGoParamLinux() *BindGoParam {
+	ldflags := []string{"-ldl"}
+	cxxflags := []string{
+		"-Wno-final-dtor-non-final-class",
+		"-Wno-implicit-const-int-float-conversion",
+	}
+	return g.createRootBindGoParam(cxxflags, ldflags)
+}
+
+func (g *Generator) createRootBindGoParamDarwin() *BindGoParam {
+	return g.createRootBindGoParam(nil, nil)
+}
+
+func (g *Generator) createRootBindGoParam(cxxflags, ldflags []string) *BindGoParam {
+	param := &BindGoParam{DebugMode: false}
+	param.Pkg = "zetasql"
+	param.FQDN = "zetasql"
+	param.Compiler = "c++1z"
+	param.CXXFlags = cxxflags
+	param.LDFlags = ldflags
+
+	ccallDir := "../"
+	includePaths := []string{ccallDir}
+	for _, includeDir := range includeDirs {
+		includePaths = append(includePaths, filepath.Join(ccallDir, includeDir))
+	}
+	param.IncludePaths = includePaths
+	bridgeHeaderMap := map[string]struct{}{}
+	for pkgName, pkg := range g.pkgMap {
+		pkg := pkg
+		for _, dep := range g.pkgToAllDeps[pkgName] {
+			if dep == pkgName {
+				continue
+			}
+			pkg, exists := g.importSymbolPackageMap[dep]
+			if !exists {
+				continue
+			}
+			goPkgPath := normalizeGoPkgPath(dep)
+			libName := fmt.Sprintf("github.com/goccy/go-zetasql/internal/ccall/%s", goPkgPath)
+			param.ImportGoLibs = append(param.ImportGoLibs, libName)
+			basePkg := filepath.Base(goPkgPath)
+			bridgeHeader := filepath.Join(ccallDir, goPkgPath, "bridge.h")
+			if _, exists := bridgeHeaderMap[bridgeHeader]; exists {
+				continue
+			}
+			param.BridgeHeaders = append(param.BridgeHeaders, bridgeHeader)
+			bridgeHeaderMap[bridgeHeader] = struct{}{}
+			for _, method := range pkg.Methods {
+				method := method
+				fn, needsImportUnsagePkg := g.pkgMethodToFunc(basePkg, &method)
+				if needsImportUnsagePkg {
+					param.ImportUnsafePkg = true
+				}
+				param.ExportFuncs = append(param.ExportFuncs, ExportFunc{
+					Func:    fn,
+					LibName: libName,
+				})
+			}
+		}
+		funcs, needsImportUnsafePkg := g.pkgToFuncs("zetasql", &pkg)
+		param.Funcs = append(param.Funcs, funcs...)
+		if needsImportUnsafePkg {
+			param.ImportUnsafePkg = true
+		}
+	}
+	return param
+}
+
 func (g *Generator) createBindGoParam(lib *Lib, cxxflags, ldflags []string) *BindGoParam {
 	param := &BindGoParam{DebugMode: false}
 	param.Pkg = g.goPkgName(lib)
@@ -599,7 +700,6 @@ func (g *Generator) createBindGoParam(lib *Lib, cxxflags, ldflags []string) *Bin
 	exportFuncs := []ExportFunc{}
 	bridgeHeaders := []string{}
 	importGoLibs := []string{}
-	exportFQDN := fmt.Sprintf("export_%s", param.FQDN)
 	for _, dep := range g.pkgToAllDeps[pkgName] {
 		if dep == pkgName {
 			continue
@@ -614,91 +714,90 @@ func (g *Generator) createBindGoParam(lib *Lib, cxxflags, ldflags []string) *Bin
 		basePkg := filepath.Base(goPkgPath)
 		bridgeHeaders = append(bridgeHeaders, filepath.Join(ccallDir, goPkgPath, "bridge.h"))
 		for _, method := range pkg.Methods {
-			fn := ExportFunc{
-				Func: Func{
-					BasePkg: basePkg,
-					Name:    method.Name,
-				},
+			method := method
+			fn, needsImportUnsagePkg := g.pkgMethodToFunc(basePkg, &method)
+			if needsImportUnsagePkg {
+				param.ImportUnsafePkg = true
+			}
+			exportFuncs = append(exportFuncs, ExportFunc{
+				Func:    fn,
 				LibName: libName,
-			}
-			args := []Type{}
-			for _, arg := range method.Args {
-				cgoType := g.toCGOType(arg)
-				if cgoType == "" {
-					log.Fatalf("unexpected type: %s.%s", exportFQDN, arg)
-				}
-				if cgoType == "unsafe.Pointer" {
-					param.ImportUnsafePkg = true
-				}
-				args = append(args, Type{CGO: cgoType})
-			}
-			for _, ret := range method.Ret {
-				cgoType := g.toCGOType(ret)
-				if cgoType == "" {
-					log.Fatalf("unexpected type: %s.%s", exportFQDN, ret)
-				}
-				if cgoType == "unsafe.Pointer" {
-					param.ImportUnsafePkg = true
-				}
-				args = append(args, Type{CGO: "*" + cgoType})
-			}
-			fn.Args = args
-			exportFuncs = append(exportFuncs, fn)
+			})
 		}
 	}
 	param.ImportGoLibs = importGoLibs
 	param.BridgeHeaders = bridgeHeaders
 	param.ExportFuncs = exportFuncs
 	if pkg, exists := g.pkgMap[pkgName]; exists {
-		funcs := make([]Func, 0, len(pkg.Methods))
-		for _, method := range pkg.Methods {
-			fn := Func{
-				BasePkg: lib.Name,
-				Name:    method.Name,
-			}
-			args := []Type{}
-			for _, arg := range method.Args {
-				cgoType := g.toCGOType(arg)
-				if cgoType == "" {
-					log.Fatalf("unexpected type: %s.%s", exportFQDN, arg)
-				}
-				if cgoType == "unsafe.Pointer" {
-					param.ImportUnsafePkg = true
-				}
-				goType := g.toGoType(arg)
-				needsCast := goType != cgoType
-				args = append(args, Type{
-					NeedsCast: needsCast,
-					GO:        goType,
-					CGO:       cgoType,
-				})
-			}
-			for _, ret := range method.Ret {
-				cgoType := g.toCGOType(ret)
-				if cgoType == "" {
-					log.Fatalf("unexpected type: %s.%s", exportFQDN, ret)
-				}
-				if cgoType == "unsafe.Pointer" {
-					param.ImportUnsafePkg = true
-				}
-				goType := g.toGoType(ret)
-				needsCast := goType != cgoType
-				if needsCast {
-					param.ImportUnsafePkg = true
-				}
-				args = append(args, Type{
-					IsRetType: true,
-					NeedsCast: needsCast,
-					GO:        "*" + goType,
-					CGO:       "*" + cgoType,
-				})
-			}
-			fn.Args = args
-			funcs = append(funcs, fn)
-		}
+		pkg := pkg
+		funcs, needsImportUnsafePkg := g.pkgToFuncs(lib.Name, &pkg)
 		param.Funcs = funcs
+		if needsImportUnsafePkg {
+			param.ImportUnsafePkg = true
+		}
 	}
 	return param
+}
+
+func (g *Generator) pkgToFuncs(pkgName string, pkg *Package) ([]Func, bool) {
+	needsImportUnsafePkg := false
+	funcs := make([]Func, 0, len(pkg.Methods))
+	for _, method := range pkg.Methods {
+		method := method
+		fn, needsUnsafePkg := g.pkgMethodToFunc(pkgName, &method)
+		funcs = append(funcs, fn)
+		if needsUnsafePkg {
+			needsImportUnsafePkg = true
+		}
+	}
+	return funcs, needsImportUnsafePkg
+}
+
+func (g *Generator) pkgMethodToFunc(pkgName string, method *Method) (Func, bool) {
+	needsImportUnsafePkg := false
+	fn := Func{
+		BasePkg: pkgName,
+		Name:    method.Name,
+	}
+	args := []Type{}
+	for _, arg := range method.Args {
+		cgoType := g.toCGOType(arg)
+		if cgoType == "" {
+			log.Fatalf("unexpected type: %s.%s.%s", pkgName, method.Name, arg)
+		}
+		if cgoType == "unsafe.Pointer" {
+			needsImportUnsafePkg = true
+		}
+		goType := g.toGoType(arg)
+		needsCast := goType != cgoType
+		args = append(args, Type{
+			NeedsCast: needsCast,
+			GO:        goType,
+			CGO:       cgoType,
+		})
+	}
+	for _, ret := range method.Ret {
+		cgoType := g.toCGOType(ret)
+		if cgoType == "" {
+			log.Fatalf("unexpected type: %s.%s.%s", pkgName, method.Name, ret)
+		}
+		if cgoType == "unsafe.Pointer" {
+			needsImportUnsafePkg = true
+		}
+		goType := g.toGoType(ret)
+		needsCast := goType != cgoType
+		if needsCast {
+			needsImportUnsafePkg = true
+		}
+		args = append(args, Type{
+			IsRetType: true,
+			NeedsCast: needsCast,
+			GO:        "*" + goType,
+			CGO:       "*" + cgoType,
+		})
+	}
+	fn.Args = args
+	return fn, needsImportUnsafePkg
 }
 
 func (g *Generator) createBridgeExternParam(lib *Lib) *BridgeExternParam {

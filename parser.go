@@ -6,7 +6,7 @@ import (
 	"unsafe"
 
 	"github.com/goccy/go-zetasql/ast"
-	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/parser/parser"
+	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 )
 
 var (

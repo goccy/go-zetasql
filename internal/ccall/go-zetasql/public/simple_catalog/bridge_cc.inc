@@ -1,6 +1,6 @@
-#define GET_LIST(list, v) assign_list(list(), v)
+#define SIMPLE_CATALOG_GET_LIST(list, v) simple_catalog_assign_list(list(), v)
 
-template<typename T> void assign_list(const std::vector<T> &val, void **target)
+template<typename T> void simple_catalog_assign_list(const std::vector<T> &val, void **target)
 {
   GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
   T **data = (T **)malloc(sizeof(void *) * val.size());
@@ -13,9 +13,9 @@ template<typename T> void assign_list(const std::vector<T> &val, void **target)
   *target = (void *)data;
 }
 
-#define GET_STRS(list, v) assign_strs(list(), v)
+#define SIMPLE_CATALOG_GET_STRS(list, v) simple_catalog_assign_strs(list(), v)
 
-static void assign_strs(const std::vector<std::string> &val, void **target)
+static void simple_catalog_assign_strs(const std::vector<std::string> &val, void **target)
 {
   GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
   const char **data = (const char **)malloc(sizeof(void *) * val.size());
@@ -29,9 +29,9 @@ static void assign_strs(const std::vector<std::string> &val, void **target)
 }
 
 
-#define SET_LIST(list, T, v) list(slice_to_vec<T>(v));
+#define SIMPLE_CATALOG_SET_LIST(list, T, v) list(simple_catalog_slice_to_vec<T>(v));
 
-template<typename T> std::vector<T> slice_to_vec(void *slice)
+template<typename T> std::vector<T> simple_catalog_slice_to_vec(void *slice)
 {
   GoSlice *goslice = (GoSlice *)slice;
   T **data = (T **)goslice->data;

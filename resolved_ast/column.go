@@ -3,7 +3,7 @@ package resolved_ast
 import (
 	"unsafe"
 
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/analyzer"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/types"
 )

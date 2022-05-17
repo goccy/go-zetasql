@@ -1,7 +1,7 @@
 #ifndef ZETASQL_PUBLIC_SQL_FORMATTER_EXPORT_H
 #define ZETASQL_PUBLIC_SQL_FORMATTER_EXPORT_H
 
-#inclue "zetasql/public/sql_formatter.h"
+#include "zetasql/public/sql_formatter.h"
 #include "zetasql/public/sql_formatter.cc"
 
 #if 0

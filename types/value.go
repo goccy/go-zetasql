@@ -4,7 +4,7 @@ import (
 	"time"
 	"unsafe"
 
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/simple_catalog"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 	"github.com/goccy/go-zetasql/internal/helper"
 )
 

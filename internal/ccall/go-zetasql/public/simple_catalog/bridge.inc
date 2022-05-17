@@ -1352,7 +1352,7 @@ void GO_EXPORT(Function_Name)(void * arg0,void ** arg1)
 void GO_EXPORT(Function_FunctionNamePath)(void * arg0,void ** arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
-  GET_STRS(f->FunctionNamePath, arg1);
+  SIMPLE_CATALOG_GET_STRS(f->FunctionNamePath, arg1);
 }
 
 void GO_EXPORT(Function_FullName)(void * arg0,int arg1,void ** arg2)
@@ -1400,13 +1400,13 @@ void GO_EXPORT(Function_NumSignatures)(void * arg0,int* arg1)
 void GO_EXPORT(Function_signatures)(void * arg0,void ** arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
-  GET_LIST(f->signatures, arg1);
+  SIMPLE_CATALOG_GET_LIST(f->signatures, arg1);
 }
 
 void GO_EXPORT(Function_ResetSignatures)(void * arg0,void * arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
-  SET_LIST(f->ResetSignatures, zetasql::FunctionSignature, arg1);
+  SIMPLE_CATALOG_SET_LIST(f->ResetSignatures, zetasql::FunctionSignature, arg1);
 }
 
 void GO_EXPORT(Function_AddSignature)(void * arg0,void * arg1)
@@ -1728,7 +1728,7 @@ void GO_EXPORT(FunctionArgumentType_GetSQLDeclaration)(void * arg0,int arg1,void
 void GO_EXPORT(ArgumentTypeLambda_argument_types)(void * arg0,void ** arg1)
 {
   zetasql::FunctionArgumentType::ArgumentTypeLambda *lambda = (zetasql::FunctionArgumentType::ArgumentTypeLambda *)arg0;
-  GET_LIST(lambda->argument_types, arg1);
+  SIMPLE_CATALOG_GET_LIST(lambda->argument_types, arg1);
 }
 
 void GO_EXPORT(ArgumentTypeLambda_body_type)(void * arg0,void ** arg1)
@@ -1740,7 +1740,7 @@ void GO_EXPORT(ArgumentTypeLambda_body_type)(void * arg0,void ** arg1)
 void GO_EXPORT(FunctionSignature_arguments)(void * arg0,void ** arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
-  GET_LIST(sig->arguments, arg1);
+  SIMPLE_CATALOG_GET_LIST(sig->arguments, arg1);
 }
 
 void GO_EXPORT(FunctionSignature_concret_arguments)(void * arg0,void ** arg1)

@@ -288,7 +288,35 @@ func (g *Generator) generate(f *ParsedFile) error {
 			return err
 		}
 	}
+	if err := g.generateRootBindCC(filepath.Join(ccallDir(), "go-zetasql")); err != nil {
+		return err
+	}
+	if err := g.generateRootBridgeH(filepath.Join(ccallDir(), "go-zetasql")); err != nil {
+		return err
+	}
 	if err := g.generateRootBindGO(filepath.Join(ccallDir(), "go-zetasql")); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *Generator) generateRootBindCC(outputDir string) error {
+	pkgs := g.pkgs()
+	libs := make([]string, 0, len(pkgs))
+	for _, pkg := range pkgs {
+		if !strings.Contains(pkg.Name, "zetasql") {
+			continue
+		}
+		libs = append(libs, pkg.Name)
+	}
+	output, err := g.generateCCSourceByTemplate(
+		"templates/root_bind.cc.tmpl",
+		libs,
+	)
+	if err != nil {
+		return err
+	}
+	if err := os.WriteFile(filepath.Join(outputDir, "bind.cc"), output, 0o600); err != nil {
 		return err
 	}
 	return nil
@@ -303,6 +331,40 @@ func (g *Generator) generateBindCC(outputDir string, lib *Lib) error {
 		return err
 	}
 	if err := os.WriteFile(filepath.Join(outputDir, "bind.cc"), output, 0o600); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (g *Generator) pkgs() []*Package {
+	pkgs := make([]*Package, 0, len(g.pkgMap))
+	for _, pkg := range g.pkgMap {
+		pkg := pkg
+		pkgs = append(pkgs, &pkg)
+	}
+	sort.Slice(pkgs, func(i, j int) bool {
+		return pkgs[i].Name < pkgs[j].Name
+	})
+	return pkgs
+}
+
+func (g *Generator) generateRootBridgeH(outputDir string) error {
+	pkgs := g.pkgs()
+	libs := make([]string, 0, len(pkgs))
+	for _, pkg := range pkgs {
+		if !strings.Contains(pkg.Name, "zetasql") {
+			continue
+		}
+		libs = append(libs, pkg.Name)
+	}
+	output, err := g.generateCCSourceByTemplate(
+		"templates/root_bridge.h.tmpl",
+		libs,
+	)
+	if err != nil {
+		return err
+	}
+	if err := os.WriteFile(filepath.Join(outputDir, "bridge.h"), output, 0o600); err != nil {
 		return err
 	}
 	return nil
@@ -641,8 +703,8 @@ func (g *Generator) createRootBindGoParam(cxxflags, ldflags []string) *BindGoPar
 	}
 	param.IncludePaths = includePaths
 	bridgeHeaderMap := map[string]struct{}{}
-	for pkgName, pkg := range g.pkgMap {
-		pkg := pkg
+	for _, pkg := range g.pkgs() {
+		pkgName := pkg.Name
 		for _, dep := range g.pkgToAllDeps[pkgName] {
 			if dep == pkgName {
 				continue
@@ -673,7 +735,7 @@ func (g *Generator) createRootBindGoParam(cxxflags, ldflags []string) *BindGoPar
 				})
 			}
 		}
-		funcs, needsImportUnsafePkg := g.pkgToFuncs("zetasql", &pkg)
+		funcs, needsImportUnsafePkg := g.pkgToFuncs("zetasql", pkg)
 		param.Funcs = append(param.Funcs, funcs...)
 		if needsImportUnsafePkg {
 			param.ImportUnsafePkg = true

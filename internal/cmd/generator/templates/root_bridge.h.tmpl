@@ -1,0 +1,18 @@
+#ifndef zetasql_bridge_h
+#define zetasql_bridge_h
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+#include <stdint.h>
+
+{{- range . }}
+#include "../go-{{ . }}/bridge_extern.h"
+{{- end }}
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* zetasql_bridge_h */

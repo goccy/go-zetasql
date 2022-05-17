@@ -36,6 +36,10912 @@ import (
 	"unsafe"
 )
 
+func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_cctz_FixedOffsetFromName(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_cctz_FixedOffsetFromName(arg0, arg1, arg2)
+}
+
+func cctz_FixedOffsetToName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_cctz_FixedOffsetToName(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_cctz_FixedOffsetToName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_cctz_FixedOffsetToName(arg0, arg1)
+}
+
+func cctz_FixedOffsetToAbbr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_cctz_FixedOffsetToAbbr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_cctz_FixedOffsetToAbbr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_cctz_FixedOffsetToAbbr(arg0, arg1)
+}
+
+func cctz_detail_format(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
+	zetasql_cctz_detail_format(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		arg4,
+	)
+}
+
+func zetasql_cctz_detail_format(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
+	C.export_zetasql_cctz_detail_format(arg0, arg1, arg2, arg3, arg4)
+}
+
+func cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *bool) {
+	zetasql_cctz_detail_parse(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		arg4,
+		arg5,
+		(*C.int)(unsafe.Pointer(arg6)),
+	)
+}
+
+func zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int) {
+	C.export_zetasql_cctz_detail_parse(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
+}
+
+func TimeZoneIf_Load(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TimeZoneIf_Load(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TimeZoneIf_Load(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneIf_Load(arg0, arg1)
+}
+
+func time_zone_Impl_UTC(arg0 *unsafe.Pointer) {
+	zetasql_time_zone_Impl_UTC(
+		arg0,
+	)
+}
+
+func zetasql_time_zone_Impl_UTC(arg0 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_Impl_UTC(arg0)
+}
+
+func time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_time_zone_Impl_LoadTimeZone(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_time_zone_Impl_LoadTimeZone(arg0, arg1, arg2)
+}
+
+func time_zone_Impl_ClearTimeZoneMapTestOnly() {
+	zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly()
+}
+
+func zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly() {
+	C.export_zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly()
+}
+
+func time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer) {
+	zetasql_time_zone_Impl_UTCImpl(
+		arg0,
+	)
+}
+
+func zetasql_time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_Impl_UTCImpl(arg0)
+}
+
+func TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_TimeZoneInfo_Load(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_TimeZoneInfo_Load(arg0, arg1, arg2)
+}
+
+func TimeZoneInfo_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TimeZoneInfo_BreakTime(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TimeZoneInfo_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneInfo_BreakTime(arg0, arg1, arg2)
+}
+
+func TimeZoneInfo_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TimeZoneInfo_MakeTime(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TimeZoneInfo_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneInfo_MakeTime(arg0, arg1, arg2)
+}
+
+func TimeZoneInfo_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TimeZoneInfo_Version(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TimeZoneInfo_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneInfo_Version(arg0, arg1)
+}
+
+func TimeZoneInfo_Description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TimeZoneInfo_Description(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TimeZoneInfo_Description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneInfo_Description(arg0, arg1)
+}
+
+func TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
+	zetasql_TimeZoneInfo_NextTransition(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+	)
+}
+
+func zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+	C.export_zetasql_TimeZoneInfo_NextTransition(arg0, arg1, arg2, arg3)
+}
+
+func TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
+	zetasql_TimeZoneInfo_PrevTransition(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+	)
+}
+
+func zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+	C.export_zetasql_TimeZoneInfo_PrevTransition(arg0, arg1, arg2, arg3)
+}
+
+func TimeZoneLibC_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TimeZoneLibC_BreakTime(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TimeZoneLibC_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneLibC_BreakTime(arg0, arg1, arg2)
+}
+
+func TimeZoneLibC_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TimeZoneLibC_MakeTime(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TimeZoneLibC_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneLibC_MakeTime(arg0, arg1, arg2)
+}
+
+func TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TimeZoneLibC_Version(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TimeZoneLibC_Version(arg0, arg1)
+}
+
+func TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
+	zetasql_TimeZoneLibC_NextTransition(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+	)
+}
+
+func zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+	C.export_zetasql_TimeZoneLibC_NextTransition(arg0, arg1, arg2, arg3)
+}
+
+func TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
+	zetasql_TimeZoneLibC_PrevTransition(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+	)
+}
+
+func zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+	C.export_zetasql_TimeZoneLibC_PrevTransition(arg0, arg1, arg2, arg3)
+}
+
+func time_zone_name(arg0 *unsafe.Pointer) {
+	zetasql_time_zone_name(
+		arg0,
+	)
+}
+
+func zetasql_time_zone_name(arg0 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_name(arg0)
+}
+
+func time_zone_lookup(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_time_zone_lookup(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_time_zone_lookup(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_lookup(arg0, arg1, arg2)
+}
+
+func time_zone_lookup2(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_time_zone_lookup2(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_time_zone_lookup2(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_lookup2(arg0, arg1, arg2)
+}
+
+func time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_time_zone_next_transition(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_time_zone_next_transition(arg0, arg1, arg2)
+}
+
+func time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_time_zone_prev_transition(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_time_zone_prev_transition(arg0, arg1, arg2)
+}
+
+func time_zone_version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_time_zone_version(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_time_zone_version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_version(arg0, arg1)
+}
+
+func time_zone_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_time_zone_description(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_time_zone_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_time_zone_description(arg0, arg1)
+}
+
+func cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_cctz_load_time_zone(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_cctz_load_time_zone(arg0, arg1, arg2)
+}
+
+func cctz_utc_time_zone(arg0 *unsafe.Pointer) {
+	zetasql_cctz_utc_time_zone(
+		arg0,
+	)
+}
+
+func zetasql_cctz_utc_time_zone(arg0 *unsafe.Pointer) {
+	C.export_zetasql_cctz_utc_time_zone(arg0)
+}
+
+func cctz_fixed_time_zone(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_cctz_fixed_time_zone(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_cctz_fixed_time_zone(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_cctz_fixed_time_zone(arg0, arg1)
+}
+
+func cctz_local_time_zone(arg0 *unsafe.Pointer) {
+	zetasql_cctz_local_time_zone(
+		arg0,
+	)
+}
+
+func zetasql_cctz_local_time_zone(arg0 *unsafe.Pointer) {
+	C.export_zetasql_cctz_local_time_zone(arg0)
+}
+
+func cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_cctz_ParsePosixSpec(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_cctz_ParsePosixSpec(arg0, arg1, arg2)
+}
+
+func ParseStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_ParseStatement(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_ParseStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_ParseStatement(arg0, arg1, arg2, arg3)
+}
+
+func ParseScript(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	zetasql_ParseScript(
+		arg0,
+		arg1,
+		C.int(arg2),
+		arg3,
+		arg4,
+	)
+}
+
+func zetasql_ParseScript(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	C.export_zetasql_ParseScript(arg0, arg1, arg2, arg3, arg4)
+}
+
+func ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *bool, arg4 *unsafe.Pointer) {
+	zetasql_ParseNextStatement(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+		arg4,
+	)
+}
+
+func zetasql_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+	C.export_zetasql_ParseNextStatement(arg0, arg1, arg2, arg3, arg4)
+}
+
+func ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *bool, arg4 *unsafe.Pointer) {
+	zetasql_ParseNextScriptStatement(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+		arg4,
+	)
+}
+
+func zetasql_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+	C.export_zetasql_ParseNextScriptStatement(arg0, arg1, arg2, arg3, arg4)
+}
+
+func ParseType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_ParseType(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_ParseType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_ParseType(arg0, arg1, arg2, arg3)
+}
+
+func ParseExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_ParseExpression(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_ParseExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_ParseExpression(arg0, arg1, arg2, arg3)
+}
+
+func Unparse(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Unparse(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Unparse(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Unparse(arg0, arg1)
+}
+
+func ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseResumeLocation_FromStringView(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseResumeLocation_FromStringView(arg0, arg1)
+}
+
+func Status_OK(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_Status_OK(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_Status_OK(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_Status_OK(arg0, arg1)
+}
+
+func Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Status_String(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Status_String(arg0, arg1)
+}
+
+func ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParserOutput_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParserOutput_statement(arg0, arg1)
+}
+
+func ParserOutput_script(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParserOutput_script(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOutput_script(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParserOutput_script(arg0, arg1)
+}
+
+func ParserOutput_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParserOutput_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOutput_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParserOutput_type(arg0, arg1)
+}
+
+func ParserOutput_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParserOutput_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOutput_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParserOutput_expression(arg0, arg1)
+}
+
+func ASTNode_getId(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTNode_getId(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_getId(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_getId(arg0, arg1)
+}
+
+func ASTNode_node_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTNode_node_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_node_kind(arg0, arg1)
+}
+
+func ASTNode_SingleNodeDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_SingleNodeDebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_SingleNodeDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_SingleNodeDebugString(arg0, arg1)
+}
+
+func ASTNode_set_parent(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_set_parent(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_set_parent(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_set_parent(arg0, arg1)
+}
+
+func ASTNode_parent(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_parent(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_parent(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_parent(arg0, arg1)
+}
+
+func ASTNode_AddChildren(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_AddChildren(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_AddChildren(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_AddChildren(arg0, arg1)
+}
+
+func ASTNode_AddChild(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_AddChild(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_AddChild(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_AddChild(arg0, arg1)
+}
+
+func ASTNode_AddChildFront(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_AddChildFront(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_AddChildFront(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_AddChildFront(arg0, arg1)
+}
+
+func ASTNode_num_children(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTNode_num_children(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_num_children(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_num_children(arg0, arg1)
+}
+
+func ASTNode_child(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTNode_child(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTNode_child(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_child(arg0, arg1, arg2)
+}
+
+func ASTNode_mutable_child(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTNode_mutable_child(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTNode_mutable_child(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_mutable_child(arg0, arg1, arg2)
+}
+
+func ASTNode_find_child_index(arg0 unsafe.Pointer, arg1 int, arg2 *int) {
+	zetasql_ASTNode_find_child_index(
+		arg0,
+		C.int(arg1),
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_ASTNode_find_child_index(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+	C.export_zetasql_ASTNode_find_child_index(arg0, arg1, arg2)
+}
+
+func ASTNode_DebugString(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTNode_DebugString(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTNode_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_DebugString(arg0, arg1, arg2)
+}
+
+func ASTNode_MoveStartLocation(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTNode_MoveStartLocation(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTNode_MoveStartLocation(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTNode_MoveStartLocation(arg0, arg1)
+}
+
+func ASTNode_MoveStartLocationBack(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTNode_MoveStartLocationBack(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTNode_MoveStartLocationBack(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTNode_MoveStartLocationBack(arg0, arg1)
+}
+
+func ASTNode_SetStartLocationToEndLocation(arg0 unsafe.Pointer) {
+	zetasql_ASTNode_SetStartLocationToEndLocation(
+		arg0,
+	)
+}
+
+func zetasql_ASTNode_SetStartLocationToEndLocation(arg0 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_SetStartLocationToEndLocation(arg0)
+}
+
+func ASTNode_MoveEndLocationBack(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTNode_MoveEndLocationBack(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTNode_MoveEndLocationBack(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTNode_MoveEndLocationBack(arg0, arg1)
+}
+
+func ASTNode_set_start_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_set_start_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_set_start_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_set_start_location(arg0, arg1)
+}
+
+func ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTNode_set_end_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTNode_set_end_location(arg0, arg1)
+}
+
+func ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsTableExpression(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsTableExpression(arg0, arg1)
+}
+
+func ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsQueryExpression(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsQueryExpression(arg0, arg1)
+}
+
+func ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsExpression(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsExpression(arg0, arg1)
+}
+
+func ASTNode_IsType(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsType(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsType(arg0, arg1)
+}
+
+func ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsLeaf(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsLeaf(arg0, arg1)
+}
+
+func ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsStatement(arg0, arg1)
+}
+
+func ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsScriptStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsScriptStatement(arg0, arg1)
+}
+
+func ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsLoopStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsLoopStatement(arg0, arg1)
+}
+
+func ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsSqlStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsSqlStatement(arg0, arg1)
+}
+
+func ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsDdlStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsDdlStatement(arg0, arg1)
+}
+
+func ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsCreateStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsCreateStatement(arg0, arg1)
+}
+
+func ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNode_IsAlterStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNode_IsAlterStatement(arg0, arg1)
+}
+
+func ASTNode_GetNodeKindString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_GetNodeKindString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_GetNodeKindString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_GetNodeKindString(arg0, arg1)
+}
+
+func ASTNode_GetParseLocationRange(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_GetParseLocationRange(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_GetParseLocationRange(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_GetParseLocationRange(arg0, arg1)
+}
+
+func ASTNode_GetLocationString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_GetLocationString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_GetLocationString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_GetLocationString(arg0, arg1)
+}
+
+func ASTNode_NodeKindToString(arg0 int, arg1 *unsafe.Pointer) {
+	zetasql_ASTNode_NodeKindToString(
+		C.int(arg0),
+		arg1,
+	)
+}
+
+func zetasql_ASTNode_NodeKindToString(arg0 C.int, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNode_NodeKindToString(arg0, arg1)
+}
+
+func ParseLocationPoint_filename(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseLocationPoint_filename(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseLocationPoint_filename(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseLocationPoint_filename(arg0, arg1)
+}
+
+func ParseLocationPoint_GetByteOffset(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ParseLocationPoint_GetByteOffset(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ParseLocationPoint_GetByteOffset(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ParseLocationPoint_GetByteOffset(arg0, arg1)
+}
+
+func ParseLocationPoint_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseLocationPoint_GetString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseLocationPoint_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseLocationPoint_GetString(arg0, arg1)
+}
+
+func ParseLocationRange_start(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseLocationRange_start(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseLocationRange_start(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseLocationRange_start(arg0, arg1)
+}
+
+func ParseLocationRange_end(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseLocationRange_end(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseLocationRange_end(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseLocationRange_end(arg0, arg1)
+}
+
+func ParseLocationRange_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParseLocationRange_GetString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParseLocationRange_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParseLocationRange_GetString(arg0, arg1)
+}
+
+func ASTQueryStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQueryStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQueryStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQueryStatement_query(arg0, arg1)
+}
+
+func ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTQueryExpression_set_parenthesized(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTQueryExpression_set_parenthesized(arg0, arg1)
+}
+
+func ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTQueryExpression_parenthesized(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTQueryExpression_parenthesized(arg0, arg1)
+}
+
+func ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTQuery_set_is_nested(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTQuery_set_is_nested(arg0, arg1)
+}
+
+func ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTQuery_is_nested(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTQuery_is_nested(arg0, arg1)
+}
+
+func ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTQuery_set_is_pivot_input(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTQuery_set_is_pivot_input(arg0, arg1)
+}
+
+func ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTQuery_is_pivot_input(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTQuery_is_pivot_input(arg0, arg1)
+}
+
+func ASTQuery_with_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQuery_with_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQuery_with_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQuery_with_clause(arg0, arg1)
+}
+
+func ASTQuery_query_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQuery_query_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQuery_query_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQuery_query_expr(arg0, arg1)
+}
+
+func ASTQuery_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQuery_order_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQuery_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQuery_order_by(arg0, arg1)
+}
+
+func ASTQuery_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQuery_limit_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQuery_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQuery_limit_offset(arg0, arg1)
+}
+
+func ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTSelect_set_distinct(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTSelect_set_distinct(arg0, arg1)
+}
+
+func ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTSelect_distinct(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSelect_distinct(arg0, arg1)
+}
+
+func ASTSelect_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_hint(arg0, arg1)
+}
+
+func ASTSelect_anonymization_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_anonymization_options(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_anonymization_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_anonymization_options(arg0, arg1)
+}
+
+func ASTSelect_select_as(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_select_as(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_select_as(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_select_as(arg0, arg1)
+}
+
+func ASTSelect_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_select_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_select_list(arg0, arg1)
+}
+
+func ASTSelect_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_from_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_from_clause(arg0, arg1)
+}
+
+func ASTSelect_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_where_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_where_clause(arg0, arg1)
+}
+
+func ASTSelect_group_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_group_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_group_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_group_by(arg0, arg1)
+}
+
+func ASTSelect_having(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_having(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_having(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_having(arg0, arg1)
+}
+
+func ASTSelect_qualify(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_qualify(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_qualify(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_qualify(arg0, arg1)
+}
+
+func ASTSelect_window_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelect_window_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelect_window_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelect_window_clause(arg0, arg1)
+}
+
+func ASTSelectList_column_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTSelectList_column_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSelectList_column_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSelectList_column_num(arg0, arg1)
+}
+
+func ASTSelectList_column(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTSelectList_column(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTSelectList_column(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelectList_column(arg0, arg1, arg2)
+}
+
+func ASTSelectColumn_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelectColumn_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelectColumn_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelectColumn_expression(arg0, arg1)
+}
+
+func ASTSelectColumn_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelectColumn_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelectColumn_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelectColumn_alias(arg0, arg1)
+}
+
+func ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTExpression_set_parenthesized(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTExpression_set_parenthesized(arg0, arg1)
+}
+
+func ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTExpression_parenthesized(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTExpression_parenthesized(arg0, arg1)
+}
+
+func ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTExpression_IsAllowedInComparison(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTExpression_IsAllowedInComparison(arg0, arg1)
+}
+
+func ASTLeaf_image(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLeaf_image(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLeaf_image(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLeaf_image(arg0, arg1)
+}
+
+func ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTLeaf_set_image(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTLeaf_set_image(arg0, arg1)
+}
+
+func ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTIntLiteral_is_hex(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTIntLiteral_is_hex(arg0, arg1)
+}
+
+func ASTIdentifier_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIdentifier_GetAsString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIdentifier_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIdentifier_GetAsString(arg0, arg1)
+}
+
+func ASTIdentifier_SetIdentifier(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTIdentifier_SetIdentifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIdentifier_SetIdentifier(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTIdentifier_SetIdentifier(arg0, arg1)
+}
+
+func ASTAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlias_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlias_identifier(arg0, arg1)
+}
+
+func ASTAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlias_GetAsString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlias_GetAsString(arg0, arg1)
+}
+
+func ASTPathExpression_num_names(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPathExpression_num_names(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPathExpression_num_names(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPathExpression_num_names(arg0, arg1)
+}
+
+func ASTPathExpression_name(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPathExpression_name(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPathExpression_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPathExpression_name(arg0, arg1, arg2)
+}
+
+func ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 uint32, arg2 *unsafe.Pointer) {
+	zetasql_ASTPathExpression_ToIdentifierPathString(
+		arg0,
+		C.uint(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPathExpression_ToIdentifierPathString(arg0, arg1, arg2)
+}
+
+func ASTTablePathExpression_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_path_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_path_expr(arg0, arg1)
+}
+
+func ASTTablePathExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_unnest_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_unnest_expr(arg0, arg1)
+}
+
+func ASTTablePathExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_hint(arg0, arg1)
+}
+
+func ASTTablePathExpression_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_with_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_with_offset(arg0, arg1)
+}
+
+func ASTTablePathExpression_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_pivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_pivot_clause(arg0, arg1)
+}
+
+func ASTTablePathExpression_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_unpivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_unpivot_clause(arg0, arg1)
+}
+
+func ASTTablePathExpression_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_for_system_time(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_for_system_time(arg0, arg1)
+}
+
+func ASTTablePathExpression_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_sample_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_sample_clause(arg0, arg1)
+}
+
+func ASTTablePathExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTablePathExpression_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTablePathExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTablePathExpression_alias(arg0, arg1)
+}
+
+func ASTFromClause_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFromClause_table_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFromClause_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFromClause_table_expression(arg0, arg1)
+}
+
+func ASTWhereClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWhereClause_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWhereClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhereClause_expression(arg0, arg1)
+}
+
+func ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBooleanLiteral_set_value(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBooleanLiteral_set_value(arg0, arg1)
+}
+
+func ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTBooleanLiteral_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBooleanLiteral_value(arg0, arg1)
+}
+
+func ASTAndExpr_conjuncts_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTAndExpr_conjuncts_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAndExpr_conjuncts_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAndExpr_conjuncts_num(arg0, arg1)
+}
+
+func ASTAndExpr_conjunct(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTAndExpr_conjunct(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTAndExpr_conjunct(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTAndExpr_conjunct(arg0, arg1, arg2)
+}
+
+func ASTBinaryExpression_set_op(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBinaryExpression_set_op(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBinaryExpression_set_op(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBinaryExpression_set_op(arg0, arg1)
+}
+
+func ASTBinaryExpression_op(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTBinaryExpression_op(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBinaryExpression_op(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBinaryExpression_op(arg0, arg1)
+}
+
+func ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBinaryExpression_set_is_not(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBinaryExpression_set_is_not(arg0, arg1)
+}
+
+func ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTBinaryExpression_is_not(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBinaryExpression_is_not(arg0, arg1)
+}
+
+func ASTBinaryExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBinaryExpression_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBinaryExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBinaryExpression_lhs(arg0, arg1)
+}
+
+func ASTBinaryExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBinaryExpression_rhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBinaryExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBinaryExpression_rhs(arg0, arg1)
+}
+
+func ASTBinaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBinaryExpression_GetSQLForOperator(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBinaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBinaryExpression_GetSQLForOperator(arg0, arg1)
+}
+
+func ASTStringLiteral_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStringLiteral_string_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStringLiteral_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStringLiteral_string_value(arg0, arg1)
+}
+
+func ASTStringLiteral_set_string_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ASTStringLiteral_set_string_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStringLiteral_set_string_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ASTStringLiteral_set_string_value(arg0, arg1)
+}
+
+func ASTOrExpr_disjuncts_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTOrExpr_disjuncts_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTOrExpr_disjuncts_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTOrExpr_disjuncts_num(arg0, arg1)
+}
+
+func ASTOrExpr_disjunct(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTOrExpr_disjunct(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTOrExpr_disjunct(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrExpr_disjunct(arg0, arg1, arg2)
+}
+
+func ASTGroupingItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGroupingItem_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGroupingItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGroupingItem_expression(arg0, arg1)
+}
+
+func ASTGroupingItem_rollup(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGroupingItem_rollup(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGroupingItem_rollup(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGroupingItem_rollup(arg0, arg1)
+}
+
+func ASTGroupBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGroupBy_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGroupBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGroupBy_hint(arg0, arg1)
+}
+
+func ASTGroupBy_grouping_items_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTGroupBy_grouping_items_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTGroupBy_grouping_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTGroupBy_grouping_items_num(arg0, arg1)
+}
+
+func ASTGroupBy_grouping_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTGroupBy_grouping_item(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTGroupBy_grouping_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTGroupBy_grouping_item(arg0, arg1, arg2)
+}
+
+func ASTOrderingExpression_set_ordering_spec(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTOrderingExpression_set_ordering_spec(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTOrderingExpression_set_ordering_spec(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTOrderingExpression_set_ordering_spec(arg0, arg1)
+}
+
+func ASTOrderingExpression_ordering_spec(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTOrderingExpression_ordering_spec(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTOrderingExpression_ordering_spec(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTOrderingExpression_ordering_spec(arg0, arg1)
+}
+
+func ASTOrderingExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOrderingExpression_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOrderingExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrderingExpression_expression(arg0, arg1)
+}
+
+func ASTOrderingExpression_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOrderingExpression_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOrderingExpression_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrderingExpression_collate(arg0, arg1)
+}
+
+func ASTOrderingExpression_null_order(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOrderingExpression_null_order(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOrderingExpression_null_order(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrderingExpression_null_order(arg0, arg1)
+}
+
+func ASTOrderBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOrderBy_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOrderBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrderBy_hint(arg0, arg1)
+}
+
+func ASTOrderBy_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTOrderBy_ordering_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTOrderBy_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTOrderBy_ordering_expressions_num(arg0, arg1)
+}
+
+func ASTOrderBy_ordering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTOrderBy_ordering_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTOrderBy_ordering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTOrderBy_ordering_expression(arg0, arg1, arg2)
+}
+
+func ASTLimitOffset_limit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLimitOffset_limit(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLimitOffset_limit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLimitOffset_limit(arg0, arg1)
+}
+
+func ASTLimitOffset_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLimitOffset_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLimitOffset_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLimitOffset_offset(arg0, arg1)
+}
+
+func ASTOnClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOnClause_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOnClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOnClause_expression(arg0, arg1)
+}
+
+func ASTWithClauseEntry_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithClauseEntry_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithClauseEntry_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithClauseEntry_alias(arg0, arg1)
+}
+
+func ASTWithClauseEntry_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithClauseEntry_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithClauseEntry_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithClauseEntry_query(arg0, arg1)
+}
+
+func ASTJoin_set_join_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_join_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_join_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_join_type(arg0, arg1)
+}
+
+func ASTJoin_join_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTJoin_join_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_join_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_join_type(arg0, arg1)
+}
+
+func ASTJoin_set_join_hint(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_join_hint(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_join_hint(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_join_hint(arg0, arg1)
+}
+
+func ASTJoin_join_hint(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTJoin_join_hint(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_join_hint(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_join_hint(arg0, arg1)
+}
+
+func ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_natural(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_natural(arg0, arg1)
+}
+
+func ASTJoin_natural(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTJoin_natural(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_natural(arg0, arg1)
+}
+
+func ASTJoin_set_unmatched_join_count(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_unmatched_join_count(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_unmatched_join_count(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_unmatched_join_count(arg0, arg1)
+}
+
+func ASTJoin_unmatched_join_count(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTJoin_unmatched_join_count(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_unmatched_join_count(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_unmatched_join_count(arg0, arg1)
+}
+
+func ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_transformation_needed(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_transformation_needed(arg0, arg1)
+}
+
+func ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTJoin_transformation_needed(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_transformation_needed(arg0, arg1)
+}
+
+func ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTJoin_set_contains_comma_join(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTJoin_set_contains_comma_join(arg0, arg1)
+}
+
+func ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTJoin_contains_comma_join(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTJoin_contains_comma_join(arg0, arg1)
+}
+
+func ASTJoin_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_lhs(arg0, arg1)
+}
+
+func ASTJoin_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_rhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_rhs(arg0, arg1)
+}
+
+func ASTJoin_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_hint(arg0, arg1)
+}
+
+func ASTJoin_on_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_on_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_on_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_on_clause(arg0, arg1)
+}
+
+func ASTJoin_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_using_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_using_clause(arg0, arg1)
+}
+
+func JoinParseError_error_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_JoinParseError_error_node(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_JoinParseError_error_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_JoinParseError_error_node(arg0, arg1)
+}
+
+func JoinParseError_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_JoinParseError_message(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_JoinParseError_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_JoinParseError_message(arg0, arg1)
+}
+
+func ASTJoin_parse_error(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_parse_error(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_parse_error(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_parse_error(arg0, arg1)
+}
+
+func ASTJoin_GetSQLForJoinType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_GetSQLForJoinType(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_GetSQLForJoinType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_GetSQLForJoinType(arg0, arg1)
+}
+
+func ASTJoin_GetSQLForJoinHint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTJoin_GetSQLForJoinHint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTJoin_GetSQLForJoinHint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTJoin_GetSQLForJoinHint(arg0, arg1)
+}
+
+func ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTWithClause_set_recursive(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTWithClause_set_recursive(arg0, arg1)
+}
+
+func ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTWithClause_recursive(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWithClause_recursive(arg0, arg1)
+}
+
+func ASTWithClause_with_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTWithClause_with_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWithClause_with_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWithClause_with_num(arg0, arg1)
+}
+
+func ASTWithClause_with(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTWithClause_with(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTWithClause_with(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithClause_with(arg0, arg1, arg2)
+}
+
+func ASTHaving_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHaving_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHaving_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHaving_expression(arg0, arg1)
+}
+
+func ASTType_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTType_type_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTType_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTType_type_parameters(arg0, arg1)
+}
+
+func ASTType_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTType_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTType_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTType_collate(arg0, arg1)
+}
+
+func ASTSimpleType_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSimpleType_type_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSimpleType_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSimpleType_type_name(arg0, arg1)
+}
+
+func ASTArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTArrayType_element_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayType_element_type(arg0, arg1)
+}
+
+func ASTStructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructField_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructField_name(arg0, arg1)
+}
+
+func ASTStructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructField_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructField_type(arg0, arg1)
+}
+
+func ASTStructType_struct_fields_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStructType_struct_fields_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStructType_struct_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStructType_struct_fields_num(arg0, arg1)
+}
+
+func ASTStructType_struct_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStructType_struct_field(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStructType_struct_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructType_struct_field(arg0, arg1, arg2)
+}
+
+func ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCastExpression_set_is_safe_cast(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCastExpression_set_is_safe_cast(arg0, arg1)
+}
+
+func ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCastExpression_is_safe_cast(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCastExpression_is_safe_cast(arg0, arg1)
+}
+
+func ASTCastExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCastExpression_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCastExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCastExpression_expr(arg0, arg1)
+}
+
+func ASTCastExpression_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCastExpression_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCastExpression_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCastExpression_type(arg0, arg1)
+}
+
+func ASTCastExpression_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCastExpression_format(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCastExpression_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCastExpression_format(arg0, arg1)
+}
+
+func ASTSelectAs_set_as_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTSelectAs_set_as_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTSelectAs_set_as_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTSelectAs_set_as_mode(arg0, arg1)
+}
+
+func ASTSelectAs_as_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTSelectAs_as_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSelectAs_as_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSelectAs_as_mode(arg0, arg1)
+}
+
+func ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSelectAs_type_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSelectAs_type_name(arg0, arg1)
+}
+
+func ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTSelectAs_is_select_as_struct(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSelectAs_is_select_as_struct(arg0, arg1)
+}
+
+func ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTSelectAs_is_select_as_value(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSelectAs_is_select_as_value(arg0, arg1)
+}
+
+func ASTRollup_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTRollup_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTRollup_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTRollup_expressions_num(arg0, arg1)
+}
+
+func ASTRollup_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTRollup_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTRollup_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTRollup_expression(arg0, arg1, arg2)
+}
+
+func ASTFunctionCall_set_null_handling_modifier(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFunctionCall_set_null_handling_modifier(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFunctionCall_set_null_handling_modifier(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFunctionCall_set_null_handling_modifier(arg0, arg1)
+}
+
+func ASTFunctionCall_null_handling_modifier(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTFunctionCall_null_handling_modifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionCall_null_handling_modifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionCall_null_handling_modifier(arg0, arg1)
+}
+
+func ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFunctionCall_set_distinct(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFunctionCall_set_distinct(arg0, arg1)
+}
+
+func ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionCall_distinct(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionCall_distinct(arg0, arg1)
+}
+
+func ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0, arg1)
+}
+
+func ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0, arg1)
+}
+
+func ASTFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_function(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_function(arg0, arg1)
+}
+
+func ASTFunctionCall_having_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_having_modifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_having_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_having_modifier(arg0, arg1)
+}
+
+func ASTFunctionCall_clamped_between_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_clamped_between_modifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_clamped_between_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_clamped_between_modifier(arg0, arg1)
+}
+
+func ASTFunctionCall_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_order_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_order_by(arg0, arg1)
+}
+
+func ASTFunctionCall_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_limit_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_limit_offset(arg0, arg1)
+}
+
+func ASTFunctionCall_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_hint(arg0, arg1)
+}
+
+func ASTFunctionCall_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_with_group_rows(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCall_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_with_group_rows(arg0, arg1)
+}
+
+func ASTFunctionCall_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTFunctionCall_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionCall_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionCall_arguments_num(arg0, arg1)
+}
+
+func ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTFunctionCall_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCall_argument(arg0, arg1, arg2)
+}
+
+func ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionCall_HasModifiers(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionCall_HasModifiers(arg0, arg1)
+}
+
+func ASTArrayConstructor_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTArrayConstructor_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTArrayConstructor_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayConstructor_type(arg0, arg1)
+}
+
+func ASTArrayConstructor_elements_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTArrayConstructor_elements_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTArrayConstructor_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTArrayConstructor_elements_num(arg0, arg1)
+}
+
+func ASTArrayConstructor_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTArrayConstructor_element(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTArrayConstructor_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayConstructor_element(arg0, arg1, arg2)
+}
+
+func ASTStructConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructConstructorArg_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructConstructorArg_expression(arg0, arg1)
+}
+
+func ASTStructConstructorArg_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructConstructorArg_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructConstructorArg_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructConstructorArg_alias(arg0, arg1)
+}
+
+func ASTStructConstructorWithParens_field_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStructConstructorWithParens_field_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStructConstructorWithParens_field_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStructConstructorWithParens_field_expressions_num(arg0, arg1)
+}
+
+func ASTStructConstructorWithParens_field_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStructConstructorWithParens_field_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStructConstructorWithParens_field_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructConstructorWithParens_field_expression(arg0, arg1, arg2)
+}
+
+func ASTStructConstructorWithKeyword_struct_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructConstructorWithKeyword_struct_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructConstructorWithKeyword_struct_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructConstructorWithKeyword_struct_type(arg0, arg1)
+}
+
+func ASTStructConstructorWithKeyword_fields_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStructConstructorWithKeyword_fields_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStructConstructorWithKeyword_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStructConstructorWithKeyword_fields_num(arg0, arg1)
+}
+
+func ASTStructConstructorWithKeyword_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStructConstructorWithKeyword_field(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStructConstructorWithKeyword_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructConstructorWithKeyword_field(arg0, arg1, arg2)
+}
+
+func ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTInExpression_set_is_not(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTInExpression_set_is_not(arg0, arg1)
+}
+
+func ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTInExpression_is_not(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInExpression_is_not(arg0, arg1)
+}
+
+func ASTInExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInExpression_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInExpression_lhs(arg0, arg1)
+}
+
+func ASTInExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInExpression_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInExpression_hint(arg0, arg1)
+}
+
+func ASTInExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInExpression_in_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInExpression_in_list(arg0, arg1)
+}
+
+func ASTInExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInExpression_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInExpression_query(arg0, arg1)
+}
+
+func ASTInExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInExpression_unnest_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInExpression_unnest_expr(arg0, arg1)
+}
+
+func ASTInList_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTInList_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInList_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInList_list_num(arg0, arg1)
+}
+
+func ASTInList_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTInList_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTInList_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTInList_list(arg0, arg1, arg2)
+}
+
+func ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBetweenExpression_set_is_not(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBetweenExpression_set_is_not(arg0, arg1)
+}
+
+func ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTBetweenExpression_is_not(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBetweenExpression_is_not(arg0, arg1)
+}
+
+func ASTBetweenExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBetweenExpression_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBetweenExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBetweenExpression_lhs(arg0, arg1)
+}
+
+func ASTBetweenExpression_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBetweenExpression_low(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBetweenExpression_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBetweenExpression_low(arg0, arg1)
+}
+
+func ASTBetweenExpression_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBetweenExpression_high(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBetweenExpression_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBetweenExpression_high(arg0, arg1)
+}
+
+func ASTDateOrTimeLiteral_set_type_kind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDateOrTimeLiteral_set_type_kind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDateOrTimeLiteral_set_type_kind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDateOrTimeLiteral_set_type_kind(arg0, arg1)
+}
+
+func ASTDateOrTimeLiteral_type_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTDateOrTimeLiteral_type_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDateOrTimeLiteral_type_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDateOrTimeLiteral_type_kind(arg0, arg1)
+}
+
+func ASTDateOrTimeLiteral_string_literal(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDateOrTimeLiteral_string_literal(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDateOrTimeLiteral_string_literal(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDateOrTimeLiteral_string_literal(arg0, arg1)
+}
+
+func ASTCaseValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCaseValueExpression_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCaseValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCaseValueExpression_arguments_num(arg0, arg1)
+}
+
+func ASTCaseValueExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTCaseValueExpression_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTCaseValueExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTCaseValueExpression_argument(arg0, arg1, arg2)
+}
+
+func ASTCaseNoValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCaseNoValueExpression_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCaseNoValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCaseNoValueExpression_arguments_num(arg0, arg1)
+}
+
+func ASTCaseNoValueExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTCaseNoValueExpression_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTCaseNoValueExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTCaseNoValueExpression_argument(arg0, arg1, arg2)
+}
+
+func ASTArrayElement_array(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTArrayElement_array(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTArrayElement_array(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayElement_array(arg0, arg1)
+}
+
+func ASTArrayElement_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTArrayElement_position(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTArrayElement_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayElement_position(arg0, arg1)
+}
+
+func ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBitwiseShiftExpression_set_is_left_shift(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBitwiseShiftExpression_set_is_left_shift(arg0, arg1)
+}
+
+func ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTBitwiseShiftExpression_is_left_shift(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0, arg1)
+}
+
+func ASTBitwiseShiftExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBitwiseShiftExpression_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBitwiseShiftExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBitwiseShiftExpression_lhs(arg0, arg1)
+}
+
+func ASTBitwiseShiftExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBitwiseShiftExpression_rhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBitwiseShiftExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBitwiseShiftExpression_rhs(arg0, arg1)
+}
+
+func ASTCollate_collation_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCollate_collation_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCollate_collation_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCollate_collation_name(arg0, arg1)
+}
+
+func ASTDotGeneralizedField_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotGeneralizedField_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotGeneralizedField_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotGeneralizedField_expr(arg0, arg1)
+}
+
+func ASTDotGeneralizedField_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotGeneralizedField_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotGeneralizedField_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotGeneralizedField_path(arg0, arg1)
+}
+
+func ASTDotIdentifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotIdentifier_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotIdentifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotIdentifier_expr(arg0, arg1)
+}
+
+func ASTDotIdentifier_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotIdentifier_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotIdentifier_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotIdentifier_name(arg0, arg1)
+}
+
+func ASTDotStar_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotStar_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotStar_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotStar_expr(arg0, arg1)
+}
+
+func ASTDotStarWithModifiers_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotStarWithModifiers_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotStarWithModifiers_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotStarWithModifiers_expr(arg0, arg1)
+}
+
+func ASTDotStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDotStarWithModifiers_modifiers(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDotStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDotStarWithModifiers_modifiers(arg0, arg1)
+}
+
+func ASTExpressionSubquery_set_modifier(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTExpressionSubquery_set_modifier(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTExpressionSubquery_set_modifier(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTExpressionSubquery_set_modifier(arg0, arg1)
+}
+
+func ASTExpressionSubquery_modifier(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTExpressionSubquery_modifier(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTExpressionSubquery_modifier(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTExpressionSubquery_modifier(arg0, arg1)
+}
+
+func ASTExpressionSubquery_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExpressionSubquery_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExpressionSubquery_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExpressionSubquery_hint(arg0, arg1)
+}
+
+func ASTExpressionSubquery_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExpressionSubquery_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExpressionSubquery_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExpressionSubquery_query(arg0, arg1)
+}
+
+func ASTExtractExpression_lhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExtractExpression_lhs_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExtractExpression_lhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExtractExpression_lhs_expr(arg0, arg1)
+}
+
+func ASTExtractExpression_rhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExtractExpression_rhs_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExtractExpression_rhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExtractExpression_rhs_expr(arg0, arg1)
+}
+
+func ASTExtractExpression_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExtractExpression_time_zone_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExtractExpression_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExtractExpression_time_zone_expr(arg0, arg1)
+}
+
+func ASTHavingModifier_set_modifier_kind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTHavingModifier_set_modifier_kind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTHavingModifier_set_modifier_kind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTHavingModifier_set_modifier_kind(arg0, arg1)
+}
+
+func ASTHavingModifier_modifier_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTHavingModifier_modifier_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTHavingModifier_modifier_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTHavingModifier_modifier_kind(arg0, arg1)
+}
+
+func ASTHavingModifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHavingModifier_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHavingModifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHavingModifier_expr(arg0, arg1)
+}
+
+func ASTIntervalExpr_interval_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIntervalExpr_interval_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIntervalExpr_interval_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIntervalExpr_interval_value(arg0, arg1)
+}
+
+func ASTIntervalExpr_date_part_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIntervalExpr_date_part_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIntervalExpr_date_part_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIntervalExpr_date_part_name(arg0, arg1)
+}
+
+func ASTIntervalExpr_date_part_name_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIntervalExpr_date_part_name_to(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIntervalExpr_date_part_name_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIntervalExpr_date_part_name_to(arg0, arg1)
+}
+
+func ASTNamedArgument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNamedArgument_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNamedArgument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNamedArgument_name(arg0, arg1)
+}
+
+func ASTNamedArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNamedArgument_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNamedArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNamedArgument_expr(arg0, arg1)
+}
+
+func ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTNullOrder_set_nulls_first(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTNullOrder_set_nulls_first(arg0, arg1)
+}
+
+func ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTNullOrder_nulls_first(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNullOrder_nulls_first(arg0, arg1)
+}
+
+func ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0, arg1)
+}
+
+func ASTOnUsingClauseList_on_or_using_clause_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTOnUsingClauseList_on_or_using_clause_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTOnUsingClauseList_on_or_using_clause_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTOnUsingClauseList_on_or_using_clause_list(arg0, arg1, arg2)
+}
+
+func ASTParenthesizedJoin_join(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTParenthesizedJoin_join(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTParenthesizedJoin_join(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTParenthesizedJoin_join(arg0, arg1)
+}
+
+func ASTParenthesizedJoin_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTParenthesizedJoin_sample_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTParenthesizedJoin_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTParenthesizedJoin_sample_clause(arg0, arg1)
+}
+
+func ASTPartitionBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPartitionBy_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPartitionBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPartitionBy_hint(arg0, arg1)
+}
+
+func ASTPartitionBy_partitioning_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPartitionBy_partitioning_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPartitionBy_partitioning_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPartitionBy_partitioning_expressions_num(arg0, arg1)
+}
+
+func ASTPartitionBy_partitioning_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPartitionBy_partitioning_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPartitionBy_partitioning_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPartitionBy_partitioning_expression(arg0, arg1, arg2)
+}
+
+func ASTSetOperation_set_op_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTSetOperation_set_op_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTSetOperation_set_op_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTSetOperation_set_op_type(arg0, arg1)
+}
+
+func ASTSetOperation_op_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTSetOperation_op_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSetOperation_op_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSetOperation_op_type(arg0, arg1)
+}
+
+func ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTSetOperation_set_distinct(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTSetOperation_set_distinct(arg0, arg1)
+}
+
+func ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTSetOperation_distinct(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSetOperation_distinct(arg0, arg1)
+}
+
+func ASTSetOperation_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetOperation_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetOperation_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetOperation_hint(arg0, arg1)
+}
+
+func ASTSetOperation_inputs_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTSetOperation_inputs_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSetOperation_inputs_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSetOperation_inputs_num(arg0, arg1)
+}
+
+func ASTSetOperation_input(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTSetOperation_input(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTSetOperation_input(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetOperation_input(arg0, arg1, arg2)
+}
+
+func ASTSetOperation_GetSQLForOperation(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetOperation_GetSQLForOperation(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetOperation_GetSQLForOperation(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetOperation_GetSQLForOperation(arg0, arg1)
+}
+
+func ASTStarExceptList_identifiers_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStarExceptList_identifiers_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStarExceptList_identifiers_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStarExceptList_identifiers_num(arg0, arg1)
+}
+
+func ASTStarExpcetList_identifier(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStarExpcetList_identifier(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStarExpcetList_identifier(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarExpcetList_identifier(arg0, arg1, arg2)
+}
+
+func ASTStarModifiers_except_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStarModifiers_except_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStarModifiers_except_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarModifiers_except_list(arg0, arg1)
+}
+
+func ASTStarModifiers_replace_items_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStarModifiers_replace_items_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStarModifiers_replace_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStarModifiers_replace_items_num(arg0, arg1)
+}
+
+func ASTStarModifiers_replace_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStarModifiers_replace_item(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStarModifiers_replace_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarModifiers_replace_item(arg0, arg1, arg2)
+}
+
+func ASTStarReplaceItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStarReplaceItem_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStarReplaceItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarReplaceItem_expression(arg0, arg1)
+}
+
+func ASTStarReplaceItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStarReplaceItem_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStarReplaceItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarReplaceItem_alias(arg0, arg1)
+}
+
+func ASTStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStarWithModifiers_modifiers(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStarWithModifiers_modifiers(arg0, arg1)
+}
+
+func ASTTableSubquery_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableSubquery_subquery(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableSubquery_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableSubquery_subquery(arg0, arg1)
+}
+
+func ASTTableSubquery_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableSubquery_pivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableSubquery_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableSubquery_pivot_clause(arg0, arg1)
+}
+
+func ASTTableSubquery_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableSubquery_unpivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableSubquery_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableSubquery_unpivot_clause(arg0, arg1)
+}
+
+func ASTTableSubquery_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableSubquery_sample_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableSubquery_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableSubquery_sample_clause(arg0, arg1)
+}
+
+func ASTTableSubquery_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableSubquery_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableSubquery_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableSubquery_alias(arg0, arg1)
+}
+
+func ASTUnaryExpression_set_op(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTUnaryExpression_set_op(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTUnaryExpression_set_op(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTUnaryExpression_set_op(arg0, arg1)
+}
+
+func ASTUnaryExpression_op(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTUnaryExpression_op(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTUnaryExpression_op(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTUnaryExpression_op(arg0, arg1)
+}
+
+func ASTUnaryExpression_operand(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnaryExpression_operand(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnaryExpression_operand(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnaryExpression_operand(arg0, arg1)
+}
+
+func ASTUnaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnaryExpression_GetSQLForOperator(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnaryExpression_GetSQLForOperator(arg0, arg1)
+}
+
+func ASTUnnestExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnnestExpression_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnnestExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnnestExpression_expression(arg0, arg1)
+}
+
+func ASTWindowClause_windows_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTWindowClause_windows_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWindowClause_windows_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWindowClause_windows_num(arg0, arg1)
+}
+
+func ASTWindowClause_window(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTWindowClause_window(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTWindowClause_window(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowClause_window(arg0, arg1, arg2)
+}
+
+func ASTWindowDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowDefinition_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowDefinition_name(arg0, arg1)
+}
+
+func ASTWindowDefinition_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowDefinition_window_spec(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowDefinition_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowDefinition_window_spec(arg0, arg1)
+}
+
+func ASTWindowFrame_start_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowFrame_start_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowFrame_start_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowFrame_start_expr(arg0, arg1)
+}
+
+func ASTWindowFrame_end_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowFrame_end_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowFrame_end_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowFrame_end_expr(arg0, arg1)
+}
+
+func ASTWindowFrame_set_unit(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTWindowFrame_set_unit(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTWindowFrame_set_unit(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTWindowFrame_set_unit(arg0, arg1)
+}
+
+func ASTWindowFrame_frame_unit(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTWindowFrame_frame_unit(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWindowFrame_frame_unit(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWindowFrame_frame_unit(arg0, arg1)
+}
+
+func ASTWindowFrame_GetFrameUnitString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowFrame_GetFrameUnitString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowFrame_GetFrameUnitString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowFrame_GetFrameUnitString(arg0, arg1)
+}
+
+func ASTWindowFrameExpr_set_boundary_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTWindowFrameExpr_set_boundary_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTWindowFrameExpr_set_boundary_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTWindowFrameExpr_set_boundary_type(arg0, arg1)
+}
+
+func ASTWindowFrameExpr_boundary_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTWindowFrameExpr_boundary_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWindowFrameExpr_boundary_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWindowFrameExpr_boundary_type(arg0, arg1)
+}
+
+func ASTWindowFrameExpr_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowFrameExpr_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowFrameExpr_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowFrameExpr_expression(arg0, arg1)
+}
+
+func ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTLikeExpression_set_is_not(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTLikeExpression_set_is_not(arg0, arg1)
+}
+
+func ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTLikeExpression_is_not(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTLikeExpression_is_not(arg0, arg1)
+}
+
+func ASTLikeExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_lhs(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_lhs(arg0, arg1)
+}
+
+func ASTLikeExpression_op(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_op(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_op(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_op(arg0, arg1)
+}
+
+func ASTLikeExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_hint(arg0, arg1)
+}
+
+func ASTLikeExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_in_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_in_list(arg0, arg1)
+}
+
+func ASTLikeExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_query(arg0, arg1)
+}
+
+func ASTLikeExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLikeExpression_unnest_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLikeExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLikeExpression_unnest_expr(arg0, arg1)
+}
+
+func ASTWindowSpecification_base_window_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowSpecification_base_window_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowSpecification_base_window_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowSpecification_base_window_name(arg0, arg1)
+}
+
+func ASTWindowSpecification_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowSpecification_partition_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowSpecification_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowSpecification_partition_by(arg0, arg1)
+}
+
+func ASTWindowSpecification_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowSpecification_order_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowSpecification_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowSpecification_order_by(arg0, arg1)
+}
+
+func ASTWindowSpecification_window_frame(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWindowSpecification_window_frame(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWindowSpecification_window_frame(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWindowSpecification_window_frame(arg0, arg1)
+}
+
+func ASTWithOffset_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithOffset_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithOffset_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithOffset_alias(arg0, arg1)
+}
+
+func ASTAnySomeAllOp_set_op(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAnySomeAllOp_set_op(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAnySomeAllOp_set_op(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAnySomeAllOp_set_op(arg0, arg1)
+}
+
+func ASTAnySomeAllOp_op(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTAnySomeAllOp_op(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAnySomeAllOp_op(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAnySomeAllOp_op(arg0, arg1)
+}
+
+func ASTAnySomeAllOp_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnySomeAllOp_GetSQLForOperator(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnySomeAllOp_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnySomeAllOp_GetSQLForOperator(arg0, arg1)
+}
+
+func ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTStatementList_set_variable_declarations_allowed(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTStatementList_set_variable_declarations_allowed(arg0, arg1)
+}
+
+func ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTStatementList_variable_declarations_allowed(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStatementList_variable_declarations_allowed(arg0, arg1)
+}
+
+func ASTStatementList_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStatementList_statement_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStatementList_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStatementList_statement_list_num(arg0, arg1)
+}
+
+func ASTStatementList_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStatementList_statement_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStatementList_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStatementList_statement_list(arg0, arg1, arg2)
+}
+
+func ASTHintedStatement_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHintedStatement_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHintedStatement_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHintedStatement_hint(arg0, arg1)
+}
+
+func ASTHintedStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHintedStatement_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHintedStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHintedStatement_statement(arg0, arg1)
+}
+
+func ASTExplainStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExplainStatement_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExplainStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExplainStatement_statement(arg0, arg1)
+}
+
+func ASTDescribeStatement_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDescribeStatement_optional_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDescribeStatement_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescribeStatement_optional_identifier(arg0, arg1)
+}
+
+func ASTDescribeStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDescribeStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDescribeStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescribeStatement_name(arg0, arg1)
+}
+
+func ASTDescribeStatement_optional_from_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDescribeStatement_optional_from_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDescribeStatement_optional_from_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescribeStatement_optional_from_name(arg0, arg1)
+}
+
+func ASTShowStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTShowStatement_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTShowStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTShowStatement_identifier(arg0, arg1)
+}
+
+func ASTShowStatement_optional_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTShowStatement_optional_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTShowStatement_optional_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTShowStatement_optional_name(arg0, arg1)
+}
+
+func ASTShowStatement_optional_like_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTShowStatement_optional_like_string(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTShowStatement_optional_like_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTShowStatement_optional_like_string(arg0, arg1)
+}
+
+func ASTTransactionIsolationLevel_identifier1(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTransactionIsolationLevel_identifier1(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTransactionIsolationLevel_identifier1(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTransactionIsolationLevel_identifier1(arg0, arg1)
+}
+
+func ASTTransactionIsolationLevel_identifier2(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTransactionIsolationLevel_identifier2(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTransactionIsolationLevel_identifier2(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTransactionIsolationLevel_identifier2(arg0, arg1)
+}
+
+func ASTTransactionReadWriteMode_set_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTTransactionReadWriteMode_set_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTTransactionReadWriteMode_set_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTTransactionReadWriteMode_set_mode(arg0, arg1)
+}
+
+func ASTTransactionReadWriteMode_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTransactionReadWriteMode_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTransactionReadWriteMode_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTransactionReadWriteMode_mode(arg0, arg1)
+}
+
+func ASTTransactionModeList_elements_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTransactionModeList_elements_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTransactionModeList_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTransactionModeList_elements_num(arg0, arg1)
+}
+
+func ASTTransactionModeList_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTransactionModeList_element(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTransactionModeList_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTransactionModeList_element(arg0, arg1, arg2)
+}
+
+func ASTBeginStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBeginStatement_mode_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBeginStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBeginStatement_mode_list(arg0, arg1)
+}
+
+func ASTSetTransactionStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetTransactionStatement_mode_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetTransactionStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetTransactionStatement_mode_list(arg0, arg1)
+}
+
+func ASTStartBatchStatement_batch_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStartBatchStatement_batch_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStartBatchStatement_batch_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStartBatchStatement_batch_type(arg0, arg1)
+}
+
+func ASTDdlStatement_GetDdlTarget(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDdlStatement_GetDdlTarget(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDdlStatement_GetDdlTarget(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDdlStatement_GetDdlTarget(arg0, arg1)
+}
+
+func ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropEntityStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropEntityStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropEntityStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropEntityStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropEntityStatement_entity_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropEntityStatement_entity_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropEntityStatement_entity_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropEntityStatement_entity_type(arg0, arg1)
+}
+
+func ASTDropEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropEntityStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropEntityStatement_name(arg0, arg1)
+}
+
+func ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropFunctionStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropFunctionStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropFunctionStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropFunctionStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropFunctionStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropFunctionStatement_name(arg0, arg1)
+}
+
+func ASTDropFunctionStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropFunctionStatement_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropFunctionStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropFunctionStatement_parameters(arg0, arg1)
+}
+
+func ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropTableFunctionStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropTableFunctionStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropTableFunctionStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropTableFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropTableFunctionStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropTableFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropTableFunctionStatement_name(arg0, arg1)
+}
+
+func ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0, arg1)
+}
+
+func ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0, arg1)
+}
+
+func ASTDropAllRowAccessPoliciesStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(arg0, arg1)
+}
+
+func ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropMaterializedViewStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropMaterializedViewStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropMaterializedViewStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropMaterializedViewStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropMaterializedViewStatement_name(arg0, arg1)
+}
+
+func ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropSnapshotTableStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropSnapshotTableStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropSnapshotTableStatement_name(arg0, arg1)
+}
+
+func ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropSearchIndexStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropSearchIndexStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropSearchIndexStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropSearchIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropSearchIndexStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropSearchIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropSearchIndexStatement_name(arg0, arg1)
+}
+
+func ASTDropSearchIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropSearchIndexStatement_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropSearchIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropSearchIndexStatement_table_name(arg0, arg1)
+}
+
+func ASTRenameStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameStatement_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameStatement_identifier(arg0, arg1)
+}
+
+func ASTRenameStatement_old_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameStatement_old_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameStatement_old_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameStatement_old_name(arg0, arg1)
+}
+
+func ASTRenameStatement_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameStatement_new_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameStatement_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameStatement_new_name(arg0, arg1)
+}
+
+func ASTImportStatement_set_import_kind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTImportStatement_set_import_kind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTImportStatement_set_import_kind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTImportStatement_set_import_kind(arg0, arg1)
+}
+
+func ASTImportStatement_import_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTImportStatement_import_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTImportStatement_import_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTImportStatement_import_kind(arg0, arg1)
+}
+
+func ASTImportStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTImportStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTImportStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTImportStatement_name(arg0, arg1)
+}
+
+func ASTImportStatement_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTImportStatement_string_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTImportStatement_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTImportStatement_string_value(arg0, arg1)
+}
+
+func ASTImportStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTImportStatement_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTImportStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTImportStatement_alias(arg0, arg1)
+}
+
+func ASTImportStatement_into_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTImportStatement_into_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTImportStatement_into_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTImportStatement_into_alias(arg0, arg1)
+}
+
+func ASTImportStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTImportStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTImportStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTImportStatement_options_list(arg0, arg1)
+}
+
+func ASTModuleStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTModuleStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTModuleStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTModuleStatement_name(arg0, arg1)
+}
+
+func ASTModuleStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTModuleStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTModuleStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTModuleStatement_options_list(arg0, arg1)
+}
+
+func ASTWithConnectionClause_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithConnectionClause_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithConnectionClause_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithConnectionClause_connection_clause(arg0, arg1)
+}
+
+func ASTIntoAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIntoAlias_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIntoAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIntoAlias_identifier(arg0, arg1)
+}
+
+func ASTIntoAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIntoAlias_GetAsString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIntoAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIntoAlias_GetAsString(arg0, arg1)
+}
+
+func ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0, arg1)
+}
+
+func ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0, arg1)
+}
+
+func ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0, arg1)
+}
+
+func ASTPivotExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotExpression_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotExpression_expression(arg0, arg1)
+}
+
+func ASTPivotExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotExpression_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotExpression_alias(arg0, arg1)
+}
+
+func ASTPivotValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotValue_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotValue_value(arg0, arg1)
+}
+
+func ASTPivotValue_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotValue_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotValue_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotValue_alias(arg0, arg1)
+}
+
+func ASTPivotExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPivotExpressionList_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPivotExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPivotExpressionList_expressions_num(arg0, arg1)
+}
+
+func ASTPivotExpressionList_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPivotExpressionList_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPivotExpressionList_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotExpressionList_expression(arg0, arg1, arg2)
+}
+
+func ASTPivotValueList_values_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPivotValueList_values_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPivotValueList_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPivotValueList_values_num(arg0, arg1)
+}
+
+func ASTPivotValueList_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPivotValueList_value(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPivotValueList_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotValueList_value(arg0, arg1, arg2)
+}
+
+func ASTPivotClause_pivot_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotClause_pivot_expressions(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotClause_pivot_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotClause_pivot_expressions(arg0, arg1)
+}
+
+func ASTPivotClause_for_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotClause_for_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotClause_for_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotClause_for_expression(arg0, arg1)
+}
+
+func ASTPivotClause_pivot_values(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotClause_pivot_values(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotClause_pivot_values(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotClause_pivot_values(arg0, arg1)
+}
+
+func ASTPivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPivotClause_output_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPivotClause_output_alias(arg0, arg1)
+}
+
+func ASTUnpivotInItem_unpivot_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotInItem_unpivot_columns(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotInItem_unpivot_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotInItem_unpivot_columns(arg0, arg1)
+}
+
+func ASTUnpivotInItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotInItem_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotInItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotInItem_alias(arg0, arg1)
+}
+
+func ASTUnpivotInItemList_in_items_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTUnpivotInItemList_in_items_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTUnpivotInItemList_in_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTUnpivotInItemList_in_items_num(arg0, arg1)
+}
+
+func ASTUnpivotInItemList_in_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTUnpivotInItemList_in_item(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTUnpivotInItemList_in_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotInItemList_in_item(arg0, arg1, arg2)
+}
+
+func ASTUnpivotClause_set_null_filter(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTUnpivotClause_set_null_filter(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTUnpivotClause_set_null_filter(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTUnpivotClause_set_null_filter(arg0, arg1)
+}
+
+func ASTUnpivotClause_null_filter(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTUnpivotClause_null_filter(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTUnpivotClause_null_filter(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTUnpivotClause_null_filter(arg0, arg1)
+}
+
+func ASTUnpivotClause_unpivot_output_value_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotClause_unpivot_output_value_columns(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotClause_unpivot_output_value_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotClause_unpivot_output_value_columns(arg0, arg1)
+}
+
+func ASTUnpivotClause_unpivot_output_name_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotClause_unpivot_output_name_column(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotClause_unpivot_output_name_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotClause_unpivot_output_name_column(arg0, arg1)
+}
+
+func ASTUnpivotClause_unpivot_in_items(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotClause_unpivot_in_items(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotClause_unpivot_in_items(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotClause_unpivot_in_items(arg0, arg1)
+}
+
+func ASTUnpivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotClause_output_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotClause_output_alias(arg0, arg1)
+}
+
+func ASTUsingClause_keys_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTUsingClause_keys_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTUsingClause_keys_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTUsingClause_keys_num(arg0, arg1)
+}
+
+func ASTUsingClause_key(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTUsingClause_key(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTUsingClause_key(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTUsingClause_key(arg0, arg1, arg2)
+}
+
+func ASTForSystemTime_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForSystemTime_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForSystemTime_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForSystemTime_expression(arg0, arg1)
+}
+
+func ASTQualify_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTQualify_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTQualify_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTQualify_expression(arg0, arg1)
+}
+
+func ASTClampedBetweenModifier_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTClampedBetweenModifier_low(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTClampedBetweenModifier_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTClampedBetweenModifier_low(arg0, arg1)
+}
+
+func ASTClampedBetweenModifier_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTClampedBetweenModifier_high(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTClampedBetweenModifier_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTClampedBetweenModifier_high(arg0, arg1)
+}
+
+func ASTFormatClause_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFormatClause_format(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFormatClause_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFormatClause_format(arg0, arg1)
+}
+
+func ASTFormatClause_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFormatClause_time_zone_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFormatClause_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFormatClause_time_zone_expr(arg0, arg1)
+}
+
+func ASTPathExpressionList_path_expression_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPathExpressionList_path_expression_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPathExpressionList_path_expression_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPathExpressionList_path_expression_list_num(arg0, arg1)
+}
+
+func ASTPathExpressionList_path_expression_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPathExpressionList_path_expression_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPathExpressionList_path_expression_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPathExpressionList_path_expression_list(arg0, arg1, arg2)
+}
+
+func ASTParameterExpr_set_position(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTParameterExpr_set_position(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTParameterExpr_set_position(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTParameterExpr_set_position(arg0, arg1)
+}
+
+func ASTParameterExpr_position(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTParameterExpr_position(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTParameterExpr_position(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTParameterExpr_position(arg0, arg1)
+}
+
+func ASTParameterExpr_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTParameterExpr_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTParameterExpr_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTParameterExpr_name(arg0, arg1)
+}
+
+func ASTSystemVariableExpr_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSystemVariableExpr_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSystemVariableExpr_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSystemVariableExpr_path(arg0, arg1)
+}
+
+func ASTWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithGroupRows_subquery(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithGroupRows_subquery(arg0, arg1)
+}
+
+func ASTLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLambda_argument_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLambda_argument_list(arg0, arg1)
+}
+
+func ASTLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLambda_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLambda_body(arg0, arg1)
+}
+
+func ASTAnalyticFunctionCall_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnalyticFunctionCall_window_spec(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnalyticFunctionCall_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnalyticFunctionCall_window_spec(arg0, arg1)
+}
+
+func ASTAnalyticFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnalyticFunctionCall_function(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnalyticFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnalyticFunctionCall_function(arg0, arg1)
+}
+
+func ASTAnalyticFunctionCall_function_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnalyticFunctionCall_function_with_group_rows(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnalyticFunctionCall_function_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnalyticFunctionCall_function_with_group_rows(arg0, arg1)
+}
+
+func ASTFunctionCallWithGroupRows_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCallWithGroupRows_function(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCallWithGroupRows_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCallWithGroupRows_function(arg0, arg1)
+}
+
+func ASTFunctionCallWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionCallWithGroupRows_subquery(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionCallWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionCallWithGroupRows_subquery(arg0, arg1)
+}
+
+func ASTClusterBy_clustering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTClusterBy_clustering_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTClusterBy_clustering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTClusterBy_clustering_expressions_num(arg0, arg1)
+}
+
+func ASTClusterBy_clustering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTClusterBy_clustering_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTClusterBy_clustering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTClusterBy_clustering_expression(arg0, arg1, arg2)
+}
+
+func ASTNewConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNewConstructorArg_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNewConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNewConstructorArg_expression(arg0, arg1)
+}
+
+func ASTNewConstructorArg_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNewConstructorArg_optional_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNewConstructorArg_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNewConstructorArg_optional_identifier(arg0, arg1)
+}
+
+func ASTNewConstructorArg_optional_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNewConstructorArg_optional_path_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNewConstructorArg_optional_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNewConstructorArg_optional_path_expression(arg0, arg1)
+}
+
+func ASTNewConstructor_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTNewConstructor_type_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTNewConstructor_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTNewConstructor_type_name(arg0, arg1)
+}
+
+func ASTNewConstructor_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTNewConstructor_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTNewConstructor_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTNewConstructor_arguments_num(arg0, arg1)
+}
+
+func ASTNewConstructor_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTNewConstructor_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTNewConstructor_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTNewConstructor_argument(arg0, arg1, arg2)
+}
+
+func ASTOptionsList_options_entries_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTOptionsList_options_entries_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTOptionsList_options_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTOptionsList_options_entries_num(arg0, arg1)
+}
+
+func ASTOptionsList_options_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTOptionsList_options_entry(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTOptionsList_options_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTOptionsList_options_entry(arg0, arg1, arg2)
+}
+
+func ASTOptionsEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOptionsEntry_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOptionsEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOptionsEntry_name(arg0, arg1)
+}
+
+func ASTOptionsEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTOptionsEntry_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTOptionsEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTOptionsEntry_value(arg0, arg1)
+}
+
+func ASTCreateStatement_set_scope(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateStatement_set_scope(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateStatement_set_scope(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateStatement_set_scope(arg0, arg1)
+}
+
+func ASTCreateStatement_scope(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCreateStatement_scope(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_scope(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_scope(arg0, arg1)
+}
+
+func ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateStatement_set_is_or_replace(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateStatement_set_is_or_replace(arg0, arg1)
+}
+
+func ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_or_replace(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_or_replace(arg0, arg1)
+}
+
+func ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateStatement_set_is_if_not_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateStatement_set_is_if_not_exists(arg0, arg1)
+}
+
+func ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_if_not_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_if_not_exists(arg0, arg1)
+}
+
+func ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_default_scope(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_default_scope(arg0, arg1)
+}
+
+func ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_private(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_private(arg0, arg1)
+}
+
+func ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_public(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_public(arg0, arg1)
+}
+
+func ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateStatement_is_temp(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateStatement_is_temp(arg0, arg1)
+}
+
+func ASTFunctionParameter_set_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFunctionParameter_set_procedure_parameter_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFunctionParameter_set_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFunctionParameter_set_procedure_parameter_mode(arg0, arg1)
+}
+
+func ASTFunctionParameter_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTFunctionParameter_procedure_parameter_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionParameter_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionParameter_procedure_parameter_mode(arg0, arg1)
+}
+
+func ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFunctionParameter_set_is_not_aggregate(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFunctionParameter_set_is_not_aggregate(arg0, arg1)
+}
+
+func ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionParameter_is_not_aggregate(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionParameter_is_not_aggregate(arg0, arg1)
+}
+
+func ASTFunctionParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_name(arg0, arg1)
+}
+
+func ASTFunctionParameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_type(arg0, arg1)
+}
+
+func ASTFunctionParameter_templated_parameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_templated_parameter_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_templated_parameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_templated_parameter_type(arg0, arg1)
+}
+
+func ASTFunctionParameter_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_tvf_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_tvf_schema(arg0, arg1)
+}
+
+func ASTFunctionParameter_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_alias(arg0, arg1)
+}
+
+func ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameter_default_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameter_default_value(arg0, arg1)
+}
+
+func ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionParameter_IsTableParameter(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionParameter_IsTableParameter(arg0, arg1)
+}
+
+func ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionParameter_IsTemplated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionParameter_IsTemplated(arg0, arg1)
+}
+
+func ASTFunctionParameters_parameter_entries_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTFunctionParameters_parameter_entries_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionParameters_parameter_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionParameters_parameter_entries_num(arg0, arg1)
+}
+
+func ASTFunctionParameters_parameter_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTFunctionParameters_parameter_entry(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTFunctionParameters_parameter_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionParameters_parameter_entry(arg0, arg1, arg2)
+}
+
+func ASTFunctionDeclaration_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionDeclaration_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionDeclaration_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionDeclaration_name(arg0, arg1)
+}
+
+func ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFunctionDeclaration_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFunctionDeclaration_parameters(arg0, arg1)
+}
+
+func ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFunctionDeclaration_IsTemplated(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFunctionDeclaration_IsTemplated(arg0, arg1)
+}
+
+func ASTSqlFunctionBody_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSqlFunctionBody_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSqlFunctionBody_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSqlFunctionBody_expression(arg0, arg1)
+}
+
+func ASTTVFArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFArgument_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFArgument_expr(arg0, arg1)
+}
+
+func ASTTVFArgument_table_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFArgument_table_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFArgument_table_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFArgument_table_clause(arg0, arg1)
+}
+
+func ASTTVFArgument_model_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFArgument_model_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFArgument_model_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFArgument_model_clause(arg0, arg1)
+}
+
+func ASTTVFArgument_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFArgument_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFArgument_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFArgument_connection_clause(arg0, arg1)
+}
+
+func ASTTVFArgument_descriptor(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFArgument_descriptor(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFArgument_descriptor(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFArgument_descriptor(arg0, arg1)
+}
+
+func ASTTVF_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_name(arg0, arg1)
+}
+
+func ASTTVF_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_hint(arg0, arg1)
+}
+
+func ASTTVF_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_alias(arg0, arg1)
+}
+
+func ASTTVF_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_pivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_pivot_clause(arg0, arg1)
+}
+
+func ASTTVF_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_unpivot_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_unpivot_clause(arg0, arg1)
+}
+
+func ASTTVF_sample(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVF_sample(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVF_sample(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_sample(arg0, arg1)
+}
+
+func ASTTVF_argument_entries_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTVF_argument_entries_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTVF_argument_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTVF_argument_entries_num(arg0, arg1)
+}
+
+func ASTTVF_argument_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTVF_argument_entry(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTVF_argument_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVF_argument_entry(arg0, arg1, arg2)
+}
+
+func ASTTableClause_table_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableClause_table_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableClause_table_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableClause_table_path(arg0, arg1)
+}
+
+func ASTTableClause_tvf(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableClause_tvf(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableClause_tvf(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableClause_tvf(arg0, arg1)
+}
+
+func ASTModelClause_model_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTModelClause_model_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTModelClause_model_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTModelClause_model_path(arg0, arg1)
+}
+
+func ASTConnectionClause_connection_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTConnectionClause_connection_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTConnectionClause_connection_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTConnectionClause_connection_path(arg0, arg1)
+}
+
+func ASTTableDataSource_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableDataSource_path_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableDataSource_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableDataSource_path_expr(arg0, arg1)
+}
+
+func ASTTableDataSource_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableDataSource_for_system_time(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableDataSource_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableDataSource_for_system_time(arg0, arg1)
+}
+
+func ASTTableDataSource_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableDataSource_where_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableDataSource_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableDataSource_where_clause(arg0, arg1)
+}
+
+func ASTCloneDataSourceList_data_sources_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCloneDataSourceList_data_sources_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCloneDataSourceList_data_sources_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCloneDataSourceList_data_sources_num(arg0, arg1)
+}
+
+func ASTCloneDataSourceList_data_source(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTCloneDataSourceList_data_source(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTCloneDataSourceList_data_source(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTCloneDataSourceList_data_source(arg0, arg1, arg2)
+}
+
+func ASTCloneDataStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCloneDataStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCloneDataStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCloneDataStatement_target_path(arg0, arg1)
+}
+
+func ASTCloneDataStatement_data_source_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCloneDataStatement_data_source_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCloneDataStatement_data_source_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCloneDataStatement_data_source_list(arg0, arg1)
+}
+
+func ASTCreateConstantStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateConstantStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateConstantStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateConstantStatement_name(arg0, arg1)
+}
+
+func ASTCreateConstantStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateConstantStatement_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateConstantStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateConstantStatement_expr(arg0, arg1)
+}
+
+func ASTCreateDatabaseStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateDatabaseStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateDatabaseStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateDatabaseStatement_name(arg0, arg1)
+}
+
+func ASTCreateDatabaseStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateDatabaseStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateDatabaseStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateDatabaseStatement_options_list(arg0, arg1)
+}
+
+func ASTCreateProcedureStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateProcedureStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateProcedureStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateProcedureStatement_name(arg0, arg1)
+}
+
+func ASTCreateProcedureStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateProcedureStatement_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateProcedureStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateProcedureStatement_parameters(arg0, arg1)
+}
+
+func ASTCreateProcedureStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateProcedureStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateProcedureStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateProcedureStatement_options_list(arg0, arg1)
+}
+
+func ASTCreateProcedureStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateProcedureStatement_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateProcedureStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateProcedureStatement_body(arg0, arg1)
+}
+
+func ASTCreateSchemaStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSchemaStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSchemaStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSchemaStatement_name(arg0, arg1)
+}
+
+func ASTCreateSchemaStatement_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSchemaStatement_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSchemaStatement_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSchemaStatement_collate(arg0, arg1)
+}
+
+func ASTCreateSchemaStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSchemaStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSchemaStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSchemaStatement_options_list(arg0, arg1)
+}
+
+func ASTTransformClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTransformClause_select_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTransformClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTransformClause_select_list(arg0, arg1)
+}
+
+func ASTCreateModelStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateModelStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateModelStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateModelStatement_name(arg0, arg1)
+}
+
+func ASTCreateModelStatement_transform_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateModelStatement_transform_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateModelStatement_transform_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateModelStatement_transform_clause(arg0, arg1)
+}
+
+func ASTCreateModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateModelStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateModelStatement_options_list(arg0, arg1)
+}
+
+func ASTCreateModelStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateModelStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateModelStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateModelStatement_query(arg0, arg1)
+}
+
+func ASTIndexItemList_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTIndexItemList_ordering_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTIndexItemList_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTIndexItemList_ordering_expressions_num(arg0, arg1)
+}
+
+func ASTIndexItemList_ordering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTIndexItemList_ordering_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTIndexItemList_ordering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTIndexItemList_ordering_expression(arg0, arg1, arg2)
+}
+
+func ASTIndexStoringExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTIndexStoringExpressionList_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTIndexStoringExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTIndexStoringExpressionList_expressions_num(arg0, arg1)
+}
+
+func ASTIndexStoringExpressionList_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTIndexStoringExpressionList_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTIndexStoringExpressionList_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTIndexStoringExpressionList_expression(arg0, arg1, arg2)
+}
+
+func ASTIndexUnnestExpressionList_unnest_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(arg0, arg1)
+}
+
+func ASTIndexUnnestExpressionList_unnest_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTIndexUnnestExpressionList_unnest_expression(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTIndexUnnestExpressionList_unnest_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTIndexUnnestExpressionList_unnest_expression(arg0, arg1, arg2)
+}
+
+func ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateIndexStatement_set_is_unique(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateIndexStatement_set_is_unique(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateIndexStatement_is_unique(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateIndexStatement_is_unique(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateIndexStatement_set_is_search(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateIndexStatement_set_is_search(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateIndexStatement_is_search(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateIndexStatement_is_search(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_name(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_table_name(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_optional_table_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_optional_table_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_optional_table_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_optional_table_alias(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_index_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_index_item_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_index_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_index_item_list(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_optional_index_storing_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(arg0, arg1)
+}
+
+func ASTCreateIndexStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateIndexStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateIndexStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateIndexStatement_options_list(arg0, arg1)
+}
+
+func ASTExportDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportDataStatement_with_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportDataStatement_with_connection_clause(arg0, arg1)
+}
+
+func ASTExportDataStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportDataStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportDataStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportDataStatement_options_list(arg0, arg1)
+}
+
+func ASTExportDataStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportDataStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportDataStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportDataStatement_query(arg0, arg1)
+}
+
+func ASTExportModelStatement_model_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportModelStatement_model_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportModelStatement_model_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportModelStatement_model_name_path(arg0, arg1)
+}
+
+func ASTExportModelStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportModelStatement_with_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportModelStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportModelStatement_with_connection_clause(arg0, arg1)
+}
+
+func ASTExportModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExportModelStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExportModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExportModelStatement_options_list(arg0, arg1)
+}
+
+func ASTCallStatement_procedure_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCallStatement_procedure_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCallStatement_procedure_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCallStatement_procedure_name(arg0, arg1)
+}
+
+func ASTCallStatement_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCallStatement_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCallStatement_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCallStatement_arguments_num(arg0, arg1)
+}
+
+func ASTCallStatement_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTCallStatement_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTCallStatement_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTCallStatement_argument(arg0, arg1, arg2)
+}
+
+func ASTDefineTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDefineTableStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDefineTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDefineTableStatement_name(arg0, arg1)
+}
+
+func ASTDefineTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDefineTableStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDefineTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDefineTableStatement_options_list(arg0, arg1)
+}
+
+func ASTWithPartitionColumnsClause_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithPartitionColumnsClause_table_element_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithPartitionColumnsClause_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithPartitionColumnsClause_table_element_list(arg0, arg1)
+}
+
+func ASTCreateSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSnapshotTableStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSnapshotTableStatement_name(arg0, arg1)
+}
+
+func ASTCreateSnapshotTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSnapshotTableStatement_clone_data_source(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSnapshotTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSnapshotTableStatement_clone_data_source(arg0, arg1)
+}
+
+func ASTCreateSnapshotTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateSnapshotTableStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateSnapshotTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateSnapshotTableStatement_options_list(arg0, arg1)
+}
+
+func ASTTypeParameterList_parameters_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTypeParameterList_parameters_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTypeParameterList_parameters_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTypeParameterList_parameters_num(arg0, arg1)
+}
+
+func ASTTypeParameterList_parameter(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTypeParameterList_parameter(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTypeParameterList_parameter(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTypeParameterList_parameter(arg0, arg1, arg2)
+}
+
+func ASTTVFSchema_columns_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTVFSchema_columns_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTVFSchema_columns_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTVFSchema_columns_num(arg0, arg1)
+}
+
+func ASTTVFSchema_column(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTVFSchema_column(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTVFSchema_column(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFSchema_column(arg0, arg1, arg2)
+}
+
+func ASTTVFSchemaColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFSchemaColumn_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFSchemaColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFSchemaColumn_name(arg0, arg1)
+}
+
+func ASTTVFSchemaColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTVFSchemaColumn_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTVFSchemaColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTVFSchemaColumn_type(arg0, arg1)
+}
+
+func ASTTableAndColumnInfo_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableAndColumnInfo_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableAndColumnInfo_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableAndColumnInfo_table_name(arg0, arg1)
+}
+
+func ASTTableAndColumnInfo_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableAndColumnInfo_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableAndColumnInfo_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableAndColumnInfo_column_list(arg0, arg1)
+}
+
+func ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0, arg1)
+}
+
+func ASTTableAndColumnInfoList_table_and_column_info_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(arg0, arg1, arg2)
+}
+
+func ASTTemplatedParameterType_set_kind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTTemplatedParameterType_set_kind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTTemplatedParameterType_set_kind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTTemplatedParameterType_set_kind(arg0, arg1)
+}
+
+func ASTTemplatedParameterType_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTemplatedParameterType_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTemplatedParameterType_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTemplatedParameterType_kind(arg0, arg1)
+}
+
+func ASTAnalyzeStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnalyzeStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnalyzeStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnalyzeStatement_options_list(arg0, arg1)
+}
+
+func ASTAnalyzeStatement_table_and_column_info_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAnalyzeStatement_table_and_column_info_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAnalyzeStatement_table_and_column_info_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAnalyzeStatement_table_and_column_info_list(arg0, arg1)
+}
+
+func ASTAssertStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAssertStatement_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAssertStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAssertStatement_expr(arg0, arg1)
+}
+
+func ASTAssertStatement_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAssertStatement_description(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAssertStatement_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAssertStatement_description(arg0, arg1)
+}
+
+func ASTAssertRowsModified_num_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAssertRowsModified_num_rows(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAssertRowsModified_num_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAssertRowsModified_num_rows(arg0, arg1)
+}
+
+func ASTReturningClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTReturningClause_select_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTReturningClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTReturningClause_select_list(arg0, arg1)
+}
+
+func ASTReturningClause_action_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTReturningClause_action_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTReturningClause_action_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTReturningClause_action_alias(arg0, arg1)
+}
+
+func ASTDeleteStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_target_path(arg0, arg1)
+}
+
+func ASTDeleteStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_alias(arg0, arg1)
+}
+
+func ASTDeleteStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_offset(arg0, arg1)
+}
+
+func ASTDeleteStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_where(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_where(arg0, arg1)
+}
+
+func ASTDeleteStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_assert_rows_modified(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_assert_rows_modified(arg0, arg1)
+}
+
+func ASTDeleteStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDeleteStatement_returning(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDeleteStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDeleteStatement_returning(arg0, arg1)
+}
+
+func ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(arg0, arg1)
+}
+
+func ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTPrimaryKeyColumnAttribute_enforced(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0, arg1)
+}
+
+func ASTForeignKeyColumnAttribute_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKeyColumnAttribute_constraint_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKeyColumnAttribute_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKeyColumnAttribute_constraint_name(arg0, arg1)
+}
+
+func ASTForeignKeyColumnAttribute_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKeyColumnAttribute_reference(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKeyColumnAttribute_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKeyColumnAttribute_reference(arg0, arg1)
+}
+
+func ASTColumnAttributeList_values_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTColumnAttributeList_values_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTColumnAttributeList_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTColumnAttributeList_values_num(arg0, arg1)
+}
+
+func ASTColumnAttributeList_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTColumnAttributeList_value(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTColumnAttributeList_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnAttributeList_value(arg0, arg1, arg2)
+}
+
+func ASTStructColumnField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructColumnField_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructColumnField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructColumnField_name(arg0, arg1)
+}
+
+func ASTStructColumnField_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTStructColumnField_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTStructColumnField_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructColumnField_schema(arg0, arg1)
+}
+
+func ASTGeneratedColumnInfo_set_stored_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTGeneratedColumnInfo_set_stored_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTGeneratedColumnInfo_set_stored_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTGeneratedColumnInfo_set_stored_mode(arg0, arg1)
+}
+
+func ASTGeneratedColumnInfo_stored_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTGeneratedColumnInfo_stored_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTGeneratedColumnInfo_stored_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTGeneratedColumnInfo_stored_mode(arg0, arg1)
+}
+
+func ASTGeneratedColumnInfo_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGeneratedColumnInfo_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGeneratedColumnInfo_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGeneratedColumnInfo_expression(arg0, arg1)
+}
+
+func ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0, arg1)
+}
+
+func ASTColumnDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnDefinition_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnDefinition_name(arg0, arg1)
+}
+
+func ASTColumnDefinition_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnDefinition_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnDefinition_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnDefinition_schema(arg0, arg1)
+}
+
+func ASTTableElementList_elements_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTTableElementList_elements_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTTableElementList_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTTableElementList_elements_num(arg0, arg1)
+}
+
+func ASTTableElementList_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTTableElementList_element(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTTableElementList_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableElementList_element(arg0, arg1, arg2)
+}
+
+func ASTColumnList_identifiers_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTColumnList_identifiers_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTColumnList_identifiers_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTColumnList_identifiers_num(arg0, arg1)
+}
+
+func ASTColumnList_identifier(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTColumnList_identifier(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTColumnList_identifier(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnList_identifier(arg0, arg1, arg2)
+}
+
+func ASTColumnPosition_set_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTColumnPosition_set_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTColumnPosition_set_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTColumnPosition_set_type(arg0, arg1)
+}
+
+func ASTColumnPosition_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTColumnPosition_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTColumnPosition_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTColumnPosition_type(arg0, arg1)
+}
+
+func ASTColumnPosition_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnPosition_identifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnPosition_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnPosition_identifier(arg0, arg1)
+}
+
+func ASTInsertValuesRow_values_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTInsertValuesRow_values_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInsertValuesRow_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInsertValuesRow_values_num(arg0, arg1)
+}
+
+func ASTInsertValuesRow_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTInsertValuesRow_value(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTInsertValuesRow_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertValuesRow_value(arg0, arg1, arg2)
+}
+
+func ASTInsertValuesRowList_rows_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTInsertValuesRowList_rows_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInsertValuesRowList_rows_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInsertValuesRowList_rows_num(arg0, arg1)
+}
+
+func ASTInsertValuesRowList_row(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTInsertValuesRowList_row(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTInsertValuesRowList_row(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertValuesRowList_row(arg0, arg1, arg2)
+}
+
+func ASTInsertStatement_set_parse_progress(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTInsertStatement_set_parse_progress(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTInsertStatement_set_parse_progress(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTInsertStatement_set_parse_progress(arg0, arg1)
+}
+
+func ASTInsertStatement_parse_progress(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTInsertStatement_parse_progress(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInsertStatement_parse_progress(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInsertStatement_parse_progress(arg0, arg1)
+}
+
+func ASTInsertStatement_set_insert_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTInsertStatement_set_insert_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTInsertStatement_set_insert_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTInsertStatement_set_insert_mode(arg0, arg1)
+}
+
+func ASTInsertStatement_insert_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTInsertStatement_insert_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTInsertStatement_insert_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTInsertStatement_insert_mode(arg0, arg1)
+}
+
+func ASTInsertStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_target_path(arg0, arg1)
+}
+
+func ASTInsertStatement_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_column_list(arg0, arg1)
+}
+
+func ASTInsertStatement_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_rows(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_rows(arg0, arg1)
+}
+
+func ASTInsertStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_query(arg0, arg1)
+}
+
+func ASTInsertStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_assert_rows_modified(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_assert_rows_modified(arg0, arg1)
+}
+
+func ASTInsertStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_returning(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_returning(arg0, arg1)
+}
+
+func ASTInsertStatement_GetSQLForInsertMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTInsertStatement_GetSQLForInsertMode(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTInsertStatement_GetSQLForInsertMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTInsertStatement_GetSQLForInsertMode(arg0, arg1)
+}
+
+func ASTUpdateSetValue_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateSetValue_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateSetValue_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateSetValue_path(arg0, arg1)
+}
+
+func ASTUpdateSetValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateSetValue_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateSetValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateSetValue_value(arg0, arg1)
+}
+
+func ASTUpdateItem_set_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateItem_set_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateItem_set_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateItem_set_value(arg0, arg1)
+}
+
+func ASTUpdateItem_insert_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateItem_insert_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateItem_insert_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateItem_insert_statement(arg0, arg1)
+}
+
+func ASTUpdateItem_delete_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateItem_delete_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateItem_delete_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateItem_delete_statement(arg0, arg1)
+}
+
+func ASTUpdateItem_update_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateItem_update_statement(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateItem_update_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateItem_update_statement(arg0, arg1)
+}
+
+func ASTUpdateItemList_update_items_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTUpdateItemList_update_items_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTUpdateItemList_update_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTUpdateItemList_update_items_num(arg0, arg1)
+}
+
+func ASTUpdateItemList_update_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTUpdateItemList_update_item(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTUpdateItemList_update_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateItemList_update_item(arg0, arg1, arg2)
+}
+
+func ASTUpdateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_target_path(arg0, arg1)
+}
+
+func ASTUpdateStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_alias(arg0, arg1)
+}
+
+func ASTUpdateStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_offset(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_offset(arg0, arg1)
+}
+
+func ASTUpdateStatement_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_update_item_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_update_item_list(arg0, arg1)
+}
+
+func ASTUpdateStatement_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_from_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_from_clause(arg0, arg1)
+}
+
+func ASTUpdateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_where(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_where(arg0, arg1)
+}
+
+func ASTUpdateStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_assert_rows_modified(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_assert_rows_modified(arg0, arg1)
+}
+
+func ASTUpdateStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUpdateStatement_returning(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUpdateStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUpdateStatement_returning(arg0, arg1)
+}
+
+func ASTTruncateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTruncateStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTruncateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTruncateStatement_target_path(arg0, arg1)
+}
+
+func ASTTruncateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTruncateStatement_where(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTruncateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTruncateStatement_where(arg0, arg1)
+}
+
+func ASTMergeAction_set_action_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTMergeAction_set_action_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTMergeAction_set_action_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTMergeAction_set_action_type(arg0, arg1)
+}
+
+func ASTMergeAction_action_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTMergeAction_action_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTMergeAction_action_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTMergeAction_action_type(arg0, arg1)
+}
+
+func ASTMergeAction_insert_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeAction_insert_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeAction_insert_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeAction_insert_column_list(arg0, arg1)
+}
+
+func ASTMergeAction_insert_row(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeAction_insert_row(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeAction_insert_row(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeAction_insert_row(arg0, arg1)
+}
+
+func ASTMergeAction_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeAction_update_item_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeAction_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeAction_update_item_list(arg0, arg1)
+}
+
+func ASTMergeWhenClause_set_match_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTMergeWhenClause_set_match_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTMergeWhenClause_set_match_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTMergeWhenClause_set_match_type(arg0, arg1)
+}
+
+func ASTMergeWhenClause_match_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTMergeWhenClause_match_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTMergeWhenClause_match_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTMergeWhenClause_match_type(arg0, arg1)
+}
+
+func ASTMergeWhenClause_search_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeWhenClause_search_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeWhenClause_search_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeWhenClause_search_condition(arg0, arg1)
+}
+
+func ASTMergeWhenClause_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeWhenClause_action(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeWhenClause_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeWhenClause_action(arg0, arg1)
+}
+
+func ASTMergeWhenClause_GetSQLForMatchType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeWhenClause_GetSQLForMatchType(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeWhenClause_GetSQLForMatchType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeWhenClause_GetSQLForMatchType(arg0, arg1)
+}
+
+func ASTMergeWhenClauseList_clause_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTMergeWhenClauseList_clause_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTMergeWhenClauseList_clause_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTMergeWhenClauseList_clause_list_num(arg0, arg1)
+}
+
+func ASTMergeWhenClauseList_clause_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTMergeWhenClauseList_clause_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTMergeWhenClauseList_clause_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeWhenClauseList_clause_list(arg0, arg1, arg2)
+}
+
+func ASTMergeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeStatement_target_path(arg0, arg1)
+}
+
+func ASTMergeStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeStatement_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeStatement_alias(arg0, arg1)
+}
+
+func ASTMergeStatement_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeStatement_table_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeStatement_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeStatement_table_expression(arg0, arg1)
+}
+
+func ASTMergeStatement_merge_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeStatement_merge_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeStatement_merge_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeStatement_merge_condition(arg0, arg1)
+}
+
+func ASTMergeStatement_when_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTMergeStatement_when_clauses(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTMergeStatement_when_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTMergeStatement_when_clauses(arg0, arg1)
+}
+
+func ASTPrivilege_privilege_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPrivilege_privilege_action(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPrivilege_privilege_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPrivilege_privilege_action(arg0, arg1)
+}
+
+func ASTPrivilege_paths(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPrivilege_paths(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPrivilege_paths(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPrivilege_paths(arg0, arg1)
+}
+
+func ASTPrivileges_privileges_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTPrivileges_privileges_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPrivileges_privileges_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPrivileges_privileges_num(arg0, arg1)
+}
+
+func ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTPrivileges_privilege(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTPrivileges_privilege(arg0, arg1, arg2)
+}
+
+func ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTPrivileges_is_all_privileges(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPrivileges_is_all_privileges(arg0, arg1)
+}
+
+func ASTGranteeList_grantee_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTGranteeList_grantee_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTGranteeList_grantee_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTGranteeList_grantee_list_num(arg0, arg1)
+}
+
+func ASTGranteeList_grantee_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTGranteeList_grantee_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTGranteeList_grantee_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTGranteeList_grantee_list(arg0, arg1, arg2)
+}
+
+func ASTGrantStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGrantStatement_privileges(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGrantStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGrantStatement_privileges(arg0, arg1)
+}
+
+func ASTGrantStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGrantStatement_target_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGrantStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGrantStatement_target_type(arg0, arg1)
+}
+
+func ASTGrantStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGrantStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGrantStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGrantStatement_target_path(arg0, arg1)
+}
+
+func ASTGrantStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGrantStatement_grantee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGrantStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGrantStatement_grantee_list(arg0, arg1)
+}
+
+func ASTRevokeStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRevokeStatement_privileges(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRevokeStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRevokeStatement_privileges(arg0, arg1)
+}
+
+func ASTRevokeStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRevokeStatement_target_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRevokeStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRevokeStatement_target_type(arg0, arg1)
+}
+
+func ASTRevokeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRevokeStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRevokeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRevokeStatement_target_path(arg0, arg1)
+}
+
+func ASTRevokeStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRevokeStatement_grantee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRevokeStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRevokeStatement_grantee_list(arg0, arg1)
+}
+
+func ASTRepeatableClause_argument(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRepeatableClause_argument(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRepeatableClause_argument(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRepeatableClause_argument(arg0, arg1)
+}
+
+func ASTFilterFieldsArg_set_filter_type(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFilterFieldsArg_set_filter_type(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFilterFieldsArg_set_filter_type(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFilterFieldsArg_set_filter_type(arg0, arg1)
+}
+
+func ASTFilterFieldsArg_filter_type(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTFilterFieldsArg_filter_type(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFilterFieldsArg_filter_type(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFilterFieldsArg_filter_type(arg0, arg1)
+}
+
+func ASTFilterFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFilterFieldsArg_path_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFilterFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFilterFieldsArg_path_expression(arg0, arg1)
+}
+
+func ASTFilterFieldsArg_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFilterFieldsArg_GetSQLForOperator(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFilterFieldsArg_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFilterFieldsArg_GetSQLForOperator(arg0, arg1)
+}
+
+func ASTReplaceFieldsArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTReplaceFieldsArg_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTReplaceFieldsArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTReplaceFieldsArg_expression(arg0, arg1)
+}
+
+func ASTReplaceFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTReplaceFieldsArg_path_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTReplaceFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTReplaceFieldsArg_path_expression(arg0, arg1)
+}
+
+func ASTReplaceFieldsExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTReplaceFieldsExpression_expr(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTReplaceFieldsExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTReplaceFieldsExpression_expr(arg0, arg1)
+}
+
+func ASTReplaceFieldsExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTReplaceFieldsExpression_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTReplaceFieldsExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTReplaceFieldsExpression_arguments_num(arg0, arg1)
+}
+
+func ASTReplaceFieldsExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTReplaceFieldsExpression_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTReplaceFieldsExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTReplaceFieldsExpression_argument(arg0, arg1, arg2)
+}
+
+func ASTSampleSize_set_unit(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTSampleSize_set_unit(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTSampleSize_set_unit(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTSampleSize_set_unit(arg0, arg1)
+}
+
+func ASTSampleSize_unit(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTSampleSize_unit(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTSampleSize_unit(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTSampleSize_unit(arg0, arg1)
+}
+
+func ASTSampleSize_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleSize_size(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleSize_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleSize_size(arg0, arg1)
+}
+
+func ASTSampleSize_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleSize_partition_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleSize_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleSize_partition_by(arg0, arg1)
+}
+
+func ASTSampleSize_GetSQLForUnit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleSize_GetSQLForUnit(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleSize_GetSQLForUnit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleSize_GetSQLForUnit(arg0, arg1)
+}
+
+func ASTWithWeight_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWithWeight_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWithWeight_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWithWeight_alias(arg0, arg1)
+}
+
+func ASTSampleSuffix_weight(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleSuffix_weight(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleSuffix_weight(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleSuffix_weight(arg0, arg1)
+}
+
+func ASTSampleSuffix_repeat(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleSuffix_repeat(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleSuffix_repeat(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleSuffix_repeat(arg0, arg1)
+}
+
+func ASTSampleClause_sample_method(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleClause_sample_method(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleClause_sample_method(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleClause_sample_method(arg0, arg1)
+}
+
+func ASTSampleClause_sample_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleClause_sample_size(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleClause_sample_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleClause_sample_size(arg0, arg1)
+}
+
+func ASTSampleClause_sample_suffix(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSampleClause_sample_suffix(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSampleClause_sample_suffix(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSampleClause_sample_suffix(arg0, arg1)
+}
+
+func ASTAlterAction_GetSQLForAlterAction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterAction_GetSQLForAlterAction(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterAction_GetSQLForAlterAction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterAction_GetSQLForAlterAction(arg0, arg1)
+}
+
+func ASTSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetOptionsAction_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetOptionsAction_options_list(arg0, arg1)
+}
+
+func ASTSetAsAction_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetAsAction_json_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetAsAction_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetAsAction_json_body(arg0, arg1)
+}
+
+func ASTSetAsAction_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetAsAction_text_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetAsAction_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetAsAction_text_body(arg0, arg1)
+}
+
+func ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAddConstraintAction_set_is_if_not_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAddConstraintAction_set_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAddConstraintAction_is_if_not_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAddConstraintAction_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddConstraintAction_constraint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAddConstraintAction_constraint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAddConstraintAction_constraint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAddConstraintAction_constraint(arg0, arg1)
+}
+
+func ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropPrimaryKeyAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0, arg1)
+}
+
+func ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropConstraintAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropConstraintAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropConstraintAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropConstraintAction_is_if_exists(arg0, arg1)
+}
+
+func ASTDropConstraintAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropConstraintAction_constraint_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropConstraintAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropConstraintAction_constraint_name(arg0, arg1)
+}
+
+func ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0, arg1)
+}
+
+func ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterConstraintEnforcementAction_is_enforced(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0, arg1)
+}
+
+func ASTAlterConstraintEnforcementAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterConstraintEnforcementAction_constraint_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterConstraintEnforcementAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterConstraintEnforcementAction_constraint_name(arg0, arg1)
+}
+
+func ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterConstraintSetOptionsAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(arg0, arg1)
+}
+
+func ASTAlterConstraintSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterConstraintSetOptionsAction_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterConstraintSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterConstraintSetOptionsAction_options_list(arg0, arg1)
+}
+
+func ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAddColumnAction_set_is_if_not_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAddColumnAction_set_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAddColumnAction_is_if_not_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAddColumnAction_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddColumnAction_column_definition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAddColumnAction_column_definition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAddColumnAction_column_definition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAddColumnAction_column_definition(arg0, arg1)
+}
+
+func ASTAddColumnAction_column_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAddColumnAction_column_position(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAddColumnAction_column_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAddColumnAction_column_position(arg0, arg1)
+}
+
+func ASTAddColumnAction_fill_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAddColumnAction_fill_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAddColumnAction_fill_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAddColumnAction_fill_expression(arg0, arg1)
+}
+
+func ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropColumnAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropColumnAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropColumnAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropColumnAction_is_if_exists(arg0, arg1)
+}
+
+func ASTDropColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropColumnAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropColumnAction_column_name(arg0, arg1)
+}
+
+func ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTRenameColumnAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTRenameColumnAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTRenameColumnAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTRenameColumnAction_is_if_exists(arg0, arg1)
+}
+
+func ASTRenameColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameColumnAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameColumnAction_column_name(arg0, arg1)
+}
+
+func ASTRenameColumnAction_new_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameColumnAction_new_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameColumnAction_new_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameColumnAction_new_column_name(arg0, arg1)
+}
+
+func ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterColumnTypeAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterColumnTypeAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterColumnTypeAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnTypeAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnTypeAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnTypeAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnTypeAction_column_name(arg0, arg1)
+}
+
+func ASTAlterColumnTypeAction_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnTypeAction_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnTypeAction_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnTypeAction_schema(arg0, arg1)
+}
+
+func ASTAlterColumnTypeAction_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnTypeAction_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnTypeAction_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnTypeAction_collate(arg0, arg1)
+}
+
+func ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterColumnOptionsAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnOptionsAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnOptionsAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnOptionsAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnOptionsAction_column_name(arg0, arg1)
+}
+
+func ASTAlterColumnOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnOptionsAction_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnOptionsAction_options_list(arg0, arg1)
+}
+
+func ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnSetDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnSetDefaultAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnSetDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnSetDefaultAction_column_name(arg0, arg1)
+}
+
+func ASTAlterColumnSetDefaultAction_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnSetDefaultAction_default_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnSetDefaultAction_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnSetDefaultAction_default_expression(arg0, arg1)
+}
+
+func ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnDropDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnDropDefaultAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnDropDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnDropDefaultAction_column_name(arg0, arg1)
+}
+
+func ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterColumnDropNotNullAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterColumnDropNotNullAction_column_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterColumnDropNotNullAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterColumnDropNotNullAction_column_name(arg0, arg1)
+}
+
+func ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0, arg1)
+}
+
+func ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTGrantToClause_has_grant_keyword_and_parens(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0, arg1)
+}
+
+func ASTGrantToClause_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTGrantToClause_grantee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTGrantToClause_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTGrantToClause_grantee_list(arg0, arg1)
+}
+
+func ASTRestrictToClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRestrictToClause_restrictee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRestrictToClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRestrictToClause_restrictee_list(arg0, arg1)
+}
+
+func ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAddToRestricteeListClause_is_if_not_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0, arg1)
+}
+
+func ASTAddToRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAddToRestricteeListClause_restrictee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAddToRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAddToRestricteeListClause_restrictee_list(arg0, arg1)
+}
+
+func ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0, arg1)
+}
+
+func ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0, arg1)
+}
+
+func ASTRemoveFromRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(arg0, arg1)
+}
+
+func ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTFilterUsingClause_set_has_filter_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTFilterUsingClause_set_has_filter_keyword(arg0, arg1)
+}
+
+func ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTFilterUsingClause_has_filter_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTFilterUsingClause_has_filter_keyword(arg0, arg1)
+}
+
+func ASTFilterUsingClause_predicate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTFilterUsingClause_predicate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTFilterUsingClause_predicate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTFilterUsingClause_predicate(arg0, arg1)
+}
+
+func ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTRevokeFromClause_set_is_revoke_from_all(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTRevokeFromClause_set_is_revoke_from_all(arg0, arg1)
+}
+
+func ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTRevokeFromClause_is_revoke_from_all(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0, arg1)
+}
+
+func ASTRevokeFromClause_revoke_from_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRevokeFromClause_revoke_from_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRevokeFromClause_revoke_from_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRevokeFromClause_revoke_from_list(arg0, arg1)
+}
+
+func ASTRenameToClause_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRenameToClause_new_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRenameToClause_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRenameToClause_new_name(arg0, arg1)
+}
+
+func ASTSetCollateClause_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSetCollateClause_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSetCollateClause_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSetCollateClause_collate(arg0, arg1)
+}
+
+func ASTAlterActionList_actions_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTAlterActionList_actions_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterActionList_actions_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterActionList_actions_num(arg0, arg1)
+}
+
+func ASTAlterActionList_action(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTAlterActionList_action(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTAlterActionList_action(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterActionList_action(arg0, arg1, arg2)
+}
+
+func ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0, arg1)
+}
+
+func ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0, arg1)
+}
+
+func ASTForeignKeyActions_set_udpate_action(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTForeignKeyActions_set_udpate_action(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTForeignKeyActions_set_udpate_action(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTForeignKeyActions_set_udpate_action(arg0, arg1)
+}
+
+func ASTForeignKeyActions_udpate_action(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTForeignKeyActions_udpate_action(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTForeignKeyActions_udpate_action(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTForeignKeyActions_udpate_action(arg0, arg1)
+}
+
+func ASTForeignKeyActions_set_delete_action(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTForeignKeyActions_set_delete_action(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTForeignKeyActions_set_delete_action(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTForeignKeyActions_set_delete_action(arg0, arg1)
+}
+
+func ASTForeignKeyActions_delete_action(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTForeignKeyActions_delete_action(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTForeignKeyActions_delete_action(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTForeignKeyActions_delete_action(arg0, arg1)
+}
+
+func ASTForeignKeyReference_set_match(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTForeignKeyReference_set_match(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTForeignKeyReference_set_match(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTForeignKeyReference_set_match(arg0, arg1)
+}
+
+func ASTForeignKeyReference_match(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTForeignKeyReference_match(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTForeignKeyReference_match(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTForeignKeyReference_match(arg0, arg1)
+}
+
+func ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTForeignKeyReference_set_enforced(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTForeignKeyReference_set_enforced(arg0, arg1)
+}
+
+func ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTForeignKeyReference_enforced(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTForeignKeyReference_enforced(arg0, arg1)
+}
+
+func ASTForeignKeyReference_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKeyReference_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKeyReference_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKeyReference_table_name(arg0, arg1)
+}
+
+func ASTForeignKeyReference_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKeyReference_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKeyReference_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKeyReference_column_list(arg0, arg1)
+}
+
+func ASTForeignKeyReference_actions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKeyReference_actions(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKeyReference_actions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKeyReference_actions(arg0, arg1)
+}
+
+func ASTScript_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTScript_statement_list_node(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTScript_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTScript_statement_list_node(arg0, arg1)
+}
+
+func ASTScript_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTScript_statement_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTScript_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTScript_statement_list_num(arg0, arg1)
+}
+
+func ASTScript_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTScript_statement_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTScript_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTScript_statement_list(arg0, arg1, arg2)
+}
+
+func ASTElseifClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTElseifClause_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTElseifClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTElseifClause_condition(arg0, arg1)
+}
+
+func ASTElseifClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTElseifClause_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTElseifClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTElseifClause_body(arg0, arg1)
+}
+
+func ASTElseifClause_if_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTElseifClause_if_stmt(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTElseifClause_if_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTElseifClause_if_stmt(arg0, arg1)
+}
+
+func ASTElseifClauseList_elseif_clauses_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTElseifClauseList_elseif_clauses_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTElseifClauseList_elseif_clauses_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTElseifClauseList_elseif_clauses_num(arg0, arg1)
+}
+
+func ASTElseifClauseList_elseif_clause(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTElseifClauseList_elseif_clause(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTElseifClauseList_elseif_clause(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTElseifClauseList_elseif_clause(arg0, arg1, arg2)
+}
+
+func ASTIfStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIfStatement_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIfStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIfStatement_condition(arg0, arg1)
+}
+
+func ASTIfStatement_then_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIfStatement_then_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIfStatement_then_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIfStatement_then_list(arg0, arg1)
+}
+
+func ASTIfStatement_elseif_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIfStatement_elseif_clauses(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIfStatement_elseif_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIfStatement_elseif_clauses(arg0, arg1)
+}
+
+func ASTIfStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTIfStatement_else_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTIfStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTIfStatement_else_list(arg0, arg1)
+}
+
+func ASTWhenThenClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWhenThenClause_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWhenThenClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhenThenClause_condition(arg0, arg1)
+}
+
+func ASTWhenThenClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWhenThenClause_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWhenThenClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhenThenClause_body(arg0, arg1)
+}
+
+func ASTWhenThenClause_case_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWhenThenClause_case_stmt(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWhenThenClause_case_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhenThenClause_case_stmt(arg0, arg1)
+}
+
+func ASTWhenThenClauseList_when_then_clauses_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTWhenThenClauseList_when_then_clauses_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTWhenThenClauseList_when_then_clauses_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTWhenThenClauseList_when_then_clauses_num(arg0, arg1)
+}
+
+func ASTWhenThenClauseList_when_then_clause(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTWhenThenClauseList_when_then_clause(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTWhenThenClauseList_when_then_clause(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhenThenClauseList_when_then_clause(arg0, arg1, arg2)
+}
+
+func ASTCaseStatement_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCaseStatement_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCaseStatement_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCaseStatement_expression(arg0, arg1)
+}
+
+func ASTCaseStatement_when_then_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCaseStatement_when_then_clauses(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCaseStatement_when_then_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCaseStatement_when_then_clauses(arg0, arg1)
+}
+
+func ASTCaseStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCaseStatement_else_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCaseStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCaseStatement_else_list(arg0, arg1)
+}
+
+func ASTHint_num_shards_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHint_num_shards_hint(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHint_num_shards_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHint_num_shards_hint(arg0, arg1)
+}
+
+func ASTHint_hint_entries_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTHint_hint_entries_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTHint_hint_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTHint_hint_entries_num(arg0, arg1)
+}
+
+func ASTHint_hint_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTHint_hint_entry(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTHint_hint_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTHint_hint_entry(arg0, arg1, arg2)
+}
+
+func ASTHintEntry_qualifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHintEntry_qualifier(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHintEntry_qualifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHintEntry_qualifier(arg0, arg1)
+}
+
+func ASTHintEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHintEntry_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHintEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHintEntry_name(arg0, arg1)
+}
+
+func ASTHintEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTHintEntry_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTHintEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTHintEntry_value(arg0, arg1)
+}
+
+func ASTUnpivotInItemLabel_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUnpivotInItemLabel_label(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUnpivotInItemLabel_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUnpivotInItemLabel_label(arg0, arg1)
+}
+
+func ASTDescriptor_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDescriptor_columns(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDescriptor_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescriptor_columns(arg0, arg1)
+}
+
+func ASTColumnSchema_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_type_parameters(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_type_parameters(arg0, arg1)
+}
+
+func ASTColumnSchema_generated_column_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_generated_column_info(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_generated_column_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_generated_column_info(arg0, arg1)
+}
+
+func ASTColumnSchema_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_default_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_default_expression(arg0, arg1)
+}
+
+func ASTColumnSchema_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_collate(arg0, arg1)
+}
+
+func ASTColumnSchema_attributes(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_attributes(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_attributes(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_attributes(arg0, arg1)
+}
+
+func ASTColumnSchema_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTColumnSchema_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTColumnSchema_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTColumnSchema_options_list(arg0, arg1)
+}
+
+func ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 int, arg2 *bool) {
+	zetasql_ASTColumnSchema_ContainsAttribute(
+		arg0,
+		C.int(arg1),
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+	C.export_zetasql_ASTColumnSchema_ContainsAttribute(arg0, arg1, arg2)
+}
+
+func ASTSimpleColumnSchema_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSimpleColumnSchema_type_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSimpleColumnSchema_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSimpleColumnSchema_type_name(arg0, arg1)
+}
+
+func ASTArrayColumnSchema_element_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTArrayColumnSchema_element_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTArrayColumnSchema_element_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTArrayColumnSchema_element_schema(arg0, arg1)
+}
+
+func ASTTableConstraint_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTTableConstraint_constraint_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTTableConstraint_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTTableConstraint_constraint_name(arg0, arg1)
+}
+
+func ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTPrimaryKey_set_enforced(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTPrimaryKey_set_enforced(arg0, arg1)
+}
+
+func ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTPrimaryKey_enforced(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTPrimaryKey_enforced(arg0, arg1)
+}
+
+func ASTPrimaryKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPrimaryKey_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPrimaryKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPrimaryKey_column_list(arg0, arg1)
+}
+
+func ASTPrimaryKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTPrimaryKey_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTPrimaryKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTPrimaryKey_options_list(arg0, arg1)
+}
+
+func ASTForeignKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKey_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKey_column_list(arg0, arg1)
+}
+
+func ASTForeignKey_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKey_reference(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKey_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKey_reference(arg0, arg1)
+}
+
+func ASTForeignKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForeignKey_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForeignKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForeignKey_options_list(arg0, arg1)
+}
+
+func ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCheckConstraint_set_is_enforced(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCheckConstraint_set_is_enforced(arg0, arg1)
+}
+
+func ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCheckConstraint_is_enforced(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCheckConstraint_is_enforced(arg0, arg1)
+}
+
+func ASTCheckConstraint_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCheckConstraint_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCheckConstraint_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCheckConstraint_expression(arg0, arg1)
+}
+
+func ASTCheckConstraint_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCheckConstraint_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCheckConstraint_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCheckConstraint_options_list(arg0, arg1)
+}
+
+func ASTDescriptorColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDescriptorColumn_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDescriptorColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescriptorColumn_name(arg0, arg1)
+}
+
+func ASTDescriptorColumnList_descriptor_column_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTDescriptorColumnList_descriptor_column_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDescriptorColumnList_descriptor_column_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDescriptorColumnList_descriptor_column_list_num(arg0, arg1)
+}
+
+func ASTDescriptorColumnList_descriptor_column_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTDescriptorColumnList_descriptor_column_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTDescriptorColumnList_descriptor_column_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTDescriptorColumnList_descriptor_column_list(arg0, arg1, arg2)
+}
+
+func ASTCreateEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateEntityStatement_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateEntityStatement_type(arg0, arg1)
+}
+
+func ASTCreateEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateEntityStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateEntityStatement_name(arg0, arg1)
+}
+
+func ASTCreateEntityStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateEntityStatement_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateEntityStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateEntityStatement_options_list(arg0, arg1)
+}
+
+func ASTCreateEntityStatement_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateEntityStatement_json_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateEntityStatement_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateEntityStatement_json_body(arg0, arg1)
+}
+
+func ASTCreateEntityStatement_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateEntityStatement_text_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateEntityStatement_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateEntityStatement_text_body(arg0, arg1)
+}
+
+func ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRaiseStatement_message(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRaiseStatement_message(arg0, arg1)
+}
+
+func ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTRaiseStatement_is_rethrow(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTRaiseStatement_is_rethrow(arg0, arg1)
+}
+
+func ASTExceptionHandler_statement_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExceptionHandler_statement_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExceptionHandler_statement_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExceptionHandler_statement_list(arg0, arg1)
+}
+
+func ASTExceptionHandlerList_exception_handler_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTExceptionHandlerList_exception_handler_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTExceptionHandlerList_exception_handler_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTExceptionHandlerList_exception_handler_list_num(arg0, arg1)
+}
+
+func ASTExceptionHandlerList_exception_handler_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTExceptionHandlerList_exception_handler_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTExceptionHandlerList_exception_handler_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTExceptionHandlerList_exception_handler_list(arg0, arg1, arg2)
+}
+
+func ASTBeginEndBlock_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBeginEndBlock_label(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBeginEndBlock_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBeginEndBlock_label(arg0, arg1)
+}
+
+func ASTBeginEndBlock_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBeginEndBlock_statement_list_node(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBeginEndBlock_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBeginEndBlock_statement_list_node(arg0, arg1)
+}
+
+func ASTBeginEndBlock_handler_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBeginEndBlock_handler_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBeginEndBlock_handler_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBeginEndBlock_handler_list(arg0, arg1)
+}
+
+func ASTBeginEndBlock_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTBeginEndBlock_statement_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBeginEndBlock_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBeginEndBlock_statement_list_num(arg0, arg1)
+}
+
+func ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTBeginEndBlock_statement_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTBeginEndBlock_statement_list(arg0, arg1, arg2)
+}
+
+func ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTBeginEndBlock_has_exception_handler(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBeginEndBlock_has_exception_handler(arg0, arg1)
+}
+
+func ASTIdentifierList_identifier_list_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTIdentifierList_identifier_list_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTIdentifierList_identifier_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTIdentifierList_identifier_list_num(arg0, arg1)
+}
+
+func ASTIdentifierList_identifier_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTIdentifierList_identifier_list(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTIdentifierList_identifier_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTIdentifierList_identifier_list(arg0, arg1, arg2)
+}
+
+func ASTVariableDeclaration_variable_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTVariableDeclaration_variable_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTVariableDeclaration_variable_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTVariableDeclaration_variable_list(arg0, arg1)
+}
+
+func ASTVariableDeclaration_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTVariableDeclaration_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTVariableDeclaration_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTVariableDeclaration_type(arg0, arg1)
+}
+
+func ASTVariableDeclaration_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTVariableDeclaration_default_value(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTVariableDeclaration_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTVariableDeclaration_default_value(arg0, arg1)
+}
+
+func ASTUntilClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUntilClause_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUntilClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUntilClause_condition(arg0, arg1)
+}
+
+func ASTUntilClause_repeat_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTUntilClause_repeat_stmt(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTUntilClause_repeat_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTUntilClause_repeat_stmt(arg0, arg1)
+}
+
+func ASTBreakContinueStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTBreakContinueStatement_label(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTBreakContinueStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTBreakContinueStatement_label(arg0, arg1)
+}
+
+func ASTBreakContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBreakContinueStatement_set_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBreakContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBreakContinueStatement_set_keyword(arg0, arg1)
+}
+
+func ASTBreakContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTBreakContinueStatement_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBreakContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBreakContinueStatement_keyword(arg0, arg1)
+}
+
+func ASTBreakStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTBreakStatement_set_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTBreakStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTBreakStatement_set_keyword(arg0, arg1)
+}
+
+func ASTBreakStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTBreakStatement_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTBreakStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTBreakStatement_keyword(arg0, arg1)
+}
+
+func ASTContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTContinueStatement_set_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTContinueStatement_set_keyword(arg0, arg1)
+}
+
+func ASTContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTContinueStatement_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTContinueStatement_keyword(arg0, arg1)
+}
+
+func ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropPrivilegeRestrictionStatement_privileges(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_privileges(arg0, arg1)
+}
+
+func ASTDropPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropPrivilegeRestrictionStatement_object_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_object_type(arg0, arg1)
+}
+
+func ASTDropPrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropPrivilegeRestrictionStatement_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropPrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_name_path(arg0, arg1)
+}
+
+func ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropRowAccessPolicyStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropRowAccessPolicyStatement_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropRowAccessPolicyStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropRowAccessPolicyStatement_table_name(arg0, arg1)
+}
+
+func ASTDropRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropRowAccessPolicyStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropRowAccessPolicyStatement_name(arg0, arg1)
+}
+
+func ASTCreatePrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(arg0, arg1)
+}
+
+func ASTCreatePrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(arg0, arg1)
+}
+
+func ASTCreatePrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(arg0, arg1)
+}
+
+func ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateRowAccessPolicyStatement_target_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_target_path(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_grant_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateRowAccessPolicyStatement_grant_to(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_grant_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_grant_to(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_filter_using(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateRowAccessPolicyStatement_filter_using(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_filter_using(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_filter_using(arg0, arg1)
+}
+
+func ASTCreateRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateRowAccessPolicyStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateRowAccessPolicyStatement_name(arg0, arg1)
+}
+
+func ASTDropStatement_set_drop_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropStatement_set_drop_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropStatement_set_drop_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropStatement_set_drop_mode(arg0, arg1)
+}
+
+func ASTDropStatement_drop_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTDropStatement_drop_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropStatement_drop_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropStatement_drop_mode(arg0, arg1)
+}
+
+func ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropStatement_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropStatement_set_is_if_exists(arg0, arg1)
+}
+
+func ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTDropStatement_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropStatement_is_if_exists(arg0, arg1)
+}
+
+func ASTDropStatement_set_schema_object_kind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTDropStatement_set_schema_object_kind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTDropStatement_set_schema_object_kind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTDropStatement_set_schema_object_kind(arg0, arg1)
+}
+
+func ASTDropStatement_schema_object_kind(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTDropStatement_schema_object_kind(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTDropStatement_schema_object_kind(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTDropStatement_schema_object_kind(arg0, arg1)
+}
+
+func ASTDropStatemnt_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTDropStatemnt_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTDropStatemnt_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTDropStatemnt_name(arg0, arg1)
+}
+
+func ASTSingleAssignment_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSingleAssignment_variable(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSingleAssignment_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSingleAssignment_variable(arg0, arg1)
+}
+
+func ASTSingleAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSingleAssignment_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSingleAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSingleAssignment_expression(arg0, arg1)
+}
+
+func ASTParameterAssignment_parameter(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTParameterAssignment_parameter(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTParameterAssignment_parameter(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTParameterAssignment_parameter(arg0, arg1)
+}
+
+func ASTParameterAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTParameterAssignment_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTParameterAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTParameterAssignment_expression(arg0, arg1)
+}
+
+func ASTSystemVariableAssignment_system_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSystemVariableAssignment_system_variable(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSystemVariableAssignment_system_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSystemVariableAssignment_system_variable(arg0, arg1)
+}
+
+func ASTSystemVariableAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTSystemVariableAssignment_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTSystemVariableAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTSystemVariableAssignment_expression(arg0, arg1)
+}
+
+func ASTAssignmentFromStruct_variables(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAssignmentFromStruct_variables(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAssignmentFromStruct_variables(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAssignmentFromStruct_variables(arg0, arg1)
+}
+
+func ASTAssignmentFromStruct_struct_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAssignmentFromStruct_struct_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAssignmentFromStruct_struct_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAssignmentFromStruct_struct_expression(arg0, arg1)
+}
+
+func ASTCreateTableStmtBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStmtBase_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStmtBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStmtBase_name(arg0, arg1)
+}
+
+func ASTCreateTableStmtBase_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStmtBase_table_element_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStmtBase_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStmtBase_table_element_list(arg0, arg1)
+}
+
+func ASTCreateTableStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStmtBase_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStmtBase_options_list(arg0, arg1)
+}
+
+func ASTCreateTableStmtBase_like_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStmtBase_like_table_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStmtBase_like_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStmtBase_like_table_name(arg0, arg1)
+}
+
+func ASTCreateTableStmtBase_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStmtBase_collate(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStmtBase_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStmtBase_collate(arg0, arg1)
+}
+
+func ASTCreateTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStatement_clone_data_source(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStatement_clone_data_source(arg0, arg1)
+}
+
+func ASTCreateTableStatement_copy_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStatement_copy_data_source(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStatement_copy_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStatement_copy_data_source(arg0, arg1)
+}
+
+func ASTCreateTableStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStatement_partition_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStatement_partition_by(arg0, arg1)
+}
+
+func ASTCreateTableStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStatement_cluster_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStatement_cluster_by(arg0, arg1)
+}
+
+func ASTCreateTableStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableStatement_query(arg0, arg1)
+}
+
+func ASTCreateExternalTableStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(arg0, arg1)
+}
+
+func ASTCreateExternalTableStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateExternalTableStatement_with_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateExternalTableStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateExternalTableStatement_with_connection_clause(arg0, arg1)
+}
+
+func ASTCreateViewStatementBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateViewStatementBase_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateViewStatementBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateViewStatementBase_name(arg0, arg1)
+}
+
+func ASTCreateViewStatementBase_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateViewStatementBase_column_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateViewStatementBase_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateViewStatementBase_column_list(arg0, arg1)
+}
+
+func ASTCreateViewStatementBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateViewStatementBase_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateViewStatementBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateViewStatementBase_options_list(arg0, arg1)
+}
+
+func ASTCreateViewStatementBase_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateViewStatementBase_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateViewStatementBase_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateViewStatementBase_query(arg0, arg1)
+}
+
+func ASTCreateMaterializedViewStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateMaterializedViewStatement_partition_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateMaterializedViewStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateMaterializedViewStatement_partition_by(arg0, arg1)
+}
+
+func ASTCreateMaterializedViewStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateMaterializedViewStatement_cluster_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateMaterializedViewStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateMaterializedViewStatement_cluster_by(arg0, arg1)
+}
+
+func ASTLoopStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLoopStatement_label(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLoopStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLoopStatement_label(arg0, arg1)
+}
+
+func ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLoopStatement_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLoopStatement_body(arg0, arg1)
+}
+
+func ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTLoopStatement_IsLoopStatement(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTLoopStatement_IsLoopStatement(arg0, arg1)
+}
+
+func ASTWhileStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTWhileStatement_condition(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTWhileStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTWhileStatement_condition(arg0, arg1)
+}
+
+func ASTRepeatStatement_until_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTRepeatStatement_until_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTRepeatStatement_until_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTRepeatStatement_until_clause(arg0, arg1)
+}
+
+func ASTForInStatement_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForInStatement_variable(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForInStatement_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForInStatement_variable(arg0, arg1)
+}
+
+func ASTForInStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTForInStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTForInStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTForInStatement_query(arg0, arg1)
+}
+
+func ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAlterStatementBase_set_is_if_exists(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAlterStatementBase_set_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTAlterStatementBase_is_if_exists(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAlterStatementBase_is_if_exists(arg0, arg1)
+}
+
+func ASTAlterStatementBase_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterStatementBase_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterStatementBase_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterStatementBase_path(arg0, arg1)
+}
+
+func ASTAlterStatementBase_action_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterStatementBase_action_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterStatementBase_action_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterStatementBase_action_list(arg0, arg1)
+}
+
+func ASTAlterPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(arg0, arg1)
+}
+
+func ASTAlterPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(arg0, arg1)
+}
+
+func ASTAlterRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterRowAccessPolicyStatement_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterRowAccessPolicyStatement_name(arg0, arg1)
+}
+
+func ASTAlterEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAlterEntityStatement_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAlterEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAlterEntityStatement_type(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_set_determinism_level(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateFunctionStmtBase_set_determinism_level(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_set_determinism_level(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_set_determinism_level(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_determinism_level(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCreateFunctionStmtBase_determinism_level(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_determinism_level(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_determinism_level(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_set_sql_security(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateFunctionStmtBase_set_sql_security(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_set_sql_security(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_set_sql_security(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_sql_security(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTCreateFunctionStmtBase_sql_security(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_sql_security(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_sql_security(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_function_declaration(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStmtBase_function_declaration(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_function_declaration(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_function_declaration(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStmtBase_language(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_language(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_code(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStmtBase_code(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_code(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_code(arg0, arg1)
+}
+
+func ASTCreateFunctionStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStmtBase_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStmtBase_options_list(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateFunctionStatement_set_is_aggregate(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateFunctionStatement_set_is_aggregate(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateFunctionStatement_is_aggregate(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateFunctionStatement_is_aggregate(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTCreateFunctionStatement_set_is_remote(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTCreateFunctionStatement_set_is_remote(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_ASTCreateFunctionStatement_is_remote(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTCreateFunctionStatement_is_remote(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_return_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStatement_return_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_return_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStatement_return_type(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_sql_function_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStatement_sql_function_body(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_sql_function_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStatement_sql_function_body(arg0, arg1)
+}
+
+func ASTCreateFunctionStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateFunctionStatement_with_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateFunctionStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateFunctionStatement_with_connection_clause(arg0, arg1)
+}
+
+func ASTCreateTableFunctionStatement_return_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(arg0, arg1)
+}
+
+func ASTCreateTableFunctionStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTCreateTableFunctionStatement_query(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTCreateTableFunctionStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTCreateTableFunctionStatement_query(arg0, arg1)
+}
+
+func ASTStructColumnSchema_struct_fields_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTStructColumnSchema_struct_fields_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTStructColumnSchema_struct_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTStructColumnSchema_struct_fields_num(arg0, arg1)
+}
+
+func ASTStructColumnSchema_struct_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTStructColumnSchema_struct_field(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTStructColumnSchema_struct_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTStructColumnSchema_struct_field(arg0, arg1, arg2)
+}
+
+func ASTExecuteIntoClause_identifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteIntoClause_identifiers(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteIntoClause_identifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteIntoClause_identifiers(arg0, arg1)
+}
+
+func ASTExecuteUsingArgument_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteUsingArgument_expression(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteUsingArgument_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteUsingArgument_expression(arg0, arg1)
+}
+
+func ASTExecuteUsingArgument_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteUsingArgument_alias(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteUsingArgument_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteUsingArgument_alias(arg0, arg1)
+}
+
+func ASTExecuteUsingClause_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTExecuteUsingClause_arguments_num(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTExecuteUsingClause_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTExecuteUsingClause_arguments_num(arg0, arg1)
+}
+
+func ASTExecuteUsingClause_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_ASTExecuteUsingClause_argument(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_ASTExecuteUsingClause_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteUsingClause_argument(arg0, arg1, arg2)
+}
+
+func ASTExecuteImmediateStatement_sql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteImmediateStatement_sql(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteImmediateStatement_sql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteImmediateStatement_sql(arg0, arg1)
+}
+
+func ASTExecuteImmediateStatement_into_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteImmediateStatement_into_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteImmediateStatement_into_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteImmediateStatement_into_clause(arg0, arg1)
+}
+
+func ASTExecuteImmediateStatement_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTExecuteImmediateStatement_using_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTExecuteImmediateStatement_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTExecuteImmediateStatement_using_clause(arg0, arg1)
+}
+
+func ASTAuxLoadDataFromFilesOptionsList_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_set_insertion_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_ASTAuxLoadDataStatement_set_insertion_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_set_insertion_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_ASTAuxLoadDataStatement_set_insertion_mode(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_insertion_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_ASTAuxLoadDataStatement_insertion_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_insertion_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_ASTAuxLoadDataStatement_insertion_mode(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataStatement_partition_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataStatement_partition_by(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataStatement_cluster_by(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataStatement_cluster_by(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_from_files(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataStatement_from_files(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_from_files(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataStatement_from_files(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(arg0, arg1)
+}
+
+func ASTAuxLoadDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTAuxLoadDataStatement_with_connection_clause(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTAuxLoadDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTAuxLoadDataStatement_with_connection_clause(arg0, arg1)
+}
+
+func ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ASTLabel_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ASTLabel_name(arg0, arg1)
+}
+
 func AnalyzerOptions_new(arg0 *unsafe.Pointer) {
 	zetasql_AnalyzerOptions_new(
 		arg0,
@@ -14829,10924 +25735,6 @@ func zetasql_ResolvedFunctionCallInfo_DebugString(arg0 unsafe.Pointer, arg1 *uns
 	C.export_zetasql_ResolvedFunctionCallInfo_DebugString(arg0, arg1)
 }
 
-func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_cctz_FixedOffsetFromName(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_cctz_FixedOffsetFromName(arg0, arg1, arg2)
-}
-
-func cctz_FixedOffsetToName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_cctz_FixedOffsetToName(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_cctz_FixedOffsetToName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_cctz_FixedOffsetToName(arg0, arg1)
-}
-
-func cctz_FixedOffsetToAbbr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_cctz_FixedOffsetToAbbr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_cctz_FixedOffsetToAbbr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_cctz_FixedOffsetToAbbr(arg0, arg1)
-}
-
-func cctz_detail_format(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
-	zetasql_cctz_detail_format(
-		arg0,
-		arg1,
-		arg2,
-		arg3,
-		arg4,
-	)
-}
-
-func zetasql_cctz_detail_format(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
-	C.export_zetasql_cctz_detail_format(arg0, arg1, arg2, arg3, arg4)
-}
-
-func cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *bool) {
-	zetasql_cctz_detail_parse(
-		arg0,
-		arg1,
-		arg2,
-		arg3,
-		arg4,
-		arg5,
-		(*C.int)(unsafe.Pointer(arg6)),
-	)
-}
-
-func zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int) {
-	C.export_zetasql_cctz_detail_parse(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
-}
-
-func TimeZoneIf_Load(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_TimeZoneIf_Load(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_TimeZoneIf_Load(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneIf_Load(arg0, arg1)
-}
-
-func time_zone_Impl_UTC(arg0 *unsafe.Pointer) {
-	zetasql_time_zone_Impl_UTC(
-		arg0,
-	)
-}
-
-func zetasql_time_zone_Impl_UTC(arg0 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_Impl_UTC(arg0)
-}
-
-func time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_time_zone_Impl_LoadTimeZone(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_time_zone_Impl_LoadTimeZone(arg0, arg1, arg2)
-}
-
-func time_zone_Impl_ClearTimeZoneMapTestOnly() {
-	zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly()
-}
-
-func zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly() {
-	C.export_zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly()
-}
-
-func time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer) {
-	zetasql_time_zone_Impl_UTCImpl(
-		arg0,
-	)
-}
-
-func zetasql_time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_Impl_UTCImpl(arg0)
-}
-
-func TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_TimeZoneInfo_Load(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_TimeZoneInfo_Load(arg0, arg1, arg2)
-}
-
-func TimeZoneInfo_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_TimeZoneInfo_BreakTime(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_TimeZoneInfo_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneInfo_BreakTime(arg0, arg1, arg2)
-}
-
-func TimeZoneInfo_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_TimeZoneInfo_MakeTime(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_TimeZoneInfo_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneInfo_MakeTime(arg0, arg1, arg2)
-}
-
-func TimeZoneInfo_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_TimeZoneInfo_Version(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_TimeZoneInfo_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneInfo_Version(arg0, arg1)
-}
-
-func TimeZoneInfo_Description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_TimeZoneInfo_Description(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_TimeZoneInfo_Description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneInfo_Description(arg0, arg1)
-}
-
-func TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
-	zetasql_TimeZoneInfo_NextTransition(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-	)
-}
-
-func zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
-	C.export_zetasql_TimeZoneInfo_NextTransition(arg0, arg1, arg2, arg3)
-}
-
-func TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
-	zetasql_TimeZoneInfo_PrevTransition(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-	)
-}
-
-func zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
-	C.export_zetasql_TimeZoneInfo_PrevTransition(arg0, arg1, arg2, arg3)
-}
-
-func TimeZoneLibC_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_TimeZoneLibC_BreakTime(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_TimeZoneLibC_BreakTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneLibC_BreakTime(arg0, arg1, arg2)
-}
-
-func TimeZoneLibC_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_TimeZoneLibC_MakeTime(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_TimeZoneLibC_MakeTime(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneLibC_MakeTime(arg0, arg1, arg2)
-}
-
-func TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_TimeZoneLibC_Version(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_TimeZoneLibC_Version(arg0, arg1)
-}
-
-func TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
-	zetasql_TimeZoneLibC_NextTransition(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-	)
-}
-
-func zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
-	C.export_zetasql_TimeZoneLibC_NextTransition(arg0, arg1, arg2, arg3)
-}
-
-func TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *bool) {
-	zetasql_TimeZoneLibC_PrevTransition(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-	)
-}
-
-func zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
-	C.export_zetasql_TimeZoneLibC_PrevTransition(arg0, arg1, arg2, arg3)
-}
-
-func time_zone_name(arg0 *unsafe.Pointer) {
-	zetasql_time_zone_name(
-		arg0,
-	)
-}
-
-func zetasql_time_zone_name(arg0 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_name(arg0)
-}
-
-func time_zone_lookup(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_time_zone_lookup(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_time_zone_lookup(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_lookup(arg0, arg1, arg2)
-}
-
-func time_zone_lookup2(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_time_zone_lookup2(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_time_zone_lookup2(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_lookup2(arg0, arg1, arg2)
-}
-
-func time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_time_zone_next_transition(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_time_zone_next_transition(arg0, arg1, arg2)
-}
-
-func time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_time_zone_prev_transition(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_time_zone_prev_transition(arg0, arg1, arg2)
-}
-
-func time_zone_version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_time_zone_version(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_time_zone_version(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_version(arg0, arg1)
-}
-
-func time_zone_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_time_zone_description(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_time_zone_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_time_zone_description(arg0, arg1)
-}
-
-func cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_cctz_load_time_zone(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_cctz_load_time_zone(arg0, arg1, arg2)
-}
-
-func cctz_utc_time_zone(arg0 *unsafe.Pointer) {
-	zetasql_cctz_utc_time_zone(
-		arg0,
-	)
-}
-
-func zetasql_cctz_utc_time_zone(arg0 *unsafe.Pointer) {
-	C.export_zetasql_cctz_utc_time_zone(arg0)
-}
-
-func cctz_fixed_time_zone(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_cctz_fixed_time_zone(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_cctz_fixed_time_zone(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_cctz_fixed_time_zone(arg0, arg1)
-}
-
-func cctz_local_time_zone(arg0 *unsafe.Pointer) {
-	zetasql_cctz_local_time_zone(
-		arg0,
-	)
-}
-
-func zetasql_cctz_local_time_zone(arg0 *unsafe.Pointer) {
-	C.export_zetasql_cctz_local_time_zone(arg0)
-}
-
-func cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
-	zetasql_cctz_ParsePosixSpec(
-		arg0,
-		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
-	C.export_zetasql_cctz_ParsePosixSpec(arg0, arg1, arg2)
-}
-
-func FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
-	zetasql_FormatSql(
-		arg0,
-		arg1,
-		arg2,
-	)
-}
-
-func zetasql_FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
-	C.export_zetasql_FormatSql(arg0, arg1, arg2)
-}
-
-func ParseStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	zetasql_ParseStatement(
-		arg0,
-		arg1,
-		arg2,
-		arg3,
-	)
-}
-
-func zetasql_ParseStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	C.export_zetasql_ParseStatement(arg0, arg1, arg2, arg3)
-}
-
-func ParseScript(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
-	zetasql_ParseScript(
-		arg0,
-		arg1,
-		C.int(arg2),
-		arg3,
-		arg4,
-	)
-}
-
-func zetasql_ParseScript(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
-	C.export_zetasql_ParseScript(arg0, arg1, arg2, arg3, arg4)
-}
-
-func ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *bool, arg4 *unsafe.Pointer) {
-	zetasql_ParseNextStatement(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-		arg4,
-	)
-}
-
-func zetasql_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
-	C.export_zetasql_ParseNextStatement(arg0, arg1, arg2, arg3, arg4)
-}
-
-func ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *bool, arg4 *unsafe.Pointer) {
-	zetasql_ParseNextScriptStatement(
-		arg0,
-		arg1,
-		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
-		arg4,
-	)
-}
-
-func zetasql_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
-	C.export_zetasql_ParseNextScriptStatement(arg0, arg1, arg2, arg3, arg4)
-}
-
-func ParseType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	zetasql_ParseType(
-		arg0,
-		arg1,
-		arg2,
-		arg3,
-	)
-}
-
-func zetasql_ParseType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	C.export_zetasql_ParseType(arg0, arg1, arg2, arg3)
-}
-
-func ParseExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	zetasql_ParseExpression(
-		arg0,
-		arg1,
-		arg2,
-		arg3,
-	)
-}
-
-func zetasql_ParseExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
-	C.export_zetasql_ParseExpression(arg0, arg1, arg2, arg3)
-}
-
-func Unparse(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_Unparse(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_Unparse(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_Unparse(arg0, arg1)
-}
-
-func ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseResumeLocation_FromStringView(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseResumeLocation_FromStringView(arg0, arg1)
-}
-
-func Status_OK(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_Status_OK(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_Status_OK(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_Status_OK(arg0, arg1)
-}
-
-func Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_Status_String(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_Status_String(arg0, arg1)
-}
-
-func ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParserOutput_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParserOutput_statement(arg0, arg1)
-}
-
-func ParserOutput_script(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParserOutput_script(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParserOutput_script(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParserOutput_script(arg0, arg1)
-}
-
-func ParserOutput_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParserOutput_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParserOutput_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParserOutput_type(arg0, arg1)
-}
-
-func ParserOutput_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParserOutput_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParserOutput_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParserOutput_expression(arg0, arg1)
-}
-
-func ASTNode_getId(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTNode_getId(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_getId(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_getId(arg0, arg1)
-}
-
-func ASTNode_node_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTNode_node_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_node_kind(arg0, arg1)
-}
-
-func ASTNode_SingleNodeDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_SingleNodeDebugString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_SingleNodeDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_SingleNodeDebugString(arg0, arg1)
-}
-
-func ASTNode_set_parent(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_set_parent(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_set_parent(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_set_parent(arg0, arg1)
-}
-
-func ASTNode_parent(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_parent(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_parent(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_parent(arg0, arg1)
-}
-
-func ASTNode_AddChildren(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_AddChildren(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_AddChildren(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_AddChildren(arg0, arg1)
-}
-
-func ASTNode_AddChild(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_AddChild(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_AddChild(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_AddChild(arg0, arg1)
-}
-
-func ASTNode_AddChildFront(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_AddChildFront(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_AddChildFront(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_AddChildFront(arg0, arg1)
-}
-
-func ASTNode_num_children(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTNode_num_children(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_num_children(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_num_children(arg0, arg1)
-}
-
-func ASTNode_child(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTNode_child(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTNode_child(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_child(arg0, arg1, arg2)
-}
-
-func ASTNode_mutable_child(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTNode_mutable_child(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTNode_mutable_child(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_mutable_child(arg0, arg1, arg2)
-}
-
-func ASTNode_find_child_index(arg0 unsafe.Pointer, arg1 int, arg2 *int) {
-	zetasql_ASTNode_find_child_index(
-		arg0,
-		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_ASTNode_find_child_index(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
-	C.export_zetasql_ASTNode_find_child_index(arg0, arg1, arg2)
-}
-
-func ASTNode_DebugString(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTNode_DebugString(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTNode_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_DebugString(arg0, arg1, arg2)
-}
-
-func ASTNode_MoveStartLocation(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTNode_MoveStartLocation(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTNode_MoveStartLocation(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTNode_MoveStartLocation(arg0, arg1)
-}
-
-func ASTNode_MoveStartLocationBack(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTNode_MoveStartLocationBack(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTNode_MoveStartLocationBack(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTNode_MoveStartLocationBack(arg0, arg1)
-}
-
-func ASTNode_SetStartLocationToEndLocation(arg0 unsafe.Pointer) {
-	zetasql_ASTNode_SetStartLocationToEndLocation(
-		arg0,
-	)
-}
-
-func zetasql_ASTNode_SetStartLocationToEndLocation(arg0 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_SetStartLocationToEndLocation(arg0)
-}
-
-func ASTNode_MoveEndLocationBack(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTNode_MoveEndLocationBack(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTNode_MoveEndLocationBack(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTNode_MoveEndLocationBack(arg0, arg1)
-}
-
-func ASTNode_set_start_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_set_start_location(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_set_start_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_set_start_location(arg0, arg1)
-}
-
-func ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTNode_set_end_location(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTNode_set_end_location(arg0, arg1)
-}
-
-func ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsTableExpression(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsTableExpression(arg0, arg1)
-}
-
-func ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsQueryExpression(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsQueryExpression(arg0, arg1)
-}
-
-func ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsExpression(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsExpression(arg0, arg1)
-}
-
-func ASTNode_IsType(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsType(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsType(arg0, arg1)
-}
-
-func ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsLeaf(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsLeaf(arg0, arg1)
-}
-
-func ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsStatement(arg0, arg1)
-}
-
-func ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsScriptStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsScriptStatement(arg0, arg1)
-}
-
-func ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsLoopStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsLoopStatement(arg0, arg1)
-}
-
-func ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsSqlStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsSqlStatement(arg0, arg1)
-}
-
-func ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsDdlStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsDdlStatement(arg0, arg1)
-}
-
-func ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsCreateStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsCreateStatement(arg0, arg1)
-}
-
-func ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNode_IsAlterStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNode_IsAlterStatement(arg0, arg1)
-}
-
-func ASTNode_GetNodeKindString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_GetNodeKindString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_GetNodeKindString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_GetNodeKindString(arg0, arg1)
-}
-
-func ASTNode_GetParseLocationRange(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_GetParseLocationRange(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_GetParseLocationRange(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_GetParseLocationRange(arg0, arg1)
-}
-
-func ASTNode_GetLocationString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_GetLocationString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_GetLocationString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_GetLocationString(arg0, arg1)
-}
-
-func ASTNode_NodeKindToString(arg0 int, arg1 *unsafe.Pointer) {
-	zetasql_ASTNode_NodeKindToString(
-		C.int(arg0),
-		arg1,
-	)
-}
-
-func zetasql_ASTNode_NodeKindToString(arg0 C.int, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNode_NodeKindToString(arg0, arg1)
-}
-
-func ParseLocationPoint_filename(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseLocationPoint_filename(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseLocationPoint_filename(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseLocationPoint_filename(arg0, arg1)
-}
-
-func ParseLocationPoint_GetByteOffset(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ParseLocationPoint_GetByteOffset(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ParseLocationPoint_GetByteOffset(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ParseLocationPoint_GetByteOffset(arg0, arg1)
-}
-
-func ParseLocationPoint_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseLocationPoint_GetString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseLocationPoint_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseLocationPoint_GetString(arg0, arg1)
-}
-
-func ParseLocationRange_start(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseLocationRange_start(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseLocationRange_start(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseLocationRange_start(arg0, arg1)
-}
-
-func ParseLocationRange_end(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseLocationRange_end(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseLocationRange_end(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseLocationRange_end(arg0, arg1)
-}
-
-func ParseLocationRange_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ParseLocationRange_GetString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ParseLocationRange_GetString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ParseLocationRange_GetString(arg0, arg1)
-}
-
-func ASTQueryStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQueryStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQueryStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQueryStatement_query(arg0, arg1)
-}
-
-func ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTQueryExpression_set_parenthesized(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTQueryExpression_set_parenthesized(arg0, arg1)
-}
-
-func ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTQueryExpression_parenthesized(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTQueryExpression_parenthesized(arg0, arg1)
-}
-
-func ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTQuery_set_is_nested(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTQuery_set_is_nested(arg0, arg1)
-}
-
-func ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTQuery_is_nested(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTQuery_is_nested(arg0, arg1)
-}
-
-func ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTQuery_set_is_pivot_input(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTQuery_set_is_pivot_input(arg0, arg1)
-}
-
-func ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTQuery_is_pivot_input(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTQuery_is_pivot_input(arg0, arg1)
-}
-
-func ASTQuery_with_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQuery_with_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQuery_with_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQuery_with_clause(arg0, arg1)
-}
-
-func ASTQuery_query_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQuery_query_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQuery_query_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQuery_query_expr(arg0, arg1)
-}
-
-func ASTQuery_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQuery_order_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQuery_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQuery_order_by(arg0, arg1)
-}
-
-func ASTQuery_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQuery_limit_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQuery_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQuery_limit_offset(arg0, arg1)
-}
-
-func ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTSelect_set_distinct(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTSelect_set_distinct(arg0, arg1)
-}
-
-func ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTSelect_distinct(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSelect_distinct(arg0, arg1)
-}
-
-func ASTSelect_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_hint(arg0, arg1)
-}
-
-func ASTSelect_anonymization_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_anonymization_options(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_anonymization_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_anonymization_options(arg0, arg1)
-}
-
-func ASTSelect_select_as(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_select_as(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_select_as(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_select_as(arg0, arg1)
-}
-
-func ASTSelect_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_select_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_select_list(arg0, arg1)
-}
-
-func ASTSelect_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_from_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_from_clause(arg0, arg1)
-}
-
-func ASTSelect_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_where_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_where_clause(arg0, arg1)
-}
-
-func ASTSelect_group_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_group_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_group_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_group_by(arg0, arg1)
-}
-
-func ASTSelect_having(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_having(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_having(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_having(arg0, arg1)
-}
-
-func ASTSelect_qualify(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_qualify(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_qualify(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_qualify(arg0, arg1)
-}
-
-func ASTSelect_window_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelect_window_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelect_window_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelect_window_clause(arg0, arg1)
-}
-
-func ASTSelectList_column_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTSelectList_column_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSelectList_column_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSelectList_column_num(arg0, arg1)
-}
-
-func ASTSelectList_column(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTSelectList_column(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTSelectList_column(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelectList_column(arg0, arg1, arg2)
-}
-
-func ASTSelectColumn_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelectColumn_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelectColumn_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelectColumn_expression(arg0, arg1)
-}
-
-func ASTSelectColumn_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelectColumn_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelectColumn_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelectColumn_alias(arg0, arg1)
-}
-
-func ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTExpression_set_parenthesized(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTExpression_set_parenthesized(arg0, arg1)
-}
-
-func ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTExpression_parenthesized(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTExpression_parenthesized(arg0, arg1)
-}
-
-func ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTExpression_IsAllowedInComparison(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTExpression_IsAllowedInComparison(arg0, arg1)
-}
-
-func ASTLeaf_image(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLeaf_image(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLeaf_image(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLeaf_image(arg0, arg1)
-}
-
-func ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTLeaf_set_image(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTLeaf_set_image(arg0, arg1)
-}
-
-func ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTIntLiteral_is_hex(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTIntLiteral_is_hex(arg0, arg1)
-}
-
-func ASTIdentifier_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIdentifier_GetAsString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIdentifier_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIdentifier_GetAsString(arg0, arg1)
-}
-
-func ASTIdentifier_SetIdentifier(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTIdentifier_SetIdentifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIdentifier_SetIdentifier(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTIdentifier_SetIdentifier(arg0, arg1)
-}
-
-func ASTAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlias_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlias_identifier(arg0, arg1)
-}
-
-func ASTAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlias_GetAsString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlias_GetAsString(arg0, arg1)
-}
-
-func ASTPathExpression_num_names(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPathExpression_num_names(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPathExpression_num_names(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPathExpression_num_names(arg0, arg1)
-}
-
-func ASTPathExpression_name(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPathExpression_name(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPathExpression_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPathExpression_name(arg0, arg1, arg2)
-}
-
-func ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 uint32, arg2 *unsafe.Pointer) {
-	zetasql_ASTPathExpression_ToIdentifierPathString(
-		arg0,
-		C.uint(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPathExpression_ToIdentifierPathString(arg0, arg1, arg2)
-}
-
-func ASTTablePathExpression_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_path_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_path_expr(arg0, arg1)
-}
-
-func ASTTablePathExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_unnest_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_unnest_expr(arg0, arg1)
-}
-
-func ASTTablePathExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_hint(arg0, arg1)
-}
-
-func ASTTablePathExpression_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_with_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_with_offset(arg0, arg1)
-}
-
-func ASTTablePathExpression_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_pivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_pivot_clause(arg0, arg1)
-}
-
-func ASTTablePathExpression_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_unpivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_unpivot_clause(arg0, arg1)
-}
-
-func ASTTablePathExpression_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_for_system_time(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_for_system_time(arg0, arg1)
-}
-
-func ASTTablePathExpression_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_sample_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_sample_clause(arg0, arg1)
-}
-
-func ASTTablePathExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTablePathExpression_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTablePathExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTablePathExpression_alias(arg0, arg1)
-}
-
-func ASTFromClause_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFromClause_table_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFromClause_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFromClause_table_expression(arg0, arg1)
-}
-
-func ASTWhereClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWhereClause_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWhereClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhereClause_expression(arg0, arg1)
-}
-
-func ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBooleanLiteral_set_value(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBooleanLiteral_set_value(arg0, arg1)
-}
-
-func ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTBooleanLiteral_value(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBooleanLiteral_value(arg0, arg1)
-}
-
-func ASTAndExpr_conjuncts_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTAndExpr_conjuncts_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAndExpr_conjuncts_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAndExpr_conjuncts_num(arg0, arg1)
-}
-
-func ASTAndExpr_conjunct(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTAndExpr_conjunct(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTAndExpr_conjunct(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTAndExpr_conjunct(arg0, arg1, arg2)
-}
-
-func ASTBinaryExpression_set_op(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBinaryExpression_set_op(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBinaryExpression_set_op(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBinaryExpression_set_op(arg0, arg1)
-}
-
-func ASTBinaryExpression_op(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTBinaryExpression_op(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBinaryExpression_op(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBinaryExpression_op(arg0, arg1)
-}
-
-func ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBinaryExpression_set_is_not(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBinaryExpression_set_is_not(arg0, arg1)
-}
-
-func ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTBinaryExpression_is_not(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBinaryExpression_is_not(arg0, arg1)
-}
-
-func ASTBinaryExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBinaryExpression_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBinaryExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBinaryExpression_lhs(arg0, arg1)
-}
-
-func ASTBinaryExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBinaryExpression_rhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBinaryExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBinaryExpression_rhs(arg0, arg1)
-}
-
-func ASTBinaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBinaryExpression_GetSQLForOperator(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBinaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBinaryExpression_GetSQLForOperator(arg0, arg1)
-}
-
-func ASTStringLiteral_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStringLiteral_string_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStringLiteral_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStringLiteral_string_value(arg0, arg1)
-}
-
-func ASTStringLiteral_set_string_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	zetasql_ASTStringLiteral_set_string_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStringLiteral_set_string_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
-	C.export_zetasql_ASTStringLiteral_set_string_value(arg0, arg1)
-}
-
-func ASTOrExpr_disjuncts_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTOrExpr_disjuncts_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTOrExpr_disjuncts_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTOrExpr_disjuncts_num(arg0, arg1)
-}
-
-func ASTOrExpr_disjunct(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTOrExpr_disjunct(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTOrExpr_disjunct(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrExpr_disjunct(arg0, arg1, arg2)
-}
-
-func ASTGroupingItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGroupingItem_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGroupingItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGroupingItem_expression(arg0, arg1)
-}
-
-func ASTGroupingItem_rollup(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGroupingItem_rollup(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGroupingItem_rollup(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGroupingItem_rollup(arg0, arg1)
-}
-
-func ASTGroupBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGroupBy_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGroupBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGroupBy_hint(arg0, arg1)
-}
-
-func ASTGroupBy_grouping_items_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTGroupBy_grouping_items_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTGroupBy_grouping_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTGroupBy_grouping_items_num(arg0, arg1)
-}
-
-func ASTGroupBy_grouping_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTGroupBy_grouping_item(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTGroupBy_grouping_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTGroupBy_grouping_item(arg0, arg1, arg2)
-}
-
-func ASTOrderingExpression_set_ordering_spec(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTOrderingExpression_set_ordering_spec(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTOrderingExpression_set_ordering_spec(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTOrderingExpression_set_ordering_spec(arg0, arg1)
-}
-
-func ASTOrderingExpression_ordering_spec(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTOrderingExpression_ordering_spec(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTOrderingExpression_ordering_spec(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTOrderingExpression_ordering_spec(arg0, arg1)
-}
-
-func ASTOrderingExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOrderingExpression_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOrderingExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrderingExpression_expression(arg0, arg1)
-}
-
-func ASTOrderingExpression_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOrderingExpression_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOrderingExpression_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrderingExpression_collate(arg0, arg1)
-}
-
-func ASTOrderingExpression_null_order(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOrderingExpression_null_order(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOrderingExpression_null_order(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrderingExpression_null_order(arg0, arg1)
-}
-
-func ASTOrderBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOrderBy_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOrderBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrderBy_hint(arg0, arg1)
-}
-
-func ASTOrderBy_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTOrderBy_ordering_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTOrderBy_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTOrderBy_ordering_expressions_num(arg0, arg1)
-}
-
-func ASTOrderBy_ordering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTOrderBy_ordering_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTOrderBy_ordering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTOrderBy_ordering_expression(arg0, arg1, arg2)
-}
-
-func ASTLimitOffset_limit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLimitOffset_limit(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLimitOffset_limit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLimitOffset_limit(arg0, arg1)
-}
-
-func ASTLimitOffset_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLimitOffset_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLimitOffset_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLimitOffset_offset(arg0, arg1)
-}
-
-func ASTOnClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOnClause_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOnClause_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOnClause_expression(arg0, arg1)
-}
-
-func ASTWithClauseEntry_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithClauseEntry_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithClauseEntry_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithClauseEntry_alias(arg0, arg1)
-}
-
-func ASTWithClauseEntry_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithClauseEntry_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithClauseEntry_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithClauseEntry_query(arg0, arg1)
-}
-
-func ASTJoin_set_join_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_join_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_join_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_join_type(arg0, arg1)
-}
-
-func ASTJoin_join_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTJoin_join_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_join_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_join_type(arg0, arg1)
-}
-
-func ASTJoin_set_join_hint(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_join_hint(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_join_hint(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_join_hint(arg0, arg1)
-}
-
-func ASTJoin_join_hint(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTJoin_join_hint(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_join_hint(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_join_hint(arg0, arg1)
-}
-
-func ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_natural(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_natural(arg0, arg1)
-}
-
-func ASTJoin_natural(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTJoin_natural(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_natural(arg0, arg1)
-}
-
-func ASTJoin_set_unmatched_join_count(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_unmatched_join_count(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_unmatched_join_count(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_unmatched_join_count(arg0, arg1)
-}
-
-func ASTJoin_unmatched_join_count(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTJoin_unmatched_join_count(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_unmatched_join_count(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_unmatched_join_count(arg0, arg1)
-}
-
-func ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_transformation_needed(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_transformation_needed(arg0, arg1)
-}
-
-func ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTJoin_transformation_needed(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_transformation_needed(arg0, arg1)
-}
-
-func ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTJoin_set_contains_comma_join(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTJoin_set_contains_comma_join(arg0, arg1)
-}
-
-func ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTJoin_contains_comma_join(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTJoin_contains_comma_join(arg0, arg1)
-}
-
-func ASTJoin_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_lhs(arg0, arg1)
-}
-
-func ASTJoin_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_rhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_rhs(arg0, arg1)
-}
-
-func ASTJoin_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_hint(arg0, arg1)
-}
-
-func ASTJoin_on_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_on_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_on_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_on_clause(arg0, arg1)
-}
-
-func ASTJoin_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_using_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_using_clause(arg0, arg1)
-}
-
-func JoinParseError_error_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_JoinParseError_error_node(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_JoinParseError_error_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_JoinParseError_error_node(arg0, arg1)
-}
-
-func JoinParseError_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_JoinParseError_message(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_JoinParseError_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_JoinParseError_message(arg0, arg1)
-}
-
-func ASTJoin_parse_error(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_parse_error(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_parse_error(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_parse_error(arg0, arg1)
-}
-
-func ASTJoin_GetSQLForJoinType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_GetSQLForJoinType(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_GetSQLForJoinType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_GetSQLForJoinType(arg0, arg1)
-}
-
-func ASTJoin_GetSQLForJoinHint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTJoin_GetSQLForJoinHint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTJoin_GetSQLForJoinHint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTJoin_GetSQLForJoinHint(arg0, arg1)
-}
-
-func ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTWithClause_set_recursive(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTWithClause_set_recursive(arg0, arg1)
-}
-
-func ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTWithClause_recursive(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWithClause_recursive(arg0, arg1)
-}
-
-func ASTWithClause_with_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTWithClause_with_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWithClause_with_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWithClause_with_num(arg0, arg1)
-}
-
-func ASTWithClause_with(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTWithClause_with(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTWithClause_with(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithClause_with(arg0, arg1, arg2)
-}
-
-func ASTHaving_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHaving_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHaving_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHaving_expression(arg0, arg1)
-}
-
-func ASTType_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTType_type_parameters(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTType_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTType_type_parameters(arg0, arg1)
-}
-
-func ASTType_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTType_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTType_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTType_collate(arg0, arg1)
-}
-
-func ASTSimpleType_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSimpleType_type_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSimpleType_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSimpleType_type_name(arg0, arg1)
-}
-
-func ASTArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTArrayType_element_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayType_element_type(arg0, arg1)
-}
-
-func ASTStructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructField_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructField_name(arg0, arg1)
-}
-
-func ASTStructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructField_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructField_type(arg0, arg1)
-}
-
-func ASTStructType_struct_fields_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStructType_struct_fields_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStructType_struct_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStructType_struct_fields_num(arg0, arg1)
-}
-
-func ASTStructType_struct_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStructType_struct_field(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStructType_struct_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructType_struct_field(arg0, arg1, arg2)
-}
-
-func ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCastExpression_set_is_safe_cast(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCastExpression_set_is_safe_cast(arg0, arg1)
-}
-
-func ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCastExpression_is_safe_cast(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCastExpression_is_safe_cast(arg0, arg1)
-}
-
-func ASTCastExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCastExpression_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCastExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCastExpression_expr(arg0, arg1)
-}
-
-func ASTCastExpression_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCastExpression_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCastExpression_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCastExpression_type(arg0, arg1)
-}
-
-func ASTCastExpression_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCastExpression_format(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCastExpression_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCastExpression_format(arg0, arg1)
-}
-
-func ASTSelectAs_set_as_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTSelectAs_set_as_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTSelectAs_set_as_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTSelectAs_set_as_mode(arg0, arg1)
-}
-
-func ASTSelectAs_as_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTSelectAs_as_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSelectAs_as_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSelectAs_as_mode(arg0, arg1)
-}
-
-func ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSelectAs_type_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSelectAs_type_name(arg0, arg1)
-}
-
-func ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTSelectAs_is_select_as_struct(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSelectAs_is_select_as_struct(arg0, arg1)
-}
-
-func ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTSelectAs_is_select_as_value(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSelectAs_is_select_as_value(arg0, arg1)
-}
-
-func ASTRollup_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTRollup_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTRollup_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTRollup_expressions_num(arg0, arg1)
-}
-
-func ASTRollup_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTRollup_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTRollup_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTRollup_expression(arg0, arg1, arg2)
-}
-
-func ASTFunctionCall_set_null_handling_modifier(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFunctionCall_set_null_handling_modifier(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFunctionCall_set_null_handling_modifier(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFunctionCall_set_null_handling_modifier(arg0, arg1)
-}
-
-func ASTFunctionCall_null_handling_modifier(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTFunctionCall_null_handling_modifier(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionCall_null_handling_modifier(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionCall_null_handling_modifier(arg0, arg1)
-}
-
-func ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFunctionCall_set_distinct(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFunctionCall_set_distinct(arg0, arg1)
-}
-
-func ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionCall_distinct(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionCall_distinct(arg0, arg1)
-}
-
-func ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0, arg1)
-}
-
-func ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0, arg1)
-}
-
-func ASTFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_function(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_function(arg0, arg1)
-}
-
-func ASTFunctionCall_having_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_having_modifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_having_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_having_modifier(arg0, arg1)
-}
-
-func ASTFunctionCall_clamped_between_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_clamped_between_modifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_clamped_between_modifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_clamped_between_modifier(arg0, arg1)
-}
-
-func ASTFunctionCall_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_order_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_order_by(arg0, arg1)
-}
-
-func ASTFunctionCall_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_limit_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_limit_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_limit_offset(arg0, arg1)
-}
-
-func ASTFunctionCall_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_hint(arg0, arg1)
-}
-
-func ASTFunctionCall_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_with_group_rows(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCall_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_with_group_rows(arg0, arg1)
-}
-
-func ASTFunctionCall_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTFunctionCall_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionCall_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionCall_arguments_num(arg0, arg1)
-}
-
-func ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTFunctionCall_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCall_argument(arg0, arg1, arg2)
-}
-
-func ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionCall_HasModifiers(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionCall_HasModifiers(arg0, arg1)
-}
-
-func ASTArrayConstructor_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTArrayConstructor_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTArrayConstructor_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayConstructor_type(arg0, arg1)
-}
-
-func ASTArrayConstructor_elements_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTArrayConstructor_elements_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTArrayConstructor_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTArrayConstructor_elements_num(arg0, arg1)
-}
-
-func ASTArrayConstructor_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTArrayConstructor_element(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTArrayConstructor_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayConstructor_element(arg0, arg1, arg2)
-}
-
-func ASTStructConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructConstructorArg_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructConstructorArg_expression(arg0, arg1)
-}
-
-func ASTStructConstructorArg_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructConstructorArg_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructConstructorArg_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructConstructorArg_alias(arg0, arg1)
-}
-
-func ASTStructConstructorWithParens_field_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStructConstructorWithParens_field_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStructConstructorWithParens_field_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStructConstructorWithParens_field_expressions_num(arg0, arg1)
-}
-
-func ASTStructConstructorWithParens_field_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStructConstructorWithParens_field_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStructConstructorWithParens_field_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructConstructorWithParens_field_expression(arg0, arg1, arg2)
-}
-
-func ASTStructConstructorWithKeyword_struct_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructConstructorWithKeyword_struct_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructConstructorWithKeyword_struct_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructConstructorWithKeyword_struct_type(arg0, arg1)
-}
-
-func ASTStructConstructorWithKeyword_fields_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStructConstructorWithKeyword_fields_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStructConstructorWithKeyword_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStructConstructorWithKeyword_fields_num(arg0, arg1)
-}
-
-func ASTStructConstructorWithKeyword_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStructConstructorWithKeyword_field(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStructConstructorWithKeyword_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructConstructorWithKeyword_field(arg0, arg1, arg2)
-}
-
-func ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTInExpression_set_is_not(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTInExpression_set_is_not(arg0, arg1)
-}
-
-func ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTInExpression_is_not(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInExpression_is_not(arg0, arg1)
-}
-
-func ASTInExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInExpression_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInExpression_lhs(arg0, arg1)
-}
-
-func ASTInExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInExpression_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInExpression_hint(arg0, arg1)
-}
-
-func ASTInExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInExpression_in_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInExpression_in_list(arg0, arg1)
-}
-
-func ASTInExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInExpression_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInExpression_query(arg0, arg1)
-}
-
-func ASTInExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInExpression_unnest_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInExpression_unnest_expr(arg0, arg1)
-}
-
-func ASTInList_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTInList_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInList_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInList_list_num(arg0, arg1)
-}
-
-func ASTInList_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTInList_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTInList_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTInList_list(arg0, arg1, arg2)
-}
-
-func ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBetweenExpression_set_is_not(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBetweenExpression_set_is_not(arg0, arg1)
-}
-
-func ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTBetweenExpression_is_not(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBetweenExpression_is_not(arg0, arg1)
-}
-
-func ASTBetweenExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBetweenExpression_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBetweenExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBetweenExpression_lhs(arg0, arg1)
-}
-
-func ASTBetweenExpression_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBetweenExpression_low(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBetweenExpression_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBetweenExpression_low(arg0, arg1)
-}
-
-func ASTBetweenExpression_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBetweenExpression_high(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBetweenExpression_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBetweenExpression_high(arg0, arg1)
-}
-
-func ASTDateOrTimeLiteral_set_type_kind(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDateOrTimeLiteral_set_type_kind(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDateOrTimeLiteral_set_type_kind(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDateOrTimeLiteral_set_type_kind(arg0, arg1)
-}
-
-func ASTDateOrTimeLiteral_type_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTDateOrTimeLiteral_type_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDateOrTimeLiteral_type_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDateOrTimeLiteral_type_kind(arg0, arg1)
-}
-
-func ASTDateOrTimeLiteral_string_literal(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDateOrTimeLiteral_string_literal(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDateOrTimeLiteral_string_literal(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDateOrTimeLiteral_string_literal(arg0, arg1)
-}
-
-func ASTCaseValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCaseValueExpression_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCaseValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCaseValueExpression_arguments_num(arg0, arg1)
-}
-
-func ASTCaseValueExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTCaseValueExpression_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTCaseValueExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTCaseValueExpression_argument(arg0, arg1, arg2)
-}
-
-func ASTCaseNoValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCaseNoValueExpression_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCaseNoValueExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCaseNoValueExpression_arguments_num(arg0, arg1)
-}
-
-func ASTCaseNoValueExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTCaseNoValueExpression_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTCaseNoValueExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTCaseNoValueExpression_argument(arg0, arg1, arg2)
-}
-
-func ASTArrayElement_array(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTArrayElement_array(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTArrayElement_array(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayElement_array(arg0, arg1)
-}
-
-func ASTArrayElement_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTArrayElement_position(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTArrayElement_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayElement_position(arg0, arg1)
-}
-
-func ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBitwiseShiftExpression_set_is_left_shift(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBitwiseShiftExpression_set_is_left_shift(arg0, arg1)
-}
-
-func ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTBitwiseShiftExpression_is_left_shift(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0, arg1)
-}
-
-func ASTBitwiseShiftExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBitwiseShiftExpression_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBitwiseShiftExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBitwiseShiftExpression_lhs(arg0, arg1)
-}
-
-func ASTBitwiseShiftExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBitwiseShiftExpression_rhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBitwiseShiftExpression_rhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBitwiseShiftExpression_rhs(arg0, arg1)
-}
-
-func ASTCollate_collation_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCollate_collation_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCollate_collation_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCollate_collation_name(arg0, arg1)
-}
-
-func ASTDotGeneralizedField_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotGeneralizedField_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotGeneralizedField_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotGeneralizedField_expr(arg0, arg1)
-}
-
-func ASTDotGeneralizedField_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotGeneralizedField_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotGeneralizedField_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotGeneralizedField_path(arg0, arg1)
-}
-
-func ASTDotIdentifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotIdentifier_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotIdentifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotIdentifier_expr(arg0, arg1)
-}
-
-func ASTDotIdentifier_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotIdentifier_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotIdentifier_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotIdentifier_name(arg0, arg1)
-}
-
-func ASTDotStar_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotStar_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotStar_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotStar_expr(arg0, arg1)
-}
-
-func ASTDotStarWithModifiers_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotStarWithModifiers_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotStarWithModifiers_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotStarWithModifiers_expr(arg0, arg1)
-}
-
-func ASTDotStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDotStarWithModifiers_modifiers(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDotStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDotStarWithModifiers_modifiers(arg0, arg1)
-}
-
-func ASTExpressionSubquery_set_modifier(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTExpressionSubquery_set_modifier(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTExpressionSubquery_set_modifier(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTExpressionSubquery_set_modifier(arg0, arg1)
-}
-
-func ASTExpressionSubquery_modifier(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTExpressionSubquery_modifier(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTExpressionSubquery_modifier(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTExpressionSubquery_modifier(arg0, arg1)
-}
-
-func ASTExpressionSubquery_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExpressionSubquery_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExpressionSubquery_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExpressionSubquery_hint(arg0, arg1)
-}
-
-func ASTExpressionSubquery_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExpressionSubquery_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExpressionSubquery_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExpressionSubquery_query(arg0, arg1)
-}
-
-func ASTExtractExpression_lhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExtractExpression_lhs_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExtractExpression_lhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExtractExpression_lhs_expr(arg0, arg1)
-}
-
-func ASTExtractExpression_rhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExtractExpression_rhs_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExtractExpression_rhs_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExtractExpression_rhs_expr(arg0, arg1)
-}
-
-func ASTExtractExpression_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExtractExpression_time_zone_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExtractExpression_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExtractExpression_time_zone_expr(arg0, arg1)
-}
-
-func ASTHavingModifier_set_modifier_kind(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTHavingModifier_set_modifier_kind(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTHavingModifier_set_modifier_kind(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTHavingModifier_set_modifier_kind(arg0, arg1)
-}
-
-func ASTHavingModifier_modifier_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTHavingModifier_modifier_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTHavingModifier_modifier_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTHavingModifier_modifier_kind(arg0, arg1)
-}
-
-func ASTHavingModifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHavingModifier_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHavingModifier_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHavingModifier_expr(arg0, arg1)
-}
-
-func ASTIntervalExpr_interval_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIntervalExpr_interval_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIntervalExpr_interval_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIntervalExpr_interval_value(arg0, arg1)
-}
-
-func ASTIntervalExpr_date_part_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIntervalExpr_date_part_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIntervalExpr_date_part_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIntervalExpr_date_part_name(arg0, arg1)
-}
-
-func ASTIntervalExpr_date_part_name_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIntervalExpr_date_part_name_to(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIntervalExpr_date_part_name_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIntervalExpr_date_part_name_to(arg0, arg1)
-}
-
-func ASTNamedArgument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNamedArgument_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNamedArgument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNamedArgument_name(arg0, arg1)
-}
-
-func ASTNamedArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNamedArgument_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNamedArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNamedArgument_expr(arg0, arg1)
-}
-
-func ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTNullOrder_set_nulls_first(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTNullOrder_set_nulls_first(arg0, arg1)
-}
-
-func ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTNullOrder_nulls_first(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNullOrder_nulls_first(arg0, arg1)
-}
-
-func ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTOnOrUsingClauseList_on_or_using_clause_list_num(arg0, arg1)
-}
-
-func ASTOnUsingClauseList_on_or_using_clause_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTOnUsingClauseList_on_or_using_clause_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTOnUsingClauseList_on_or_using_clause_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTOnUsingClauseList_on_or_using_clause_list(arg0, arg1, arg2)
-}
-
-func ASTParenthesizedJoin_join(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTParenthesizedJoin_join(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTParenthesizedJoin_join(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTParenthesizedJoin_join(arg0, arg1)
-}
-
-func ASTParenthesizedJoin_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTParenthesizedJoin_sample_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTParenthesizedJoin_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTParenthesizedJoin_sample_clause(arg0, arg1)
-}
-
-func ASTPartitionBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPartitionBy_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPartitionBy_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPartitionBy_hint(arg0, arg1)
-}
-
-func ASTPartitionBy_partitioning_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPartitionBy_partitioning_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPartitionBy_partitioning_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPartitionBy_partitioning_expressions_num(arg0, arg1)
-}
-
-func ASTPartitionBy_partitioning_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPartitionBy_partitioning_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPartitionBy_partitioning_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPartitionBy_partitioning_expression(arg0, arg1, arg2)
-}
-
-func ASTSetOperation_set_op_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTSetOperation_set_op_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTSetOperation_set_op_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTSetOperation_set_op_type(arg0, arg1)
-}
-
-func ASTSetOperation_op_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTSetOperation_op_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSetOperation_op_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSetOperation_op_type(arg0, arg1)
-}
-
-func ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTSetOperation_set_distinct(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTSetOperation_set_distinct(arg0, arg1)
-}
-
-func ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTSetOperation_distinct(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSetOperation_distinct(arg0, arg1)
-}
-
-func ASTSetOperation_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetOperation_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetOperation_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetOperation_hint(arg0, arg1)
-}
-
-func ASTSetOperation_inputs_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTSetOperation_inputs_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSetOperation_inputs_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSetOperation_inputs_num(arg0, arg1)
-}
-
-func ASTSetOperation_input(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTSetOperation_input(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTSetOperation_input(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetOperation_input(arg0, arg1, arg2)
-}
-
-func ASTSetOperation_GetSQLForOperation(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetOperation_GetSQLForOperation(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetOperation_GetSQLForOperation(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetOperation_GetSQLForOperation(arg0, arg1)
-}
-
-func ASTStarExceptList_identifiers_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStarExceptList_identifiers_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStarExceptList_identifiers_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStarExceptList_identifiers_num(arg0, arg1)
-}
-
-func ASTStarExpcetList_identifier(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStarExpcetList_identifier(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStarExpcetList_identifier(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarExpcetList_identifier(arg0, arg1, arg2)
-}
-
-func ASTStarModifiers_except_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStarModifiers_except_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStarModifiers_except_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarModifiers_except_list(arg0, arg1)
-}
-
-func ASTStarModifiers_replace_items_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStarModifiers_replace_items_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStarModifiers_replace_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStarModifiers_replace_items_num(arg0, arg1)
-}
-
-func ASTStarModifiers_replace_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStarModifiers_replace_item(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStarModifiers_replace_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarModifiers_replace_item(arg0, arg1, arg2)
-}
-
-func ASTStarReplaceItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStarReplaceItem_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStarReplaceItem_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarReplaceItem_expression(arg0, arg1)
-}
-
-func ASTStarReplaceItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStarReplaceItem_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStarReplaceItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarReplaceItem_alias(arg0, arg1)
-}
-
-func ASTStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStarWithModifiers_modifiers(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStarWithModifiers_modifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStarWithModifiers_modifiers(arg0, arg1)
-}
-
-func ASTTableSubquery_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableSubquery_subquery(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableSubquery_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableSubquery_subquery(arg0, arg1)
-}
-
-func ASTTableSubquery_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableSubquery_pivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableSubquery_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableSubquery_pivot_clause(arg0, arg1)
-}
-
-func ASTTableSubquery_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableSubquery_unpivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableSubquery_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableSubquery_unpivot_clause(arg0, arg1)
-}
-
-func ASTTableSubquery_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableSubquery_sample_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableSubquery_sample_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableSubquery_sample_clause(arg0, arg1)
-}
-
-func ASTTableSubquery_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableSubquery_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableSubquery_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableSubquery_alias(arg0, arg1)
-}
-
-func ASTUnaryExpression_set_op(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTUnaryExpression_set_op(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTUnaryExpression_set_op(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTUnaryExpression_set_op(arg0, arg1)
-}
-
-func ASTUnaryExpression_op(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTUnaryExpression_op(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTUnaryExpression_op(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTUnaryExpression_op(arg0, arg1)
-}
-
-func ASTUnaryExpression_operand(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnaryExpression_operand(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnaryExpression_operand(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnaryExpression_operand(arg0, arg1)
-}
-
-func ASTUnaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnaryExpression_GetSQLForOperator(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnaryExpression_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnaryExpression_GetSQLForOperator(arg0, arg1)
-}
-
-func ASTUnnestExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnnestExpression_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnnestExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnnestExpression_expression(arg0, arg1)
-}
-
-func ASTWindowClause_windows_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTWindowClause_windows_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWindowClause_windows_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWindowClause_windows_num(arg0, arg1)
-}
-
-func ASTWindowClause_window(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTWindowClause_window(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTWindowClause_window(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowClause_window(arg0, arg1, arg2)
-}
-
-func ASTWindowDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowDefinition_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowDefinition_name(arg0, arg1)
-}
-
-func ASTWindowDefinition_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowDefinition_window_spec(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowDefinition_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowDefinition_window_spec(arg0, arg1)
-}
-
-func ASTWindowFrame_start_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowFrame_start_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowFrame_start_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowFrame_start_expr(arg0, arg1)
-}
-
-func ASTWindowFrame_end_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowFrame_end_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowFrame_end_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowFrame_end_expr(arg0, arg1)
-}
-
-func ASTWindowFrame_set_unit(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTWindowFrame_set_unit(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTWindowFrame_set_unit(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTWindowFrame_set_unit(arg0, arg1)
-}
-
-func ASTWindowFrame_frame_unit(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTWindowFrame_frame_unit(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWindowFrame_frame_unit(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWindowFrame_frame_unit(arg0, arg1)
-}
-
-func ASTWindowFrame_GetFrameUnitString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowFrame_GetFrameUnitString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowFrame_GetFrameUnitString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowFrame_GetFrameUnitString(arg0, arg1)
-}
-
-func ASTWindowFrameExpr_set_boundary_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTWindowFrameExpr_set_boundary_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTWindowFrameExpr_set_boundary_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTWindowFrameExpr_set_boundary_type(arg0, arg1)
-}
-
-func ASTWindowFrameExpr_boundary_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTWindowFrameExpr_boundary_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWindowFrameExpr_boundary_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWindowFrameExpr_boundary_type(arg0, arg1)
-}
-
-func ASTWindowFrameExpr_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowFrameExpr_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowFrameExpr_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowFrameExpr_expression(arg0, arg1)
-}
-
-func ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTLikeExpression_set_is_not(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTLikeExpression_set_is_not(arg0, arg1)
-}
-
-func ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTLikeExpression_is_not(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTLikeExpression_is_not(arg0, arg1)
-}
-
-func ASTLikeExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_lhs(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_lhs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_lhs(arg0, arg1)
-}
-
-func ASTLikeExpression_op(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_op(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_op(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_op(arg0, arg1)
-}
-
-func ASTLikeExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_hint(arg0, arg1)
-}
-
-func ASTLikeExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_in_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_in_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_in_list(arg0, arg1)
-}
-
-func ASTLikeExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_query(arg0, arg1)
-}
-
-func ASTLikeExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLikeExpression_unnest_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLikeExpression_unnest_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLikeExpression_unnest_expr(arg0, arg1)
-}
-
-func ASTWindowSpecification_base_window_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowSpecification_base_window_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowSpecification_base_window_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowSpecification_base_window_name(arg0, arg1)
-}
-
-func ASTWindowSpecification_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowSpecification_partition_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowSpecification_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowSpecification_partition_by(arg0, arg1)
-}
-
-func ASTWindowSpecification_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowSpecification_order_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowSpecification_order_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowSpecification_order_by(arg0, arg1)
-}
-
-func ASTWindowSpecification_window_frame(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWindowSpecification_window_frame(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWindowSpecification_window_frame(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWindowSpecification_window_frame(arg0, arg1)
-}
-
-func ASTWithOffset_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithOffset_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithOffset_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithOffset_alias(arg0, arg1)
-}
-
-func ASTAnySomeAllOp_set_op(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAnySomeAllOp_set_op(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAnySomeAllOp_set_op(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAnySomeAllOp_set_op(arg0, arg1)
-}
-
-func ASTAnySomeAllOp_op(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTAnySomeAllOp_op(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAnySomeAllOp_op(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAnySomeAllOp_op(arg0, arg1)
-}
-
-func ASTAnySomeAllOp_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnySomeAllOp_GetSQLForOperator(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnySomeAllOp_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnySomeAllOp_GetSQLForOperator(arg0, arg1)
-}
-
-func ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTStatementList_set_variable_declarations_allowed(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTStatementList_set_variable_declarations_allowed(arg0, arg1)
-}
-
-func ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTStatementList_variable_declarations_allowed(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStatementList_variable_declarations_allowed(arg0, arg1)
-}
-
-func ASTStatementList_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStatementList_statement_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStatementList_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStatementList_statement_list_num(arg0, arg1)
-}
-
-func ASTStatementList_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStatementList_statement_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStatementList_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStatementList_statement_list(arg0, arg1, arg2)
-}
-
-func ASTHintedStatement_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHintedStatement_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHintedStatement_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHintedStatement_hint(arg0, arg1)
-}
-
-func ASTHintedStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHintedStatement_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHintedStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHintedStatement_statement(arg0, arg1)
-}
-
-func ASTExplainStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExplainStatement_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExplainStatement_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExplainStatement_statement(arg0, arg1)
-}
-
-func ASTDescribeStatement_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDescribeStatement_optional_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDescribeStatement_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescribeStatement_optional_identifier(arg0, arg1)
-}
-
-func ASTDescribeStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDescribeStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDescribeStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescribeStatement_name(arg0, arg1)
-}
-
-func ASTDescribeStatement_optional_from_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDescribeStatement_optional_from_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDescribeStatement_optional_from_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescribeStatement_optional_from_name(arg0, arg1)
-}
-
-func ASTShowStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTShowStatement_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTShowStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTShowStatement_identifier(arg0, arg1)
-}
-
-func ASTShowStatement_optional_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTShowStatement_optional_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTShowStatement_optional_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTShowStatement_optional_name(arg0, arg1)
-}
-
-func ASTShowStatement_optional_like_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTShowStatement_optional_like_string(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTShowStatement_optional_like_string(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTShowStatement_optional_like_string(arg0, arg1)
-}
-
-func ASTTransactionIsolationLevel_identifier1(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTransactionIsolationLevel_identifier1(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTransactionIsolationLevel_identifier1(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTransactionIsolationLevel_identifier1(arg0, arg1)
-}
-
-func ASTTransactionIsolationLevel_identifier2(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTransactionIsolationLevel_identifier2(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTransactionIsolationLevel_identifier2(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTransactionIsolationLevel_identifier2(arg0, arg1)
-}
-
-func ASTTransactionReadWriteMode_set_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTTransactionReadWriteMode_set_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTTransactionReadWriteMode_set_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTTransactionReadWriteMode_set_mode(arg0, arg1)
-}
-
-func ASTTransactionReadWriteMode_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTransactionReadWriteMode_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTransactionReadWriteMode_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTransactionReadWriteMode_mode(arg0, arg1)
-}
-
-func ASTTransactionModeList_elements_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTransactionModeList_elements_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTransactionModeList_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTransactionModeList_elements_num(arg0, arg1)
-}
-
-func ASTTransactionModeList_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTransactionModeList_element(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTransactionModeList_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTransactionModeList_element(arg0, arg1, arg2)
-}
-
-func ASTBeginStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBeginStatement_mode_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBeginStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBeginStatement_mode_list(arg0, arg1)
-}
-
-func ASTSetTransactionStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetTransactionStatement_mode_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetTransactionStatement_mode_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetTransactionStatement_mode_list(arg0, arg1)
-}
-
-func ASTStartBatchStatement_batch_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStartBatchStatement_batch_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStartBatchStatement_batch_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStartBatchStatement_batch_type(arg0, arg1)
-}
-
-func ASTDdlStatement_GetDdlTarget(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDdlStatement_GetDdlTarget(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDdlStatement_GetDdlTarget(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDdlStatement_GetDdlTarget(arg0, arg1)
-}
-
-func ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropEntityStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropEntityStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropEntityStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropEntityStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropEntityStatement_entity_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropEntityStatement_entity_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropEntityStatement_entity_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropEntityStatement_entity_type(arg0, arg1)
-}
-
-func ASTDropEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropEntityStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropEntityStatement_name(arg0, arg1)
-}
-
-func ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropFunctionStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropFunctionStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropFunctionStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropFunctionStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropFunctionStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropFunctionStatement_name(arg0, arg1)
-}
-
-func ASTDropFunctionStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropFunctionStatement_parameters(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropFunctionStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropFunctionStatement_parameters(arg0, arg1)
-}
-
-func ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropTableFunctionStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropTableFunctionStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropTableFunctionStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropTableFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropTableFunctionStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropTableFunctionStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropTableFunctionStatement_name(arg0, arg1)
-}
-
-func ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0, arg1)
-}
-
-func ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0, arg1)
-}
-
-func ASTDropAllRowAccessPoliciesStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_table_name(arg0, arg1)
-}
-
-func ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropMaterializedViewStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropMaterializedViewStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropMaterializedViewStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropMaterializedViewStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropMaterializedViewStatement_name(arg0, arg1)
-}
-
-func ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropSnapshotTableStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropSnapshotTableStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropSnapshotTableStatement_name(arg0, arg1)
-}
-
-func ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropSearchIndexStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropSearchIndexStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropSearchIndexStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropSearchIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropSearchIndexStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropSearchIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropSearchIndexStatement_name(arg0, arg1)
-}
-
-func ASTDropSearchIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropSearchIndexStatement_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropSearchIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropSearchIndexStatement_table_name(arg0, arg1)
-}
-
-func ASTRenameStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameStatement_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameStatement_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameStatement_identifier(arg0, arg1)
-}
-
-func ASTRenameStatement_old_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameStatement_old_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameStatement_old_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameStatement_old_name(arg0, arg1)
-}
-
-func ASTRenameStatement_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameStatement_new_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameStatement_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameStatement_new_name(arg0, arg1)
-}
-
-func ASTImportStatement_set_import_kind(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTImportStatement_set_import_kind(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTImportStatement_set_import_kind(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTImportStatement_set_import_kind(arg0, arg1)
-}
-
-func ASTImportStatement_import_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTImportStatement_import_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTImportStatement_import_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTImportStatement_import_kind(arg0, arg1)
-}
-
-func ASTImportStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTImportStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTImportStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTImportStatement_name(arg0, arg1)
-}
-
-func ASTImportStatement_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTImportStatement_string_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTImportStatement_string_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTImportStatement_string_value(arg0, arg1)
-}
-
-func ASTImportStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTImportStatement_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTImportStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTImportStatement_alias(arg0, arg1)
-}
-
-func ASTImportStatement_into_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTImportStatement_into_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTImportStatement_into_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTImportStatement_into_alias(arg0, arg1)
-}
-
-func ASTImportStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTImportStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTImportStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTImportStatement_options_list(arg0, arg1)
-}
-
-func ASTModuleStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTModuleStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTModuleStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTModuleStatement_name(arg0, arg1)
-}
-
-func ASTModuleStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTModuleStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTModuleStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTModuleStatement_options_list(arg0, arg1)
-}
-
-func ASTWithConnectionClause_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithConnectionClause_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithConnectionClause_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithConnectionClause_connection_clause(arg0, arg1)
-}
-
-func ASTIntoAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIntoAlias_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIntoAlias_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIntoAlias_identifier(arg0, arg1)
-}
-
-func ASTIntoAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIntoAlias_GetAsString(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIntoAlias_GetAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIntoAlias_GetAsString(arg0, arg1)
-}
-
-func ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(arg0, arg1)
-}
-
-func ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(arg0, arg1)
-}
-
-func ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(arg0, arg1)
-}
-
-func ASTPivotExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotExpression_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotExpression_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotExpression_expression(arg0, arg1)
-}
-
-func ASTPivotExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotExpression_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotExpression_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotExpression_alias(arg0, arg1)
-}
-
-func ASTPivotValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotValue_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotValue_value(arg0, arg1)
-}
-
-func ASTPivotValue_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotValue_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotValue_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotValue_alias(arg0, arg1)
-}
-
-func ASTPivotExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPivotExpressionList_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPivotExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPivotExpressionList_expressions_num(arg0, arg1)
-}
-
-func ASTPivotExpressionList_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPivotExpressionList_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPivotExpressionList_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotExpressionList_expression(arg0, arg1, arg2)
-}
-
-func ASTPivotValueList_values_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPivotValueList_values_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPivotValueList_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPivotValueList_values_num(arg0, arg1)
-}
-
-func ASTPivotValueList_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPivotValueList_value(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPivotValueList_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotValueList_value(arg0, arg1, arg2)
-}
-
-func ASTPivotClause_pivot_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotClause_pivot_expressions(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotClause_pivot_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotClause_pivot_expressions(arg0, arg1)
-}
-
-func ASTPivotClause_for_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotClause_for_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotClause_for_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotClause_for_expression(arg0, arg1)
-}
-
-func ASTPivotClause_pivot_values(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotClause_pivot_values(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotClause_pivot_values(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotClause_pivot_values(arg0, arg1)
-}
-
-func ASTPivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPivotClause_output_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPivotClause_output_alias(arg0, arg1)
-}
-
-func ASTUnpivotInItem_unpivot_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotInItem_unpivot_columns(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotInItem_unpivot_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotInItem_unpivot_columns(arg0, arg1)
-}
-
-func ASTUnpivotInItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotInItem_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotInItem_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotInItem_alias(arg0, arg1)
-}
-
-func ASTUnpivotInItemList_in_items_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTUnpivotInItemList_in_items_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTUnpivotInItemList_in_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTUnpivotInItemList_in_items_num(arg0, arg1)
-}
-
-func ASTUnpivotInItemList_in_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTUnpivotInItemList_in_item(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTUnpivotInItemList_in_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotInItemList_in_item(arg0, arg1, arg2)
-}
-
-func ASTUnpivotClause_set_null_filter(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTUnpivotClause_set_null_filter(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTUnpivotClause_set_null_filter(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTUnpivotClause_set_null_filter(arg0, arg1)
-}
-
-func ASTUnpivotClause_null_filter(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTUnpivotClause_null_filter(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTUnpivotClause_null_filter(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTUnpivotClause_null_filter(arg0, arg1)
-}
-
-func ASTUnpivotClause_unpivot_output_value_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotClause_unpivot_output_value_columns(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotClause_unpivot_output_value_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotClause_unpivot_output_value_columns(arg0, arg1)
-}
-
-func ASTUnpivotClause_unpivot_output_name_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotClause_unpivot_output_name_column(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotClause_unpivot_output_name_column(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotClause_unpivot_output_name_column(arg0, arg1)
-}
-
-func ASTUnpivotClause_unpivot_in_items(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotClause_unpivot_in_items(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotClause_unpivot_in_items(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotClause_unpivot_in_items(arg0, arg1)
-}
-
-func ASTUnpivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotClause_output_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotClause_output_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotClause_output_alias(arg0, arg1)
-}
-
-func ASTUsingClause_keys_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTUsingClause_keys_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTUsingClause_keys_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTUsingClause_keys_num(arg0, arg1)
-}
-
-func ASTUsingClause_key(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTUsingClause_key(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTUsingClause_key(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTUsingClause_key(arg0, arg1, arg2)
-}
-
-func ASTForSystemTime_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForSystemTime_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForSystemTime_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForSystemTime_expression(arg0, arg1)
-}
-
-func ASTQualify_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTQualify_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTQualify_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTQualify_expression(arg0, arg1)
-}
-
-func ASTClampedBetweenModifier_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTClampedBetweenModifier_low(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTClampedBetweenModifier_low(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTClampedBetweenModifier_low(arg0, arg1)
-}
-
-func ASTClampedBetweenModifier_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTClampedBetweenModifier_high(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTClampedBetweenModifier_high(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTClampedBetweenModifier_high(arg0, arg1)
-}
-
-func ASTFormatClause_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFormatClause_format(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFormatClause_format(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFormatClause_format(arg0, arg1)
-}
-
-func ASTFormatClause_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFormatClause_time_zone_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFormatClause_time_zone_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFormatClause_time_zone_expr(arg0, arg1)
-}
-
-func ASTPathExpressionList_path_expression_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPathExpressionList_path_expression_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPathExpressionList_path_expression_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPathExpressionList_path_expression_list_num(arg0, arg1)
-}
-
-func ASTPathExpressionList_path_expression_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPathExpressionList_path_expression_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPathExpressionList_path_expression_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPathExpressionList_path_expression_list(arg0, arg1, arg2)
-}
-
-func ASTParameterExpr_set_position(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTParameterExpr_set_position(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTParameterExpr_set_position(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTParameterExpr_set_position(arg0, arg1)
-}
-
-func ASTParameterExpr_position(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTParameterExpr_position(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTParameterExpr_position(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTParameterExpr_position(arg0, arg1)
-}
-
-func ASTParameterExpr_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTParameterExpr_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTParameterExpr_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTParameterExpr_name(arg0, arg1)
-}
-
-func ASTSystemVariableExpr_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSystemVariableExpr_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSystemVariableExpr_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSystemVariableExpr_path(arg0, arg1)
-}
-
-func ASTWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithGroupRows_subquery(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithGroupRows_subquery(arg0, arg1)
-}
-
-func ASTLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLambda_argument_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLambda_argument_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLambda_argument_list(arg0, arg1)
-}
-
-func ASTLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLambda_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLambda_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLambda_body(arg0, arg1)
-}
-
-func ASTAnalyticFunctionCall_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnalyticFunctionCall_window_spec(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnalyticFunctionCall_window_spec(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnalyticFunctionCall_window_spec(arg0, arg1)
-}
-
-func ASTAnalyticFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnalyticFunctionCall_function(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnalyticFunctionCall_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnalyticFunctionCall_function(arg0, arg1)
-}
-
-func ASTAnalyticFunctionCall_function_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnalyticFunctionCall_function_with_group_rows(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnalyticFunctionCall_function_with_group_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnalyticFunctionCall_function_with_group_rows(arg0, arg1)
-}
-
-func ASTFunctionCallWithGroupRows_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCallWithGroupRows_function(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCallWithGroupRows_function(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCallWithGroupRows_function(arg0, arg1)
-}
-
-func ASTFunctionCallWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionCallWithGroupRows_subquery(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionCallWithGroupRows_subquery(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionCallWithGroupRows_subquery(arg0, arg1)
-}
-
-func ASTClusterBy_clustering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTClusterBy_clustering_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTClusterBy_clustering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTClusterBy_clustering_expressions_num(arg0, arg1)
-}
-
-func ASTClusterBy_clustering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTClusterBy_clustering_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTClusterBy_clustering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTClusterBy_clustering_expression(arg0, arg1, arg2)
-}
-
-func ASTNewConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNewConstructorArg_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNewConstructorArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNewConstructorArg_expression(arg0, arg1)
-}
-
-func ASTNewConstructorArg_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNewConstructorArg_optional_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNewConstructorArg_optional_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNewConstructorArg_optional_identifier(arg0, arg1)
-}
-
-func ASTNewConstructorArg_optional_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNewConstructorArg_optional_path_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNewConstructorArg_optional_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNewConstructorArg_optional_path_expression(arg0, arg1)
-}
-
-func ASTNewConstructor_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTNewConstructor_type_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTNewConstructor_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTNewConstructor_type_name(arg0, arg1)
-}
-
-func ASTNewConstructor_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTNewConstructor_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTNewConstructor_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTNewConstructor_arguments_num(arg0, arg1)
-}
-
-func ASTNewConstructor_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTNewConstructor_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTNewConstructor_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTNewConstructor_argument(arg0, arg1, arg2)
-}
-
-func ASTOptionsList_options_entries_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTOptionsList_options_entries_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTOptionsList_options_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTOptionsList_options_entries_num(arg0, arg1)
-}
-
-func ASTOptionsList_options_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTOptionsList_options_entry(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTOptionsList_options_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTOptionsList_options_entry(arg0, arg1, arg2)
-}
-
-func ASTOptionsEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOptionsEntry_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOptionsEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOptionsEntry_name(arg0, arg1)
-}
-
-func ASTOptionsEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTOptionsEntry_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTOptionsEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTOptionsEntry_value(arg0, arg1)
-}
-
-func ASTCreateStatement_set_scope(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateStatement_set_scope(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateStatement_set_scope(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateStatement_set_scope(arg0, arg1)
-}
-
-func ASTCreateStatement_scope(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCreateStatement_scope(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_scope(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_scope(arg0, arg1)
-}
-
-func ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateStatement_set_is_or_replace(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateStatement_set_is_or_replace(arg0, arg1)
-}
-
-func ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_or_replace(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_or_replace(arg0, arg1)
-}
-
-func ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateStatement_set_is_if_not_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateStatement_set_is_if_not_exists(arg0, arg1)
-}
-
-func ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_if_not_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_if_not_exists(arg0, arg1)
-}
-
-func ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_default_scope(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_default_scope(arg0, arg1)
-}
-
-func ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_private(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_private(arg0, arg1)
-}
-
-func ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_public(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_public(arg0, arg1)
-}
-
-func ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateStatement_is_temp(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateStatement_is_temp(arg0, arg1)
-}
-
-func ASTFunctionParameter_set_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFunctionParameter_set_procedure_parameter_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFunctionParameter_set_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFunctionParameter_set_procedure_parameter_mode(arg0, arg1)
-}
-
-func ASTFunctionParameter_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTFunctionParameter_procedure_parameter_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionParameter_procedure_parameter_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionParameter_procedure_parameter_mode(arg0, arg1)
-}
-
-func ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFunctionParameter_set_is_not_aggregate(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFunctionParameter_set_is_not_aggregate(arg0, arg1)
-}
-
-func ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionParameter_is_not_aggregate(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionParameter_is_not_aggregate(arg0, arg1)
-}
-
-func ASTFunctionParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_name(arg0, arg1)
-}
-
-func ASTFunctionParameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_type(arg0, arg1)
-}
-
-func ASTFunctionParameter_templated_parameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_templated_parameter_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_templated_parameter_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_templated_parameter_type(arg0, arg1)
-}
-
-func ASTFunctionParameter_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_tvf_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_tvf_schema(arg0, arg1)
-}
-
-func ASTFunctionParameter_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_alias(arg0, arg1)
-}
-
-func ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameter_default_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameter_default_value(arg0, arg1)
-}
-
-func ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionParameter_IsTableParameter(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionParameter_IsTableParameter(arg0, arg1)
-}
-
-func ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionParameter_IsTemplated(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionParameter_IsTemplated(arg0, arg1)
-}
-
-func ASTFunctionParameters_parameter_entries_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTFunctionParameters_parameter_entries_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionParameters_parameter_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionParameters_parameter_entries_num(arg0, arg1)
-}
-
-func ASTFunctionParameters_parameter_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTFunctionParameters_parameter_entry(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTFunctionParameters_parameter_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionParameters_parameter_entry(arg0, arg1, arg2)
-}
-
-func ASTFunctionDeclaration_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionDeclaration_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionDeclaration_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionDeclaration_name(arg0, arg1)
-}
-
-func ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFunctionDeclaration_parameters(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFunctionDeclaration_parameters(arg0, arg1)
-}
-
-func ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFunctionDeclaration_IsTemplated(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFunctionDeclaration_IsTemplated(arg0, arg1)
-}
-
-func ASTSqlFunctionBody_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSqlFunctionBody_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSqlFunctionBody_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSqlFunctionBody_expression(arg0, arg1)
-}
-
-func ASTTVFArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFArgument_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFArgument_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFArgument_expr(arg0, arg1)
-}
-
-func ASTTVFArgument_table_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFArgument_table_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFArgument_table_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFArgument_table_clause(arg0, arg1)
-}
-
-func ASTTVFArgument_model_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFArgument_model_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFArgument_model_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFArgument_model_clause(arg0, arg1)
-}
-
-func ASTTVFArgument_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFArgument_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFArgument_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFArgument_connection_clause(arg0, arg1)
-}
-
-func ASTTVFArgument_descriptor(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFArgument_descriptor(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFArgument_descriptor(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFArgument_descriptor(arg0, arg1)
-}
-
-func ASTTVF_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_name(arg0, arg1)
-}
-
-func ASTTVF_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_hint(arg0, arg1)
-}
-
-func ASTTVF_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_alias(arg0, arg1)
-}
-
-func ASTTVF_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_pivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_pivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_pivot_clause(arg0, arg1)
-}
-
-func ASTTVF_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_unpivot_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_unpivot_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_unpivot_clause(arg0, arg1)
-}
-
-func ASTTVF_sample(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVF_sample(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVF_sample(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_sample(arg0, arg1)
-}
-
-func ASTTVF_argument_entries_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTVF_argument_entries_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTVF_argument_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTVF_argument_entries_num(arg0, arg1)
-}
-
-func ASTTVF_argument_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTVF_argument_entry(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTVF_argument_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVF_argument_entry(arg0, arg1, arg2)
-}
-
-func ASTTableClause_table_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableClause_table_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableClause_table_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableClause_table_path(arg0, arg1)
-}
-
-func ASTTableClause_tvf(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableClause_tvf(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableClause_tvf(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableClause_tvf(arg0, arg1)
-}
-
-func ASTModelClause_model_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTModelClause_model_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTModelClause_model_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTModelClause_model_path(arg0, arg1)
-}
-
-func ASTConnectionClause_connection_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTConnectionClause_connection_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTConnectionClause_connection_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTConnectionClause_connection_path(arg0, arg1)
-}
-
-func ASTTableDataSource_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableDataSource_path_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableDataSource_path_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableDataSource_path_expr(arg0, arg1)
-}
-
-func ASTTableDataSource_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableDataSource_for_system_time(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableDataSource_for_system_time(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableDataSource_for_system_time(arg0, arg1)
-}
-
-func ASTTableDataSource_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableDataSource_where_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableDataSource_where_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableDataSource_where_clause(arg0, arg1)
-}
-
-func ASTCloneDataSourceList_data_sources_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCloneDataSourceList_data_sources_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCloneDataSourceList_data_sources_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCloneDataSourceList_data_sources_num(arg0, arg1)
-}
-
-func ASTCloneDataSourceList_data_source(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTCloneDataSourceList_data_source(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTCloneDataSourceList_data_source(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTCloneDataSourceList_data_source(arg0, arg1, arg2)
-}
-
-func ASTCloneDataStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCloneDataStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCloneDataStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCloneDataStatement_target_path(arg0, arg1)
-}
-
-func ASTCloneDataStatement_data_source_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCloneDataStatement_data_source_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCloneDataStatement_data_source_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCloneDataStatement_data_source_list(arg0, arg1)
-}
-
-func ASTCreateConstantStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateConstantStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateConstantStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateConstantStatement_name(arg0, arg1)
-}
-
-func ASTCreateConstantStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateConstantStatement_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateConstantStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateConstantStatement_expr(arg0, arg1)
-}
-
-func ASTCreateDatabaseStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateDatabaseStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateDatabaseStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateDatabaseStatement_name(arg0, arg1)
-}
-
-func ASTCreateDatabaseStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateDatabaseStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateDatabaseStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateDatabaseStatement_options_list(arg0, arg1)
-}
-
-func ASTCreateProcedureStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateProcedureStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateProcedureStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateProcedureStatement_name(arg0, arg1)
-}
-
-func ASTCreateProcedureStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateProcedureStatement_parameters(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateProcedureStatement_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateProcedureStatement_parameters(arg0, arg1)
-}
-
-func ASTCreateProcedureStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateProcedureStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateProcedureStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateProcedureStatement_options_list(arg0, arg1)
-}
-
-func ASTCreateProcedureStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateProcedureStatement_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateProcedureStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateProcedureStatement_body(arg0, arg1)
-}
-
-func ASTCreateSchemaStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSchemaStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSchemaStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSchemaStatement_name(arg0, arg1)
-}
-
-func ASTCreateSchemaStatement_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSchemaStatement_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSchemaStatement_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSchemaStatement_collate(arg0, arg1)
-}
-
-func ASTCreateSchemaStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSchemaStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSchemaStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSchemaStatement_options_list(arg0, arg1)
-}
-
-func ASTTransformClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTransformClause_select_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTransformClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTransformClause_select_list(arg0, arg1)
-}
-
-func ASTCreateModelStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateModelStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateModelStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateModelStatement_name(arg0, arg1)
-}
-
-func ASTCreateModelStatement_transform_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateModelStatement_transform_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateModelStatement_transform_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateModelStatement_transform_clause(arg0, arg1)
-}
-
-func ASTCreateModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateModelStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateModelStatement_options_list(arg0, arg1)
-}
-
-func ASTCreateModelStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateModelStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateModelStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateModelStatement_query(arg0, arg1)
-}
-
-func ASTIndexItemList_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTIndexItemList_ordering_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTIndexItemList_ordering_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTIndexItemList_ordering_expressions_num(arg0, arg1)
-}
-
-func ASTIndexItemList_ordering_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTIndexItemList_ordering_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTIndexItemList_ordering_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTIndexItemList_ordering_expression(arg0, arg1, arg2)
-}
-
-func ASTIndexStoringExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTIndexStoringExpressionList_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTIndexStoringExpressionList_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTIndexStoringExpressionList_expressions_num(arg0, arg1)
-}
-
-func ASTIndexStoringExpressionList_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTIndexStoringExpressionList_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTIndexStoringExpressionList_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTIndexStoringExpressionList_expression(arg0, arg1, arg2)
-}
-
-func ASTIndexUnnestExpressionList_unnest_expressions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTIndexUnnestExpressionList_unnest_expressions_num(arg0, arg1)
-}
-
-func ASTIndexUnnestExpressionList_unnest_expression(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTIndexUnnestExpressionList_unnest_expression(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTIndexUnnestExpressionList_unnest_expression(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTIndexUnnestExpressionList_unnest_expression(arg0, arg1, arg2)
-}
-
-func ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateIndexStatement_set_is_unique(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateIndexStatement_set_is_unique(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateIndexStatement_is_unique(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateIndexStatement_is_unique(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateIndexStatement_set_is_search(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateIndexStatement_set_is_search(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateIndexStatement_is_search(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateIndexStatement_is_search(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_name(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_table_name(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_optional_table_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_optional_table_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_optional_table_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_optional_table_alias(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_optional_index_unnest_expression_list(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_index_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_index_item_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_index_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_index_item_list(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_optional_index_storing_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_optional_index_storing_expressions(arg0, arg1)
-}
-
-func ASTCreateIndexStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateIndexStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateIndexStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateIndexStatement_options_list(arg0, arg1)
-}
-
-func ASTExportDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportDataStatement_with_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportDataStatement_with_connection_clause(arg0, arg1)
-}
-
-func ASTExportDataStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportDataStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportDataStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportDataStatement_options_list(arg0, arg1)
-}
-
-func ASTExportDataStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportDataStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportDataStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportDataStatement_query(arg0, arg1)
-}
-
-func ASTExportModelStatement_model_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportModelStatement_model_name_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportModelStatement_model_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportModelStatement_model_name_path(arg0, arg1)
-}
-
-func ASTExportModelStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportModelStatement_with_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportModelStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportModelStatement_with_connection_clause(arg0, arg1)
-}
-
-func ASTExportModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExportModelStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExportModelStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExportModelStatement_options_list(arg0, arg1)
-}
-
-func ASTCallStatement_procedure_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCallStatement_procedure_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCallStatement_procedure_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCallStatement_procedure_name(arg0, arg1)
-}
-
-func ASTCallStatement_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCallStatement_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCallStatement_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCallStatement_arguments_num(arg0, arg1)
-}
-
-func ASTCallStatement_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTCallStatement_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTCallStatement_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTCallStatement_argument(arg0, arg1, arg2)
-}
-
-func ASTDefineTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDefineTableStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDefineTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDefineTableStatement_name(arg0, arg1)
-}
-
-func ASTDefineTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDefineTableStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDefineTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDefineTableStatement_options_list(arg0, arg1)
-}
-
-func ASTWithPartitionColumnsClause_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithPartitionColumnsClause_table_element_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithPartitionColumnsClause_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithPartitionColumnsClause_table_element_list(arg0, arg1)
-}
-
-func ASTCreateSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSnapshotTableStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSnapshotTableStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSnapshotTableStatement_name(arg0, arg1)
-}
-
-func ASTCreateSnapshotTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSnapshotTableStatement_clone_data_source(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSnapshotTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSnapshotTableStatement_clone_data_source(arg0, arg1)
-}
-
-func ASTCreateSnapshotTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateSnapshotTableStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateSnapshotTableStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateSnapshotTableStatement_options_list(arg0, arg1)
-}
-
-func ASTTypeParameterList_parameters_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTypeParameterList_parameters_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTypeParameterList_parameters_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTypeParameterList_parameters_num(arg0, arg1)
-}
-
-func ASTTypeParameterList_parameter(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTypeParameterList_parameter(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTypeParameterList_parameter(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTypeParameterList_parameter(arg0, arg1, arg2)
-}
-
-func ASTTVFSchema_columns_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTVFSchema_columns_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTVFSchema_columns_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTVFSchema_columns_num(arg0, arg1)
-}
-
-func ASTTVFSchema_column(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTVFSchema_column(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTVFSchema_column(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFSchema_column(arg0, arg1, arg2)
-}
-
-func ASTTVFSchemaColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFSchemaColumn_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFSchemaColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFSchemaColumn_name(arg0, arg1)
-}
-
-func ASTTVFSchemaColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTVFSchemaColumn_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTVFSchemaColumn_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTVFSchemaColumn_type(arg0, arg1)
-}
-
-func ASTTableAndColumnInfo_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableAndColumnInfo_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableAndColumnInfo_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableAndColumnInfo_table_name(arg0, arg1)
-}
-
-func ASTTableAndColumnInfo_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableAndColumnInfo_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableAndColumnInfo_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableAndColumnInfo_column_list(arg0, arg1)
-}
-
-func ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTableAndColumnInfoList_table_and_column_info_entries_num(arg0, arg1)
-}
-
-func ASTTableAndColumnInfoList_table_and_column_info_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableAndColumnInfoList_table_and_column_info_entry(arg0, arg1, arg2)
-}
-
-func ASTTemplatedParameterType_set_kind(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTTemplatedParameterType_set_kind(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTTemplatedParameterType_set_kind(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTTemplatedParameterType_set_kind(arg0, arg1)
-}
-
-func ASTTemplatedParameterType_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTemplatedParameterType_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTemplatedParameterType_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTemplatedParameterType_kind(arg0, arg1)
-}
-
-func ASTAnalyzeStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnalyzeStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnalyzeStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnalyzeStatement_options_list(arg0, arg1)
-}
-
-func ASTAnalyzeStatement_table_and_column_info_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAnalyzeStatement_table_and_column_info_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAnalyzeStatement_table_and_column_info_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAnalyzeStatement_table_and_column_info_list(arg0, arg1)
-}
-
-func ASTAssertStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAssertStatement_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAssertStatement_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAssertStatement_expr(arg0, arg1)
-}
-
-func ASTAssertStatement_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAssertStatement_description(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAssertStatement_description(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAssertStatement_description(arg0, arg1)
-}
-
-func ASTAssertRowsModified_num_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAssertRowsModified_num_rows(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAssertRowsModified_num_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAssertRowsModified_num_rows(arg0, arg1)
-}
-
-func ASTReturningClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTReturningClause_select_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTReturningClause_select_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTReturningClause_select_list(arg0, arg1)
-}
-
-func ASTReturningClause_action_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTReturningClause_action_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTReturningClause_action_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTReturningClause_action_alias(arg0, arg1)
-}
-
-func ASTDeleteStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_target_path(arg0, arg1)
-}
-
-func ASTDeleteStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_alias(arg0, arg1)
-}
-
-func ASTDeleteStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_offset(arg0, arg1)
-}
-
-func ASTDeleteStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_where(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_where(arg0, arg1)
-}
-
-func ASTDeleteStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_assert_rows_modified(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_assert_rows_modified(arg0, arg1)
-}
-
-func ASTDeleteStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDeleteStatement_returning(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDeleteStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDeleteStatement_returning(arg0, arg1)
-}
-
-func ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(arg0, arg1)
-}
-
-func ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTPrimaryKeyColumnAttribute_enforced(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0, arg1)
-}
-
-func ASTForeignKeyColumnAttribute_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKeyColumnAttribute_constraint_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKeyColumnAttribute_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKeyColumnAttribute_constraint_name(arg0, arg1)
-}
-
-func ASTForeignKeyColumnAttribute_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKeyColumnAttribute_reference(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKeyColumnAttribute_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKeyColumnAttribute_reference(arg0, arg1)
-}
-
-func ASTColumnAttributeList_values_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTColumnAttributeList_values_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTColumnAttributeList_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTColumnAttributeList_values_num(arg0, arg1)
-}
-
-func ASTColumnAttributeList_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTColumnAttributeList_value(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTColumnAttributeList_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnAttributeList_value(arg0, arg1, arg2)
-}
-
-func ASTStructColumnField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructColumnField_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructColumnField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructColumnField_name(arg0, arg1)
-}
-
-func ASTStructColumnField_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTStructColumnField_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTStructColumnField_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructColumnField_schema(arg0, arg1)
-}
-
-func ASTGeneratedColumnInfo_set_stored_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTGeneratedColumnInfo_set_stored_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTGeneratedColumnInfo_set_stored_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTGeneratedColumnInfo_set_stored_mode(arg0, arg1)
-}
-
-func ASTGeneratedColumnInfo_stored_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTGeneratedColumnInfo_stored_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTGeneratedColumnInfo_stored_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTGeneratedColumnInfo_stored_mode(arg0, arg1)
-}
-
-func ASTGeneratedColumnInfo_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGeneratedColumnInfo_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGeneratedColumnInfo_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGeneratedColumnInfo_expression(arg0, arg1)
-}
-
-func ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGeneratedColumnInfo_GetSqlForStoredMode(arg0, arg1)
-}
-
-func ASTColumnDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnDefinition_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnDefinition_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnDefinition_name(arg0, arg1)
-}
-
-func ASTColumnDefinition_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnDefinition_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnDefinition_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnDefinition_schema(arg0, arg1)
-}
-
-func ASTTableElementList_elements_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTTableElementList_elements_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTTableElementList_elements_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTTableElementList_elements_num(arg0, arg1)
-}
-
-func ASTTableElementList_element(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTTableElementList_element(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTTableElementList_element(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableElementList_element(arg0, arg1, arg2)
-}
-
-func ASTColumnList_identifiers_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTColumnList_identifiers_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTColumnList_identifiers_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTColumnList_identifiers_num(arg0, arg1)
-}
-
-func ASTColumnList_identifier(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTColumnList_identifier(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTColumnList_identifier(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnList_identifier(arg0, arg1, arg2)
-}
-
-func ASTColumnPosition_set_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTColumnPosition_set_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTColumnPosition_set_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTColumnPosition_set_type(arg0, arg1)
-}
-
-func ASTColumnPosition_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTColumnPosition_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTColumnPosition_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTColumnPosition_type(arg0, arg1)
-}
-
-func ASTColumnPosition_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnPosition_identifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnPosition_identifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnPosition_identifier(arg0, arg1)
-}
-
-func ASTInsertValuesRow_values_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTInsertValuesRow_values_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInsertValuesRow_values_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInsertValuesRow_values_num(arg0, arg1)
-}
-
-func ASTInsertValuesRow_value(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTInsertValuesRow_value(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTInsertValuesRow_value(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertValuesRow_value(arg0, arg1, arg2)
-}
-
-func ASTInsertValuesRowList_rows_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTInsertValuesRowList_rows_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInsertValuesRowList_rows_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInsertValuesRowList_rows_num(arg0, arg1)
-}
-
-func ASTInsertValuesRowList_row(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTInsertValuesRowList_row(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTInsertValuesRowList_row(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertValuesRowList_row(arg0, arg1, arg2)
-}
-
-func ASTInsertStatement_set_parse_progress(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTInsertStatement_set_parse_progress(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTInsertStatement_set_parse_progress(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTInsertStatement_set_parse_progress(arg0, arg1)
-}
-
-func ASTInsertStatement_parse_progress(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTInsertStatement_parse_progress(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInsertStatement_parse_progress(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInsertStatement_parse_progress(arg0, arg1)
-}
-
-func ASTInsertStatement_set_insert_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTInsertStatement_set_insert_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTInsertStatement_set_insert_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTInsertStatement_set_insert_mode(arg0, arg1)
-}
-
-func ASTInsertStatement_insert_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTInsertStatement_insert_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTInsertStatement_insert_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTInsertStatement_insert_mode(arg0, arg1)
-}
-
-func ASTInsertStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_target_path(arg0, arg1)
-}
-
-func ASTInsertStatement_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_column_list(arg0, arg1)
-}
-
-func ASTInsertStatement_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_rows(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_rows(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_rows(arg0, arg1)
-}
-
-func ASTInsertStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_query(arg0, arg1)
-}
-
-func ASTInsertStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_assert_rows_modified(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_assert_rows_modified(arg0, arg1)
-}
-
-func ASTInsertStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_returning(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_returning(arg0, arg1)
-}
-
-func ASTInsertStatement_GetSQLForInsertMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTInsertStatement_GetSQLForInsertMode(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTInsertStatement_GetSQLForInsertMode(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTInsertStatement_GetSQLForInsertMode(arg0, arg1)
-}
-
-func ASTUpdateSetValue_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateSetValue_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateSetValue_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateSetValue_path(arg0, arg1)
-}
-
-func ASTUpdateSetValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateSetValue_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateSetValue_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateSetValue_value(arg0, arg1)
-}
-
-func ASTUpdateItem_set_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateItem_set_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateItem_set_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateItem_set_value(arg0, arg1)
-}
-
-func ASTUpdateItem_insert_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateItem_insert_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateItem_insert_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateItem_insert_statement(arg0, arg1)
-}
-
-func ASTUpdateItem_delete_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateItem_delete_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateItem_delete_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateItem_delete_statement(arg0, arg1)
-}
-
-func ASTUpdateItem_update_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateItem_update_statement(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateItem_update_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateItem_update_statement(arg0, arg1)
-}
-
-func ASTUpdateItemList_update_items_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTUpdateItemList_update_items_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTUpdateItemList_update_items_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTUpdateItemList_update_items_num(arg0, arg1)
-}
-
-func ASTUpdateItemList_update_item(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTUpdateItemList_update_item(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTUpdateItemList_update_item(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateItemList_update_item(arg0, arg1, arg2)
-}
-
-func ASTUpdateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_target_path(arg0, arg1)
-}
-
-func ASTUpdateStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_alias(arg0, arg1)
-}
-
-func ASTUpdateStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_offset(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_offset(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_offset(arg0, arg1)
-}
-
-func ASTUpdateStatement_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_update_item_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_update_item_list(arg0, arg1)
-}
-
-func ASTUpdateStatement_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_from_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_from_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_from_clause(arg0, arg1)
-}
-
-func ASTUpdateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_where(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_where(arg0, arg1)
-}
-
-func ASTUpdateStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_assert_rows_modified(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_assert_rows_modified(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_assert_rows_modified(arg0, arg1)
-}
-
-func ASTUpdateStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUpdateStatement_returning(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUpdateStatement_returning(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUpdateStatement_returning(arg0, arg1)
-}
-
-func ASTTruncateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTruncateStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTruncateStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTruncateStatement_target_path(arg0, arg1)
-}
-
-func ASTTruncateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTruncateStatement_where(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTruncateStatement_where(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTruncateStatement_where(arg0, arg1)
-}
-
-func ASTMergeAction_set_action_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTMergeAction_set_action_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTMergeAction_set_action_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTMergeAction_set_action_type(arg0, arg1)
-}
-
-func ASTMergeAction_action_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTMergeAction_action_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTMergeAction_action_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTMergeAction_action_type(arg0, arg1)
-}
-
-func ASTMergeAction_insert_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeAction_insert_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeAction_insert_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeAction_insert_column_list(arg0, arg1)
-}
-
-func ASTMergeAction_insert_row(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeAction_insert_row(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeAction_insert_row(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeAction_insert_row(arg0, arg1)
-}
-
-func ASTMergeAction_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeAction_update_item_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeAction_update_item_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeAction_update_item_list(arg0, arg1)
-}
-
-func ASTMergeWhenClause_set_match_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTMergeWhenClause_set_match_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTMergeWhenClause_set_match_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTMergeWhenClause_set_match_type(arg0, arg1)
-}
-
-func ASTMergeWhenClause_match_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTMergeWhenClause_match_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTMergeWhenClause_match_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTMergeWhenClause_match_type(arg0, arg1)
-}
-
-func ASTMergeWhenClause_search_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeWhenClause_search_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeWhenClause_search_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeWhenClause_search_condition(arg0, arg1)
-}
-
-func ASTMergeWhenClause_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeWhenClause_action(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeWhenClause_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeWhenClause_action(arg0, arg1)
-}
-
-func ASTMergeWhenClause_GetSQLForMatchType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeWhenClause_GetSQLForMatchType(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeWhenClause_GetSQLForMatchType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeWhenClause_GetSQLForMatchType(arg0, arg1)
-}
-
-func ASTMergeWhenClauseList_clause_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTMergeWhenClauseList_clause_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTMergeWhenClauseList_clause_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTMergeWhenClauseList_clause_list_num(arg0, arg1)
-}
-
-func ASTMergeWhenClauseList_clause_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTMergeWhenClauseList_clause_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTMergeWhenClauseList_clause_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeWhenClauseList_clause_list(arg0, arg1, arg2)
-}
-
-func ASTMergeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeStatement_target_path(arg0, arg1)
-}
-
-func ASTMergeStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeStatement_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeStatement_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeStatement_alias(arg0, arg1)
-}
-
-func ASTMergeStatement_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeStatement_table_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeStatement_table_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeStatement_table_expression(arg0, arg1)
-}
-
-func ASTMergeStatement_merge_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeStatement_merge_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeStatement_merge_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeStatement_merge_condition(arg0, arg1)
-}
-
-func ASTMergeStatement_when_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTMergeStatement_when_clauses(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTMergeStatement_when_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTMergeStatement_when_clauses(arg0, arg1)
-}
-
-func ASTPrivilege_privilege_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPrivilege_privilege_action(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPrivilege_privilege_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPrivilege_privilege_action(arg0, arg1)
-}
-
-func ASTPrivilege_paths(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPrivilege_paths(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPrivilege_paths(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPrivilege_paths(arg0, arg1)
-}
-
-func ASTPrivileges_privileges_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTPrivileges_privileges_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPrivileges_privileges_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPrivileges_privileges_num(arg0, arg1)
-}
-
-func ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTPrivileges_privilege(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTPrivileges_privilege(arg0, arg1, arg2)
-}
-
-func ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTPrivileges_is_all_privileges(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPrivileges_is_all_privileges(arg0, arg1)
-}
-
-func ASTGranteeList_grantee_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTGranteeList_grantee_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTGranteeList_grantee_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTGranteeList_grantee_list_num(arg0, arg1)
-}
-
-func ASTGranteeList_grantee_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTGranteeList_grantee_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTGranteeList_grantee_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTGranteeList_grantee_list(arg0, arg1, arg2)
-}
-
-func ASTGrantStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGrantStatement_privileges(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGrantStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGrantStatement_privileges(arg0, arg1)
-}
-
-func ASTGrantStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGrantStatement_target_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGrantStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGrantStatement_target_type(arg0, arg1)
-}
-
-func ASTGrantStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGrantStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGrantStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGrantStatement_target_path(arg0, arg1)
-}
-
-func ASTGrantStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGrantStatement_grantee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGrantStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGrantStatement_grantee_list(arg0, arg1)
-}
-
-func ASTRevokeStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRevokeStatement_privileges(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRevokeStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRevokeStatement_privileges(arg0, arg1)
-}
-
-func ASTRevokeStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRevokeStatement_target_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRevokeStatement_target_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRevokeStatement_target_type(arg0, arg1)
-}
-
-func ASTRevokeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRevokeStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRevokeStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRevokeStatement_target_path(arg0, arg1)
-}
-
-func ASTRevokeStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRevokeStatement_grantee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRevokeStatement_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRevokeStatement_grantee_list(arg0, arg1)
-}
-
-func ASTRepeatableClause_argument(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRepeatableClause_argument(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRepeatableClause_argument(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRepeatableClause_argument(arg0, arg1)
-}
-
-func ASTFilterFieldsArg_set_filter_type(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFilterFieldsArg_set_filter_type(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFilterFieldsArg_set_filter_type(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFilterFieldsArg_set_filter_type(arg0, arg1)
-}
-
-func ASTFilterFieldsArg_filter_type(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTFilterFieldsArg_filter_type(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFilterFieldsArg_filter_type(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFilterFieldsArg_filter_type(arg0, arg1)
-}
-
-func ASTFilterFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFilterFieldsArg_path_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFilterFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFilterFieldsArg_path_expression(arg0, arg1)
-}
-
-func ASTFilterFieldsArg_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFilterFieldsArg_GetSQLForOperator(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFilterFieldsArg_GetSQLForOperator(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFilterFieldsArg_GetSQLForOperator(arg0, arg1)
-}
-
-func ASTReplaceFieldsArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTReplaceFieldsArg_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTReplaceFieldsArg_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTReplaceFieldsArg_expression(arg0, arg1)
-}
-
-func ASTReplaceFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTReplaceFieldsArg_path_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTReplaceFieldsArg_path_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTReplaceFieldsArg_path_expression(arg0, arg1)
-}
-
-func ASTReplaceFieldsExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTReplaceFieldsExpression_expr(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTReplaceFieldsExpression_expr(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTReplaceFieldsExpression_expr(arg0, arg1)
-}
-
-func ASTReplaceFieldsExpression_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTReplaceFieldsExpression_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTReplaceFieldsExpression_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTReplaceFieldsExpression_arguments_num(arg0, arg1)
-}
-
-func ASTReplaceFieldsExpression_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTReplaceFieldsExpression_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTReplaceFieldsExpression_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTReplaceFieldsExpression_argument(arg0, arg1, arg2)
-}
-
-func ASTSampleSize_set_unit(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTSampleSize_set_unit(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTSampleSize_set_unit(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTSampleSize_set_unit(arg0, arg1)
-}
-
-func ASTSampleSize_unit(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTSampleSize_unit(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTSampleSize_unit(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTSampleSize_unit(arg0, arg1)
-}
-
-func ASTSampleSize_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleSize_size(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleSize_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleSize_size(arg0, arg1)
-}
-
-func ASTSampleSize_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleSize_partition_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleSize_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleSize_partition_by(arg0, arg1)
-}
-
-func ASTSampleSize_GetSQLForUnit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleSize_GetSQLForUnit(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleSize_GetSQLForUnit(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleSize_GetSQLForUnit(arg0, arg1)
-}
-
-func ASTWithWeight_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWithWeight_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWithWeight_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWithWeight_alias(arg0, arg1)
-}
-
-func ASTSampleSuffix_weight(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleSuffix_weight(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleSuffix_weight(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleSuffix_weight(arg0, arg1)
-}
-
-func ASTSampleSuffix_repeat(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleSuffix_repeat(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleSuffix_repeat(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleSuffix_repeat(arg0, arg1)
-}
-
-func ASTSampleClause_sample_method(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleClause_sample_method(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleClause_sample_method(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleClause_sample_method(arg0, arg1)
-}
-
-func ASTSampleClause_sample_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleClause_sample_size(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleClause_sample_size(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleClause_sample_size(arg0, arg1)
-}
-
-func ASTSampleClause_sample_suffix(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSampleClause_sample_suffix(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSampleClause_sample_suffix(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSampleClause_sample_suffix(arg0, arg1)
-}
-
-func ASTAlterAction_GetSQLForAlterAction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterAction_GetSQLForAlterAction(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterAction_GetSQLForAlterAction(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterAction_GetSQLForAlterAction(arg0, arg1)
-}
-
-func ASTSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetOptionsAction_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetOptionsAction_options_list(arg0, arg1)
-}
-
-func ASTSetAsAction_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetAsAction_json_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetAsAction_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetAsAction_json_body(arg0, arg1)
-}
-
-func ASTSetAsAction_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetAsAction_text_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetAsAction_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetAsAction_text_body(arg0, arg1)
-}
-
-func ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAddConstraintAction_set_is_if_not_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAddConstraintAction_set_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAddConstraintAction_is_if_not_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAddConstraintAction_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddConstraintAction_constraint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAddConstraintAction_constraint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAddConstraintAction_constraint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAddConstraintAction_constraint(arg0, arg1)
-}
-
-func ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropPrimaryKeyAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0, arg1)
-}
-
-func ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropConstraintAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropConstraintAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropConstraintAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropConstraintAction_is_if_exists(arg0, arg1)
-}
-
-func ASTDropConstraintAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropConstraintAction_constraint_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropConstraintAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropConstraintAction_constraint_name(arg0, arg1)
-}
-
-func ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0, arg1)
-}
-
-func ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterConstraintEnforcementAction_is_enforced(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0, arg1)
-}
-
-func ASTAlterConstraintEnforcementAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterConstraintEnforcementAction_constraint_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterConstraintEnforcementAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterConstraintEnforcementAction_constraint_name(arg0, arg1)
-}
-
-func ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterConstraintSetOptionsAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterConstraintSetOptionsAction_constraint_name(arg0, arg1)
-}
-
-func ASTAlterConstraintSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterConstraintSetOptionsAction_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterConstraintSetOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterConstraintSetOptionsAction_options_list(arg0, arg1)
-}
-
-func ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAddColumnAction_set_is_if_not_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAddColumnAction_set_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAddColumnAction_is_if_not_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAddColumnAction_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddColumnAction_column_definition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAddColumnAction_column_definition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAddColumnAction_column_definition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAddColumnAction_column_definition(arg0, arg1)
-}
-
-func ASTAddColumnAction_column_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAddColumnAction_column_position(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAddColumnAction_column_position(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAddColumnAction_column_position(arg0, arg1)
-}
-
-func ASTAddColumnAction_fill_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAddColumnAction_fill_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAddColumnAction_fill_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAddColumnAction_fill_expression(arg0, arg1)
-}
-
-func ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropColumnAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropColumnAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropColumnAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropColumnAction_is_if_exists(arg0, arg1)
-}
-
-func ASTDropColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropColumnAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropColumnAction_column_name(arg0, arg1)
-}
-
-func ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTRenameColumnAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTRenameColumnAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTRenameColumnAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTRenameColumnAction_is_if_exists(arg0, arg1)
-}
-
-func ASTRenameColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameColumnAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameColumnAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameColumnAction_column_name(arg0, arg1)
-}
-
-func ASTRenameColumnAction_new_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameColumnAction_new_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameColumnAction_new_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameColumnAction_new_column_name(arg0, arg1)
-}
-
-func ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterColumnTypeAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterColumnTypeAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterColumnTypeAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnTypeAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnTypeAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnTypeAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnTypeAction_column_name(arg0, arg1)
-}
-
-func ASTAlterColumnTypeAction_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnTypeAction_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnTypeAction_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnTypeAction_schema(arg0, arg1)
-}
-
-func ASTAlterColumnTypeAction_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnTypeAction_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnTypeAction_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnTypeAction_collate(arg0, arg1)
-}
-
-func ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterColumnOptionsAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnOptionsAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnOptionsAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnOptionsAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnOptionsAction_column_name(arg0, arg1)
-}
-
-func ASTAlterColumnOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnOptionsAction_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnOptionsAction_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnOptionsAction_options_list(arg0, arg1)
-}
-
-func ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnSetDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnSetDefaultAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnSetDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnSetDefaultAction_column_name(arg0, arg1)
-}
-
-func ASTAlterColumnSetDefaultAction_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnSetDefaultAction_default_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnSetDefaultAction_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnSetDefaultAction_default_expression(arg0, arg1)
-}
-
-func ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnDropDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnDropDefaultAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnDropDefaultAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnDropDefaultAction_column_name(arg0, arg1)
-}
-
-func ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterColumnDropNotNullAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterColumnDropNotNullAction_column_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterColumnDropNotNullAction_column_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterColumnDropNotNullAction_column_name(arg0, arg1)
-}
-
-func ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0, arg1)
-}
-
-func ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTGrantToClause_has_grant_keyword_and_parens(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0, arg1)
-}
-
-func ASTGrantToClause_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTGrantToClause_grantee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTGrantToClause_grantee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTGrantToClause_grantee_list(arg0, arg1)
-}
-
-func ASTRestrictToClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRestrictToClause_restrictee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRestrictToClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRestrictToClause_restrictee_list(arg0, arg1)
-}
-
-func ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAddToRestricteeListClause_is_if_not_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0, arg1)
-}
-
-func ASTAddToRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAddToRestricteeListClause_restrictee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAddToRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAddToRestricteeListClause_restrictee_list(arg0, arg1)
-}
-
-func ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0, arg1)
-}
-
-func ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0, arg1)
-}
-
-func ASTRemoveFromRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRemoveFromRestricteeListClause_restrictee_list(arg0, arg1)
-}
-
-func ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTFilterUsingClause_set_has_filter_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTFilterUsingClause_set_has_filter_keyword(arg0, arg1)
-}
-
-func ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTFilterUsingClause_has_filter_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTFilterUsingClause_has_filter_keyword(arg0, arg1)
-}
-
-func ASTFilterUsingClause_predicate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTFilterUsingClause_predicate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTFilterUsingClause_predicate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTFilterUsingClause_predicate(arg0, arg1)
-}
-
-func ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTRevokeFromClause_set_is_revoke_from_all(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTRevokeFromClause_set_is_revoke_from_all(arg0, arg1)
-}
-
-func ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTRevokeFromClause_is_revoke_from_all(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0, arg1)
-}
-
-func ASTRevokeFromClause_revoke_from_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRevokeFromClause_revoke_from_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRevokeFromClause_revoke_from_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRevokeFromClause_revoke_from_list(arg0, arg1)
-}
-
-func ASTRenameToClause_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRenameToClause_new_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRenameToClause_new_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRenameToClause_new_name(arg0, arg1)
-}
-
-func ASTSetCollateClause_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSetCollateClause_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSetCollateClause_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSetCollateClause_collate(arg0, arg1)
-}
-
-func ASTAlterActionList_actions_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTAlterActionList_actions_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterActionList_actions_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterActionList_actions_num(arg0, arg1)
-}
-
-func ASTAlterActionList_action(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTAlterActionList_action(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTAlterActionList_action(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterActionList_action(arg0, arg1, arg2)
-}
-
-func ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterAllRowAccessPoliciesStatement_table_name_path(arg0, arg1)
-}
-
-func ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterAllRowAccessPoliciesStatement_alter_action(arg0, arg1)
-}
-
-func ASTForeignKeyActions_set_udpate_action(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTForeignKeyActions_set_udpate_action(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTForeignKeyActions_set_udpate_action(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTForeignKeyActions_set_udpate_action(arg0, arg1)
-}
-
-func ASTForeignKeyActions_udpate_action(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTForeignKeyActions_udpate_action(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTForeignKeyActions_udpate_action(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTForeignKeyActions_udpate_action(arg0, arg1)
-}
-
-func ASTForeignKeyActions_set_delete_action(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTForeignKeyActions_set_delete_action(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTForeignKeyActions_set_delete_action(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTForeignKeyActions_set_delete_action(arg0, arg1)
-}
-
-func ASTForeignKeyActions_delete_action(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTForeignKeyActions_delete_action(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTForeignKeyActions_delete_action(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTForeignKeyActions_delete_action(arg0, arg1)
-}
-
-func ASTForeignKeyReference_set_match(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTForeignKeyReference_set_match(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTForeignKeyReference_set_match(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTForeignKeyReference_set_match(arg0, arg1)
-}
-
-func ASTForeignKeyReference_match(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTForeignKeyReference_match(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTForeignKeyReference_match(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTForeignKeyReference_match(arg0, arg1)
-}
-
-func ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTForeignKeyReference_set_enforced(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTForeignKeyReference_set_enforced(arg0, arg1)
-}
-
-func ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTForeignKeyReference_enforced(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTForeignKeyReference_enforced(arg0, arg1)
-}
-
-func ASTForeignKeyReference_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKeyReference_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKeyReference_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKeyReference_table_name(arg0, arg1)
-}
-
-func ASTForeignKeyReference_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKeyReference_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKeyReference_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKeyReference_column_list(arg0, arg1)
-}
-
-func ASTForeignKeyReference_actions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKeyReference_actions(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKeyReference_actions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKeyReference_actions(arg0, arg1)
-}
-
-func ASTScript_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTScript_statement_list_node(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTScript_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTScript_statement_list_node(arg0, arg1)
-}
-
-func ASTScript_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTScript_statement_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTScript_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTScript_statement_list_num(arg0, arg1)
-}
-
-func ASTScript_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTScript_statement_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTScript_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTScript_statement_list(arg0, arg1, arg2)
-}
-
-func ASTElseifClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTElseifClause_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTElseifClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTElseifClause_condition(arg0, arg1)
-}
-
-func ASTElseifClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTElseifClause_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTElseifClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTElseifClause_body(arg0, arg1)
-}
-
-func ASTElseifClause_if_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTElseifClause_if_stmt(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTElseifClause_if_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTElseifClause_if_stmt(arg0, arg1)
-}
-
-func ASTElseifClauseList_elseif_clauses_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTElseifClauseList_elseif_clauses_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTElseifClauseList_elseif_clauses_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTElseifClauseList_elseif_clauses_num(arg0, arg1)
-}
-
-func ASTElseifClauseList_elseif_clause(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTElseifClauseList_elseif_clause(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTElseifClauseList_elseif_clause(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTElseifClauseList_elseif_clause(arg0, arg1, arg2)
-}
-
-func ASTIfStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIfStatement_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIfStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIfStatement_condition(arg0, arg1)
-}
-
-func ASTIfStatement_then_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIfStatement_then_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIfStatement_then_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIfStatement_then_list(arg0, arg1)
-}
-
-func ASTIfStatement_elseif_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIfStatement_elseif_clauses(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIfStatement_elseif_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIfStatement_elseif_clauses(arg0, arg1)
-}
-
-func ASTIfStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTIfStatement_else_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTIfStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTIfStatement_else_list(arg0, arg1)
-}
-
-func ASTWhenThenClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWhenThenClause_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWhenThenClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhenThenClause_condition(arg0, arg1)
-}
-
-func ASTWhenThenClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWhenThenClause_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWhenThenClause_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhenThenClause_body(arg0, arg1)
-}
-
-func ASTWhenThenClause_case_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWhenThenClause_case_stmt(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWhenThenClause_case_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhenThenClause_case_stmt(arg0, arg1)
-}
-
-func ASTWhenThenClauseList_when_then_clauses_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTWhenThenClauseList_when_then_clauses_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTWhenThenClauseList_when_then_clauses_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTWhenThenClauseList_when_then_clauses_num(arg0, arg1)
-}
-
-func ASTWhenThenClauseList_when_then_clause(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTWhenThenClauseList_when_then_clause(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTWhenThenClauseList_when_then_clause(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhenThenClauseList_when_then_clause(arg0, arg1, arg2)
-}
-
-func ASTCaseStatement_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCaseStatement_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCaseStatement_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCaseStatement_expression(arg0, arg1)
-}
-
-func ASTCaseStatement_when_then_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCaseStatement_when_then_clauses(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCaseStatement_when_then_clauses(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCaseStatement_when_then_clauses(arg0, arg1)
-}
-
-func ASTCaseStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCaseStatement_else_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCaseStatement_else_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCaseStatement_else_list(arg0, arg1)
-}
-
-func ASTHint_num_shards_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHint_num_shards_hint(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHint_num_shards_hint(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHint_num_shards_hint(arg0, arg1)
-}
-
-func ASTHint_hint_entries_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTHint_hint_entries_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTHint_hint_entries_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTHint_hint_entries_num(arg0, arg1)
-}
-
-func ASTHint_hint_entry(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTHint_hint_entry(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTHint_hint_entry(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTHint_hint_entry(arg0, arg1, arg2)
-}
-
-func ASTHintEntry_qualifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHintEntry_qualifier(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHintEntry_qualifier(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHintEntry_qualifier(arg0, arg1)
-}
-
-func ASTHintEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHintEntry_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHintEntry_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHintEntry_name(arg0, arg1)
-}
-
-func ASTHintEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTHintEntry_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTHintEntry_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTHintEntry_value(arg0, arg1)
-}
-
-func ASTUnpivotInItemLabel_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUnpivotInItemLabel_label(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUnpivotInItemLabel_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUnpivotInItemLabel_label(arg0, arg1)
-}
-
-func ASTDescriptor_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDescriptor_columns(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDescriptor_columns(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescriptor_columns(arg0, arg1)
-}
-
-func ASTColumnSchema_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_type_parameters(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_type_parameters(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_type_parameters(arg0, arg1)
-}
-
-func ASTColumnSchema_generated_column_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_generated_column_info(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_generated_column_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_generated_column_info(arg0, arg1)
-}
-
-func ASTColumnSchema_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_default_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_default_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_default_expression(arg0, arg1)
-}
-
-func ASTColumnSchema_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_collate(arg0, arg1)
-}
-
-func ASTColumnSchema_attributes(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_attributes(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_attributes(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_attributes(arg0, arg1)
-}
-
-func ASTColumnSchema_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTColumnSchema_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTColumnSchema_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTColumnSchema_options_list(arg0, arg1)
-}
-
-func ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 int, arg2 *bool) {
-	zetasql_ASTColumnSchema_ContainsAttribute(
-		arg0,
-		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
-	)
-}
-
-func zetasql_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
-	C.export_zetasql_ASTColumnSchema_ContainsAttribute(arg0, arg1, arg2)
-}
-
-func ASTSimpleColumnSchema_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSimpleColumnSchema_type_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSimpleColumnSchema_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSimpleColumnSchema_type_name(arg0, arg1)
-}
-
-func ASTArrayColumnSchema_element_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTArrayColumnSchema_element_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTArrayColumnSchema_element_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTArrayColumnSchema_element_schema(arg0, arg1)
-}
-
-func ASTTableConstraint_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTTableConstraint_constraint_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTTableConstraint_constraint_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTTableConstraint_constraint_name(arg0, arg1)
-}
-
-func ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTPrimaryKey_set_enforced(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTPrimaryKey_set_enforced(arg0, arg1)
-}
-
-func ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTPrimaryKey_enforced(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTPrimaryKey_enforced(arg0, arg1)
-}
-
-func ASTPrimaryKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPrimaryKey_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPrimaryKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPrimaryKey_column_list(arg0, arg1)
-}
-
-func ASTPrimaryKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTPrimaryKey_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTPrimaryKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTPrimaryKey_options_list(arg0, arg1)
-}
-
-func ASTForeignKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKey_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKey_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKey_column_list(arg0, arg1)
-}
-
-func ASTForeignKey_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKey_reference(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKey_reference(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKey_reference(arg0, arg1)
-}
-
-func ASTForeignKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForeignKey_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForeignKey_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForeignKey_options_list(arg0, arg1)
-}
-
-func ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCheckConstraint_set_is_enforced(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCheckConstraint_set_is_enforced(arg0, arg1)
-}
-
-func ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCheckConstraint_is_enforced(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCheckConstraint_is_enforced(arg0, arg1)
-}
-
-func ASTCheckConstraint_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCheckConstraint_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCheckConstraint_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCheckConstraint_expression(arg0, arg1)
-}
-
-func ASTCheckConstraint_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCheckConstraint_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCheckConstraint_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCheckConstraint_options_list(arg0, arg1)
-}
-
-func ASTDescriptorColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDescriptorColumn_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDescriptorColumn_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescriptorColumn_name(arg0, arg1)
-}
-
-func ASTDescriptorColumnList_descriptor_column_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTDescriptorColumnList_descriptor_column_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDescriptorColumnList_descriptor_column_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDescriptorColumnList_descriptor_column_list_num(arg0, arg1)
-}
-
-func ASTDescriptorColumnList_descriptor_column_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTDescriptorColumnList_descriptor_column_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTDescriptorColumnList_descriptor_column_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTDescriptorColumnList_descriptor_column_list(arg0, arg1, arg2)
-}
-
-func ASTCreateEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateEntityStatement_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateEntityStatement_type(arg0, arg1)
-}
-
-func ASTCreateEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateEntityStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateEntityStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateEntityStatement_name(arg0, arg1)
-}
-
-func ASTCreateEntityStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateEntityStatement_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateEntityStatement_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateEntityStatement_options_list(arg0, arg1)
-}
-
-func ASTCreateEntityStatement_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateEntityStatement_json_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateEntityStatement_json_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateEntityStatement_json_body(arg0, arg1)
-}
-
-func ASTCreateEntityStatement_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateEntityStatement_text_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateEntityStatement_text_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateEntityStatement_text_body(arg0, arg1)
-}
-
-func ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRaiseStatement_message(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRaiseStatement_message(arg0, arg1)
-}
-
-func ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTRaiseStatement_is_rethrow(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTRaiseStatement_is_rethrow(arg0, arg1)
-}
-
-func ASTExceptionHandler_statement_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExceptionHandler_statement_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExceptionHandler_statement_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExceptionHandler_statement_list(arg0, arg1)
-}
-
-func ASTExceptionHandlerList_exception_handler_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTExceptionHandlerList_exception_handler_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTExceptionHandlerList_exception_handler_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTExceptionHandlerList_exception_handler_list_num(arg0, arg1)
-}
-
-func ASTExceptionHandlerList_exception_handler_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTExceptionHandlerList_exception_handler_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTExceptionHandlerList_exception_handler_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTExceptionHandlerList_exception_handler_list(arg0, arg1, arg2)
-}
-
-func ASTBeginEndBlock_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBeginEndBlock_label(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBeginEndBlock_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBeginEndBlock_label(arg0, arg1)
-}
-
-func ASTBeginEndBlock_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBeginEndBlock_statement_list_node(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBeginEndBlock_statement_list_node(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBeginEndBlock_statement_list_node(arg0, arg1)
-}
-
-func ASTBeginEndBlock_handler_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBeginEndBlock_handler_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBeginEndBlock_handler_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBeginEndBlock_handler_list(arg0, arg1)
-}
-
-func ASTBeginEndBlock_statement_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTBeginEndBlock_statement_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBeginEndBlock_statement_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBeginEndBlock_statement_list_num(arg0, arg1)
-}
-
-func ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTBeginEndBlock_statement_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTBeginEndBlock_statement_list(arg0, arg1, arg2)
-}
-
-func ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTBeginEndBlock_has_exception_handler(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBeginEndBlock_has_exception_handler(arg0, arg1)
-}
-
-func ASTIdentifierList_identifier_list_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTIdentifierList_identifier_list_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTIdentifierList_identifier_list_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTIdentifierList_identifier_list_num(arg0, arg1)
-}
-
-func ASTIdentifierList_identifier_list(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTIdentifierList_identifier_list(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTIdentifierList_identifier_list(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTIdentifierList_identifier_list(arg0, arg1, arg2)
-}
-
-func ASTVariableDeclaration_variable_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTVariableDeclaration_variable_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTVariableDeclaration_variable_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTVariableDeclaration_variable_list(arg0, arg1)
-}
-
-func ASTVariableDeclaration_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTVariableDeclaration_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTVariableDeclaration_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTVariableDeclaration_type(arg0, arg1)
-}
-
-func ASTVariableDeclaration_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTVariableDeclaration_default_value(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTVariableDeclaration_default_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTVariableDeclaration_default_value(arg0, arg1)
-}
-
-func ASTUntilClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUntilClause_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUntilClause_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUntilClause_condition(arg0, arg1)
-}
-
-func ASTUntilClause_repeat_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTUntilClause_repeat_stmt(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTUntilClause_repeat_stmt(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTUntilClause_repeat_stmt(arg0, arg1)
-}
-
-func ASTBreakContinueStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTBreakContinueStatement_label(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTBreakContinueStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTBreakContinueStatement_label(arg0, arg1)
-}
-
-func ASTBreakContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBreakContinueStatement_set_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBreakContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBreakContinueStatement_set_keyword(arg0, arg1)
-}
-
-func ASTBreakContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTBreakContinueStatement_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBreakContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBreakContinueStatement_keyword(arg0, arg1)
-}
-
-func ASTBreakStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTBreakStatement_set_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTBreakStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTBreakStatement_set_keyword(arg0, arg1)
-}
-
-func ASTBreakStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTBreakStatement_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTBreakStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTBreakStatement_keyword(arg0, arg1)
-}
-
-func ASTContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTContinueStatement_set_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTContinueStatement_set_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTContinueStatement_set_keyword(arg0, arg1)
-}
-
-func ASTContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTContinueStatement_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTContinueStatement_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTContinueStatement_keyword(arg0, arg1)
-}
-
-func ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropPrivilegeRestrictionStatement_privileges(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_privileges(arg0, arg1)
-}
-
-func ASTDropPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropPrivilegeRestrictionStatement_object_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_object_type(arg0, arg1)
-}
-
-func ASTDropPrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropPrivilegeRestrictionStatement_name_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropPrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_name_path(arg0, arg1)
-}
-
-func ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropRowAccessPolicyStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropRowAccessPolicyStatement_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropRowAccessPolicyStatement_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropRowAccessPolicyStatement_table_name(arg0, arg1)
-}
-
-func ASTDropRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropRowAccessPolicyStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropRowAccessPolicyStatement_name(arg0, arg1)
-}
-
-func ASTCreatePrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_privileges(arg0, arg1)
-}
-
-func ASTCreatePrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_object_type(arg0, arg1)
-}
-
-func ASTCreatePrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_name_path(arg0, arg1)
-}
-
-func ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreatePrivilegeRestrictionStatement_restrict_to(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateRowAccessPolicyStatement_target_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_target_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_target_path(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_grant_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateRowAccessPolicyStatement_grant_to(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_grant_to(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_grant_to(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_filter_using(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateRowAccessPolicyStatement_filter_using(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_filter_using(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_filter_using(arg0, arg1)
-}
-
-func ASTCreateRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateRowAccessPolicyStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateRowAccessPolicyStatement_name(arg0, arg1)
-}
-
-func ASTDropStatement_set_drop_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropStatement_set_drop_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropStatement_set_drop_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropStatement_set_drop_mode(arg0, arg1)
-}
-
-func ASTDropStatement_drop_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTDropStatement_drop_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropStatement_drop_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropStatement_drop_mode(arg0, arg1)
-}
-
-func ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropStatement_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropStatement_set_is_if_exists(arg0, arg1)
-}
-
-func ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTDropStatement_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropStatement_is_if_exists(arg0, arg1)
-}
-
-func ASTDropStatement_set_schema_object_kind(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTDropStatement_set_schema_object_kind(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTDropStatement_set_schema_object_kind(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTDropStatement_set_schema_object_kind(arg0, arg1)
-}
-
-func ASTDropStatement_schema_object_kind(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTDropStatement_schema_object_kind(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTDropStatement_schema_object_kind(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTDropStatement_schema_object_kind(arg0, arg1)
-}
-
-func ASTDropStatemnt_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTDropStatemnt_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTDropStatemnt_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTDropStatemnt_name(arg0, arg1)
-}
-
-func ASTSingleAssignment_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSingleAssignment_variable(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSingleAssignment_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSingleAssignment_variable(arg0, arg1)
-}
-
-func ASTSingleAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSingleAssignment_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSingleAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSingleAssignment_expression(arg0, arg1)
-}
-
-func ASTParameterAssignment_parameter(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTParameterAssignment_parameter(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTParameterAssignment_parameter(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTParameterAssignment_parameter(arg0, arg1)
-}
-
-func ASTParameterAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTParameterAssignment_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTParameterAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTParameterAssignment_expression(arg0, arg1)
-}
-
-func ASTSystemVariableAssignment_system_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSystemVariableAssignment_system_variable(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSystemVariableAssignment_system_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSystemVariableAssignment_system_variable(arg0, arg1)
-}
-
-func ASTSystemVariableAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTSystemVariableAssignment_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTSystemVariableAssignment_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTSystemVariableAssignment_expression(arg0, arg1)
-}
-
-func ASTAssignmentFromStruct_variables(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAssignmentFromStruct_variables(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAssignmentFromStruct_variables(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAssignmentFromStruct_variables(arg0, arg1)
-}
-
-func ASTAssignmentFromStruct_struct_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAssignmentFromStruct_struct_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAssignmentFromStruct_struct_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAssignmentFromStruct_struct_expression(arg0, arg1)
-}
-
-func ASTCreateTableStmtBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStmtBase_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStmtBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStmtBase_name(arg0, arg1)
-}
-
-func ASTCreateTableStmtBase_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStmtBase_table_element_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStmtBase_table_element_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStmtBase_table_element_list(arg0, arg1)
-}
-
-func ASTCreateTableStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStmtBase_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStmtBase_options_list(arg0, arg1)
-}
-
-func ASTCreateTableStmtBase_like_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStmtBase_like_table_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStmtBase_like_table_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStmtBase_like_table_name(arg0, arg1)
-}
-
-func ASTCreateTableStmtBase_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStmtBase_collate(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStmtBase_collate(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStmtBase_collate(arg0, arg1)
-}
-
-func ASTCreateTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStatement_clone_data_source(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStatement_clone_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStatement_clone_data_source(arg0, arg1)
-}
-
-func ASTCreateTableStatement_copy_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStatement_copy_data_source(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStatement_copy_data_source(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStatement_copy_data_source(arg0, arg1)
-}
-
-func ASTCreateTableStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStatement_partition_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStatement_partition_by(arg0, arg1)
-}
-
-func ASTCreateTableStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStatement_cluster_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStatement_cluster_by(arg0, arg1)
-}
-
-func ASTCreateTableStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableStatement_query(arg0, arg1)
-}
-
-func ASTCreateExternalTableStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateExternalTableStatement_with_partition_columns_clause(arg0, arg1)
-}
-
-func ASTCreateExternalTableStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateExternalTableStatement_with_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateExternalTableStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateExternalTableStatement_with_connection_clause(arg0, arg1)
-}
-
-func ASTCreateViewStatementBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateViewStatementBase_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateViewStatementBase_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateViewStatementBase_name(arg0, arg1)
-}
-
-func ASTCreateViewStatementBase_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateViewStatementBase_column_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateViewStatementBase_column_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateViewStatementBase_column_list(arg0, arg1)
-}
-
-func ASTCreateViewStatementBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateViewStatementBase_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateViewStatementBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateViewStatementBase_options_list(arg0, arg1)
-}
-
-func ASTCreateViewStatementBase_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateViewStatementBase_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateViewStatementBase_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateViewStatementBase_query(arg0, arg1)
-}
-
-func ASTCreateMaterializedViewStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateMaterializedViewStatement_partition_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateMaterializedViewStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateMaterializedViewStatement_partition_by(arg0, arg1)
-}
-
-func ASTCreateMaterializedViewStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateMaterializedViewStatement_cluster_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateMaterializedViewStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateMaterializedViewStatement_cluster_by(arg0, arg1)
-}
-
-func ASTLoopStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLoopStatement_label(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLoopStatement_label(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLoopStatement_label(arg0, arg1)
-}
-
-func ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLoopStatement_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLoopStatement_body(arg0, arg1)
-}
-
-func ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTLoopStatement_IsLoopStatement(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTLoopStatement_IsLoopStatement(arg0, arg1)
-}
-
-func ASTWhileStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTWhileStatement_condition(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTWhileStatement_condition(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTWhileStatement_condition(arg0, arg1)
-}
-
-func ASTRepeatStatement_until_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTRepeatStatement_until_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTRepeatStatement_until_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTRepeatStatement_until_clause(arg0, arg1)
-}
-
-func ASTForInStatement_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForInStatement_variable(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForInStatement_variable(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForInStatement_variable(arg0, arg1)
-}
-
-func ASTForInStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTForInStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTForInStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTForInStatement_query(arg0, arg1)
-}
-
-func ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAlterStatementBase_set_is_if_exists(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAlterStatementBase_set_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTAlterStatementBase_is_if_exists(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAlterStatementBase_is_if_exists(arg0, arg1)
-}
-
-func ASTAlterStatementBase_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterStatementBase_path(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterStatementBase_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterStatementBase_path(arg0, arg1)
-}
-
-func ASTAlterStatementBase_action_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterStatementBase_action_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterStatementBase_action_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterStatementBase_action_list(arg0, arg1)
-}
-
-func ASTAlterPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterPrivilegeRestrictionStatement_privileges(arg0, arg1)
-}
-
-func ASTAlterPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterPrivilegeRestrictionStatement_object_type(arg0, arg1)
-}
-
-func ASTAlterRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterRowAccessPolicyStatement_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterRowAccessPolicyStatement_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterRowAccessPolicyStatement_name(arg0, arg1)
-}
-
-func ASTAlterEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAlterEntityStatement_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAlterEntityStatement_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAlterEntityStatement_type(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_set_determinism_level(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateFunctionStmtBase_set_determinism_level(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_set_determinism_level(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_set_determinism_level(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_determinism_level(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCreateFunctionStmtBase_determinism_level(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_determinism_level(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_determinism_level(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_set_sql_security(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateFunctionStmtBase_set_sql_security(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_set_sql_security(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_set_sql_security(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_sql_security(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTCreateFunctionStmtBase_sql_security(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_sql_security(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_sql_security(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_function_declaration(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStmtBase_function_declaration(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_function_declaration(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_function_declaration(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStmtBase_language(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_language(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_code(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStmtBase_code(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_code(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_code(arg0, arg1)
-}
-
-func ASTCreateFunctionStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStmtBase_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStmtBase_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStmtBase_options_list(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateFunctionStatement_set_is_aggregate(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateFunctionStatement_set_is_aggregate(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateFunctionStatement_is_aggregate(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateFunctionStatement_is_aggregate(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTCreateFunctionStatement_set_is_remote(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTCreateFunctionStatement_set_is_remote(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
-	zetasql_ASTCreateFunctionStatement_is_remote(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTCreateFunctionStatement_is_remote(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_return_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStatement_return_type(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_return_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStatement_return_type(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_sql_function_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStatement_sql_function_body(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_sql_function_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStatement_sql_function_body(arg0, arg1)
-}
-
-func ASTCreateFunctionStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateFunctionStatement_with_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateFunctionStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateFunctionStatement_with_connection_clause(arg0, arg1)
-}
-
-func ASTCreateTableFunctionStatement_return_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableFunctionStatement_return_tvf_schema(arg0, arg1)
-}
-
-func ASTCreateTableFunctionStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTCreateTableFunctionStatement_query(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTCreateTableFunctionStatement_query(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTCreateTableFunctionStatement_query(arg0, arg1)
-}
-
-func ASTStructColumnSchema_struct_fields_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTStructColumnSchema_struct_fields_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTStructColumnSchema_struct_fields_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTStructColumnSchema_struct_fields_num(arg0, arg1)
-}
-
-func ASTStructColumnSchema_struct_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTStructColumnSchema_struct_field(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTStructColumnSchema_struct_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTStructColumnSchema_struct_field(arg0, arg1, arg2)
-}
-
-func ASTExecuteIntoClause_identifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteIntoClause_identifiers(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteIntoClause_identifiers(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteIntoClause_identifiers(arg0, arg1)
-}
-
-func ASTExecuteUsingArgument_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteUsingArgument_expression(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteUsingArgument_expression(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteUsingArgument_expression(arg0, arg1)
-}
-
-func ASTExecuteUsingArgument_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteUsingArgument_alias(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteUsingArgument_alias(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteUsingArgument_alias(arg0, arg1)
-}
-
-func ASTExecuteUsingClause_arguments_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTExecuteUsingClause_arguments_num(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTExecuteUsingClause_arguments_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTExecuteUsingClause_arguments_num(arg0, arg1)
-}
-
-func ASTExecuteUsingClause_argument(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_ASTExecuteUsingClause_argument(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_ASTExecuteUsingClause_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteUsingClause_argument(arg0, arg1, arg2)
-}
-
-func ASTExecuteImmediateStatement_sql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteImmediateStatement_sql(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteImmediateStatement_sql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteImmediateStatement_sql(arg0, arg1)
-}
-
-func ASTExecuteImmediateStatement_into_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteImmediateStatement_into_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteImmediateStatement_into_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteImmediateStatement_into_clause(arg0, arg1)
-}
-
-func ASTExecuteImmediateStatement_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTExecuteImmediateStatement_using_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTExecuteImmediateStatement_using_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTExecuteImmediateStatement_using_clause(arg0, arg1)
-}
-
-func ASTAuxLoadDataFromFilesOptionsList_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataFromFilesOptionsList_options_list(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_set_insertion_mode(arg0 unsafe.Pointer, arg1 int) {
-	zetasql_ASTAuxLoadDataStatement_set_insertion_mode(
-		arg0,
-		C.int(arg1),
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_set_insertion_mode(arg0 unsafe.Pointer, arg1 C.int) {
-	C.export_zetasql_ASTAuxLoadDataStatement_set_insertion_mode(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_insertion_mode(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_ASTAuxLoadDataStatement_insertion_mode(
-		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_insertion_mode(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_ASTAuxLoadDataStatement_insertion_mode(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataStatement_partition_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_partition_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataStatement_partition_by(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataStatement_cluster_by(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_cluster_by(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataStatement_cluster_by(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_from_files(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataStatement_from_files(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_from_files(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataStatement_from_files(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataStatement_with_partition_columns_clause(arg0, arg1)
-}
-
-func ASTAuxLoadDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTAuxLoadDataStatement_with_connection_clause(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTAuxLoadDataStatement_with_connection_clause(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTAuxLoadDataStatement_with_connection_clause(arg0, arg1)
-}
-
-func ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	zetasql_ASTLabel_name(
-		arg0,
-		arg1,
-	)
-}
-
-func zetasql_ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
-	C.export_zetasql_ASTLabel_name(arg0, arg1)
-}
-
 func Type_Kind(arg0 unsafe.Pointer, arg1 *int) {
 	zetasql_Type_Kind(
 		arg0,
@@ -28941,6 +28929,18 @@ func FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *bool)
 
 func zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0, arg1)
+}
+
+func FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_FormatSql(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_FormatSql(arg0, arg1, arg2)
 }
 
 //export export_zetasql_cctz_FixedOffsetFromName

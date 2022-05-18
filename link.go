@@ -3,6 +3,7 @@ package zetasql
 import (
 	"unsafe"
 
+	"github.com/goccy/go-zetasql/ast"
 	"github.com/goccy/go-zetasql/resolved_ast"
 	"github.com/goccy/go-zetasql/types"
 )
@@ -18,3 +19,9 @@ func newType(unsafe.Pointer) types.Type
 
 //go:linkname getRawType github.com/goccy/go-zetasql/types.getRawType
 func getRawType(types.Type) unsafe.Pointer
+
+//go:linkname newNode github.com/goccy/go-zetasql/ast.newNode
+func newNode(unsafe.Pointer) ast.Node
+
+//go:linkname getNodeRaw github.com/goccy/go-zetasql/ast.getNodeRaw
+func getNodeRaw(ast.Node) unsafe.Pointer

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"unsafe"
 
-	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 )
 
 import "C"
@@ -64,19 +64,19 @@ func (p *ParseLocationPoint) getRaw() unsafe.Pointer {
 
 func (p *ParseLocationPoint) Filename() string {
 	var s unsafe.Pointer
-	internalparser.ParseLocationPoint_filename(p.getRaw(), &s)
+	internal.ParseLocationPoint_filename(p.getRaw(), &s)
 	return C.GoString((*C.char)(s))
 }
 
 func (p *ParseLocationPoint) ByteOffset() int {
 	var offset int
-	internalparser.ParseLocationPoint_GetByteOffset(p.getRaw(), &offset)
+	internal.ParseLocationPoint_GetByteOffset(p.getRaw(), &offset)
 	return offset
 }
 
 func (p *ParseLocationPoint) String() string {
 	var s unsafe.Pointer
-	internalparser.ParseLocationPoint_GetString(p.getRaw(), &s)
+	internal.ParseLocationPoint_GetString(p.getRaw(), &s)
 	return C.GoString((*C.char)(s))
 }
 
@@ -94,19 +94,19 @@ func (r *ParseLocationRange) getRaw() unsafe.Pointer {
 
 func (r *ParseLocationRange) Start() *ParseLocationPoint {
 	var p unsafe.Pointer
-	internalparser.ParseLocationRange_start(r.getRaw(), &p)
+	internal.ParseLocationRange_start(r.getRaw(), &p)
 	return newParseLocationPoint(p)
 }
 
 func (r *ParseLocationRange) End() *ParseLocationPoint {
 	var p unsafe.Pointer
-	internalparser.ParseLocationRange_end(r.getRaw(), &p)
+	internal.ParseLocationRange_end(r.getRaw(), &p)
 	return newParseLocationPoint(p)
 }
 
 func (r *ParseLocationRange) String() string {
 	var s unsafe.Pointer
-	internalparser.ParseLocationRange_GetString(r.getRaw(), &s)
+	internal.ParseLocationRange_GetString(r.getRaw(), &s)
 	return C.GoString((*C.char)(s))
 }
 
@@ -186,175 +186,175 @@ func (n *BaseNode) getRaw() unsafe.Pointer {
 
 func (n *BaseNode) ID() int {
 	var id int
-	internalparser.ASTNode_getId(n.getRaw(), &id)
+	internal.ASTNode_getId(n.getRaw(), &id)
 	return id
 }
 
 func (n *BaseNode) Kind() Kind {
 	var kind int
-	internalparser.ASTNode_node_kind(n.getRaw(), &kind)
+	internal.ASTNode_node_kind(n.getRaw(), &kind)
 	return Kind(kind)
 }
 
 func (n *BaseNode) NumChildren() int {
 	var children int
-	internalparser.ASTNode_num_children(n.getRaw(), &children)
+	internal.ASTNode_num_children(n.getRaw(), &children)
 	return children
 }
 
 func (n *BaseNode) SingleNodeDebugString() string {
 	var str unsafe.Pointer
-	internalparser.ASTNode_SingleNodeDebugString(n.getRaw(), &str)
+	internal.ASTNode_SingleNodeDebugString(n.getRaw(), &str)
 	return C.GoString((*C.char)(str))
 }
 
 func (n *BaseNode) Child(i int) Node {
 	var child unsafe.Pointer
-	internalparser.ASTNode_child(n.getRaw(), i, &child)
+	internal.ASTNode_child(n.getRaw(), i, &child)
 	return newNode(child)
 }
 
 func (n *BaseNode) MutableChild(i int) Node {
 	var child unsafe.Pointer
-	internalparser.ASTNode_mutable_child(n.getRaw(), i, &child)
+	internal.ASTNode_mutable_child(n.getRaw(), i, &child)
 	return newNode(child)
 }
 
 func (n *BaseNode) SetParent(parent Node) {
-	internalparser.ASTNode_set_parent(n.getRaw(), parent.getRaw())
+	internal.ASTNode_set_parent(n.getRaw(), parent.getRaw())
 }
 
 func (n *BaseNode) Parent() Node {
 	var parent unsafe.Pointer
-	internalparser.ASTNode_parent(n.getRaw(), &parent)
+	internal.ASTNode_parent(n.getRaw(), &parent)
 	return newNode(parent)
 }
 
 func (n *BaseNode) AddChild(child Node) {
-	internalparser.ASTNode_AddChild(n.getRaw(), child.getRaw())
+	internal.ASTNode_AddChild(n.getRaw(), child.getRaw())
 }
 
 func (n *BaseNode) AddChildFront(child Node) {
-	internalparser.ASTNode_AddChildFront(n.getRaw(), child.getRaw())
+	internal.ASTNode_AddChildFront(n.getRaw(), child.getRaw())
 }
 
 func (n *BaseNode) FindChildIndex(kind Kind) int {
 	var index int
-	internalparser.ASTNode_find_child_index(n.getRaw(), int(kind), &index)
+	internal.ASTNode_find_child_index(n.getRaw(), int(kind), &index)
 	return index
 }
 
 func (n *BaseNode) DebugString(maxDepth int) string {
 	var str unsafe.Pointer
-	internalparser.ASTNode_DebugString(n.getRaw(), maxDepth, &str)
+	internal.ASTNode_DebugString(n.getRaw(), maxDepth, &str)
 	return C.GoString((*C.char)(str))
 }
 
 func (n *BaseNode) MoveStartLocation(bytes int) {
-	internalparser.ASTNode_MoveStartLocation(n.getRaw(), bytes)
+	internal.ASTNode_MoveStartLocation(n.getRaw(), bytes)
 }
 
 func (n *BaseNode) MoveStartLocationBack(bytes int) {
-	internalparser.ASTNode_MoveStartLocationBack(n.getRaw(), bytes)
+	internal.ASTNode_MoveStartLocationBack(n.getRaw(), bytes)
 }
 
 func (n *BaseNode) SetStartLocationToEndLocation() {
-	internalparser.ASTNode_SetStartLocationToEndLocation(n.getRaw())
+	internal.ASTNode_SetStartLocationToEndLocation(n.getRaw())
 }
 
 func (n *BaseNode) MoveEndLocationBack(bytes int) {
-	internalparser.ASTNode_MoveEndLocationBack(n.getRaw(), bytes)
+	internal.ASTNode_MoveEndLocationBack(n.getRaw(), bytes)
 }
 
 func (n *BaseNode) SetStartLocation(point *ParseLocationPoint) {
-	internalparser.ASTNode_set_start_location(n.getRaw(), point.getRaw())
+	internal.ASTNode_set_start_location(n.getRaw(), point.getRaw())
 }
 
 func (n *BaseNode) SetEndLocation(point *ParseLocationPoint) {
-	internalparser.ASTNode_set_end_location(n.getRaw(), point.getRaw())
+	internal.ASTNode_set_end_location(n.getRaw(), point.getRaw())
 }
 
 func (n *BaseNode) IsTableExpression() bool {
 	var ret bool
-	internalparser.ASTNode_IsTableExpression(n.getRaw(), &ret)
+	internal.ASTNode_IsTableExpression(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsQueryExpression() bool {
 	var ret bool
-	internalparser.ASTNode_IsQueryExpression(n.getRaw(), &ret)
+	internal.ASTNode_IsQueryExpression(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsExpression() bool {
 	var ret bool
-	internalparser.ASTNode_IsExpression(n.getRaw(), &ret)
+	internal.ASTNode_IsExpression(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsType() bool {
 	var ret bool
-	internalparser.ASTNode_IsType(n.getRaw(), &ret)
+	internal.ASTNode_IsType(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsLeaf() bool {
 	var ret bool
-	internalparser.ASTNode_IsLeaf(n.getRaw(), &ret)
+	internal.ASTNode_IsLeaf(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsScriptStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsScriptStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsScriptStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsLoopStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsLoopStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsLoopStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsSqlStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsSqlStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsSqlStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsDdlStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsDdlStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsDdlStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsCreateStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsCreateStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsCreateStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) IsAlterStatement() bool {
 	var ret bool
-	internalparser.ASTNode_IsAlterStatement(n.getRaw(), &ret)
+	internal.ASTNode_IsAlterStatement(n.getRaw(), &ret)
 	return ret
 }
 
 func (n *BaseNode) ParseLocationRange() *ParseLocationRange {
 	var ret unsafe.Pointer
-	internalparser.ASTNode_GetParseLocationRange(n.getRaw(), &ret)
+	internal.ASTNode_GetParseLocationRange(n.getRaw(), &ret)
 	return newParseLocationRange(ret)
 }
 
 func (n *BaseNode) LocationString() string {
 	var str unsafe.Pointer
-	internalparser.ASTNode_GetLocationString(n.getRaw(), &str)
+	internal.ASTNode_GetLocationString(n.getRaw(), &str)
 	return C.GoString((*C.char)(str))
 }
 
@@ -368,7 +368,7 @@ type QueryStatementNode struct {
 
 func (n *QueryStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTQueryStatement_query(n.getRaw(), &v)
+	internal.ASTQueryStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -380,12 +380,12 @@ type QueryExpressionBaseNode struct {
 }
 
 func (n *QueryExpressionBaseNode) SetParenthesized(parenthesized bool) {
-	internalparser.ASTQueryExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
+	internal.ASTQueryExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
 }
 
 func (n *QueryExpressionBaseNode) Parenthesized() bool {
 	var v bool
-	internalparser.ASTQueryExpression_parenthesized(n.getRaw(), &v)
+	internal.ASTQueryExpression_parenthesized(n.getRaw(), &v)
 	return v
 }
 
@@ -394,28 +394,28 @@ type QueryNode struct {
 }
 
 func (n *QueryNode) SetIsNested(isNested bool) {
-	internalparser.ASTQuery_set_is_nested(n.getRaw(), boolToInt(isNested))
+	internal.ASTQuery_set_is_nested(n.getRaw(), boolToInt(isNested))
 }
 
 func (n *QueryNode) IsNested() bool {
 	var v bool
-	internalparser.ASTQuery_is_nested(n.getRaw(), &v)
+	internal.ASTQuery_is_nested(n.getRaw(), &v)
 	return v
 }
 
 func (n *QueryNode) SetIsPivotInput(isPivotInput bool) {
-	internalparser.ASTQuery_set_is_pivot_input(n.getRaw(), boolToInt(isPivotInput))
+	internal.ASTQuery_set_is_pivot_input(n.getRaw(), boolToInt(isPivotInput))
 }
 
 func (n *QueryNode) IsPivotInput() bool {
 	var v bool
-	internalparser.ASTQuery_is_pivot_input(n.getRaw(), &v)
+	internal.ASTQuery_is_pivot_input(n.getRaw(), &v)
 	return v
 }
 
 func (n *QueryNode) WithClause() *WithClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTQuery_with_clause(n.getRaw(), &v)
+	internal.ASTQuery_with_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -424,7 +424,7 @@ func (n *QueryNode) WithClause() *WithClauseNode {
 
 func (n *QueryNode) QueryExpr() QueryExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTQuery_query_expr(n.getRaw(), &v)
+	internal.ASTQuery_query_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -433,7 +433,7 @@ func (n *QueryNode) QueryExpr() QueryExpressionNode {
 
 func (n *QueryNode) OrderBy() *OrderByNode {
 	var v unsafe.Pointer
-	internalparser.ASTQuery_order_by(n.getRaw(), &v)
+	internal.ASTQuery_order_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -442,7 +442,7 @@ func (n *QueryNode) OrderBy() *OrderByNode {
 
 func (n *QueryNode) LimitOffset() *LimitOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTQuery_limit_offset(n.getRaw(), &v)
+	internal.ASTQuery_limit_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -454,18 +454,18 @@ type SelectNode struct {
 }
 
 func (n *SelectNode) SetDistinct(distinct bool) {
-	internalparser.ASTSelect_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTSelect_set_distinct(n.getRaw(), boolToInt(distinct))
 }
 
 func (n *SelectNode) Distinct() bool {
 	var v bool
-	internalparser.ASTSelect_distinct(n.getRaw(), &v)
+	internal.ASTSelect_distinct(n.getRaw(), &v)
 	return v
 }
 
 func (n *SelectNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_hint(n.getRaw(), &v)
+	internal.ASTSelect_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -474,7 +474,7 @@ func (n *SelectNode) Hint() *HintNode {
 
 func (n *SelectNode) AnonymizationOptions() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_anonymization_options(n.getRaw(), &v)
+	internal.ASTSelect_anonymization_options(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -483,7 +483,7 @@ func (n *SelectNode) AnonymizationOptions() *OptionsListNode {
 
 func (n *SelectNode) SelectAs() *SelectAsNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_select_as(n.getRaw(), &v)
+	internal.ASTSelect_select_as(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -492,7 +492,7 @@ func (n *SelectNode) SelectAs() *SelectAsNode {
 
 func (n *SelectNode) SelectList() *SelectListNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_select_list(n.getRaw(), &v)
+	internal.ASTSelect_select_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -501,7 +501,7 @@ func (n *SelectNode) SelectList() *SelectListNode {
 
 func (n *SelectNode) FromClause() *FromClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_from_clause(n.getRaw(), &v)
+	internal.ASTSelect_from_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -510,7 +510,7 @@ func (n *SelectNode) FromClause() *FromClauseNode {
 
 func (n *SelectNode) WhereClause() *WhereClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_where_clause(n.getRaw(), &v)
+	internal.ASTSelect_where_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -519,7 +519,7 @@ func (n *SelectNode) WhereClause() *WhereClauseNode {
 
 func (n *SelectNode) GroupBy() *GroupByNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_group_by(n.getRaw(), &v)
+	internal.ASTSelect_group_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -528,7 +528,7 @@ func (n *SelectNode) GroupBy() *GroupByNode {
 
 func (n *SelectNode) Having() *HavingNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_having(n.getRaw(), &v)
+	internal.ASTSelect_having(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -537,7 +537,7 @@ func (n *SelectNode) Having() *HavingNode {
 
 func (n *SelectNode) Qualify() *QualifyNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_qualify(n.getRaw(), &v)
+	internal.ASTSelect_qualify(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -546,7 +546,7 @@ func (n *SelectNode) Qualify() *QualifyNode {
 
 func (n *SelectNode) WindowClause() *WindowClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelect_window_clause(n.getRaw(), &v)
+	internal.ASTSelect_window_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -559,11 +559,11 @@ type SelectListNode struct {
 
 func (n *SelectListNode) Columns() []*SelectColumnNode {
 	var num int
-	internalparser.ASTSelectList_column_num(n.getRaw(), &num)
+	internal.ASTSelectList_column_num(n.getRaw(), &num)
 	columns := make([]*SelectColumnNode, 0, num)
 	for i := 0; i < num; i++ {
 		var col unsafe.Pointer
-		internalparser.ASTSelectList_column(n.getRaw(), i, &col)
+		internal.ASTSelectList_column(n.getRaw(), i, &col)
 		columns = append(columns, newSelectColumnNode(col))
 	}
 	return columns
@@ -575,13 +575,13 @@ type SelectColumnNode struct {
 
 func (n *SelectColumnNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelectColumn_expression(n.getRaw(), &v)
+	internal.ASTSelectColumn_expression(n.getRaw(), &v)
 	return newNode(v).(ExpressionNode)
 }
 
 func (n *SelectColumnNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelectColumn_alias(n.getRaw(), &v)
+	internal.ASTSelectColumn_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -593,18 +593,18 @@ type ExpressionBaseNode struct {
 }
 
 func (n *ExpressionBaseNode) SetParenthesized(parenthesized bool) {
-	internalparser.ASTExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
+	internal.ASTExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
 }
 
 func (n *ExpressionBaseNode) Parenthesized() bool {
 	var v bool
-	internalparser.ASTExpression_parenthesized(n.getRaw(), &v)
+	internal.ASTExpression_parenthesized(n.getRaw(), &v)
 	return v
 }
 
 func (n *ExpressionBaseNode) IsAllowedInComparison() bool {
 	var v bool
-	internalparser.ASTExpression_IsAllowedInComparison(n.getRaw(), &v)
+	internal.ASTExpression_IsAllowedInComparison(n.getRaw(), &v)
 	return v
 }
 
@@ -614,12 +614,12 @@ type LeafBaseNode struct {
 
 func (n *LeafBaseNode) Image() string {
 	var v unsafe.Pointer
-	internalparser.ASTLeaf_image(n.getRaw(), &v)
+	internal.ASTLeaf_image(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
 func (n *LeafBaseNode) SetImage(image string) {
-	internalparser.ASTLeaf_set_image(n.getRaw(), unsafe.Pointer(C.CString(image)))
+	internal.ASTLeaf_set_image(n.getRaw(), unsafe.Pointer(C.CString(image)))
 }
 
 type IntLiteralNode struct {
@@ -628,7 +628,7 @@ type IntLiteralNode struct {
 
 func (n *IntLiteralNode) IsHex() bool {
 	var v bool
-	internalparser.ASTIntLiteral_is_hex(n.getRaw(), &v)
+	internal.ASTIntLiteral_is_hex(n.getRaw(), &v)
 	return v
 }
 
@@ -645,12 +645,12 @@ type IdentifierNode struct {
 }
 
 func (n *IdentifierNode) SetName(name string) {
-	internalparser.ASTIdentifier_SetIdentifier(n.getRaw(), unsafe.Pointer(C.CString(name)))
+	internal.ASTIdentifier_SetIdentifier(n.getRaw(), unsafe.Pointer(C.CString(name)))
 }
 
 func (n *IdentifierNode) Name() string {
 	var name unsafe.Pointer
-	internalparser.ASTIdentifier_GetAsString(n.getRaw(), &name)
+	internal.ASTIdentifier_GetAsString(n.getRaw(), &name)
 	return C.GoString((*C.char)(name))
 }
 
@@ -660,7 +660,7 @@ type AliasNode struct {
 
 func (n *AliasNode) Identifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlias_identifier(n.getRaw(), &v)
+	internal.ASTAlias_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -669,7 +669,7 @@ func (n *AliasNode) Identifier() *IdentifierNode {
 
 func (n *AliasNode) Name() string {
 	var v unsafe.Pointer
-	internalparser.ASTAlias_GetAsString(n.getRaw(), &v)
+	internal.ASTAlias_GetAsString(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -685,11 +685,11 @@ type PathExpressionNode struct {
 
 func (n *PathExpressionNode) Names() []*IdentifierNode {
 	var num int
-	internalparser.ASTPathExpression_num_names(n.getRaw(), &num)
+	internal.ASTPathExpression_num_names(n.getRaw(), &num)
 	names := make([]*IdentifierNode, 0, num)
 	for i := 0; i < num; i++ {
 		var name unsafe.Pointer
-		internalparser.ASTPathExpression_name(n.getRaw(), i, &name)
+		internal.ASTPathExpression_name(n.getRaw(), i, &name)
 		names = append(names, newIdentifierNode(name))
 	}
 	return names
@@ -700,7 +700,7 @@ func (n *PathExpressionNode) Names() []*IdentifierNode {
 // that many identifiers from the prefix of <path>.
 func (n *PathExpressionNode) ToIdentifierPathString(maxPrefixSize uint32) string {
 	var v unsafe.Pointer
-	internalparser.ASTPathExpression_ToIdentifierPathString(n.getRaw(), maxPrefixSize, &v)
+	internal.ASTPathExpression_ToIdentifierPathString(n.getRaw(), maxPrefixSize, &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -714,55 +714,55 @@ type TablePathExpressionNode struct {
 
 func (n *TablePathExpressionNode) PathExpr() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_path_expr(n.getRaw(), &v)
+	internal.ASTTablePathExpression_path_expr(n.getRaw(), &v)
 	return newPathExpressionNode(v)
 }
 
 func (n *TablePathExpressionNode) UnnestExpr() *UnnestExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_unnest_expr(n.getRaw(), &v)
+	internal.ASTTablePathExpression_unnest_expr(n.getRaw(), &v)
 	return newUnnestExpressionNode(v)
 }
 
 func (n *TablePathExpressionNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_hint(n.getRaw(), &v)
+	internal.ASTTablePathExpression_hint(n.getRaw(), &v)
 	return newHintNode(v)
 }
 
 func (n *TablePathExpressionNode) WithOffset() *WithOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_with_offset(n.getRaw(), &v)
+	internal.ASTTablePathExpression_with_offset(n.getRaw(), &v)
 	return newWithOffsetNode(v)
 }
 
 func (n *TablePathExpressionNode) PivotClause() *PivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_pivot_clause(n.getRaw(), &v)
+	internal.ASTTablePathExpression_pivot_clause(n.getRaw(), &v)
 	return newPivotClauseNode(v)
 }
 
 func (n *TablePathExpressionNode) UnpivotClause() *UnpivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_unpivot_clause(n.getRaw(), &v)
+	internal.ASTTablePathExpression_unpivot_clause(n.getRaw(), &v)
 	return newUnpivotClauseNode(v)
 }
 
 func (n *TablePathExpressionNode) ForSystemTime() *ForSystemTimeNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_for_system_time(n.getRaw(), &v)
+	internal.ASTTablePathExpression_for_system_time(n.getRaw(), &v)
 	return newForSystemTimeNode(v)
 }
 
 func (n *TablePathExpressionNode) SampleClause() *SampleClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_sample_clause(n.getRaw(), &v)
+	internal.ASTTablePathExpression_sample_clause(n.getRaw(), &v)
 	return newSampleClauseNode(v)
 }
 
 func (n *TablePathExpressionNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTTablePathExpression_alias(n.getRaw(), &v)
+	internal.ASTTablePathExpression_alias(n.getRaw(), &v)
 	return newAliasNode(v)
 }
 
@@ -772,7 +772,7 @@ type FromClauseNode struct {
 
 func (n *FromClauseNode) TableExpression() TableExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFromClause_table_expression(n.getRaw(), &v)
+	internal.ASTFromClause_table_expression(n.getRaw(), &v)
 	return newNode(v).(TableExpressionNode)
 }
 
@@ -782,7 +782,7 @@ type WhereClauseNode struct {
 
 func (n *WhereClauseNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTWhereClause_expression(n.getRaw(), &v)
+	internal.ASTWhereClause_expression(n.getRaw(), &v)
 	return newNode(v).(ExpressionNode)
 }
 
@@ -791,12 +791,12 @@ type BooleanLiteralNode struct {
 }
 
 func (n *BooleanLiteralNode) SetValue(value bool) {
-	internalparser.ASTBooleanLiteral_set_value(n.getRaw(), boolToInt(value))
+	internal.ASTBooleanLiteral_set_value(n.getRaw(), boolToInt(value))
 }
 
 func (n *BooleanLiteralNode) Value() bool {
 	var v bool
-	internalparser.ASTBooleanLiteral_value(n.getRaw(), &v)
+	internal.ASTBooleanLiteral_value(n.getRaw(), &v)
 	return v
 }
 
@@ -806,11 +806,11 @@ type AndExprNode struct {
 
 func (n *AndExprNode) Conjuncts() []ExpressionNode {
 	var num int
-	internalparser.ASTAndExpr_conjuncts_num(n.getRaw(), &num)
+	internal.ASTAndExpr_conjuncts_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTAndExpr_conjunct(n.getRaw(), i, &v)
+		internal.ASTAndExpr_conjunct(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -889,40 +889,40 @@ type BinaryExpressionNode struct {
 }
 
 func (n *BinaryExpressionNode) SetOp(op BinaryOp) {
-	internalparser.ASTBinaryExpression_set_op(n.getRaw(), int(op))
+	internal.ASTBinaryExpression_set_op(n.getRaw(), int(op))
 }
 
 func (n *BinaryExpressionNode) Op() BinaryOp {
 	var v int
-	internalparser.ASTBinaryExpression_op(n.getRaw(), &v)
+	internal.ASTBinaryExpression_op(n.getRaw(), &v)
 	return BinaryOp(v)
 }
 
 func (n *BinaryExpressionNode) SetIsNot(isNot bool) {
-	internalparser.ASTBinaryExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTBinaryExpression_set_is_not(n.getRaw(), boolToInt(isNot))
 }
 
 func (n *BinaryExpressionNode) IsNot() bool {
 	var v bool
-	internalparser.ASTBinaryExpression_is_not(n.getRaw(), &v)
+	internal.ASTBinaryExpression_is_not(n.getRaw(), &v)
 	return v
 }
 
 func (n *BinaryExpressionNode) Lhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBinaryExpression_lhs(n.getRaw(), &v)
+	internal.ASTBinaryExpression_lhs(n.getRaw(), &v)
 	return newNode(v).(ExpressionNode)
 }
 
 func (n *BinaryExpressionNode) Rhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBinaryExpression_rhs(n.getRaw(), &v)
+	internal.ASTBinaryExpression_rhs(n.getRaw(), &v)
 	return newNode(v).(ExpressionNode)
 }
 
 func (n *BinaryExpressionNode) SQLForOperator() string {
 	var v unsafe.Pointer
-	internalparser.ASTBinaryExpression_GetSQLForOperator(n.getRaw(), &v)
+	internal.ASTBinaryExpression_GetSQLForOperator(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -932,12 +932,12 @@ type StringLiteralNode struct {
 
 func (n *StringLiteralNode) Value() string {
 	var v unsafe.Pointer
-	internalparser.ASTStringLiteral_string_value(n.getRaw(), &v)
+	internal.ASTStringLiteral_string_value(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
 func (n *StringLiteralNode) SetValue(value string) {
-	internalparser.ASTStringLiteral_set_string_value(n.getRaw(), unsafe.Pointer(C.CString(value)))
+	internal.ASTStringLiteral_set_string_value(n.getRaw(), unsafe.Pointer(C.CString(value)))
 }
 
 type StarNode struct {
@@ -950,11 +950,11 @@ type OrExprNode struct {
 
 func (n *OrExprNode) Disjuncts() []ExpressionNode {
 	var num int
-	internalparser.ASTOrExpr_disjuncts_num(n.getRaw(), &num)
+	internal.ASTOrExpr_disjuncts_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTOrExpr_disjunct(n.getRaw(), i, &v)
+		internal.ASTOrExpr_disjunct(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -966,7 +966,7 @@ type GroupingItemNode struct {
 
 func (n *GroupingItemNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTGroupingItem_expression(n.getRaw(), &v)
+	internal.ASTGroupingItem_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -975,7 +975,7 @@ func (n *GroupingItemNode) Expression() ExpressionNode {
 
 func (n *GroupingItemNode) Rollup() *RollupNode {
 	var v unsafe.Pointer
-	internalparser.ASTGroupingItem_rollup(n.getRaw(), &v)
+	internal.ASTGroupingItem_rollup(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -988,7 +988,7 @@ type GroupByNode struct {
 
 func (n *GroupByNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTGroupBy_hint(n.getRaw(), &v)
+	internal.ASTGroupBy_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -997,11 +997,11 @@ func (n *GroupByNode) Hint() *HintNode {
 
 func (n *GroupByNode) GroupingItems() []*GroupingItemNode {
 	var num int
-	internalparser.ASTGroupBy_grouping_items_num(n.getRaw(), &num)
+	internal.ASTGroupBy_grouping_items_num(n.getRaw(), &num)
 	ret := make([]*GroupingItemNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTGroupBy_grouping_item(n.getRaw(), i, &v)
+		internal.ASTGroupBy_grouping_item(n.getRaw(), i, &v)
 		ret = append(ret, newGroupingItemNode(v))
 	}
 	return ret
@@ -1035,18 +1035,18 @@ type OrderingExpressionNode struct {
 }
 
 func (n *OrderingExpressionNode) SetOrderingSpec(spec OrderingSpec) {
-	internalparser.ASTOrderingExpression_set_ordering_spec(n.getRaw(), int(spec))
+	internal.ASTOrderingExpression_set_ordering_spec(n.getRaw(), int(spec))
 }
 
 func (n *OrderingExpressionNode) OrderingSpec() OrderingSpec {
 	var v int
-	internalparser.ASTOrderingExpression_ordering_spec(n.getRaw(), &v)
+	internal.ASTOrderingExpression_ordering_spec(n.getRaw(), &v)
 	return OrderingSpec(v)
 }
 
 func (n *OrderingExpressionNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTOrderingExpression_expression(n.getRaw(), &v)
+	internal.ASTOrderingExpression_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1055,7 +1055,7 @@ func (n *OrderingExpressionNode) Expression() ExpressionNode {
 
 func (n *OrderingExpressionNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTOrderingExpression_collate(n.getRaw(), &v)
+	internal.ASTOrderingExpression_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1064,7 +1064,7 @@ func (n *OrderingExpressionNode) Collate() *CollateNode {
 
 func (n *OrderingExpressionNode) NullOrder() *NullOrderNode {
 	var v unsafe.Pointer
-	internalparser.ASTOrderingExpression_null_order(n.getRaw(), &v)
+	internal.ASTOrderingExpression_null_order(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1077,7 +1077,7 @@ type OrderByNode struct {
 
 func (n *OrderByNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTOrderBy_hint(n.getRaw(), &v)
+	internal.ASTOrderBy_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1086,11 +1086,11 @@ func (n *OrderByNode) Hint() *HintNode {
 
 func (n *OrderByNode) OrderingExpressions() []*OrderingExpressionNode {
 	var num int
-	internalparser.ASTOrderBy_ordering_expressions_num(n.getRaw(), &num)
+	internal.ASTOrderBy_ordering_expressions_num(n.getRaw(), &num)
 	ret := make([]*OrderingExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTOrderBy_ordering_expression(n.getRaw(), i, &v)
+		internal.ASTOrderBy_ordering_expression(n.getRaw(), i, &v)
 		ret = append(ret, newOrderingExpressionNode(v))
 	}
 	return ret
@@ -1102,7 +1102,7 @@ type LimitOffsetNode struct {
 
 func (n *LimitOffsetNode) Limit() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLimitOffset_limit(n.getRaw(), &v)
+	internal.ASTLimitOffset_limit(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1111,7 +1111,7 @@ func (n *LimitOffsetNode) Limit() ExpressionNode {
 
 func (n *LimitOffsetNode) Offset() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLimitOffset_offset(n.getRaw(), &v)
+	internal.ASTLimitOffset_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1140,7 +1140,7 @@ type OnClauseNode struct {
 
 func (n *OnClauseNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTOnClause_expression(n.getRaw(), &v)
+	internal.ASTOnClause_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1153,7 +1153,7 @@ type WithClauseEntryNode struct {
 
 func (n *WithClauseEntryNode) Alias() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithClauseEntry_alias(n.getRaw(), &v)
+	internal.ASTWithClauseEntry_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1162,7 +1162,7 @@ func (n *WithClauseEntryNode) Alias() *IdentifierNode {
 
 func (n *WithClauseEntryNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithClauseEntry_query(n.getRaw(), &v)
+	internal.ASTWithClauseEntry_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1226,68 +1226,68 @@ type JoinNode struct {
 }
 
 func (n *JoinNode) SetJoinType(typ JoinType) {
-	internalparser.ASTJoin_set_join_type(n.getRaw(), int(typ))
+	internal.ASTJoin_set_join_type(n.getRaw(), int(typ))
 }
 
 func (n *JoinNode) JoinType() JoinType {
 	var v int
-	internalparser.ASTJoin_join_type(n.getRaw(), &v)
+	internal.ASTJoin_join_type(n.getRaw(), &v)
 	return JoinType(v)
 }
 
 func (n *JoinNode) SetJoinHint(hint JoinHint) {
-	internalparser.ASTJoin_set_join_hint(n.getRaw(), int(hint))
+	internal.ASTJoin_set_join_hint(n.getRaw(), int(hint))
 }
 
 func (n *JoinNode) JoinHint() JoinHint {
 	var v int
-	internalparser.ASTJoin_join_hint(n.getRaw(), &v)
+	internal.ASTJoin_join_hint(n.getRaw(), &v)
 	return JoinHint(v)
 }
 
 func (n *JoinNode) SetNatural(natural bool) {
-	internalparser.ASTJoin_set_natural(n.getRaw(), boolToInt(natural))
+	internal.ASTJoin_set_natural(n.getRaw(), boolToInt(natural))
 }
 
 func (n *JoinNode) Natural() bool {
 	var v bool
-	internalparser.ASTJoin_natural(n.getRaw(), &v)
+	internal.ASTJoin_natural(n.getRaw(), &v)
 	return v
 }
 
 func (n *JoinNode) SetUnmatchedJoinCount(count int) {
-	internalparser.ASTJoin_set_unmatched_join_count(n.getRaw(), count)
+	internal.ASTJoin_set_unmatched_join_count(n.getRaw(), count)
 }
 
 func (n *JoinNode) UnmatchedJoinCount() int {
 	var v int
-	internalparser.ASTJoin_unmatched_join_count(n.getRaw(), &v)
+	internal.ASTJoin_unmatched_join_count(n.getRaw(), &v)
 	return v
 }
 
 func (n *JoinNode) SetTransformationNeeded(needed bool) {
-	internalparser.ASTJoin_set_transformation_needed(n.getRaw(), boolToInt(needed))
+	internal.ASTJoin_set_transformation_needed(n.getRaw(), boolToInt(needed))
 }
 
 func (n *JoinNode) TransformationNeeded() bool {
 	var v bool
-	internalparser.ASTJoin_transformation_needed(n.getRaw(), &v)
+	internal.ASTJoin_transformation_needed(n.getRaw(), &v)
 	return v
 }
 
 func (n *JoinNode) SetContainsCommaJoin(commaJoin bool) {
-	internalparser.ASTJoin_set_contains_comma_join(n.getRaw(), boolToInt(commaJoin))
+	internal.ASTJoin_set_contains_comma_join(n.getRaw(), boolToInt(commaJoin))
 }
 
 func (n *JoinNode) ContainsCommaJoin() bool {
 	var v bool
-	internalparser.ASTJoin_contains_comma_join(n.getRaw(), &v)
+	internal.ASTJoin_contains_comma_join(n.getRaw(), &v)
 	return v
 }
 
 func (n *JoinNode) Lhs() TableExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_lhs(n.getRaw(), &v)
+	internal.ASTJoin_lhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1296,7 +1296,7 @@ func (n *JoinNode) Lhs() TableExpressionNode {
 
 func (n *JoinNode) Rhs() TableExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_rhs(n.getRaw(), &v)
+	internal.ASTJoin_rhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1305,7 +1305,7 @@ func (n *JoinNode) Rhs() TableExpressionNode {
 
 func (n *JoinNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_hint(n.getRaw(), &v)
+	internal.ASTJoin_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1314,7 +1314,7 @@ func (n *JoinNode) Hint() *HintNode {
 
 func (n *JoinNode) OnClause() *OnClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_on_clause(n.getRaw(), &v)
+	internal.ASTJoin_on_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1323,7 +1323,7 @@ func (n *JoinNode) OnClause() *OnClauseNode {
 
 func (n *JoinNode) UsingClause() *UsingClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_using_clause(n.getRaw(), &v)
+	internal.ASTJoin_using_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1340,7 +1340,7 @@ func newJoinParseError(raw unsafe.Pointer) *JoinParseError {
 
 func (e *JoinParseError) ErrorNode() Node {
 	var v unsafe.Pointer
-	internalparser.JoinParseError_error_node(e.raw, &v)
+	internal.JoinParseError_error_node(e.raw, &v)
 	if v == nil {
 		return nil
 	}
@@ -1349,7 +1349,7 @@ func (e *JoinParseError) ErrorNode() Node {
 
 func (e *JoinParseError) Message() string {
 	var v unsafe.Pointer
-	internalparser.JoinParseError_message(e.raw, &v)
+	internal.JoinParseError_message(e.raw, &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -1359,7 +1359,7 @@ func (e *JoinParseError) Error() string {
 
 func (n *JoinNode) ParseError() *JoinParseError {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_parse_error(n.getRaw(), &v)
+	internal.ASTJoin_parse_error(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1368,13 +1368,13 @@ func (n *JoinNode) ParseError() *JoinParseError {
 
 func (n *JoinNode) SQLForJoinType() string {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_GetSQLForJoinType(n.getRaw(), &v)
+	internal.ASTJoin_GetSQLForJoinType(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
 func (n *JoinNode) SQLForJoinHint() string {
 	var v unsafe.Pointer
-	internalparser.ASTJoin_GetSQLForJoinHint(n.getRaw(), &v)
+	internal.ASTJoin_GetSQLForJoinHint(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -1383,22 +1383,22 @@ type WithClauseNode struct {
 }
 
 func (n *WithClauseNode) SetRecursive(recursive bool) {
-	internalparser.ASTWithClause_set_recursive(n.getRaw(), boolToInt(recursive))
+	internal.ASTWithClause_set_recursive(n.getRaw(), boolToInt(recursive))
 }
 
 func (n *WithClauseNode) Recursive() bool {
 	var v bool
-	internalparser.ASTWithClause_recursive(n.getRaw(), &v)
+	internal.ASTWithClause_recursive(n.getRaw(), &v)
 	return v
 }
 
 func (n *WithClauseNode) With() []*WithClauseEntryNode {
 	var num int
-	internalparser.ASTWithClause_with_num(n.getRaw(), &num)
+	internal.ASTWithClause_with_num(n.getRaw(), &num)
 	ret := make([]*WithClauseEntryNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTWithClause_with(n.getRaw(), i, &v)
+		internal.ASTWithClause_with(n.getRaw(), i, &v)
 		ret = append(ret, newWithClauseEntryNode(v))
 	}
 	return ret
@@ -1410,7 +1410,7 @@ type HavingNode struct {
 
 func (n *HavingNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTHaving_expression(n.getRaw(), &v)
+	internal.ASTHaving_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1423,7 +1423,7 @@ type TypeBaseNode struct {
 
 func (n *TypeBaseNode) TypeParameters() *TypeParameterListNode {
 	var v unsafe.Pointer
-	internalparser.ASTType_type_parameters(n.getRaw(), &v)
+	internal.ASTType_type_parameters(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1432,7 +1432,7 @@ func (n *TypeBaseNode) TypeParameters() *TypeParameterListNode {
 
 func (n *TypeBaseNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTType_collate(n.getRaw(), &v)
+	internal.ASTType_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1445,7 +1445,7 @@ type SimpleTypeNode struct {
 
 func (n *SimpleTypeNode) TypeName() string {
 	var v unsafe.Pointer
-	internalparser.ASTSimpleType_type_name(n.getRaw(), &v)
+	internal.ASTSimpleType_type_name(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -1455,7 +1455,7 @@ type ArrayTypeNode struct {
 
 func (n *ArrayTypeNode) ElementType() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTArrayType_element_type(n.getRaw(), &v)
+	internal.ASTArrayType_element_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1468,7 +1468,7 @@ type StructFieldNode struct {
 
 func (n *StructFieldNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructField_name(n.getRaw(), &v)
+	internal.ASTStructField_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1477,7 +1477,7 @@ func (n *StructFieldNode) Name() *IdentifierNode {
 
 func (n *StructFieldNode) Type() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructField_type(n.getRaw(), &v)
+	internal.ASTStructField_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1490,11 +1490,11 @@ type StructTypeNode struct {
 
 func (n *StructTypeNode) StructFields() []*StructFieldNode {
 	var num int
-	internalparser.ASTStructType_struct_fields_num(n.getRaw(), &num)
+	internal.ASTStructType_struct_fields_num(n.getRaw(), &num)
 	ret := make([]*StructFieldNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStructType_struct_field(n.getRaw(), i, &v)
+		internal.ASTStructType_struct_field(n.getRaw(), i, &v)
 		ret = append(ret, newStructFieldNode(v))
 	}
 	return ret
@@ -1505,18 +1505,18 @@ type CastExpressionNode struct {
 }
 
 func (n *CastExpressionNode) SetIsSafeCast(isSafe bool) {
-	internalparser.ASTCastExpression_set_is_safe_cast(n.getRaw(), boolToInt(isSafe))
+	internal.ASTCastExpression_set_is_safe_cast(n.getRaw(), boolToInt(isSafe))
 }
 
 func (n *CastExpressionNode) IsSafeCast() bool {
 	var v bool
-	internalparser.ASTCastExpression_is_safe_cast(n.getRaw(), &v)
+	internal.ASTCastExpression_is_safe_cast(n.getRaw(), &v)
 	return v
 }
 
 func (n *CastExpressionNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCastExpression_expr(n.getRaw(), &v)
+	internal.ASTCastExpression_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1525,7 +1525,7 @@ func (n *CastExpressionNode) Expr() ExpressionNode {
 
 func (n *CastExpressionNode) Type() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTCastExpression_type(n.getRaw(), &v)
+	internal.ASTCastExpression_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1534,7 +1534,7 @@ func (n *CastExpressionNode) Type() TypeNode {
 
 func (n *CastExpressionNode) Format() *FormatClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCastExpression_format(n.getRaw(), &v)
+	internal.ASTCastExpression_format(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1569,18 +1569,18 @@ type SelectAsNode struct {
 }
 
 func (n *SelectAsNode) SetAsMode(mode AsMode) {
-	internalparser.ASTSelectAs_set_as_mode(n.getRaw(), int(mode))
+	internal.ASTSelectAs_set_as_mode(n.getRaw(), int(mode))
 }
 
 func (n *SelectAsNode) AsMode() AsMode {
 	var v int
-	internalparser.ASTSelectAs_as_mode(n.getRaw(), &v)
+	internal.ASTSelectAs_as_mode(n.getRaw(), &v)
 	return AsMode(v)
 }
 
 func (n *SelectAsNode) TypeName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSelectAs_type_name(n.getRaw(), &v)
+	internal.ASTSelectAs_type_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1589,13 +1589,13 @@ func (n *SelectAsNode) TypeName() *PathExpressionNode {
 
 func (n *SelectAsNode) IsSelectAsStruct() bool {
 	var v bool
-	internalparser.ASTSelectAs_is_select_as_struct(n.getRaw(), &v)
+	internal.ASTSelectAs_is_select_as_struct(n.getRaw(), &v)
 	return v
 }
 
 func (n *SelectAsNode) IsSelectAsValue() bool {
 	var v bool
-	internalparser.ASTSelectAs_is_select_as_value(n.getRaw(), &v)
+	internal.ASTSelectAs_is_select_as_value(n.getRaw(), &v)
 	return v
 }
 
@@ -1605,11 +1605,11 @@ type RollupNode struct {
 
 func (n *RollupNode) Expressions() []ExpressionNode {
 	var num int
-	internalparser.ASTRollup_expressions_num(n.getRaw(), &num)
+	internal.ASTRollup_expressions_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTRollup_expression(n.getRaw(), i, &v)
+		internal.ASTRollup_expression(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -1640,38 +1640,38 @@ type FunctionCallNode struct {
 }
 
 func (n *FunctionCallNode) SetNullHandlingModifier(mod NullHandlingModifier) {
-	internalparser.ASTFunctionCall_set_null_handling_modifier(n.getRaw(), int(mod))
+	internal.ASTFunctionCall_set_null_handling_modifier(n.getRaw(), int(mod))
 }
 
 func (n *FunctionCallNode) NullHandlingModifier() NullHandlingModifier {
 	var v int
-	internalparser.ASTFunctionCall_null_handling_modifier(n.getRaw(), &v)
+	internal.ASTFunctionCall_null_handling_modifier(n.getRaw(), &v)
 	return NullHandlingModifier(v)
 }
 
 func (n *FunctionCallNode) SetDistinct(distinct bool) {
-	internalparser.ASTFunctionCall_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTFunctionCall_set_distinct(n.getRaw(), boolToInt(distinct))
 }
 
 func (n *FunctionCallNode) Distinct() bool {
 	var v bool
-	internalparser.ASTFunctionCall_distinct(n.getRaw(), &v)
+	internal.ASTFunctionCall_distinct(n.getRaw(), &v)
 	return v
 }
 
 func (n *FunctionCallNode) SetIsCurrentDateTimeWithoutParentheses(v bool) {
-	internalparser.ASTFunctionCall_set_is_current_date_time_without_parentheses(n.getRaw(), boolToInt(v))
+	internal.ASTFunctionCall_set_is_current_date_time_without_parentheses(n.getRaw(), boolToInt(v))
 }
 
 func (n *FunctionCallNode) IsCurrentDateTimeWithoutParentheses() bool {
 	var v bool
-	internalparser.ASTFunctionCall_is_current_date_time_without_parentheses(n.getRaw(), &v)
+	internal.ASTFunctionCall_is_current_date_time_without_parentheses(n.getRaw(), &v)
 	return v
 }
 
 func (n *FunctionCallNode) Function() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_function(n.getRaw(), &v)
+	internal.ASTFunctionCall_function(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1680,7 +1680,7 @@ func (n *FunctionCallNode) Function() *PathExpressionNode {
 
 func (n *FunctionCallNode) HavingModifier() *HavingModifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_having_modifier(n.getRaw(), &v)
+	internal.ASTFunctionCall_having_modifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1689,7 +1689,7 @@ func (n *FunctionCallNode) HavingModifier() *HavingModifierNode {
 
 func (n *FunctionCallNode) ClampedBetweenModifier() *ClampedBetweenModifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_clamped_between_modifier(n.getRaw(), &v)
+	internal.ASTFunctionCall_clamped_between_modifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1698,7 +1698,7 @@ func (n *FunctionCallNode) ClampedBetweenModifier() *ClampedBetweenModifierNode 
 
 func (n *FunctionCallNode) OrderBy() *OrderByNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_order_by(n.getRaw(), &v)
+	internal.ASTFunctionCall_order_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1707,7 +1707,7 @@ func (n *FunctionCallNode) OrderBy() *OrderByNode {
 
 func (n *FunctionCallNode) LimitOffset() *LimitOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_limit_offset(n.getRaw(), &v)
+	internal.ASTFunctionCall_limit_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1716,7 +1716,7 @@ func (n *FunctionCallNode) LimitOffset() *LimitOffsetNode {
 
 func (n *FunctionCallNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_hint(n.getRaw(), &v)
+	internal.ASTFunctionCall_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1725,7 +1725,7 @@ func (n *FunctionCallNode) Hint() *HintNode {
 
 func (n *FunctionCallNode) WithGroupRows() *WithGroupRowsNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCall_with_group_rows(n.getRaw(), &v)
+	internal.ASTFunctionCall_with_group_rows(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1734,11 +1734,11 @@ func (n *FunctionCallNode) WithGroupRows() *WithGroupRowsNode {
 
 func (n *FunctionCallNode) Arguments() []ExpressionNode {
 	var num int
-	internalparser.ASTFunctionCall_arguments_num(n.getRaw(), &num)
+	internal.ASTFunctionCall_arguments_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTFunctionCall_argument(n.getRaw(), i, &v)
+		internal.ASTFunctionCall_argument(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -1746,7 +1746,7 @@ func (n *FunctionCallNode) Arguments() []ExpressionNode {
 
 func (n *FunctionCallNode) HasModifiers() bool {
 	var v bool
-	internalparser.ASTFunctionCall_HasModifiers(n.getRaw(), &v)
+	internal.ASTFunctionCall_HasModifiers(n.getRaw(), &v)
 	return v
 }
 
@@ -1756,7 +1756,7 @@ type ArrayConstructorNode struct {
 
 func (n *ArrayConstructorNode) Type() *ArrayTypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTArrayConstructor_type(n.getRaw(), &v)
+	internal.ASTArrayConstructor_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1765,11 +1765,11 @@ func (n *ArrayConstructorNode) Type() *ArrayTypeNode {
 
 func (n *ArrayConstructorNode) Elements() []ExpressionNode {
 	var num int
-	internalparser.ASTArrayConstructor_elements_num(n.getRaw(), &num)
+	internal.ASTArrayConstructor_elements_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTArrayConstructor_element(n.getRaw(), i, &v)
+		internal.ASTArrayConstructor_element(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -1781,7 +1781,7 @@ type StructConstructorArgNode struct {
 
 func (n *StructConstructorArgNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructConstructorArg_expression(n.getRaw(), &v)
+	internal.ASTStructConstructorArg_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1790,7 +1790,7 @@ func (n *StructConstructorArgNode) Expression() ExpressionNode {
 
 func (n *StructConstructorArgNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructConstructorArg_alias(n.getRaw(), &v)
+	internal.ASTStructConstructorArg_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1803,11 +1803,11 @@ type StructConstructorWithParensNode struct {
 
 func (n *StructConstructorWithParensNode) FieldExpressions() []ExpressionNode {
 	var num int
-	internalparser.ASTStructConstructorWithParens_field_expressions_num(n.getRaw(), &num)
+	internal.ASTStructConstructorWithParens_field_expressions_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStructConstructorWithParens_field_expression(n.getRaw(), i, &v)
+		internal.ASTStructConstructorWithParens_field_expression(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -1819,7 +1819,7 @@ type StructConstructorWithKeywordNode struct {
 
 func (n *StructConstructorWithKeywordNode) StructType() *StructTypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructConstructorWithKeyword_struct_type(n.getRaw(), &v)
+	internal.ASTStructConstructorWithKeyword_struct_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1828,11 +1828,11 @@ func (n *StructConstructorWithKeywordNode) StructType() *StructTypeNode {
 
 func (n *StructConstructorWithKeywordNode) Fields() []*StructConstructorArgNode {
 	var num int
-	internalparser.ASTStructConstructorWithKeyword_fields_num(n.getRaw(), &num)
+	internal.ASTStructConstructorWithKeyword_fields_num(n.getRaw(), &num)
 	ret := make([]*StructConstructorArgNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStructConstructorWithKeyword_field(n.getRaw(), i, &v)
+		internal.ASTStructConstructorWithKeyword_field(n.getRaw(), i, &v)
 		ret = append(ret, newStructConstructorArgNode(v))
 	}
 	return ret
@@ -1843,18 +1843,18 @@ type InExpressionNode struct {
 }
 
 func (n *InExpressionNode) SetIsNot(isNot bool) {
-	internalparser.ASTInExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTInExpression_set_is_not(n.getRaw(), boolToInt(isNot))
 }
 
 func (n *InExpressionNode) IsNot() bool {
 	var v bool
-	internalparser.ASTInExpression_is_not(n.getRaw(), &v)
+	internal.ASTInExpression_is_not(n.getRaw(), &v)
 	return v
 }
 
 func (n *InExpressionNode) Lhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTInExpression_lhs(n.getRaw(), &v)
+	internal.ASTInExpression_lhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1863,7 +1863,7 @@ func (n *InExpressionNode) Lhs() ExpressionNode {
 
 func (n *InExpressionNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTInExpression_hint(n.getRaw(), &v)
+	internal.ASTInExpression_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1872,7 +1872,7 @@ func (n *InExpressionNode) Hint() *HintNode {
 
 func (n *InExpressionNode) InList() *InListNode {
 	var v unsafe.Pointer
-	internalparser.ASTInExpression_in_list(n.getRaw(), &v)
+	internal.ASTInExpression_in_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1881,7 +1881,7 @@ func (n *InExpressionNode) InList() *InListNode {
 
 func (n *InExpressionNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTInExpression_query(n.getRaw(), &v)
+	internal.ASTInExpression_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1890,7 +1890,7 @@ func (n *InExpressionNode) Query() *QueryNode {
 
 func (n *InExpressionNode) UnnestExpr() *UnnestExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTInExpression_unnest_expr(n.getRaw(), &v)
+	internal.ASTInExpression_unnest_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1903,11 +1903,11 @@ type InListNode struct {
 
 func (n *InListNode) List() []ExpressionNode {
 	var num int
-	internalparser.ASTInList_list_num(n.getRaw(), &num)
+	internal.ASTInList_list_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTInList_list(n.getRaw(), i, &v)
+		internal.ASTInList_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -1918,18 +1918,18 @@ type BetweenExpressionNode struct {
 }
 
 func (n *BetweenExpressionNode) SetIsNot(isNot bool) {
-	internalparser.ASTBetweenExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTBetweenExpression_set_is_not(n.getRaw(), boolToInt(isNot))
 }
 
 func (n *BetweenExpressionNode) IsNot() bool {
 	var v bool
-	internalparser.ASTBetweenExpression_is_not(n.getRaw(), &v)
+	internal.ASTBetweenExpression_is_not(n.getRaw(), &v)
 	return v
 }
 
 func (n *BetweenExpressionNode) Lhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBetweenExpression_lhs(n.getRaw(), &v)
+	internal.ASTBetweenExpression_lhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1938,7 +1938,7 @@ func (n *BetweenExpressionNode) Lhs() ExpressionNode {
 
 func (n *BetweenExpressionNode) Low() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBetweenExpression_low(n.getRaw(), &v)
+	internal.ASTBetweenExpression_low(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1947,7 +1947,7 @@ func (n *BetweenExpressionNode) Low() ExpressionNode {
 
 func (n *BetweenExpressionNode) High() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBetweenExpression_high(n.getRaw(), &v)
+	internal.ASTBetweenExpression_high(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -1995,18 +1995,18 @@ type DateOrTimeLiteralNode struct {
 }
 
 func (n *DateOrTimeLiteralNode) SetTypeKind(kind TypeKind) {
-	internalparser.ASTDateOrTimeLiteral_set_type_kind(n.getRaw(), int(kind))
+	internal.ASTDateOrTimeLiteral_set_type_kind(n.getRaw(), int(kind))
 }
 
 func (n *DateOrTimeLiteralNode) TypeKind() TypeKind {
 	var v int
-	internalparser.ASTDateOrTimeLiteral_type_kind(n.getRaw(), &v)
+	internal.ASTDateOrTimeLiteral_type_kind(n.getRaw(), &v)
 	return TypeKind(v)
 }
 
 func (n *DateOrTimeLiteralNode) StringLiteral() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTDateOrTimeLiteral_string_literal(n.getRaw(), &v)
+	internal.ASTDateOrTimeLiteral_string_literal(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2043,11 +2043,11 @@ type CaseValueExpressionNode struct {
 
 func (n *CaseValueExpressionNode) Arguments() []ExpressionNode {
 	var num int
-	internalparser.ASTCaseValueExpression_arguments_num(n.getRaw(), &num)
+	internal.ASTCaseValueExpression_arguments_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTCaseValueExpression_argument(n.getRaw(), i, &v)
+		internal.ASTCaseValueExpression_argument(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -2059,11 +2059,11 @@ type CaseNoValueExpressionNode struct {
 
 func (n *CaseNoValueExpressionNode) Arguments() []ExpressionNode {
 	var num int
-	internalparser.ASTCaseNoValueExpression_arguments_num(n.getRaw(), &num)
+	internal.ASTCaseNoValueExpression_arguments_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTCaseNoValueExpression_argument(n.getRaw(), i, &v)
+		internal.ASTCaseNoValueExpression_argument(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -2075,7 +2075,7 @@ type ArrayElementNode struct {
 
 func (n *ArrayElementNode) Array() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTArrayElement_array(n.getRaw(), &v)
+	internal.ASTArrayElement_array(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2084,7 +2084,7 @@ func (n *ArrayElementNode) Array() ExpressionNode {
 
 func (n *ArrayElementNode) Position() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTArrayElement_position(n.getRaw(), &v)
+	internal.ASTArrayElement_position(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2096,18 +2096,18 @@ type BitwiseShiftExpressionNode struct {
 }
 
 func (n *BitwiseShiftExpressionNode) SetIsLeftShift(isLeftShift bool) {
-	internalparser.ASTBitwiseShiftExpression_set_is_left_shift(n.getRaw(), boolToInt(isLeftShift))
+	internal.ASTBitwiseShiftExpression_set_is_left_shift(n.getRaw(), boolToInt(isLeftShift))
 }
 
 func (n *BitwiseShiftExpressionNode) IsLeftShift() bool {
 	var v bool
-	internalparser.ASTBitwiseShiftExpression_is_left_shift(n.getRaw(), &v)
+	internal.ASTBitwiseShiftExpression_is_left_shift(n.getRaw(), &v)
 	return v
 }
 
 func (n *BitwiseShiftExpressionNode) Lhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBitwiseShiftExpression_lhs(n.getRaw(), &v)
+	internal.ASTBitwiseShiftExpression_lhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2116,7 +2116,7 @@ func (n *BitwiseShiftExpressionNode) Lhs() ExpressionNode {
 
 func (n *BitwiseShiftExpressionNode) Rhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTBitwiseShiftExpression_rhs(n.getRaw(), &v)
+	internal.ASTBitwiseShiftExpression_rhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2129,7 +2129,7 @@ type CollateNode struct {
 
 func (n *CollateNode) Name() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCollate_collation_name(n.getRaw(), &v)
+	internal.ASTCollate_collation_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2142,7 +2142,7 @@ type DotGeneralizedFieldNode struct {
 
 func (n *DotGeneralizedFieldNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotGeneralizedField_expr(n.getRaw(), &v)
+	internal.ASTDotGeneralizedField_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2151,7 +2151,7 @@ func (n *DotGeneralizedFieldNode) Expr() ExpressionNode {
 
 func (n *DotGeneralizedFieldNode) Path() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotGeneralizedField_path(n.getRaw(), &v)
+	internal.ASTDotGeneralizedField_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2164,7 +2164,7 @@ type DotIdentifierNode struct {
 
 func (n *DotIdentifierNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotIdentifier_expr(n.getRaw(), &v)
+	internal.ASTDotIdentifier_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2173,7 +2173,7 @@ func (n *DotIdentifierNode) Expr() ExpressionNode {
 
 func (n *DotIdentifierNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotIdentifier_name(n.getRaw(), &v)
+	internal.ASTDotIdentifier_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2186,7 +2186,7 @@ type DotStarNode struct {
 
 func (n *DotStarNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotStar_expr(n.getRaw(), &v)
+	internal.ASTDotStar_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2199,7 +2199,7 @@ type DotStarWithModifiersNode struct {
 
 func (n *DotStarWithModifiersNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotStarWithModifiers_expr(n.getRaw(), &v)
+	internal.ASTDotStarWithModifiers_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2208,7 +2208,7 @@ func (n *DotStarWithModifiersNode) Expr() ExpressionNode {
 
 func (n *DotStarWithModifiersNode) Modifiers() *StarModifiersNode {
 	var v unsafe.Pointer
-	internalparser.ASTDotStarWithModifiers_modifiers(n.getRaw(), &v)
+	internal.ASTDotStarWithModifiers_modifiers(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2240,18 +2240,18 @@ type ExpressionSubqueryNode struct {
 }
 
 func (n *ExpressionSubqueryNode) SetModifier(modifier ExpressionSubqueryModifier) {
-	internalparser.ASTExpressionSubquery_set_modifier(n.getRaw(), int(modifier))
+	internal.ASTExpressionSubquery_set_modifier(n.getRaw(), int(modifier))
 }
 
 func (n *ExpressionSubqueryNode) Modifier() ExpressionSubqueryModifier {
 	var v int
-	internalparser.ASTExpressionSubquery_modifier(n.getRaw(), &v)
+	internal.ASTExpressionSubquery_modifier(n.getRaw(), &v)
 	return ExpressionSubqueryModifier(v)
 }
 
 func (n *ExpressionSubqueryNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTExpressionSubquery_hint(n.getRaw(), &v)
+	internal.ASTExpressionSubquery_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2260,7 +2260,7 @@ func (n *ExpressionSubqueryNode) Hint() *HintNode {
 
 func (n *ExpressionSubqueryNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTExpressionSubquery_query(n.getRaw(), &v)
+	internal.ASTExpressionSubquery_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2273,7 +2273,7 @@ type ExtractExpressionNode struct {
 
 func (n *ExtractExpressionNode) LhsExpr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExtractExpression_lhs_expr(n.getRaw(), &v)
+	internal.ASTExtractExpression_lhs_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2282,7 +2282,7 @@ func (n *ExtractExpressionNode) LhsExpr() ExpressionNode {
 
 func (n *ExtractExpressionNode) RhsExpr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExtractExpression_rhs_expr(n.getRaw(), &v)
+	internal.ASTExtractExpression_rhs_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2291,7 +2291,7 @@ func (n *ExtractExpressionNode) RhsExpr() ExpressionNode {
 
 func (n *ExtractExpressionNode) TimeZoneExpr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExtractExpression_time_zone_expr(n.getRaw(), &v)
+	internal.ASTExtractExpression_time_zone_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2311,18 +2311,18 @@ type HavingModifierNode struct {
 }
 
 func (n *HavingModifierNode) SetModifierKind(kind HavingModifierKind) {
-	internalparser.ASTHavingModifier_set_modifier_kind(n.getRaw(), int(kind))
+	internal.ASTHavingModifier_set_modifier_kind(n.getRaw(), int(kind))
 }
 
 func (n *HavingModifierNode) ModifierKind() HavingModifierKind {
 	var v int
-	internalparser.ASTHavingModifier_modifier_kind(n.getRaw(), &v)
+	internal.ASTHavingModifier_modifier_kind(n.getRaw(), &v)
 	return HavingModifierKind(v)
 }
 
 func (n *HavingModifierNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTHavingModifier_expr(n.getRaw(), &v)
+	internal.ASTHavingModifier_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2335,7 +2335,7 @@ type IntervalExprNode struct {
 
 func (n *IntervalExprNode) InternalValue() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTIntervalExpr_interval_value(n.getRaw(), &v)
+	internal.ASTIntervalExpr_interval_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2344,7 +2344,7 @@ func (n *IntervalExprNode) InternalValue() ExpressionNode {
 
 func (n *IntervalExprNode) DatePartName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTIntervalExpr_date_part_name(n.getRaw(), &v)
+	internal.ASTIntervalExpr_date_part_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2353,7 +2353,7 @@ func (n *IntervalExprNode) DatePartName() *IdentifierNode {
 
 func (n *IntervalExprNode) DatePartNameTo() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTIntervalExpr_date_part_name_to(n.getRaw(), &v)
+	internal.ASTIntervalExpr_date_part_name_to(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2366,7 +2366,7 @@ type NamedArgumentNode struct {
 
 func (n *NamedArgumentNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTNamedArgument_name(n.getRaw(), &v)
+	internal.ASTNamedArgument_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2375,7 +2375,7 @@ func (n *NamedArgumentNode) Name() *IdentifierNode {
 
 func (n *NamedArgumentNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTNamedArgument_expr(n.getRaw(), &v)
+	internal.ASTNamedArgument_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2387,12 +2387,12 @@ type NullOrderNode struct {
 }
 
 func (n *NullOrderNode) SetNullsFirst(nullsFirst bool) {
-	internalparser.ASTNullOrder_set_nulls_first(n.getRaw(), boolToInt(nullsFirst))
+	internal.ASTNullOrder_set_nulls_first(n.getRaw(), boolToInt(nullsFirst))
 }
 
 func (n *NullOrderNode) NullsFirst() bool {
 	var v bool
-	internalparser.ASTNullOrder_nulls_first(n.getRaw(), &v)
+	internal.ASTNullOrder_nulls_first(n.getRaw(), &v)
 	return v
 }
 
@@ -2402,11 +2402,11 @@ type OnOrUsingClauseListNode struct {
 
 func (n *OnOrUsingClauseListNode) OnOrUsingClauseList() []Node {
 	var num int
-	internalparser.ASTOnOrUsingClauseList_on_or_using_clause_list_num(n.getRaw(), &num)
+	internal.ASTOnOrUsingClauseList_on_or_using_clause_list_num(n.getRaw(), &num)
 	ret := make([]Node, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTOnUsingClauseList_on_or_using_clause_list(n.getRaw(), i, &v)
+		internal.ASTOnUsingClauseList_on_or_using_clause_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v))
 	}
 	return ret
@@ -2418,7 +2418,7 @@ type ParenthesizedJoinNode struct {
 
 func (n *ParenthesizedJoinNode) Join() *JoinNode {
 	var v unsafe.Pointer
-	internalparser.ASTParenthesizedJoin_join(n.getRaw(), &v)
+	internal.ASTParenthesizedJoin_join(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2427,7 +2427,7 @@ func (n *ParenthesizedJoinNode) Join() *JoinNode {
 
 func (n *ParenthesizedJoinNode) SampleClause() *SampleClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTParenthesizedJoin_sample_clause(n.getRaw(), &v)
+	internal.ASTParenthesizedJoin_sample_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2440,7 +2440,7 @@ type PartitionByNode struct {
 
 func (n *PartitionByNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTPartitionBy_hint(n.getRaw(), &v)
+	internal.ASTPartitionBy_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2449,11 +2449,11 @@ func (n *PartitionByNode) Hint() *HintNode {
 
 func (n *PartitionByNode) PartitioningExpressions() []ExpressionNode {
 	var num int
-	internalparser.ASTPartitionBy_partitioning_expressions_num(n.getRaw(), &num)
+	internal.ASTPartitionBy_partitioning_expressions_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTPartitionBy_partitioning_expression(n.getRaw(), i, &v)
+		internal.ASTPartitionBy_partitioning_expression(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -2473,28 +2473,28 @@ type SetOperationNode struct {
 }
 
 func (n *SetOperationNode) SetOpType(opType SetOperationType) {
-	internalparser.ASTSetOperation_set_op_type(n.getRaw(), int(opType))
+	internal.ASTSetOperation_set_op_type(n.getRaw(), int(opType))
 }
 
 func (n *SetOperationNode) OpType() SetOperationType {
 	var v int
-	internalparser.ASTSetOperation_op_type(n.getRaw(), &v)
+	internal.ASTSetOperation_op_type(n.getRaw(), &v)
 	return SetOperationType(v)
 }
 
 func (n *SetOperationNode) SetDistinct(distinct bool) {
-	internalparser.ASTSetOperation_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTSetOperation_set_distinct(n.getRaw(), boolToInt(distinct))
 }
 
 func (n *SetOperationNode) Distinct() bool {
 	var v bool
-	internalparser.ASTSetOperation_distinct(n.getRaw(), &v)
+	internal.ASTSetOperation_distinct(n.getRaw(), &v)
 	return v
 }
 
 func (n *SetOperationNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetOperation_hint(n.getRaw(), &v)
+	internal.ASTSetOperation_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2503,11 +2503,11 @@ func (n *SetOperationNode) Hint() *HintNode {
 
 func (n *SetOperationNode) Inputs() []QueryExpressionNode {
 	var num int
-	internalparser.ASTSetOperation_inputs_num(n.getRaw(), &num)
+	internal.ASTSetOperation_inputs_num(n.getRaw(), &num)
 	ret := make([]QueryExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTSetOperation_input(n.getRaw(), i, &v)
+		internal.ASTSetOperation_input(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(QueryExpressionNode))
 	}
 	return ret
@@ -2515,7 +2515,7 @@ func (n *SetOperationNode) Inputs() []QueryExpressionNode {
 
 func (n *SetOperationNode) SQLForOperation() string {
 	var v unsafe.Pointer
-	internalparser.ASTSetOperation_GetSQLForOperation(n.getRaw(), &v)
+	internal.ASTSetOperation_GetSQLForOperation(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -2525,11 +2525,11 @@ type StarExceptListNode struct {
 
 func (n *StarExceptListNode) Identifiers() []*IdentifierNode {
 	var num int
-	internalparser.ASTStarExceptList_identifiers_num(n.getRaw(), &num)
+	internal.ASTStarExceptList_identifiers_num(n.getRaw(), &num)
 	ret := make([]*IdentifierNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStarExpcetList_identifier(n.getRaw(), i, &v)
+		internal.ASTStarExpcetList_identifier(n.getRaw(), i, &v)
 		ret = append(ret, newIdentifierNode(v))
 	}
 	return ret
@@ -2541,7 +2541,7 @@ type StarModifiersNode struct {
 
 func (n *StarModifiersNode) ExceptList() *StarExceptListNode {
 	var v unsafe.Pointer
-	internalparser.ASTStarModifiers_except_list(n.getRaw(), &v)
+	internal.ASTStarModifiers_except_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2550,11 +2550,11 @@ func (n *StarModifiersNode) ExceptList() *StarExceptListNode {
 
 func (n *StarModifiersNode) ReplaceItems() []*StarReplaceItemNode {
 	var num int
-	internalparser.ASTStarModifiers_replace_items_num(n.getRaw(), &num)
+	internal.ASTStarModifiers_replace_items_num(n.getRaw(), &num)
 	ret := make([]*StarReplaceItemNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStarModifiers_replace_item(n.getRaw(), i, &v)
+		internal.ASTStarModifiers_replace_item(n.getRaw(), i, &v)
 		ret = append(ret, newStarReplaceItemNode(v))
 	}
 	return ret
@@ -2566,7 +2566,7 @@ type StarReplaceItemNode struct {
 
 func (n *StarReplaceItemNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTStarReplaceItem_expression(n.getRaw(), &v)
+	internal.ASTStarReplaceItem_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2575,7 +2575,7 @@ func (n *StarReplaceItemNode) Expression() ExpressionNode {
 
 func (n *StarReplaceItemNode) Alias() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTStarReplaceItem_alias(n.getRaw(), &v)
+	internal.ASTStarReplaceItem_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2588,7 +2588,7 @@ type StarWithModifiersNode struct {
 
 func (n *StarWithModifiersNode) Modifiers() *StarModifiersNode {
 	var v unsafe.Pointer
-	internalparser.ASTStarWithModifiers_modifiers(n.getRaw(), &v)
+	internal.ASTStarWithModifiers_modifiers(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2601,7 +2601,7 @@ type TableSubqueryNode struct {
 
 func (n *TableSubqueryNode) Subquery() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableSubquery_subquery(n.getRaw(), &v)
+	internal.ASTTableSubquery_subquery(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2610,7 +2610,7 @@ func (n *TableSubqueryNode) Subquery() *QueryNode {
 
 func (n *TableSubqueryNode) PivotClause() *PivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableSubquery_pivot_clause(n.getRaw(), &v)
+	internal.ASTTableSubquery_pivot_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2619,7 +2619,7 @@ func (n *TableSubqueryNode) PivotClause() *PivotClauseNode {
 
 func (n *TableSubqueryNode) UnpivotClause() *UnpivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableSubquery_unpivot_clause(n.getRaw(), &v)
+	internal.ASTTableSubquery_unpivot_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2628,7 +2628,7 @@ func (n *TableSubqueryNode) UnpivotClause() *UnpivotClauseNode {
 
 func (n *TableSubqueryNode) SampleClause() *SampleClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableSubquery_sample_clause(n.getRaw(), &v)
+	internal.ASTTableSubquery_sample_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2637,7 +2637,7 @@ func (n *TableSubqueryNode) SampleClause() *SampleClauseNode {
 
 func (n *TableSubqueryNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableSubquery_alias(n.getRaw(), &v)
+	internal.ASTTableSubquery_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2681,18 +2681,18 @@ type UnaryExpressionNode struct {
 }
 
 func (n *UnaryExpressionNode) SetOp(op UnaryExpressionOp) {
-	internalparser.ASTUnaryExpression_set_op(n.getRaw(), int(op))
+	internal.ASTUnaryExpression_set_op(n.getRaw(), int(op))
 }
 
 func (n *UnaryExpressionNode) Op() UnaryExpressionOp {
 	var v int
-	internalparser.ASTUnaryExpression_op(n.getRaw(), &v)
+	internal.ASTUnaryExpression_op(n.getRaw(), &v)
 	return UnaryExpressionOp(v)
 }
 
 func (n *UnaryExpressionNode) Operand() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnaryExpression_operand(n.getRaw(), &v)
+	internal.ASTUnaryExpression_operand(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2701,7 +2701,7 @@ func (n *UnaryExpressionNode) Operand() ExpressionNode {
 
 func (n *UnaryExpressionNode) SQLForOperator() string {
 	var v unsafe.Pointer
-	internalparser.ASTUnaryExpression_GetSQLForOperator(n.getRaw(), &v)
+	internal.ASTUnaryExpression_GetSQLForOperator(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -2711,7 +2711,7 @@ type UnnestExpressionNode struct {
 
 func (n *UnnestExpressionNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnnestExpression_expression(n.getRaw(), &v)
+	internal.ASTUnnestExpression_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2724,11 +2724,11 @@ type WindowClauseNode struct {
 
 func (n *WindowClauseNode) Windows() []*WindowDefinitionNode {
 	var num int
-	internalparser.ASTWindowClause_windows_num(n.getRaw(), &num)
+	internal.ASTWindowClause_windows_num(n.getRaw(), &num)
 	ret := make([]*WindowDefinitionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTWindowClause_window(n.getRaw(), i, &v)
+		internal.ASTWindowClause_window(n.getRaw(), i, &v)
 		ret = append(ret, newWindowDefinitionNode(v))
 	}
 	return ret
@@ -2740,7 +2740,7 @@ type WindowDefinitionNode struct {
 
 func (n *WindowDefinitionNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowDefinition_name(n.getRaw(), &v)
+	internal.ASTWindowDefinition_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2749,7 +2749,7 @@ func (n *WindowDefinitionNode) Name() *IdentifierNode {
 
 func (n *WindowDefinitionNode) WindowSpec() *WindowSpecificationNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowDefinition_window_spec(n.getRaw(), &v)
+	internal.ASTWindowDefinition_window_spec(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2779,7 +2779,7 @@ type WindowFrameNode struct {
 
 func (n *WindowFrameNode) StartExpr() *WindowFrameExprNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowFrame_start_expr(n.getRaw(), &v)
+	internal.ASTWindowFrame_start_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2788,7 +2788,7 @@ func (n *WindowFrameNode) StartExpr() *WindowFrameExprNode {
 
 func (n *WindowFrameNode) EndExpr() *WindowFrameExprNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowFrame_end_expr(n.getRaw(), &v)
+	internal.ASTWindowFrame_end_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2796,18 +2796,18 @@ func (n *WindowFrameNode) EndExpr() *WindowFrameExprNode {
 }
 
 func (n *WindowFrameNode) SetUnit(frameUnit WindowFrameUnit) {
-	internalparser.ASTWindowFrame_set_unit(n.getRaw(), int(frameUnit))
+	internal.ASTWindowFrame_set_unit(n.getRaw(), int(frameUnit))
 }
 
 func (n *WindowFrameNode) FrameUnit() WindowFrameUnit {
 	var v int
-	internalparser.ASTWindowFrame_frame_unit(n.getRaw(), &v)
+	internal.ASTWindowFrame_frame_unit(n.getRaw(), &v)
 	return WindowFrameUnit(v)
 }
 
 func (n *WindowFrameNode) FrameUnitString() string {
 	var v unsafe.Pointer
-	internalparser.ASTWindowFrame_GetFrameUnitString(n.getRaw(), &v)
+	internal.ASTWindowFrame_GetFrameUnitString(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -2842,18 +2842,18 @@ type WindowFrameExprNode struct {
 }
 
 func (n *WindowFrameExprNode) SetBoundaryType(boundaryType WindowFrameBoundaryType) {
-	internalparser.ASTWindowFrameExpr_set_boundary_type(n.getRaw(), int(boundaryType))
+	internal.ASTWindowFrameExpr_set_boundary_type(n.getRaw(), int(boundaryType))
 }
 
 func (n *WindowFrameExprNode) BoundaryType() WindowFrameBoundaryType {
 	var v int
-	internalparser.ASTWindowFrameExpr_boundary_type(n.getRaw(), &v)
+	internal.ASTWindowFrameExpr_boundary_type(n.getRaw(), &v)
 	return WindowFrameBoundaryType(v)
 }
 
 func (n *WindowFrameExprNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowFrameExpr_expression(n.getRaw(), &v)
+	internal.ASTWindowFrameExpr_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2865,18 +2865,18 @@ type LikeExpressionNode struct {
 }
 
 func (n *LikeExpressionNode) SetIsNot(isNot bool) {
-	internalparser.ASTLikeExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTLikeExpression_set_is_not(n.getRaw(), boolToInt(isNot))
 }
 
 func (n *LikeExpressionNode) IsNot() bool {
 	var v bool
-	internalparser.ASTLikeExpression_is_not(n.getRaw(), &v)
+	internal.ASTLikeExpression_is_not(n.getRaw(), &v)
 	return v
 }
 
 func (n *LikeExpressionNode) Lhs() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_lhs(n.getRaw(), &v)
+	internal.ASTLikeExpression_lhs(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2885,7 +2885,7 @@ func (n *LikeExpressionNode) Lhs() ExpressionNode {
 
 func (n *LikeExpressionNode) Op() *AnySomeAllOpNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_op(n.getRaw(), &v)
+	internal.ASTLikeExpression_op(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2894,7 +2894,7 @@ func (n *LikeExpressionNode) Op() *AnySomeAllOpNode {
 
 func (n *LikeExpressionNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_hint(n.getRaw(), &v)
+	internal.ASTLikeExpression_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2903,7 +2903,7 @@ func (n *LikeExpressionNode) Hint() *HintNode {
 
 func (n *LikeExpressionNode) InList() *InListNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_in_list(n.getRaw(), &v)
+	internal.ASTLikeExpression_in_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2912,7 +2912,7 @@ func (n *LikeExpressionNode) InList() *InListNode {
 
 func (n *LikeExpressionNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_query(n.getRaw(), &v)
+	internal.ASTLikeExpression_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2921,7 +2921,7 @@ func (n *LikeExpressionNode) Query() *QueryNode {
 
 func (n *LikeExpressionNode) UnnestExpr() *UnnestExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLikeExpression_unnest_expr(n.getRaw(), &v)
+	internal.ASTLikeExpression_unnest_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2934,7 +2934,7 @@ type WindowSpecificationNode struct {
 
 func (n *WindowSpecificationNode) BaseWindowName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowSpecification_base_window_name(n.getRaw(), &v)
+	internal.ASTWindowSpecification_base_window_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2943,7 +2943,7 @@ func (n *WindowSpecificationNode) BaseWindowName() *IdentifierNode {
 
 func (n *WindowSpecificationNode) PartitionBy() *PartitionByNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowSpecification_partition_by(n.getRaw(), &v)
+	internal.ASTWindowSpecification_partition_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2952,7 +2952,7 @@ func (n *WindowSpecificationNode) PartitionBy() *PartitionByNode {
 
 func (n *WindowSpecificationNode) OrderBy() *OrderByNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowSpecification_order_by(n.getRaw(), &v)
+	internal.ASTWindowSpecification_order_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2961,7 +2961,7 @@ func (n *WindowSpecificationNode) OrderBy() *OrderByNode {
 
 func (n *WindowSpecificationNode) WindowFrame() *WindowFrameNode {
 	var v unsafe.Pointer
-	internalparser.ASTWindowSpecification_window_frame(n.getRaw(), &v)
+	internal.ASTWindowSpecification_window_frame(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -2974,7 +2974,7 @@ type WithOffsetNode struct {
 
 func (n *WithOffsetNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithOffset_alias(n.getRaw(), &v)
+	internal.ASTWithOffset_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3009,18 +3009,18 @@ type AnySomeAllOpNode struct {
 }
 
 func (n *AnySomeAllOpNode) SetOp(op AnySomeAllOpType) {
-	internalparser.ASTAnySomeAllOp_set_op(n.getRaw(), int(op))
+	internal.ASTAnySomeAllOp_set_op(n.getRaw(), int(op))
 }
 
 func (n *AnySomeAllOpNode) Op() AnySomeAllOpType {
 	var v int
-	internalparser.ASTAnySomeAllOp_op(n.getRaw(), &v)
+	internal.ASTAnySomeAllOp_op(n.getRaw(), &v)
 	return AnySomeAllOpType(v)
 }
 
 func (n *AnySomeAllOpNode) SQLForOperator() string {
 	var v unsafe.Pointer
-	internalparser.ASTAnySomeAllOp_GetSQLForOperator(n.getRaw(), &v)
+	internal.ASTAnySomeAllOp_GetSQLForOperator(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -3033,22 +3033,22 @@ type StatementListNode struct {
 }
 
 func (n *StatementListNode) SetVariableDeclarationsAllowed(allowed bool) {
-	internalparser.ASTStatementList_set_variable_declarations_allowed(n.getRaw(), boolToInt(allowed))
+	internal.ASTStatementList_set_variable_declarations_allowed(n.getRaw(), boolToInt(allowed))
 }
 
 func (n *StatementListNode) VariableDeclarationsAllowed() bool {
 	var v bool
-	internalparser.ASTStatementList_variable_declarations_allowed(n.getRaw(), &v)
+	internal.ASTStatementList_variable_declarations_allowed(n.getRaw(), &v)
 	return v
 }
 
 func (n *StatementListNode) StatementList() []StatementNode {
 	var num int
-	internalparser.ASTStatementList_statement_list_num(n.getRaw(), &num)
+	internal.ASTStatementList_statement_list_num(n.getRaw(), &num)
 	ret := make([]StatementNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStatementList_statement_list(n.getRaw(), i, &v)
+		internal.ASTStatementList_statement_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(StatementNode))
 	}
 	return ret
@@ -3064,7 +3064,7 @@ type HintedStatementNode struct {
 
 func (n *HintedStatementNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTHintedStatement_hint(n.getRaw(), &v)
+	internal.ASTHintedStatement_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3073,7 +3073,7 @@ func (n *HintedStatementNode) Hint() *HintNode {
 
 func (n *HintedStatementNode) Statement() StatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTHintedStatement_statement(n.getRaw(), &v)
+	internal.ASTHintedStatement_statement(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3086,7 +3086,7 @@ type ExplainStatementNode struct {
 
 func (n *ExplainStatementNode) Statement() StatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTExplainStatement_statement(n.getRaw(), &v)
+	internal.ASTExplainStatement_statement(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3099,7 +3099,7 @@ type DescribeStatementNode struct {
 
 func (n *DescribeStatementNode) OptionalIdentifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDescribeStatement_optional_identifier(n.getRaw(), &v)
+	internal.ASTDescribeStatement_optional_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3108,7 +3108,7 @@ func (n *DescribeStatementNode) OptionalIdentifier() *IdentifierNode {
 
 func (n *DescribeStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDescribeStatement_name(n.getRaw(), &v)
+	internal.ASTDescribeStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3117,7 +3117,7 @@ func (n *DescribeStatementNode) Name() *PathExpressionNode {
 
 func (n *DescribeStatementNode) OptionalFromName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDescribeStatement_optional_from_name(n.getRaw(), &v)
+	internal.ASTDescribeStatement_optional_from_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3130,7 +3130,7 @@ type ShowStatementNode struct {
 
 func (n *ShowStatementNode) Identifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTShowStatement_identifier(n.getRaw(), &v)
+	internal.ASTShowStatement_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3139,7 +3139,7 @@ func (n *ShowStatementNode) Identifier() *IdentifierNode {
 
 func (n *ShowStatementNode) OptionalName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTShowStatement_optional_name(n.getRaw(), &v)
+	internal.ASTShowStatement_optional_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3148,7 +3148,7 @@ func (n *ShowStatementNode) OptionalName() *PathExpressionNode {
 
 func (n *ShowStatementNode) OptionalLikeString() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTShowStatement_optional_like_string(n.getRaw(), &v)
+	internal.ASTShowStatement_optional_like_string(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3165,7 +3165,7 @@ type TransactionIsolationLevelNode struct {
 
 func (n *TransactionIsolationLevelNode) Identifier1() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTTransactionIsolationLevel_identifier1(n.getRaw(), &v)
+	internal.ASTTransactionIsolationLevel_identifier1(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3175,7 +3175,7 @@ func (n *TransactionIsolationLevelNode) Identifier1() *IdentifierNode {
 // Identifier2 second identifier can be non-null only if first identifier is non-null.
 func (n *TransactionIsolationLevelNode) Identifier2() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTTransactionIsolationLevel_identifier2(n.getRaw(), &v)
+	internal.ASTTransactionIsolationLevel_identifier2(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3207,12 +3207,12 @@ type TransactionReadWriteModeNode struct {
 }
 
 func (n *TransactionReadWriteModeNode) SetMode(modeType TransactionReadWriteModeType) {
-	internalparser.ASTTransactionReadWriteMode_set_mode(n.getRaw(), int(modeType))
+	internal.ASTTransactionReadWriteMode_set_mode(n.getRaw(), int(modeType))
 }
 
 func (n *TransactionReadWriteModeNode) Mode() TransactionReadWriteModeType {
 	var v int
-	internalparser.ASTTransactionReadWriteMode_mode(n.getRaw(), &v)
+	internal.ASTTransactionReadWriteMode_mode(n.getRaw(), &v)
 	return TransactionReadWriteModeType(v)
 }
 
@@ -3222,11 +3222,11 @@ type TransactionModeListNode struct {
 
 func (n *TransactionModeListNode) Elements() []TransactionModeNode {
 	var num int
-	internalparser.ASTTransactionModeList_elements_num(n.getRaw(), &num)
+	internal.ASTTransactionModeList_elements_num(n.getRaw(), &num)
 	ret := make([]TransactionModeNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTransactionModeList_element(n.getRaw(), i, &v)
+		internal.ASTTransactionModeList_element(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(TransactionModeNode))
 	}
 	return ret
@@ -3238,7 +3238,7 @@ type BeginStatementNode struct {
 
 func (n *BeginStatementNode) ModeList() *TransactionModeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTBeginStatement_mode_list(n.getRaw(), &v)
+	internal.ASTBeginStatement_mode_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3251,7 +3251,7 @@ type SetTransactionStatementNode struct {
 
 func (n *SetTransactionStatementNode) ModeList() *TransactionModeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetTransactionStatement_mode_list(n.getRaw(), &v)
+	internal.ASTSetTransactionStatement_mode_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3272,7 +3272,7 @@ type StartBatchStatementNode struct {
 
 func (n *StartBatchStatementNode) BatchType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTStartBatchStatement_batch_type(n.getRaw(), &v)
+	internal.ASTStartBatchStatement_batch_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3293,7 +3293,7 @@ type DdlStatementBaseNode struct {
 
 func (n *DdlStatementBaseNode) DdlTarget() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDdlStatement_GetDdlTarget(n.getRaw(), &v)
+	internal.ASTDdlStatement_GetDdlTarget(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3305,18 +3305,18 @@ type DropEntityStatementNode struct {
 }
 
 func (n *DropEntityStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropEntityStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropEntityStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropEntityStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropEntityStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropEntityStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropEntityStatementNode) EntityType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropEntityStatement_entity_type(n.getRaw(), &v)
+	internal.ASTDropEntityStatement_entity_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3325,7 +3325,7 @@ func (n *DropEntityStatementNode) EntityType() *IdentifierNode {
 
 func (n *DropEntityStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropEntityStatement_name(n.getRaw(), &v)
+	internal.ASTDropEntityStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3337,18 +3337,18 @@ type DropFunctionStatementNode struct {
 }
 
 func (n *DropFunctionStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropFunctionStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropFunctionStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropFunctionStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropFunctionStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropFunctionStatement_name(n.getRaw(), &v)
+	internal.ASTDropFunctionStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3357,7 +3357,7 @@ func (n *DropFunctionStatementNode) Name() *PathExpressionNode {
 
 func (n *DropFunctionStatementNode) Parameters() *FunctionParametersNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropFunctionStatement_parameters(n.getRaw(), &v)
+	internal.ASTDropFunctionStatement_parameters(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3369,18 +3369,18 @@ type DropTableFunctionStatementNode struct {
 }
 
 func (n *DropTableFunctionStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropTableFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropTableFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropTableFunctionStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropTableFunctionStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropTableFunctionStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropTableFunctionStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropTableFunctionStatement_name(n.getRaw(), &v)
+	internal.ASTDropTableFunctionStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3392,18 +3392,18 @@ type DropAllRowAccessPoliciesStatementNode struct {
 }
 
 func (n *DropAllRowAccessPoliciesStatementNode) SetHasAccessKeyword(keyword bool) {
-	internalparser.ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(n.getRaw(), boolToInt(keyword))
+	internal.ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(n.getRaw(), boolToInt(keyword))
 }
 
 func (n *DropAllRowAccessPoliciesStatementNode) HasAccessKeyword() bool {
 	var v bool
-	internalparser.ASTDropAllRowAccessPoliciesStatement_has_access_keyword(n.getRaw(), &v)
+	internal.ASTDropAllRowAccessPoliciesStatement_has_access_keyword(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropAllRowAccessPoliciesStatementNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropAllRowAccessPoliciesStatement_table_name(n.getRaw(), &v)
+	internal.ASTDropAllRowAccessPoliciesStatement_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3415,18 +3415,18 @@ type DropMaterializedViewStatementNode struct {
 }
 
 func (n *DropMaterializedViewStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropMaterializedViewStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropMaterializedViewStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropMaterializedViewStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropMaterializedViewStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropMaterializedViewStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropMaterializedViewStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropMaterializedViewStatement_name(n.getRaw(), &v)
+	internal.ASTDropMaterializedViewStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3438,18 +3438,18 @@ type DropSnapshotTableStatementNode struct {
 }
 
 func (n *DropSnapshotTableStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropSnapshotTableStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropSnapshotTableStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropSnapshotTableStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropSnapshotTableStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropSnapshotTableStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropSnapshotTableStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropSnapshotTableStatement_name(n.getRaw(), &v)
+	internal.ASTDropSnapshotTableStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3461,18 +3461,18 @@ type DropSearchIndexStatementNode struct {
 }
 
 func (n *DropSearchIndexStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropSearchIndexStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropSearchIndexStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropSearchIndexStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropSearchIndexStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropSearchIndexStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropSearchIndexStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropSearchIndexStatement_name(n.getRaw(), &v)
+	internal.ASTDropSearchIndexStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3481,7 +3481,7 @@ func (n *DropSearchIndexStatementNode) Name() *PathExpressionNode {
 
 func (n *DropSearchIndexStatementNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropSearchIndexStatement_table_name(n.getRaw(), &v)
+	internal.ASTDropSearchIndexStatement_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3494,7 +3494,7 @@ type RenameStatementNode struct {
 
 func (n *RenameStatementNode) Identifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameStatement_identifier(n.getRaw(), &v)
+	internal.ASTRenameStatement_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3503,7 +3503,7 @@ func (n *RenameStatementNode) Identifier() *IdentifierNode {
 
 func (n *RenameStatementNode) OldName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameStatement_old_name(n.getRaw(), &v)
+	internal.ASTRenameStatement_old_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3512,7 +3512,7 @@ func (n *RenameStatementNode) OldName() *PathExpressionNode {
 
 func (n *RenameStatementNode) NewName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameStatement_new_name(n.getRaw(), &v)
+	internal.ASTRenameStatement_new_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3531,18 +3531,18 @@ type ImportStatementNode struct {
 }
 
 func (n *ImportStatementNode) SetImportKind(kind ImportStatementKind) {
-	internalparser.ASTImportStatement_set_import_kind(n.getRaw(), int(kind))
+	internal.ASTImportStatement_set_import_kind(n.getRaw(), int(kind))
 }
 
 func (n *ImportStatementNode) ImportKind() ImportStatementKind {
 	var v int
-	internalparser.ASTImportStatement_import_kind(n.getRaw(), &v)
+	internal.ASTImportStatement_import_kind(n.getRaw(), &v)
 	return ImportStatementKind(v)
 }
 
 func (n *ImportStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTImportStatement_name(n.getRaw(), &v)
+	internal.ASTImportStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3551,7 +3551,7 @@ func (n *ImportStatementNode) Name() *PathExpressionNode {
 
 func (n *ImportStatementNode) StringValue() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTImportStatement_string_value(n.getRaw(), &v)
+	internal.ASTImportStatement_string_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3560,7 +3560,7 @@ func (n *ImportStatementNode) StringValue() *StringLiteralNode {
 
 func (n *ImportStatementNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTImportStatement_alias(n.getRaw(), &v)
+	internal.ASTImportStatement_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3569,7 +3569,7 @@ func (n *ImportStatementNode) Alias() *AliasNode {
 
 func (n *ImportStatementNode) IntoAlias() *IntoAliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTImportStatement_into_alias(n.getRaw(), &v)
+	internal.ASTImportStatement_into_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3578,7 +3578,7 @@ func (n *ImportStatementNode) IntoAlias() *IntoAliasNode {
 
 func (n *ImportStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTImportStatement_options_list(n.getRaw(), &v)
+	internal.ASTImportStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3591,7 +3591,7 @@ type ModuleStatementNode struct {
 
 func (n *ModuleStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTModuleStatement_name(n.getRaw(), &v)
+	internal.ASTModuleStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3600,7 +3600,7 @@ func (n *ModuleStatementNode) Name() *PathExpressionNode {
 
 func (n *ModuleStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTModuleStatement_options_list(n.getRaw(), &v)
+	internal.ASTModuleStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3613,7 +3613,7 @@ type WithConnectionClauseNode struct {
 
 func (n *WithConnectionClauseNode) ConnectionClause() *ConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithConnectionClause_connection_clause(n.getRaw(), &v)
+	internal.ASTWithConnectionClause_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3626,7 +3626,7 @@ type IntoAliasNode struct {
 
 func (n *IntoAliasNode) Identifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTIntoAlias_identifier(n.getRaw(), &v)
+	internal.ASTIntoAlias_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3635,7 +3635,7 @@ func (n *IntoAliasNode) Identifier() *IdentifierNode {
 
 func (n *IntoAliasNode) Name() string {
 	var v unsafe.Pointer
-	internalparser.ASTIntoAlias_GetAsString(n.getRaw(), &v)
+	internal.ASTIntoAlias_GetAsString(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -3645,7 +3645,7 @@ type UnnestExpressionWithOptAliasAndOffsetNode struct {
 
 func (n *UnnestExpressionWithOptAliasAndOffsetNode) UnnestExpression() *UnnestExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(n.getRaw(), &v)
+	internal.ASTUnnestExpressionWithOptAliasAndOffset_unnest_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3654,7 +3654,7 @@ func (n *UnnestExpressionWithOptAliasAndOffsetNode) UnnestExpression() *UnnestEx
 
 func (n *UnnestExpressionWithOptAliasAndOffsetNode) OptionalAlias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(n.getRaw(), &v)
+	internal.ASTUnnestExpressionWithOptAliasAndOffset_optional_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3663,7 +3663,7 @@ func (n *UnnestExpressionWithOptAliasAndOffsetNode) OptionalAlias() *AliasNode {
 
 func (n *UnnestExpressionWithOptAliasAndOffsetNode) OptionalWithOffset() *WithOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(n.getRaw(), &v)
+	internal.ASTUnnestExpressionWithOptAliasAndOffset_optional_with_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3676,7 +3676,7 @@ type PivotExpressionNode struct {
 
 func (n *PivotExpressionNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotExpression_expression(n.getRaw(), &v)
+	internal.ASTPivotExpression_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3685,7 +3685,7 @@ func (n *PivotExpressionNode) Expression() ExpressionNode {
 
 func (n *PivotExpressionNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotExpression_alias(n.getRaw(), &v)
+	internal.ASTPivotExpression_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3698,7 +3698,7 @@ type PivotValueNode struct {
 
 func (n *PivotValueNode) Value() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotValue_value(n.getRaw(), &v)
+	internal.ASTPivotValue_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3707,7 +3707,7 @@ func (n *PivotValueNode) Value() ExpressionNode {
 
 func (n *PivotValueNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotValue_alias(n.getRaw(), &v)
+	internal.ASTPivotValue_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3720,11 +3720,11 @@ type PivotExpressionListNode struct {
 
 func (n *PivotExpressionListNode) Expressions() []*PivotExpressionNode {
 	var num int
-	internalparser.ASTPivotExpressionList_expressions_num(n.getRaw(), &num)
+	internal.ASTPivotExpressionList_expressions_num(n.getRaw(), &num)
 	ret := make([]*PivotExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTPivotExpressionList_expression(n.getRaw(), i, &v)
+		internal.ASTPivotExpressionList_expression(n.getRaw(), i, &v)
 		ret = append(ret, newPivotExpressionNode(v))
 	}
 	return ret
@@ -3736,11 +3736,11 @@ type PivotValueListNode struct {
 
 func (n *PivotValueListNode) Values() []*PivotValueNode {
 	var num int
-	internalparser.ASTPivotValueList_values_num(n.getRaw(), &num)
+	internal.ASTPivotValueList_values_num(n.getRaw(), &num)
 	ret := make([]*PivotValueNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTPivotValueList_value(n.getRaw(), i, &v)
+		internal.ASTPivotValueList_value(n.getRaw(), i, &v)
 		ret = append(ret, newPivotValueNode(v))
 	}
 	return ret
@@ -3752,7 +3752,7 @@ type PivotClauseNode struct {
 
 func (n *PivotClauseNode) PivotExpressions() *PivotExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotClause_pivot_expressions(n.getRaw(), &v)
+	internal.ASTPivotClause_pivot_expressions(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3761,7 +3761,7 @@ func (n *PivotClauseNode) PivotExpressions() *PivotExpressionListNode {
 
 func (n *PivotClauseNode) ForExpression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotClause_for_expression(n.getRaw(), &v)
+	internal.ASTPivotClause_for_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3770,7 +3770,7 @@ func (n *PivotClauseNode) ForExpression() ExpressionNode {
 
 func (n *PivotClauseNode) PivotValues() *PivotValueListNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotClause_pivot_values(n.getRaw(), &v)
+	internal.ASTPivotClause_pivot_values(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3779,7 +3779,7 @@ func (n *PivotClauseNode) PivotValues() *PivotValueListNode {
 
 func (n *PivotClauseNode) OutputAlias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTPivotClause_output_alias(n.getRaw(), &v)
+	internal.ASTPivotClause_output_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3792,7 +3792,7 @@ type UnpivotInItemNode struct {
 
 func (n *UnpivotInItemNode) UnpivotColumns() *PathExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotInItem_unpivot_columns(n.getRaw(), &v)
+	internal.ASTUnpivotInItem_unpivot_columns(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3801,7 +3801,7 @@ func (n *UnpivotInItemNode) UnpivotColumns() *PathExpressionListNode {
 
 func (n *UnpivotInItemNode) Alias() *UnpivotInItemLabelNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotInItem_alias(n.getRaw(), &v)
+	internal.ASTUnpivotInItem_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3814,11 +3814,11 @@ type UnpivotInItemListNode struct {
 
 func (n *UnpivotInItemListNode) InItems() []*UnpivotInItemNode {
 	var num int
-	internalparser.ASTUnpivotInItemList_in_items_num(n.getRaw(), &num)
+	internal.ASTUnpivotInItemList_in_items_num(n.getRaw(), &num)
 	ret := make([]*UnpivotInItemNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTUnpivotInItemList_in_item(n.getRaw(), i, &v)
+		internal.ASTUnpivotInItemList_in_item(n.getRaw(), i, &v)
 		ret = append(ret, newUnpivotInItemNode(v))
 	}
 	return ret
@@ -3849,18 +3849,18 @@ type UnpivotClauseNode struct {
 }
 
 func (n *UnpivotClauseNode) SetNullFilter(filter UnpivotNullFilter) {
-	internalparser.ASTUnpivotClause_set_null_filter(n.getRaw(), int(filter))
+	internal.ASTUnpivotClause_set_null_filter(n.getRaw(), int(filter))
 }
 
 func (n *UnpivotClauseNode) NullFilter() UnpivotNullFilter {
 	var v int
-	internalparser.ASTUnpivotClause_null_filter(n.getRaw(), &v)
+	internal.ASTUnpivotClause_null_filter(n.getRaw(), &v)
 	return UnpivotNullFilter(v)
 }
 
 func (n *UnpivotClauseNode) UnpivotOutputValueColumns() *PathExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotClause_unpivot_output_value_columns(n.getRaw(), &v)
+	internal.ASTUnpivotClause_unpivot_output_value_columns(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3869,7 +3869,7 @@ func (n *UnpivotClauseNode) UnpivotOutputValueColumns() *PathExpressionListNode 
 
 func (n *UnpivotClauseNode) UnpivotOutputNameColumn() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotClause_unpivot_output_name_column(n.getRaw(), &v)
+	internal.ASTUnpivotClause_unpivot_output_name_column(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3878,7 +3878,7 @@ func (n *UnpivotClauseNode) UnpivotOutputNameColumn() *PathExpressionNode {
 
 func (n *UnpivotClauseNode) UnpivotInItems() *UnpivotInItemListNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotClause_unpivot_in_items(n.getRaw(), &v)
+	internal.ASTUnpivotClause_unpivot_in_items(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3887,7 +3887,7 @@ func (n *UnpivotClauseNode) UnpivotInItems() *UnpivotInItemListNode {
 
 func (n *UnpivotClauseNode) OutputAlias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotClause_output_alias(n.getRaw(), &v)
+	internal.ASTUnpivotClause_output_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3900,11 +3900,11 @@ type UsingClauseNode struct {
 
 func (n *UsingClauseNode) Keys() []*IdentifierNode {
 	var num int
-	internalparser.ASTUsingClause_keys_num(n.getRaw(), &num)
+	internal.ASTUsingClause_keys_num(n.getRaw(), &num)
 	ret := make([]*IdentifierNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTUsingClause_key(n.getRaw(), i, &v)
+		internal.ASTUsingClause_key(n.getRaw(), i, &v)
 		ret = append(ret, newIdentifierNode(v))
 	}
 	return ret
@@ -3916,7 +3916,7 @@ type ForSystemTimeNode struct {
 
 func (n *ForSystemTimeNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTForSystemTime_expression(n.getRaw(), &v)
+	internal.ASTForSystemTime_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3929,7 +3929,7 @@ type QualifyNode struct {
 
 func (n *QualifyNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTQualify_expression(n.getRaw(), &v)
+	internal.ASTQualify_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3942,7 +3942,7 @@ type ClampedBetweenModifierNode struct {
 
 func (n *ClampedBetweenModifierNode) Low() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTClampedBetweenModifier_low(n.getRaw(), &v)
+	internal.ASTClampedBetweenModifier_low(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3951,7 +3951,7 @@ func (n *ClampedBetweenModifierNode) Low() ExpressionNode {
 
 func (n *ClampedBetweenModifierNode) High() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTClampedBetweenModifier_high(n.getRaw(), &v)
+	internal.ASTClampedBetweenModifier_high(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3964,7 +3964,7 @@ type FormatClauseNode struct {
 
 func (n *FormatClauseNode) Format() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFormatClause_format(n.getRaw(), &v)
+	internal.ASTFormatClause_format(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3973,7 +3973,7 @@ func (n *FormatClauseNode) Format() ExpressionNode {
 
 func (n *FormatClauseNode) TimeZoneExpr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFormatClause_time_zone_expr(n.getRaw(), &v)
+	internal.ASTFormatClause_time_zone_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -3986,11 +3986,11 @@ type PathExpressionListNode struct {
 
 func (n *PathExpressionListNode) PathExpressionList() []*PathExpressionNode {
 	var num int
-	internalparser.ASTPathExpressionList_path_expression_list_num(n.getRaw(), &num)
+	internal.ASTPathExpressionList_path_expression_list_num(n.getRaw(), &num)
 	ret := make([]*PathExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTPathExpressionList_path_expression_list(n.getRaw(), i, &v)
+		internal.ASTPathExpressionList_path_expression_list(n.getRaw(), i, &v)
 		ret = append(ret, newPathExpressionNode(v))
 	}
 	return ret
@@ -4001,18 +4001,18 @@ type ParameterExprNode struct {
 }
 
 func (n *ParameterExprNode) SetPosition(pos int) {
-	internalparser.ASTParameterExpr_set_position(n.getRaw(), pos)
+	internal.ASTParameterExpr_set_position(n.getRaw(), pos)
 }
 
 func (n *ParameterExprNode) Position() int {
 	var v int
-	internalparser.ASTParameterExpr_position(n.getRaw(), &v)
+	internal.ASTParameterExpr_position(n.getRaw(), &v)
 	return v
 }
 
 func (n *ParameterExprNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTParameterExpr_name(n.getRaw(), &v)
+	internal.ASTParameterExpr_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4025,7 +4025,7 @@ type SystemVariableExprNode struct {
 
 func (n *SystemVariableExprNode) Path() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSystemVariableExpr_path(n.getRaw(), &v)
+	internal.ASTSystemVariableExpr_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4038,7 +4038,7 @@ type WithGroupRowsNode struct {
 
 func (n *WithGroupRowsNode) Subquery() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithGroupRows_subquery(n.getRaw(), &v)
+	internal.ASTWithGroupRows_subquery(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4051,7 +4051,7 @@ type LambdaNode struct {
 
 func (n *LambdaNode) ArgumentList() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLambda_argument_list(n.getRaw(), &v)
+	internal.ASTLambda_argument_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4060,7 +4060,7 @@ func (n *LambdaNode) ArgumentList() ExpressionNode {
 
 func (n *LambdaNode) Body() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTLambda_body(n.getRaw(), &v)
+	internal.ASTLambda_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4073,7 +4073,7 @@ type AnalyticFunctionCallNode struct {
 
 func (n *AnalyticFunctionCallNode) WindowSpec() *WindowSpecificationNode {
 	var v unsafe.Pointer
-	internalparser.ASTAnalyticFunctionCall_window_spec(n.getRaw(), &v)
+	internal.ASTAnalyticFunctionCall_window_spec(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4082,7 +4082,7 @@ func (n *AnalyticFunctionCallNode) WindowSpec() *WindowSpecificationNode {
 
 func (n *AnalyticFunctionCallNode) Function() *FunctionCallNode {
 	var v unsafe.Pointer
-	internalparser.ASTAnalyticFunctionCall_function(n.getRaw(), &v)
+	internal.ASTAnalyticFunctionCall_function(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4091,7 +4091,7 @@ func (n *AnalyticFunctionCallNode) Function() *FunctionCallNode {
 
 func (n *AnalyticFunctionCallNode) FunctionWithGroupRows() *FunctionCallWithGroupRowsNode {
 	var v unsafe.Pointer
-	internalparser.ASTAnalyticFunctionCall_function_with_group_rows(n.getRaw(), &v)
+	internal.ASTAnalyticFunctionCall_function_with_group_rows(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4104,7 +4104,7 @@ type FunctionCallWithGroupRowsNode struct {
 
 func (n *FunctionCallWithGroupRowsNode) Function() *FunctionCallNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCallWithGroupRows_function(n.getRaw(), &v)
+	internal.ASTFunctionCallWithGroupRows_function(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4113,7 +4113,7 @@ func (n *FunctionCallWithGroupRowsNode) Function() *FunctionCallNode {
 
 func (n *FunctionCallWithGroupRowsNode) Subquery() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionCallWithGroupRows_subquery(n.getRaw(), &v)
+	internal.ASTFunctionCallWithGroupRows_subquery(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4126,11 +4126,11 @@ type ClusterByNode struct {
 
 func (n *ClusterByNode) ClusteringExpressions() []ExpressionNode {
 	var num int
-	internalparser.ASTClusterBy_clustering_expressions_num(n.getRaw(), &num)
+	internal.ASTClusterBy_clustering_expressions_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTClusterBy_clustering_expression(n.getRaw(), i, &v)
+		internal.ASTClusterBy_clustering_expression(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -4142,7 +4142,7 @@ type NewConstructorArgNode struct {
 
 func (n *NewConstructorArgNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTNewConstructorArg_expression(n.getRaw(), &v)
+	internal.ASTNewConstructorArg_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4151,7 +4151,7 @@ func (n *NewConstructorArgNode) Expression() ExpressionNode {
 
 func (n *NewConstructorArgNode) OptionalIdentifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTNewConstructorArg_optional_identifier(n.getRaw(), &v)
+	internal.ASTNewConstructorArg_optional_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4160,7 +4160,7 @@ func (n *NewConstructorArgNode) OptionalIdentifier() *IdentifierNode {
 
 func (n *NewConstructorArgNode) OptionalPathExpression() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTNewConstructorArg_optional_path_expression(n.getRaw(), &v)
+	internal.ASTNewConstructorArg_optional_path_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4173,7 +4173,7 @@ type NewConstructorNode struct {
 
 func (n *NewConstructorNode) TypeName() *SimpleTypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTNewConstructor_type_name(n.getRaw(), &v)
+	internal.ASTNewConstructor_type_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4182,11 +4182,11 @@ func (n *NewConstructorNode) TypeName() *SimpleTypeNode {
 
 func (n *NewConstructorNode) Arguments() []*NewConstructorArgNode {
 	var num int
-	internalparser.ASTNewConstructor_arguments_num(n.getRaw(), &num)
+	internal.ASTNewConstructor_arguments_num(n.getRaw(), &num)
 	ret := make([]*NewConstructorArgNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTNewConstructor_argument(n.getRaw(), i, &v)
+		internal.ASTNewConstructor_argument(n.getRaw(), i, &v)
 		ret = append(ret, newNewConstructorArgNode(v))
 	}
 	return ret
@@ -4198,11 +4198,11 @@ type OptionsListNode struct {
 
 func (n *OptionsListNode) OptionsEntries() []*OptionsEntryNode {
 	var num int
-	internalparser.ASTOptionsList_options_entries_num(n.getRaw(), &num)
+	internal.ASTOptionsList_options_entries_num(n.getRaw(), &num)
 	ret := make([]*OptionsEntryNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTOptionsList_options_entry(n.getRaw(), i, &v)
+		internal.ASTOptionsList_options_entry(n.getRaw(), i, &v)
 		ret = append(ret, newOptionsEntryNode(v))
 	}
 	return ret
@@ -4214,7 +4214,7 @@ type OptionsEntryNode struct {
 
 func (n *OptionsEntryNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTOptionsEntry_name(n.getRaw(), &v)
+	internal.ASTOptionsEntry_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4223,7 +4223,7 @@ func (n *OptionsEntryNode) Name() *IdentifierNode {
 
 func (n *OptionsEntryNode) Value() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTOptionsEntry_value(n.getRaw(), &v)
+	internal.ASTOptionsEntry_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4278,56 +4278,56 @@ type CreateStatementNode struct {
 }
 
 func (n *CreateStatementNode) SetScope(scope CreateStatementScope) {
-	internalparser.ASTCreateStatement_set_scope(n.getRaw(), int(scope))
+	internal.ASTCreateStatement_set_scope(n.getRaw(), int(scope))
 }
 
 func (n *CreateStatementNode) Scope() CreateStatementScope {
 	var v int
-	internalparser.ASTCreateStatement_scope(n.getRaw(), &v)
+	internal.ASTCreateStatement_scope(n.getRaw(), &v)
 	return CreateStatementScope(v)
 }
 
 func (n *CreateStatementNode) SetIsOrReplace(isOrReplace bool) {
-	internalparser.ASTCreateStatement_set_is_or_replace(n.getRaw(), boolToInt(isOrReplace))
+	internal.ASTCreateStatement_set_is_or_replace(n.getRaw(), boolToInt(isOrReplace))
 }
 
 func (n *CreateStatementNode) IsOrReplace() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_or_replace(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_or_replace(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateStatementNode) SetIsIfNotExists(isIfNotExists bool) {
-	internalparser.ASTCreateStatement_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTCreateStatement_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *CreateStatementNode) IsIfNotExists() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_if_not_exists(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_if_not_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateStatementNode) IsDefaultScope() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_default_scope(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_default_scope(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateStatementNode) IsPrivate() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_private(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_private(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateStatementNode) IsPublic() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_public(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_public(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateStatementNode) IsTemp() bool {
 	var v bool
-	internalparser.ASTCreateStatement_is_temp(n.getRaw(), &v)
+	internal.ASTCreateStatement_is_temp(n.getRaw(), &v)
 	return v
 }
 
@@ -4359,28 +4359,28 @@ type FunctionParameterNode struct {
 }
 
 func (n *FunctionParameterNode) SetProcedureParameterMode(mode ProcedureParameterMode) {
-	internalparser.ASTFunctionParameter_set_procedure_parameter_mode(n.getRaw(), int(mode))
+	internal.ASTFunctionParameter_set_procedure_parameter_mode(n.getRaw(), int(mode))
 }
 
 func (n *FunctionParameterNode) ProcedureParameterMode() ProcedureParameterMode {
 	var v int
-	internalparser.ASTFunctionParameter_procedure_parameter_mode(n.getRaw(), &v)
+	internal.ASTFunctionParameter_procedure_parameter_mode(n.getRaw(), &v)
 	return ProcedureParameterMode(v)
 }
 
 func (n *FunctionParameterNode) SetIsNotAggregate(isNotAggregate bool) {
-	internalparser.ASTFunctionParameter_set_is_not_aggregate(n.getRaw(), boolToInt(isNotAggregate))
+	internal.ASTFunctionParameter_set_is_not_aggregate(n.getRaw(), boolToInt(isNotAggregate))
 }
 
 func (n *FunctionParameterNode) IsNotAggregate() bool {
 	var v bool
-	internalparser.ASTFunctionParameter_is_not_aggregate(n.getRaw(), &v)
+	internal.ASTFunctionParameter_is_not_aggregate(n.getRaw(), &v)
 	return v
 }
 
 func (n *FunctionParameterNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_name(n.getRaw(), &v)
+	internal.ASTFunctionParameter_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4389,7 +4389,7 @@ func (n *FunctionParameterNode) Name() *IdentifierNode {
 
 func (n *FunctionParameterNode) Type() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_type(n.getRaw(), &v)
+	internal.ASTFunctionParameter_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4398,7 +4398,7 @@ func (n *FunctionParameterNode) Type() TypeNode {
 
 func (n *FunctionParameterNode) TemplatedParameterType() *TemplatedParameterTypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_templated_parameter_type(n.getRaw(), &v)
+	internal.ASTFunctionParameter_templated_parameter_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4407,7 +4407,7 @@ func (n *FunctionParameterNode) TemplatedParameterType() *TemplatedParameterType
 
 func (n *FunctionParameterNode) TVFSchema() *TVFSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_tvf_schema(n.getRaw(), &v)
+	internal.ASTFunctionParameter_tvf_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4416,7 +4416,7 @@ func (n *FunctionParameterNode) TVFSchema() *TVFSchemaNode {
 
 func (n *FunctionParameterNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_alias(n.getRaw(), &v)
+	internal.ASTFunctionParameter_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4425,7 +4425,7 @@ func (n *FunctionParameterNode) Alias() *AliasNode {
 
 func (n *FunctionParameterNode) DefaultValue() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionParameter_default_value(n.getRaw(), &v)
+	internal.ASTFunctionParameter_default_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4434,13 +4434,13 @@ func (n *FunctionParameterNode) DefaultValue() ExpressionNode {
 
 func (n *FunctionParameterNode) IsTableParameter() bool {
 	var v bool
-	internalparser.ASTFunctionParameter_IsTableParameter(n.getRaw(), &v)
+	internal.ASTFunctionParameter_IsTableParameter(n.getRaw(), &v)
 	return v
 }
 
 func (n *FunctionParameterNode) IsTemplated() bool {
 	var v bool
-	internalparser.ASTFunctionParameter_IsTemplated(n.getRaw(), &v)
+	internal.ASTFunctionParameter_IsTemplated(n.getRaw(), &v)
 	return v
 }
 
@@ -4450,11 +4450,11 @@ type FunctionParametersNode struct {
 
 func (n *FunctionParametersNode) ParameterEntries() []*FunctionParameterNode {
 	var num int
-	internalparser.ASTFunctionParameters_parameter_entries_num(n.getRaw(), &num)
+	internal.ASTFunctionParameters_parameter_entries_num(n.getRaw(), &num)
 	ret := make([]*FunctionParameterNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTFunctionParameters_parameter_entry(n.getRaw(), i, &v)
+		internal.ASTFunctionParameters_parameter_entry(n.getRaw(), i, &v)
 		ret = append(ret, newFunctionParameterNode(v))
 	}
 	return ret
@@ -4466,7 +4466,7 @@ type FunctionDeclarationNode struct {
 
 func (n *FunctionDeclarationNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionDeclaration_name(n.getRaw(), &v)
+	internal.ASTFunctionDeclaration_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4475,7 +4475,7 @@ func (n *FunctionDeclarationNode) Name() *PathExpressionNode {
 
 func (n *FunctionDeclarationNode) Parameters() *FunctionParametersNode {
 	var v unsafe.Pointer
-	internalparser.ASTFunctionDeclaration_parameters(n.getRaw(), &v)
+	internal.ASTFunctionDeclaration_parameters(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4484,7 +4484,7 @@ func (n *FunctionDeclarationNode) Parameters() *FunctionParametersNode {
 
 func (n *FunctionDeclarationNode) IsTemplated() bool {
 	var v bool
-	internalparser.ASTFunctionDeclaration_IsTemplated(n.getRaw(), &v)
+	internal.ASTFunctionDeclaration_IsTemplated(n.getRaw(), &v)
 	return v
 }
 
@@ -4494,7 +4494,7 @@ type SqlFunctionBodyNode struct {
 
 func (n *SqlFunctionBodyNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSqlFunctionBody_expression(n.getRaw(), &v)
+	internal.ASTSqlFunctionBody_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4507,7 +4507,7 @@ type TVFArgumentNode struct {
 
 func (n *TVFArgumentNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFArgument_expr(n.getRaw(), &v)
+	internal.ASTTVFArgument_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4516,7 +4516,7 @@ func (n *TVFArgumentNode) Expr() ExpressionNode {
 
 func (n *TVFArgumentNode) TableClause() *TableClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFArgument_table_clause(n.getRaw(), &v)
+	internal.ASTTVFArgument_table_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4525,7 +4525,7 @@ func (n *TVFArgumentNode) TableClause() *TableClauseNode {
 
 func (n *TVFArgumentNode) ModelClause() *ModelClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFArgument_model_clause(n.getRaw(), &v)
+	internal.ASTTVFArgument_model_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4534,7 +4534,7 @@ func (n *TVFArgumentNode) ModelClause() *ModelClauseNode {
 
 func (n *TVFArgumentNode) ConnectionClause() *ConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFArgument_connection_clause(n.getRaw(), &v)
+	internal.ASTTVFArgument_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4543,7 +4543,7 @@ func (n *TVFArgumentNode) ConnectionClause() *ConnectionClauseNode {
 
 func (n *TVFArgumentNode) Descriptor() *DescriptorNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFArgument_descriptor(n.getRaw(), &v)
+	internal.ASTTVFArgument_descriptor(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4556,7 +4556,7 @@ type TVFNode struct {
 
 func (n *TVFNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_name(n.getRaw(), &v)
+	internal.ASTTVF_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4565,7 +4565,7 @@ func (n *TVFNode) Name() *PathExpressionNode {
 
 func (n *TVFNode) Hint() *HintNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_hint(n.getRaw(), &v)
+	internal.ASTTVF_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4574,7 +4574,7 @@ func (n *TVFNode) Hint() *HintNode {
 
 func (n *TVFNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_alias(n.getRaw(), &v)
+	internal.ASTTVF_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4583,7 +4583,7 @@ func (n *TVFNode) Alias() *AliasNode {
 
 func (n *TVFNode) PivotClause() *PivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_pivot_clause(n.getRaw(), &v)
+	internal.ASTTVF_pivot_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4592,7 +4592,7 @@ func (n *TVFNode) PivotClause() *PivotClauseNode {
 
 func (n *TVFNode) UnpivotClause() *UnpivotClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_unpivot_clause(n.getRaw(), &v)
+	internal.ASTTVF_unpivot_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4601,7 +4601,7 @@ func (n *TVFNode) UnpivotClause() *UnpivotClauseNode {
 
 func (n *TVFNode) SampleClause() *SampleClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVF_sample(n.getRaw(), &v)
+	internal.ASTTVF_sample(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4610,11 +4610,11 @@ func (n *TVFNode) SampleClause() *SampleClauseNode {
 
 func (n *TVFNode) ArgumentEntries() []*TVFArgumentNode {
 	var num int
-	internalparser.ASTTVF_argument_entries_num(n.getRaw(), &num)
+	internal.ASTTVF_argument_entries_num(n.getRaw(), &num)
 	ret := make([]*TVFArgumentNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTVF_argument_entry(n.getRaw(), i, &v)
+		internal.ASTTVF_argument_entry(n.getRaw(), i, &v)
 		ret = append(ret, newTVFArgumentNode(v))
 	}
 	return ret
@@ -4626,7 +4626,7 @@ type TableClauseNode struct {
 
 func (n *TableClauseNode) TablePath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableClause_table_path(n.getRaw(), &v)
+	internal.ASTTableClause_table_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4635,7 +4635,7 @@ func (n *TableClauseNode) TablePath() *PathExpressionNode {
 
 func (n *TableClauseNode) TVF() *TVFNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableClause_tvf(n.getRaw(), &v)
+	internal.ASTTableClause_tvf(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4648,7 +4648,7 @@ type ModelClauseNode struct {
 
 func (n *ModelClauseNode) ModelPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTModelClause_model_path(n.getRaw(), &v)
+	internal.ASTModelClause_model_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4661,7 +4661,7 @@ type ConnectionClauseNode struct {
 
 func (n *ConnectionClauseNode) ConnectionPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTConnectionClause_connection_path(n.getRaw(), &v)
+	internal.ASTConnectionClause_connection_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4674,7 +4674,7 @@ type TableDataSourceNode struct {
 
 func (n *TableDataSourceNode) PathExpr() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableDataSource_path_expr(n.getRaw(), &v)
+	internal.ASTTableDataSource_path_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4683,7 +4683,7 @@ func (n *TableDataSourceNode) PathExpr() *PathExpressionNode {
 
 func (n *TableDataSourceNode) ForSystemTime() *ForSystemTimeNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableDataSource_for_system_time(n.getRaw(), &v)
+	internal.ASTTableDataSource_for_system_time(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4692,7 +4692,7 @@ func (n *TableDataSourceNode) ForSystemTime() *ForSystemTimeNode {
 
 func (n *TableDataSourceNode) WhereClause() *WhereClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableDataSource_where_clause(n.getRaw(), &v)
+	internal.ASTTableDataSource_where_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4713,11 +4713,11 @@ type CloneDataSourceListNode struct {
 
 func (n *CloneDataSourceListNode) DataSources() []*CloneDataSourceNode {
 	var num int
-	internalparser.ASTCloneDataSourceList_data_sources_num(n.getRaw(), &num)
+	internal.ASTCloneDataSourceList_data_sources_num(n.getRaw(), &num)
 	ret := make([]*CloneDataSourceNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTCloneDataSourceList_data_source(n.getRaw(), i, &v)
+		internal.ASTCloneDataSourceList_data_source(n.getRaw(), i, &v)
 		ret = append(ret, newCloneDataSourceNode(v))
 	}
 	return ret
@@ -4729,7 +4729,7 @@ type CloneDataStatementNode struct {
 
 func (n *CloneDataStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCloneDataStatement_target_path(n.getRaw(), &v)
+	internal.ASTCloneDataStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4738,7 +4738,7 @@ func (n *CloneDataStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *CloneDataStatementNode) DataSourceList() *CloneDataSourceListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCloneDataStatement_data_source_list(n.getRaw(), &v)
+	internal.ASTCloneDataStatement_data_source_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4751,7 +4751,7 @@ type CreateConstantStatementNode struct {
 
 func (n *CreateConstantStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateConstantStatement_name(n.getRaw(), &v)
+	internal.ASTCreateConstantStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4760,7 +4760,7 @@ func (n *CreateConstantStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateConstantStatementNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateConstantStatement_expr(n.getRaw(), &v)
+	internal.ASTCreateConstantStatement_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4773,7 +4773,7 @@ type CreateDatabaseStatementNode struct {
 
 func (n *CreateDatabaseStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateDatabaseStatement_name(n.getRaw(), &v)
+	internal.ASTCreateDatabaseStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4782,7 +4782,7 @@ func (n *CreateDatabaseStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateDatabaseStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateDatabaseStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateDatabaseStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4795,7 +4795,7 @@ type CreateProcedureStatementNode struct {
 
 func (n *CreateProcedureStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateProcedureStatement_name(n.getRaw(), &v)
+	internal.ASTCreateProcedureStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4804,7 +4804,7 @@ func (n *CreateProcedureStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateProcedureStatementNode) Parameters() *FunctionParametersNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateProcedureStatement_parameters(n.getRaw(), &v)
+	internal.ASTCreateProcedureStatement_parameters(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4813,7 +4813,7 @@ func (n *CreateProcedureStatementNode) Parameters() *FunctionParametersNode {
 
 func (n *CreateProcedureStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateProcedureStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateProcedureStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4822,7 +4822,7 @@ func (n *CreateProcedureStatementNode) OptionsList() *OptionsListNode {
 
 func (n *CreateProcedureStatementNode) Body() ScriptNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateProcedureStatement_body(n.getRaw(), &v)
+	internal.ASTCreateProcedureStatement_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4835,7 +4835,7 @@ type CreateSchemaStatementNode struct {
 
 func (n *CreateSchemaStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSchemaStatement_name(n.getRaw(), &v)
+	internal.ASTCreateSchemaStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4844,7 +4844,7 @@ func (n *CreateSchemaStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateSchemaStatementNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSchemaStatement_collate(n.getRaw(), &v)
+	internal.ASTCreateSchemaStatement_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4853,7 +4853,7 @@ func (n *CreateSchemaStatementNode) Collate() *CollateNode {
 
 func (n *CreateSchemaStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSchemaStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateSchemaStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4866,7 +4866,7 @@ type TransformClauseNode struct {
 
 func (n *TransformClauseNode) SelectList() *SelectListNode {
 	var v unsafe.Pointer
-	internalparser.ASTTransformClause_select_list(n.getRaw(), &v)
+	internal.ASTTransformClause_select_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4879,7 +4879,7 @@ type CreateModelStatementNode struct {
 
 func (n *CreateModelStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateModelStatement_name(n.getRaw(), &v)
+	internal.ASTCreateModelStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4888,7 +4888,7 @@ func (n *CreateModelStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateModelStatementNode) TransformClause() *TransformClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateModelStatement_transform_clause(n.getRaw(), &v)
+	internal.ASTCreateModelStatement_transform_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4897,7 +4897,7 @@ func (n *CreateModelStatementNode) TransformClause() *TransformClauseNode {
 
 func (n *CreateModelStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateModelStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateModelStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4906,7 +4906,7 @@ func (n *CreateModelStatementNode) OptionsList() *OptionsListNode {
 
 func (n *CreateModelStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateModelStatement_query(n.getRaw(), &v)
+	internal.ASTCreateModelStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -4923,11 +4923,11 @@ type IndexItemListNode struct {
 
 func (n *IndexItemListNode) OrderingExpressions() []*OrderingExpressionNode {
 	var num int
-	internalparser.ASTIndexItemList_ordering_expressions_num(n.getRaw(), &num)
+	internal.ASTIndexItemList_ordering_expressions_num(n.getRaw(), &num)
 	ret := make([]*OrderingExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTIndexItemList_ordering_expression(n.getRaw(), i, &v)
+		internal.ASTIndexItemList_ordering_expression(n.getRaw(), i, &v)
 		ret = append(ret, newOrderingExpressionNode(v))
 	}
 	return ret
@@ -4939,11 +4939,11 @@ type IndexStoringExpressionListNode struct {
 
 func (n *IndexStoringExpressionListNode) Expressions() []ExpressionNode {
 	var num int
-	internalparser.ASTIndexStoringExpressionList_expressions_num(n.getRaw(), &num)
+	internal.ASTIndexStoringExpressionList_expressions_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTIndexStoringExpressionList_expression(n.getRaw(), i, &v)
+		internal.ASTIndexStoringExpressionList_expression(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -4955,11 +4955,11 @@ type IndexUnnestExpressionListNode struct {
 
 func (n *IndexUnnestExpressionListNode) UnnestExpressions() []*UnnestExpressionWithOptAliasAndOffsetNode {
 	var num int
-	internalparser.ASTIndexUnnestExpressionList_unnest_expressions_num(n.getRaw(), &num)
+	internal.ASTIndexUnnestExpressionList_unnest_expressions_num(n.getRaw(), &num)
 	ret := make([]*UnnestExpressionWithOptAliasAndOffsetNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTIndexUnnestExpressionList_unnest_expression(n.getRaw(), i, &v)
+		internal.ASTIndexUnnestExpressionList_unnest_expression(n.getRaw(), i, &v)
 		ret = append(ret, newUnnestExpressionWithOptAliasAndOffsetNode(v))
 	}
 	return ret
@@ -4970,28 +4970,28 @@ type CreateIndexStatementNode struct {
 }
 
 func (n *CreateIndexStatementNode) SetIsUnique(isUnique bool) {
-	internalparser.ASTCreateIndexStatement_set_is_unique(n.getRaw(), boolToInt(isUnique))
+	internal.ASTCreateIndexStatement_set_is_unique(n.getRaw(), boolToInt(isUnique))
 }
 
 func (n *CreateIndexStatementNode) IsUnique() bool {
 	var v bool
-	internalparser.ASTCreateIndexStatement_is_unique(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_is_unique(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateIndexStatementNode) SetIsSearch(isSearch bool) {
-	internalparser.ASTCreateIndexStatement_set_is_search(n.getRaw(), boolToInt(isSearch))
+	internal.ASTCreateIndexStatement_set_is_search(n.getRaw(), boolToInt(isSearch))
 }
 
 func (n *CreateIndexStatementNode) IsSearch() bool {
 	var v bool
-	internalparser.ASTCreateIndexStatement_is_search(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_is_search(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateIndexStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_name(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5000,7 +5000,7 @@ func (n *CreateIndexStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateIndexStatementNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_table_name(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5009,7 +5009,7 @@ func (n *CreateIndexStatementNode) TableName() *PathExpressionNode {
 
 func (n *CreateIndexStatementNode) OptionalTableAlias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_optional_table_alias(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_optional_table_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5018,7 +5018,7 @@ func (n *CreateIndexStatementNode) OptionalTableAlias() *AliasNode {
 
 func (n *CreateIndexStatementNode) OptionalIndexUnnestExpressionList() *IndexUnnestExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_optional_index_unnest_expression_list(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_optional_index_unnest_expression_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5027,7 +5027,7 @@ func (n *CreateIndexStatementNode) OptionalIndexUnnestExpressionList() *IndexUnn
 
 func (n *CreateIndexStatementNode) IndexItemList() *IndexItemListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_index_item_list(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_index_item_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5036,7 +5036,7 @@ func (n *CreateIndexStatementNode) IndexItemList() *IndexItemListNode {
 
 func (n *CreateIndexStatementNode) OptionalIndexSotringExpressions() *IndexStoringExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_optional_index_storing_expressions(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_optional_index_storing_expressions(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5045,7 +5045,7 @@ func (n *CreateIndexStatementNode) OptionalIndexSotringExpressions() *IndexStori
 
 func (n *CreateIndexStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateIndexStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateIndexStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5058,7 +5058,7 @@ type ExportDataStatementNode struct {
 
 func (n *ExportDataStatementNode) WithConnectionClause() *WithConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportDataStatement_with_connection_clause(n.getRaw(), &v)
+	internal.ASTExportDataStatement_with_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5067,7 +5067,7 @@ func (n *ExportDataStatementNode) WithConnectionClause() *WithConnectionClauseNo
 
 func (n *ExportDataStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportDataStatement_options_list(n.getRaw(), &v)
+	internal.ASTExportDataStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5076,7 +5076,7 @@ func (n *ExportDataStatementNode) OptionsList() *OptionsListNode {
 
 func (n *ExportDataStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportDataStatement_query(n.getRaw(), &v)
+	internal.ASTExportDataStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5089,7 +5089,7 @@ type ExportModelStatementNode struct {
 
 func (n *ExportModelStatementNode) ModelNamePath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportModelStatement_model_name_path(n.getRaw(), &v)
+	internal.ASTExportModelStatement_model_name_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5098,7 +5098,7 @@ func (n *ExportModelStatementNode) ModelNamePath() *PathExpressionNode {
 
 func (n *ExportModelStatementNode) WithConnectionClause() *WithConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportModelStatement_with_connection_clause(n.getRaw(), &v)
+	internal.ASTExportModelStatement_with_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5107,7 +5107,7 @@ func (n *ExportModelStatementNode) WithConnectionClause() *WithConnectionClauseN
 
 func (n *ExportModelStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTExportModelStatement_options_list(n.getRaw(), &v)
+	internal.ASTExportModelStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5120,7 +5120,7 @@ type CallStatementNode struct {
 
 func (n *CallStatementNode) ProcedureName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCallStatement_procedure_name(n.getRaw(), &v)
+	internal.ASTCallStatement_procedure_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5129,11 +5129,11 @@ func (n *CallStatementNode) ProcedureName() *PathExpressionNode {
 
 func (n *CallStatementNode) Arguments() []*TVFArgumentNode {
 	var num int
-	internalparser.ASTCallStatement_arguments_num(n.getRaw(), &num)
+	internal.ASTCallStatement_arguments_num(n.getRaw(), &num)
 	ret := make([]*TVFArgumentNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTCallStatement_argument(n.getRaw(), i, &v)
+		internal.ASTCallStatement_argument(n.getRaw(), i, &v)
 		ret = append(ret, newTVFArgumentNode(v))
 	}
 	return ret
@@ -5145,7 +5145,7 @@ type DefineTableStatementNode struct {
 
 func (n *DefineTableStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDefineTableStatement_name(n.getRaw(), &v)
+	internal.ASTDefineTableStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5154,7 +5154,7 @@ func (n *DefineTableStatementNode) Name() *PathExpressionNode {
 
 func (n *DefineTableStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTDefineTableStatement_options_list(n.getRaw(), &v)
+	internal.ASTDefineTableStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5167,7 +5167,7 @@ type WithPartitionColumnsClauseNode struct {
 
 func (n *WithPartitionColumnsClauseNode) TableElementList() *TableElementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithPartitionColumnsClause_table_element_list(n.getRaw(), &v)
+	internal.ASTWithPartitionColumnsClause_table_element_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5180,7 +5180,7 @@ type CreateSnapshotTableStatementNode struct {
 
 func (n *CreateSnapshotTableStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSnapshotTableStatement_name(n.getRaw(), &v)
+	internal.ASTCreateSnapshotTableStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5189,7 +5189,7 @@ func (n *CreateSnapshotTableStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateSnapshotTableStatementNode) CloneDataSource() *CloneDataSourceNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSnapshotTableStatement_clone_data_source(n.getRaw(), &v)
+	internal.ASTCreateSnapshotTableStatement_clone_data_source(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5198,7 +5198,7 @@ func (n *CreateSnapshotTableStatementNode) CloneDataSource() *CloneDataSourceNod
 
 func (n *CreateSnapshotTableStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateSnapshotTableStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateSnapshotTableStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5211,11 +5211,11 @@ type TypeParameterListNode struct {
 
 func (n *TypeParameterListNode) Parameters() []LeafNode {
 	var num int
-	internalparser.ASTTypeParameterList_parameters_num(n.getRaw(), &num)
+	internal.ASTTypeParameterList_parameters_num(n.getRaw(), &num)
 	ret := make([]LeafNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTypeParameterList_parameter(n.getRaw(), i, &v)
+		internal.ASTTypeParameterList_parameter(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(LeafNode))
 	}
 	return ret
@@ -5227,11 +5227,11 @@ type TVFSchemaNode struct {
 
 func (n *TVFSchemaNode) Columns() []*TVFSchemaColumnNode {
 	var num int
-	internalparser.ASTTVFSchema_columns_num(n.getRaw(), &num)
+	internal.ASTTVFSchema_columns_num(n.getRaw(), &num)
 	ret := make([]*TVFSchemaColumnNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTVFSchema_column(n.getRaw(), i, &v)
+		internal.ASTTVFSchema_column(n.getRaw(), i, &v)
 		ret = append(ret, newTVFSchemaColumnNode(v))
 	}
 	return ret
@@ -5243,7 +5243,7 @@ type TVFSchemaColumnNode struct {
 
 func (n *TVFSchemaColumnNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFSchemaColumn_name(n.getRaw(), &v)
+	internal.ASTTVFSchemaColumn_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5252,7 +5252,7 @@ func (n *TVFSchemaColumnNode) Name() *IdentifierNode {
 
 func (n *TVFSchemaColumnNode) Type() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTTVFSchemaColumn_type(n.getRaw(), &v)
+	internal.ASTTVFSchemaColumn_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5265,7 +5265,7 @@ type TableAndColumnInfoNode struct {
 
 func (n *TableAndColumnInfoNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableAndColumnInfo_table_name(n.getRaw(), &v)
+	internal.ASTTableAndColumnInfo_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5274,7 +5274,7 @@ func (n *TableAndColumnInfoNode) TableName() *PathExpressionNode {
 
 func (n *TableAndColumnInfoNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableAndColumnInfo_column_list(n.getRaw(), &v)
+	internal.ASTTableAndColumnInfo_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5287,11 +5287,11 @@ type TableAndColumnInfoListNode struct {
 
 func (n *TableAndColumnInfoListNode) TableAndColumnInfoEntries() []*TableAndColumnInfoNode {
 	var num int
-	internalparser.ASTTableAndColumnInfoList_table_and_column_info_entries_num(n.getRaw(), &num)
+	internal.ASTTableAndColumnInfoList_table_and_column_info_entries_num(n.getRaw(), &num)
 	ret := make([]*TableAndColumnInfoNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTableAndColumnInfoList_table_and_column_info_entry(n.getRaw(), i, &v)
+		internal.ASTTableAndColumnInfoList_table_and_column_info_entry(n.getRaw(), i, &v)
 		ret = append(ret, newTableAndColumnInfoNode(v))
 	}
 	return ret
@@ -5334,12 +5334,12 @@ type TemplatedParameterTypeNode struct {
 }
 
 func (n *TemplatedParameterTypeNode) SetKind(kind TemplatedTypeKind) {
-	internalparser.ASTTemplatedParameterType_set_kind(n.getRaw(), int(kind))
+	internal.ASTTemplatedParameterType_set_kind(n.getRaw(), int(kind))
 }
 
 func (n *TemplatedParameterTypeNode) TemplatedKind() TemplatedTypeKind {
 	var v int
-	internalparser.ASTTemplatedParameterType_kind(n.getRaw(), &v)
+	internal.ASTTemplatedParameterType_kind(n.getRaw(), &v)
 	return TemplatedTypeKind(v)
 }
 
@@ -5353,7 +5353,7 @@ type AnalyzeStatementNode struct {
 
 func (n *AnalyzeStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAnalyzeStatement_options_list(n.getRaw(), &v)
+	internal.ASTAnalyzeStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5362,7 +5362,7 @@ func (n *AnalyzeStatementNode) OptionsList() *OptionsListNode {
 
 func (n *AnalyzeStatementNode) TableAndColumnInfoList() *TableAndColumnInfoListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAnalyzeStatement_table_and_column_info_list(n.getRaw(), &v)
+	internal.ASTAnalyzeStatement_table_and_column_info_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5375,7 +5375,7 @@ type AssertStatementNode struct {
 
 func (n *AssertStatementNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAssertStatement_expr(n.getRaw(), &v)
+	internal.ASTAssertStatement_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5384,7 +5384,7 @@ func (n *AssertStatementNode) Expr() ExpressionNode {
 
 func (n *AssertStatementNode) Description() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTAssertStatement_description(n.getRaw(), &v)
+	internal.ASTAssertStatement_description(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5397,7 +5397,7 @@ type AssertRowsModifiedNode struct {
 
 func (n *AssertRowsModifiedNode) NumRows() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAssertRowsModified_num_rows(n.getRaw(), &v)
+	internal.ASTAssertRowsModified_num_rows(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5410,7 +5410,7 @@ type ReturningClauseNode struct {
 
 func (n *ReturningClauseNode) SelectList() *SelectListNode {
 	var v unsafe.Pointer
-	internalparser.ASTReturningClause_select_list(n.getRaw(), &v)
+	internal.ASTReturningClause_select_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5419,7 +5419,7 @@ func (n *ReturningClauseNode) SelectList() *SelectListNode {
 
 func (n *ReturningClauseNode) ActionAlias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTReturningClause_action_alias(n.getRaw(), &v)
+	internal.ASTReturningClause_action_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5432,7 +5432,7 @@ type DeleteStatementNode struct {
 
 func (n *DeleteStatementNode) TargetPath() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_target_path(n.getRaw(), &v)
+	internal.ASTDeleteStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5441,7 +5441,7 @@ func (n *DeleteStatementNode) TargetPath() GeneralizedPathExpressionNode {
 
 func (n *DeleteStatementNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_alias(n.getRaw(), &v)
+	internal.ASTDeleteStatement_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5450,7 +5450,7 @@ func (n *DeleteStatementNode) Alias() *AliasNode {
 
 func (n *DeleteStatementNode) Offset() *WithOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_offset(n.getRaw(), &v)
+	internal.ASTDeleteStatement_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5459,7 +5459,7 @@ func (n *DeleteStatementNode) Offset() *WithOffsetNode {
 
 func (n *DeleteStatementNode) Where() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_where(n.getRaw(), &v)
+	internal.ASTDeleteStatement_where(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5468,7 +5468,7 @@ func (n *DeleteStatementNode) Where() ExpressionNode {
 
 func (n *DeleteStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_assert_rows_modified(n.getRaw(), &v)
+	internal.ASTDeleteStatement_assert_rows_modified(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5477,7 +5477,7 @@ func (n *DeleteStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 
 func (n *DeleteStatementNode) Returning() *ReturningClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTDeleteStatement_returning(n.getRaw(), &v)
+	internal.ASTDeleteStatement_returning(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5501,12 +5501,12 @@ type PrimaryKeyColumnAttributeNode struct {
 }
 
 func (n *PrimaryKeyColumnAttributeNode) SetEnforced(enforced bool) {
-	internalparser.ASTPrimaryKeyColumnAttribute_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTPrimaryKeyColumnAttribute_set_enforced(n.getRaw(), boolToInt(enforced))
 }
 
 func (n *PrimaryKeyColumnAttributeNode) Enforced() bool {
 	var v bool
-	internalparser.ASTPrimaryKeyColumnAttribute_enforced(n.getRaw(), &v)
+	internal.ASTPrimaryKeyColumnAttribute_enforced(n.getRaw(), &v)
 	return v
 }
 
@@ -5516,7 +5516,7 @@ type ForeignKeyColumnAttributeNode struct {
 
 func (n *ForeignKeyColumnAttributeNode) ConstraintName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKeyColumnAttribute_constraint_name(n.getRaw(), &v)
+	internal.ASTForeignKeyColumnAttribute_constraint_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5525,7 +5525,7 @@ func (n *ForeignKeyColumnAttributeNode) ConstraintName() *IdentifierNode {
 
 func (n *ForeignKeyColumnAttributeNode) Reference() *ForeignKeyReferenceNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKeyColumnAttribute_reference(n.getRaw(), &v)
+	internal.ASTForeignKeyColumnAttribute_reference(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5538,11 +5538,11 @@ type ColumnAttributeListNode struct {
 
 func (n *ColumnAttributeListNode) Values() []ColumnAttributeNode {
 	var num int
-	internalparser.ASTColumnAttributeList_values_num(n.getRaw(), &num)
+	internal.ASTColumnAttributeList_values_num(n.getRaw(), &num)
 	ret := make([]ColumnAttributeNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTColumnAttributeList_value(n.getRaw(), i, &v)
+		internal.ASTColumnAttributeList_value(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ColumnAttributeNode))
 	}
 	return ret
@@ -5554,7 +5554,7 @@ type StructColumnFieldNode struct {
 
 func (n *StructColumnFieldNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructColumnField_name(n.getRaw(), &v)
+	internal.ASTStructColumnField_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5563,7 +5563,7 @@ func (n *StructColumnFieldNode) Name() *IdentifierNode {
 
 func (n *StructColumnFieldNode) Schema() *ColumnSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTStructColumnField_schema(n.getRaw(), &v)
+	internal.ASTStructColumnField_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5595,18 +5595,18 @@ type GeneratedColumnInfoNode struct {
 }
 
 func (n *GeneratedColumnInfoNode) SetStoredMode(mode GeneratedColumnInfoStoredMode) {
-	internalparser.ASTGeneratedColumnInfo_set_stored_mode(n.getRaw(), int(mode))
+	internal.ASTGeneratedColumnInfo_set_stored_mode(n.getRaw(), int(mode))
 }
 
 func (n *GeneratedColumnInfoNode) StoredMode() GeneratedColumnInfoStoredMode {
 	var v int
-	internalparser.ASTGeneratedColumnInfo_stored_mode(n.getRaw(), &v)
+	internal.ASTGeneratedColumnInfo_stored_mode(n.getRaw(), &v)
 	return GeneratedColumnInfoStoredMode(v)
 }
 
 func (n *GeneratedColumnInfoNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTGeneratedColumnInfo_expression(n.getRaw(), &v)
+	internal.ASTGeneratedColumnInfo_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5615,7 +5615,7 @@ func (n *GeneratedColumnInfoNode) Expression() ExpressionNode {
 
 func (n *GeneratedColumnInfoNode) SqlForStoredMode() string {
 	var v unsafe.Pointer
-	internalparser.ASTGeneratedColumnInfo_GetSqlForStoredMode(n.getRaw(), &v)
+	internal.ASTGeneratedColumnInfo_GetSqlForStoredMode(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -5629,7 +5629,7 @@ type ColumnDefinitionNode struct {
 
 func (n *ColumnDefinitionNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnDefinition_name(n.getRaw(), &v)
+	internal.ASTColumnDefinition_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5638,7 +5638,7 @@ func (n *ColumnDefinitionNode) Name() *IdentifierNode {
 
 func (n *ColumnDefinitionNode) Schema() *ColumnSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnDefinition_schema(n.getRaw(), &v)
+	internal.ASTColumnDefinition_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5651,11 +5651,11 @@ type TableElementListNode struct {
 
 func (n *TableElementListNode) Elements() []TableElementNode {
 	var num int
-	internalparser.ASTTableElementList_elements_num(n.getRaw(), &num)
+	internal.ASTTableElementList_elements_num(n.getRaw(), &num)
 	ret := make([]TableElementNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTTableElementList_element(n.getRaw(), i, &v)
+		internal.ASTTableElementList_element(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(TableElementNode))
 	}
 	return ret
@@ -5667,11 +5667,11 @@ type ColumnListNode struct {
 
 func (n *ColumnListNode) Identifiers() []*IdentifierNode {
 	var num int
-	internalparser.ASTColumnList_identifiers_num(n.getRaw(), &num)
+	internal.ASTColumnList_identifiers_num(n.getRaw(), &num)
 	ret := make([]*IdentifierNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTColumnList_identifier(n.getRaw(), i, &v)
+		internal.ASTColumnList_identifier(n.getRaw(), i, &v)
 		ret = append(ret, newIdentifierNode(v))
 	}
 	return ret
@@ -5699,18 +5699,18 @@ type ColumnPositionNode struct {
 }
 
 func (n *ColumnPositionNode) SetType(typ ColumnRelativePositionType) {
-	internalparser.ASTColumnPosition_set_type(n.getRaw(), int(typ))
+	internal.ASTColumnPosition_set_type(n.getRaw(), int(typ))
 }
 
 func (n *ColumnPositionNode) Type() ColumnRelativePositionType {
 	var v int
-	internalparser.ASTColumnPosition_type(n.getRaw(), &v)
+	internal.ASTColumnPosition_type(n.getRaw(), &v)
 	return ColumnRelativePositionType(v)
 }
 
 func (n *ColumnPositionNode) Identifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnPosition_identifier(n.getRaw(), &v)
+	internal.ASTColumnPosition_identifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5723,11 +5723,11 @@ type InsertValuesRowNode struct {
 
 func (n *InsertValuesRowNode) Values() []ExpressionNode {
 	var num int
-	internalparser.ASTInsertValuesRow_values_num(n.getRaw(), &num)
+	internal.ASTInsertValuesRow_values_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTInsertValuesRow_value(n.getRaw(), i, &v)
+		internal.ASTInsertValuesRow_value(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -5739,11 +5739,11 @@ type InsertValuesRowListNode struct {
 
 func (n *InsertValuesRowListNode) Rows() []*InsertValuesRowNode {
 	var num int
-	internalparser.ASTInsertValuesRowList_rows_num(n.getRaw(), &num)
+	internal.ASTInsertValuesRowList_rows_num(n.getRaw(), &num)
 	ret := make([]*InsertValuesRowNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTInsertValuesRowList_row(n.getRaw(), i, &v)
+		internal.ASTInsertValuesRowList_row(n.getRaw(), i, &v)
 		ret = append(ret, newInsertValuesRowNode(v))
 	}
 	return ret
@@ -5787,28 +5787,28 @@ type InsertStatementNode struct {
 }
 
 func (n *InsertStatementNode) SetParseProgress(progress ParseProgress) {
-	internalparser.ASTInsertStatement_set_parse_progress(n.getRaw(), int(progress))
+	internal.ASTInsertStatement_set_parse_progress(n.getRaw(), int(progress))
 }
 
 func (n *InsertStatementNode) ParseProgress() ParseProgress {
 	var v int
-	internalparser.ASTInsertStatement_parse_progress(n.getRaw(), &v)
+	internal.ASTInsertStatement_parse_progress(n.getRaw(), &v)
 	return ParseProgress(v)
 }
 
 func (n *InsertStatementNode) SetInsertMode(mode InsertMode) {
-	internalparser.ASTInsertStatement_set_insert_mode(n.getRaw(), int(mode))
+	internal.ASTInsertStatement_set_insert_mode(n.getRaw(), int(mode))
 }
 
 func (n *InsertStatementNode) InsertMode() InsertMode {
 	var v int
-	internalparser.ASTInsertStatement_insert_mode(n.getRaw(), &v)
+	internal.ASTInsertStatement_insert_mode(n.getRaw(), &v)
 	return InsertMode(v)
 }
 
 func (n *InsertStatementNode) TargetPath() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_target_path(n.getRaw(), &v)
+	internal.ASTInsertStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5817,7 +5817,7 @@ func (n *InsertStatementNode) TargetPath() GeneralizedPathExpressionNode {
 
 func (n *InsertStatementNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_column_list(n.getRaw(), &v)
+	internal.ASTInsertStatement_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5826,7 +5826,7 @@ func (n *InsertStatementNode) ColumnList() *ColumnListNode {
 
 func (n *InsertStatementNode) Rows() *InsertValuesRowListNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_rows(n.getRaw(), &v)
+	internal.ASTInsertStatement_rows(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5835,7 +5835,7 @@ func (n *InsertStatementNode) Rows() *InsertValuesRowListNode {
 
 func (n *InsertStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_query(n.getRaw(), &v)
+	internal.ASTInsertStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5844,7 +5844,7 @@ func (n *InsertStatementNode) Query() *QueryNode {
 
 func (n *InsertStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_assert_rows_modified(n.getRaw(), &v)
+	internal.ASTInsertStatement_assert_rows_modified(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5853,7 +5853,7 @@ func (n *InsertStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 
 func (n *InsertStatementNode) Returning() *ReturningClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_returning(n.getRaw(), &v)
+	internal.ASTInsertStatement_returning(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5862,7 +5862,7 @@ func (n *InsertStatementNode) Returning() *ReturningClauseNode {
 
 func (n *InsertStatementNode) SQLForInsertMode() string {
 	var v unsafe.Pointer
-	internalparser.ASTInsertStatement_GetSQLForInsertMode(n.getRaw(), &v)
+	internal.ASTInsertStatement_GetSQLForInsertMode(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -5872,7 +5872,7 @@ type UpdateSetValueNode struct {
 
 func (n *UpdateSetValueNode) Path() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateSetValue_path(n.getRaw(), &v)
+	internal.ASTUpdateSetValue_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5881,7 +5881,7 @@ func (n *UpdateSetValueNode) Path() GeneralizedPathExpressionNode {
 
 func (n *UpdateSetValueNode) Value() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateSetValue_value(n.getRaw(), &v)
+	internal.ASTUpdateSetValue_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5894,7 +5894,7 @@ type UpdateItemNode struct {
 
 func (n *UpdateItemNode) SetValue() *UpdateSetValueNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateItem_set_value(n.getRaw(), &v)
+	internal.ASTUpdateItem_set_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5903,7 +5903,7 @@ func (n *UpdateItemNode) SetValue() *UpdateSetValueNode {
 
 func (n *UpdateItemNode) InsertStatement() *InsertStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateItem_insert_statement(n.getRaw(), &v)
+	internal.ASTUpdateItem_insert_statement(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5912,7 +5912,7 @@ func (n *UpdateItemNode) InsertStatement() *InsertStatementNode {
 
 func (n *UpdateItemNode) DeleteStatement() *DeleteStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateItem_delete_statement(n.getRaw(), &v)
+	internal.ASTUpdateItem_delete_statement(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5921,7 +5921,7 @@ func (n *UpdateItemNode) DeleteStatement() *DeleteStatementNode {
 
 func (n *UpdateItemNode) UpdateStatement() *UpdateStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateItem_update_statement(n.getRaw(), &v)
+	internal.ASTUpdateItem_update_statement(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5934,11 +5934,11 @@ type UpdateItemListNode struct {
 
 func (n *UpdateItemListNode) UpdateItems() []*UpdateItemNode {
 	var num int
-	internalparser.ASTUpdateItemList_update_items_num(n.getRaw(), &num)
+	internal.ASTUpdateItemList_update_items_num(n.getRaw(), &num)
 	ret := make([]*UpdateItemNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTUpdateItemList_update_item(n.getRaw(), i, &v)
+		internal.ASTUpdateItemList_update_item(n.getRaw(), i, &v)
 		ret = append(ret, newUpdateItemNode(v))
 	}
 	return ret
@@ -5950,7 +5950,7 @@ type UpdateStatementNode struct {
 
 func (n *UpdateStatementNode) TargetPath() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_target_path(n.getRaw(), &v)
+	internal.ASTUpdateStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5959,7 +5959,7 @@ func (n *UpdateStatementNode) TargetPath() GeneralizedPathExpressionNode {
 
 func (n *UpdateStatementNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_alias(n.getRaw(), &v)
+	internal.ASTUpdateStatement_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5968,7 +5968,7 @@ func (n *UpdateStatementNode) Alias() *AliasNode {
 
 func (n *UpdateStatementNode) Offset() *WithOffsetNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_offset(n.getRaw(), &v)
+	internal.ASTUpdateStatement_offset(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5977,7 +5977,7 @@ func (n *UpdateStatementNode) Offset() *WithOffsetNode {
 
 func (n *UpdateStatementNode) UpdateItemList() *UpdateItemListNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_update_item_list(n.getRaw(), &v)
+	internal.ASTUpdateStatement_update_item_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5986,7 +5986,7 @@ func (n *UpdateStatementNode) UpdateItemList() *UpdateItemListNode {
 
 func (n *UpdateStatementNode) FromClause() *FromClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_from_clause(n.getRaw(), &v)
+	internal.ASTUpdateStatement_from_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -5995,7 +5995,7 @@ func (n *UpdateStatementNode) FromClause() *FromClauseNode {
 
 func (n *UpdateStatementNode) Where() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_where(n.getRaw(), &v)
+	internal.ASTUpdateStatement_where(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6004,7 +6004,7 @@ func (n *UpdateStatementNode) Where() ExpressionNode {
 
 func (n *UpdateStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_assert_rows_modified(n.getRaw(), &v)
+	internal.ASTUpdateStatement_assert_rows_modified(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6013,7 +6013,7 @@ func (n *UpdateStatementNode) AssertRowsModified() *AssertRowsModifiedNode {
 
 func (n *UpdateStatementNode) Returning() *ReturningClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTUpdateStatement_returning(n.getRaw(), &v)
+	internal.ASTUpdateStatement_returning(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6026,7 +6026,7 @@ type TrucateStatementNode struct {
 
 func (n *TrucateStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTruncateStatement_target_path(n.getRaw(), &v)
+	internal.ASTTruncateStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6035,7 +6035,7 @@ func (n *TrucateStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *TrucateStatementNode) Where() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTTruncateStatement_where(n.getRaw(), &v)
+	internal.ASTTruncateStatement_where(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6056,18 +6056,18 @@ type MergeActionNode struct {
 }
 
 func (n *MergeActionNode) SetActionType(typ MergeActionType) {
-	internalparser.ASTMergeAction_set_action_type(n.getRaw(), int(typ))
+	internal.ASTMergeAction_set_action_type(n.getRaw(), int(typ))
 }
 
 func (n *MergeActionNode) ActionType() MergeActionType {
 	var v int
-	internalparser.ASTMergeAction_action_type(n.getRaw(), &v)
+	internal.ASTMergeAction_action_type(n.getRaw(), &v)
 	return MergeActionType(v)
 }
 
 func (n *MergeActionNode) InsertColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeAction_insert_column_list(n.getRaw(), &v)
+	internal.ASTMergeAction_insert_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6076,7 +6076,7 @@ func (n *MergeActionNode) InsertColumnList() *ColumnListNode {
 
 func (n *MergeActionNode) InsertRow() *InsertValuesRowNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeAction_insert_row(n.getRaw(), &v)
+	internal.ASTMergeAction_insert_row(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6085,7 +6085,7 @@ func (n *MergeActionNode) InsertRow() *InsertValuesRowNode {
 
 func (n *MergeActionNode) UpdateItemList() *UpdateItemListNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeAction_update_item_list(n.getRaw(), &v)
+	internal.ASTMergeAction_update_item_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6106,18 +6106,18 @@ type MergeWhenClauseNode struct {
 }
 
 func (n *MergeWhenClauseNode) SetMatchType(matchType MergeMatchType) {
-	internalparser.ASTMergeWhenClause_set_match_type(n.getRaw(), int(matchType))
+	internal.ASTMergeWhenClause_set_match_type(n.getRaw(), int(matchType))
 }
 
 func (n *MergeWhenClauseNode) MatchType() MergeMatchType {
 	var v int
-	internalparser.ASTMergeWhenClause_match_type(n.getRaw(), &v)
+	internal.ASTMergeWhenClause_match_type(n.getRaw(), &v)
 	return MergeMatchType(v)
 }
 
 func (n *MergeWhenClauseNode) SearchCondition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeWhenClause_search_condition(n.getRaw(), &v)
+	internal.ASTMergeWhenClause_search_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6126,7 +6126,7 @@ func (n *MergeWhenClauseNode) SearchCondition() ExpressionNode {
 
 func (n *MergeWhenClauseNode) Action() *MergeActionNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeWhenClause_action(n.getRaw(), &v)
+	internal.ASTMergeWhenClause_action(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6135,7 +6135,7 @@ func (n *MergeWhenClauseNode) Action() *MergeActionNode {
 
 func (n *MergeWhenClauseNode) SQLForMatchType() string {
 	var v unsafe.Pointer
-	internalparser.ASTMergeWhenClause_GetSQLForMatchType(n.getRaw(), &v)
+	internal.ASTMergeWhenClause_GetSQLForMatchType(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -6145,11 +6145,11 @@ type MergeWhenClauseListNode struct {
 
 func (n *MergeWhenClauseListNode) ClauseList() []*MergeWhenClauseNode {
 	var num int
-	internalparser.ASTMergeWhenClauseList_clause_list_num(n.getRaw(), &num)
+	internal.ASTMergeWhenClauseList_clause_list_num(n.getRaw(), &num)
 	ret := make([]*MergeWhenClauseNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTMergeWhenClauseList_clause_list(n.getRaw(), i, &v)
+		internal.ASTMergeWhenClauseList_clause_list(n.getRaw(), i, &v)
 		ret = append(ret, newMergeWhenClauseNode(v))
 	}
 	return ret
@@ -6161,7 +6161,7 @@ type MergeStatementNode struct {
 
 func (n *MergeStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeStatement_target_path(n.getRaw(), &v)
+	internal.ASTMergeStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6170,7 +6170,7 @@ func (n *MergeStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *MergeStatementNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeStatement_alias(n.getRaw(), &v)
+	internal.ASTMergeStatement_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6179,7 +6179,7 @@ func (n *MergeStatementNode) Alias() *AliasNode {
 
 func (n *MergeStatementNode) TableExpression() TableExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeStatement_table_expression(n.getRaw(), &v)
+	internal.ASTMergeStatement_table_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6188,7 +6188,7 @@ func (n *MergeStatementNode) TableExpression() TableExpressionNode {
 
 func (n *MergeStatementNode) MergeCondition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeStatement_merge_condition(n.getRaw(), &v)
+	internal.ASTMergeStatement_merge_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6197,7 +6197,7 @@ func (n *MergeStatementNode) MergeCondition() ExpressionNode {
 
 func (n *MergeStatementNode) WhenClauses() *MergeWhenClauseListNode {
 	var v unsafe.Pointer
-	internalparser.ASTMergeStatement_when_clauses(n.getRaw(), &v)
+	internal.ASTMergeStatement_when_clauses(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6210,7 +6210,7 @@ type PrivilegeNode struct {
 
 func (n *PrivilegeNode) PrivilegeAction() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTPrivilege_privilege_action(n.getRaw(), &v)
+	internal.ASTPrivilege_privilege_action(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6219,7 +6219,7 @@ func (n *PrivilegeNode) PrivilegeAction() *IdentifierNode {
 
 func (n *PrivilegeNode) Paths() *PathExpressionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTPrivilege_paths(n.getRaw(), &v)
+	internal.ASTPrivilege_paths(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6232,11 +6232,11 @@ type PrivilegesNode struct {
 
 func (n *PrivilegesNode) Privileges() []*PrivilegeNode {
 	var num int
-	internalparser.ASTPrivileges_privileges_num(n.getRaw(), &num)
+	internal.ASTPrivileges_privileges_num(n.getRaw(), &num)
 	ret := make([]*PrivilegeNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTPrivileges_privilege(n.getRaw(), i, &v)
+		internal.ASTPrivileges_privilege(n.getRaw(), i, &v)
 		ret = append(ret, newPrivilegeNode(v))
 	}
 	return ret
@@ -6244,7 +6244,7 @@ func (n *PrivilegesNode) Privileges() []*PrivilegeNode {
 
 func (n *PrivilegesNode) IsAllPrivileges() bool {
 	var v bool
-	internalparser.ASTPrivileges_is_all_privileges(n.getRaw(), &v)
+	internal.ASTPrivileges_is_all_privileges(n.getRaw(), &v)
 	return v
 }
 
@@ -6254,11 +6254,11 @@ type GranteeListNode struct {
 
 func (n *GranteeListNode) GranteeList() []ExpressionNode {
 	var num int
-	internalparser.ASTGranteeList_grantee_list_num(n.getRaw(), &num)
+	internal.ASTGranteeList_grantee_list_num(n.getRaw(), &num)
 	ret := make([]ExpressionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTGranteeList_grantee_list(n.getRaw(), i, &v)
+		internal.ASTGranteeList_grantee_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(ExpressionNode))
 	}
 	return ret
@@ -6270,7 +6270,7 @@ type GrantStatementNode struct {
 
 func (n *GrantStatementNode) Privileges() *PrivilegesNode {
 	var v unsafe.Pointer
-	internalparser.ASTGrantStatement_privileges(n.getRaw(), &v)
+	internal.ASTGrantStatement_privileges(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6279,7 +6279,7 @@ func (n *GrantStatementNode) Privileges() *PrivilegesNode {
 
 func (n *GrantStatementNode) TargetType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTGrantStatement_target_type(n.getRaw(), &v)
+	internal.ASTGrantStatement_target_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6288,7 +6288,7 @@ func (n *GrantStatementNode) TargetType() *IdentifierNode {
 
 func (n *GrantStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTGrantStatement_target_path(n.getRaw(), &v)
+	internal.ASTGrantStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6297,7 +6297,7 @@ func (n *GrantStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *GrantStatementNode) GranteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTGrantStatement_grantee_list(n.getRaw(), &v)
+	internal.ASTGrantStatement_grantee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6310,7 +6310,7 @@ type RevokeStatementNode struct {
 
 func (n *RevokeStatementNode) Privileges() *PrivilegesNode {
 	var v unsafe.Pointer
-	internalparser.ASTRevokeStatement_privileges(n.getRaw(), &v)
+	internal.ASTRevokeStatement_privileges(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6319,7 +6319,7 @@ func (n *RevokeStatementNode) Privileges() *PrivilegesNode {
 
 func (n *RevokeStatementNode) TargetType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTRevokeStatement_target_type(n.getRaw(), &v)
+	internal.ASTRevokeStatement_target_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6328,7 +6328,7 @@ func (n *RevokeStatementNode) TargetType() *IdentifierNode {
 
 func (n *RevokeStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRevokeStatement_target_path(n.getRaw(), &v)
+	internal.ASTRevokeStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6337,7 +6337,7 @@ func (n *RevokeStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *RevokeStatementNode) GranteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTRevokeStatement_grantee_list(n.getRaw(), &v)
+	internal.ASTRevokeStatement_grantee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6350,7 +6350,7 @@ type RepeatableClauseNode struct {
 
 func (n *RepeatableClauseNode) Argument() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRepeatableClause_argument(n.getRaw(), &v)
+	internal.ASTRepeatableClause_argument(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6382,18 +6382,18 @@ type FilterFieldsArgNode struct {
 }
 
 func (n *FilterFieldsArgNode) SetFilterType(typ FilterType) {
-	internalparser.ASTFilterFieldsArg_set_filter_type(n.getRaw(), int(typ))
+	internal.ASTFilterFieldsArg_set_filter_type(n.getRaw(), int(typ))
 }
 
 func (n *FilterFieldsArgNode) FilterType() FilterType {
 	var v int
-	internalparser.ASTFilterFieldsArg_filter_type(n.getRaw(), &v)
+	internal.ASTFilterFieldsArg_filter_type(n.getRaw(), &v)
 	return FilterType(v)
 }
 
 func (n *FilterFieldsArgNode) PathExpression() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFilterFieldsArg_path_expression(n.getRaw(), &v)
+	internal.ASTFilterFieldsArg_path_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6402,7 +6402,7 @@ func (n *FilterFieldsArgNode) PathExpression() GeneralizedPathExpressionNode {
 
 func (n *FilterFieldsArgNode) SQLForOperator() string {
 	var v unsafe.Pointer
-	internalparser.ASTFilterFieldsArg_GetSQLForOperator(n.getRaw(), &v)
+	internal.ASTFilterFieldsArg_GetSQLForOperator(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -6412,7 +6412,7 @@ type ReplaceFieldsArgNode struct {
 
 func (n *ReplaceFieldsArgNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTReplaceFieldsArg_expression(n.getRaw(), &v)
+	internal.ASTReplaceFieldsArg_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6421,7 +6421,7 @@ func (n *ReplaceFieldsArgNode) Expression() ExpressionNode {
 
 func (n *ReplaceFieldsArgNode) PathExpression() GeneralizedPathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTReplaceFieldsArg_path_expression(n.getRaw(), &v)
+	internal.ASTReplaceFieldsArg_path_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6434,7 +6434,7 @@ type ReplaceFieldsExpressionNode struct {
 
 func (n *ReplaceFieldsExpressionNode) Expr() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTReplaceFieldsExpression_expr(n.getRaw(), &v)
+	internal.ASTReplaceFieldsExpression_expr(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6443,11 +6443,11 @@ func (n *ReplaceFieldsExpressionNode) Expr() ExpressionNode {
 
 func (n *ReplaceFieldsExpressionNode) Arguments() []*ReplaceFieldsArgNode {
 	var num int
-	internalparser.ASTReplaceFieldsExpression_arguments_num(n.getRaw(), &num)
+	internal.ASTReplaceFieldsExpression_arguments_num(n.getRaw(), &num)
 	ret := make([]*ReplaceFieldsArgNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTReplaceFieldsExpression_argument(n.getRaw(), i, &v)
+		internal.ASTReplaceFieldsExpression_argument(n.getRaw(), i, &v)
 		ret = append(ret, newReplaceFieldsArgNode(v))
 	}
 	return ret
@@ -6478,18 +6478,18 @@ type SampleSizeNode struct {
 }
 
 func (n *SampleSizeNode) SetUnit(unit SampleSizeUnit) {
-	internalparser.ASTSampleSize_set_unit(n.getRaw(), int(unit))
+	internal.ASTSampleSize_set_unit(n.getRaw(), int(unit))
 }
 
 func (n *SampleSizeNode) Unit() SampleSizeUnit {
 	var v int
-	internalparser.ASTSampleSize_unit(n.getRaw(), &v)
+	internal.ASTSampleSize_unit(n.getRaw(), &v)
 	return SampleSizeUnit(v)
 }
 
 func (n *SampleSizeNode) Size() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleSize_size(n.getRaw(), &v)
+	internal.ASTSampleSize_size(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6498,7 +6498,7 @@ func (n *SampleSizeNode) Size() ExpressionNode {
 
 func (n *SampleSizeNode) PartitionBy() *PartitionByNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleSize_partition_by(n.getRaw(), &v)
+	internal.ASTSampleSize_partition_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6507,7 +6507,7 @@ func (n *SampleSizeNode) PartitionBy() *PartitionByNode {
 
 func (n *SampleSizeNode) SQLForUnit() string {
 	var v unsafe.Pointer
-	internalparser.ASTSampleSize_GetSQLForUnit(n.getRaw(), &v)
+	internal.ASTSampleSize_GetSQLForUnit(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -6517,7 +6517,7 @@ type WithWeightNode struct {
 
 func (n *WithWeightNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTWithWeight_alias(n.getRaw(), &v)
+	internal.ASTWithWeight_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6530,7 +6530,7 @@ type SampleSuffixNode struct {
 
 func (n *SampleSuffixNode) Weight() *WithWeightNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleSuffix_weight(n.getRaw(), &v)
+	internal.ASTSampleSuffix_weight(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6539,7 +6539,7 @@ func (n *SampleSuffixNode) Weight() *WithWeightNode {
 
 func (n *SampleSuffixNode) Repeat() *RepeatableClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleSuffix_repeat(n.getRaw(), &v)
+	internal.ASTSampleSuffix_repeat(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6552,7 +6552,7 @@ type SampleClauseNode struct {
 
 func (n *SampleClauseNode) SampleMethod() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleClause_sample_method(n.getRaw(), &v)
+	internal.ASTSampleClause_sample_method(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6561,7 +6561,7 @@ func (n *SampleClauseNode) SampleMethod() *IdentifierNode {
 
 func (n *SampleClauseNode) SampleSize() *SampleSizeNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleClause_sample_size(n.getRaw(), &v)
+	internal.ASTSampleClause_sample_size(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6570,7 +6570,7 @@ func (n *SampleClauseNode) SampleSize() *SampleSizeNode {
 
 func (n *SampleClauseNode) SampleSuffix() *SampleSuffixNode {
 	var v unsafe.Pointer
-	internalparser.ASTSampleClause_sample_suffix(n.getRaw(), &v)
+	internal.ASTSampleClause_sample_suffix(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6583,7 +6583,7 @@ type AlterActionBaseNode struct {
 
 func (n *AlterActionBaseNode) SQLForAlterAction() string {
 	var v unsafe.Pointer
-	internalparser.ASTAlterAction_GetSQLForAlterAction(n.getRaw(), &v)
+	internal.ASTAlterAction_GetSQLForAlterAction(n.getRaw(), &v)
 	return C.GoString((*C.char)(v))
 }
 
@@ -6593,7 +6593,7 @@ type SetOptionsActionNode struct {
 
 func (n *SetOptionsActionNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetOptionsAction_options_list(n.getRaw(), &v)
+	internal.ASTSetOptionsAction_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6606,7 +6606,7 @@ type SetAsActionNode struct {
 
 func (n *SetAsActionNode) JSONBody() *JSONLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetAsAction_json_body(n.getRaw(), &v)
+	internal.ASTSetAsAction_json_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6615,7 +6615,7 @@ func (n *SetAsActionNode) JSONBody() *JSONLiteralNode {
 
 func (n *SetAsActionNode) TextBody() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetAsAction_text_body(n.getRaw(), &v)
+	internal.ASTSetAsAction_text_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6627,18 +6627,18 @@ type AddConstraintActionNode struct {
 }
 
 func (n *AddConstraintActionNode) SetIsIfNotExists(isIfNotExists bool) {
-	internalparser.ASTAddConstraintAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddConstraintAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AddConstraintActionNode) IsIfNotExists() bool {
 	var v bool
-	internalparser.ASTAddConstraintAction_is_if_not_exists(n.getRaw(), &v)
+	internal.ASTAddConstraintAction_is_if_not_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AddConstraintActionNode) Constraint() TableConstraintNode {
 	var v unsafe.Pointer
-	internalparser.ASTAddConstraintAction_constraint(n.getRaw(), &v)
+	internal.ASTAddConstraintAction_constraint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6650,12 +6650,12 @@ type DropPrimaryKeyActionNode struct {
 }
 
 func (n *DropPrimaryKeyActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTDropPrimaryKeyAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropPrimaryKeyAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *DropPrimaryKeyActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropPrimaryKeyAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropPrimaryKeyAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
@@ -6664,18 +6664,18 @@ type DropConstraintActionNode struct {
 }
 
 func (n *DropConstraintActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTDropConstraintAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropConstraintAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *DropConstraintActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropConstraintAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropConstraintAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropConstraintActionNode) ConstraintName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropConstraintAction_constraint_name(n.getRaw(), &v)
+	internal.ASTDropConstraintAction_constraint_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6687,28 +6687,28 @@ type AlterConstraintEnforcementActionNode struct {
 }
 
 func (n *AlterConstraintEnforcementActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterConstraintEnforcementAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterConstraintEnforcementAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterConstraintEnforcementActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterConstraintEnforcementAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterConstraintEnforcementAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterConstraintEnforcementActionNode) SetIsEnforced(enforced bool) {
-	internalparser.ASTAlterConstraintEnforcementAction_set_is_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTAlterConstraintEnforcementAction_set_is_enforced(n.getRaw(), boolToInt(enforced))
 }
 
 func (n *AlterConstraintEnforcementActionNode) IsEnforced() bool {
 	var v bool
-	internalparser.ASTAlterConstraintEnforcementAction_is_enforced(n.getRaw(), &v)
+	internal.ASTAlterConstraintEnforcementAction_is_enforced(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterConstraintEnforcementActionNode) ConstraintName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterConstraintEnforcementAction_constraint_name(n.getRaw(), &v)
+	internal.ASTAlterConstraintEnforcementAction_constraint_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6720,18 +6720,18 @@ type AlterConstraintSetOptionsActionNode struct {
 }
 
 func (n *AlterConstraintSetOptionsActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterConstraintSetOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterConstraintSetOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterConstraintSetOptionsActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterConstraintSetOptionsAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterConstraintSetOptionsAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterConstraintSetOptionsActionNode) ConstraintName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterConstraintSetOptionsAction_constraint_name(n.getRaw(), &v)
+	internal.ASTAlterConstraintSetOptionsAction_constraint_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6740,7 +6740,7 @@ func (n *AlterConstraintSetOptionsActionNode) ConstraintName() *IdentifierNode {
 
 func (n *AlterConstraintSetOptionsActionNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterConstraintSetOptionsAction_options_list(n.getRaw(), &v)
+	internal.ASTAlterConstraintSetOptionsAction_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6752,18 +6752,18 @@ type AddColumnActionNode struct {
 }
 
 func (n *AddColumnActionNode) SetIsIfNotExists(isIfNotExists bool) {
-	internalparser.ASTAddColumnAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddColumnAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AddColumnActionNode) IsIfNotExists() bool {
 	var v bool
-	internalparser.ASTAddColumnAction_is_if_not_exists(n.getRaw(), &v)
+	internal.ASTAddColumnAction_is_if_not_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AddColumnActionNode) ColumnDefinition() *ColumnDefinitionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAddColumnAction_column_definition(n.getRaw(), &v)
+	internal.ASTAddColumnAction_column_definition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6772,7 +6772,7 @@ func (n *AddColumnActionNode) ColumnDefinition() *ColumnDefinitionNode {
 
 func (n *AddColumnActionNode) ColumnPosition() *ColumnPositionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAddColumnAction_column_position(n.getRaw(), &v)
+	internal.ASTAddColumnAction_column_position(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6781,7 +6781,7 @@ func (n *AddColumnActionNode) ColumnPosition() *ColumnPositionNode {
 
 func (n *AddColumnActionNode) FillExpression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAddColumnAction_fill_expression(n.getRaw(), &v)
+	internal.ASTAddColumnAction_fill_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6793,18 +6793,18 @@ type DropColumnActionNode struct {
 }
 
 func (n *DropColumnActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTDropColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *DropColumnActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropColumnAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropColumnAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropColumnActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropColumnAction_column_name(n.getRaw(), &v)
+	internal.ASTDropColumnAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6816,18 +6816,18 @@ type RenameColumnActionNode struct {
 }
 
 func (n *RenameColumnActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTRenameColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTRenameColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *RenameColumnActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTRenameColumnAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTRenameColumnAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *RenameColumnActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameColumnAction_column_name(n.getRaw(), &v)
+	internal.ASTRenameColumnAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6836,7 +6836,7 @@ func (n *RenameColumnActionNode) ColumnName() *IdentifierNode {
 
 func (n *RenameColumnActionNode) NewColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameColumnAction_new_column_name(n.getRaw(), &v)
+	internal.ASTRenameColumnAction_new_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6848,18 +6848,18 @@ type AlterColumnTypeActionNode struct {
 }
 
 func (n *AlterColumnTypeActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterColumnTypeAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnTypeAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnTypeActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterColumnTypeAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterColumnTypeAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterColumnTypeActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnTypeAction_column_name(n.getRaw(), &v)
+	internal.ASTAlterColumnTypeAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6868,7 +6868,7 @@ func (n *AlterColumnTypeActionNode) ColumnName() *IdentifierNode {
 
 func (n *AlterColumnTypeActionNode) Schema() *ColumnSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnTypeAction_schema(n.getRaw(), &v)
+	internal.ASTAlterColumnTypeAction_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6877,7 +6877,7 @@ func (n *AlterColumnTypeActionNode) Schema() *ColumnSchemaNode {
 
 func (n *AlterColumnTypeActionNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnTypeAction_collate(n.getRaw(), &v)
+	internal.ASTAlterColumnTypeAction_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6889,18 +6889,18 @@ type AlterColumnOptionsActionNode struct {
 }
 
 func (n *AlterColumnOptionsActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterColumnOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnOptionsActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterColumnOptionsAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterColumnOptionsAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterColumnOptionsActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnOptionsAction_column_name(n.getRaw(), &v)
+	internal.ASTAlterColumnOptionsAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6909,7 +6909,7 @@ func (n *AlterColumnOptionsActionNode) ColumnName() *IdentifierNode {
 
 func (n *AlterColumnOptionsActionNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnOptionsAction_options_list(n.getRaw(), &v)
+	internal.ASTAlterColumnOptionsAction_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6921,18 +6921,18 @@ type AlterColumnSetDefaultActionNode struct {
 }
 
 func (n *AlterColumnSetDefaultActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterColumnSetDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnSetDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnSetDefaultActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterColumnSetDefaultAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterColumnSetDefaultAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterColumnSetDefaultActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnSetDefaultAction_column_name(n.getRaw(), &v)
+	internal.ASTAlterColumnSetDefaultAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6941,7 +6941,7 @@ func (n *AlterColumnSetDefaultActionNode) ColumnName() *IdentifierNode {
 
 func (n *AlterColumnSetDefaultActionNode) DefaultExpression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnSetDefaultAction_default_expression(n.getRaw(), &v)
+	internal.ASTAlterColumnSetDefaultAction_default_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6953,18 +6953,18 @@ type AlterColumnDropDefaultActionNode struct {
 }
 
 func (n *AlterColumnDropDefaultActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterColumnDropDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnDropDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnDropDefaultActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterColumnDropDefaultAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterColumnDropDefaultAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterColumnDropDefaultActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnDropDefaultAction_column_name(n.getRaw(), &v)
+	internal.ASTAlterColumnDropDefaultAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6976,18 +6976,18 @@ type AlterColumnDropNotNullActionNode struct {
 }
 
 func (n *AlterColumnDropNotNullActionNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTAlterColumnDropNotNullAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnDropNotNullAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnDropNotNullActionNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterColumnDropNotNullAction_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterColumnDropNotNullAction_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterColumnDropNotNullActionNode) ColumnName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterColumnDropNotNullAction_column_name(n.getRaw(), &v)
+	internal.ASTAlterColumnDropNotNullAction_column_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -6999,18 +6999,18 @@ type GrantToClauseNode struct {
 }
 
 func (n *GrantToClauseNode) SetHasGrantKeywordAndParens(v bool) {
-	internalparser.ASTGrantToClause_set_has_grant_keyword_and_parens(n.getRaw(), boolToInt(v))
+	internal.ASTGrantToClause_set_has_grant_keyword_and_parens(n.getRaw(), boolToInt(v))
 }
 
 func (n *GrantToClauseNode) HasGrantKeywordAndParens() bool {
 	var v bool
-	internalparser.ASTGrantToClause_has_grant_keyword_and_parens(n.getRaw(), &v)
+	internal.ASTGrantToClause_has_grant_keyword_and_parens(n.getRaw(), &v)
 	return v
 }
 
 func (n *GrantToClauseNode) GranteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTGrantToClause_grantee_list(n.getRaw(), &v)
+	internal.ASTGrantToClause_grantee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7023,7 +7023,7 @@ type RestrictToClauseNode struct {
 
 func (n *RestrictToClauseNode) RestricteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTRestrictToClause_restrictee_list(n.getRaw(), &v)
+	internal.ASTRestrictToClause_restrictee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7035,18 +7035,18 @@ type AddToRestricteeListClauseNode struct {
 }
 
 func (n *AddToRestricteeListClauseNode) SetIsIfNotExists(isIfNotExists bool) {
-	internalparser.ASTAddToRestricteeListClause_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddToRestricteeListClause_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *AddToRestricteeListClauseNode) IsIfNotExists() bool {
 	var v bool
-	internalparser.ASTAddToRestricteeListClause_is_if_not_exists(n.getRaw(), &v)
+	internal.ASTAddToRestricteeListClause_is_if_not_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AddToRestricteeListClauseNode) RestricteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAddToRestricteeListClause_restrictee_list(n.getRaw(), &v)
+	internal.ASTAddToRestricteeListClause_restrictee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7058,18 +7058,18 @@ type RemoveFromRestricteeListClauseNode struct {
 }
 
 func (n *RemoveFromRestricteeListClauseNode) SetIsIfExists(isIfNotExists bool) {
-	internalparser.ASTRemoveFromRestricteeListClause_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTRemoveFromRestricteeListClause_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
 }
 
 func (n *RemoveFromRestricteeListClauseNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTRemoveFromRestricteeListClause_is_if_exists(n.getRaw(), &v)
+	internal.ASTRemoveFromRestricteeListClause_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *RemoveFromRestricteeListClauseNode) RestricteeList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTRemoveFromRestricteeListClause_restrictee_list(n.getRaw(), &v)
+	internal.ASTRemoveFromRestricteeListClause_restrictee_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7081,18 +7081,18 @@ type FilterUsingClauseNode struct {
 }
 
 func (n *FilterUsingClauseNode) SetHasFilterKeyword(keyword bool) {
-	internalparser.ASTFilterUsingClause_set_has_filter_keyword(n.getRaw(), boolToInt(keyword))
+	internal.ASTFilterUsingClause_set_has_filter_keyword(n.getRaw(), boolToInt(keyword))
 }
 
 func (n *FilterUsingClauseNode) HasFilterKeyword() bool {
 	var v bool
-	internalparser.ASTFilterUsingClause_has_filter_keyword(n.getRaw(), &v)
+	internal.ASTFilterUsingClause_has_filter_keyword(n.getRaw(), &v)
 	return v
 }
 
 func (n *FilterUsingClauseNode) Predicate() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTFilterUsingClause_predicate(n.getRaw(), &v)
+	internal.ASTFilterUsingClause_predicate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7104,18 +7104,18 @@ type RevokeFromClauseNode struct {
 }
 
 func (n *RevokeFromClauseNode) SetIsRevokeFromAll(v bool) {
-	internalparser.ASTRevokeFromClause_set_is_revoke_from_all(n.getRaw(), boolToInt(v))
+	internal.ASTRevokeFromClause_set_is_revoke_from_all(n.getRaw(), boolToInt(v))
 }
 
 func (n *RevokeFromClauseNode) IsRevokeFromAll() bool {
 	var v bool
-	internalparser.ASTRevokeFromClause_is_revoke_from_all(n.getRaw(), &v)
+	internal.ASTRevokeFromClause_is_revoke_from_all(n.getRaw(), &v)
 	return v
 }
 
 func (n *RevokeFromClauseNode) RevokeFromList() *GranteeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTRevokeFromClause_revoke_from_list(n.getRaw(), &v)
+	internal.ASTRevokeFromClause_revoke_from_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7128,7 +7128,7 @@ type RenameToClauseNode struct {
 
 func (n *RenameToClauseNode) NewName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRenameToClause_new_name(n.getRaw(), &v)
+	internal.ASTRenameToClause_new_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7141,7 +7141,7 @@ type SetCollateClauseNode struct {
 
 func (n *SetCollateClauseNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTSetCollateClause_collate(n.getRaw(), &v)
+	internal.ASTSetCollateClause_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7154,11 +7154,11 @@ type AlterActionListNode struct {
 
 func (n *AlterActionListNode) Actions() []AlterActionNode {
 	var num int
-	internalparser.ASTAlterActionList_actions_num(n.getRaw(), &num)
+	internal.ASTAlterActionList_actions_num(n.getRaw(), &num)
 	ret := make([]AlterActionNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTAlterActionList_action(n.getRaw(), i, &v)
+		internal.ASTAlterActionList_action(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(AlterActionNode))
 	}
 	return ret
@@ -7170,7 +7170,7 @@ type AlterAllRowAccessPoliciesStatementNode struct {
 
 func (n *AlterAllRowAccessPoliciesStatementNode) TableNamePath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterAllRowAccessPoliciesStatement_table_name_path(n.getRaw(), &v)
+	internal.ASTAlterAllRowAccessPoliciesStatement_table_name_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7179,7 +7179,7 @@ func (n *AlterAllRowAccessPoliciesStatementNode) TableNamePath() *PathExpression
 
 func (n *AlterAllRowAccessPoliciesStatementNode) AlterAction() AlterActionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterAllRowAccessPoliciesStatement_alter_action(n.getRaw(), &v)
+	internal.ASTAlterAllRowAccessPoliciesStatement_alter_action(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7214,22 +7214,22 @@ type ForeignKeyActionsNode struct {
 }
 
 func (n *ForeignKeyActionsNode) SetUpdateAction(action ForeignKeyAction) {
-	internalparser.ASTForeignKeyActions_set_udpate_action(n.getRaw(), int(action))
+	internal.ASTForeignKeyActions_set_udpate_action(n.getRaw(), int(action))
 }
 
 func (n *ForeignKeyActionsNode) UpdateAction() ForeignKeyAction {
 	var v int
-	internalparser.ASTForeignKeyActions_udpate_action(n.getRaw(), &v)
+	internal.ASTForeignKeyActions_udpate_action(n.getRaw(), &v)
 	return ForeignKeyAction(v)
 }
 
 func (n *ForeignKeyActionsNode) SetDeleteAction(action ForeignKeyAction) {
-	internalparser.ASTForeignKeyActions_set_delete_action(n.getRaw(), int(action))
+	internal.ASTForeignKeyActions_set_delete_action(n.getRaw(), int(action))
 }
 
 func (n *ForeignKeyActionsNode) DeleteAction() ForeignKeyAction {
 	var v int
-	internalparser.ASTForeignKeyActions_delete_action(n.getRaw(), &v)
+	internal.ASTForeignKeyActions_delete_action(n.getRaw(), &v)
 	return ForeignKeyAction(v)
 }
 
@@ -7258,28 +7258,28 @@ type ForeignKeyReferenceNode struct {
 }
 
 func (n *ForeignKeyReferenceNode) SetMatch(match ForeignKeyReferenceMatch) {
-	internalparser.ASTForeignKeyReference_set_match(n.getRaw(), int(match))
+	internal.ASTForeignKeyReference_set_match(n.getRaw(), int(match))
 }
 
 func (n *ForeignKeyReferenceNode) Match() ForeignKeyReferenceMatch {
 	var v int
-	internalparser.ASTForeignKeyReference_match(n.getRaw(), &v)
+	internal.ASTForeignKeyReference_match(n.getRaw(), &v)
 	return ForeignKeyReferenceMatch(v)
 }
 
 func (n *ForeignKeyReferenceNode) SetEnforced(enforced bool) {
-	internalparser.ASTForeignKeyReference_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTForeignKeyReference_set_enforced(n.getRaw(), boolToInt(enforced))
 }
 
 func (n *ForeignKeyReferenceNode) Enforced() bool {
 	var v bool
-	internalparser.ASTForeignKeyReference_enforced(n.getRaw(), &v)
+	internal.ASTForeignKeyReference_enforced(n.getRaw(), &v)
 	return v
 }
 
 func (n *ForeignKeyReferenceNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKeyReference_table_name(n.getRaw(), &v)
+	internal.ASTForeignKeyReference_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7288,7 +7288,7 @@ func (n *ForeignKeyReferenceNode) TableName() *PathExpressionNode {
 
 func (n *ForeignKeyReferenceNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKeyReference_column_list(n.getRaw(), &v)
+	internal.ASTForeignKeyReference_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7297,7 +7297,7 @@ func (n *ForeignKeyReferenceNode) ColumnList() *ColumnListNode {
 
 func (n *ForeignKeyReferenceNode) Actions() *ForeignKeyActionsNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKeyReference_actions(n.getRaw(), &v)
+	internal.ASTForeignKeyReference_actions(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7310,7 +7310,7 @@ type ScriptBaseNode struct {
 
 func (n *ScriptBaseNode) StatementListNode() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTScript_statement_list_node(n.getRaw(), &v)
+	internal.ASTScript_statement_list_node(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7319,11 +7319,11 @@ func (n *ScriptBaseNode) StatementListNode() *StatementListNode {
 
 func (n *ScriptBaseNode) StatementList() []StatementNode {
 	var num int
-	internalparser.ASTScript_statement_list_num(n.getRaw(), &num)
+	internal.ASTScript_statement_list_num(n.getRaw(), &num)
 	ret := make([]StatementNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTScript_statement_list(n.getRaw(), i, &v)
+		internal.ASTScript_statement_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(StatementNode))
 	}
 	return ret
@@ -7335,7 +7335,7 @@ type ElseifClauseNode struct {
 
 func (n *ElseifClauseNode) Condition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTElseifClause_condition(n.getRaw(), &v)
+	internal.ASTElseifClause_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7344,7 +7344,7 @@ func (n *ElseifClauseNode) Condition() ExpressionNode {
 
 func (n *ElseifClauseNode) Body() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTElseifClause_body(n.getRaw(), &v)
+	internal.ASTElseifClause_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7353,7 +7353,7 @@ func (n *ElseifClauseNode) Body() *StatementListNode {
 
 func (n *ElseifClauseNode) IfStmt() *IfStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTElseifClause_if_stmt(n.getRaw(), &v)
+	internal.ASTElseifClause_if_stmt(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7366,11 +7366,11 @@ type ElseifClauseListNode struct {
 
 func (n *ElseifClauseListNode) ElseifClauses() []*ElseifClauseNode {
 	var num int
-	internalparser.ASTElseifClauseList_elseif_clauses_num(n.getRaw(), &num)
+	internal.ASTElseifClauseList_elseif_clauses_num(n.getRaw(), &num)
 	ret := make([]*ElseifClauseNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTElseifClauseList_elseif_clause(n.getRaw(), i, &v)
+		internal.ASTElseifClauseList_elseif_clause(n.getRaw(), i, &v)
 		ret = append(ret, newElseifClauseNode(v))
 	}
 	return ret
@@ -7382,7 +7382,7 @@ type IfStatementNode struct {
 
 func (n *IfStatementNode) Condition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTIfStatement_condition(n.getRaw(), &v)
+	internal.ASTIfStatement_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7391,7 +7391,7 @@ func (n *IfStatementNode) Condition() ExpressionNode {
 
 func (n *IfStatementNode) ThenList() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTIfStatement_then_list(n.getRaw(), &v)
+	internal.ASTIfStatement_then_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7400,7 +7400,7 @@ func (n *IfStatementNode) ThenList() *StatementListNode {
 
 func (n *IfStatementNode) ElseifClauses() *ElseifClauseListNode {
 	var v unsafe.Pointer
-	internalparser.ASTIfStatement_elseif_clauses(n.getRaw(), &v)
+	internal.ASTIfStatement_elseif_clauses(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7409,7 +7409,7 @@ func (n *IfStatementNode) ElseifClauses() *ElseifClauseListNode {
 
 func (n *IfStatementNode) ElseList() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTIfStatement_else_list(n.getRaw(), &v)
+	internal.ASTIfStatement_else_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7422,7 +7422,7 @@ type WhenThenClauseNode struct {
 
 func (n *WhenThenClauseNode) Condition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTWhenThenClause_condition(n.getRaw(), &v)
+	internal.ASTWhenThenClause_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7431,7 +7431,7 @@ func (n *WhenThenClauseNode) Condition() ExpressionNode {
 
 func (n *WhenThenClauseNode) Body() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTWhenThenClause_body(n.getRaw(), &v)
+	internal.ASTWhenThenClause_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7440,7 +7440,7 @@ func (n *WhenThenClauseNode) Body() *StatementListNode {
 
 func (n *WhenThenClauseNode) CaseStmt() *CaseStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTWhenThenClause_case_stmt(n.getRaw(), &v)
+	internal.ASTWhenThenClause_case_stmt(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7453,11 +7453,11 @@ type WhenThenClauseListNode struct {
 
 func (n *WhenThenClauseListNode) WhenThenClauses() []*WhenThenClauseNode {
 	var num int
-	internalparser.ASTWhenThenClauseList_when_then_clauses_num(n.getRaw(), &num)
+	internal.ASTWhenThenClauseList_when_then_clauses_num(n.getRaw(), &num)
 	ret := make([]*WhenThenClauseNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTWhenThenClauseList_when_then_clause(n.getRaw(), i, &v)
+		internal.ASTWhenThenClauseList_when_then_clause(n.getRaw(), i, &v)
 		ret = append(ret, newWhenThenClauseNode(v))
 	}
 	return ret
@@ -7469,7 +7469,7 @@ type CaseStatementNode struct {
 
 func (n *CaseStatementNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCaseStatement_expression(n.getRaw(), &v)
+	internal.ASTCaseStatement_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7478,7 +7478,7 @@ func (n *CaseStatementNode) Expression() ExpressionNode {
 
 func (n *CaseStatementNode) WhenThenClauses() *WhenThenClauseListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCaseStatement_when_then_clauses(n.getRaw(), &v)
+	internal.ASTCaseStatement_when_then_clauses(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7487,7 +7487,7 @@ func (n *CaseStatementNode) WhenThenClauses() *WhenThenClauseListNode {
 
 func (n *CaseStatementNode) ElseList() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCaseStatement_else_list(n.getRaw(), &v)
+	internal.ASTCaseStatement_else_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7500,7 +7500,7 @@ type HintNode struct {
 
 func (n *HintNode) NumShardsHint() *IntLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTHint_num_shards_hint(n.getRaw(), &v)
+	internal.ASTHint_num_shards_hint(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7509,11 +7509,11 @@ func (n *HintNode) NumShardsHint() *IntLiteralNode {
 
 func (n *HintNode) HintEntries() []*HintEntryNode {
 	var num int
-	internalparser.ASTHint_hint_entries_num(n.getRaw(), &num)
+	internal.ASTHint_hint_entries_num(n.getRaw(), &num)
 	ret := make([]*HintEntryNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTHint_hint_entry(n.getRaw(), i, &v)
+		internal.ASTHint_hint_entry(n.getRaw(), i, &v)
 		ret = append(ret, newHintEntryNode(v))
 	}
 	return ret
@@ -7525,7 +7525,7 @@ type HintEntryNode struct {
 
 func (n *HintEntryNode) Qualifier() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTHintEntry_qualifier(n.getRaw(), &v)
+	internal.ASTHintEntry_qualifier(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7534,7 +7534,7 @@ func (n *HintEntryNode) Qualifier() *IdentifierNode {
 
 func (n *HintEntryNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTHintEntry_name(n.getRaw(), &v)
+	internal.ASTHintEntry_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7543,7 +7543,7 @@ func (n *HintEntryNode) Name() *IdentifierNode {
 
 func (n *HintEntryNode) Value() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTHintEntry_value(n.getRaw(), &v)
+	internal.ASTHintEntry_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7556,7 +7556,7 @@ type UnpivotInItemLabelNode struct {
 
 func (n *UnpivotInItemLabelNode) Label() LeafNode {
 	var v unsafe.Pointer
-	internalparser.ASTUnpivotInItemLabel_label(n.getRaw(), &v)
+	internal.ASTUnpivotInItemLabel_label(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7569,7 +7569,7 @@ type DescriptorNode struct {
 
 func (n *DescriptorNode) Columns() *DescriptorColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTDescriptor_columns(n.getRaw(), &v)
+	internal.ASTDescriptor_columns(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7582,7 +7582,7 @@ type ColumnSchemaNode struct {
 
 func (n *ColumnSchemaNode) TypeParameters() *TypeParameterListNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_type_parameters(n.getRaw(), &v)
+	internal.ASTColumnSchema_type_parameters(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7591,7 +7591,7 @@ func (n *ColumnSchemaNode) TypeParameters() *TypeParameterListNode {
 
 func (n *ColumnSchemaNode) GeneratedColumnInfo() *GeneratedColumnInfoNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_generated_column_info(n.getRaw(), &v)
+	internal.ASTColumnSchema_generated_column_info(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7600,7 +7600,7 @@ func (n *ColumnSchemaNode) GeneratedColumnInfo() *GeneratedColumnInfoNode {
 
 func (n *ColumnSchemaNode) DefaultExpression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_default_expression(n.getRaw(), &v)
+	internal.ASTColumnSchema_default_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7609,7 +7609,7 @@ func (n *ColumnSchemaNode) DefaultExpression() ExpressionNode {
 
 func (n *ColumnSchemaNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_collate(n.getRaw(), &v)
+	internal.ASTColumnSchema_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7618,7 +7618,7 @@ func (n *ColumnSchemaNode) Collate() *CollateNode {
 
 func (n *ColumnSchemaNode) Attributes() *ColumnAttributeListNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_attributes(n.getRaw(), &v)
+	internal.ASTColumnSchema_attributes(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7627,7 +7627,7 @@ func (n *ColumnSchemaNode) Attributes() *ColumnAttributeListNode {
 
 func (n *ColumnSchemaNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTColumnSchema_options_list(n.getRaw(), &v)
+	internal.ASTColumnSchema_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7636,7 +7636,7 @@ func (n *ColumnSchemaNode) OptionsList() *OptionsListNode {
 
 func (n *ColumnSchemaNode) ContainsAttribute(kind Kind) bool {
 	var v bool
-	internalparser.ASTColumnSchema_ContainsAttribute(n.getRaw(), int(kind), &v)
+	internal.ASTColumnSchema_ContainsAttribute(n.getRaw(), int(kind), &v)
 	return v
 }
 
@@ -7646,7 +7646,7 @@ type SimpleColumnSchemaNode struct {
 
 func (n *SimpleColumnSchemaNode) TypeName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSimpleColumnSchema_type_name(n.getRaw(), &v)
+	internal.ASTSimpleColumnSchema_type_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7659,7 +7659,7 @@ type ArrayColumnSchemaNode struct {
 
 func (n *ArrayColumnSchemaNode) ElementSchema() *ColumnSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTArrayColumnSchema_element_schema(n.getRaw(), &v)
+	internal.ASTArrayColumnSchema_element_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7672,7 +7672,7 @@ type TableConstraintBaseNode struct {
 
 func (n *TableConstraintBaseNode) ConstraintName() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTTableConstraint_constraint_name(n.getRaw(), &v)
+	internal.ASTTableConstraint_constraint_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7684,18 +7684,18 @@ type PrimaryKeyNode struct {
 }
 
 func (n *PrimaryKeyNode) SetEnforced(enforced bool) {
-	internalparser.ASTPrimaryKey_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTPrimaryKey_set_enforced(n.getRaw(), boolToInt(enforced))
 }
 
 func (n *PrimaryKeyNode) Enforced() bool {
 	var v bool
-	internalparser.ASTPrimaryKey_enforced(n.getRaw(), &v)
+	internal.ASTPrimaryKey_enforced(n.getRaw(), &v)
 	return v
 }
 
 func (n *PrimaryKeyNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTPrimaryKey_column_list(n.getRaw(), &v)
+	internal.ASTPrimaryKey_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7704,7 +7704,7 @@ func (n *PrimaryKeyNode) ColumnList() *ColumnListNode {
 
 func (n *PrimaryKeyNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTPrimaryKey_options_list(n.getRaw(), &v)
+	internal.ASTPrimaryKey_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7717,7 +7717,7 @@ type ForeignKeyNode struct {
 
 func (n *ForeignKeyNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKey_column_list(n.getRaw(), &v)
+	internal.ASTForeignKey_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7726,7 +7726,7 @@ func (n *ForeignKeyNode) ColumnList() *ColumnListNode {
 
 func (n *ForeignKeyNode) Reference() *ForeignKeyReferenceNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKey_reference(n.getRaw(), &v)
+	internal.ASTForeignKey_reference(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7735,7 +7735,7 @@ func (n *ForeignKeyNode) Reference() *ForeignKeyReferenceNode {
 
 func (n *ForeignKeyNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTForeignKey_options_list(n.getRaw(), &v)
+	internal.ASTForeignKey_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7747,18 +7747,18 @@ type CheckConstraintNode struct {
 }
 
 func (n *CheckConstraintNode) SetIsEnforced(enforced bool) {
-	internalparser.ASTCheckConstraint_set_is_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTCheckConstraint_set_is_enforced(n.getRaw(), boolToInt(enforced))
 }
 
 func (n *CheckConstraintNode) IsEnforced() bool {
 	var v bool
-	internalparser.ASTCheckConstraint_is_enforced(n.getRaw(), &v)
+	internal.ASTCheckConstraint_is_enforced(n.getRaw(), &v)
 	return v
 }
 
 func (n *CheckConstraintNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCheckConstraint_expression(n.getRaw(), &v)
+	internal.ASTCheckConstraint_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7767,7 +7767,7 @@ func (n *CheckConstraintNode) Expression() ExpressionNode {
 
 func (n *CheckConstraintNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCheckConstraint_options_list(n.getRaw(), &v)
+	internal.ASTCheckConstraint_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7780,7 +7780,7 @@ type DescriptorColumnNode struct {
 
 func (n *DescriptorColumnNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDescriptorColumn_name(n.getRaw(), &v)
+	internal.ASTDescriptorColumn_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7793,11 +7793,11 @@ type DescriptorColumnListNode struct {
 
 func (n *DescriptorColumnListNode) DescriptorColumnList() []*DescriptorColumnNode {
 	var num int
-	internalparser.ASTDescriptorColumnList_descriptor_column_list_num(n.getRaw(), &num)
+	internal.ASTDescriptorColumnList_descriptor_column_list_num(n.getRaw(), &num)
 	ret := make([]*DescriptorColumnNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTDescriptorColumnList_descriptor_column_list(n.getRaw(), i, &v)
+		internal.ASTDescriptorColumnList_descriptor_column_list(n.getRaw(), i, &v)
 		ret = append(ret, newDescriptorColumnNode(v))
 	}
 	return ret
@@ -7809,7 +7809,7 @@ type CreateEntityStatementNode struct {
 
 func (n *CreateEntityStatementNode) Type() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateEntityStatement_type(n.getRaw(), &v)
+	internal.ASTCreateEntityStatement_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7818,7 +7818,7 @@ func (n *CreateEntityStatementNode) Type() *IdentifierNode {
 
 func (n *CreateEntityStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateEntityStatement_name(n.getRaw(), &v)
+	internal.ASTCreateEntityStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7827,7 +7827,7 @@ func (n *CreateEntityStatementNode) Name() *PathExpressionNode {
 
 func (n *CreateEntityStatementNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateEntityStatement_options_list(n.getRaw(), &v)
+	internal.ASTCreateEntityStatement_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7836,7 +7836,7 @@ func (n *CreateEntityStatementNode) OptionsList() *OptionsListNode {
 
 func (n *CreateEntityStatementNode) JSONBody() *JSONLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateEntityStatement_json_body(n.getRaw(), &v)
+	internal.ASTCreateEntityStatement_json_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7845,7 +7845,7 @@ func (n *CreateEntityStatementNode) JSONBody() *JSONLiteralNode {
 
 func (n *CreateEntityStatementNode) TextBody() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateEntityStatement_text_body(n.getRaw(), &v)
+	internal.ASTCreateEntityStatement_text_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7858,7 +7858,7 @@ type RaiseStatementNode struct {
 
 func (n *RaiseStatementNode) Message() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTRaiseStatement_message(n.getRaw(), &v)
+	internal.ASTRaiseStatement_message(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7867,7 +7867,7 @@ func (n *RaiseStatementNode) Message() ExpressionNode {
 
 func (n *RaiseStatementNode) IsRethrow() bool {
 	var v bool
-	internalparser.ASTRaiseStatement_is_rethrow(n.getRaw(), &v)
+	internal.ASTRaiseStatement_is_rethrow(n.getRaw(), &v)
 	return v
 }
 
@@ -7877,7 +7877,7 @@ type ExceptionHandlerNode struct {
 
 func (n *ExceptionHandlerNode) StatementList() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTExceptionHandler_statement_list(n.getRaw(), &v)
+	internal.ASTExceptionHandler_statement_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7890,11 +7890,11 @@ type ExceptionHandlerListNode struct {
 
 func (n *ExceptionHandlerListNode) ExceptionHandlerList() []*ExceptionHandlerNode {
 	var num int
-	internalparser.ASTExceptionHandlerList_exception_handler_list_num(n.getRaw(), &num)
+	internal.ASTExceptionHandlerList_exception_handler_list_num(n.getRaw(), &num)
 	ret := make([]*ExceptionHandlerNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTExceptionHandlerList_exception_handler_list(n.getRaw(), i, &v)
+		internal.ASTExceptionHandlerList_exception_handler_list(n.getRaw(), i, &v)
 		ret = append(ret, newExceptionHandlerNode(v))
 	}
 	return ret
@@ -7906,7 +7906,7 @@ type BeginEndBlockNode struct {
 
 func (n *BeginEndBlockNode) Label() *LabelNode {
 	var v unsafe.Pointer
-	internalparser.ASTBeginEndBlock_label(n.getRaw(), &v)
+	internal.ASTBeginEndBlock_label(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7915,7 +7915,7 @@ func (n *BeginEndBlockNode) Label() *LabelNode {
 
 func (n *BeginEndBlockNode) StatementListNode() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTBeginEndBlock_statement_list_node(n.getRaw(), &v)
+	internal.ASTBeginEndBlock_statement_list_node(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7924,7 +7924,7 @@ func (n *BeginEndBlockNode) StatementListNode() *StatementListNode {
 
 func (n *BeginEndBlockNode) HandlerList() *ExceptionHandlerListNode {
 	var v unsafe.Pointer
-	internalparser.ASTBeginEndBlock_handler_list(n.getRaw(), &v)
+	internal.ASTBeginEndBlock_handler_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7933,11 +7933,11 @@ func (n *BeginEndBlockNode) HandlerList() *ExceptionHandlerListNode {
 
 func (n *BeginEndBlockNode) StatementList() []StatementNode {
 	var num int
-	internalparser.ASTBeginEndBlock_statement_list_num(n.getRaw(), &num)
+	internal.ASTBeginEndBlock_statement_list_num(n.getRaw(), &num)
 	ret := make([]StatementNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTBeginEndBlock_statement_list(n.getRaw(), i, &v)
+		internal.ASTBeginEndBlock_statement_list(n.getRaw(), i, &v)
 		ret = append(ret, newNode(v).(StatementNode))
 	}
 	return ret
@@ -7945,7 +7945,7 @@ func (n *BeginEndBlockNode) StatementList() []StatementNode {
 
 func (n *BeginEndBlockNode) HasExceptionHandler() bool {
 	var v bool
-	internalparser.ASTBeginEndBlock_has_exception_handler(n.getRaw(), &v)
+	internal.ASTBeginEndBlock_has_exception_handler(n.getRaw(), &v)
 	return v
 }
 
@@ -7955,11 +7955,11 @@ type IdentifierListNode struct {
 
 func (n *IdentifierListNode) IdentifierList() []*IdentifierNode {
 	var num int
-	internalparser.ASTIdentifierList_identifier_list_num(n.getRaw(), &num)
+	internal.ASTIdentifierList_identifier_list_num(n.getRaw(), &num)
 	ret := make([]*IdentifierNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTIdentifierList_identifier_list(n.getRaw(), i, &v)
+		internal.ASTIdentifierList_identifier_list(n.getRaw(), i, &v)
 		ret = append(ret, newIdentifierNode(v))
 	}
 	return ret
@@ -7971,7 +7971,7 @@ type VariableDeclarationNode struct {
 
 func (n *VariableDeclarationNode) VariableList() *IdentifierListNode {
 	var v unsafe.Pointer
-	internalparser.ASTVariableDeclaration_variable_list(n.getRaw(), &v)
+	internal.ASTVariableDeclaration_variable_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7980,7 +7980,7 @@ func (n *VariableDeclarationNode) VariableList() *IdentifierListNode {
 
 func (n *VariableDeclarationNode) Type() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTVariableDeclaration_type(n.getRaw(), &v)
+	internal.ASTVariableDeclaration_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -7989,7 +7989,7 @@ func (n *VariableDeclarationNode) Type() TypeNode {
 
 func (n *VariableDeclarationNode) DefaultValue() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTVariableDeclaration_default_value(n.getRaw(), &v)
+	internal.ASTVariableDeclaration_default_value(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8002,7 +8002,7 @@ type UntilClauseNode struct {
 
 func (n *UntilClauseNode) Condition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTUntilClause_condition(n.getRaw(), &v)
+	internal.ASTUntilClause_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8011,7 +8011,7 @@ func (n *UntilClauseNode) Condition() ExpressionNode {
 
 func (n *UntilClauseNode) RepeatStmt() *RepeatStatementNode {
 	var v unsafe.Pointer
-	internalparser.ASTUntilClause_repeat_stmt(n.getRaw(), &v)
+	internal.ASTUntilClause_repeat_stmt(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8047,7 +8047,7 @@ type BreakContinueStatementNode struct {
 
 func (n *BreakContinueStatementNode) Label() *LabelNode {
 	var v unsafe.Pointer
-	internalparser.ASTBreakContinueStatement_label(n.getRaw(), &v)
+	internal.ASTBreakContinueStatement_label(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8055,12 +8055,12 @@ func (n *BreakContinueStatementNode) Label() *LabelNode {
 }
 
 func (n *BreakContinueStatementNode) SetKeyword(keyword BreakContinueKeyword) {
-	internalparser.ASTBreakContinueStatement_set_keyword(n.getRaw(), int(keyword))
+	internal.ASTBreakContinueStatement_set_keyword(n.getRaw(), int(keyword))
 }
 
 func (n *BreakContinueStatementNode) Keyword() BreakContinueKeyword {
 	var v int
-	internalparser.ASTBreakContinueStatement_keyword(n.getRaw(), &v)
+	internal.ASTBreakContinueStatement_keyword(n.getRaw(), &v)
 	return BreakContinueKeyword(v)
 }
 
@@ -8069,12 +8069,12 @@ type BreakStatementNode struct {
 }
 
 func (n *BreakStatementNode) SetKeyword(keyword BreakContinueKeyword) {
-	internalparser.ASTBreakStatement_set_keyword(n.getRaw(), int(keyword))
+	internal.ASTBreakStatement_set_keyword(n.getRaw(), int(keyword))
 }
 
 func (n *BreakStatementNode) Keyword() BreakContinueKeyword {
 	var v int
-	internalparser.ASTBreakStatement_keyword(n.getRaw(), &v)
+	internal.ASTBreakStatement_keyword(n.getRaw(), &v)
 	return BreakContinueKeyword(v)
 }
 
@@ -8083,12 +8083,12 @@ type ContinueStatementNode struct {
 }
 
 func (n *ContinueStatementNode) SetKeyword(keyword BreakContinueKeyword) {
-	internalparser.ASTContinueStatement_set_keyword(n.getRaw(), int(keyword))
+	internal.ASTContinueStatement_set_keyword(n.getRaw(), int(keyword))
 }
 
 func (n *ContinueStatementNode) Keyword() BreakContinueKeyword {
 	var v int
-	internalparser.ASTContinueStatement_keyword(n.getRaw(), &v)
+	internal.ASTContinueStatement_keyword(n.getRaw(), &v)
 	return BreakContinueKeyword(v)
 }
 
@@ -8097,18 +8097,18 @@ type DropPrivilegeRestrictionStatementNode struct {
 }
 
 func (n *DropPrivilegeRestrictionStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropPrivilegeRestrictionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropPrivilegeRestrictionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropPrivilegeRestrictionStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropPrivilegeRestrictionStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropPrivilegeRestrictionStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropPrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropPrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
+	internal.ASTDropPrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8117,7 +8117,7 @@ func (n *DropPrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 
 func (n *DropPrivilegeRestrictionStatementNode) ObjectType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropPrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
+	internal.ASTDropPrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8126,7 +8126,7 @@ func (n *DropPrivilegeRestrictionStatementNode) ObjectType() *IdentifierNode {
 
 func (n *DropPrivilegeRestrictionStatementNode) NamePath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropPrivilegeRestrictionStatement_name_path(n.getRaw(), &v)
+	internal.ASTDropPrivilegeRestrictionStatement_name_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8138,18 +8138,18 @@ type DropRowAccessPolicyStatementNode struct {
 }
 
 func (n *DropRowAccessPolicyStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropRowAccessPolicyStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropRowAccessPolicyStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropRowAccessPolicyStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropRowAccessPolicyStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropRowAccessPolicyStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropRowAccessPolicyStatementNode) TableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropRowAccessPolicyStatement_table_name(n.getRaw(), &v)
+	internal.ASTDropRowAccessPolicyStatement_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8158,7 +8158,7 @@ func (n *DropRowAccessPolicyStatementNode) TableName() *PathExpressionNode {
 
 func (n *DropRowAccessPolicyStatementNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropRowAccessPolicyStatement_name(n.getRaw(), &v)
+	internal.ASTDropRowAccessPolicyStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8171,7 +8171,7 @@ type CreatePrivilegeRestrictionStatementNode struct {
 
 func (n *CreatePrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreatePrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
+	internal.ASTCreatePrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8180,7 +8180,7 @@ func (n *CreatePrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 
 func (n *CreatePrivilegeRestrictionStatementNode) ObjectType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreatePrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
+	internal.ASTCreatePrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8189,7 +8189,7 @@ func (n *CreatePrivilegeRestrictionStatementNode) ObjectType() *IdentifierNode {
 
 func (n *CreatePrivilegeRestrictionStatementNode) NamePath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreatePrivilegeRestrictionStatement_name_path(n.getRaw(), &v)
+	internal.ASTCreatePrivilegeRestrictionStatement_name_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8198,7 +8198,7 @@ func (n *CreatePrivilegeRestrictionStatementNode) NamePath() *PathExpressionNode
 
 func (n *CreatePrivilegeRestrictionStatementNode) RestrictTo() *RestrictToClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreatePrivilegeRestrictionStatement_restrict_to(n.getRaw(), &v)
+	internal.ASTCreatePrivilegeRestrictionStatement_restrict_to(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8210,18 +8210,18 @@ type CreateRowAccessPolicyStatementNode struct {
 }
 
 func (n *CreateRowAccessPolicyStatementNode) SetHasAccessKeyword(v bool) {
-	internalparser.ASTCreateRowAccessPolicyStatement_set_has_access_keyword(n.getRaw(), boolToInt(v))
+	internal.ASTCreateRowAccessPolicyStatement_set_has_access_keyword(n.getRaw(), boolToInt(v))
 }
 
 func (n *CreateRowAccessPolicyStatementNode) HasAccessKeyword() bool {
 	var v bool
-	internalparser.ASTCreateRowAccessPolicyStatement_has_access_keyword(n.getRaw(), &v)
+	internal.ASTCreateRowAccessPolicyStatement_has_access_keyword(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateRowAccessPolicyStatementNode) TargetPath() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateRowAccessPolicyStatement_target_path(n.getRaw(), &v)
+	internal.ASTCreateRowAccessPolicyStatement_target_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8230,7 +8230,7 @@ func (n *CreateRowAccessPolicyStatementNode) TargetPath() *PathExpressionNode {
 
 func (n *CreateRowAccessPolicyStatementNode) GrantTo() *GrantToClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateRowAccessPolicyStatement_grant_to(n.getRaw(), &v)
+	internal.ASTCreateRowAccessPolicyStatement_grant_to(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8239,7 +8239,7 @@ func (n *CreateRowAccessPolicyStatementNode) GrantTo() *GrantToClauseNode {
 
 func (n *CreateRowAccessPolicyStatementNode) FilterUsing() *FilterUsingClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateRowAccessPolicyStatement_filter_using(n.getRaw(), &v)
+	internal.ASTCreateRowAccessPolicyStatement_filter_using(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8248,7 +8248,7 @@ func (n *CreateRowAccessPolicyStatementNode) FilterUsing() *FilterUsingClauseNod
 
 func (n *CreateRowAccessPolicyStatementNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateRowAccessPolicyStatement_name(n.getRaw(), &v)
+	internal.ASTCreateRowAccessPolicyStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8280,38 +8280,38 @@ type DropStatementNode struct {
 }
 
 func (n *DropStatementNode) SetDropMode(mode DropMode) {
-	internalparser.ASTDropStatement_set_drop_mode(n.getRaw(), int(mode))
+	internal.ASTDropStatement_set_drop_mode(n.getRaw(), int(mode))
 }
 
 func (n *DropStatementNode) DropMode() DropMode {
 	var v int
-	internalparser.ASTDropStatement_drop_mode(n.getRaw(), &v)
+	internal.ASTDropStatement_drop_mode(n.getRaw(), &v)
 	return DropMode(v)
 }
 
 func (n *DropStatementNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTDropStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *DropStatementNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTDropStatement_is_if_exists(n.getRaw(), &v)
+	internal.ASTDropStatement_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *DropStatementNode) SetSchemaObjectKind(kind SchemaObjectKind) {
-	internalparser.ASTDropStatement_set_schema_object_kind(n.getRaw(), int(kind))
+	internal.ASTDropStatement_set_schema_object_kind(n.getRaw(), int(kind))
 }
 
 func (n *DropStatementNode) SchemaObjectKind() SchemaObjectKind {
 	var v int
-	internalparser.ASTDropStatement_schema_object_kind(n.getRaw(), &v)
+	internal.ASTDropStatement_schema_object_kind(n.getRaw(), &v)
 	return SchemaObjectKind(v)
 }
 
 func (n *DropStatementNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTDropStatemnt_name(n.getRaw(), &v)
+	internal.ASTDropStatemnt_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8328,7 +8328,7 @@ type SingleAssignmentNode struct {
 
 func (n *SingleAssignmentNode) Variable() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTSingleAssignment_variable(n.getRaw(), &v)
+	internal.ASTSingleAssignment_variable(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8337,7 +8337,7 @@ func (n *SingleAssignmentNode) Variable() *IdentifierNode {
 
 func (n *SingleAssignmentNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSingleAssignment_expression(n.getRaw(), &v)
+	internal.ASTSingleAssignment_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8350,7 +8350,7 @@ type ParameterAssignmentNode struct {
 
 func (n *ParameterAssignmentNode) Parameter() *ParameterExprNode {
 	var v unsafe.Pointer
-	internalparser.ASTParameterAssignment_parameter(n.getRaw(), &v)
+	internal.ASTParameterAssignment_parameter(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8359,7 +8359,7 @@ func (n *ParameterAssignmentNode) Parameter() *ParameterExprNode {
 
 func (n *ParameterAssignmentNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTParameterAssignment_expression(n.getRaw(), &v)
+	internal.ASTParameterAssignment_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8372,7 +8372,7 @@ type SystemVariableAssignmentNode struct {
 
 func (n *SystemVariableAssignmentNode) SystemVariable() *SystemVariableExprNode {
 	var v unsafe.Pointer
-	internalparser.ASTSystemVariableAssignment_system_variable(n.getRaw(), &v)
+	internal.ASTSystemVariableAssignment_system_variable(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8381,7 +8381,7 @@ func (n *SystemVariableAssignmentNode) SystemVariable() *SystemVariableExprNode 
 
 func (n *SystemVariableAssignmentNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTSystemVariableAssignment_expression(n.getRaw(), &v)
+	internal.ASTSystemVariableAssignment_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8394,7 +8394,7 @@ type AssignmentFromStructNode struct {
 
 func (n *AssignmentFromStructNode) Variables() *IdentifierListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAssignmentFromStruct_variables(n.getRaw(), &v)
+	internal.ASTAssignmentFromStruct_variables(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8403,7 +8403,7 @@ func (n *AssignmentFromStructNode) Variables() *IdentifierListNode {
 
 func (n *AssignmentFromStructNode) StructExpression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAssignmentFromStruct_struct_expression(n.getRaw(), &v)
+	internal.ASTAssignmentFromStruct_struct_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8416,7 +8416,7 @@ type CreateTableStmtBaseNode struct {
 
 func (n *CreateTableStmtBaseNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStmtBase_name(n.getRaw(), &v)
+	internal.ASTCreateTableStmtBase_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8425,7 +8425,7 @@ func (n *CreateTableStmtBaseNode) Name() *PathExpressionNode {
 
 func (n *CreateTableStmtBaseNode) TableElementList() *TableElementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStmtBase_table_element_list(n.getRaw(), &v)
+	internal.ASTCreateTableStmtBase_table_element_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8434,7 +8434,7 @@ func (n *CreateTableStmtBaseNode) TableElementList() *TableElementListNode {
 
 func (n *CreateTableStmtBaseNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStmtBase_options_list(n.getRaw(), &v)
+	internal.ASTCreateTableStmtBase_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8443,7 +8443,7 @@ func (n *CreateTableStmtBaseNode) OptionsList() *OptionsListNode {
 
 func (n *CreateTableStmtBaseNode) LikeTableName() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStmtBase_like_table_name(n.getRaw(), &v)
+	internal.ASTCreateTableStmtBase_like_table_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8452,7 +8452,7 @@ func (n *CreateTableStmtBaseNode) LikeTableName() *PathExpressionNode {
 
 func (n *CreateTableStmtBaseNode) Collate() *CollateNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStmtBase_collate(n.getRaw(), &v)
+	internal.ASTCreateTableStmtBase_collate(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8465,7 +8465,7 @@ type CreateTableStatementNode struct {
 
 func (n *CreateTableStatementNode) CloneDataSource() *CloneDataSourceNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStatement_clone_data_source(n.getRaw(), &v)
+	internal.ASTCreateTableStatement_clone_data_source(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8474,7 +8474,7 @@ func (n *CreateTableStatementNode) CloneDataSource() *CloneDataSourceNode {
 
 func (n *CreateTableStatementNode) CopyDataSource() *CopyDataSourceNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStatement_copy_data_source(n.getRaw(), &v)
+	internal.ASTCreateTableStatement_copy_data_source(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8483,7 +8483,7 @@ func (n *CreateTableStatementNode) CopyDataSource() *CopyDataSourceNode {
 
 func (n *CreateTableStatementNode) PartitionBy() *PartitionByNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStatement_partition_by(n.getRaw(), &v)
+	internal.ASTCreateTableStatement_partition_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8492,7 +8492,7 @@ func (n *CreateTableStatementNode) PartitionBy() *PartitionByNode {
 
 func (n *CreateTableStatementNode) ClusterBy() *ClusterByNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStatement_cluster_by(n.getRaw(), &v)
+	internal.ASTCreateTableStatement_cluster_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8501,7 +8501,7 @@ func (n *CreateTableStatementNode) ClusterBy() *ClusterByNode {
 
 func (n *CreateTableStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableStatement_query(n.getRaw(), &v)
+	internal.ASTCreateTableStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8514,7 +8514,7 @@ type CreateExternalTableStatementNode struct {
 
 func (n *CreateExternalTableStatementNode) WithPartitionColumnsClause() *WithPartitionColumnsClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateExternalTableStatement_with_partition_columns_clause(n.getRaw(), &v)
+	internal.ASTCreateExternalTableStatement_with_partition_columns_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8523,7 +8523,7 @@ func (n *CreateExternalTableStatementNode) WithPartitionColumnsClause() *WithPar
 
 func (n *CreateExternalTableStatementNode) WithConnectionClause() *WithConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateExternalTableStatement_with_connection_clause(n.getRaw(), &v)
+	internal.ASTCreateExternalTableStatement_with_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8536,7 +8536,7 @@ type CreateViewStatementBaseNode struct {
 
 func (n *CreateViewStatementBaseNode) Name() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateViewStatementBase_name(n.getRaw(), &v)
+	internal.ASTCreateViewStatementBase_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8545,7 +8545,7 @@ func (n *CreateViewStatementBaseNode) Name() *PathExpressionNode {
 
 func (n *CreateViewStatementBaseNode) ColumnList() *ColumnListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateViewStatementBase_column_list(n.getRaw(), &v)
+	internal.ASTCreateViewStatementBase_column_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8554,7 +8554,7 @@ func (n *CreateViewStatementBaseNode) ColumnList() *ColumnListNode {
 
 func (n *CreateViewStatementBaseNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateViewStatementBase_options_list(n.getRaw(), &v)
+	internal.ASTCreateViewStatementBase_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8563,7 +8563,7 @@ func (n *CreateViewStatementBaseNode) OptionsList() *OptionsListNode {
 
 func (n *CreateViewStatementBaseNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateViewStatementBase_query(n.getRaw(), &v)
+	internal.ASTCreateViewStatementBase_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8580,7 +8580,7 @@ type CreateMaterializedViewStatementNode struct {
 
 func (n *CreateMaterializedViewStatementNode) PartitionBy() *PartitionByNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateMaterializedViewStatement_partition_by(n.getRaw(), &v)
+	internal.ASTCreateMaterializedViewStatement_partition_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8589,7 +8589,7 @@ func (n *CreateMaterializedViewStatementNode) PartitionBy() *PartitionByNode {
 
 func (n *CreateMaterializedViewStatementNode) ClusterBy() *ClusterByNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateMaterializedViewStatement_cluster_by(n.getRaw(), &v)
+	internal.ASTCreateMaterializedViewStatement_cluster_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8602,7 +8602,7 @@ type LoopStatementNode struct {
 
 func (n *LoopStatementNode) Label() *LabelNode {
 	var v unsafe.Pointer
-	internalparser.ASTLoopStatement_label(n.getRaw(), &v)
+	internal.ASTLoopStatement_label(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8611,7 +8611,7 @@ func (n *LoopStatementNode) Label() *LabelNode {
 
 func (n *LoopStatementNode) Body() *StatementListNode {
 	var v unsafe.Pointer
-	internalparser.ASTLoopStatement_body(n.getRaw(), &v)
+	internal.ASTLoopStatement_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8620,7 +8620,7 @@ func (n *LoopStatementNode) Body() *StatementListNode {
 
 func (n *LoopStatementNode) IsLoopStatement() bool {
 	var v bool
-	internalparser.ASTLoopStatement_IsLoopStatement(n.getRaw(), &v)
+	internal.ASTLoopStatement_IsLoopStatement(n.getRaw(), &v)
 	return v
 }
 
@@ -8630,7 +8630,7 @@ type WhileStatementNode struct {
 
 func (n *WhileStatementNode) Condition() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTWhileStatement_condition(n.getRaw(), &v)
+	internal.ASTWhileStatement_condition(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8643,7 +8643,7 @@ type RepeatStatementNode struct {
 
 func (n *RepeatStatementNode) UntilClause() *UntilClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTRepeatStatement_until_clause(n.getRaw(), &v)
+	internal.ASTRepeatStatement_until_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8656,7 +8656,7 @@ type ForInStatementNode struct {
 
 func (n *ForInStatementNode) Variable() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTForInStatement_variable(n.getRaw(), &v)
+	internal.ASTForInStatement_variable(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8665,7 +8665,7 @@ func (n *ForInStatementNode) Variable() *IdentifierNode {
 
 func (n *ForInStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTForInStatement_query(n.getRaw(), &v)
+	internal.ASTForInStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8677,18 +8677,18 @@ type AlterStatementBaseNode struct {
 }
 
 func (n *AlterStatementBaseNode) SetIsIfExists(isIfExists bool) {
-	internalparser.ASTAlterStatementBase_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTAlterStatementBase_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
 }
 
 func (n *AlterStatementBaseNode) IsIfExists() bool {
 	var v bool
-	internalparser.ASTAlterStatementBase_is_if_exists(n.getRaw(), &v)
+	internal.ASTAlterStatementBase_is_if_exists(n.getRaw(), &v)
 	return v
 }
 
 func (n *AlterStatementBaseNode) Path() *PathExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterStatementBase_path(n.getRaw(), &v)
+	internal.ASTAlterStatementBase_path(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8697,7 +8697,7 @@ func (n *AlterStatementBaseNode) Path() *PathExpressionNode {
 
 func (n *AlterStatementBaseNode) ActionList() *AlterActionListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterStatementBase_action_list(n.getRaw(), &v)
+	internal.ASTAlterStatementBase_action_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8730,7 +8730,7 @@ type AlterPrivilegeRestrictionStatementNode struct {
 
 func (n *AlterPrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterPrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
+	internal.ASTAlterPrivilegeRestrictionStatement_privileges(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8739,7 +8739,7 @@ func (n *AlterPrivilegeRestrictionStatementNode) Privileges() *PrivilegesNode {
 
 func (n *AlterPrivilegeRestrictionStatementNode) ObjectType() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterPrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
+	internal.ASTAlterPrivilegeRestrictionStatement_object_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8752,7 +8752,7 @@ type AlterRowAccessPolicyStatementNode struct {
 
 func (n *AlterRowAccessPolicyStatementNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterRowAccessPolicyStatement_name(n.getRaw(), &v)
+	internal.ASTAlterRowAccessPolicyStatement_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8765,7 +8765,7 @@ type AlterEntityStatementNode struct {
 
 func (n *AlterEntityStatementNode) Type() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTAlterEntityStatement_type(n.getRaw(), &v)
+	internal.ASTAlterEntityStatement_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8806,28 +8806,28 @@ type CreateFunctionStmtBaseNode struct {
 }
 
 func (n *CreateFunctionStmtBaseNode) SetDeterminismLevel(level DeterminismLevel) {
-	internalparser.ASTCreateFunctionStmtBase_set_determinism_level(n.getRaw(), int(level))
+	internal.ASTCreateFunctionStmtBase_set_determinism_level(n.getRaw(), int(level))
 }
 
 func (n *CreateFunctionStmtBaseNode) DeterminismLevel() DeterminismLevel {
 	var v int
-	internalparser.ASTCreateFunctionStmtBase_determinism_level(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_determinism_level(n.getRaw(), &v)
 	return DeterminismLevel(v)
 }
 
 func (n *CreateFunctionStmtBaseNode) SetSqlSecurity(security SqlSecurity) {
-	internalparser.ASTCreateFunctionStmtBase_set_sql_security(n.getRaw(), int(security))
+	internal.ASTCreateFunctionStmtBase_set_sql_security(n.getRaw(), int(security))
 }
 
 func (n *CreateFunctionStmtBaseNode) SqlSecurity() SqlSecurity {
 	var v int
-	internalparser.ASTCreateFunctionStmtBase_sql_security(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_sql_security(n.getRaw(), &v)
 	return SqlSecurity(v)
 }
 
 func (n *CreateFunctionStmtBaseNode) FunctionDeclaration() *FunctionDeclarationNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStmtBase_function_declaration(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_function_declaration(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8836,7 +8836,7 @@ func (n *CreateFunctionStmtBaseNode) FunctionDeclaration() *FunctionDeclarationN
 
 func (n *CreateFunctionStmtBaseNode) Language() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStmtBase_language(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_language(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8845,7 +8845,7 @@ func (n *CreateFunctionStmtBaseNode) Language() *IdentifierNode {
 
 func (n *CreateFunctionStmtBaseNode) Code() *StringLiteralNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStmtBase_code(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_code(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8854,7 +8854,7 @@ func (n *CreateFunctionStmtBaseNode) Code() *StringLiteralNode {
 
 func (n *CreateFunctionStmtBaseNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStmtBase_options_list(n.getRaw(), &v)
+	internal.ASTCreateFunctionStmtBase_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8866,28 +8866,28 @@ type CreateFunctionStatementNode struct {
 }
 
 func (n *CreateFunctionStatementNode) SetIsAggregate(isAggregate bool) {
-	internalparser.ASTCreateFunctionStatement_set_is_aggregate(n.getRaw(), boolToInt(isAggregate))
+	internal.ASTCreateFunctionStatement_set_is_aggregate(n.getRaw(), boolToInt(isAggregate))
 }
 
 func (n *CreateFunctionStatementNode) IsAggregate() bool {
 	var v bool
-	internalparser.ASTCreateFunctionStatement_is_aggregate(n.getRaw(), &v)
+	internal.ASTCreateFunctionStatement_is_aggregate(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateFunctionStatementNode) SetIsRemote(isRemote bool) {
-	internalparser.ASTCreateFunctionStatement_set_is_remote(n.getRaw(), boolToInt(isRemote))
+	internal.ASTCreateFunctionStatement_set_is_remote(n.getRaw(), boolToInt(isRemote))
 }
 
 func (n *CreateFunctionStatementNode) IsRemote() bool {
 	var v bool
-	internalparser.ASTCreateFunctionStatement_is_remote(n.getRaw(), &v)
+	internal.ASTCreateFunctionStatement_is_remote(n.getRaw(), &v)
 	return v
 }
 
 func (n *CreateFunctionStatementNode) ReturnType() TypeNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStatement_return_type(n.getRaw(), &v)
+	internal.ASTCreateFunctionStatement_return_type(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8896,7 +8896,7 @@ func (n *CreateFunctionStatementNode) ReturnType() TypeNode {
 
 func (n *CreateFunctionStatementNode) SqlFunctionBody() *SqlFunctionBodyNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStatement_sql_function_body(n.getRaw(), &v)
+	internal.ASTCreateFunctionStatement_sql_function_body(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8905,7 +8905,7 @@ func (n *CreateFunctionStatementNode) SqlFunctionBody() *SqlFunctionBodyNode {
 
 func (n *CreateFunctionStatementNode) WithConnectionClause() *WithConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateFunctionStatement_with_connection_clause(n.getRaw(), &v)
+	internal.ASTCreateFunctionStatement_with_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8918,7 +8918,7 @@ type CreateTableFunctionStatementNode struct {
 
 func (n *CreateTableFunctionStatementNode) ReturnTVFSchema() *TVFSchemaNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableFunctionStatement_return_tvf_schema(n.getRaw(), &v)
+	internal.ASTCreateTableFunctionStatement_return_tvf_schema(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8927,7 +8927,7 @@ func (n *CreateTableFunctionStatementNode) ReturnTVFSchema() *TVFSchemaNode {
 
 func (n *CreateTableFunctionStatementNode) Query() *QueryNode {
 	var v unsafe.Pointer
-	internalparser.ASTCreateTableFunctionStatement_query(n.getRaw(), &v)
+	internal.ASTCreateTableFunctionStatement_query(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8940,11 +8940,11 @@ type StructColumnSchemaNode struct {
 
 func (n *StructColumnSchemaNode) StructFields() []*StructColumnFieldNode {
 	var num int
-	internalparser.ASTStructColumnSchema_struct_fields_num(n.getRaw(), &num)
+	internal.ASTStructColumnSchema_struct_fields_num(n.getRaw(), &num)
 	ret := make([]*StructColumnFieldNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTStructColumnSchema_struct_field(n.getRaw(), i, &v)
+		internal.ASTStructColumnSchema_struct_field(n.getRaw(), i, &v)
 		ret = append(ret, newStructColumnFieldNode(v))
 	}
 	return ret
@@ -8960,7 +8960,7 @@ type ExecuteIntoClauseNode struct {
 
 func (n *ExecuteIntoClauseNode) Identifiers() *IdentifierListNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteIntoClause_identifiers(n.getRaw(), &v)
+	internal.ASTExecuteIntoClause_identifiers(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8973,7 +8973,7 @@ type ExecuteUsingArgumentNode struct {
 
 func (n *ExecuteUsingArgumentNode) Expression() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteUsingArgument_expression(n.getRaw(), &v)
+	internal.ASTExecuteUsingArgument_expression(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8982,7 +8982,7 @@ func (n *ExecuteUsingArgumentNode) Expression() ExpressionNode {
 
 func (n *ExecuteUsingArgumentNode) Alias() *AliasNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteUsingArgument_alias(n.getRaw(), &v)
+	internal.ASTExecuteUsingArgument_alias(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -8995,11 +8995,11 @@ type ExecuteUsingClauseNode struct {
 
 func (n *ExecuteUsingClauseNode) Arguments() []*ExecuteUsingArgumentNode {
 	var num int
-	internalparser.ASTExecuteUsingClause_arguments_num(n.getRaw(), &num)
+	internal.ASTExecuteUsingClause_arguments_num(n.getRaw(), &num)
 	ret := make([]*ExecuteUsingArgumentNode, 0, num)
 	for i := 0; i < num; i++ {
 		var v unsafe.Pointer
-		internalparser.ASTExecuteUsingClause_argument(n.getRaw(), i, &v)
+		internal.ASTExecuteUsingClause_argument(n.getRaw(), i, &v)
 		ret = append(ret, newExecuteUsingArgumentNode(v))
 	}
 	return ret
@@ -9011,7 +9011,7 @@ type ExecuteImmediateStatementNode struct {
 
 func (n *ExecuteImmediateStatementNode) SQL() ExpressionNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteImmediateStatement_sql(n.getRaw(), &v)
+	internal.ASTExecuteImmediateStatement_sql(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9020,7 +9020,7 @@ func (n *ExecuteImmediateStatementNode) SQL() ExpressionNode {
 
 func (n *ExecuteImmediateStatementNode) IntoClause() *ExecuteIntoClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteImmediateStatement_into_clause(n.getRaw(), &v)
+	internal.ASTExecuteImmediateStatement_into_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9029,7 +9029,7 @@ func (n *ExecuteImmediateStatementNode) IntoClause() *ExecuteIntoClauseNode {
 
 func (n *ExecuteImmediateStatementNode) UsingClause() *ExecuteUsingClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTExecuteImmediateStatement_using_clause(n.getRaw(), &v)
+	internal.ASTExecuteImmediateStatement_using_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9042,7 +9042,7 @@ type AuxLoadDataFromFilesOptionsListNode struct {
 
 func (n *AuxLoadDataFromFilesOptionsListNode) OptionsList() *OptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataFromFilesOptionsList_options_list(n.getRaw(), &v)
+	internal.ASTAuxLoadDataFromFilesOptionsList_options_list(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9074,18 +9074,18 @@ type AuxLoadDataStatementNode struct {
 }
 
 func (n *AuxLoadDataStatementNode) SetInsertionMode(mode InsertionMode) {
-	internalparser.ASTAuxLoadDataStatement_set_insertion_mode(n.getRaw(), int(mode))
+	internal.ASTAuxLoadDataStatement_set_insertion_mode(n.getRaw(), int(mode))
 }
 
 func (n *AuxLoadDataStatementNode) InsertionMode() InsertionMode {
 	var v int
-	internalparser.ASTAuxLoadDataStatement_insertion_mode(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_insertion_mode(n.getRaw(), &v)
 	return InsertionMode(v)
 }
 
 func (n *AuxLoadDataStatementNode) PartitionBy() *PartitionByNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataStatement_partition_by(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_partition_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9094,7 +9094,7 @@ func (n *AuxLoadDataStatementNode) PartitionBy() *PartitionByNode {
 
 func (n *AuxLoadDataStatementNode) ClusterBy() *ClusterByNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataStatement_cluster_by(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_cluster_by(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9103,7 +9103,7 @@ func (n *AuxLoadDataStatementNode) ClusterBy() *ClusterByNode {
 
 func (n *AuxLoadDataStatementNode) FromFiles() *AuxLoadDataFromFilesOptionsListNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataStatement_from_files(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_from_files(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9112,7 +9112,7 @@ func (n *AuxLoadDataStatementNode) FromFiles() *AuxLoadDataFromFilesOptionsListN
 
 func (n *AuxLoadDataStatementNode) WithPartitionColumnsClause() *WithPartitionColumnsClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataStatement_with_partition_columns_clause(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_with_partition_columns_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9121,7 +9121,7 @@ func (n *AuxLoadDataStatementNode) WithPartitionColumnsClause() *WithPartitionCo
 
 func (n *AuxLoadDataStatementNode) WithConnectionClause() *WithConnectionClauseNode {
 	var v unsafe.Pointer
-	internalparser.ASTAuxLoadDataStatement_with_connection_clause(n.getRaw(), &v)
+	internal.ASTAuxLoadDataStatement_with_connection_clause(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -9134,7 +9134,7 @@ type LabelNode struct {
 
 func (n *LabelNode) Name() *IdentifierNode {
 	var v unsafe.Pointer
-	internalparser.ASTLabel_name(n.getRaw(), &v)
+	internal.ASTLabel_name(n.getRaw(), &v)
 	if v == nil {
 		return nil
 	}
@@ -10471,7 +10471,7 @@ func newLabelNode(n unsafe.Pointer) *LabelNode {
 
 func newNode(n unsafe.Pointer) Node {
 	var kind int
-	internalparser.ASTNode_node_kind(n, &kind)
+	internal.ASTNode_node_kind(n, &kind)
 	switch Kind(kind) {
 	case Unknown:
 		return nil

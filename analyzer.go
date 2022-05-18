@@ -12,10 +12,6 @@ import (
 
 import "C"
 
-var (
-	ErrRequiredCatalog = fmt.Errorf("catalog is required parameter to analyze sql")
-)
-
 type AnalyzerOutput struct {
 	raw unsafe.Pointer
 }
@@ -388,7 +384,7 @@ func AnalyzeStatement(sql string, catalog types.Catalog, opt *AnalyzerOptions) (
 		&out,
 		&status,
 	)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}

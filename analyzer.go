@@ -12,10 +12,6 @@ import (
 
 import "C"
 
-var (
-	ErrRequiredCatalog = fmt.Errorf("catalog is required parameter to analyze sql")
-)
-
 type AnalyzerOutput struct {
 	raw unsafe.Pointer
 }

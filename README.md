@@ -22,7 +22,7 @@ ZetaSQL can parse all queries related to Cloud Spanner and BigQuery. This functi
 
 # Status
 
-In the feaatures of ZetaSQL, you can use the functions of the following packages. Will be added sequentially.
+In the features of ZetaSQL, you can use the functions of the following packages. Will be added sequentially.
 
 | Package        | Supported  |
 | ----           | ----       |

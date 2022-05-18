@@ -388,7 +388,7 @@ func AnalyzeStatement(sql string, catalog types.Catalog, opt *AnalyzerOptions) (
 		&out,
 		&status,
 	)
-	st := newStatus(status)
+	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}

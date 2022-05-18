@@ -6,7 +6,8 @@ import (
 	"unsafe"
 
 	"github.com/goccy/go-zetasql/ast"
-	internalparser "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
+	"github.com/goccy/go-zetasql/internal/helper"
 )
 
 var (
@@ -22,7 +23,7 @@ type parserOutput struct {
 
 func (o *parserOutput) Statement() (ast.StatementNode, error) {
 	var stmt unsafe.Pointer
-	internalparser.ParserOutput_statement(o.raw, &stmt)
+	internal.ParserOutput_statement(o.raw, &stmt)
 	node, ok := newNode(stmt).(ast.StatementNode)
 	if !ok {
 		return nil, ErrParseStatement
@@ -32,7 +33,7 @@ func (o *parserOutput) Statement() (ast.StatementNode, error) {
 
 func (o *parserOutput) Script() (ast.ScriptNode, error) {
 	var script unsafe.Pointer
-	internalparser.ParserOutput_script(o.raw, &script)
+	internal.ParserOutput_script(o.raw, &script)
 	node, ok := newNode(script).(ast.ScriptNode)
 	if !ok {
 		return nil, ErrParseScript
@@ -42,7 +43,7 @@ func (o *parserOutput) Script() (ast.ScriptNode, error) {
 
 func (o *parserOutput) Type() (ast.TypeNode, error) {
 	var typ unsafe.Pointer
-	internalparser.ParserOutput_type(o.raw, &typ)
+	internal.ParserOutput_type(o.raw, &typ)
 	node, ok := newNode(typ).(ast.TypeNode)
 	if !ok {
 		return nil, ErrParseType
@@ -52,7 +53,7 @@ func (o *parserOutput) Type() (ast.TypeNode, error) {
 
 func (o *parserOutput) Expression() (ast.ExpressionNode, error) {
 	var expr unsafe.Pointer
-	internalparser.ParserOutput_expression(o.raw, &expr)
+	internal.ParserOutput_expression(o.raw, &expr)
 	node, ok := newNode(expr).(ast.ExpressionNode)
 	if !ok {
 		return nil, ErrParseExpression
@@ -65,10 +66,10 @@ func ParseStatement(stmt string) (ast.StatementNode, error) {
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internalparser.ParseStatement(unsafe.Pointer(C.CString(stmt)), nil, &out, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, parserStatus.Error()
+	internal.ParseStatement(unsafe.Pointer(C.CString(stmt)), nil, &out, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	return parserOut.Statement()
@@ -79,10 +80,10 @@ func ParseScript(script string, mode ErrorMessageMode) (ast.ScriptNode, error) {
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internalparser.ParseScript(unsafe.Pointer(C.CString(script)), nil, int(mode), &out, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, parserStatus.Error()
+	internal.ParseScript(unsafe.Pointer(C.CString(script)), nil, int(mode), &out, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	return parserOut.Script()
@@ -93,10 +94,10 @@ func ParseType(typ string) (ast.TypeNode, error) {
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internalparser.ParseType(unsafe.Pointer(C.CString(typ)), nil, &out, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, parserStatus.Error()
+	internal.ParseType(unsafe.Pointer(C.CString(typ)), nil, &out, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	return parserOut.Type()
@@ -107,10 +108,10 @@ func ParseExpression(expr string) (ast.ExpressionNode, error) {
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internalparser.ParseExpression(unsafe.Pointer(C.CString(expr)), nil, &out, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, parserStatus.Error()
+	internal.ParseExpression(unsafe.Pointer(C.CString(expr)), nil, &out, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	return parserOut.Expression()
@@ -122,7 +123,7 @@ type ParseResumeLocation struct {
 
 func NewParseResumeLocation(src string) *ParseResumeLocation {
 	var v unsafe.Pointer
-	internalparser.ParseResumeLocation_FromStringView(unsafe.Pointer(C.CString(src)), &v)
+	internal.ParseResumeLocation_FromStringView(unsafe.Pointer(C.CString(src)), &v)
 	return &ParseResumeLocation{raw: v}
 }
 
@@ -132,10 +133,10 @@ func ParseNextStatement(loc *ParseResumeLocation) (ast.StatementNode, bool, erro
 		isEnd  bool
 		status unsafe.Pointer
 	)
-	internalparser.ParseNextStatement(loc.raw, nil, &out, &isEnd, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, isEnd, parserStatus.Error()
+	internal.ParseNextStatement(loc.raw, nil, &out, &isEnd, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, isEnd, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	stmt, err := parserOut.Statement()
@@ -148,10 +149,10 @@ func ParseNextScriptStatement(loc *ParseResumeLocation) (ast.ScriptNode, bool, e
 		isEnd  bool
 		status unsafe.Pointer
 	)
-	internalparser.ParseNextScriptStatement(loc.raw, nil, &out, &isEnd, &status)
-	parserStatus := newStatus(status)
-	if !parserStatus.OK() {
-		return nil, isEnd, parserStatus.Error()
+	internal.ParseNextScriptStatement(loc.raw, nil, &out, &isEnd, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, isEnd, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
 	script, err := parserOut.Script()
@@ -160,12 +161,6 @@ func ParseNextScriptStatement(loc *ParseResumeLocation) (ast.ScriptNode, bool, e
 
 func Unparse(node ast.Node) string {
 	var v unsafe.Pointer
-	internalparser.Unparse(getNodeRaw(node), &v)
+	internal.Unparse(getNodeRaw(node), &v)
 	return C.GoString((*C.char)(v))
 }
-
-//go:linkname newNode github.com/goccy/go-zetasql/ast.newNode
-func newNode(unsafe.Pointer) ast.Node
-
-//go:linkname getNodeRaw github.com/goccy/go-zetasql/ast.getNodeRaw
-func getNodeRaw(ast.Node) unsafe.Pointer

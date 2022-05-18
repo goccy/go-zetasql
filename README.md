@@ -50,6 +50,111 @@ go get github.com/goccy/go-zetasql
 
 The first time you run it, it takes time to build all the ZetaSQL code used by go-zetasql.
 
+# Synopsis
+
+## Parse SQL statement
+
+```go
+package main
+
+import (
+  "github.com/goccy/go-zetasql"
+  "github.com/goccy/go-zetasql/ast"
+)
+
+func main() {
+
+  stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1")
+  if err != nil {
+    panic(err)
+  }
+
+  // use type assertion and get concrete nodes.
+  queryStmt := stmt.(*ast.QueryStatementNode)
+}
+```
+
+If you want to know the specific node of ast.Node, you can traverse by using ast.Walk.
+
+```go
+package main
+
+import (
+  "fmt"
+
+  "github.com/goccy/go-zetasql"
+  "github.com/goccy/go-zetasql/ast"
+)
+
+func main() {
+
+  stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1")
+  if err != nil {
+    panic(err)
+  }
+
+  // traverse all nodes of stmt.
+  ast.Walk(stmt, func(n ast.Node) error {
+    fmt.Printf("node: %T loc:%s\n", n, n.ParseLocationRange())
+    return nil
+  })
+}
+```
+
+## Analyze SQL statement
+
+If you have table information, you can use the analyzer API by using it as a Catalog.
+By using analyzer API, you can parse SQL based on table information and output normalized node.
+If you want to know the specific node of resolved_ast.Node, you can traverse by using resolved_ast.Walk.
+
+```go
+package main
+
+import (
+  "fmt"
+
+  "github.com/goccy/go-zetasql"
+  "github.com/goccy/go-zetasql/resolved_ast"
+  "github.com/goccy/go-zetasql/types"
+)
+
+func main() {
+  const tableName = "Samples"
+  catalog := types.NewSimpleCatalog("catalog")
+  catalog.AddTable(
+    types.NewSimpleTable(tableName, []types.Column{
+      types.NewSimpleColumn(tableName, "id", types.Int64Type()),
+      types.NewSimpleColumn(tableName, "name", types.StringType()),
+    }),
+  )
+  catalog.AddZetaSQLBuiltinFunctions()
+  out, err := zetasql.AnalyzeStatement("SELECT * FROM Samples WHERE id = 1000", catalog, nil)
+  if err != nil {
+    panic(err)
+  }
+
+  // get statement node from zetasql.AnalyzerOutput.
+  stmt := out.Statement()
+
+  // traverse all nodes of stmt.
+  if err := resolved_ast.Walk(stmt, func(n resolved_ast.Node) error {
+    fmt.Printf("%T\n", n)
+    return nil
+  }); err != nil {
+    panic(err)
+  }
+}
+```
+
+
+Also, you can use the `node.DebugString()` API to dump the result of resolved_ast.Node.
+This helps to understand all nodes of statement.
+
+```go
+stmt := out.Statement()
+fmt.Println(stmt.DebugString())
+```
+
 # License
 
 Apache-2.0 License

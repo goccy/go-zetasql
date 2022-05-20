@@ -901,8 +901,169 @@ static std::unique_ptr<const zetasql::ResolvedScan> make_unique_scan(void *arg)
   return nullptr;
 }
 
+void GO_EXPORT(LanguageOptions_new)(void ** arg0){
+  *arg0 = (void *)(new zetasql::LanguageOptions());
+}
+
+void GO_EXPORT(LanguageOptions_SupportsStatementKind)(void * arg0,int arg1,int* arg2){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg2 = opt->SupportsStatementKind((zetasql::ResolvedNodeKind)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_SetSupportedStatementKinds)(void * arg0,void * arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  std::set<zetasql::ResolvedNodeKind> kinds;
+  GoSlice *goslice = (GoSlice *)arg1;
+  zetasql::ResolvedNodeKind *data = (zetasql::ResolvedNodeKind *)goslice->data;
+  for (int i = 0; i < goslice->len; i++) {
+    kinds.insert(data[i]);
+  }
+  opt->SetSupportedStatementKinds(kinds);
+}
+
+void GO_EXPORT(LanguageOptions_SetSupportsAllStatementKinds)(void * arg0){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->SetSupportsAllStatementKinds();
+}
+
+void GO_EXPORT(LanguageOptions_AddSupportedStatementKind)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->AddSupportedStatementKind((zetasql::ResolvedNodeKind)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_LanguageFeatureEnabled)(void * arg0,int arg1,int* arg2){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg2 = opt->LanguageFeatureEnabled((zetasql::LanguageFeature)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_SetLanguageVersion)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->SetLanguageVersion((zetasql::LanguageVersion)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_EnableLanguageFeature)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->EnableLanguageFeature((zetasql::LanguageFeature)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_SetEnabledLanguageFeatures)(void * arg0,void * arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  zetasql::LanguageOptions::LanguageFeatureSet features;
+  GoSlice *goslice = (GoSlice *)arg1;
+  zetasql::LanguageFeature *data = (zetasql::LanguageFeature *)goslice->data;
+  for (int i = 0; i < goslice->len; i++) {
+    features.insert(data[i]);
+  }
+  opt->SetEnabledLanguageFeatures(features);
+}
+
+void GO_EXPORT(LanguageOptions_EnabledLanguageFeatures)(void * arg0,void ** arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  auto features = opt->GetEnabledLanguageFeatures();
+  GoSlice *slice = (GoSlice *)malloc(sizeof(GoSlice));
+  int *data = (int *)malloc(sizeof(int) * features.size());
+  int i = 0;
+  for (auto it = features.begin(); it != features.end(); it++, i++) {
+    data[i] = *it;
+  }
+  slice->data = (void *)data;
+  slice->len = features.size();
+  slice->cap = features.size();
+  *arg1 = (void *)slice;
+}
+
+void GO_EXPORT(LanguageOptions_EnabledLanguageFeaturesAsString)(void * arg0,void ** arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg1 = (void *)((new std::string(opt->GetEnabledLanguageFeaturesAsString()))->c_str());
+}
+
+void GO_EXPORT(LanguageOptions_DisableAllLanguageFeatures)(void * arg0){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->DisableAllLanguageFeatures();
+}
+
+void GO_EXPORT(LanguageOptions_EnableMaximumLanguageFeatures)(void * arg0){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->EnableMaximumLanguageFeatures();
+}
+
+void GO_EXPORT(LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment)(void * arg0){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->EnableMaximumLanguageFeaturesForDevelopment();
+}
+
+void GO_EXPORT(LanguageOptions_set_name_resolution_mode)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->set_name_resolution_mode((zetasql::NameResolutionMode)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_name_resolution_mode)(void * arg0,int* arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg1 = opt->name_resolution_mode();
+}
+
+void GO_EXPORT(LanguageOptions_set_product_mode)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->set_product_mode((zetasql::ProductMode)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_product_mode)(void * arg0,int* arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg1 = opt->product_mode();
+}
+
+void GO_EXPORT(LanguageOptions_SupportsProtoTypes)(void * arg0,int* arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg1 = opt->SupportsProtoTypes();
+}
+
+void GO_EXPORT(LanguageOptions_set_error_on_deprecated_syntax)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->set_error_on_deprecated_syntax(arg1);
+}
+
+void GO_EXPORT(LanguageOptions_error_on_deprecated_syntax)(void * arg0,int* arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg1 = opt->error_on_deprecated_syntax();
+}
+
+void GO_EXPORT(LanguageOptions_SetSupportedGenericEntityTypes)(void * arg0,void * arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  SET_LIST(opt->SetSupportedGenericEntityTypes, std::string, arg1);
+}
+
+void GO_EXPORT(LanguageOptions_GenericEntityTypeSupported)(void * arg0,void * arg1,int* arg2){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg2 = opt->GenericEntityTypeSupported((char *)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_IsReservedKeyword)(void * arg0,void * arg1,int* arg2){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg2 = opt->IsReservedKeyword((char *)arg1);
+}
+
+void GO_EXPORT(LanguageOptions_EnableReservableKeyword)(void * arg0,void * arg1,int arg2,void ** arg3){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  *arg3 = (void *)(new absl::Status(opt->EnableReservableKeyword((char *)arg1, arg2)));
+}
+
+void GO_EXPORT(LanguageOptions_EnableAllReservableKeywords)(void * arg0,int arg1){
+  zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
+  opt->EnableAllReservableKeywords(arg1);
+}
+
 void GO_EXPORT(AnalyzerOptions_new)(void ** arg0){
   *arg0 = (void *)(new zetasql::AnalyzerOptions());
+}
+
+void GO_EXPORT(AnalyzerOptions_language)(void * arg0,void ** arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = (void *)(new zetasql::LanguageOptions(opt->language()));
+}
+
+void GO_EXPORT(AnalyzerOptions_set_language)(void * arg0,void * arg1){
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  opt->set_language(*(zetasql::LanguageOptions *)arg1);
 }
 
 void GO_EXPORT(AnalyzerOptions_AddQueryParameter)(void * arg0,void * arg1,void * arg2,void ** arg3){

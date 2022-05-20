@@ -6145,8 +6145,133 @@
 
 - package: zetasql/public/analyzer
   methods:
+    - name: LanguageOptions_new
+      ret:
+        - struct
+    - name: LanguageOptions_SupportsStatementKind
+      args:
+        - struct
+        - int
+      ret:
+        - bool
+    - name: LanguageOptions_SetSupportedStatementKinds
+      args:
+        - struct
+        - struct
+    - name: LanguageOptions_SetSupportsAllStatementKinds
+      args:
+        - struct
+    - name: LanguageOptions_AddSupportedStatementKind
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_LanguageFeatureEnabled
+      args:
+        - struct
+        - int
+      ret:
+        - bool
+    - name: LanguageOptions_SetLanguageVersion
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_EnableLanguageFeature
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_SetEnabledLanguageFeatures
+      args:
+        - struct
+        - struct
+    - name: LanguageOptions_EnabledLanguageFeatures
+      args:
+        - struct
+      ret:
+        - struct
+    - name: LanguageOptions_EnabledLanguageFeaturesAsString
+      args:
+        - struct
+      ret:
+        - string
+    - name: LanguageOptions_DisableAllLanguageFeatures
+      args:
+        - struct
+    - name: LanguageOptions_EnableMaximumLanguageFeatures
+      args:
+        - struct
+    - name: LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment
+      args:
+        - struct
+    - name: LanguageOptions_set_name_resolution_mode
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_name_resolution_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: LanguageOptions_set_product_mode
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_product_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: LanguageOptions_SupportsProtoTypes
+      args:
+        - struct
+      ret:
+        - bool
+    - name: LanguageOptions_set_error_on_deprecated_syntax
+      args:
+        - struct
+        - int
+    - name: LanguageOptions_error_on_deprecated_syntax
+      args:
+        - struct
+      ret:
+        - bool
+    - name: LanguageOptions_SetSupportedGenericEntityTypes
+      args:
+        - struct
+        - struct
+    - name: LanguageOptions_GenericEntityTypeSupported
+      args:
+        - struct
+        - string
+      ret:
+        - bool
+    - name: LanguageOptions_IsReservedKeyword
+      args:
+        - struct
+        - string
+      ret:
+        - bool
+    - name: LanguageOptions_EnableReservableKeyword
+      args:
+        - struct
+        - string
+        - int
+      ret:
+        - struct
+    - name: LanguageOptions_EnableAllReservableKeywords
+      args:
+        - struct
+        - int
     - name: AnalyzerOptions_new
       ret:
+        - struct
+    - name: AnalyzerOptions_language
+      args:
+        - struct
+      ret:
+        - struct
+    - name: AnalyzerOptions_set_language
+      args:
+        - struct
         - struct
     - name: AnalyzerOptions_AddQueryParameter
       args:

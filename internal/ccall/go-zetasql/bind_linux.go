@@ -10945,6 +10945,293 @@ func zetasql_ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_ASTLabel_name(arg0, arg1)
 }
 
+func LanguageOptions_new(arg0 *unsafe.Pointer) {
+	zetasql_LanguageOptions_new(
+		arg0,
+	)
+}
+
+func zetasql_LanguageOptions_new(arg0 *unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_new(arg0)
+}
+
+func LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 int, arg2 *bool) {
+	zetasql_LanguageOptions_SupportsStatementKind(
+		arg0,
+		C.int(arg1),
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+	C.export_zetasql_LanguageOptions_SupportsStatementKind(arg0, arg1, arg2)
+}
+
+func LanguageOptions_SetSupportedStatementKinds(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_LanguageOptions_SetSupportedStatementKinds(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_LanguageOptions_SetSupportedStatementKinds(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_SetSupportedStatementKinds(arg0, arg1)
+}
+
+func LanguageOptions_SetSupportsAllStatementKinds(arg0 unsafe.Pointer) {
+	zetasql_LanguageOptions_SetSupportsAllStatementKinds(
+		arg0,
+	)
+}
+
+func zetasql_LanguageOptions_SetSupportsAllStatementKinds(arg0 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_SetSupportsAllStatementKinds(arg0)
+}
+
+func LanguageOptions_AddSupportedStatementKind(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_AddSupportedStatementKind(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_AddSupportedStatementKind(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_AddSupportedStatementKind(arg0, arg1)
+}
+
+func LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 int, arg2 *bool) {
+	zetasql_LanguageOptions_LanguageFeatureEnabled(
+		arg0,
+		C.int(arg1),
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+	C.export_zetasql_LanguageOptions_LanguageFeatureEnabled(arg0, arg1, arg2)
+}
+
+func LanguageOptions_SetLanguageVersion(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_SetLanguageVersion(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_SetLanguageVersion(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_SetLanguageVersion(arg0, arg1)
+}
+
+func LanguageOptions_EnableLanguageFeature(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_EnableLanguageFeature(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_EnableLanguageFeature(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_EnableLanguageFeature(arg0, arg1)
+}
+
+func LanguageOptions_SetEnabledLanguageFeatures(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_LanguageOptions_SetEnabledLanguageFeatures(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_LanguageOptions_SetEnabledLanguageFeatures(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_SetEnabledLanguageFeatures(arg0, arg1)
+}
+
+func LanguageOptions_EnabledLanguageFeatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_LanguageOptions_EnabledLanguageFeatures(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_LanguageOptions_EnabledLanguageFeatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_EnabledLanguageFeatures(arg0, arg1)
+}
+
+func LanguageOptions_EnabledLanguageFeaturesAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_LanguageOptions_EnabledLanguageFeaturesAsString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_LanguageOptions_EnabledLanguageFeaturesAsString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_EnabledLanguageFeaturesAsString(arg0, arg1)
+}
+
+func LanguageOptions_DisableAllLanguageFeatures(arg0 unsafe.Pointer) {
+	zetasql_LanguageOptions_DisableAllLanguageFeatures(
+		arg0,
+	)
+}
+
+func zetasql_LanguageOptions_DisableAllLanguageFeatures(arg0 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_DisableAllLanguageFeatures(arg0)
+}
+
+func LanguageOptions_EnableMaximumLanguageFeatures(arg0 unsafe.Pointer) {
+	zetasql_LanguageOptions_EnableMaximumLanguageFeatures(
+		arg0,
+	)
+}
+
+func zetasql_LanguageOptions_EnableMaximumLanguageFeatures(arg0 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_EnableMaximumLanguageFeatures(arg0)
+}
+
+func LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment(arg0 unsafe.Pointer) {
+	zetasql_LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment(
+		arg0,
+	)
+}
+
+func zetasql_LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment(arg0 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment(arg0)
+}
+
+func LanguageOptions_set_name_resolution_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_set_name_resolution_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_set_name_resolution_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_set_name_resolution_mode(arg0, arg1)
+}
+
+func LanguageOptions_name_resolution_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_LanguageOptions_name_resolution_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_LanguageOptions_name_resolution_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_LanguageOptions_name_resolution_mode(arg0, arg1)
+}
+
+func LanguageOptions_set_product_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_set_product_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_set_product_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_set_product_mode(arg0, arg1)
+}
+
+func LanguageOptions_product_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_LanguageOptions_product_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_LanguageOptions_product_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_LanguageOptions_product_mode(arg0, arg1)
+}
+
+func LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_LanguageOptions_SupportsProtoTypes(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_LanguageOptions_SupportsProtoTypes(arg0, arg1)
+}
+
+func LanguageOptions_set_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_set_error_on_deprecated_syntax(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_set_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_set_error_on_deprecated_syntax(arg0, arg1)
+}
+
+func LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_LanguageOptions_error_on_deprecated_syntax(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_LanguageOptions_error_on_deprecated_syntax(arg0, arg1)
+}
+
+func LanguageOptions_SetSupportedGenericEntityTypes(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_LanguageOptions_SetSupportedGenericEntityTypes(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_LanguageOptions_SetSupportedGenericEntityTypes(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_SetSupportedGenericEntityTypes(arg0, arg1)
+}
+
+func LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_LanguageOptions_GenericEntityTypeSupported(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_LanguageOptions_GenericEntityTypeSupported(arg0, arg1, arg2)
+}
+
+func LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
+	zetasql_LanguageOptions_IsReservedKeyword(
+		arg0,
+		arg1,
+		(*C.int)(unsafe.Pointer(arg2)),
+	)
+}
+
+func zetasql_LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+	C.export_zetasql_LanguageOptions_IsReservedKeyword(arg0, arg1, arg2)
+}
+
+func LanguageOptions_EnableReservableKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer) {
+	zetasql_LanguageOptions_EnableReservableKeyword(
+		arg0,
+		arg1,
+		C.int(arg2),
+		arg3,
+	)
+}
+
+func zetasql_LanguageOptions_EnableReservableKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer) {
+	C.export_zetasql_LanguageOptions_EnableReservableKeyword(arg0, arg1, arg2, arg3)
+}
+
+func LanguageOptions_EnableAllReservableKeywords(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_LanguageOptions_EnableAllReservableKeywords(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_LanguageOptions_EnableAllReservableKeywords(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_LanguageOptions_EnableAllReservableKeywords(arg0, arg1)
+}
+
 func AnalyzerOptions_new(arg0 *unsafe.Pointer) {
 	zetasql_AnalyzerOptions_new(
 		arg0,
@@ -10953,6 +11240,28 @@ func AnalyzerOptions_new(arg0 *unsafe.Pointer) {
 
 func zetasql_AnalyzerOptions_new(arg0 *unsafe.Pointer) {
 	C.export_zetasql_AnalyzerOptions_new(arg0)
+}
+
+func AnalyzerOptions_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_AnalyzerOptions_language(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_AnalyzerOptions_language(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_AnalyzerOptions_language(arg0, arg1)
+}
+
+func AnalyzerOptions_set_language(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_AnalyzerOptions_set_language(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_AnalyzerOptions_set_language(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_AnalyzerOptions_set_language(arg0, arg1)
 }
 
 func AnalyzerOptions_AddQueryParameter(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {

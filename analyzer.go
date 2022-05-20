@@ -30,6 +30,18 @@ func NewAnalyzerOptions() *AnalyzerOptions {
 	return &AnalyzerOptions{raw: v}
 }
 
+// Language options for the language.
+func (o *AnalyzerOptions) Language() *LanguageOptions {
+	var v unsafe.Pointer
+	internal.AnalyzerOptions_language(o.raw, &v)
+	return &LanguageOptions{raw: v}
+}
+
+// SetLanguage.
+func (o *AnalyzerOptions) SetLanguage(options *LanguageOptions) {
+	internal.AnalyzerOptions_set_language(o.raw, options.raw)
+}
+
 // AddQueryParameter adds a named query parameter.
 // Parameter name lookups are case insensitive.
 // Paramater names in the output ParameterNode nodes will always be in lowercase.

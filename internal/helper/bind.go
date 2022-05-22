@@ -4,6 +4,16 @@ import (
 	"reflect"
 	"unsafe"
 )
+
+/*
+#include <stdlib.h>
+#include <memory.h>
+
+void assignptr(void *data, int i, void *p) {
+  void **d = (void **)data;
+  *(d + i) = p;
+}
+*/
 import "C"
 
 func BoolToInt(b bool) int {
@@ -49,9 +59,14 @@ func PtrToSlice(p unsafe.Pointer, cb func(unsafe.Pointer)) {
 
 func SliceToPtr(v interface{}, cb func(int) unsafe.Pointer) unsafe.Pointer {
 	rv := reflect.ValueOf(v)
-	ret := make([]unsafe.Pointer, 0, rv.Len())
+	slice := (*reflect.SliceHeader)(C.malloc(C.ulong(unsafe.Sizeof(reflect.SliceHeader{}))))
+	ptrSize := C.ulong(unsafe.Sizeof(uintptr(1)))
+	data := C.malloc(C.ulong(rv.Len()) * ptrSize)
+	slice.Data = uintptr(data)
+	slice.Len = rv.Len()
+	slice.Cap = rv.Len()
 	for i := 0; i < rv.Len(); i++ {
-		ret = append(ret, cb(i))
+		C.assignptr(data, C.int(i), cb(i))
 	}
-	return *(*unsafe.Pointer)(unsafe.Pointer(&ret))
+	return unsafe.Pointer(slice)
 }

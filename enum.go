@@ -318,7 +318,7 @@ const (
 	// 14285714285714285 is not valid).
 	// NOTE: FEATURE_JSON_LEGACY_PARSE does not work with
 	// FEATURE_JSON_STRICT_NUMBER_PARSING
-	FeatureJsonStructNumberParsing LanguageFeature = 52
+	FeatureJsonStrictNumberParsing LanguageFeature = 52
 
 	// When enabled, (table) function argument names will hide column names in
 	// expression resolution and relational table function argument names will

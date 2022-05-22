@@ -914,9 +914,9 @@ void GO_EXPORT(LanguageOptions_SetSupportedStatementKinds)(void * arg0,void * ar
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   std::set<zetasql::ResolvedNodeKind> kinds;
   GoSlice *goslice = (GoSlice *)arg1;
-  zetasql::ResolvedNodeKind *data = (zetasql::ResolvedNodeKind *)goslice->data;
+  void **data = (void **)goslice->data;
   for (int i = 0; i < goslice->len; i++) {
-    kinds.insert(data[i]);
+    kinds.insert((zetasql::ResolvedNodeKind)(uintptr_t)data[i]);
   }
   opt->SetSupportedStatementKinds(kinds);
 }
@@ -950,9 +950,9 @@ void GO_EXPORT(LanguageOptions_SetEnabledLanguageFeatures)(void * arg0,void * ar
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   zetasql::LanguageOptions::LanguageFeatureSet features;
   GoSlice *goslice = (GoSlice *)arg1;
-  zetasql::LanguageFeature *data = (zetasql::LanguageFeature *)goslice->data;
+  void **data = (void **)goslice->data;
   for (int i = 0; i < goslice->len; i++) {
-    features.insert(data[i]);
+    features.insert((zetasql::LanguageFeature)(uintptr_t)data[i]);
   }
   opt->SetEnabledLanguageFeatures(features);
 }

@@ -125,7 +125,7 @@ func (o *LanguageOptions) EnableMaximumLanguageFeaturesForDevelopment() {
 }
 
 // SetNameReolutionMode.
-func (o *LanguageOptions) SetNameReolutionMode(mode NameResolutionMode) {
+func (o *LanguageOptions) SetNameResolutionMode(mode NameResolutionMode) {
 	internal.LanguageOptions_set_name_resolution_mode(o.raw, int(mode))
 }
 

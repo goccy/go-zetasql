@@ -18,7 +18,31 @@ func TestAnalyzer(t *testing.T) {
 		}),
 	)
 	catalog.AddZetaSQLBuiltinFunctions()
-	out, err := zetasql.AnalyzeStatement("SELECT * FROM z_table WHERE col1 = 1000", catalog, nil)
+	langOpt := zetasql.NewLanguageOptions()
+	langOpt.SetNameResolutionMode(zetasql.NameResolutionDefault)
+	langOpt.SetProductMode(types.ProductExternal)
+	langOpt.SetEnabledLanguageFeatures([]zetasql.LanguageFeature{
+		zetasql.FeatureNamedArguments,
+		zetasql.FeatureNumericType,
+		zetasql.FeatureTablesample,
+		zetasql.FeatureTimestampNanos,
+		zetasql.FeatureV11HavingInAggregate,
+		zetasql.FeatureV11NullHandlingModifierInAggregate,
+		zetasql.FeatureV11OrderByCollate,
+		zetasql.FeatureV11SelectStarExceptReplace,
+		zetasql.FeatureV12SafeFunctionCall,
+		zetasql.FeatureJsonType,
+		zetasql.FeatureJsonArrayFunctions,
+		zetasql.FeatureJsonStrictNumberParsing,
+	})
+	langOpt.SetSupportedStatementKinds([]ast.Kind{
+		ast.QueryStmt, ast.InsertStmt, ast.UpdateStmt, ast.DeleteStmt,
+	})
+	opt := zetasql.NewAnalyzerOptions()
+	opt.SetAllowUndeclaredParameters(true)
+	opt.SetLanguage(langOpt)
+
+	out, err := zetasql.AnalyzeStatement("SELECT * FROM z_table WHERE col1 = 1000", catalog, opt)
 	if err != nil {
 		t.Fatal(err)
 	}

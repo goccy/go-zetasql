@@ -552,6 +552,10 @@ func newTypeParameters(raw unsafe.Pointer) *TypeParameters {
 	return &TypeParameters{raw: raw}
 }
 
+func getRawTypeParameters(v *TypeParameters) unsafe.Pointer {
+	return v.raw
+}
+
 type StructType struct {
 	*ztype
 	fields []*StructField

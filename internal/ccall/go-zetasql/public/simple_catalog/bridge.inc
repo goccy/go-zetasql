@@ -552,6 +552,11 @@ void GO_EXPORT(NormalizeModeEnumType)(void ** arg0)
   *arg0 = (void *)zetasql::types::NormalizeModeEnumType();
 }
 
+void GO_EXPORT(TypeFromSimpleTypeKind)(int arg0,void ** arg1)
+{
+  *arg1 = (void *)zetasql::types::TypeFromSimpleTypeKind((zetasql::TypeKind)arg0);
+}
+
 void GO_EXPORT(Value_type)(void * arg0,void ** arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;

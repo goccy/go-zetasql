@@ -27036,6 +27036,17 @@ func zetasql_NormalizeModeEnumType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_NormalizeModeEnumType(arg0)
 }
 
+func TypeFromSimpleTypeKind(arg0 int, arg1 *unsafe.Pointer) {
+	zetasql_TypeFromSimpleTypeKind(
+		C.int(arg0),
+		arg1,
+	)
+}
+
+func zetasql_TypeFromSimpleTypeKind(arg0 C.int, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TypeFromSimpleTypeKind(arg0, arg1)
+}
+
 func Value_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_Value_type(
 		arg0,

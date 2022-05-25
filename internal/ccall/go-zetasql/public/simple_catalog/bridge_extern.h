@@ -91,6 +91,7 @@ extern void GO_EXPORT(BigNumericArrayType)(void ** arg0);
 extern void GO_EXPORT(JsonArrayType)(void ** arg0);
 extern void GO_EXPORT(DatePartEnumType)(void ** arg0);
 extern void GO_EXPORT(NormalizeModeEnumType)(void ** arg0);
+extern void GO_EXPORT(TypeFromSimpleTypeKind)(int arg0,void ** arg1);
 extern void GO_EXPORT(Value_type)(void * arg0,void ** arg1);
 extern void GO_EXPORT(Value_type_kind)(void * arg0,int* arg1);
 extern void GO_EXPORT(Value_physical_byte_size)(void * arg0,uint64_t* arg1);

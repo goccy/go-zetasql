@@ -1031,6 +1031,17 @@ func simple_catalog_NormalizeModeEnumType(arg0 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_NormalizeModeEnumType(arg0)
 }
 
+func TypeFromSimpleTypeKind(arg0 int, arg1 *unsafe.Pointer) {
+	simple_catalog_TypeFromSimpleTypeKind(
+		C.int(arg0),
+		arg1,
+	)
+}
+
+func simple_catalog_TypeFromSimpleTypeKind(arg0 C.int, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_TypeFromSimpleTypeKind(arg0, arg1)
+}
+
 func Value_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	simple_catalog_Value_type(
 		arg0,

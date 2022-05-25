@@ -5117,6 +5117,11 @@
     - name: NormalizeModeEnumType
       ret:
         - struct
+    - name: TypeFromSimpleTypeKind
+      args:
+        - int
+      ret:
+        - struct
     - name: Value_type
       args:
         - struct

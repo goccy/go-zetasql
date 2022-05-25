@@ -1049,7 +1049,9 @@ func NormalizeModeEnumType() *EnumType {
 }
 
 func TypeFromKind(kind TypeKind) Type {
-	return nil
+	var v unsafe.Pointer
+	internal.TypeFromSimpleTypeKind(int(kind), &v)
+	return newType(v)
 }
 
 func ArrayTypeFromKind(kind TypeKind) *ArrayType {

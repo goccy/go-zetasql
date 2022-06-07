@@ -10,7 +10,7 @@ template<typename T> void assign_list(const std::vector<T> &val, void **target)
   slice->data = (void *)data;
   slice->len = val.size();
   slice->cap = val.size();
-  *target = (void *)data;
+  *target = (void *)slice;
 }
 
 #define GET_UNIQUE_PTR_LIST(list, v) get_unique_ptr_list(list(), v)

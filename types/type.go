@@ -81,7 +81,7 @@ const (
 	BIG_NUMERIC          = 24
 	EXTENDED             = 25
 	JSON                 = 26
-	INTERNAL             = 27
+	INTERVAL             = 27
 )
 
 func (k TypeKind) String() string {
@@ -132,8 +132,8 @@ func (k TypeKind) String() string {
 		return "EXTENDED"
 	case JSON:
 		return "JSON"
-	case INTERNAL:
-		return "INTERNAL"
+	case INTERVAL:
+		return "INTERVAL"
 	}
 	return ""
 }

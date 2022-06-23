@@ -23304,6 +23304,29 @@ func zetasql_ResolvedArgumentRef_set_argument_kind(arg0 unsafe.Pointer, arg1 C.i
 	C.export_zetasql_ResolvedArgumentRef_set_argument_kind(arg0, arg1)
 }
 
+func ResolvedCreateTableFunctionStmt_new(arg0 unsafe.Pointer, arg1 int, arg2 int, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 int, arg6 unsafe.Pointer, arg7 unsafe.Pointer, arg8 unsafe.Pointer, arg9 unsafe.Pointer, arg10 unsafe.Pointer, arg11 int, arg12 int, arg13 *unsafe.Pointer) {
+	zetasql_ResolvedCreateTableFunctionStmt_new(
+		arg0,
+		C.int(arg1),
+		C.int(arg2),
+		arg3,
+		arg4,
+		C.int(arg5),
+		arg6,
+		arg7,
+		arg8,
+		arg9,
+		arg10,
+		C.int(arg11),
+		C.int(arg12),
+		arg13,
+	)
+}
+
+func zetasql_ResolvedCreateTableFunctionStmt_new(arg0 unsafe.Pointer, arg1 C.int, arg2 C.int, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 C.int, arg6 unsafe.Pointer, arg7 unsafe.Pointer, arg8 unsafe.Pointer, arg9 unsafe.Pointer, arg10 unsafe.Pointer, arg11 C.int, arg12 C.int, arg13 *unsafe.Pointer) {
+	C.export_zetasql_ResolvedCreateTableFunctionStmt_new(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
+}
+
 func ResolvedCreateTableFunctionStmt_argument_name_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_ResolvedCreateTableFunctionStmt_argument_name_list(
 		arg0,
@@ -26451,6 +26474,61 @@ func zetasql_Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_Type_IsExtendedType(arg0, arg1)
 }
 
+func Type_AsArray(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Type_AsArray(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Type_AsArray(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Type_AsArray(arg0, arg1)
+}
+
+func Type_AsStruct(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Type_AsStruct(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Type_AsStruct(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Type_AsStruct(arg0, arg1)
+}
+
+func Type_AsProto(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Type_AsProto(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Type_AsProto(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Type_AsProto(arg0, arg1)
+}
+
+func Type_AsEnum(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Type_AsEnum(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Type_AsEnum(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Type_AsEnum(arg0, arg1)
+}
+
+func Type_AsExtendedType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Type_AsExtendedType(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Type_AsExtendedType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Type_AsExtendedType(arg0, arg1)
+}
+
 func Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_SupportsGrouping(
 		arg0,
@@ -26619,6 +26697,95 @@ func zetasql_Type_ValidateResolvedTypeParameters(arg0 unsafe.Pointer, arg1 unsaf
 	C.export_zetasql_Type_ValidateResolvedTypeParameters(arg0, arg1, arg2, arg3)
 }
 
+func ArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ArrayType_element_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ArrayType_element_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ArrayType_element_type(arg0, arg1)
+}
+
+func StructType_num_fields(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_StructType_num_fields(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_StructType_num_fields(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_StructType_num_fields(arg0, arg1)
+}
+
+func StructType_field(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_StructType_field(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_StructType_field(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_StructType_field(arg0, arg1, arg2)
+}
+
+func StructType_fields(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_StructType_fields(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_StructType_fields(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_StructType_fields(arg0, arg1)
+}
+
+func StructField_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_StructField_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_StructField_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_StructField_new(arg0, arg1, arg2)
+}
+
+func StructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_StructField_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_StructField_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_StructField_name(arg0, arg1)
+}
+
+func StructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_StructField_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_StructField_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_StructField_type(arg0, arg1)
+}
+
+func TypeFactory_new(arg0 *unsafe.Pointer) {
+	zetasql_TypeFactory_new(
+		arg0,
+	)
+}
+
+func zetasql_TypeFactory_new(arg0 *unsafe.Pointer) {
+	C.export_zetasql_TypeFactory_new(arg0)
+}
+
 func TypeFactory_MakeArrayType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
 	zetasql_TypeFactory_MakeArrayType(
 		arg0,
@@ -26632,18 +26799,17 @@ func zetasql_TypeFactory_MakeArrayType(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 	C.export_zetasql_TypeFactory_MakeArrayType(arg0, arg1, arg2, arg3)
 }
 
-func TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+func TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
 	zetasql_TypeFactory_MakeStructType(
 		arg0,
 		arg1,
-		C.int(arg2),
+		arg2,
 		arg3,
-		arg4,
 	)
 }
 
-func zetasql_TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
-	C.export_zetasql_TypeFactory_MakeStructType(arg0, arg1, arg2, arg3, arg4)
+func zetasql_TypeFactory_MakeStructType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_TypeFactory_MakeStructType(arg0, arg1, arg2, arg3)
 }
 
 func Int32Type(arg0 *unsafe.Pointer) {
@@ -27993,6 +28159,58 @@ func zetasql_Catalog_FindTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *u
 	C.export_zetasql_Catalog_FindTable(arg0, arg1, arg2, arg3)
 }
 
+func Catalog_FindModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_Catalog_FindModel(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_Catalog_FindModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_FindModel(arg0, arg1, arg2, arg3)
+}
+
+func Catalog_FindFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_Catalog_FindFunction(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_Catalog_FindFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_FindFunction(arg0, arg1, arg2, arg3)
+}
+
+func Catalog_FindTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_Catalog_FindTableValuedFunction(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_Catalog_FindTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_FindTableValuedFunction(arg0, arg1, arg2, arg3)
+}
+
+func Catalog_FindProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_Catalog_FindProcedure(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_Catalog_FindProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_FindProcedure(arg0, arg1, arg2, arg3)
+}
+
 func Catalog_FindType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
 	zetasql_Catalog_FindType(
 		arg0,
@@ -28016,6 +28234,54 @@ func Catalog_SuggestTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe
 
 func zetasql_Catalog_SuggestTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	C.export_zetasql_Catalog_SuggestTable(arg0, arg1, arg2)
+}
+
+func Catalog_SuggestModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Catalog_SuggestModel(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Catalog_SuggestModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_SuggestModel(arg0, arg1, arg2)
+}
+
+func Catalog_SuggestFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Catalog_SuggestFunction(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Catalog_SuggestFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_SuggestFunction(arg0, arg1, arg2)
+}
+
+func Catalog_SuggestTableValuedTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Catalog_SuggestTableValuedTable(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Catalog_SuggestTableValuedTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_SuggestTableValuedTable(arg0, arg1, arg2)
+}
+
+func Catalog_SuggestConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Catalog_SuggestConstant(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Catalog_SuggestConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_SuggestConstant(arg0, arg1, arg2)
 }
 
 func EnumerableCatalog_Catalogs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
@@ -28054,6 +28320,18 @@ func zetasql_EnumerableCatalog_Types(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, 
 	C.export_zetasql_EnumerableCatalog_Types(arg0, arg1, arg2)
 }
 
+func EnumerableCatalog_Functions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_EnumerableCatalog_Functions(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_EnumerableCatalog_Functions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_EnumerableCatalog_Functions(arg0, arg1, arg2)
+}
+
 func SimpleCatalog_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_SimpleCatalog_new(
 		arg0,
@@ -28090,27 +28368,123 @@ func zetasql_SimpleCatalog_GetTables(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, 
 	C.export_zetasql_SimpleCatalog_GetTables(arg0, arg1, arg2)
 }
 
-func SimpleCatalog_table_names_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_SimpleCatalog_table_names_num(
+func SimpleCatalog_table_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_table_names(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		arg1,
 	)
 }
 
-func zetasql_SimpleCatalog_table_names_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_SimpleCatalog_table_names_num(arg0, arg1)
+func zetasql_SimpleCatalog_table_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_table_names(arg0, arg1)
 }
 
-func SimpleCatalog_table_name(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_SimpleCatalog_table_name(
+func SimpleCatalog_GetModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_GetModel(
 		arg0,
-		C.int(arg1),
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_SimpleCatalog_GetModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_GetModel(arg0, arg1, arg2, arg3)
+}
+
+func SimpleCatalog_GetFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_GetFunction(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_SimpleCatalog_GetFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_GetFunction(arg0, arg1, arg2, arg3)
+}
+
+func SimpleCatalog_GetFunctions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_GetFunctions(
+		arg0,
+		arg1,
 		arg2,
 	)
 }
 
-func zetasql_SimpleCatalog_table_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_SimpleCatalog_table_name(arg0, arg1, arg2)
+func zetasql_SimpleCatalog_GetFunctions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_GetFunctions(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_function_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_function_names(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_function_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_function_names(arg0, arg1)
+}
+
+func SimpleCatalog_GetTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_GetTableValuedFunction(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_SimpleCatalog_GetTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_GetTableValuedFunction(arg0, arg1, arg2, arg3)
+}
+
+func SimpleCatalog_table_valued_functions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_table_valued_functions(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_table_valued_functions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_table_valued_functions(arg0, arg1)
+}
+
+func SimpleCatalog_table_valued_function_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_table_valued_function_names(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_table_valued_function_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_table_valued_function_names(arg0, arg1)
+}
+
+func SimpleCatalog_GetProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_GetProcedure(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_SimpleCatalog_GetProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_GetProcedure(arg0, arg1, arg2, arg3)
+}
+
+func SimpleCatalog_procedures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_procedures(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_procedures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_procedures(arg0, arg1)
 }
 
 func SimpleCatalog_GetType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *unsafe.Pointer) {
@@ -28163,27 +28537,15 @@ func zetasql_SimpleCatalog_GetCatalogs(arg0 unsafe.Pointer, arg1 *unsafe.Pointer
 	C.export_zetasql_SimpleCatalog_GetCatalogs(arg0, arg1, arg2)
 }
 
-func SimpleCatalog_catalog_names_num(arg0 unsafe.Pointer, arg1 *int) {
-	zetasql_SimpleCatalog_catalog_names_num(
+func SimpleCatalog_catalog_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_SimpleCatalog_catalog_names(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		arg1,
 	)
 }
 
-func zetasql_SimpleCatalog_catalog_names_num(arg0 unsafe.Pointer, arg1 *C.int) {
-	C.export_zetasql_SimpleCatalog_catalog_names_num(arg0, arg1)
-}
-
-func SimpleCatalog_catalog_name(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
-	zetasql_SimpleCatalog_catalog_name(
-		arg0,
-		C.int(arg1),
-		arg2,
-	)
-}
-
-func zetasql_SimpleCatalog_catalog_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
-	C.export_zetasql_SimpleCatalog_catalog_name(arg0, arg1, arg2)
+func zetasql_SimpleCatalog_catalog_names(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_catalog_names(arg0, arg1)
 }
 
 func SimpleCatalog_AddTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
@@ -28207,6 +28569,52 @@ func SimpleCatalog_AddTableWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, ar
 
 func zetasql_SimpleCatalog_AddTableWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
 	C.export_zetasql_SimpleCatalog_AddTableWithName(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_AddModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddModel(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddModel(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddModel(arg0, arg1)
+}
+
+func SimpleCatalog_AddModelWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddModelWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddModelWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddModelWithName(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_AddConnection(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddConnection(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddConnection(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddConnection(arg0, arg1)
+}
+
+func SimpleCatalog_AddConnectionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddConnectionWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddConnectionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddConnectionWithName(arg0, arg1, arg2)
 }
 
 func SimpleCatalog_AddType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
@@ -28257,6 +28665,98 @@ func zetasql_SimpleCatalog_AddCatalogWithName(arg0 unsafe.Pointer, arg1 unsafe.P
 	C.export_zetasql_SimpleCatalog_AddCatalogWithName(arg0, arg1, arg2)
 }
 
+func SimpleCatalog_AddFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddFunction(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddFunction(arg0, arg1)
+}
+
+func SimpleCatalog_AddFunctionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddFunctionWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddFunctionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddFunctionWithName(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_AddTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddTableValuedFunction(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddTableValuedFunction(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddTableValuedFunction(arg0, arg1)
+}
+
+func SimpleCatalog_AddTableValuedFunctionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddTableValuedFunctionWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddTableValuedFunctionWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddTableValuedFunctionWithName(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_AddProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddProcedure(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddProcedure(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddProcedure(arg0, arg1)
+}
+
+func SimpleCatalog_AddProcedureWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddProcedureWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddProcedureWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddProcedureWithName(arg0, arg1, arg2)
+}
+
+func SimpleCatalog_AddConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddConstant(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_SimpleCatalog_AddConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddConstant(arg0, arg1)
+}
+
+func SimpleCatalog_AddConstantWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	zetasql_SimpleCatalog_AddConstantWithName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleCatalog_AddConstantWithName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer) {
+	C.export_zetasql_SimpleCatalog_AddConstantWithName(arg0, arg1, arg2)
+}
+
 func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
 	zetasql_SimpleCatalog_AddZetaSQLFunctions(
 		arg0,
@@ -28265,6 +28765,160 @@ func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
 
 func zetasql_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
 	C.export_zetasql_SimpleCatalog_AddZetaSQLFunctions(arg0)
+}
+
+func Model_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Model_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Model_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Model_Name(arg0, arg1)
+}
+
+func Model_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Model_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Model_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Model_FullName(arg0, arg1)
+}
+
+func Model_NumInputs(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_Model_NumInputs(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_Model_NumInputs(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_Model_NumInputs(arg0, arg1)
+}
+
+func Model_Input(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_Model_Input(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_Model_Input(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Model_Input(arg0, arg1, arg2)
+}
+
+func Model_NumOutputs(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_Model_NumOutputs(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_Model_NumOutputs(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_Model_NumOutputs(arg0, arg1)
+}
+
+func Model_Output(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_Model_Output(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_Model_Output(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Model_Output(arg0, arg1, arg2)
+}
+
+func Model_FindInputByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Model_FindInputByName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Model_FindInputByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Model_FindInputByName(arg0, arg1, arg2)
+}
+
+func Model_FindOutputByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Model_FindOutputByName(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Model_FindOutputByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Model_FindOutputByName(arg0, arg1, arg2)
+}
+
+func Model_SerializationID(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_Model_SerializationID(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_Model_SerializationID(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_Model_SerializationID(arg0, arg1)
+}
+
+func SimpleModel_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	zetasql_SimpleModel_new(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+	)
+}
+
+func zetasql_SimpleModel_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer) {
+	C.export_zetasql_SimpleModel_new(arg0, arg1, arg2, arg3)
+}
+
+func SimpleModel_AddInput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_SimpleModel_AddInput(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleModel_AddInput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_SimpleModel_AddInput(arg0, arg1, arg2)
+}
+
+func SimpleModel_AddOutput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_SimpleModel_AddOutput(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SimpleModel_AddOutput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_SimpleModel_AddOutput(arg0, arg1, arg2)
+}
+
+func Function_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
+	zetasql_Function_new(
+		arg0,
+		arg1,
+		C.int(arg2),
+		arg3,
+		arg4,
+	)
+}
+
+func zetasql_Function_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 C.int, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {
+	C.export_zetasql_Function_new(arg0, arg1, arg2, arg3, arg4)
 }
 
 func Function_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
@@ -28611,6 +29265,18 @@ func Function_alias_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 
 func zetasql_Function_alias_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_Function_alias_name(arg0, arg1)
+}
+
+func FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_FunctionArgumentType_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentType_new(arg0, arg1, arg2)
 }
 
 func FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *bool) {
@@ -28993,6 +29659,18 @@ func zetasql_ArgumentTypeLambda_body_type(arg0 unsafe.Pointer, arg1 *unsafe.Poin
 	C.export_zetasql_ArgumentTypeLambda_body_type(arg0, arg1)
 }
 
+func FunctionSignature_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_FunctionSignature_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_FunctionSignature_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_FunctionSignature_new(arg0, arg1, arg2)
+}
+
 func FunctionSignature_arguments(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_FunctionSignature_arguments(
 		arg0,
@@ -29249,6 +29927,210 @@ func FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *bool)
 
 func zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0, arg1)
+}
+
+func Procedure_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_Procedure_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_Procedure_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_new(arg0, arg1, arg2)
+}
+
+func Procedure_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Procedure_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Procedure_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_Name(arg0, arg1)
+}
+
+func Procedure_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Procedure_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Procedure_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_FullName(arg0, arg1)
+}
+
+func Procedure_NamePath(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Procedure_NamePath(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Procedure_NamePath(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_NamePath(arg0, arg1)
+}
+
+func Procedure_Signature(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Procedure_Signature(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Procedure_Signature(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_Signature(arg0, arg1)
+}
+
+func Procedure_SupportedSignatureUserFacingText(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_Procedure_SupportedSignatureUserFacingText(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_Procedure_SupportedSignatureUserFacingText(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_Procedure_SupportedSignatureUserFacingText(arg0, arg1, arg2)
+}
+
+func SQLTableValuedFunction_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_SQLTableValuedFunction_new(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_SQLTableValuedFunction_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_SQLTableValuedFunction_new(arg0, arg1, arg2)
+}
+
+func TableValuedFunction_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_Name(arg0, arg1)
+}
+
+func TableValuedFunction_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_FullName(arg0, arg1)
+}
+
+func TableValuedFunction_function_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_function_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_function_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_function_name_path(arg0, arg1)
+}
+
+func TableValuedFunction_NumSignatures(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_TableValuedFunction_NumSignatures(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_TableValuedFunction_NumSignatures(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_TableValuedFunction_NumSignatures(arg0, arg1)
+}
+
+func TableValuedFunction_signatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_signatures(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_signatures(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_signatures(arg0, arg1)
+}
+
+func TableValuedFunction_AddSignature(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_AddSignature(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TableValuedFunction_AddSignature(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_AddSignature(arg0, arg1, arg2)
+}
+
+func TableValuedFunction_GetSignature(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_GetSignature(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_TableValuedFunction_GetSignature(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_GetSignature(arg0, arg1, arg2)
+}
+
+func TableValuedFunction_GetSupportedSignaturesUserFacingText(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_GetSupportedSignaturesUserFacingText(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_GetSupportedSignaturesUserFacingText(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_GetSupportedSignaturesUserFacingText(arg0, arg1)
+}
+
+func TableValuedFunction_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_DebugString(arg0, arg1)
+}
+
+func TableValuedFunction_SetUserIdColumnNamePath(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_SetUserIdColumnNamePath(
+		arg0,
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_TableValuedFunction_SetUserIdColumnNamePath(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_SetUserIdColumnNamePath(arg0, arg1, arg2)
+}
+
+func TableValuedFunction_anonymization_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_TableValuedFunction_anonymization_info(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_TableValuedFunction_anonymization_info(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_TableValuedFunction_anonymization_info(arg0, arg1)
 }
 
 func FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.Pointer) {

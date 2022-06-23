@@ -15,6 +15,7 @@ type AnonymizationInfo struct {
 	raw unsafe.Pointer
 }
 
+//go:noinline
 func newAnonymizationInfo(v unsafe.Pointer) *AnonymizationInfo {
 	if v == nil {
 		return nil
@@ -44,6 +45,7 @@ func (t *AnnotatedType) AnnotationMap() AnnotationMap {
 	return nil
 }
 
+//go:noinline
 func newAnnotatedType(raw unsafe.Pointer) *AnnotatedType {
 	if raw == nil {
 		return nil
@@ -81,7 +83,7 @@ const (
 	BIG_NUMERIC          = 24
 	EXTENDED             = 25
 	JSON                 = 26
-	INTERNAL             = 27
+	INTERVAL             = 27
 )
 
 func (k TypeKind) String() string {
@@ -132,8 +134,8 @@ func (k TypeKind) String() string {
 		return "EXTENDED"
 	case JSON:
 		return "JSON"
-	case INTERNAL:
-		return "INTERNAL"
+	case INTERVAL:
+		return "INTERVAL"
 	}
 	return ""
 }
@@ -176,6 +178,9 @@ type Type interface {
 	IsUnsignedInteger() bool
 	IsSimpleType() bool
 	IsExtendedType() bool
+	AsArray() *ArrayType
+	AsStruct() *StructType
+	AsEnum() *EnumType
 	SupportsGrouping() bool
 	SupportsPartitioning() bool
 	SupportsOrdering() bool
@@ -193,6 +198,9 @@ type Type interface {
 	getRaw() unsafe.Pointer
 }
 
+var _ Type = &ztype{}
+
+//go:noinline
 func newType(v unsafe.Pointer) Type {
 	if v == nil {
 		return nil
@@ -434,6 +442,32 @@ func (t *ztype) IsExtendedType() bool {
 	return v
 }
 
+func (t *ztype) AsArray() *ArrayType {
+	var v unsafe.Pointer
+	internal.Type_AsArray(t.raw, &v)
+	if v == nil {
+		return nil
+	}
+	return newArrayType(v)
+}
+
+func (t *ztype) AsStruct() *StructType {
+	var v unsafe.Pointer
+	internal.Type_AsStruct(t.raw, &v)
+	if v == nil {
+		return nil
+	}
+	return newStructType(v)
+}
+
+func (t *ztype) AsEnum() *EnumType {
+	var v unsafe.Pointer
+	internal.Type_AsEnum(t.raw, &v)
+	return &EnumType{
+		ztype: &ztype{raw: v},
+	}
+}
+
 func (t *ztype) SupportsGrouping() bool {
 	var v bool
 	internal.Type_SupportsGrouping(t.raw, &v)
@@ -548,6 +582,7 @@ func (t *ztype) ValidateResolvedTypeParameters(params *TypeParameters, mode Prod
 	return nil
 }
 
+//go:noinline
 func newTypeParameters(raw unsafe.Pointer) *TypeParameters {
 	return &TypeParameters{raw: raw}
 }
@@ -558,33 +593,68 @@ func getRawTypeParameters(v *TypeParameters) unsafe.Pointer {
 
 type StructType struct {
 	*ztype
-	fields []*StructField
 }
 
 type StructField struct {
-	Name string
-	Type Type
+	raw unsafe.Pointer
+}
+
+func NewStructField(name string, typ Type) *StructField {
+	var v unsafe.Pointer
+	internal.StructField_new(helper.StringToPtr(name), typ.getRaw(), &v)
+	return newStructField(v)
+}
+
+func (f *StructField) Name() string {
+	var v unsafe.Pointer
+	internal.StructField_name(f.raw, &v)
+	return helper.PtrToString(v)
+}
+
+func (f *StructField) Type() Type {
+	var v unsafe.Pointer
+	internal.StructField_type(f.raw, &v)
+	return newType(v)
+}
+
+//go:noinline
+func newStructField(p unsafe.Pointer) *StructField {
+	if p == nil {
+		return nil
+	}
+	return &StructField{raw: p}
 }
 
 func (t *StructType) NumFields() int {
-	return len(t.fields)
+	var v int
+	internal.StructType_num_fields(t.raw, &v)
+	return v
 }
 
 func (t *StructType) Field(i int) *StructField {
-	return t.fields[i]
+	var v unsafe.Pointer
+	internal.StructType_field(t.raw, i, &v)
+	return newStructField(v)
 }
 
 func (t *StructType) Fields() []*StructField {
-	return t.fields
+	var v unsafe.Pointer
+	internal.StructType_fields(t.raw, &v)
+	ret := []*StructField{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newStructField(p))
+	})
+	return ret
 }
 
 type ArrayType struct {
 	*ztype
-	elem Type
 }
 
 func (t *ArrayType) ElementType() Type {
-	return t.elem
+	var v unsafe.Pointer
+	internal.ArrayType_element_type(t.raw, &v)
+	return newType(v)
 }
 
 type EnumType struct {
@@ -656,16 +726,7 @@ func (f *typeFactory) createArrayType(elem Type) (*ArrayType, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	return newArrayType(v, elem), nil
-}
-
-func fieldsToPtr(v []*StructField) (unsafe.Pointer, int) {
-	ptrs := make([]unsafe.Pointer, 0, len(v))
-	for _, vv := range v {
-		ptrs = append(ptrs, unsafe.Pointer(vv))
-	}
-	slice := (*reflect.SliceHeader)(unsafe.Pointer(&ptrs))
-	return unsafe.Pointer(slice.Data), slice.Len
+	return newArrayType(v), nil
 }
 
 func (f *typeFactory) createStructType(fields []*StructField) (*StructType, error) {
@@ -673,28 +734,49 @@ func (f *typeFactory) createStructType(fields []*StructField) (*StructType, erro
 		v      unsafe.Pointer
 		status unsafe.Pointer
 	)
-	data, len := fieldsToPtr(fields)
-	internal.TypeFactory_MakeStructType(f.raw, data, len, &v, &status)
+	internal.TypeFactory_MakeStructType(f.raw, helper.SliceToPtr(fields, func(idx int) unsafe.Pointer {
+		return fields[idx].raw
+	}), &v, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	return newStructType(v, fields), nil
+	return newStructType(v), nil
 }
 
-func newStructType(raw unsafe.Pointer, fields []*StructField) *StructType {
-	return &StructType{ztype: &ztype{raw: raw}, fields: fields}
+//go:noinline
+func newStructType(raw unsafe.Pointer) *StructType {
+	if raw == nil {
+		return nil
+	}
+	return &StructType{ztype: &ztype{raw: raw}}
 }
 
-func newArrayType(raw unsafe.Pointer, elem Type) *ArrayType {
-	return &ArrayType{ztype: &ztype{raw: raw}, elem: elem}
+//go:noinline
+func newArrayType(raw unsafe.Pointer) *ArrayType {
+	if raw == nil {
+		return nil
+	}
+	return &ArrayType{ztype: &ztype{raw: raw}}
 }
 
+//go:noinline
 func newEnumType(raw unsafe.Pointer) *EnumType {
+	if raw == nil {
+		return nil
+	}
 	return &EnumType{ztype: &ztype{raw: raw}}
 }
 
+//go:noinline
+func newFactory() *typeFactory {
+	var v unsafe.Pointer
+	internal.TypeFactory_new(&v)
+	return &typeFactory{raw: v}
+}
+
 func init() {
+	factory = newFactory()
 	{
 		var v unsafe.Pointer
 		internal.Int32Type(&v)
@@ -793,92 +875,92 @@ func init() {
 	{
 		var v unsafe.Pointer
 		internal.Int32ArrayType(&v)
-		int32ArrayType = newArrayType(v, int32Type)
+		int32ArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.Int64ArrayType(&v)
-		int64ArrayType = newArrayType(v, int64Type)
+		int64ArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.Uint32ArrayType(&v)
-		uint32ArrayType = newArrayType(v, uint32Type)
+		uint32ArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.Uint64ArrayType(&v)
-		uint64ArrayType = newArrayType(v, uint64Type)
+		uint64ArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.BoolArrayType(&v)
-		boolArrayType = newArrayType(v, boolType)
+		boolArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.FloatArrayType(&v)
-		floatArrayType = newArrayType(v, floatType)
+		floatArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.DoubleArrayType(&v)
-		doubleArrayType = newArrayType(v, doubleType)
+		doubleArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.StringArrayType(&v)
-		stringArrayType = newArrayType(v, stringType)
+		stringArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.BytesArrayType(&v)
-		bytesArrayType = newArrayType(v, bytesType)
+		bytesArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.TimestampArrayType(&v)
-		timestampArrayType = newArrayType(v, timestampType)
+		timestampArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.DateArrayType(&v)
-		dateArrayType = newArrayType(v, dateType)
+		dateArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.DatetimeArrayType(&v)
-		datetimeArrayType = newArrayType(v, datetimeType)
+		datetimeArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.TimeArrayType(&v)
-		timeArrayType = newArrayType(v, timeType)
+		timeArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.IntervalArrayType(&v)
-		intervalArrayType = newArrayType(v, intervalType)
+		intervalArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.GeographyArrayType(&v)
-		geographyArrayType = newArrayType(v, geographyType)
+		geographyArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.NumericArrayType(&v)
-		numericArrayType = newArrayType(v, numericType)
+		numericArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.BigNumericArrayType(&v)
-		bigNumericArrayType = newArrayType(v, bigNumericType)
+		bigNumericArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
 		internal.JsonArrayType(&v)
-		jsonArrayType = newArrayType(v, jsonType)
+		jsonArrayType = newArrayType(v)
 	}
 	{
 		var v unsafe.Pointer
@@ -1064,10 +1146,6 @@ func NewArrayType(elem Type) (*ArrayType, error) {
 
 func NewStructType(fields []*StructField) (*StructType, error) {
 	return factory.createStructType(fields)
-}
-
-func NewStructField(name string, typ Type) *StructField {
-	return &StructField{Name: name, Type: typ}
 }
 
 func TypeOf(v interface{}) Type {

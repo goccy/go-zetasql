@@ -9194,6 +9194,44 @@ type CreateTableFunctionStmtNode struct {
 	*BaseCreateStatementNode
 }
 
+func NewCreateTableFunctionStmtNode(
+	namePath []string,
+	scope CreateScope,
+	mode CreateMode,
+	argumentNameList []string,
+	signature *types.FunctionSignature,
+	hasExplicitReturnSchema bool,
+	optionList []*OptionNode,
+	language string,
+	code string,
+	query ScanNode,
+	outputColumnList []*OutputColumnNode,
+	isValueTable bool,
+	sqlSecurity SQLSecurity) *CreateTableFunctionStmtNode {
+	var v unsafe.Pointer
+	internal.ResolvedCreateTableFunctionStmt_new(
+		helper.StringsToPtr(namePath),
+		int(scope),
+		int(mode),
+		helper.StringsToPtr(argumentNameList),
+		getRawFunctionSignature(signature),
+		helper.BoolToInt(hasExplicitReturnSchema),
+		helper.SliceToPtr(optionList, func(idx int) unsafe.Pointer {
+			return optionList[idx].getRaw()
+		}),
+		helper.StringToPtr(language),
+		helper.StringToPtr(code),
+		query.getRaw(),
+		helper.SliceToPtr(outputColumnList, func(idx int) unsafe.Pointer {
+			return outputColumnList[idx].getRaw()
+		}),
+		helper.BoolToInt(isValueTable),
+		int(sqlSecurity),
+		&v,
+	)
+	return newCreateTableFunctionStmtNode(v)
+}
+
 func (n *CreateTableFunctionStmtNode) ArgumentNameList() []string {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableFunctionStmt_argument_name_list(n.raw, &v)

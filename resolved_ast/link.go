@@ -72,7 +72,7 @@ func newTable(unsafe.Pointer) types.Table
 //go:linkname getRawTable github.com/goccy/go-zetasql/types.getRawTable
 func getRawTable(types.Table) unsafe.Pointer
 
-//go:linkname newTableValuedFunction github.com/goccy/go-zetasql/types.newTableValuedFunction
+//go:linkname newTableValuedFunction github.com/goccy/go-zetasql/types.newSQLTableValuedFunction
 func newTableValuedFunction(unsafe.Pointer) types.TableValuedFunction
 
 //go:linkname getRawTableValuedFunction github.com/goccy/go-zetasql/types.getRawTableValuedFunction

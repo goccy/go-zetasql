@@ -748,6 +748,43 @@ func (f *Function) AliasName() string {
 	return helper.PtrToString(v)
 }
 
+// Functions in a nested catalog should use the constructor with the
+// <namePath>, identifying the full path name of the function
+// including its containing catalog names.
+//
+// These constructors perform ZETASQL_CHECK validations of basic invariants:
+// * Scalar functions cannot support the OVER clause.
+// * Analytic functions must support OVER clause.
+// * Signatures must satisfy FunctionSignature.IsValidForFunction().
+func NewFunction(namePath []string, group string, mode Mode, sigs []*FunctionSignature) *Function {
+	var v unsafe.Pointer
+	internal.Function_new(
+		helper.StringsToPtr(namePath),
+		helper.StringToPtr(group),
+		int(mode),
+		helper.SliceToPtr(sigs, func(idx int) unsafe.Pointer {
+			return sigs[idx].raw
+		}),
+		&v,
+	)
+	return newFunction(v)
+}
+
+func NewFunctionSignature(resultType *FunctionArgumentType, args []*FunctionArgumentType) *FunctionSignature {
+	var v unsafe.Pointer
+	internal.FunctionSignature_new(resultType.raw, helper.SliceToPtr(args, func(idx int) unsafe.Pointer {
+		return args[idx].raw
+	}), &v)
+	return newFunctionSignature(v)
+}
+
+func NewFunctionArgumentType(name string, typ Type) *FunctionArgumentType {
+	var v unsafe.Pointer
+	internal.FunctionArgumentType_new(helper.StringToPtr(name), typ.getRaw(), &v)
+	return newFunctionArgumentType(v)
+}
+
+//go:noinline
 func newFunction(v unsafe.Pointer) *Function {
 	return &Function{raw: v}
 }
@@ -756,6 +793,7 @@ func getRawFunction(v *Function) unsafe.Pointer {
 	return v.raw
 }
 
+//go:noinline
 func newFunctionSignature(v unsafe.Pointer) *FunctionSignature {
 	return &FunctionSignature{raw: v}
 }
@@ -764,6 +802,7 @@ func getRawFunctionSignature(v *FunctionSignature) unsafe.Pointer {
 	return v.raw
 }
 
+//go:noinline
 func newFunctionArgumentType(v unsafe.Pointer) *FunctionArgumentType {
 	return &FunctionArgumentType{raw: v}
 }

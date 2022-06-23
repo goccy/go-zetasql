@@ -9142,1330 +9142,2326 @@ func (n *LabelNode) Name() *IdentifierNode {
 }
 
 func newBaseNode(raw unsafe.Pointer) *BaseNode {
+	if raw == nil {
+		return nil
+	}
 	return &BaseNode{raw: raw}
 }
 
 func newStatementBaseNode(n unsafe.Pointer) *StatementBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &StatementBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newScriptBaseNode(n unsafe.Pointer) *ScriptBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &ScriptBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newTypeBaseNode(n unsafe.Pointer) *TypeBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &TypeBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newExpressionBaseNode(n unsafe.Pointer) *ExpressionBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &ExpressionBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newQueryStatementNode(n unsafe.Pointer) *QueryStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &QueryStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newQueryExpressionBaseNode(n unsafe.Pointer) *QueryExpressionBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &QueryExpressionBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newQueryNode(n unsafe.Pointer) *QueryNode {
+	if n == nil {
+		return nil
+	}
 	return &QueryNode{QueryExpressionBaseNode: newQueryExpressionBaseNode(n)}
 }
 
 func newSelectNode(n unsafe.Pointer) *SelectNode {
+	if n == nil {
+		return nil
+	}
 	return &SelectNode{QueryExpressionBaseNode: newQueryExpressionBaseNode(n)}
 }
 
 func newSelectListNode(n unsafe.Pointer) *SelectListNode {
+	if n == nil {
+		return nil
+	}
 	return &SelectListNode{BaseNode: newBaseNode(n)}
 }
 
 func newSelectColumnNode(n unsafe.Pointer) *SelectColumnNode {
+	if n == nil {
+		return nil
+	}
 	return &SelectColumnNode{BaseNode: newBaseNode(n)}
 }
 
 func newLeafBaseNode(n unsafe.Pointer) *LeafBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &LeafBaseNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newIntLiteralNode(n unsafe.Pointer) *IntLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &IntLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newIdentifierNode(n unsafe.Pointer) *IdentifierNode {
+	if n == nil {
+		return nil
+	}
 	return &IdentifierNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newAliasNode(n unsafe.Pointer) *AliasNode {
+	if n == nil {
+		return nil
+	}
 	return &AliasNode{BaseNode: newBaseNode(n)}
 }
 
 func newGeneralizedPathExpressionBaseNode(n unsafe.Pointer) *GeneralizedPathExpressionBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &GeneralizedPathExpressionBaseNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newPathExpressionNode(n unsafe.Pointer) *PathExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &PathExpressionNode{GeneralizedPathExpressionBaseNode: newGeneralizedPathExpressionBaseNode(n)}
 }
 
 func newTableExpressionBaseNode(n unsafe.Pointer) *TableExpressionBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &TableExpressionBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newTablePathExpressionNode(n unsafe.Pointer) *TablePathExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &TablePathExpressionNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newFromClauseNode(n unsafe.Pointer) *FromClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &FromClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newWhereClauseNode(n unsafe.Pointer) *WhereClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WhereClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newBooleanLiteralNode(n unsafe.Pointer) *BooleanLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &BooleanLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newAndExprNode(n unsafe.Pointer) *AndExprNode {
+	if n == nil {
+		return nil
+	}
 	return &AndExprNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newBinaryExpressionNode(n unsafe.Pointer) *BinaryExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &BinaryExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newStringLiteralNode(n unsafe.Pointer) *StringLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &StringLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newStarNode(n unsafe.Pointer) *StarNode {
+	if n == nil {
+		return nil
+	}
 	return &StarNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newOrExprNode(n unsafe.Pointer) *OrExprNode {
+	if n == nil {
+		return nil
+	}
 	return &OrExprNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newGroupingItemNode(n unsafe.Pointer) *GroupingItemNode {
+	if n == nil {
+		return nil
+	}
 	return &GroupingItemNode{BaseNode: newBaseNode(n)}
 }
 
 func newGroupByNode(n unsafe.Pointer) *GroupByNode {
+	if n == nil {
+		return nil
+	}
 	return &GroupByNode{BaseNode: newBaseNode(n)}
 }
 
 func newOrderingExpressionNode(n unsafe.Pointer) *OrderingExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &OrderingExpressionNode{BaseNode: newBaseNode(n)}
 }
 
 func newOrderByNode(n unsafe.Pointer) *OrderByNode {
+	if n == nil {
+		return nil
+	}
 	return &OrderByNode{BaseNode: newBaseNode(n)}
 }
 
 func newLimitOffsetNode(n unsafe.Pointer) *LimitOffsetNode {
+	if n == nil {
+		return nil
+	}
 	return &LimitOffsetNode{BaseNode: newBaseNode(n)}
 }
 
 func newFloatLiteralNode(n unsafe.Pointer) *FloatLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &FloatLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newNullLiteralNode(n unsafe.Pointer) *NullLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &NullLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newOnClauseNode(n unsafe.Pointer) *OnClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &OnClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newWithClauseEntryNode(n unsafe.Pointer) *WithClauseEntryNode {
+	if n == nil {
+		return nil
+	}
 	return &WithClauseEntryNode{BaseNode: newBaseNode(n)}
 }
 
 func newJoinNode(n unsafe.Pointer) *JoinNode {
+	if n == nil {
+		return nil
+	}
 	return &JoinNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newWithClauseNode(n unsafe.Pointer) *WithClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WithClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newHavingNode(n unsafe.Pointer) *HavingNode {
+	if n == nil {
+		return nil
+	}
 	return &HavingNode{BaseNode: newBaseNode(n)}
 }
 
 func newSimpleTypeNode(n unsafe.Pointer) *SimpleTypeNode {
+	if n == nil {
+		return nil
+	}
 	return &SimpleTypeNode{TypeBaseNode: newTypeBaseNode(n)}
 }
 
 func newArrayTypeNode(n unsafe.Pointer) *ArrayTypeNode {
+	if n == nil {
+		return nil
+	}
 	return &ArrayTypeNode{TypeBaseNode: newTypeBaseNode(n)}
 }
 
 func newStructFieldNode(n unsafe.Pointer) *StructFieldNode {
+	if n == nil {
+		return nil
+	}
 	return &StructFieldNode{BaseNode: newBaseNode(n)}
 }
 
 func newStructTypeNode(n unsafe.Pointer) *StructTypeNode {
+	if n == nil {
+		return nil
+	}
 	return &StructTypeNode{TypeBaseNode: newTypeBaseNode(n)}
 }
 
 func newCastExpressionNode(n unsafe.Pointer) *CastExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &CastExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newSelectAsNode(n unsafe.Pointer) *SelectAsNode {
+	if n == nil {
+		return nil
+	}
 	return &SelectAsNode{BaseNode: newBaseNode(n)}
 }
 
 func newRollupNode(n unsafe.Pointer) *RollupNode {
+	if n == nil {
+		return nil
+	}
 	return &RollupNode{BaseNode: newBaseNode(n)}
 }
 
 func newFunctionCallNode(n unsafe.Pointer) *FunctionCallNode {
+	if n == nil {
+		return nil
+	}
 	return &FunctionCallNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newArrayConstructorNode(n unsafe.Pointer) *ArrayConstructorNode {
+	if n == nil {
+		return nil
+	}
 	return &ArrayConstructorNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newStructConstructorArgNode(n unsafe.Pointer) *StructConstructorArgNode {
+	if n == nil {
+		return nil
+	}
 	return &StructConstructorArgNode{BaseNode: newBaseNode(n)}
 }
 
 func newStructConstructorWithParensNode(n unsafe.Pointer) *StructConstructorWithParensNode {
+	if n == nil {
+		return nil
+	}
 	return &StructConstructorWithParensNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newStructConstructorWithKeywordNode(n unsafe.Pointer) *StructConstructorWithKeywordNode {
+	if n == nil {
+		return nil
+	}
 	return &StructConstructorWithKeywordNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newInExpressionNode(n unsafe.Pointer) *InExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &InExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newInListNode(n unsafe.Pointer) *InListNode {
+	if n == nil {
+		return nil
+	}
 	return &InListNode{BaseNode: newBaseNode(n)}
 }
 
 func newBetweenExpressionNode(n unsafe.Pointer) *BetweenExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &BetweenExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newNumericLiteralNode(n unsafe.Pointer) *NumericLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &NumericLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newBigNumericLiteralNode(n unsafe.Pointer) *BigNumericLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &BigNumericLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newBytesLiteralNode(n unsafe.Pointer) *BytesLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &BytesLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newDateOrTimeLiteralNode(n unsafe.Pointer) *DateOrTimeLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &DateOrTimeLiteralNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newMaxLiteralNode(n unsafe.Pointer) *MaxLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &MaxLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newJSONLiteralNode(n unsafe.Pointer) *JSONLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &JSONLiteralNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newCaseValueExpressionNode(n unsafe.Pointer) *CaseValueExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &CaseValueExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newCaseNoValueExpressionNode(n unsafe.Pointer) *CaseNoValueExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &CaseNoValueExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newArrayElementNode(n unsafe.Pointer) *ArrayElementNode {
+	if n == nil {
+		return nil
+	}
 	return &ArrayElementNode{GeneralizedPathExpressionBaseNode: newGeneralizedPathExpressionBaseNode(n)}
 }
 
 func newBitwiseShiftExpressionNode(n unsafe.Pointer) *BitwiseShiftExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &BitwiseShiftExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newCollateNode(n unsafe.Pointer) *CollateNode {
+	if n == nil {
+		return nil
+	}
 	return &CollateNode{BaseNode: newBaseNode(n)}
 }
 
 func newDotGeneralizedFieldNode(n unsafe.Pointer) *DotGeneralizedFieldNode {
+	if n == nil {
+		return nil
+	}
 	return &DotGeneralizedFieldNode{GeneralizedPathExpressionBaseNode: newGeneralizedPathExpressionBaseNode(n)}
 }
 
 func newDotIdentifierNode(n unsafe.Pointer) *DotIdentifierNode {
+	if n == nil {
+		return nil
+	}
 	return &DotIdentifierNode{GeneralizedPathExpressionBaseNode: newGeneralizedPathExpressionBaseNode(n)}
 }
 
 func newDotStarNode(n unsafe.Pointer) *DotStarNode {
+	if n == nil {
+		return nil
+	}
 	return &DotStarNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newDotStarWithModifiersNode(n unsafe.Pointer) *DotStarWithModifiersNode {
+	if n == nil {
+		return nil
+	}
 	return &DotStarWithModifiersNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newExpressionSubqueryNode(n unsafe.Pointer) *ExpressionSubqueryNode {
+	if n == nil {
+		return nil
+	}
 	return &ExpressionSubqueryNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newExtractExpressionNode(n unsafe.Pointer) *ExtractExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &ExtractExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newHavingModifierNode(n unsafe.Pointer) *HavingModifierNode {
+	if n == nil {
+		return nil
+	}
 	return &HavingModifierNode{BaseNode: newBaseNode(n)}
 }
 
 func newIntervalExprNode(n unsafe.Pointer) *IntervalExprNode {
+	if n == nil {
+		return nil
+	}
 	return &IntervalExprNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newNamedArgumentNode(n unsafe.Pointer) *NamedArgumentNode {
+	if n == nil {
+		return nil
+	}
 	return &NamedArgumentNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newNullOrderNode(n unsafe.Pointer) *NullOrderNode {
+	if n == nil {
+		return nil
+	}
 	return &NullOrderNode{BaseNode: newBaseNode(n)}
 }
 
 func newOnOrUsingClauseListNode(n unsafe.Pointer) *OnOrUsingClauseListNode {
+	if n == nil {
+		return nil
+	}
 	return &OnOrUsingClauseListNode{BaseNode: newBaseNode(n)}
 }
 
 func newParenthesizedJoinNode(n unsafe.Pointer) *ParenthesizedJoinNode {
+	if n == nil {
+		return nil
+	}
 	return &ParenthesizedJoinNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newPartitionByNode(n unsafe.Pointer) *PartitionByNode {
+	if n == nil {
+		return nil
+	}
 	return &PartitionByNode{BaseNode: newBaseNode(n)}
 }
 
 func newSetOperationNode(n unsafe.Pointer) *SetOperationNode {
+	if n == nil {
+		return nil
+	}
 	return &SetOperationNode{QueryExpressionBaseNode: newQueryExpressionBaseNode(n)}
 }
 
 func newStarExceptListNode(n unsafe.Pointer) *StarExceptListNode {
+	if n == nil {
+		return nil
+	}
 	return &StarExceptListNode{BaseNode: newBaseNode(n)}
 }
 
 func newStarModifiersNode(n unsafe.Pointer) *StarModifiersNode {
+	if n == nil {
+		return nil
+	}
 	return &StarModifiersNode{BaseNode: newBaseNode(n)}
 }
 
 func newStarReplaceItemNode(n unsafe.Pointer) *StarReplaceItemNode {
+	if n == nil {
+		return nil
+	}
 	return &StarReplaceItemNode{BaseNode: newBaseNode(n)}
 }
 
 func newStarWithModifiersNode(n unsafe.Pointer) *StarWithModifiersNode {
+	if n == nil {
+		return nil
+	}
 	return &StarWithModifiersNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newTableSubqueryNode(n unsafe.Pointer) *TableSubqueryNode {
+	if n == nil {
+		return nil
+	}
 	return &TableSubqueryNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newUnaryExpressionNode(n unsafe.Pointer) *UnaryExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &UnaryExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newUnnestExpressionNode(n unsafe.Pointer) *UnnestExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &UnnestExpressionNode{BaseNode: newBaseNode(n)}
 }
 
 func newWindowClauseNode(n unsafe.Pointer) *WindowClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WindowClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newWindowDefinitionNode(n unsafe.Pointer) *WindowDefinitionNode {
+	if n == nil {
+		return nil
+	}
 	return &WindowDefinitionNode{BaseNode: newBaseNode(n)}
 }
 
 func newWindowFrameNode(n unsafe.Pointer) *WindowFrameNode {
+	if n == nil {
+		return nil
+	}
 	return &WindowFrameNode{BaseNode: newBaseNode(n)}
 }
 
 func newWindowFrameExprNode(n unsafe.Pointer) *WindowFrameExprNode {
+	if n == nil {
+		return nil
+	}
 	return &WindowFrameExprNode{BaseNode: newBaseNode(n)}
 }
 
 func newLikeExpressionNode(n unsafe.Pointer) *LikeExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &LikeExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newWindowSpecificationNode(n unsafe.Pointer) *WindowSpecificationNode {
+	if n == nil {
+		return nil
+	}
 	return &WindowSpecificationNode{BaseNode: newBaseNode(n)}
 }
 
 func newWithOffsetNode(n unsafe.Pointer) *WithOffsetNode {
+	if n == nil {
+		return nil
+	}
 	return &WithOffsetNode{BaseNode: newBaseNode(n)}
 }
 
 func newAnySomeAllOpNode(n unsafe.Pointer) *AnySomeAllOpNode {
+	if n == nil {
+		return nil
+	}
 	return &AnySomeAllOpNode{BaseNode: newBaseNode(n)}
 }
 
 func newParameterExprBaseNode(n unsafe.Pointer) *ParameterExprBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &ParameterExprBaseNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newStatementListNode(n unsafe.Pointer) *StatementListNode {
+	if n == nil {
+		return nil
+	}
 	return &StatementListNode{BaseNode: newBaseNode(n)}
 }
 
 func newScriptStatementNode(n unsafe.Pointer) *ScriptStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ScriptStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newHintedStatementNode(n unsafe.Pointer) *HintedStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &HintedStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newExplainStatementNode(n unsafe.Pointer) *ExplainStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ExplainStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newDescribeStatementNode(n unsafe.Pointer) *DescribeStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DescribeStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newShowStatementNode(n unsafe.Pointer) *ShowStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ShowStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newTransactionModeBaseNode(n unsafe.Pointer) *TransactionModeBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &TransactionModeBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newTransactionIsolationLevelNode(n unsafe.Pointer) *TransactionIsolationLevelNode {
+	if n == nil {
+		return nil
+	}
 	return &TransactionIsolationLevelNode{TransactionModeBaseNode: newTransactionModeBaseNode(n)}
 }
 
 func newTransactionReadWriteModeNode(n unsafe.Pointer) *TransactionReadWriteModeNode {
+	if n == nil {
+		return nil
+	}
 	return &TransactionReadWriteModeNode{TransactionModeBaseNode: newTransactionModeBaseNode(n)}
 }
 
 func newTransactionModeListNode(n unsafe.Pointer) *TransactionModeListNode {
+	if n == nil {
+		return nil
+	}
 	return &TransactionModeListNode{BaseNode: newBaseNode(n)}
 }
 
 func newBeginStatementNode(n unsafe.Pointer) *BeginStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &BeginStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newSetTransactionStatementNode(n unsafe.Pointer) *SetTransactionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &SetTransactionStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newCommitStatementNode(n unsafe.Pointer) *CommitStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CommitStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newRollbackStatementNode(n unsafe.Pointer) *RollbackStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RollbackStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newStartBatchStatementNode(n unsafe.Pointer) *StartBatchStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &StartBatchStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newRunBatchStatementNode(n unsafe.Pointer) *RunBatchStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RunBatchStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newAbortBatchStatementNode(n unsafe.Pointer) *AbortBatchStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AbortBatchStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newDdlStatementBaseNode(n unsafe.Pointer) *DdlStatementBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &DdlStatementBaseNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newDropEntityStatementNode(n unsafe.Pointer) *DropEntityStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropEntityStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropFunctionStatementNode(n unsafe.Pointer) *DropFunctionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropFunctionStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropTableFunctionStatementNode(n unsafe.Pointer) *DropTableFunctionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropTableFunctionStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropAllRowAccessPoliciesStatementNode(n unsafe.Pointer) *DropAllRowAccessPoliciesStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropAllRowAccessPoliciesStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newDropMaterializedViewStatementNode(n unsafe.Pointer) *DropMaterializedViewStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropMaterializedViewStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropSnapshotTableStatementNode(n unsafe.Pointer) *DropSnapshotTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropSnapshotTableStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropSearchIndexStatementNode(n unsafe.Pointer) *DropSearchIndexStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropSearchIndexStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newRenameStatementNode(n unsafe.Pointer) *RenameStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RenameStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newImportStatementNode(n unsafe.Pointer) *ImportStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ImportStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newModuleStatementNode(n unsafe.Pointer) *ModuleStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ModuleStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newWithConnectionClauseNode(n unsafe.Pointer) *WithConnectionClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WithConnectionClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newIntoAliasNode(n unsafe.Pointer) *IntoAliasNode {
+	if n == nil {
+		return nil
+	}
 	return &IntoAliasNode{BaseNode: newBaseNode(n)}
 }
 
 func newUnnestExpressionWithOptAliasAndOffsetNode(n unsafe.Pointer) *UnnestExpressionWithOptAliasAndOffsetNode {
+	if n == nil {
+		return nil
+	}
 	return &UnnestExpressionWithOptAliasAndOffsetNode{BaseNode: newBaseNode(n)}
 }
 
 func newPivotExpressionNode(n unsafe.Pointer) *PivotExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &PivotExpressionNode{BaseNode: newBaseNode(n)}
 }
 
 func newPivotValueNode(n unsafe.Pointer) *PivotValueNode {
+	if n == nil {
+		return nil
+	}
 	return &PivotValueNode{BaseNode: newBaseNode(n)}
 }
 
 func newPivotExpressionListNode(n unsafe.Pointer) *PivotExpressionListNode {
+	if n == nil {
+		return nil
+	}
 	return &PivotExpressionListNode{BaseNode: newBaseNode(n)}
 }
 
 func newPivotValueListNode(n unsafe.Pointer) *PivotValueListNode {
+	if n == nil {
+		return nil
+	}
 	return &PivotValueListNode{BaseNode: newBaseNode(n)}
 }
 
 func newPivotClauseNode(n unsafe.Pointer) *PivotClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &PivotClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newUnpivotInItemNode(n unsafe.Pointer) *UnpivotInItemNode {
+	if n == nil {
+		return nil
+	}
 	return &UnpivotInItemNode{BaseNode: newBaseNode(n)}
 }
 
 func newUnpivotInItemListNode(n unsafe.Pointer) *UnpivotInItemListNode {
+	if n == nil {
+		return nil
+	}
 	return &UnpivotInItemListNode{BaseNode: newBaseNode(n)}
 }
 
 func newUnpivotClauseNode(n unsafe.Pointer) *UnpivotClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &UnpivotClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newUsingClauseNode(n unsafe.Pointer) *UsingClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &UsingClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newForSystemTimeNode(n unsafe.Pointer) *ForSystemTimeNode {
+	if n == nil {
+		return nil
+	}
 	return &ForSystemTimeNode{BaseNode: newBaseNode(n)}
 }
 
 func newQualifyNode(n unsafe.Pointer) *QualifyNode {
+	if n == nil {
+		return nil
+	}
 	return &QualifyNode{BaseNode: newBaseNode(n)}
 }
 
 func newClampedBetweenModifierNode(n unsafe.Pointer) *ClampedBetweenModifierNode {
+	if n == nil {
+		return nil
+	}
 	return &ClampedBetweenModifierNode{BaseNode: newBaseNode(n)}
 }
 
 func newFormatClauseNode(n unsafe.Pointer) *FormatClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &FormatClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newPathExpressionListNode(n unsafe.Pointer) *PathExpressionListNode {
+	if n == nil {
+		return nil
+	}
 	return &PathExpressionListNode{BaseNode: newBaseNode(n)}
 }
 
 func newParameterExprNode(n unsafe.Pointer) *ParameterExprNode {
+	if n == nil {
+		return nil
+	}
 	return &ParameterExprNode{ParameterExprBaseNode: newParameterExprBaseNode(n)}
 }
 
 func newSystemVariableExprNode(n unsafe.Pointer) *SystemVariableExprNode {
+	if n == nil {
+		return nil
+	}
 	return &SystemVariableExprNode{ParameterExprBaseNode: newParameterExprBaseNode(n)}
 }
 
 func newWithGroupRowsNode(n unsafe.Pointer) *WithGroupRowsNode {
+	if n == nil {
+		return nil
+	}
 	return &WithGroupRowsNode{BaseNode: newBaseNode(n)}
 }
 
 func newLambdaNode(n unsafe.Pointer) *LambdaNode {
+	if n == nil {
+		return nil
+	}
 	return &LambdaNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newAnalyticFunctionCallNode(n unsafe.Pointer) *AnalyticFunctionCallNode {
+	if n == nil {
+		return nil
+	}
 	return &AnalyticFunctionCallNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newFunctionCallWithGroupRowsNode(n unsafe.Pointer) *FunctionCallWithGroupRowsNode {
+	if n == nil {
+		return nil
+	}
 	return &FunctionCallWithGroupRowsNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newClusterByNode(n unsafe.Pointer) *ClusterByNode {
+	if n == nil {
+		return nil
+	}
 	return &ClusterByNode{BaseNode: newBaseNode(n)}
 }
 
 func newNewConstructorArgNode(n unsafe.Pointer) *NewConstructorArgNode {
+	if n == nil {
+		return nil
+	}
 	return &NewConstructorArgNode{BaseNode: newBaseNode(n)}
 }
 
 func newNewConstructorNode(n unsafe.Pointer) *NewConstructorNode {
+	if n == nil {
+		return nil
+	}
 	return &NewConstructorNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newOptionsListNode(n unsafe.Pointer) *OptionsListNode {
+	if n == nil {
+		return nil
+	}
 	return &OptionsListNode{BaseNode: newBaseNode(n)}
 }
 
 func newOptionsEntryNode(n unsafe.Pointer) *OptionsEntryNode {
+	if n == nil {
+		return nil
+	}
 	return &OptionsEntryNode{BaseNode: newBaseNode(n)}
 }
 
 func newCreateStatementNode(n unsafe.Pointer) *CreateStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newFunctionParameterNode(n unsafe.Pointer) *FunctionParameterNode {
+	if n == nil {
+		return nil
+	}
 	return &FunctionParameterNode{BaseNode: newBaseNode(n)}
 }
 
 func newFunctionParametersNode(n unsafe.Pointer) *FunctionParametersNode {
+	if n == nil {
+		return nil
+	}
 	return &FunctionParametersNode{BaseNode: newBaseNode(n)}
 }
 
 func newFunctionDeclarationNode(n unsafe.Pointer) *FunctionDeclarationNode {
+	if n == nil {
+		return nil
+	}
 	return &FunctionDeclarationNode{BaseNode: newBaseNode(n)}
 }
 
 func newSqlFunctionBodyNode(n unsafe.Pointer) *SqlFunctionBodyNode {
+	if n == nil {
+		return nil
+	}
 	return &SqlFunctionBodyNode{BaseNode: newBaseNode(n)}
 }
 
 func newTVFArgumentNode(n unsafe.Pointer) *TVFArgumentNode {
+	if n == nil {
+		return nil
+	}
 	return &TVFArgumentNode{BaseNode: newBaseNode(n)}
 }
 
 func newTVFNode(n unsafe.Pointer) *TVFNode {
+	if n == nil {
+		return nil
+	}
 	return &TVFNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newTableClauseNode(n unsafe.Pointer) *TableClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &TableClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newModelClauseNode(n unsafe.Pointer) *ModelClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ModelClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newConnectionClauseNode(n unsafe.Pointer) *ConnectionClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ConnectionClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newTableDataSourceNode(n unsafe.Pointer) *TableDataSourceNode {
+	if n == nil {
+		return nil
+	}
 	return &TableDataSourceNode{TableExpressionBaseNode: newTableExpressionBaseNode(n)}
 }
 
 func newCloneDataSourceNode(n unsafe.Pointer) *CloneDataSourceNode {
+	if n == nil {
+		return nil
+	}
 	return &CloneDataSourceNode{TableDataSourceNode: newTableDataSourceNode(n)}
 }
 
 func newCopyDataSourceNode(n unsafe.Pointer) *CopyDataSourceNode {
+	if n == nil {
+		return nil
+	}
 	return &CopyDataSourceNode{TableDataSourceNode: newTableDataSourceNode(n)}
 }
 
 func newCloneDataSourceListNode(n unsafe.Pointer) *CloneDataSourceListNode {
+	if n == nil {
+		return nil
+	}
 	return &CloneDataSourceListNode{BaseNode: newBaseNode(n)}
 }
 
 func newCloneDataStatementNode(n unsafe.Pointer) *CloneDataStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CloneDataStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newCreateConstantStatementNode(n unsafe.Pointer) *CreateConstantStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateConstantStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateDatabaseStatementNode(n unsafe.Pointer) *CreateDatabaseStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateDatabaseStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newCreateProcedureStatementNode(n unsafe.Pointer) *CreateProcedureStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateProcedureStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateSchemaStatementNode(n unsafe.Pointer) *CreateSchemaStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateSchemaStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newTransformClauseNode(n unsafe.Pointer) *TransformClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &TransformClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newCreateModelStatementNode(n unsafe.Pointer) *CreateModelStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateModelStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newIndexAllColumnsNode(n unsafe.Pointer) *IndexAllColumnsNode {
+	if n == nil {
+		return nil
+	}
 	return &IndexAllColumnsNode{LeafBaseNode: newLeafBaseNode(n)}
 }
 
 func newIndexItemListNode(n unsafe.Pointer) *IndexItemListNode {
+	if n == nil {
+		return nil
+	}
 	return &IndexItemListNode{BaseNode: newBaseNode(n)}
 }
 
 func newIndexStoringExpressionListNode(n unsafe.Pointer) *IndexStoringExpressionListNode {
+	if n == nil {
+		return nil
+	}
 	return &IndexStoringExpressionListNode{BaseNode: newBaseNode(n)}
 }
 
 func newIndexUnnestExpressionListNode(n unsafe.Pointer) *IndexUnnestExpressionListNode {
+	if n == nil {
+		return nil
+	}
 	return &IndexUnnestExpressionListNode{BaseNode: newBaseNode(n)}
 }
 
 func newCreateIndexStatementNode(n unsafe.Pointer) *CreateIndexStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateIndexStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newExportDataStatementNode(n unsafe.Pointer) *ExportDataStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ExportDataStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newExportModelStatementNode(n unsafe.Pointer) *ExportModelStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ExportModelStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newCallStatementNode(n unsafe.Pointer) *CallStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CallStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newDefineTableStatementNode(n unsafe.Pointer) *DefineTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DefineTableStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newWithPartitionColumnsClauseNode(n unsafe.Pointer) *WithPartitionColumnsClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WithPartitionColumnsClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newCreateSnapshotTableStatementNode(n unsafe.Pointer) *CreateSnapshotTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateSnapshotTableStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newTypeParameterListNode(n unsafe.Pointer) *TypeParameterListNode {
+	if n == nil {
+		return nil
+	}
 	return &TypeParameterListNode{BaseNode: newBaseNode(n)}
 }
 
 func newTVFSchemaNode(n unsafe.Pointer) *TVFSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &TVFSchemaNode{BaseNode: newBaseNode(n)}
 }
 
 func newTVFSchemaColumnNode(n unsafe.Pointer) *TVFSchemaColumnNode {
+	if n == nil {
+		return nil
+	}
 	return &TVFSchemaColumnNode{BaseNode: newBaseNode(n)}
 }
 
 func newTableAndColumnInfoNode(n unsafe.Pointer) *TableAndColumnInfoNode {
+	if n == nil {
+		return nil
+	}
 	return &TableAndColumnInfoNode{BaseNode: newBaseNode(n)}
 }
 
 func newTableAndColumnInfoListNode(n unsafe.Pointer) *TableAndColumnInfoListNode {
+	if n == nil {
+		return nil
+	}
 	return &TableAndColumnInfoListNode{BaseNode: newBaseNode(n)}
 }
 
 func newTemplatedParameterTypeNode(n unsafe.Pointer) *TemplatedParameterTypeNode {
+	if n == nil {
+		return nil
+	}
 	return &TemplatedParameterTypeNode{BaseNode: newBaseNode(n)}
 }
 
 func newDefaultLiteralNode(n unsafe.Pointer) *DefaultLiteralNode {
+	if n == nil {
+		return nil
+	}
 	return &DefaultLiteralNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newAnalyzeStatementNode(n unsafe.Pointer) *AnalyzeStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AnalyzeStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newAssertStatementNode(n unsafe.Pointer) *AssertStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AssertStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newAssertRowsModifiedNode(n unsafe.Pointer) *AssertRowsModifiedNode {
+	if n == nil {
+		return nil
+	}
 	return &AssertRowsModifiedNode{BaseNode: newBaseNode(n)}
 }
 
 func newReturningClauseNode(n unsafe.Pointer) *ReturningClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ReturningClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newDeleteStatementNode(n unsafe.Pointer) *DeleteStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DeleteStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newColumnAttributeBaseNode(n unsafe.Pointer) *ColumnAttributeBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnAttributeBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newNotNullColumnAttributeNode(n unsafe.Pointer) *NotNullColumnAttributeNode {
+	if n == nil {
+		return nil
+	}
 	return &NotNullColumnAttributeNode{ColumnAttributeBaseNode: newColumnAttributeBaseNode(n)}
 }
 
 func newHiddenColumnAttributeNode(n unsafe.Pointer) *HiddenColumnAttributeNode {
+	if n == nil {
+		return nil
+	}
 	return &HiddenColumnAttributeNode{ColumnAttributeBaseNode: newColumnAttributeBaseNode(n)}
 }
 
 func newPrimaryKeyColumnAttributeNode(n unsafe.Pointer) *PrimaryKeyColumnAttributeNode {
+	if n == nil {
+		return nil
+	}
 	return &PrimaryKeyColumnAttributeNode{ColumnAttributeBaseNode: newColumnAttributeBaseNode(n)}
 }
 
 func newForeignKeyColumnAttributeNode(n unsafe.Pointer) *ForeignKeyColumnAttributeNode {
+	if n == nil {
+		return nil
+	}
 	return &ForeignKeyColumnAttributeNode{ColumnAttributeBaseNode: newColumnAttributeBaseNode(n)}
 }
 
 func newColumnAttributeListNode(n unsafe.Pointer) *ColumnAttributeListNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnAttributeListNode{BaseNode: newBaseNode(n)}
 }
 
 func newStructColumnFieldNode(n unsafe.Pointer) *StructColumnFieldNode {
+	if n == nil {
+		return nil
+	}
 	return &StructColumnFieldNode{BaseNode: newBaseNode(n)}
 }
 
 func newGeneratedColumnInfoNode(n unsafe.Pointer) *GeneratedColumnInfoNode {
+	if n == nil {
+		return nil
+	}
 	return &GeneratedColumnInfoNode{BaseNode: newBaseNode(n)}
 }
 
 func newTableElementBaseNode(n unsafe.Pointer) *TableElementBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &TableElementBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newColumnDefinitionNode(n unsafe.Pointer) *ColumnDefinitionNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnDefinitionNode{TableElementBaseNode: newTableElementBaseNode(n)}
 }
 
 func newTableElementListNode(n unsafe.Pointer) *TableElementListNode {
+	if n == nil {
+		return nil
+	}
 	return &TableElementListNode{BaseNode: newBaseNode(n)}
 }
 
 func newColumnListNode(n unsafe.Pointer) *ColumnListNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnListNode{BaseNode: newBaseNode(n)}
 }
 
 func newColumnPositionNode(n unsafe.Pointer) *ColumnPositionNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnPositionNode{BaseNode: newBaseNode(n)}
 }
 
 func newInsertValuesRowNode(n unsafe.Pointer) *InsertValuesRowNode {
+	if n == nil {
+		return nil
+	}
 	return &InsertValuesRowNode{BaseNode: newBaseNode(n)}
 }
 
 func newInsertValuesRowListNode(n unsafe.Pointer) *InsertValuesRowListNode {
+	if n == nil {
+		return nil
+	}
 	return &InsertValuesRowListNode{BaseNode: newBaseNode(n)}
 }
 
 func newInsertStatementNode(n unsafe.Pointer) *InsertStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &InsertStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newUpdateSetValueNode(n unsafe.Pointer) *UpdateSetValueNode {
+	if n == nil {
+		return nil
+	}
 	return &UpdateSetValueNode{BaseNode: newBaseNode(n)}
 }
 
 func newUpdateItemNode(n unsafe.Pointer) *UpdateItemNode {
+	if n == nil {
+		return nil
+	}
 	return &UpdateItemNode{BaseNode: newBaseNode(n)}
 }
 
 func newUpdateItemListNode(n unsafe.Pointer) *UpdateItemListNode {
+	if n == nil {
+		return nil
+	}
 	return &UpdateItemListNode{BaseNode: newBaseNode(n)}
 }
 
 func newUpdateStatementNode(n unsafe.Pointer) *UpdateStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &UpdateStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newTrucateStatementNode(n unsafe.Pointer) *TrucateStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &TrucateStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newMergeActionNode(n unsafe.Pointer) *MergeActionNode {
+	if n == nil {
+		return nil
+	}
 	return &MergeActionNode{BaseNode: newBaseNode(n)}
 }
 
 func newMergeWhenClauseNode(n unsafe.Pointer) *MergeWhenClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &MergeWhenClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newMergeWhenClauseListNode(n unsafe.Pointer) *MergeWhenClauseListNode {
+	if n == nil {
+		return nil
+	}
 	return &MergeWhenClauseListNode{BaseNode: newBaseNode(n)}
 }
 
 func newMergeStatementNode(n unsafe.Pointer) *MergeStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &MergeStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newPrivilegeNode(n unsafe.Pointer) *PrivilegeNode {
+	if n == nil {
+		return nil
+	}
 	return &PrivilegeNode{BaseNode: newBaseNode(n)}
 }
 
 func newPrivilegesNode(n unsafe.Pointer) *PrivilegesNode {
+	if n == nil {
+		return nil
+	}
 	return &PrivilegesNode{BaseNode: newBaseNode(n)}
 }
 
 func newGranteeListNode(n unsafe.Pointer) *GranteeListNode {
+	if n == nil {
+		return nil
+	}
 	return &GranteeListNode{BaseNode: newBaseNode(n)}
 }
 
 func newGrantStatementNode(n unsafe.Pointer) *GrantStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &GrantStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newRevokeStatementNode(n unsafe.Pointer) *RevokeStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RevokeStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newRepeatableClauseNode(n unsafe.Pointer) *RepeatableClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &RepeatableClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newFilterFieldsArgNode(n unsafe.Pointer) *FilterFieldsArgNode {
+	if n == nil {
+		return nil
+	}
 	return &FilterFieldsArgNode{BaseNode: newBaseNode(n)}
 }
 
 func newReplaceFieldsArgNode(n unsafe.Pointer) *ReplaceFieldsArgNode {
+	if n == nil {
+		return nil
+	}
 	return &ReplaceFieldsArgNode{BaseNode: newBaseNode(n)}
 }
 
 func newReplaceFieldsExpressionNode(n unsafe.Pointer) *ReplaceFieldsExpressionNode {
+	if n == nil {
+		return nil
+	}
 	return &ReplaceFieldsExpressionNode{ExpressionBaseNode: newExpressionBaseNode(n)}
 }
 
 func newSampleSizeNode(n unsafe.Pointer) *SampleSizeNode {
+	if n == nil {
+		return nil
+	}
 	return &SampleSizeNode{BaseNode: newBaseNode(n)}
 }
 
 func newWithWeightNode(n unsafe.Pointer) *WithWeightNode {
+	if n == nil {
+		return nil
+	}
 	return &WithWeightNode{BaseNode: newBaseNode(n)}
 }
 
 func newSampleSuffixNode(n unsafe.Pointer) *SampleSuffixNode {
+	if n == nil {
+		return nil
+	}
 	return &SampleSuffixNode{BaseNode: newBaseNode(n)}
 }
 
 func newSampleClauseNode(n unsafe.Pointer) *SampleClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &SampleClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newAlterActionBaseNode(n unsafe.Pointer) *AlterActionBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterActionBaseNode{BaseNode: newBaseNode(n)}
 }
 
 func newSetOptionsActionNode(n unsafe.Pointer) *SetOptionsActionNode {
+	if n == nil {
+		return nil
+	}
 	return &SetOptionsActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newSetAsActionNode(n unsafe.Pointer) *SetAsActionNode {
+	if n == nil {
+		return nil
+	}
 	return &SetAsActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAddConstraintActionNode(n unsafe.Pointer) *AddConstraintActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AddConstraintActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newDropPrimaryKeyActionNode(n unsafe.Pointer) *DropPrimaryKeyActionNode {
+	if n == nil {
+		return nil
+	}
 	return &DropPrimaryKeyActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newDropConstraintActionNode(n unsafe.Pointer) *DropConstraintActionNode {
+	if n == nil {
+		return nil
+	}
 	return &DropConstraintActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterConstraintEnforcementActionNode(n unsafe.Pointer) *AlterConstraintEnforcementActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterConstraintEnforcementActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterConstraintSetOptionsActionNode(n unsafe.Pointer) *AlterConstraintSetOptionsActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterConstraintSetOptionsActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAddColumnActionNode(n unsafe.Pointer) *AddColumnActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AddColumnActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newDropColumnActionNode(n unsafe.Pointer) *DropColumnActionNode {
+	if n == nil {
+		return nil
+	}
 	return &DropColumnActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newRenameColumnActionNode(n unsafe.Pointer) *RenameColumnActionNode {
+	if n == nil {
+		return nil
+	}
 	return &RenameColumnActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterColumnTypeActionNode(n unsafe.Pointer) *AlterColumnTypeActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterColumnTypeActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterColumnOptionsActionNode(n unsafe.Pointer) *AlterColumnOptionsActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterColumnOptionsActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterColumnSetDefaultActionNode(n unsafe.Pointer) *AlterColumnSetDefaultActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterColumnSetDefaultActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterColumnDropDefaultActionNode(n unsafe.Pointer) *AlterColumnDropDefaultActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterColumnDropDefaultActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterColumnDropNotNullActionNode(n unsafe.Pointer) *AlterColumnDropNotNullActionNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterColumnDropNotNullActionNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newGrantToClauseNode(n unsafe.Pointer) *GrantToClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &GrantToClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newRestrictToClauseNode(n unsafe.Pointer) *RestrictToClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &RestrictToClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAddToRestricteeListClauseNode(n unsafe.Pointer) *AddToRestricteeListClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &AddToRestricteeListClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newRemoveFromRestricteeListClauseNode(n unsafe.Pointer) *RemoveFromRestricteeListClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &RemoveFromRestricteeListClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newFilterUsingClauseNode(n unsafe.Pointer) *FilterUsingClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &FilterUsingClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newRevokeFromClauseNode(n unsafe.Pointer) *RevokeFromClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &RevokeFromClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newRenameToClauseNode(n unsafe.Pointer) *RenameToClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &RenameToClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newSetCollateClauseNode(n unsafe.Pointer) *SetCollateClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &SetCollateClauseNode{AlterActionBaseNode: newAlterActionBaseNode(n)}
 }
 
 func newAlterActionListNode(n unsafe.Pointer) *AlterActionListNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterActionListNode{BaseNode: newBaseNode(n)}
 }
 
 func newAlterAllRowAccessPoliciesStatementNode(n unsafe.Pointer) *AlterAllRowAccessPoliciesStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterAllRowAccessPoliciesStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newForeignKeyActionsNode(n unsafe.Pointer) *ForeignKeyActionsNode {
+	if n == nil {
+		return nil
+	}
 	return &ForeignKeyActionsNode{BaseNode: newBaseNode(n)}
 }
 
 func newForeignKeyReferenceNode(n unsafe.Pointer) *ForeignKeyReferenceNode {
+	if n == nil {
+		return nil
+	}
 	return &ForeignKeyReferenceNode{BaseNode: newBaseNode(n)}
 }
 
 func newElseifClauseNode(n unsafe.Pointer) *ElseifClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ElseifClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newElseifClauseListNode(n unsafe.Pointer) *ElseifClauseListNode {
+	if n == nil {
+		return nil
+	}
 	return &ElseifClauseListNode{BaseNode: newBaseNode(n)}
 }
 
 func newIfStatementNode(n unsafe.Pointer) *IfStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &IfStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newWhenThenClauseNode(n unsafe.Pointer) *WhenThenClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &WhenThenClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newWhenThenClauseListNode(n unsafe.Pointer) *WhenThenClauseListNode {
+	if n == nil {
+		return nil
+	}
 	return &WhenThenClauseListNode{BaseNode: newBaseNode(n)}
 }
 
 func newCaseStatementNode(n unsafe.Pointer) *CaseStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CaseStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newHintNode(n unsafe.Pointer) *HintNode {
+	if n == nil {
+		return nil
+	}
 	return &HintNode{BaseNode: newBaseNode(n)}
 }
 
 func newHintEntryNode(n unsafe.Pointer) *HintEntryNode {
+	if n == nil {
+		return nil
+	}
 	return &HintEntryNode{BaseNode: newBaseNode(n)}
 }
 
 func newUnpivotInItemLabelNode(n unsafe.Pointer) *UnpivotInItemLabelNode {
+	if n == nil {
+		return nil
+	}
 	return &UnpivotInItemLabelNode{BaseNode: newBaseNode(n)}
 }
 
 func newDescriptorNode(n unsafe.Pointer) *DescriptorNode {
+	if n == nil {
+		return nil
+	}
 	return &DescriptorNode{BaseNode: newBaseNode(n)}
 }
 
 func newColumnSchemaNode(n unsafe.Pointer) *ColumnSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &ColumnSchemaNode{BaseNode: newBaseNode(n)}
 }
 
 func newSimpleColumnSchemaNode(n unsafe.Pointer) *SimpleColumnSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &SimpleColumnSchemaNode{ColumnSchemaNode: newColumnSchemaNode(n)}
 }
 
 func newArrayColumnSchemaNode(n unsafe.Pointer) *ArrayColumnSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &ArrayColumnSchemaNode{ColumnSchemaNode: newColumnSchemaNode(n)}
 }
 
 func newTableConstraintBaseNode(n unsafe.Pointer) *TableConstraintBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &TableConstraintBaseNode{TableElementBaseNode: newTableElementBaseNode(n)}
 }
 
 func newPrimaryKeyNode(n unsafe.Pointer) *PrimaryKeyNode {
+	if n == nil {
+		return nil
+	}
 	return &PrimaryKeyNode{TableConstraintBaseNode: newTableConstraintBaseNode(n)}
 }
 
 func newForeignKeyNode(n unsafe.Pointer) *ForeignKeyNode {
+	if n == nil {
+		return nil
+	}
 	return &ForeignKeyNode{TableConstraintBaseNode: newTableConstraintBaseNode(n)}
 }
 
 func newCheckConstraintNode(n unsafe.Pointer) *CheckConstraintNode {
+	if n == nil {
+		return nil
+	}
 	return &CheckConstraintNode{TableConstraintBaseNode: newTableConstraintBaseNode(n)}
 }
 
 func newDescriptorColumnNode(n unsafe.Pointer) *DescriptorColumnNode {
+	if n == nil {
+		return nil
+	}
 	return &DescriptorColumnNode{BaseNode: newBaseNode(n)}
 }
 
 func newDescriptorColumnListNode(n unsafe.Pointer) *DescriptorColumnListNode {
+	if n == nil {
+		return nil
+	}
 	return &DescriptorColumnListNode{BaseNode: newBaseNode(n)}
 }
 
 func newCreateEntityStatementNode(n unsafe.Pointer) *CreateEntityStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateEntityStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newRaiseStatementNode(n unsafe.Pointer) *RaiseStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RaiseStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newExceptionHandlerNode(n unsafe.Pointer) *ExceptionHandlerNode {
+	if n == nil {
+		return nil
+	}
 	return &ExceptionHandlerNode{BaseNode: newBaseNode(n)}
 }
 
 func newExceptionHandlerListNode(n unsafe.Pointer) *ExceptionHandlerListNode {
+	if n == nil {
+		return nil
+	}
 	return &ExceptionHandlerListNode{BaseNode: newBaseNode(n)}
 }
 
 func newBeginEndBlockNode(n unsafe.Pointer) *BeginEndBlockNode {
+	if n == nil {
+		return nil
+	}
 	return &BeginEndBlockNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newIdentifierListNode(n unsafe.Pointer) *IdentifierListNode {
+	if n == nil {
+		return nil
+	}
 	return &IdentifierListNode{BaseNode: newBaseNode(n)}
 }
 
 func newVariableDeclarationNode(n unsafe.Pointer) *VariableDeclarationNode {
+	if n == nil {
+		return nil
+	}
 	return &VariableDeclarationNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newUntilClauseNode(n unsafe.Pointer) *UntilClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &UntilClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newBreakContinueStatementNode(n unsafe.Pointer) *BreakContinueStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &BreakContinueStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newBreakStatementNode(n unsafe.Pointer) *BreakStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &BreakStatementNode{BreakContinueStatementNode: newBreakContinueStatementNode(n)}
 }
 
 func newContinueStatementNode(n unsafe.Pointer) *ContinueStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ContinueStatementNode{BreakContinueStatementNode: newBreakContinueStatementNode(n)}
 }
 
 func newDropPrivilegeRestrictionStatementNode(n unsafe.Pointer) *DropPrivilegeRestrictionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropPrivilegeRestrictionStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newDropRowAccessPolicyStatementNode(n unsafe.Pointer) *DropRowAccessPolicyStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropRowAccessPolicyStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newCreatePrivilegeRestrictionStatementNode(n unsafe.Pointer) *CreatePrivilegeRestrictionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreatePrivilegeRestrictionStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateRowAccessPolicyStatementNode(n unsafe.Pointer) *CreateRowAccessPolicyStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateRowAccessPolicyStatementNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newDropStatementNode(n unsafe.Pointer) *DropStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &DropStatementNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newReturnStatementNode(n unsafe.Pointer) *ReturnStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ReturnStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newSingleAssignmentNode(n unsafe.Pointer) *SingleAssignmentNode {
+	if n == nil {
+		return nil
+	}
 	return &SingleAssignmentNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newParameterAssignmentNode(n unsafe.Pointer) *ParameterAssignmentNode {
+	if n == nil {
+		return nil
+	}
 	return &ParameterAssignmentNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newSystemVariableAssignmentNode(n unsafe.Pointer) *SystemVariableAssignmentNode {
+	if n == nil {
+		return nil
+	}
 	return &SystemVariableAssignmentNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newAssignmentFromStructNode(n unsafe.Pointer) *AssignmentFromStructNode {
+	if n == nil {
+		return nil
+	}
 	return &AssignmentFromStructNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newCreateTableStmtBaseNode(n unsafe.Pointer) *CreateTableStmtBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateTableStmtBaseNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateTableStatementNode(n unsafe.Pointer) *CreateTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateTableStatementNode{CreateTableStmtBaseNode: newCreateTableStmtBaseNode(n)}
 }
 
 func newCreateExternalTableStatementNode(n unsafe.Pointer) *CreateExternalTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateExternalTableStatementNode{CreateTableStmtBaseNode: newCreateTableStmtBaseNode(n)}
 }
 
 func newCreateViewStatementBaseNode(n unsafe.Pointer) *CreateViewStatementBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateViewStatementBaseNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateViewStatementNode(n unsafe.Pointer) *CreateViewStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateViewStatementNode{CreateViewStatementBaseNode: newCreateViewStatementBaseNode(n)}
 }
 
 func newCreateMaterializedViewStatementNode(n unsafe.Pointer) *CreateMaterializedViewStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateMaterializedViewStatementNode{CreateViewStatementBaseNode: newCreateViewStatementBaseNode(n)}
 }
 
 func newLoopStatementNode(n unsafe.Pointer) *LoopStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &LoopStatementNode{ScriptStatementNode: newScriptStatementNode(n)}
 }
 
 func newWhileStatementNode(n unsafe.Pointer) *WhileStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &WhileStatementNode{LoopStatementNode: newLoopStatementNode(n)}
 }
 
 func newRepeatStatementNode(n unsafe.Pointer) *RepeatStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &RepeatStatementNode{LoopStatementNode: newLoopStatementNode(n)}
 }
 
 func newForInStatementNode(n unsafe.Pointer) *ForInStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ForInStatementNode{LoopStatementNode: newLoopStatementNode(n)}
 }
 
 func newAlterStatementBaseNode(n unsafe.Pointer) *AlterStatementBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterStatementBaseNode{DdlStatementBaseNode: newDdlStatementBaseNode(n)}
 }
 
 func newAlterDatabaseStatementNode(n unsafe.Pointer) *AlterDatabaseStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterDatabaseStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterSchemaStatementNode(n unsafe.Pointer) *AlterSchemaStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterSchemaStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterTableStatementNode(n unsafe.Pointer) *AlterTableStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterTableStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterViewStatementNode(n unsafe.Pointer) *AlterViewStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterViewStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterMaterializedViewStatementNode(n unsafe.Pointer) *AlterMaterializedViewStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterMaterializedViewStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterPrivilegeRestrictionStatementNode(n unsafe.Pointer) *AlterPrivilegeRestrictionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterPrivilegeRestrictionStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterRowAccessPolicyStatementNode(n unsafe.Pointer) *AlterRowAccessPolicyStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterRowAccessPolicyStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newAlterEntityStatementNode(n unsafe.Pointer) *AlterEntityStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AlterEntityStatementNode{AlterStatementBaseNode: newAlterStatementBaseNode(n)}
 }
 
 func newCreateFunctionStmtBaseNode(n unsafe.Pointer) *CreateFunctionStmtBaseNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateFunctionStmtBaseNode{CreateStatementNode: newCreateStatementNode(n)}
 }
 
 func newCreateFunctionStatementNode(n unsafe.Pointer) *CreateFunctionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateFunctionStatementNode{CreateFunctionStmtBaseNode: newCreateFunctionStmtBaseNode(n)}
 }
 
 func newCreateTableFunctionStatementNode(n unsafe.Pointer) *CreateTableFunctionStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &CreateTableFunctionStatementNode{CreateFunctionStmtBaseNode: newCreateFunctionStmtBaseNode(n)}
 }
 
 func newStructColumnSchemaNode(n unsafe.Pointer) *StructColumnSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &StructColumnSchemaNode{ColumnSchemaNode: newColumnSchemaNode(n)}
 }
 
 func newInferredTypeColumnSchemaNode(n unsafe.Pointer) *InferredTypeColumnSchemaNode {
+	if n == nil {
+		return nil
+	}
 	return &InferredTypeColumnSchemaNode{ColumnSchemaNode: newColumnSchemaNode(n)}
 }
 
 func newExecuteIntoClauseNode(n unsafe.Pointer) *ExecuteIntoClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ExecuteIntoClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newExecuteUsingArgumentNode(n unsafe.Pointer) *ExecuteUsingArgumentNode {
+	if n == nil {
+		return nil
+	}
 	return &ExecuteUsingArgumentNode{BaseNode: newBaseNode(n)}
 }
 
 func newExecuteUsingClauseNode(n unsafe.Pointer) *ExecuteUsingClauseNode {
+	if n == nil {
+		return nil
+	}
 	return &ExecuteUsingClauseNode{BaseNode: newBaseNode(n)}
 }
 
 func newExecuteImmediateStatementNode(n unsafe.Pointer) *ExecuteImmediateStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &ExecuteImmediateStatementNode{StatementBaseNode: newStatementBaseNode(n)}
 }
 
 func newAuxLoadDataFromFilesOptionsListNode(n unsafe.Pointer) *AuxLoadDataFromFilesOptionsListNode {
+	if n == nil {
+		return nil
+	}
 	return &AuxLoadDataFromFilesOptionsListNode{BaseNode: newBaseNode(n)}
 }
 
 func newAuxLoadDataStatementNode(n unsafe.Pointer) *AuxLoadDataStatementNode {
+	if n == nil {
+		return nil
+	}
 	return &AuxLoadDataStatementNode{CreateTableStmtBaseNode: newCreateTableStmtBaseNode(n)}
 }
 
 func newLabelNode(n unsafe.Pointer) *LabelNode {
+	if n == nil {
+		return nil
+	}
 	return &LabelNode{BaseNode: newBaseNode(n)}
 }
 

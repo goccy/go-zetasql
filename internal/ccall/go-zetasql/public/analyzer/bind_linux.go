@@ -12401,6 +12401,29 @@ func analyzer_ResolvedArgumentRef_set_argument_kind(arg0 unsafe.Pointer, arg1 C.
 	C.export_zetasql_public_analyzer_ResolvedArgumentRef_set_argument_kind(arg0, arg1)
 }
 
+func ResolvedCreateTableFunctionStmt_new(arg0 unsafe.Pointer, arg1 int, arg2 int, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 int, arg6 unsafe.Pointer, arg7 unsafe.Pointer, arg8 unsafe.Pointer, arg9 unsafe.Pointer, arg10 unsafe.Pointer, arg11 int, arg12 int, arg13 *unsafe.Pointer) {
+	analyzer_ResolvedCreateTableFunctionStmt_new(
+		arg0,
+		C.int(arg1),
+		C.int(arg2),
+		arg3,
+		arg4,
+		C.int(arg5),
+		arg6,
+		arg7,
+		arg8,
+		arg9,
+		arg10,
+		C.int(arg11),
+		C.int(arg12),
+		arg13,
+	)
+}
+
+func analyzer_ResolvedCreateTableFunctionStmt_new(arg0 unsafe.Pointer, arg1 C.int, arg2 C.int, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 C.int, arg6 unsafe.Pointer, arg7 unsafe.Pointer, arg8 unsafe.Pointer, arg9 unsafe.Pointer, arg10 unsafe.Pointer, arg11 C.int, arg12 C.int, arg13 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedCreateTableFunctionStmt_new(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
+}
+
 func ResolvedCreateTableFunctionStmt_argument_name_list(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	analyzer_ResolvedCreateTableFunctionStmt_argument_name_list(
 		arg0,

@@ -32,11 +32,9 @@ func PtrToString(p unsafe.Pointer) string {
 }
 
 func StringsToPtr(s []string) unsafe.Pointer {
-	data := make([]unsafe.Pointer, 0, len(s))
-	for _, ss := range s {
-		data = append(data, StringToPtr(ss))
-	}
-	return unsafe.Pointer(&data)
+	return SliceToPtr(s, func(idx int) unsafe.Pointer {
+		return StringToPtr(s[idx])
+	})
 }
 
 func PtrToStrings(p unsafe.Pointer) []string {

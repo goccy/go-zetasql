@@ -4901,6 +4901,31 @@
         - struct
       ret:
         - bool
+    - name: Type_AsArray
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Type_AsStruct
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Type_AsProto
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Type_AsEnum
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Type_AsExtendedType
+      args:
+        - struct
+      ret:
+        - struct
     - name: Type_SupportsGrouping
       args:
         - struct
@@ -4985,6 +5010,46 @@
         - int
       ret:
         - struct
+    - name: ArrayType_element_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: StructType_num_fields
+      args:
+        - struct
+      ret:
+        - int
+    - name: StructType_field
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: StructType_fields
+      args:
+        - struct
+      ret:
+        - struct
+    - name: StructField_new
+      args:
+        - string
+        - struct
+      ret:
+        - struct
+    - name: StructField_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: StructField_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: TypeFactory_new
+      ret:
+        - struct
     - name: TypeFactory_MakeArrayType
       args:
         - struct
@@ -4996,7 +5061,6 @@
       args:
         - struct
         - struct
-        - int
       ret:
         - struct
         - struct
@@ -5567,6 +5631,34 @@
       ret:
         - struct
         - struct
+    - name: Catalog_FindModel
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_FindFunction
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_FindTableValuedFunction
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: Catalog_FindProcedure
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
     - name: Catalog_FindType
       args:
         - struct
@@ -5575,6 +5667,30 @@
         - struct
         - struct
     - name: Catalog_SuggestTable
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Catalog_SuggestModel
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Catalog_SuggestFunction
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Catalog_SuggestTableValuedTable
+      args:
+        - struct
+        - struct
+      ret:
+        - string
+    - name: Catalog_SuggestConstant
       args:
         - struct
         - struct
@@ -5598,6 +5714,12 @@
       ret:
         - struct
         - struct
+    - name: EnumerableCatalog_Functions
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
     - name: SimpleCatalog_new
       args:
         - string
@@ -5616,15 +5738,63 @@
       ret:
         - struct
         - struct
-    - name: SimpleCatalog_table_names_num
+    - name: SimpleCatalog_table_names
       args:
         - struct
       ret:
-        - int
-    - name: SimpleCatalog_table_name
+        - struct
+    - name: SimpleCatalog_GetModel
       args:
         - struct
-        - int
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetFunction
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_GetFunctions
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_function_names
+      args:
+        - struct
+      ret:
+        - struct
+    - name: SimpleCatalog_GetTableValuedFunction
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_table_valued_functions
+      args:
+        - struct
+      ret:
+        - struct
+    - name: SimpleCatalog_table_valued_function_names
+      args:
+        - struct
+      ret:
+        - struct
+    - name: SimpleCatalog_GetProcedure
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+        - struct
+    - name: SimpleCatalog_procedures
+      args:
+        - struct
       ret:
         - struct
     - name: SimpleCatalog_GetType
@@ -5653,15 +5823,9 @@
       ret:
         - struct
         - struct
-    - name: SimpleCatalog_catalog_names_num
+    - name: SimpleCatalog_catalog_names
       args:
         - struct
-      ret:
-        - int
-    - name: SimpleCatalog_catalog_name
-      args:
-        - struct
-        - int
       ret:
         - struct
     - name: SimpleCatalog_AddTable
@@ -5669,6 +5833,24 @@
         - struct
         - struct
     - name: SimpleCatalog_AddTableWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddModel
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddModelWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddConnection
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddConnectionWithName
       args:
         - struct
         - string
@@ -5694,8 +5876,120 @@
         - struct
         - string
         - struct
+    - name: SimpleCatalog_AddFunction
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddFunctionWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddTableValuedFunction
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddTableValuedFunctionWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddProcedure
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddProcedureWithName
+      args:
+        - struct
+        - string
+        - struct
+    - name: SimpleCatalog_AddConstant
+      args:
+        - struct
+        - struct
+    - name: SimpleCatalog_AddConstantWithName
+      args:
+        - struct
+        - string
+        - struct
     - name: SimpleCatalog_AddZetaSQLFunctions
       args:
+        - struct
+    - name: Model_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Model_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Model_NumInputs
+      args:
+        - struct
+      ret:
+        - int
+    - name: Model_Input
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Model_NumOutputs
+      args:
+        - struct
+      ret:
+        - int
+    - name: Model_Output
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: Model_FindInputByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Model_FindOutputByName
+      args:
+        - struct
+        - string
+      ret:
+        - struct
+    - name: Model_SerializationID
+      args:
+        - struct
+      ret:
+        - int
+    - name: SimpleModel_new
+      args:
+        - string
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: SimpleModel_AddInput
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: SimpleModel_AddOutput
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Function_new
+      args:
+        - struct
+        - string
+        - int
+        - struct
+      ret:
         - struct
     - name: Function_Name
       args:
@@ -5855,6 +6149,12 @@
         - struct
       ret:
         - string
+    - name: FunctionArgumentType_new
+      args:
+        - string
+        - struct
+      ret:
+        - struct
     - name: FunctionArgumentType_required
       args:
         - struct
@@ -6029,6 +6329,12 @@
         - struct
       ret:
         - struct
+    - name: FunctionSignature_new
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
     - name: FunctionSignature_arguments
       args:
         - struct
@@ -6147,6 +6453,102 @@
         - struct
       ret:
         - bool
+    - name: Procedure_new
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: Procedure_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Procedure_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Procedure_NamePath
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Procedure_Signature
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Procedure_SupportedSignatureUserFacingText
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: SQLTableValuedFunction_new
+      args:
+        - struct
+      ret:
+        - struct
+        - struct
+    - name: TableValuedFunction_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: TableValuedFunction_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: TableValuedFunction_function_name_path
+      args:
+        - struct
+      ret:
+        - struct
+    - name: TableValuedFunction_NumSignatures
+      args:
+        - struct
+      ret:
+        - int
+    - name: TableValuedFunction_signatures
+      args:
+        - struct
+      ret:
+        - struct
+    - name: TableValuedFunction_AddSignature
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TableValuedFunction_GetSignature
+      args:
+        - struct
+        - int
+      ret:
+        - struct
+    - name: TableValuedFunction_GetSupportedSignaturesUserFacingText
+      args:
+        - struct
+      ret:
+        - string
+    - name: TableValuedFunction_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: TableValuedFunction_SetUserIdColumnNamePath
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: TableValuedFunction_anonymization_info
+      args:
+        - struct
+      ret:
+        - struct
 
 - package: zetasql/public/analyzer
   methods:
@@ -11144,6 +11546,23 @@
       args:
         - struct
         - int
+    - name: ResolvedCreateTableFunctionStmt_new
+      args:
+        - struct
+        - int
+        - int
+        - struct
+        - struct
+        - int
+        - struct
+        - string
+        - string
+        - struct
+        - struct
+        - int
+        - int
+      ret:
+        - struct
     - name: ResolvedCreateTableFunctionStmt_argument_name_list
       args:
         - struct

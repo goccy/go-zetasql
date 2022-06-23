@@ -1122,6 +1122,7 @@ extern void GO_EXPORT(ResolvedArgumentRef_name)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedArgumentRef_set_name)(void * arg0,void * arg1);
 extern void GO_EXPORT(ResolvedArgumentRef_argument_kind)(void * arg0,int* arg1);
 extern void GO_EXPORT(ResolvedArgumentRef_set_argument_kind)(void * arg0,int arg1);
+extern void GO_EXPORT(ResolvedCreateTableFunctionStmt_new)(void * arg0,int arg1,int arg2,void * arg3,void * arg4,int arg5,void * arg6,void * arg7,void * arg8,void * arg9,void * arg10,int arg11,int arg12,void ** arg13);
 extern void GO_EXPORT(ResolvedCreateTableFunctionStmt_argument_name_list)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedCreateTableFunctionStmt_set_argument_name_list)(void * arg0,void * arg1);
 extern void GO_EXPORT(ResolvedCreateTableFunctionStmt_add_argument_name_list)(void * arg0,void * arg1);

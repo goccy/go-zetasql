@@ -6647,6 +6647,33 @@ void GO_EXPORT(ResolvedArgumentRef_set_argument_kind)(void * arg0,int arg1){
   node->set_argument_kind((zetasql::ResolvedArgumentDef::ArgumentKind)arg1);
 }
 
+void GO_EXPORT(ResolvedCreateTableFunctionStmt_new)(void * arg0,int arg1,int arg2,void * arg3,void * arg4,int arg5,void * arg6,void * arg7,void * arg8,void *arg9,void * arg10,int arg11,int arg12,void ** arg13)
+{
+  std::vector<std::unique_ptr<const zetasql::ResolvedOption>> option_list;
+  std::vector<std::unique_ptr<const zetasql::ResolvedOption>> *option_list_ref = &option_list;
+  UNIQUE_PTR_LIST_TO_VEC(option_list_ref, ResolvedOption, arg6);
+
+  std::vector<std::unique_ptr<const zetasql::ResolvedOutputColumn>> output_column_list;
+  std::vector<std::unique_ptr<const zetasql::ResolvedOutputColumn>> *output_column_list_ref = &output_column_list;
+  UNIQUE_PTR_LIST_TO_VEC(output_column_list_ref, ResolvedOutputColumn, arg10);
+
+  *(std::unique_ptr<zetasql::ResolvedCreateTableFunctionStmt> *)arg13 = zetasql::MakeResolvedCreateTableFunctionStmt(
+    slice_to_strs(arg0),
+    (zetasql::ResolvedCreateStatementEnums::CreateScope)arg1,
+    (zetasql::ResolvedCreateStatementEnums::CreateMode)arg2,
+    slice_to_strs(arg3),
+    *(zetasql::FunctionSignature *)arg4,
+    arg5,
+    std::move(option_list),
+    (char *)arg7,
+    (char *)arg8,
+    make_unique_scan(arg9),
+    std::move(output_column_list),
+    arg11,
+    (zetasql::ResolvedCreateStatementEnums::SqlSecurity)arg12
+  );
+}
+
 void GO_EXPORT(ResolvedCreateTableFunctionStmt_argument_name_list)(void * arg0,void ** arg1){
   zetasql::ResolvedCreateTableFunctionStmt *node = (zetasql::ResolvedCreateTableFunctionStmt *)arg0;
   GET_STRS(node->argument_name_list, arg1);

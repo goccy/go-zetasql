@@ -1,7 +1,7 @@
 package types
 
 import (
-	"reflect"
+	"fmt"
 	"unsafe"
 
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
@@ -17,7 +17,7 @@ type Catalog interface {
 	FindConnection(path []string) (Connection, error)
 	FindFunction(path []string) (*Function, error)
 	FindTableValuedFunction(path []string) (TableValuedFunction, error)
-	FindProcedure(path []string) (Procedure, error)
+	FindProcedure(path []string) (*Procedure, error)
 	FindType(path []string) (Type, error)
 	FindConstant(path []string) (Constant, error)
 	FindConversion(from, to Type) (Conversion, error)
@@ -74,23 +74,59 @@ func (c *BaseCatalog) FindTable(path []string) (Table, error) {
 }
 
 func (c *BaseCatalog) FindModel(path []string) (Model, error) {
-	return nil, nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.Catalog_FindModel(c.raw, helper.StringsToPtr(path), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newModel(v), nil
 }
 
 func (c *BaseCatalog) FindConnection(path []string) (Connection, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented Catalog.FindConnection")
 }
 
 func (c *BaseCatalog) FindFunction(path []string) (*Function, error) {
-	return nil, nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.Catalog_FindFunction(c.raw, helper.StringsToPtr(path), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newFunction(v), nil
 }
 
 func (c *BaseCatalog) FindTableValuedFunction(path []string) (TableValuedFunction, error) {
-	return nil, nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.Catalog_FindTableValuedFunction(c.raw, helper.StringsToPtr(path), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newBaseTableValuedFunction(v), nil
 }
 
-func (c *BaseCatalog) FindProcedure(path []string) (Procedure, error) {
-	return nil, nil
+func (c *BaseCatalog) FindProcedure(path []string) (*Procedure, error) {
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.Catalog_FindProcedure(c.raw, helper.StringsToPtr(path), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newProcedure(v), nil
 }
 
 func (c *BaseCatalog) FindType(path []string) (Type, error) {
@@ -107,15 +143,15 @@ func (c *BaseCatalog) FindType(path []string) (Type, error) {
 }
 
 func (c *BaseCatalog) FindConstant(path []string) (Constant, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented Catalog.FindConstant")
 }
 
 func (c *BaseCatalog) FindConversion(from, to Type) (Conversion, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented Catalog.FindConversion")
 }
 
 func (c *BaseCatalog) ExtendedTypeSuperTypes(typ Type) (*TypeListView, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented Catalog.ExtendedTypeSuperTypes")
 }
 
 func (c *BaseCatalog) SuggestTable(mistypedPath []string) string {
@@ -125,19 +161,27 @@ func (c *BaseCatalog) SuggestTable(mistypedPath []string) string {
 }
 
 func (c *BaseCatalog) SuggestModel(mistypedPath []string) string {
-	return ""
+	var v unsafe.Pointer
+	internal.Catalog_SuggestModel(c.raw, helper.StringsToPtr(mistypedPath), &v)
+	return helper.PtrToString(v)
 }
 
 func (c *BaseCatalog) SuggestFunction(mistypedPath []string) string {
-	return ""
+	var v unsafe.Pointer
+	internal.Catalog_SuggestFunction(c.raw, helper.StringsToPtr(mistypedPath), &v)
+	return helper.PtrToString(v)
 }
 
 func (c *BaseCatalog) SuggestTableValuedFunction(mistypedPath []string) string {
-	return ""
+	var v unsafe.Pointer
+	internal.Catalog_SuggestTableValuedTable(c.raw, helper.StringsToPtr(mistypedPath), &v)
+	return helper.PtrToString(v)
 }
 
 func (c *BaseCatalog) SuggestConstant(mistypedPath []string) string {
-	return ""
+	var v unsafe.Pointer
+	internal.Catalog_SuggestConstant(c.raw, helper.StringsToPtr(mistypedPath), &v)
+	return helper.PtrToString(v)
 }
 
 type BaseEnumerableCatalog struct {
@@ -161,11 +205,10 @@ func (c *BaseEnumerableCatalog) Catalogs() ([]Catalog, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	catalogs := *(*[]unsafe.Pointer)(unsafe.Pointer(&v))
-	ret := make([]Catalog, 0, len(catalogs))
-	for _, cat := range catalogs {
-		ret = append(ret, newBaseCatalog(cat))
-	}
+	ret := []Catalog{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newBaseCatalog(p))
+	})
 	return ret, nil
 }
 
@@ -179,11 +222,10 @@ func (c *BaseEnumerableCatalog) Tables() ([]Table, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	tables := *(*[]unsafe.Pointer)(unsafe.Pointer(&v))
-	ret := make([]Table, 0, len(tables))
-	for _, table := range tables {
-		ret = append(ret, newBaseTable(table))
-	}
+	ret := []Table{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newBaseTable(p))
+	})
 	return ret, nil
 }
 
@@ -204,12 +246,25 @@ func (c *BaseEnumerableCatalog) Types() ([]Type, error) {
 	return types, nil
 }
 
-func (c *BaseEnumerableCatalog) Functions() ([]Function, error) {
-	return nil, nil
+func (c *BaseEnumerableCatalog) Functions() ([]*Function, error) {
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.EnumerableCatalog_Functions(c.raw, &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	var funcs []*Function
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		funcs = append(funcs, newFunction(p))
+	})
+	return funcs, nil
 }
 
 func (c *BaseEnumerableCatalog) Conversions() ([]Conversion, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented EnumerableCatalog.Conversion")
 }
 
 type SimpleCatalog struct {
@@ -252,73 +307,122 @@ func (c *SimpleCatalog) Tables() ([]Table, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	slice := (*reflect.SliceHeader)(v)
-	ret := make([]Table, 0, slice.Len)
-	for i := 0; i < slice.Len; i++ {
-		p := *(*unsafe.Pointer)(unsafe.Pointer(slice.Data + uintptrSize*uintptr(i)))
+	ret := []Table{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
 		ret = append(ret, newBaseTable(p))
-	}
+	})
 	return ret, nil
 }
 
 func (c *SimpleCatalog) TableNames() []string {
-	var num int
-	internal.SimpleCatalog_table_names_num(c.raw, &num)
-	ret := make([]string, 0, num)
-	for i := 0; i < num; i++ {
-		var v unsafe.Pointer
-		internal.SimpleCatalog_table_name(c.raw, i, &v)
-		ret = append(ret, helper.PtrToString(v))
-	}
-	return ret
+	var v unsafe.Pointer
+	internal.SimpleCatalog_table_names(c.raw, &v)
+	return helper.PtrToStrings(v)
 }
 
 func (c *SimpleCatalog) Model(name string) (Model, error) {
-	return nil, nil
-}
-
-func (c *SimpleCatalog) Models() ([]Model, error) {
-	return nil, nil
-}
-
-func (c *SimpleCatalog) ModelNames() []string {
-	return nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.SimpleCatalog_GetModel(c.raw, helper.StringToPtr(name), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newModel(v), nil
 }
 
 func (c *SimpleCatalog) Connection(name string) (Connection, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented SimpleCatalog.Connection")
 }
 
 func (c *SimpleCatalog) Function(name string) (*Function, error) {
-	return nil, nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.SimpleCatalog_GetFunction(c.raw, helper.StringToPtr(name), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newFunction(v), nil
 }
 
-func (c *SimpleCatalog) Functions() ([]Function, error) {
-	return nil, nil
+func (c *SimpleCatalog) Functions() ([]*Function, error) {
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.SimpleCatalog_GetFunctions(c.raw, &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	ret := []*Function{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newFunction(p))
+	})
+	return ret, nil
 }
 
 func (c *SimpleCatalog) FunctionNames() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.SimpleCatalog_function_names(c.raw, &v)
+	return helper.PtrToStrings(v)
 }
 
 func (c *SimpleCatalog) TableValuedFunction(name string) (TableValuedFunction, error) {
-	return nil, nil
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.SimpleCatalog_GetTableValuedFunction(c.raw, helper.StringToPtr(name), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newBaseTableValuedFunction(v), nil
 }
 
-func (c *SimpleCatalog) TableValuedFunctions() ([]TableValuedFunction, error) {
-	return nil, nil
+func (c *SimpleCatalog) TableValuedFunctions() []TableValuedFunction {
+	var v unsafe.Pointer
+	internal.SimpleCatalog_table_valued_functions(c.raw, &v)
+	ret := []TableValuedFunction{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newBaseTableValuedFunction(p))
+	})
+	return ret
 }
 
 func (c *SimpleCatalog) TableValuedFunctionNames() []string {
-	return nil
+	var v unsafe.Pointer
+	internal.SimpleCatalog_table_valued_function_names(c.raw, &v)
+	return helper.PtrToStrings(v)
 }
 
-func (c *SimpleCatalog) Procedure(name string) (Procedure, error) {
-	return nil, nil
+func (c *SimpleCatalog) Procedure(name string) (*Procedure, error) {
+	var (
+		v      unsafe.Pointer
+		status unsafe.Pointer
+	)
+	internal.SimpleCatalog_GetProcedure(c.raw, helper.StringToPtr(name), &v, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newProcedure(v), nil
 }
 
-func (c *SimpleCatalog) Procedures() ([]Procedure, error) {
-	return nil, nil
+func (c *SimpleCatalog) Procedures() []*Procedure {
+	var v unsafe.Pointer
+	internal.SimpleCatalog_procedures(c.raw, &v)
+	ret := []*Procedure{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
+		ret = append(ret, newProcedure(p))
+	})
+	return ret
 }
 
 func (c *SimpleCatalog) Type(name string) (Type, error) {
@@ -344,12 +448,10 @@ func (c *SimpleCatalog) Types() ([]Type, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	slice := (*reflect.SliceHeader)(v)
-	ret := make([]Type, 0, slice.Len)
-	for i := 0; i < slice.Len; i++ {
-		p := *(*unsafe.Pointer)(unsafe.Pointer(slice.Data + uintptrSize*uintptr(i)))
+	ret := []Type{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
 		ret = append(ret, newType(p))
-	}
+	})
 	return ret, nil
 }
 
@@ -376,33 +478,25 @@ func (c *SimpleCatalog) Catalogs() ([]Catalog, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	slice := (*reflect.SliceHeader)(v)
-	ret := make([]Catalog, 0, slice.Len)
-	for i := 0; i < slice.Len; i++ {
-		p := *(*unsafe.Pointer)(unsafe.Pointer(slice.Data + uintptrSize*uintptr(i)))
+	ret := []Catalog{}
+	helper.PtrToSlice(v, func(p unsafe.Pointer) {
 		ret = append(ret, newBaseCatalog(p))
-	}
+	})
 	return ret, nil
 }
 
 func (c *SimpleCatalog) CatalogNames() []string {
-	var num int
-	internal.SimpleCatalog_catalog_names_num(c.raw, &num)
-	ret := make([]string, 0, num)
-	for i := 0; i < num; i++ {
-		var v unsafe.Pointer
-		internal.SimpleCatalog_catalog_name(c.raw, i, &v)
-		ret = append(ret, helper.PtrToString(v))
-	}
-	return ret
+	var v unsafe.Pointer
+	internal.SimpleCatalog_catalog_names(c.raw, &v)
+	return helper.PtrToStrings(v)
 }
 
 func (c *SimpleCatalog) Constant(name string) (Constant, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented SimpleCatalog.Constant")
 }
 
 func (c *SimpleCatalog) Constants() ([]Constant, error) {
-	return nil, nil
+	return nil, fmt.Errorf("unimplemented SimpleCatalog.Constants")
 }
 
 func (c *SimpleCatalog) ConstantNames() []string {
@@ -418,19 +512,19 @@ func (c *SimpleCatalog) AddTableWithName(name string, table Table) {
 }
 
 func (c *SimpleCatalog) AddModel(model Model) {
-
+	internal.SimpleCatalog_AddModel(c.raw, model.getRaw())
 }
 
 func (c *SimpleCatalog) AddModelWithName(name string, model Model) {
-
+	internal.SimpleCatalog_AddModelWithName(c.raw, helper.StringToPtr(name), model.getRaw())
 }
 
 func (c *SimpleCatalog) AddConnection(conn Connection) {
-
+	internal.SimpleCatalog_AddConnection(c.raw, conn.getRaw())
 }
 
 func (c *SimpleCatalog) AddConnectionWithName(name string, conn Connection) {
-
+	internal.SimpleCatalog_AddConnectionWithName(c.raw, helper.StringToPtr(name), conn.getRaw())
 }
 
 func (c *SimpleCatalog) AddType(name string, typ Type) {
@@ -451,36 +545,36 @@ func (c *SimpleCatalog) AddCatalogWithName(name string, catalog Catalog) {
 	internal.SimpleCatalog_AddCatalogWithName(c.raw, helper.StringToPtr(name), catalog.getRaw())
 }
 
-func (c *SimpleCatalog) AddFunction(fn Function) {
-
+func (c *SimpleCatalog) AddFunction(fn *Function) {
+	internal.SimpleCatalog_AddFunction(c.raw, fn.raw)
 }
 
-func (c *SimpleCatalog) AddFunctionWithName(name string, fn Function) {
-
+func (c *SimpleCatalog) AddFunctionWithName(name string, fn *Function) {
+	internal.SimpleCatalog_AddFunctionWithName(c.raw, helper.StringToPtr(name), fn.raw)
 }
 
 func (c *SimpleCatalog) AddTableValuedFunction(fn TableValuedFunction) {
-
+	internal.SimpleCatalog_AddTableValuedFunction(c.raw, fn.getRaw())
 }
 
 func (c *SimpleCatalog) AddTableValuedFunctionWithName(name string, fn TableValuedFunction) {
-
+	internal.SimpleCatalog_AddTableValuedFunctionWithName(c.raw, helper.StringToPtr(name), fn.getRaw())
 }
 
-func (c *SimpleCatalog) AddProcedure(proc Procedure) {
-
+func (c *SimpleCatalog) AddProcedure(proc *Procedure) {
+	internal.SimpleCatalog_AddProcedure(c.raw, proc.raw)
 }
 
-func (c *SimpleCatalog) AddProcedureWithName(name string, proc Procedure) {
-
+func (c *SimpleCatalog) AddProcedureWithName(name string, proc *Procedure) {
+	internal.SimpleCatalog_AddProcedureWithName(c.raw, helper.StringToPtr(name), proc.raw)
 }
 
 func (c *SimpleCatalog) AddConstant(cons Constant) {
-
+	internal.SimpleCatalog_AddConstant(c.raw, cons.getRaw())
 }
 
 func (c *SimpleCatalog) AddConstantWithName(name string, cons Constant) {
-
+	internal.SimpleCatalog_AddConstantWithName(c.raw, helper.StringToPtr(name), cons.getRaw())
 }
 
 func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions() {

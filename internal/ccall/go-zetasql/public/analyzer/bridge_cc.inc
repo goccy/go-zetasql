@@ -86,6 +86,29 @@ template<typename T> std::vector<T> slice_to_vec(void *slice)
   return vec;
 }
 
+std::vector<std::string> slice_to_strs(void *slice)
+{
+  GoSlice *goslice = (GoSlice *)slice;
+  char **data = (char **)goslice->data;
+  std::vector<std::string> vec;
+  for (int i = 0; i < goslice->len; i++) {
+    vec.push_back(data[i]);
+  }
+  return vec;
+}
+
+#define UNIQUE_PTR_LIST_TO_VEC(vecptr, T, v) do {                   \
+    std::vector<std::unique_ptr<const zetasql::T>> vec;             \
+    GoSlice *goslice = (GoSlice *)v;                                \
+    zetasql::T **data = (zetasql::T **)goslice->data;               \
+    for (int i = 0; i < goslice->len; i++) {                        \
+      auto p = zetasql::Make ## T();                                \
+      memcpy((void *)p.get(), (void *)data[i], sizeof(zetasql::T)); \
+      vec.push_back(std::move(p));                                  \
+    }                                                               \
+    *vecptr = std::move(vec);                                       \
+  } while (0)
+
 #define SET_UNIQUE_PTR(setter, T, v) do {                   \
     auto p = zetasql::Make ## T();                          \
     memcpy((void *)p.get(), (void *)v, sizeof(zetasql::T)); \

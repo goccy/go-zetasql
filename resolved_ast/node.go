@@ -402,7 +402,7 @@ func (n *InlineLambdaNode) AddParameter(v *ColumnRefNode) {
 func (n *InlineLambdaNode) Body() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedInlineLambda_body(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *InlineLambdaNode) SetBody(v ExprNode) {
@@ -464,7 +464,7 @@ type FilterFieldNode struct {
 func (n *FilterFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedFilterField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *FilterFieldNode) SetExpr(v ExprNode) {
@@ -556,7 +556,7 @@ func (n *BaseFunctionCallNode) ArgumentList() []ExprNode {
 	internal.ResolvedFunctionCallBase_argument_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -729,7 +729,7 @@ func (n *BaseNonScalarFunctionCallNode) SetNullHandlingModifier(v NullHandlingMo
 func (n *BaseNonScalarFunctionCallNode) WithGroupRowsSubquery() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedNonScalarFunctionCallBase_with_group_rows_subquery(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *BaseNonScalarFunctionCallNode) SetWithGroupRowsSubquery(v ScanNode) {
@@ -799,7 +799,7 @@ func (n *AggregateFunctionCallNode) AddOrderByItem(v *OrderByItemNode) {
 func (n *AggregateFunctionCallNode) Limit() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedAggregateFunctionCall_limit(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *AggregateFunctionCallNode) SetLimit(v ExprNode) {
@@ -927,7 +927,7 @@ type CastNode struct {
 func (n *CastNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCast_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CastNode) SetExpr(v ExprNode) {
@@ -964,7 +964,7 @@ func (n *CastNode) SetExtendedCast(v *ExtendedCastNode) {
 func (n *CastNode) Format() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCast_format(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CastNode) SetFormat(v ExprNode) {
@@ -976,7 +976,7 @@ func (n *CastNode) SetFormat(v ExprNode) {
 func (n *CastNode) TimeZone() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCast_time_zone(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CastNode) SetTimeZone(v ExprNode) {
@@ -1020,7 +1020,7 @@ func (n *MakeStructNode) FieldList() []ExprNode {
 	internal.ResolvedMakeStruct_field_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -1089,7 +1089,7 @@ func (n *MakeProtoFieldNode) SetFormat(v FieldFormat) {
 func (n *MakeProtoFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedMakeProtoField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *MakeProtoFieldNode) SetExpr(v ExprNode) {
@@ -1104,7 +1104,7 @@ type GetStructFieldNode struct {
 func (n *GetStructFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedGetStructField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *GetStructFieldNode) SetExpr(v ExprNode) {
@@ -1129,7 +1129,7 @@ type GetProtoFieldNode struct {
 func (n *GetProtoFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedGetProtoField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *GetProtoFieldNode) SetExpr(v ExprNode) {
@@ -1216,7 +1216,7 @@ type GetJsonFieldNode struct {
 func (n *GetJsonFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedGetJsonField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *GetJsonFieldNode) SetExpr(v ExprNode) {
@@ -1249,7 +1249,7 @@ type FlattenNode struct {
 func (n *FlattenNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedFlatten_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *FlattenNode) SetExpr(v ExprNode) {
@@ -1268,7 +1268,7 @@ func (n *FlattenNode) GetFieldList() []ExprNode {
 	internal.ResolvedFlatten_get_field_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -1320,7 +1320,7 @@ type ReplaceFieldItemNode struct {
 func (n *ReplaceFieldItemNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedReplaceFieldItem_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ReplaceFieldItemNode) SetExpr(v ExprNode) {
@@ -1364,7 +1364,7 @@ type ReplaceFieldNode struct {
 func (n *ReplaceFieldNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedReplaceField_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ReplaceFieldNode) SetExpr(v ExprNode) {
@@ -1502,7 +1502,7 @@ func (n *SubqueryExprNode) AddParameter(v *ColumnRefNode) {
 func (n *SubqueryExprNode) InExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedSubqueryExpr_in_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *SubqueryExprNode) SetInExpr(v ExprNode) {
@@ -1524,7 +1524,7 @@ func (n *SubqueryExprNode) SetInCollation(v *Collation) {
 func (n *SubqueryExprNode) Subquery() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedSubqueryExpr_subquery(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *SubqueryExprNode) SetSubquery(v ScanNode) {
@@ -1592,7 +1592,7 @@ func (n *LetExprNode) AddAssignment(v *ComputedColumnNode) {
 func (n *LetExprNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedLetExpr_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *LetExprNode) SetExpr(v ExprNode) {
@@ -1819,7 +1819,7 @@ func (n *TableScanNode) SetTable(v types.Table) {
 func (n *TableScanNode) ForSystemTimeExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedTableScan_for_system_time_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *TableScanNode) SetForSystemTimeExpr(v ExprNode) {
@@ -1878,7 +1878,7 @@ func (n *JoinScanNode) SetJoinType(v JoinType) {
 func (n *JoinScanNode) LeftScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedJoinScan_left_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *JoinScanNode) SetLeftScan(v ScanNode) {
@@ -1888,7 +1888,7 @@ func (n *JoinScanNode) SetLeftScan(v ScanNode) {
 func (n *JoinScanNode) RightScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedJoinScan_right_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *JoinScanNode) SetRightScan(v ScanNode) {
@@ -1898,7 +1898,7 @@ func (n *JoinScanNode) SetRightScan(v ScanNode) {
 func (n *JoinScanNode) JoinExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedJoinScan_join_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *JoinScanNode) SetJoinExpr(v ExprNode) {
@@ -1939,7 +1939,7 @@ type ArrayScanNode struct {
 func (n *ArrayScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedArrayScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *ArrayScanNode) SetInputScan(v ScanNode) {
@@ -1949,7 +1949,7 @@ func (n *ArrayScanNode) SetInputScan(v ScanNode) {
 func (n *ArrayScanNode) ArrayExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedArrayScan_array_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ArrayScanNode) SetArrayExpr(v ExprNode) {
@@ -1979,7 +1979,7 @@ func (n *ArrayScanNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
 func (n *ArrayScanNode) JoinExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedArrayScan_join_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ArrayScanNode) SetJoinExpr(v ExprNode) {
@@ -2021,7 +2021,7 @@ type FilterScanNode struct {
 func (n *FilterScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedFilterScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *FilterScanNode) SetInputScan(v ScanNode) {
@@ -2031,7 +2031,7 @@ func (n *FilterScanNode) SetInputScan(v ScanNode) {
 func (n *FilterScanNode) FilterExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedFilterScan_filter_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *FilterScanNode) SetFilterExpr(v ExprNode) {
@@ -2093,7 +2093,7 @@ type BaseAggregateScanNode struct {
 func (n *BaseAggregateScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedAggregateScanBase_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *BaseAggregateScanNode) SetInputScan(v ScanNode) {
@@ -2279,7 +2279,7 @@ type SetOperationItemNode struct {
 func (n *SetOperationItemNode) Scan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedSetOperationItem_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *SetOperationItemNode) SetScan(v ScanNode) {
@@ -2389,7 +2389,7 @@ type OrderByScanNode struct {
 func (n *OrderByScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedOrderByScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *OrderByScanNode) SetInputScan(v ScanNode) {
@@ -2435,7 +2435,7 @@ type LimitOffsetScanNode struct {
 func (n *LimitOffsetScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedLimitOffsetScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *LimitOffsetScanNode) SetInputScan(v ScanNode) {
@@ -2445,7 +2445,7 @@ func (n *LimitOffsetScanNode) SetInputScan(v ScanNode) {
 func (n *LimitOffsetScanNode) Limit() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedLimitOffsetScan_limit(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *LimitOffsetScanNode) SetLimit(v ExprNode) {
@@ -2455,7 +2455,7 @@ func (n *LimitOffsetScanNode) SetLimit(v ExprNode) {
 func (n *LimitOffsetScanNode) Offset() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedLimitOffsetScan_offset(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *LimitOffsetScanNode) SetOffset(v ExprNode) {
@@ -2497,7 +2497,7 @@ type AnalyticScanNode struct {
 func (n *AnalyticScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedAnalyticScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *AnalyticScanNode) SetInputScan(v ScanNode) {
@@ -2554,7 +2554,7 @@ type SampleScanNode struct {
 func (n *SampleScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedSampleScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *SampleScanNode) SetInputScan(v ScanNode) {
@@ -2574,7 +2574,7 @@ func (n *SampleScanNode) SetMethod(v string) {
 func (n *SampleScanNode) Size() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedSampleScan_size(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *SampleScanNode) SetSize(v ExprNode) {
@@ -2594,7 +2594,7 @@ func (n *SampleScanNode) SetUnit(v SampleUnit) {
 func (n *SampleScanNode) RepeatableArgument() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedSampleScan_repeatable_argument(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *SampleScanNode) SetRepeatableArgument(v ExprNode) {
@@ -2616,7 +2616,7 @@ func (n *SampleScanNode) PartitionByList() []ExprNode {
 	internal.ResolvedSampleScan_partition_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -2653,7 +2653,7 @@ func (n *ComputedColumnNode) SetColumn(v *Column) {
 func (n *ComputedColumnNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedComputedColumn_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ComputedColumnNode) SetExpr(v ExprNode) {
@@ -2697,7 +2697,7 @@ func (n *OrderByItemNode) SetColumnRef(v *ColumnRefNode) {
 func (n *OrderByItemNode) CollationName() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedOrderByItem_collation_name(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *OrderByItemNode) SetCollationName(v ExprNode) {
@@ -2760,7 +2760,7 @@ type ColumnAnnotationsNode struct {
 func (n *ColumnAnnotationsNode) CollationName() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedColumnAnnotations_collation_name(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ColumnAnnotationsNode) SetCollationName(v ExprNode) {
@@ -2853,7 +2853,7 @@ type GeneratedColumnInfoNode struct {
 func (n *GeneratedColumnInfoNode) Expression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedGeneratedColumnInfo_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *GeneratedColumnInfoNode) SetExpression(v ExprNode) {
@@ -2887,7 +2887,7 @@ type ColumnDefaultValueNode struct {
 func (n *ColumnDefaultValueNode) Expression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedColumnDefaultValue_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ColumnDefaultValueNode) SetExpression(v ExprNode) {
@@ -3305,7 +3305,7 @@ func (n *CheckConstraintNode) SetConstraintName(v string) {
 func (n *CheckConstraintNode) Expression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCheckConstraint_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CheckConstraintNode) SetExpression(v ExprNode) {
@@ -3405,7 +3405,7 @@ func (n *ProjectScanNode) AddExpr(v *ComputedColumnNode) {
 func (n *ProjectScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedProjectScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *ProjectScanNode) SetInputScan(v ScanNode) {
@@ -3633,7 +3633,7 @@ type FunctionArgumentNode struct {
 func (n *FunctionArgumentNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedFunctionArgument_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *FunctionArgumentNode) SetExpr(v ExprNode) {
@@ -3643,7 +3643,7 @@ func (n *FunctionArgumentNode) SetExpr(v ExprNode) {
 func (n *FunctionArgumentNode) Scan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedFunctionArgument_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *FunctionArgumentNode) SetScan(v ScanNode) {
@@ -3754,7 +3754,7 @@ type ExplainStmtNode struct {
 func (n *ExplainStmtNode) Statement() StatementNode {
 	var v unsafe.Pointer
 	internal.ResolvedExplainStmt_statement(n.raw, &v)
-	return newNode(v).(StatementNode)
+	return newStatementNode(v)
 }
 
 func (n *ExplainStmtNode) SetStatement(v StatementNode) {
@@ -3810,7 +3810,7 @@ func (n *QueryStmtNode) SetIsValueTable(v bool) {
 func (n *QueryStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedQueryStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *QueryStmtNode) SetQuery(v ScanNode) {
@@ -3975,7 +3975,7 @@ type UnnestItemNode struct {
 func (n *UnnestItemNode) ArrayExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedUnnestItem_array_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *UnnestItemNode) SetArrayExpr(v ExprNode) {
@@ -4117,7 +4117,7 @@ func (n *CreateIndexStmtNode) StoringExpressionList() []ExprNode {
 	internal.ResolvedCreateIndexStmt_storing_expression_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -4215,7 +4215,7 @@ type CreateSchemaStmtNode struct {
 func (n *CreateSchemaStmtNode) CollationName() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateSchemaStmt_collation_name(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CreateSchemaStmtNode) SetCollationName(v ExprNode) {
@@ -4418,7 +4418,7 @@ func (n *BaseCreateTableStmtNode) SetLikeTable(v types.Table) {
 func (n *BaseCreateTableStmtNode) CollationName() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableStmtBase_collation_name(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *BaseCreateTableStmtNode) SetCollationName(v ExprNode) {
@@ -4460,7 +4460,7 @@ type CreateTableStmtNode struct {
 func (n *CreateTableStmtNode) CloneFrom() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableStmt_clone_from(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateTableStmtNode) SetCloneFrom(v ScanNode) {
@@ -4470,7 +4470,7 @@ func (n *CreateTableStmtNode) SetCloneFrom(v ScanNode) {
 func (n *CreateTableStmtNode) CopyFrom() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableStmt_copy_from(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateTableStmtNode) SetCopyFrom(v ScanNode) {
@@ -4482,7 +4482,7 @@ func (n *CreateTableStmtNode) PartitionByList() []ExprNode {
 	internal.ResolvedCreateTableStmt_partition_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -4502,7 +4502,7 @@ func (n *CreateTableStmtNode) ClusterByList() []ExprNode {
 	internal.ResolvedCreateTableStmt_cluster_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -4546,7 +4546,7 @@ func (n *CreateTableAsSelectStmtNode) PartitionByList() []ExprNode {
 	internal.ResolvedCreateTableAsSelectStmt_partition_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -4566,7 +4566,7 @@ func (n *CreateTableAsSelectStmtNode) ClusterByList() []ExprNode {
 	internal.ResolvedCreateTableAsSelectStmt_cluster_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -4604,7 +4604,7 @@ func (n *CreateTableAsSelectStmtNode) AddOutputColumn(v *OutputColumnNode) {
 func (n *CreateTableAsSelectStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableAsSelectStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateTableAsSelectStmtNode) SetQuery(v ScanNode) {
@@ -4699,7 +4699,7 @@ func (n *CreateModelStmtNode) AddOutputColumn(v *OutputColumnNode) {
 func (n *CreateModelStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateModelStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateModelStmtNode) SetQuery(v ScanNode) {
@@ -4871,7 +4871,7 @@ func (n *BaseCreateViewNode) SetHasExplicitColumns(v bool) {
 func (n *BaseCreateViewNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateViewBase_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *BaseCreateViewNode) SetQuery(v ScanNode) {
@@ -4979,7 +4979,7 @@ type CreateSnapshotTableStmtNode struct {
 func (n *CreateSnapshotTableStmtNode) CloneFrom() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateSnapshotTableStmt_clone_from(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateSnapshotTableStmtNode) SetCloneFrom(v ScanNode) {
@@ -5181,7 +5181,7 @@ func (n *ExportDataStmtNode) SetIsValueTable(v bool) {
 func (n *ExportDataStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedExportDataStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *ExportDataStmtNode) SetQuery(v ScanNode) {
@@ -5797,7 +5797,7 @@ func (n *WithScanNode) AddWithEntry(v *WithEntryNode) {
 func (n *WithScanNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedWithScan_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *WithScanNode) SetQuery(v ScanNode) {
@@ -5839,7 +5839,7 @@ func (n *WithEntryNode) SetWithQueryName(v string) {
 func (n *WithEntryNode) WithSubquery() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedWithEntry_with_subquery(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *WithEntryNode) SetWithSubquery(v ScanNode) {
@@ -5901,7 +5901,7 @@ func (n *OptionNode) SetName(v string) {
 func (n *OptionNode) Value() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedOption_value(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *OptionNode) SetValue(v ExprNode) {
@@ -6127,7 +6127,7 @@ func (n *WindowFrameExprNode) SetBoundaryType(v BoundaryType) {
 func (n *WindowFrameExprNode) Expression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedWindowFrameExpr_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *WindowFrameExprNode) SetExpression(v ExprNode) {
@@ -6146,7 +6146,7 @@ type DMLValueNode struct {
 func (n *DMLValueNode) Value() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedDMLValue_value(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *DMLValueNode) SetValue(v ExprNode) {
@@ -6205,7 +6205,7 @@ type AssertRowsModifiedNode struct {
 func (n *AssertRowsModifiedNode) Rows() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedAssertRowsModified_rows(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *AssertRowsModifiedNode) SetRows(v ExprNode) {
@@ -6361,7 +6361,7 @@ func (n *InsertStmtNode) AddQueryParameter(v *ColumnRefNode) {
 func (n *InsertStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedInsertStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *InsertStmtNode) SetQuery(v ScanNode) {
@@ -6477,7 +6477,7 @@ func (n *DeleteStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
 func (n *DeleteStmtNode) WhereExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedDeleteStmt_where_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *DeleteStmtNode) SetWhereExpr(v ExprNode) {
@@ -6586,7 +6586,7 @@ type UpdateItemNode struct {
 func (n *UpdateItemNode) Target() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedUpdateItem_target(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *UpdateItemNode) SetTarget(v ExprNode) {
@@ -6746,7 +6746,7 @@ type UpdateArrayItemNode struct {
 func (n *UpdateArrayItemNode) Offset() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedUpdateArrayItem_offset(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *UpdateArrayItemNode) SetOffset(v ExprNode) {
@@ -6870,7 +6870,7 @@ func (n *UpdateStmtNode) SetArrayOffsetColumn(v *ColumnHolderNode) {
 func (n *UpdateStmtNode) WhereExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedUpdateStmt_where_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *UpdateStmtNode) SetWhereExpr(v ExprNode) {
@@ -6900,7 +6900,7 @@ func (n *UpdateStmtNode) AddUpdateItemList(v *UpdateItemNode) {
 func (n *UpdateStmtNode) FromScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedUpdateStmt_from_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *UpdateStmtNode) SetFromScan(v ScanNode) {
@@ -6967,7 +6967,7 @@ func (n *MergeWhenNode) SetMatchType(v MatchType) {
 func (n *MergeWhenNode) MatchExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedMergeWhen_match_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *MergeWhenNode) SetMatchExpr(v ExprNode) {
@@ -7091,7 +7091,7 @@ func (n *MergeStmtNode) AddColumnAccess(v ObjectAccess) {
 func (n *MergeStmtNode) FromScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedMergeStmt_from_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *MergeStmtNode) SetFromScan(v ScanNode) {
@@ -7101,7 +7101,7 @@ func (n *MergeStmtNode) SetFromScan(v ScanNode) {
 func (n *MergeStmtNode) MergeExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedMergeStmt_merge_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *MergeStmtNode) SetMergeExpr(v ExprNode) {
@@ -7157,7 +7157,7 @@ func (n *TruncateStmtNode) SetTableScan(v *TableScanNode) {
 func (n *TruncateStmtNode) WhereExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedTruncateStmt_where_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *TruncateStmtNode) SetWhereExpr(v ExprNode) {
@@ -7325,7 +7325,7 @@ func (n *GrantOrRevokeStmtNode) GranteeExprList() []ExprNode {
 	internal.ResolvedGrantOrRevokeStmt_grantee_expr_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -7391,7 +7391,7 @@ func (n *AlterObjectStmtNode) AlterActionList() []AlterActionNode {
 	internal.ResolvedAlterObjectStmt_alter_action_list(n.raw, &v)
 	var ret []AlterActionNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(AlterActionNode))
+		ret = append(ret, newAlterActionNode(p))
 	})
 	return ret
 }
@@ -7568,7 +7568,7 @@ func (n *AddConstraintActionNode) SetIsIfNotExists(v bool) {
 func (n *AddConstraintActionNode) Constraint() ConstraintNode {
 	var v unsafe.Pointer
 	internal.ResolvedAddConstraintAction_constraint(n.raw, &v)
-	return newNode(v).(ConstraintNode)
+	return newConstraintNode(v)
 }
 
 func (n *AddConstraintActionNode) SetConstraint(v ConstraintNode) {
@@ -7857,7 +7857,7 @@ type SetCollateClauseNode struct {
 func (n *SetCollateClauseNode) CollationName() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedSetCollateClause_collation_name(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *SetCollateClauseNode) SetCollationName(v ExprNode) {
@@ -8041,7 +8041,7 @@ func (n *CreatePrivilegeRestrictionStmtNode) RestricteeList() []ExprNode {
 	internal.ResolvedCreatePrivilegeRestrictionStmt_restrictee_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8154,7 +8154,7 @@ func (n *CreateRowAccessPolicyStmtNode) GranteeExprList() []ExprNode {
 	internal.ResolvedCreateRowAccessPolicyStmt_grantee_expr_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8182,7 +8182,7 @@ func (n *CreateRowAccessPolicyStmtNode) SetTableScan(v *TableScanNode) {
 func (n *CreateRowAccessPolicyStmtNode) Predicate() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateRowAccessPolicyStmt_predicate(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CreateRowAccessPolicyStmtNode) SetPredicate(v ExprNode) {
@@ -8397,7 +8397,7 @@ func (n *GrantToActionNode) GranteeExprList() []ExprNode {
 	internal.ResolvedGrantToAction_grantee_expr_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8427,7 +8427,7 @@ func (n *RestrictToActionNode) RestricteeList() []ExprNode {
 	internal.ResolvedRestrictToAction_restrictee_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8467,7 +8467,7 @@ func (n *AddToRestricteeListActionNode) RestricteeList() []ExprNode {
 	internal.ResolvedAddToRestricteeListAction_restrictee_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8507,7 +8507,7 @@ func (n *RemoveFromRestricteeListActionNode) RestricteeList() []ExprNode {
 	internal.ResolvedRemoveFromRestricteeListAction_restrictee_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8534,7 +8534,7 @@ type FilterUsingActionNode struct {
 func (n *FilterUsingActionNode) Predicate() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedFilterUsingAction_predicate(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *FilterUsingActionNode) SetPredicate(v ExprNode) {
@@ -8565,7 +8565,7 @@ func (n *RevokeFromActionNode) RevokeeExprList() []ExprNode {
 	internal.ResolvedRevokeFromAction_revokee_expr_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -8737,7 +8737,7 @@ type CreateConstantStmtNode struct {
 func (n *CreateConstantStmtNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateConstantStmt_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CreateConstantStmtNode) SetExpr(v ExprNode) {
@@ -8950,7 +8950,7 @@ func (n *CreateFunctionStmtNode) AddAggregateExpression(v *ComputedColumnNode) {
 func (n *CreateFunctionStmtNode) FunctionExpression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateFunctionStmt_function_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *CreateFunctionStmtNode) SetFunctionExpression(v ExprNode) {
@@ -9315,7 +9315,7 @@ func (n *CreateTableFunctionStmtNode) SetCode(v string) {
 func (n *CreateTableFunctionStmtNode) Query() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCreateTableFunctionStmt_query(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CreateTableFunctionStmtNode) SetQuery(v ScanNode) {
@@ -9596,7 +9596,7 @@ func (n *CallStmtNode) ArgumentList() []ExprNode {
 	internal.ResolvedCallStmt_argument_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -9810,7 +9810,7 @@ func (n *AggregateHavingModifierNode) SetModifierKind(v HavingModifierKind) {
 func (n *AggregateHavingModifierNode) HavingExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedAggregateHavingModifier_having_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *AggregateHavingModifierNode) SetHavingExpr(v ExprNode) {
@@ -9868,7 +9868,7 @@ func (n *CreateMaterializedViewStmtNode) PartitionByList() []ExprNode {
 	internal.ResolvedCreateMaterializedViewStmt_partition_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -9888,7 +9888,7 @@ func (n *CreateMaterializedViewStmtNode) ClusterByList() []ExprNode {
 	internal.ResolvedCreateMaterializedViewStmt_cluster_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -10014,7 +10014,7 @@ func (n *ExecuteImmediateArgumentNode) SetName(v string) {
 func (n *ExecuteImmediateArgumentNode) Expression() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedExecuteImmediateArgument_expression(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *ExecuteImmediateArgumentNode) SetExpression(v ExprNode) {
@@ -10095,7 +10095,7 @@ type AssignmentStmtNode struct {
 func (n *AssignmentStmtNode) Target() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedAssignmentStmt_target(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *AssignmentStmtNode) SetTarget(v ExprNode) {
@@ -10107,7 +10107,7 @@ func (n *AssignmentStmtNode) SetTarget(v ExprNode) {
 func (n *AssignmentStmtNode) Expr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedAssignmentStmt_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *AssignmentStmtNode) SetExpr(v ExprNode) {
@@ -10267,7 +10267,7 @@ type PivotScanNode struct {
 func (n *PivotScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedPivotScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *PivotScanNode) SetInputScan(v ScanNode) {
@@ -10309,7 +10309,7 @@ func (n *PivotScanNode) PivotExprList() []ExprNode {
 	internal.ResolvedPivotScan_pivot_expr_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -10331,7 +10331,7 @@ func (n *PivotScanNode) AddPivotExpr(v ExprNode) {
 func (n *PivotScanNode) ForExpr() ExprNode {
 	var v unsafe.Pointer
 	internal.ResolvedPivotScan_for_expr(n.raw, &v)
-	return newNode(v).(ExprNode)
+	return newExprNode(v)
 }
 
 func (n *PivotScanNode) SetForExpr(v ExprNode) {
@@ -10352,7 +10352,7 @@ func (n *PivotScanNode) PivotValueList() []ExprNode {
 	internal.ResolvedPivotScan_pivot_value_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -10536,7 +10536,7 @@ type UnpivotScanNode struct {
 func (n *UnpivotScanNode) InputScan() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedUnpivotScan_input_scan(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *UnpivotScanNode) SetInputScan(v ScanNode) {
@@ -10701,7 +10701,7 @@ func (n *CloneDataStmtNode) SetTargetTable(v *TableScanNode) {
 func (n *CloneDataStmtNode) CloneFrom() ScanNode {
 	var v unsafe.Pointer
 	internal.ResolvedCloneDataStmt_clone_from(n.raw, &v)
-	return newNode(v).(ScanNode)
+	return newScanNode(v)
 }
 
 func (n *CloneDataStmtNode) SetCloneFrom(v ScanNode) {
@@ -11005,7 +11005,7 @@ func (n *AuxLoadDataStmtNode) PartitionByList() []ExprNode {
 	internal.ResolvedAuxLoadDataStmt_partition_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -11025,7 +11025,7 @@ func (n *AuxLoadDataStmtNode) ClusterByList() []ExprNode {
 	internal.ResolvedAuxLoadDataStmt_cluster_by_list(n.raw, &v)
 	var ret []ExprNode
 	helper.PtrToSlice(v, func(p unsafe.Pointer) {
-		ret = append(ret, newNode(p).(ExprNode))
+		ret = append(ret, newExprNode(p))
 	})
 	return ret
 }
@@ -11475,6 +11475,41 @@ func newNode(v unsafe.Pointer) Node {
 		return newAuxLoadDataStmtNode(v)
 	}
 	return nil
+}
+
+func newExprNode(v unsafe.Pointer) ExprNode {
+	if v == nil {
+		return nil
+	}
+	return newNode(v).(ExprNode)
+}
+
+func newScanNode(v unsafe.Pointer) ScanNode {
+	if v == nil {
+		return nil
+	}
+	return newNode(v).(ScanNode)
+}
+
+func newStatementNode(v unsafe.Pointer) StatementNode {
+	if v == nil {
+		return nil
+	}
+	return newNode(v).(StatementNode)
+}
+
+func newAlterActionNode(v unsafe.Pointer) AlterActionNode {
+	if v == nil {
+		return nil
+	}
+	return newNode(v).(AlterActionNode)
+}
+
+func newConstraintNode(v unsafe.Pointer) ConstraintNode {
+	if v == nil {
+		return nil
+	}
+	return newNode(v).(ConstraintNode)
 }
 
 func newBaseNode(v unsafe.Pointer) *BaseNode {

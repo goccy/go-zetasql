@@ -759,6 +759,13 @@ void GO_EXPORT(Value_enum_name)(void * arg0,void ** arg1)
   *arg1 = (void *)((new std::string(value->enum_name()))->c_str());
 }
 
+void GO_EXPORT(Value_ToTime)(void * arg0,int64_t* arg1)
+{
+  zetasql::Value *value = (zetasql::Value *)arg0;
+  auto t = value->ToTime();
+  *arg1 = absl::ToInt64Nanoseconds(absl::time_internal::ToUnixDuration(t));
+}
+
 void GO_EXPORT(Value_ToUnixMicros)(void * arg0,int64_t* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;

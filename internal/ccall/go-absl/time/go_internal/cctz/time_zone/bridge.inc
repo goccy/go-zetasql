@@ -15,12 +15,17 @@ void GO_EXPORT(cctz_FixedOffsetToAbbr)(void * arg0,void ** arg1)
 
 void GO_EXPORT(cctz_detail_format)(void * arg0,void * arg1,void * arg2,void * arg3,void ** arg4)
 {
-  fprintf(stderr, "unimplemented cctz_detail_format");
+  *arg4 = (void *)((new std::string(absl::time_internal::cctz::detail::format(
+    (char *)arg0,
+    *(absl::time_internal::cctz::time_point<absl::time_internal::cctz::seconds> *)arg1,
+    *(absl::time_internal::cctz::detail::femtoseconds *)arg2,
+    *(absl::time_internal::cctz::time_zone *)arg3
+  )))->c_str());
 }
 
 void GO_EXPORT(cctz_detail_parse)(void * arg0,void * arg1,void * arg2,void * arg3,void * arg4,void * arg5,int* arg6)
 {
-  fprintf(stderr, "unimplemented cctz_detail_parse");
+  fprintf(stderr, "[WARN] unimplemented cctz_detail_parse\n");
 }
 
 void GO_EXPORT(TimeZoneIf_Load)(void * arg0,void ** arg1)
@@ -48,7 +53,7 @@ void GO_EXPORT(time_zone_Impl_ClearTimeZoneMapTestOnly)()
 
 void GO_EXPORT(time_zone_Impl_UTCImpl)(void ** arg0)
 {
-  fprintf(stderr, "unimplemented time_zone::Impl::UTCImpl");
+  fprintf(stderr, "[WARN] unimplemented time_zone::Impl::UTCImpl\n");
 }
 
 void GO_EXPORT(TimeZoneInfo_Load)(void * arg0,void * arg1,int* arg2)
@@ -100,62 +105,64 @@ void GO_EXPORT(TimeZoneInfo_PrevTransition)(void * arg0,void * arg1,void * arg2,
 
 void GO_EXPORT(TimeZoneLibC_BreakTime)(void * arg0,void * arg1,void ** arg2)
 {
-  fprintf(stderr, "unimplemented TimeZoneLibC_BreakTime");
+  fprintf(stderr, "[WARN] unimplemented TimeZoneLibC_BreakTime\n");
 }
 
 void GO_EXPORT(TimeZoneLibC_MakeTime)(void * arg0,void * arg1,void ** arg2)
 {
-  fprintf(stderr, "unimplemented TimeZoneLibC_MakeTime");
+  fprintf(stderr, "[WARN] unimplemented TimeZoneLibC_MakeTime\n");
 }
 
 void GO_EXPORT(TimeZoneLibC_Version)(void * arg0,void ** arg1)
 {
-  fprintf(stderr, "unimplemented TimeZoneLibC_Version");
+  fprintf(stderr, "[WARN] unimplemented TimeZoneLibC_Version\n");
 }
 
 void GO_EXPORT(TimeZoneLibC_NextTransition)(void * arg0,void * arg1,void * arg2,int* arg3)
 {
-  fprintf(stderr, "unimplemented TimeZoneLibC_NextTransition");
+  fprintf(stderr, "[WARN] unimplemented TimeZoneLibC_NextTransition\n");
 }
 
 void GO_EXPORT(TimeZoneLibC_PrevTransition)(void * arg0,void * arg1,void * arg2,int* arg3)
 {
-  fprintf(stderr, "unimplemented TimeZoneLibC_PrevTransition");
+  fprintf(stderr, "[WARN] unimplemented TimeZoneLibC_PrevTransition\n");
 }
 
 void GO_EXPORT(time_zone_name)(void ** arg0)
 {
-  fprintf(stderr, "unimplemented time_zone_name");
+  fprintf(stderr, "[WARN] unimplemented time_zone_name\n");
 }
 
 void GO_EXPORT(time_zone_lookup)(void * arg0,void * arg1,void ** arg2)
 {
-  fprintf(stderr, "unimplemented time_zone_lookup");
+  absl::time_internal::cctz::time_zone *zone = (absl::time_internal::cctz::time_zone *)arg0;
+  *arg2 = (void *)(new absl::time_internal::cctz::time_zone::absolute_lookup(zone->lookup(*(absl::time_internal::cctz::time_point<absl::time_internal::cctz::seconds> *)arg1)));
 }
 
 void GO_EXPORT(time_zone_lookup2)(void * arg0,void * arg1,void ** arg2)
 {
-  fprintf(stderr, "unimplemented time_zone_lookup2");
+  absl::time_internal::cctz::time_zone *zone = (absl::time_internal::cctz::time_zone *)arg0;
+  *arg2 = (void *)(new absl::time_internal::cctz::time_zone::civil_lookup(zone->lookup(*(absl::time_internal::cctz::civil_second *)arg1)));
 }
 
 void GO_EXPORT(time_zone_next_transition)(void * arg0,void * arg1,int* arg2)
 {
-  fprintf(stderr, "unimplemented time_zone_next_transition");
+  fprintf(stderr, "[WARN] unimplemented time_zone_next_transition\n");
 }
 
 void GO_EXPORT(time_zone_prev_transition)(void * arg0,void * arg1,int* arg2)
 {
-  fprintf(stderr, "unimplemented time_zone_prev_transition");
+  fprintf(stderr, "[WARN] unimplemented time_zone_prev_transition\n");
 }
 
 void GO_EXPORT(time_zone_version)(void * arg0,void ** arg1)
 {
-  fprintf(stderr, "unimplemented time_zone_version");
+  fprintf(stderr, "[WARN] unimplemented time_zone_version\n");
 }
 
 void GO_EXPORT(time_zone_description)(void * arg0,void ** arg1)
 {
-  fprintf(stderr, "unimplemented time_zone_description");
+  fprintf(stderr, "[WARN] unimplemented time_zone_description\n");
 }
 
 void GO_EXPORT(cctz_load_time_zone)(void * arg0,void * arg1,int* arg2)
@@ -186,5 +193,5 @@ void GO_EXPORT(cctz_local_time_zone)(void ** arg0)
 
 void GO_EXPORT(cctz_ParsePosixSpec)(void * arg0,void * arg1,int* arg2)
 {
-  fprintf(stderr, "unimplemented cctz_ParsePosixSpec");
+  fprintf(stderr, "[WARN] unimplemented cctz_ParsePosixSpec\n");
 }

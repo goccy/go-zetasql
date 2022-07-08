@@ -5281,6 +5281,11 @@
         - struct
       ret:
         - string
+    - name: Value_ToTime
+      args:
+        - struct
+      ret:
+        - int64
     - name: Value_ToUnixMicros
       args:
         - struct

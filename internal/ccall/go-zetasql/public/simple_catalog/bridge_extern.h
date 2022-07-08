@@ -124,6 +124,7 @@ extern void GO_EXPORT(Value_bytes_value)(void * arg0,void ** arg1);
 extern void GO_EXPORT(Value_date_value)(void * arg0,int* arg1);
 extern void GO_EXPORT(Value_enum_value)(void * arg0,int* arg1);
 extern void GO_EXPORT(Value_enum_name)(void * arg0,void ** arg1);
+extern void GO_EXPORT(Value_ToTime)(void * arg0,int64_t* arg1);
 extern void GO_EXPORT(Value_ToUnixMicros)(void * arg0,int64_t* arg1);
 extern void GO_EXPORT(Value_ToUnixNanos)(void * arg0,int64_t* arg1,void ** arg2);
 extern void GO_EXPORT(Value_ToPacked64TimeMicros)(void * arg0,int64_t* arg1);

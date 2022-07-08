@@ -27425,6 +27425,17 @@ func zetasql_Value_enum_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_Value_enum_name(arg0, arg1)
 }
 
+func Value_ToTime(arg0 unsafe.Pointer, arg1 *int64) {
+	zetasql_Value_ToTime(
+		arg0,
+		(*C.int64_t)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_Value_ToTime(arg0 unsafe.Pointer, arg1 *C.int64_t) {
+	C.export_zetasql_Value_ToTime(arg0, arg1)
+}
+
 func Value_ToUnixMicros(arg0 unsafe.Pointer, arg1 *int64) {
 	zetasql_Value_ToUnixMicros(
 		arg0,

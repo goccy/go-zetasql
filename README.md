@@ -64,7 +64,7 @@ import (
 
 func main() {
 
-  stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1")
+  stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1", nil)
   if err != nil {
     panic(err)
   }

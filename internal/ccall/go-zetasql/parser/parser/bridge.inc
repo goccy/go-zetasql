@@ -99,6 +99,23 @@ void GO_EXPORT(Status_String)(void * arg0,void ** arg1){
   *arg1 = (void *)((new std::string(status->ToString()))->c_str());
 }
 
+void GO_EXPORT(ParserOptions_new)(void ** arg0)
+{
+  *arg0 = (void *)(new zetasql::ParserOptions());
+}
+
+void GO_EXPORT(ParserOptions_set_language_options)(void * arg0,void * arg1)
+{
+  zetasql::ParserOptions *opt = (zetasql::ParserOptions *)arg0;
+  opt->set_language_options((const zetasql::LanguageOptions *)arg1);
+}
+
+void GO_EXPORT(ParserOptions_language_options)(void * arg0,void ** arg1)
+{
+  zetasql::ParserOptions *opt = (zetasql::ParserOptions *)arg0;
+  *arg1 = (void *)(new zetasql::LanguageOptions(opt->language_options()));
+}
+
 void GO_EXPORT(ParserOutput_statement)(void * arg0,void ** arg1) {
   zetasql::ParserOutput *out = (zetasql::ParserOutput *)arg0;
   *arg1 = (void *)out->statement();

@@ -318,6 +318,12 @@ func (o *AnalyzerOptions) PreserveColumnAliases() bool {
 	return v
 }
 
+func (o *AnalyzerOptions) ParserOptions() *ParserOptions {
+	var v unsafe.Pointer
+	internal.AnalyzerOptions_GetParserOptions(o.raw, &v)
+	return newParserOptions(v)
+}
+
 // ValidateAnalyzerOptions verifies that the provided AnalyzerOptions have a valid combination of settings.
 func ValidateAnalyzerOptions(opt *AnalyzerOptions) error {
 	var v unsafe.Pointer

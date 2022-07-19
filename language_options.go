@@ -20,6 +20,13 @@ type LanguageOptions struct {
 func NewLanguageOptions() *LanguageOptions {
 	var v unsafe.Pointer
 	internal.LanguageOptions_new(&v)
+	return newLanguageOptions(v)
+}
+
+func newLanguageOptions(v unsafe.Pointer) *LanguageOptions {
+	if v == nil {
+		return nil
+	}
 	return &LanguageOptions{raw: v}
 }
 

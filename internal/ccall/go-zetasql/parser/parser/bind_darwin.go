@@ -161,6 +161,38 @@ func parser_Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_parser_parser_Status_String(arg0, arg1)
 }
 
+func ParserOptions_new(arg0 *unsafe.Pointer) {
+	parser_ParserOptions_new(
+		arg0,
+	)
+}
+
+func parser_ParserOptions_new(arg0 *unsafe.Pointer) {
+	C.export_zetasql_parser_parser_ParserOptions_new(arg0)
+}
+
+func ParserOptions_set_language_options(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	parser_ParserOptions_set_language_options(
+		arg0,
+		arg1,
+	)
+}
+
+func parser_ParserOptions_set_language_options(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_parser_parser_ParserOptions_set_language_options(arg0, arg1)
+}
+
+func ParserOptions_language_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	parser_ParserOptions_language_options(
+		arg0,
+		arg1,
+	)
+}
+
+func parser_ParserOptions_language_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_parser_parser_ParserOptions_language_options(arg0, arg1)
+}
+
 func ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	parser_ParserOutput_statement(
 		arg0,

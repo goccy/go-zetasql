@@ -56,6 +56,7 @@ extern void GO_EXPORT(AnalyzerOptions_set_prune_unused_columns)(void * arg0,int 
 extern void GO_EXPORT(AnalyzerOptions_prune_unused_columns)(void * arg0,int* arg1);
 extern void GO_EXPORT(AnalyzerOptions_set_preserve_column_aliases)(void * arg0,int arg1);
 extern void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,int* arg1);
+extern void GO_EXPORT(AnalyzerOptions_GetParserOptions)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ValidateAnalyzerOptions)(void * arg0,void ** arg1);
 extern void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,void ** arg4);
 extern void GO_EXPORT(AnalyzerOutput_resolved_statement)(void * arg0,void ** arg1);

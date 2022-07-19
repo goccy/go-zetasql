@@ -9,7 +9,7 @@ import (
 )
 
 func TestParser(t *testing.T) {
-	stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1")
+	stmt, err := zetasql.ParseStatement("SELECT * FROM Samples WHERE id = 1", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -67,7 +67,7 @@ func TestWalk(t *testing.T) {
 		{"struct with array field", "SELECT SingerId, @songinfo.SongName FROM Singers WHERE STRUCT<FirstName STRING, LastName STRING>(FirstName, LastName) IN UNNEST(@songinfo.ArtistNames)"},
 	} {
 		t.Run(test.name, func(t *testing.T) {
-			stmt, err := zetasql.ParseStatement(test.query)
+			stmt, err := zetasql.ParseStatement(test.query, zetasql.NewParserOptions())
 			if err != nil {
 				t.Fatal(err)
 			}

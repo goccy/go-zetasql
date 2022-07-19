@@ -9,6 +9,40 @@ import (
 	"github.com/goccy/go-zetasql/internal/helper"
 )
 
+type ParserOptions struct {
+	raw unsafe.Pointer
+}
+
+func NewParserOptions() *ParserOptions {
+	var v unsafe.Pointer
+	internal.ParserOptions_new(&v)
+	return newParserOptions(v)
+}
+
+func newParserOptions(v unsafe.Pointer) *ParserOptions {
+	if v == nil {
+		return nil
+	}
+	return &ParserOptions{raw: v}
+}
+
+func (o *ParserOptions) getRaw() unsafe.Pointer {
+	if o == nil {
+		return nil
+	}
+	return o.raw
+}
+
+func (o *ParserOptions) SetLanguageOptions(opt *LanguageOptions) {
+	internal.ParserOptions_set_language_options(o.raw, opt.raw)
+}
+
+func (o *ParserOptions) LanguageOptions() *LanguageOptions {
+	var v unsafe.Pointer
+	internal.ParserOptions_language_options(o.raw, &v)
+	return newLanguageOptions(v)
+}
+
 type parserOutput struct {
 	raw unsafe.Pointer
 }
@@ -61,12 +95,12 @@ func (o *parserOutput) expr() (ast.ExpressionNode, error) {
 //
 // This can return errors annotated with an ErrorLocation payload that indicates
 // the input location of an error.
-func ParseStatement(stmt string) (ast.StatementNode, error) {
+func ParseStatement(stmt string, opt *ParserOptions) (ast.StatementNode, error) {
 	var (
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internal.ParseStatement(unsafe.Pointer(C.CString(stmt)), nil, &out, &status)
+	internal.ParseStatement(unsafe.Pointer(C.CString(stmt)), opt.getRaw(), &out, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
@@ -81,12 +115,12 @@ func ParseStatement(stmt string) (ast.StatementNode, error) {
 // and mandatory for all other statements.
 //
 // <error_message_mode> describes how errors should be represented.
-func ParseScript(script string, mode ErrorMessageMode) (ast.ScriptNode, error) {
+func ParseScript(script string, opt *ParserOptions, mode ErrorMessageMode) (ast.ScriptNode, error) {
 	var (
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internal.ParseScript(unsafe.Pointer(C.CString(script)), nil, int(mode), &out, &status)
+	internal.ParseScript(unsafe.Pointer(C.CString(script)), opt.getRaw(), int(mode), &out, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
@@ -99,12 +133,12 @@ func ParseScript(script string, mode ErrorMessageMode) (ast.ScriptNode, error) {
 //
 // This can return errors annotated with an ErrorLocation payload that indicates
 // the input location of an error.
-func ParseType(typ string) (ast.TypeNode, error) {
+func ParseType(typ string, opt *ParserOptions) (ast.TypeNode, error) {
 	var (
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internal.ParseType(unsafe.Pointer(C.CString(typ)), nil, &out, &status)
+	internal.ParseType(unsafe.Pointer(C.CString(typ)), opt.getRaw(), &out, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
@@ -117,12 +151,12 @@ func ParseType(typ string) (ast.TypeNode, error) {
 //
 // This can return errors annotated with an ErrorLocation payload that indicates
 // the input location of an error.
-func ParseExpression(expr string) (ast.ExpressionNode, error) {
+func ParseExpression(expr string, opt *ParserOptions) (ast.ExpressionNode, error) {
 	var (
 		out    unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internal.ParseExpression(unsafe.Pointer(C.CString(expr)), nil, &out, &status)
+	internal.ParseExpression(unsafe.Pointer(C.CString(expr)), opt.getRaw(), &out, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
@@ -147,13 +181,13 @@ func ParseExpression(expr string) (ast.ExpressionNode, error) {
 //
 // This can return errors annotated with an ErrorLocation payload that indicates
 // the input location of an error.
-func ParseNextStatement(loc *ParseResumeLocation) (ast.StatementNode, bool, error) {
+func ParseNextStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast.StatementNode, bool, error) {
 	var (
 		out    unsafe.Pointer
 		isEnd  bool
 		status unsafe.Pointer
 	)
-	internal.ParseNextStatement(loc.raw, nil, &out, &isEnd, &status)
+	internal.ParseNextStatement(loc.raw, opt.getRaw(), &out, &isEnd, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, isEnd, st.Error()
@@ -168,13 +202,13 @@ func ParseNextStatement(loc *ParseResumeLocation) (ast.StatementNode, bool, erro
 // Entire constructs such as IF...END IF,
 // WHILE...END WHILE, and BEGIN...END are returned as a single statement, and
 // may contain inner statements, which can be examined through the returned parse tree.
-func ParseNextScriptStatement(loc *ParseResumeLocation) (ast.ScriptNode, bool, error) {
+func ParseNextScriptStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast.ScriptNode, bool, error) {
 	var (
 		out    unsafe.Pointer
 		isEnd  bool
 		status unsafe.Pointer
 	)
-	internal.ParseNextScriptStatement(loc.raw, nil, &out, &isEnd, &status)
+	internal.ParseNextScriptStatement(loc.raw, opt.getRaw(), &out, &isEnd, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, isEnd, st.Error()

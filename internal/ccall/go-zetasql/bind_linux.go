@@ -559,6 +559,38 @@ func zetasql_Status_String(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_Status_String(arg0, arg1)
 }
 
+func ParserOptions_new(arg0 *unsafe.Pointer) {
+	zetasql_ParserOptions_new(
+		arg0,
+	)
+}
+
+func zetasql_ParserOptions_new(arg0 *unsafe.Pointer) {
+	C.export_zetasql_ParserOptions_new(arg0)
+}
+
+func ParserOptions_set_language_options(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_ParserOptions_set_language_options(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOptions_set_language_options(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_ParserOptions_set_language_options(arg0, arg1)
+}
+
+func ParserOptions_language_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_ParserOptions_language_options(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_ParserOptions_language_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_ParserOptions_language_options(arg0, arg1)
+}
+
 func ParserOutput_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_ParserOutput_statement(
 		arg0,
@@ -11575,6 +11607,17 @@ func AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *bool) {
 
 func zetasql_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.int) {
 	C.export_zetasql_AnalyzerOptions_preserve_column_aliases(arg0, arg1)
+}
+
+func AnalyzerOptions_GetParserOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_AnalyzerOptions_GetParserOptions(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_AnalyzerOptions_GetParserOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_AnalyzerOptions_GetParserOptions(arg0, arg1)
 }
 
 func ValidateAnalyzerOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {

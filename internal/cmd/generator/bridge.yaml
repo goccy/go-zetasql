@@ -73,6 +73,18 @@
         - struct
       ret:
         - string
+    - name: ParserOptions_new
+      ret:
+        - struct
+    - name: ParserOptions_set_language_options
+      args:
+        - struct
+        - struct
+    - name: ParserOptions_language_options
+      args:
+        - struct
+      ret:
+        - struct
     - name: ParserOutput_statement
       args:
         - struct
@@ -6820,6 +6832,11 @@
         - struct
       ret:
         - bool
+    - name: AnalyzerOptions_GetParserOptions
+      args:
+        - struct
+      ret:
+        - struct
     - name: ValidateAnalyzerOptions
       args:
         - struct

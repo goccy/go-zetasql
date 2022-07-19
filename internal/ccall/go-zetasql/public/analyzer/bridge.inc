@@ -1246,6 +1246,12 @@ void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,int* arg1){
   *arg1 = opt->preserve_column_aliases();
 }
 
+void GO_EXPORT(AnalyzerOptions_GetParserOptions)(void * arg0,void ** arg1)
+{
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
+  *arg1 = (void *)(new zetasql::ParserOptions(opt->GetParserOptions()));
+}
+
 void GO_EXPORT(ValidateAnalyzerOptions)(void * arg0,void ** arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = (void *)(new absl::Status(zetasql::ValidateAnalyzerOptions(*opt)));

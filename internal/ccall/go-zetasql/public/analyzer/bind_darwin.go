@@ -668,6 +668,17 @@ func analyzer_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 
 	C.export_zetasql_public_analyzer_AnalyzerOptions_preserve_column_aliases(arg0, arg1)
 }
 
+func AnalyzerOptions_GetParserOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_AnalyzerOptions_GetParserOptions(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_AnalyzerOptions_GetParserOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzerOptions_GetParserOptions(arg0, arg1)
+}
+
 func ValidateAnalyzerOptions(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	analyzer_ValidateAnalyzerOptions(
 		arg0,

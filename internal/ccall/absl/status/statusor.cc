@@ -73,7 +73,7 @@ void Helper::HandleInvalidStatusCtorArg(absl::Status* status) {
 #ifdef NDEBUG
   ABSL_INTERNAL_LOG(ERROR, kMessage);
 #else
-  ABSL_INTERNAL_LOG(FATAL, kMessage);
+  //ABSL_INTERNAL_LOG(FATAL, kMessage);
 #endif
   // In optimized builds, we will fall back to InternalError.
   *status = absl::InternalError(kMessage);

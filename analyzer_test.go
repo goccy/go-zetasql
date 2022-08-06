@@ -87,3 +87,56 @@ func TestAnalyzer(t *testing.T) {
 		t.Fatal("failed to get function argument value")
 	}
 }
+
+func TestAnalyzeMultiStatements(t *testing.T) {
+	const tableName = "table"
+	catalog := types.NewSimpleCatalog("catalog")
+	catalog.AddTable(
+		types.NewSimpleTable(tableName, []types.Column{
+			types.NewSimpleColumn(tableName, "col1", types.Int64Type()),
+			types.NewSimpleColumn(tableName, "col2", types.StringType()),
+		}),
+	)
+	catalog.AddZetaSQLBuiltinFunctions()
+	langOpt := zetasql.NewLanguageOptions()
+	langOpt.SetNameResolutionMode(zetasql.NameResolutionDefault)
+	langOpt.SetProductMode(types.ProductExternal)
+	langOpt.EnableMaximumLanguageFeatures()
+	langOpt.SetSupportedStatementKinds([]ast.Kind{ast.CreateFunctionStmt, ast.QueryStmt})
+	opt := zetasql.NewAnalyzerOptions()
+	opt.SetAllowUndeclaredParameters(true)
+	opt.SetLanguage(langOpt)
+	query := `
+CREATE TEMP FUNCTION Add(x INT64, y INT64) AS (x + y);
+SELECT Add(3, 4);
+`
+	loc := zetasql.NewParseResumeLocation(query)
+	out, isEnd, err := zetasql.AnalyzeNextStatement(loc, catalog, opt)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if isEnd {
+		t.Fatalf("failed to read multiple statement")
+	}
+	fnNode, ok := out.Statement().(*ast.CreateFunctionStmtNode)
+	if !ok {
+		t.Fatalf("failed to get create function statement node: %T", out.Statement())
+	}
+	fn := types.NewFunction(
+		[]string{"Add"},
+		"",
+		types.ScalarMode,
+		[]*types.FunctionSignature{fnNode.Signature()},
+	)
+	catalog.AddFunction(fn)
+	out, isEnd, err = zetasql.AnalyzeNextStatement(loc, catalog, opt)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !isEnd {
+		t.Fatalf("failed to get isEnd flag")
+	}
+	if _, ok := out.Statement().(*ast.QueryStmtNode); !ok {
+		t.Fatalf("failed to get query statement node: %T", out.Statement())
+	}
+}

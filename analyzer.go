@@ -418,7 +418,7 @@ func AnalyzeStatement(sql string, catalog types.Catalog, opt *AnalyzerOptions) (
 //
 // Statements are separated by semicolons.  A final semicolon is not required
 // on the last statement.  If only whitespace and comments follow the
-// semicolon, <*at_end_of_input> will be set.
+// semicolon, isEnd will be set.
 //
 // This can return errors that point at a location in the input. How this
 // location is reported is given by <opt.ErrorMessageMode()>.
@@ -426,14 +426,71 @@ func AnalyzeStatement(sql string, catalog types.Catalog, opt *AnalyzerOptions) (
 // After an error, <resume_location> may not be updated and analyzing further
 // statements is not supported.
 func AnalyzeNextStatement(loc *ParseResumeLocation, catalog types.Catalog, opt *AnalyzerOptions) (*AnalyzerOutput, bool, error) {
-	return nil, false, fmt.Errorf("go-zetasql: unimplemented")
+	var (
+		out    unsafe.Pointer
+		isEnd  bool
+		status unsafe.Pointer
+	)
+	if catalog == nil {
+		return nil, false, ErrRequiredCatalog
+	}
+	if opt == nil || opt.raw == nil {
+		opt = NewAnalyzerOptions()
+	}
+	internal.AnalyzeNextStatement(
+		loc.raw,
+		opt.raw,
+		getRawCatalog(catalog),
+		&out,
+		&isEnd,
+		&status,
+	)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, false, st.Error()
+	}
+	return newAnalyzerOutput(out), isEnd, nil
 }
 
-func AnalyzeExpression(sql string, catalog types.Catalog, targetType types.Type, opt *AnalyzerOptions) (*AnalyzerOutput, error) {
-	return nil, fmt.Errorf("go-zetasql: unimplemented")
+// AnalyzeExpression analyze a ZetaSQL expression.
+// The expression may include query parameters, subqueries, and any other valid expression syntax.
+//
+// The Catalog provides functions and named data types as usual.  If it
+// includes Tables, those tables will be queryable in subqueries inside the
+// expression.
+//
+// Column names added to <options> with AddExpressionColumn will be usable
+// in the expression, and will show up as ExpressionColumn nodes in
+// the output.
+//
+// Can return errors that point at a location in the input. This location can be
+// reported in multiple ways depending on <options.error_message_mode()>.
+func AnalyzeExpression(sql string, catalog types.Catalog, opt *AnalyzerOptions) (*AnalyzerOutput, error) {
+	var (
+		out    unsafe.Pointer
+		status unsafe.Pointer
+	)
+	if catalog == nil {
+		return nil, ErrRequiredCatalog
+	}
+	if opt == nil || opt.raw == nil {
+		opt = NewAnalyzerOptions()
+	}
+	internal.AnalyzeExpression(
+		helper.StringToPtr(sql),
+		opt.raw,
+		getRawCatalog(catalog),
+		&out,
+		&status,
+	)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newAnalyzerOutput(out), nil
 }
 
-func AnalyzeType(typeName string, catalog types.Catalog, targetType types.Type, opt *AnalyzerOptions) ([]types.Type, error) {
+func AnalyzeType(typeName string, catalog types.Catalog, opt *AnalyzerOptions) ([]types.Type, error) {
 	return nil, fmt.Errorf("go-zetasql: unimplemented")
 }
 

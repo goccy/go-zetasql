@@ -1271,6 +1271,31 @@ void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void * arg2,void ** arg
   *arg4 = (void *)(new absl::Status(ret));
 }
 
+void GO_EXPORT(AnalyzeNextStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,int* arg4,void ** arg5)
+{
+  auto typeFactory = new zetasql::TypeFactory(); // FIXME: typeFactory will be leaked.
+  zetasql::ParseResumeLocation *loc = (zetasql::ParseResumeLocation *)arg0;
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg1;
+  zetasql::Catalog *cat = (zetasql::Catalog *)arg2;
+  std::unique_ptr<const zetasql::AnalyzerOutput> out;
+  bool endOfInput;
+  absl::Status ret = zetasql::AnalyzeNextStatement(loc, *opt, cat, typeFactory, &out, &endOfInput);
+  *(std::unique_ptr<const zetasql::AnalyzerOutput> *)arg3 = std::move(out);
+  *arg4 = endOfInput;
+  *arg5 = (void *)(new absl::Status(ret));
+}
+
+void GO_EXPORT(AnalyzeExpression)(void * arg0,void * arg1,void * arg2,void ** arg3,void ** arg4)
+{
+  auto typeFactory = new zetasql::TypeFactory(); // FIXME: typeFactory will be leaked.
+  zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg1;
+  zetasql::Catalog *cat = (zetasql::Catalog *)arg2;
+  std::unique_ptr<const zetasql::AnalyzerOutput> out;
+  absl::Status ret = zetasql::AnalyzeExpression((char *)arg0, *opt, cat, typeFactory, &out);
+  *(std::unique_ptr<const zetasql::AnalyzerOutput> *)arg3 = std::move(out);
+  *arg4 = (void *)(new absl::Status(ret));
+}
+
 void GO_EXPORT(AnalyzerOutput_resolved_statement)(void * arg0,void ** arg1)
 {
   zetasql::AnalyzerOutput *out = (zetasql::AnalyzerOutput *)arg0;

@@ -6850,6 +6850,23 @@
       ret:
         - struct
         - struct
+    - name: AnalyzeNextStatement
+      args:
+        - struct
+        - struct
+        - struct
+      ret:
+        - struct
+        - bool
+        - struct
+    - name: AnalyzeExpression
+      args:
+        - string
+        - struct
+        - struct
+      ret:
+        - struct
+        - struct
     - name: AnalyzerOutput_resolved_statement
       args:
         - struct

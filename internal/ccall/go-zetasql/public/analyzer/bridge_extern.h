@@ -59,6 +59,8 @@ extern void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,int* 
 extern void GO_EXPORT(AnalyzerOptions_GetParserOptions)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ValidateAnalyzerOptions)(void * arg0,void ** arg1);
 extern void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,void ** arg4);
+extern void GO_EXPORT(AnalyzeNextStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,int* arg4,void ** arg5);
+extern void GO_EXPORT(AnalyzeExpression)(void * arg0,void * arg1,void * arg2,void ** arg3,void ** arg4);
 extern void GO_EXPORT(AnalyzerOutput_resolved_statement)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedNode_node_kind)(void * arg0,int* arg1);
 extern void GO_EXPORT(ResolvedNode_IsScan)(void * arg0,int* arg1);

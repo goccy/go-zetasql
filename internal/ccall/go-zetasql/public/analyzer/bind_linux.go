@@ -707,6 +707,35 @@ func analyzer_AnalyzeStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 un
 	C.export_zetasql_public_analyzer_AnalyzeStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
+func AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *bool, arg5 *unsafe.Pointer) {
+	analyzer_AnalyzeNextStatement(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		(*C.int)(unsafe.Pointer(arg4)),
+		arg5,
+	)
+}
+
+func analyzer_AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *C.int, arg5 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzeNextStatement(arg0, arg1, arg2, arg3, arg4, arg5)
+}
+
+func AnalyzeExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	analyzer_AnalyzeExpression(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		arg4,
+	)
+}
+
+func analyzer_AnalyzeExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_AnalyzeExpression(arg0, arg1, arg2, arg3, arg4)
+}
+
 func AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	analyzer_AnalyzerOutput_resolved_statement(
 		arg0,

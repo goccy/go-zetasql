@@ -1296,6 +1296,22 @@ void GO_EXPORT(AnalyzeExpression)(void * arg0,void * arg1,void * arg2,void ** ar
   *arg4 = (void *)(new absl::Status(ret));
 }
 
+void GO_EXPORT(AnalyzeStatementFromParserAST)(void * arg0,void * arg1,void * arg2,void * arg3,void ** arg4,void ** arg5)
+{
+  std::unique_ptr<const zetasql::AnalyzerOutput> out;
+  auto typeFactory = new zetasql::TypeFactory(); // FIXME: typeFactory will be leaked.
+  absl::Status ret = zetasql::AnalyzeStatementFromParserAST(
+    *(zetasql::ASTStatement *)arg0,
+    *(zetasql::AnalyzerOptions *)arg1,
+    (char *)arg2,
+    (zetasql::Catalog *)arg3,
+    typeFactory,
+    &out
+  );
+  *(std::unique_ptr<const zetasql::AnalyzerOutput> *)arg4 = std::move(out);
+  *arg5 = (void *)(new absl::Status(ret));
+}
+
 void GO_EXPORT(AnalyzerOutput_resolved_statement)(void * arg0,void ** arg1)
 {
   zetasql::AnalyzerOutput *out = (zetasql::AnalyzerOutput *)arg0;

@@ -6867,6 +6867,15 @@
       ret:
         - struct
         - struct
+    - name: AnalyzeStatementFromParserAST
+      args:
+        - struct
+        - struct
+        - string
+        - struct
+      ret:
+        - struct
+        - struct
     - name: AnalyzerOutput_resolved_statement
       args:
         - struct

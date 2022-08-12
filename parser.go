@@ -202,7 +202,7 @@ func ParseNextStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast.State
 // Entire constructs such as IF...END IF,
 // WHILE...END WHILE, and BEGIN...END are returned as a single statement, and
 // may contain inner statements, which can be examined through the returned parse tree.
-func ParseNextScriptStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast.ScriptNode, bool, error) {
+func ParseNextScriptStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast.StatementNode, bool, error) {
 	var (
 		out    unsafe.Pointer
 		isEnd  bool
@@ -214,8 +214,8 @@ func ParseNextScriptStatement(loc *ParseResumeLocation, opt *ParserOptions) (ast
 		return nil, isEnd, st.Error()
 	}
 	parserOut := &parserOutput{raw: out}
-	script, err := parserOut.script()
-	return script, isEnd, err
+	stmt, err := parserOut.stmt()
+	return stmt, isEnd, err
 }
 
 // Unparse a given AST back to a canonical SQL string and return it.

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"unsafe"
 
+	"github.com/goccy/go-zetasql/ast"
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 	"github.com/goccy/go-zetasql/internal/helper"
 	"github.com/goccy/go-zetasql/resolved_ast"
@@ -492,6 +493,32 @@ func AnalyzeExpression(sql string, catalog types.Catalog, opt *AnalyzerOptions) 
 
 func AnalyzeType(typeName string, catalog types.Catalog, opt *AnalyzerOptions) ([]types.Type, error) {
 	return nil, fmt.Errorf("go-zetasql: unimplemented")
+}
+
+func AnalyzeStatementFromParserAST(sql string, stmt ast.StatementNode, catalog types.Catalog, opt *AnalyzerOptions) (*AnalyzerOutput, error) {
+	var (
+		out    unsafe.Pointer
+		status unsafe.Pointer
+	)
+	if catalog == nil {
+		return nil, ErrRequiredCatalog
+	}
+	if opt == nil || opt.raw == nil {
+		opt = NewAnalyzerOptions()
+	}
+	internal.AnalyzeStatementFromParserAST(
+		getNodeRaw(stmt),
+		opt.raw,
+		helper.StringToPtr(sql),
+		getRawCatalog(catalog),
+		&out,
+		&status,
+	)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, st.Error()
+	}
+	return newAnalyzerOutput(out), nil
 }
 
 type TableNameSet struct{}

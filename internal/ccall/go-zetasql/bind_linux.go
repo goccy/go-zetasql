@@ -11674,6 +11674,21 @@ func zetasql_AnalyzeExpression(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 un
 	C.export_zetasql_AnalyzeExpression(arg0, arg1, arg2, arg3, arg4)
 }
 
+func AnalyzeStatementFromParserAST(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer, arg5 *unsafe.Pointer) {
+	zetasql_AnalyzeStatementFromParserAST(
+		arg0,
+		arg1,
+		arg2,
+		arg3,
+		arg4,
+		arg5,
+	)
+}
+
+func zetasql_AnalyzeStatementFromParserAST(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 *unsafe.Pointer, arg5 *unsafe.Pointer) {
+	C.export_zetasql_AnalyzeStatementFromParserAST(arg0, arg1, arg2, arg3, arg4, arg5)
+}
+
 func AnalyzerOutput_resolved_statement(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	zetasql_AnalyzerOutput_resolved_statement(
 		arg0,

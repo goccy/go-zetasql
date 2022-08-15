@@ -50,11 +50,11 @@ func LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 int, arg2 *
 	analyzer_LanguageOptions_SupportsStatementKind(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func analyzer_LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_SupportsStatementKind(arg0, arg1, arg2)
 }
 
@@ -94,11 +94,11 @@ func LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 int, arg2 
 	analyzer_LanguageOptions_LanguageFeatureEnabled(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func analyzer_LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_LanguageFeatureEnabled(arg0, arg1, arg2)
 }
 
@@ -234,11 +234,11 @@ func analyzer_LanguageOptions_product_mode(arg0 unsafe.Pointer, arg1 *C.int) {
 func LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_LanguageOptions_SupportsProtoTypes(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_SupportsProtoTypes(arg0, arg1)
 }
 
@@ -256,11 +256,11 @@ func analyzer_LanguageOptions_set_error_on_deprecated_syntax(arg0 unsafe.Pointer
 func LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_LanguageOptions_error_on_deprecated_syntax(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_error_on_deprecated_syntax(arg0, arg1)
 }
 
@@ -279,11 +279,11 @@ func LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe
 	analyzer_LanguageOptions_GenericEntityTypeSupported(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func analyzer_LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_GenericEntityTypeSupported(arg0, arg1, arg2)
 }
 
@@ -291,11 +291,11 @@ func LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 	analyzer_LanguageOptions_IsReservedKeyword(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func analyzer_LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_LanguageOptions_IsReservedKeyword(arg0, arg1, arg2)
 }
 
@@ -462,11 +462,11 @@ func analyzer_AnalyzerOptions_expression_columns(arg0 unsafe.Pointer, arg1 *unsa
 func AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_AnalyzerOptions_has_in_scope_expression_column(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_AnalyzerOptions_has_in_scope_expression_column(arg0, arg1)
 }
 
@@ -572,11 +572,11 @@ func analyzer_AnalyzerOptions_set_create_new_column_for_each_projected_output(ar
 func AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_AnalyzerOptions_create_new_column_for_each_projected_output(arg0, arg1)
 }
 
@@ -594,11 +594,11 @@ func analyzer_AnalyzerOptions_set_allow_undeclared_parameters(arg0 unsafe.Pointe
 func AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_AnalyzerOptions_allow_undeclared_parameters(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_AnalyzerOptions_allow_undeclared_parameters(arg0, arg1)
 }
 
@@ -638,11 +638,11 @@ func analyzer_AnalyzerOptions_set_prune_unused_columns(arg0 unsafe.Pointer, arg1
 func AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_AnalyzerOptions_prune_unused_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_AnalyzerOptions_prune_unused_columns(arg0, arg1)
 }
 
@@ -660,11 +660,11 @@ func analyzer_AnalyzerOptions_set_preserve_column_aliases(arg0 unsafe.Pointer, a
 func AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_AnalyzerOptions_preserve_column_aliases(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_AnalyzerOptions_preserve_column_aliases(arg0, arg1)
 }
 
@@ -710,12 +710,12 @@ func AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.
 		arg1,
 		arg2,
 		arg3,
-		(*C.int)(unsafe.Pointer(arg4)),
+		(*C.char)(unsafe.Pointer(arg4)),
 		arg5,
 	)
 }
 
-func analyzer_AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *C.int, arg5 *unsafe.Pointer) {
+func analyzer_AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *C.char, arg5 *unsafe.Pointer) {
 	C.export_zetasql_public_analyzer_AnalyzeNextStatement(arg0, arg1, arg2, arg3, arg4, arg5)
 }
 
@@ -773,33 +773,33 @@ func analyzer_ResolvedNode_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
 func ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedNode_IsScan(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedNode_IsScan(arg0, arg1)
 }
 
 func ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedNode_IsExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedNode_IsExpression(arg0, arg1)
 }
 
 func ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedNode_IsStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedNode_IsStatement(arg0, arg1)
 }
 
@@ -917,11 +917,11 @@ func analyzer_ResolvedLiteral_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer
 func ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedLiteral_has_explicit_type(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedLiteral_has_explicit_type(arg0, arg1)
 }
 
@@ -961,11 +961,11 @@ func analyzer_ResolvedLiteral_set_float_literal_id(arg0 unsafe.Pointer, arg1 C.i
 func ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedLiteral_preserve_in_literal_remover(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedLiteral_preserve_in_literal_remover(arg0, arg1)
 }
 
@@ -1027,11 +1027,11 @@ func analyzer_ResolvedParameter_set_position(arg0 unsafe.Pointer, arg1 C.int) {
 func ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedParameter_is_untyped(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedParameter_is_untyped(arg0, arg1)
 }
 
@@ -1093,11 +1093,11 @@ func analyzer_ResolvedColumnRef_set_column(arg0 unsafe.Pointer, arg1 unsafe.Poin
 func ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedColumnRef_is_correlated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedColumnRef_is_correlated(arg0, arg1)
 }
 
@@ -1258,11 +1258,11 @@ func analyzer_ResolvedInlineLambda_set_body(arg0 unsafe.Pointer, arg1 unsafe.Poi
 func ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedFilterFieldArg_include(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedFilterFieldArg_include(arg0, arg1)
 }
 
@@ -1335,11 +1335,11 @@ func analyzer_ResolvedFilterField_add_filter_field_arg_list(arg0 unsafe.Pointer,
 func ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedFilterField_reset_cleared_required_fields(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedFilterField_reset_cleared_required_fields(arg0, arg1)
 }
 
@@ -1577,11 +1577,11 @@ func analyzer_ResolvedFunctionCall_set_function_call_info(arg0 unsafe.Pointer, a
 func ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedNonScalarFunctionCallBase_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedNonScalarFunctionCallBase_distinct(arg0, arg1)
 }
 
@@ -1918,11 +1918,11 @@ func analyzer_ResolvedCast_set_expr(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 func ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCast_return_null_on_error(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCast_return_null_on_error(arg0, arg1)
 }
 
@@ -2226,11 +2226,11 @@ func analyzer_ResolvedGetProtoField_set_default_value(arg0 unsafe.Pointer, arg1 
 func ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedGetProtoField_get_has_bit(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedGetProtoField_get_has_bit(arg0, arg1)
 }
 
@@ -2270,11 +2270,11 @@ func analyzer_ResolvedGetProtoField_set_format(arg0 unsafe.Pointer, arg1 C.int) 
 func ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedGetProtoField_return_default_value_when_unset(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedGetProtoField_return_default_value_when_unset(arg0, arg1)
 }
 
@@ -2776,11 +2776,11 @@ func analyzer_ResolvedScan_add_hint_list(arg0 unsafe.Pointer, arg1 unsafe.Pointe
 func ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedScan_is_ordered(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedScan_is_ordered(arg0, arg1)
 }
 
@@ -3205,11 +3205,11 @@ func analyzer_ResolvedArrayScan_set_join_expr(arg0 unsafe.Pointer, arg1 unsafe.P
 func ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedArrayScan_is_outer(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedArrayScan_is_outer(arg0, arg1)
 }
 
@@ -4129,11 +4129,11 @@ func analyzer_ResolvedOrderByItem_set_collation_name(arg0 unsafe.Pointer, arg1 u
 func ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedOrderByItem_is_descending(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedOrderByItem_is_descending(arg0, arg1)
 }
 
@@ -4217,11 +4217,11 @@ func analyzer_ResolvedColumnAnnotations_set_collation_name(arg0 unsafe.Pointer, 
 func ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedColumnAnnotations_not_null(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedColumnAnnotations_not_null(arg0, arg1)
 }
 
@@ -4481,11 +4481,11 @@ func analyzer_ResolvedColumnDefinition_set_annotations(arg0 unsafe.Pointer, arg1
 func ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedColumnDefinition_is_hidden(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedColumnDefinition_is_hidden(arg0, arg1)
 }
 
@@ -4635,11 +4635,11 @@ func analyzer_ResolvedPrimaryKey_add_option_list(arg0 unsafe.Pointer, arg1 unsaf
 func ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedPrimaryKey_unenforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedPrimaryKey_unenforced(arg0, arg1)
 }
 
@@ -4888,11 +4888,11 @@ func analyzer_ResolvedForeignKey_set_delete_action(arg0 unsafe.Pointer, arg1 C.i
 func ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedForeignKey_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedForeignKey_enforced(arg0, arg1)
 }
 
@@ -5020,11 +5020,11 @@ func analyzer_ResolvedCheckConstraint_set_expression(arg0 unsafe.Pointer, arg1 u
 func ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCheckConstraint_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCheckConstraint_enforced(arg0, arg1)
 }
 
@@ -5636,11 +5636,11 @@ func analyzer_ResolvedQueryStmt_add_output_column_list(arg0 unsafe.Pointer, arg1
 func ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedQueryStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedQueryStmt_is_value_table(arg0, arg1)
 }
 
@@ -5845,11 +5845,11 @@ func analyzer_ResolvedIndexItem_set_column_ref(arg0 unsafe.Pointer, arg1 unsafe.
 func ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedIndexItem_descending(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedIndexItem_descending(arg0, arg1)
 }
 
@@ -5988,11 +5988,11 @@ func analyzer_ResolvedCreateIndexStmt_set_table_scan(arg0 unsafe.Pointer, arg1 u
 func ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateIndexStmt_is_unique(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateIndexStmt_is_unique(arg0, arg1)
 }
 
@@ -6010,11 +6010,11 @@ func analyzer_ResolvedCreateIndexStmt_set_is_unique(arg0 unsafe.Pointer, arg1 C.
 func ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateIndexStmt_is_search(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateIndexStmt_is_search(arg0, arg1)
 }
 
@@ -6032,11 +6032,11 @@ func analyzer_ResolvedCreateIndexStmt_set_is_search(arg0 unsafe.Pointer, arg1 C.
 func ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateIndexStmt_index_all_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateIndexStmt_index_all_columns(arg0, arg1)
 }
 
@@ -6461,11 +6461,11 @@ func analyzer_ResolvedCreateTableStmtBase_add_check_constraint_list(arg0 unsafe.
 func ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateTableStmtBase_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateTableStmtBase_is_value_table(arg0, arg1)
 }
 
@@ -7044,11 +7044,11 @@ func analyzer_ResolvedCreateViewBase_add_output_column_list(arg0 unsafe.Pointer,
 func ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateViewBase_has_explicit_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateViewBase_has_explicit_columns(arg0, arg1)
 }
 
@@ -7132,11 +7132,11 @@ func analyzer_ResolvedCreateViewBase_set_sql_security(arg0 unsafe.Pointer, arg1 
 func ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateViewBase_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateViewBase_is_value_table(arg0, arg1)
 }
 
@@ -7154,11 +7154,11 @@ func analyzer_ResolvedCreateViewBase_set_is_value_table(arg0 unsafe.Pointer, arg
 func ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateViewBase_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateViewBase_recursive(arg0, arg1)
 }
 
@@ -7484,11 +7484,11 @@ func analyzer_ResolvedExportDataStmt_add_output_column_list(arg0 unsafe.Pointer,
 func ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedExportDataStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedExportDataStmt_is_value_table(arg0, arg1)
 }
 
@@ -7913,11 +7913,11 @@ func analyzer_ResolvedDropStmt_set_object_type(arg0 unsafe.Pointer, arg1 unsafe.
 func ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropStmt_is_if_exists(arg0, arg1)
 }
 
@@ -7990,11 +7990,11 @@ func analyzer_ResolvedDropStmt_set_drop_mode(arg0 unsafe.Pointer, arg1 C.int) {
 func ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropMaterializedViewStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropMaterializedViewStmt_is_if_exists(arg0, arg1)
 }
 
@@ -8045,11 +8045,11 @@ func analyzer_ResolvedDropMaterializedViewStmt_add_name_path(arg0 unsafe.Pointer
 func ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropSnapshotTableStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropSnapshotTableStmt_is_if_exists(arg0, arg1)
 }
 
@@ -8221,11 +8221,11 @@ func analyzer_ResolvedWithScan_set_query(arg0 unsafe.Pointer, arg1 unsafe.Pointe
 func ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedWithScan_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedWithScan_recursive(arg0, arg1)
 }
 
@@ -10223,11 +10223,11 @@ func analyzer_ResolvedAlterObjectStmt_add_alter_action_list(arg0 unsafe.Pointer,
 func ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAlterObjectStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAlterObjectStmt_is_if_exists(arg0, arg1)
 }
 
@@ -10245,11 +10245,11 @@ func analyzer_ResolvedAlterObjectStmt_set_is_if_exists(arg0 unsafe.Pointer, arg1
 func ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAlterColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAlterColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -10322,11 +10322,11 @@ func analyzer_ResolvedSetOptionsAction_add_option_list(arg0 unsafe.Pointer, arg1
 func ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAddColumnAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAddColumnAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -10366,11 +10366,11 @@ func analyzer_ResolvedAddColumnAction_set_column_definition(arg0 unsafe.Pointer,
 func ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAddConstraintAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAddConstraintAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -10432,11 +10432,11 @@ func analyzer_ResolvedAddConstraintAction_set_table(arg0 unsafe.Pointer, arg1 un
 func ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropConstraintAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropConstraintAction_is_if_exists(arg0, arg1)
 }
 
@@ -10476,11 +10476,11 @@ func analyzer_ResolvedDropConstraintAction_set_name(arg0 unsafe.Pointer, arg1 un
 func ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropPrimaryKeyAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropPrimaryKeyAction_is_if_exists(arg0, arg1)
 }
 
@@ -10619,11 +10619,11 @@ func analyzer_ResolvedAlterColumnSetDefaultAction_set_default_value(arg0 unsafe.
 func ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -10663,11 +10663,11 @@ func analyzer_ResolvedDropColumnAction_set_name(arg0 unsafe.Pointer, arg1 unsafe
 func ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedRenameColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedRenameColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -10861,11 +10861,11 @@ func analyzer_ResolvedAlterTableSetOptionsStmt_add_option_list(arg0 unsafe.Point
 func ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAlterTableSetOptionsStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0, arg1)
 }
 
@@ -11290,11 +11290,11 @@ func analyzer_ResolvedDropPrivilegeRestrictionStmt_set_object_type(arg0 unsafe.P
 func ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -11378,11 +11378,11 @@ func analyzer_ResolvedDropPrivilegeRestrictionStmt_add_column_privilege_list(arg
 func ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropRowAccessPolicyStmt_is_drop_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0, arg1)
 }
 
@@ -11400,11 +11400,11 @@ func analyzer_ResolvedDropRowAccessPolicyStmt_set_is_drop_all(arg0 unsafe.Pointe
 func ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropRowAccessPolicyStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0, arg1)
 }
 
@@ -11477,11 +11477,11 @@ func analyzer_ResolvedDropRowAccessPolicyStmt_add_target_name_path(arg0 unsafe.P
 func ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropSearchIndexStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropSearchIndexStmt_is_if_exists(arg0, arg1)
 }
 
@@ -11620,11 +11620,11 @@ func analyzer_ResolvedRestrictToAction_add_restrictee_list(arg0 unsafe.Pointer, 
 func ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedAddToRestricteeListAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -11675,11 +11675,11 @@ func analyzer_ResolvedAddToRestricteeListAction_add_restrictee_list(arg0 unsafe.
 func ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedRemoveFromRestricteeListAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0, arg1)
 }
 
@@ -11807,11 +11807,11 @@ func analyzer_ResolvedRevokeFromAction_add_revokee_expr_list(arg0 unsafe.Pointer
 func ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedRevokeFromAction_is_revoke_from_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedRevokeFromAction_is_revoke_from_all(arg0, arg1)
 }
 
@@ -12005,11 +12005,11 @@ func analyzer_ResolvedCreateConstantStmt_set_expr(arg0 unsafe.Pointer, arg1 unsa
 func ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateFunctionStmt_has_explicit_return_type(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0, arg1)
 }
 
@@ -12104,11 +12104,11 @@ func analyzer_ResolvedCreateFunctionStmt_set_signature(arg0 unsafe.Pointer, arg1
 func ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateFunctionStmt_is_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateFunctionStmt_is_aggregate(arg0, arg1)
 }
 
@@ -12302,11 +12302,11 @@ func analyzer_ResolvedCreateFunctionStmt_set_determinism_level(arg0 unsafe.Point
 func ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateFunctionStmt_is_remote(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateFunctionStmt_is_remote(arg0, arg1)
 }
 
@@ -12534,11 +12534,11 @@ func analyzer_ResolvedCreateTableFunctionStmt_set_signature(arg0 unsafe.Pointer,
 func ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0, arg1)
 }
 
@@ -12688,11 +12688,11 @@ func analyzer_ResolvedCreateTableFunctionStmt_add_output_column_list(arg0 unsafe
 func ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCreateTableFunctionStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCreateTableFunctionStmt_is_value_table(arg0, arg1)
 }
 
@@ -12754,11 +12754,11 @@ func analyzer_ResolvedRelationArgumentScan_set_name(arg0 unsafe.Pointer, arg1 un
 func ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedRelationArgumentScan_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedRelationArgumentScan_is_value_table(arg0, arg1)
 }
 
@@ -12831,11 +12831,11 @@ func analyzer_ResolvedFunctionSignatureHolder_set_signature(arg0 unsafe.Pointer,
 func ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropFunctionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropFunctionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -12930,11 +12930,11 @@ func analyzer_ResolvedDropFunctionStmt_set_signature(arg0 unsafe.Pointer, arg1 u
 func ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedDropTableFunctionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedDropTableFunctionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -14393,11 +14393,11 @@ func analyzer_ResolvedUnpivotScan_add_projected_input_column_list(arg0 unsafe.Po
 func ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedUnpivotScan_include_nulls(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedUnpivotScan_include_nulls(arg0, arg1)
 }
 
@@ -14998,11 +14998,11 @@ func analyzer_ResolvedAuxLoadDataStmt_add_from_files_option_list(arg0 unsafe.Poi
 func ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedColumn_IsInitialized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedColumn_IsInitialized(arg0, arg1)
 }
 
@@ -15129,11 +15129,11 @@ func analyzer_ResolvedColumn_annotated_type(arg0 unsafe.Pointer, arg1 *unsafe.Po
 func ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCollation_Empty(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCollation_Empty(arg0, arg1)
 }
 
@@ -15141,11 +15141,11 @@ func ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bo
 	analyzer_ResolvedCollation_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func analyzer_ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCollation_Equals(arg0, arg1, arg2)
 }
 
@@ -15153,22 +15153,22 @@ func ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.P
 	analyzer_ResolvedCollation_HasCompatibleStructure(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func analyzer_ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func analyzer_ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCollation_HasCompatibleStructure(arg0, arg1, arg2)
 }
 
 func ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *bool) {
 	analyzer_ResolvedCollation_HasCollation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func analyzer_ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *C.int) {
+func analyzer_ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_analyzer_ResolvedCollation_HasCollation(arg0, arg1)
 }
 
@@ -15218,7 +15218,7 @@ func analyzer_ResolvedFunctionCallInfo_DebugString(arg0 unsafe.Pointer, arg1 *un
 
 //export export_zetasql_public_analyzer_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
-func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_cctz_FixedOffsetToName
 //go:linkname export_zetasql_public_analyzer_cctz_FixedOffsetToName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetToName
@@ -15234,7 +15234,7 @@ func export_zetasql_public_analyzer_cctz_detail_format(arg0 unsafe.Pointer, arg1
 
 //export export_zetasql_public_analyzer_cctz_detail_parse
 //go:linkname export_zetasql_public_analyzer_cctz_detail_parse github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_detail_parse
-func export_zetasql_public_analyzer_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int)
+func export_zetasql_public_analyzer_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char)
 
 //export export_zetasql_public_analyzer_TimeZoneIf_Load
 //go:linkname export_zetasql_public_analyzer_TimeZoneIf_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneIf_Load
@@ -15246,7 +15246,7 @@ func export_zetasql_public_analyzer_time_zone_Impl_UTC(arg0 *unsafe.Pointer)
 
 //export export_zetasql_public_analyzer_time_zone_Impl_LoadTimeZone
 //go:linkname export_zetasql_public_analyzer_time_zone_Impl_LoadTimeZone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_LoadTimeZone
-func export_zetasql_public_analyzer_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_time_zone_Impl_ClearTimeZoneMapTestOnly
 //go:linkname export_zetasql_public_analyzer_time_zone_Impl_ClearTimeZoneMapTestOnly github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_ClearTimeZoneMapTestOnly
@@ -15258,7 +15258,7 @@ func export_zetasql_public_analyzer_time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer)
 
 //export export_zetasql_public_analyzer_TimeZoneInfo_Load
 //go:linkname export_zetasql_public_analyzer_TimeZoneInfo_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_Load
-func export_zetasql_public_analyzer_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_TimeZoneInfo_BreakTime
 //go:linkname export_zetasql_public_analyzer_TimeZoneInfo_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_BreakTime
@@ -15278,11 +15278,11 @@ func export_zetasql_public_analyzer_TimeZoneInfo_Description(arg0 unsafe.Pointer
 
 //export export_zetasql_public_analyzer_TimeZoneInfo_NextTransition
 //go:linkname export_zetasql_public_analyzer_TimeZoneInfo_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_NextTransition
-func export_zetasql_public_analyzer_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_analyzer_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_analyzer_TimeZoneInfo_PrevTransition
 //go:linkname export_zetasql_public_analyzer_TimeZoneInfo_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_PrevTransition
-func export_zetasql_public_analyzer_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_analyzer_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_analyzer_TimeZoneLibC_BreakTime
 //go:linkname export_zetasql_public_analyzer_TimeZoneLibC_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_BreakTime
@@ -15298,11 +15298,11 @@ func export_zetasql_public_analyzer_TimeZoneLibC_Version(arg0 unsafe.Pointer, ar
 
 //export export_zetasql_public_analyzer_TimeZoneLibC_NextTransition
 //go:linkname export_zetasql_public_analyzer_TimeZoneLibC_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_NextTransition
-func export_zetasql_public_analyzer_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_analyzer_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_analyzer_TimeZoneLibC_PrevTransition
 //go:linkname export_zetasql_public_analyzer_TimeZoneLibC_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_PrevTransition
-func export_zetasql_public_analyzer_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_analyzer_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_analyzer_time_zone_name
 //go:linkname export_zetasql_public_analyzer_time_zone_name github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_name
@@ -15318,11 +15318,11 @@ func export_zetasql_public_analyzer_time_zone_lookup2(arg0 unsafe.Pointer, arg1 
 
 //export export_zetasql_public_analyzer_time_zone_next_transition
 //go:linkname export_zetasql_public_analyzer_time_zone_next_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_next_transition
-func export_zetasql_public_analyzer_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_time_zone_prev_transition
 //go:linkname export_zetasql_public_analyzer_time_zone_prev_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_prev_transition
-func export_zetasql_public_analyzer_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_time_zone_version
 //go:linkname export_zetasql_public_analyzer_time_zone_version github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_version
@@ -15334,7 +15334,7 @@ func export_zetasql_public_analyzer_time_zone_description(arg0 unsafe.Pointer, a
 
 //export export_zetasql_public_analyzer_cctz_load_time_zone
 //go:linkname export_zetasql_public_analyzer_cctz_load_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_load_time_zone
-func export_zetasql_public_analyzer_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_analyzer_cctz_utc_time_zone
 //go:linkname export_zetasql_public_analyzer_cctz_utc_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_utc_time_zone
@@ -15350,4 +15350,4 @@ func export_zetasql_public_analyzer_cctz_local_time_zone(arg0 *unsafe.Pointer)
 
 //export export_zetasql_public_analyzer_cctz_ParsePosixSpec
 //go:linkname export_zetasql_public_analyzer_cctz_ParsePosixSpec github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_ParsePosixSpec
-func export_zetasql_public_analyzer_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_analyzer_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)

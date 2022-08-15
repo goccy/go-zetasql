@@ -71,12 +71,12 @@ func ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.P
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 		arg4,
 	)
 }
 
-func parser_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+func parser_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.char, arg4 *unsafe.Pointer) {
 	C.export_zetasql_parser_parser_ParseNextStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
@@ -85,12 +85,12 @@ func ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *un
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 		arg4,
 	)
 }
 
-func parser_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+func parser_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.char, arg4 *unsafe.Pointer) {
 	C.export_zetasql_parser_parser_ParseNextScriptStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
@@ -145,11 +145,11 @@ func parser_ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsafe
 func Status_OK(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_Status_OK(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_Status_OK(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_Status_OK(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_Status_OK(arg0, arg1)
 }
 
@@ -455,132 +455,132 @@ func parser_ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 func ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsTableExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsTableExpression(arg0, arg1)
 }
 
 func ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsQueryExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsQueryExpression(arg0, arg1)
 }
 
 func ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsExpression(arg0, arg1)
 }
 
 func ASTNode_IsType(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsType(arg0, arg1)
 }
 
 func ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsLeaf(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsLeaf(arg0, arg1)
 }
 
 func ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsStatement(arg0, arg1)
 }
 
 func ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsScriptStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsScriptStatement(arg0, arg1)
 }
 
 func ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsLoopStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsLoopStatement(arg0, arg1)
 }
 
 func ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsSqlStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsSqlStatement(arg0, arg1)
 }
 
 func ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsDdlStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsDdlStatement(arg0, arg1)
 }
 
 func ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsCreateStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsCreateStatement(arg0, arg1)
 }
 
 func ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNode_IsAlterStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNode_IsAlterStatement(arg0, arg1)
 }
 
@@ -719,11 +719,11 @@ func parser_ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int
 func ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTQueryExpression_parenthesized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTQueryExpression_parenthesized(arg0, arg1)
 }
 
@@ -741,11 +741,11 @@ func parser_ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTQuery_is_nested(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTQuery_is_nested(arg0, arg1)
 }
 
@@ -763,11 +763,11 @@ func parser_ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTQuery_is_pivot_input(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTQuery_is_pivot_input(arg0, arg1)
 }
 
@@ -829,11 +829,11 @@ func parser_ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTSelect_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTSelect_distinct(arg0, arg1)
 }
 
@@ -1006,22 +1006,22 @@ func parser_ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTExpression_parenthesized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTExpression_parenthesized(arg0, arg1)
 }
 
 func ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTExpression_IsAllowedInComparison(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTExpression_IsAllowedInComparison(arg0, arg1)
 }
 
@@ -1050,11 +1050,11 @@ func parser_ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 func ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTIntLiteral_is_hex(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTIntLiteral_is_hex(arg0, arg1)
 }
 
@@ -1128,12 +1128,12 @@ func parser_ASTPathExpression_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe
 func ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 uint32, arg2 *unsafe.Pointer) {
 	parser_ASTPathExpression_ToIdentifierPathString(
 		arg0,
-		C.uint(arg1),
+		C.uint32_t(arg1),
 		arg2,
 	)
 }
 
-func parser_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint, arg2 *unsafe.Pointer) {
+func parser_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint32_t, arg2 *unsafe.Pointer) {
 	C.export_zetasql_parser_parser_ASTPathExpression_ToIdentifierPathString(arg0, arg1, arg2)
 }
 
@@ -1272,11 +1272,11 @@ func parser_ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTBooleanLiteral_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTBooleanLiteral_value(arg0, arg1)
 }
 
@@ -1339,11 +1339,11 @@ func parser_ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTBinaryExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTBinaryExpression_is_not(arg0, arg1)
 }
 
@@ -1683,11 +1683,11 @@ func parser_ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTJoin_natural(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTJoin_natural(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTJoin_natural(arg0, arg1)
 }
 
@@ -1727,11 +1727,11 @@ func parser_ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTJoin_transformation_needed(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTJoin_transformation_needed(arg0, arg1)
 }
 
@@ -1749,11 +1749,11 @@ func parser_ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTJoin_contains_comma_join(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTJoin_contains_comma_join(arg0, arg1)
 }
 
@@ -1881,11 +1881,11 @@ func parser_ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTWithClause_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTWithClause_recursive(arg0, arg1)
 }
 
@@ -2026,11 +2026,11 @@ func parser_ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 C.int) 
 func ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCastExpression_is_safe_cast(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCastExpression_is_safe_cast(arg0, arg1)
 }
 
@@ -2103,22 +2103,22 @@ func parser_ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTSelectAs_is_select_as_struct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTSelectAs_is_select_as_struct(arg0, arg1)
 }
 
 func ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTSelectAs_is_select_as_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTSelectAs_is_select_as_value(arg0, arg1)
 }
 
@@ -2181,11 +2181,11 @@ func parser_ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionCall_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionCall_distinct(arg0, arg1)
 }
 
@@ -2203,11 +2203,11 @@ func parser_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 un
 func ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionCall_is_current_date_time_without_parentheses(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionCall_is_current_date_time_without_parentheses(arg0, arg1)
 }
 
@@ -2314,11 +2314,11 @@ func parser_ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsa
 func ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionCall_HasModifiers(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionCall_HasModifiers(arg0, arg1)
 }
 
@@ -2449,11 +2449,11 @@ func parser_ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTInExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTInExpression_is_not(arg0, arg1)
 }
 
@@ -2549,11 +2549,11 @@ func parser_ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTBetweenExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTBetweenExpression_is_not(arg0, arg1)
 }
 
@@ -2705,11 +2705,11 @@ func parser_ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, arg
 func ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTBitwiseShiftExpression_is_left_shift(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTBitwiseShiftExpression_is_left_shift(arg0, arg1)
 }
 
@@ -3002,11 +3002,11 @@ func parser_ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTNullOrder_nulls_first(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTNullOrder_nulls_first(arg0, arg1)
 }
 
@@ -3125,11 +3125,11 @@ func parser_ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTSetOperation_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTSetOperation_distinct(arg0, arg1)
 }
 
@@ -3525,11 +3525,11 @@ func parser_ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTLikeExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTLikeExpression_is_not(arg0, arg1)
 }
 
@@ -3701,11 +3701,11 @@ func parser_ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Point
 func ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTStatementList_variable_declarations_allowed(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTStatementList_variable_declarations_allowed(arg0, arg1)
 }
 
@@ -3956,11 +3956,11 @@ func parser_ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.
 func ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropEntityStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropEntityStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4000,11 +4000,11 @@ func parser_ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 
 func ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropFunctionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropFunctionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4044,11 +4044,11 @@ func parser_ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, 
 func ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropTableFunctionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropTableFunctionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4077,11 +4077,11 @@ func parser_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 uns
 func ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0, arg1)
 }
 
@@ -4110,11 +4110,11 @@ func parser_ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Pointe
 func ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropMaterializedViewStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropMaterializedViewStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4143,11 +4143,11 @@ func parser_ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer, 
 func ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropSnapshotTableStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropSnapshotTableStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4176,11 +4176,11 @@ func parser_ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, ar
 func ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropSearchIndexStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropSearchIndexStatement_is_if_exists(arg0, arg1)
 }
 
@@ -5064,11 +5064,11 @@ func parser_ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 C.int
 func ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_or_replace(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_or_replace(arg0, arg1)
 }
 
@@ -5086,55 +5086,55 @@ func parser_ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.
 func ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_if_not_exists(arg0, arg1)
 }
 
 func ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_default_scope(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_default_scope(arg0, arg1)
 }
 
 func ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_private(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_private(arg0, arg1)
 }
 
 func ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_public(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_public(arg0, arg1)
 }
 
 func ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateStatement_is_temp(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateStatement_is_temp(arg0, arg1)
 }
 
@@ -5174,11 +5174,11 @@ func parser_ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 
 func ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionParameter_is_not_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionParameter_is_not_aggregate(arg0, arg1)
 }
 
@@ -5251,22 +5251,22 @@ func parser_ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsafe
 func ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionParameter_IsTableParameter(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionParameter_IsTableParameter(arg0, arg1)
 }
 
 func ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionParameter_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionParameter_IsTemplated(arg0, arg1)
 }
 
@@ -5318,11 +5318,11 @@ func parser_ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe.
 func ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFunctionDeclaration_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFunctionDeclaration_IsTemplated(arg0, arg1)
 }
 
@@ -5862,11 +5862,11 @@ func parser_ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 C.in
 func ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateIndexStatement_is_unique(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateIndexStatement_is_unique(arg0, arg1)
 }
 
@@ -5884,11 +5884,11 @@ func parser_ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 C.in
 func ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateIndexStatement_is_search(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateIndexStatement_is_search(arg0, arg1)
 }
 
@@ -6427,11 +6427,11 @@ func parser_ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1 
 func ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTPrimaryKeyColumnAttribute_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTPrimaryKeyColumnAttribute_enforced(arg0, arg1)
 }
 
@@ -7249,11 +7249,11 @@ func parser_ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsaf
 func ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTPrivileges_is_all_privileges(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTPrivileges_is_all_privileges(arg0, arg1)
 }
 
@@ -7658,11 +7658,11 @@ func parser_ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg
 func ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAddConstraintAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAddConstraintAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -7691,11 +7691,11 @@ func parser_ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C
 func ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropPrimaryKeyAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropPrimaryKeyAction_is_if_exists(arg0, arg1)
 }
 
@@ -7713,11 +7713,11 @@ func parser_ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C
 func ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropConstraintAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropConstraintAction_is_if_exists(arg0, arg1)
 }
 
@@ -7746,11 +7746,11 @@ func parser_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Poi
 func ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterConstraintEnforcementAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterConstraintEnforcementAction_is_if_exists(arg0, arg1)
 }
 
@@ -7768,11 +7768,11 @@ func parser_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Poin
 func ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterConstraintEnforcementAction_is_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterConstraintEnforcementAction_is_enforced(arg0, arg1)
 }
 
@@ -7801,11 +7801,11 @@ func parser_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Poin
 func ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterConstraintSetOptionsAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0, arg1)
 }
 
@@ -7845,11 +7845,11 @@ func parser_ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C.
 func ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAddColumnAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAddColumnAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -7900,11 +7900,11 @@ func parser_ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int
 func ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -7933,11 +7933,11 @@ func parser_ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.i
 func ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTRenameColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTRenameColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -7977,11 +7977,11 @@ func parser_ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 
 func ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterColumnTypeAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterColumnTypeAction_is_if_exists(arg0, arg1)
 }
 
@@ -8032,11 +8032,11 @@ func parser_ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, ar
 func ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterColumnOptionsAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterColumnOptionsAction_is_if_exists(arg0, arg1)
 }
 
@@ -8076,11 +8076,11 @@ func parser_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer,
 func ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterColumnSetDefaultAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterColumnSetDefaultAction_is_if_exists(arg0, arg1)
 }
 
@@ -8120,11 +8120,11 @@ func parser_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointer
 func ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterColumnDropDefaultAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterColumnDropDefaultAction_is_if_exists(arg0, arg1)
 }
 
@@ -8153,11 +8153,11 @@ func parser_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointer
 func ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterColumnDropNotNullAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterColumnDropNotNullAction_is_if_exists(arg0, arg1)
 }
 
@@ -8186,11 +8186,11 @@ func parser_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Pointe
 func ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTGrantToClause_has_grant_keyword_and_parens(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTGrantToClause_has_grant_keyword_and_parens(arg0, arg1)
 }
 
@@ -8230,11 +8230,11 @@ func parser_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Pointe
 func ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAddToRestricteeListClause_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAddToRestricteeListClause_is_if_not_exists(arg0, arg1)
 }
 
@@ -8263,11 +8263,11 @@ func parser_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Point
 func ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTRemoveFromRestricteeListClause_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTRemoveFromRestricteeListClause_is_if_exists(arg0, arg1)
 }
 
@@ -8296,11 +8296,11 @@ func parser_ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, arg
 func ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTFilterUsingClause_has_filter_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTFilterUsingClause_has_filter_keyword(arg0, arg1)
 }
 
@@ -8329,11 +8329,11 @@ func parser_ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg1
 func ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTRevokeFromClause_is_revoke_from_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTRevokeFromClause_is_revoke_from_all(arg0, arg1)
 }
 
@@ -8495,11 +8495,11 @@ func parser_ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 C.int)
 func ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTForeignKeyReference_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTForeignKeyReference_enforced(arg0, arg1)
 }
 
@@ -8918,11 +8918,11 @@ func ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 int, arg2 *bool
 	parser_ASTColumnSchema_ContainsAttribute(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func parser_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func parser_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_parser_parser_ASTColumnSchema_ContainsAttribute(arg0, arg1, arg2)
 }
 
@@ -8973,11 +8973,11 @@ func parser_ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTPrimaryKey_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTPrimaryKey_enforced(arg0, arg1)
 }
 
@@ -9050,11 +9050,11 @@ func parser_ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int) 
 func ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCheckConstraint_is_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCheckConstraint_is_enforced(arg0, arg1)
 }
 
@@ -9183,11 +9183,11 @@ func parser_ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer)
 func ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTRaiseStatement_is_rethrow(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTRaiseStatement_is_rethrow(arg0, arg1)
 }
 
@@ -9284,11 +9284,11 @@ func parser_ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 C.int, arg
 func ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTBeginEndBlock_has_exception_handler(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTBeginEndBlock_has_exception_handler(arg0, arg1)
 }
 
@@ -9461,11 +9461,11 @@ func parser_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.Po
 func ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropPrivilegeRestrictionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -9516,11 +9516,11 @@ func parser_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointer
 func ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropRowAccessPolicyStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropRowAccessPolicyStatement_is_if_exists(arg0, arg1)
 }
 
@@ -9604,11 +9604,11 @@ func parser_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsafe
 func ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateRowAccessPolicyStatement_has_access_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0, arg1)
 }
 
@@ -9692,11 +9692,11 @@ func parser_ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTDropStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTDropStatement_is_if_exists(arg0, arg1)
 }
 
@@ -10044,11 +10044,11 @@ func parser_ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTLoopStatement_IsLoopStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTLoopStatement_IsLoopStatement(arg0, arg1)
 }
 
@@ -10110,11 +10110,11 @@ func parser_ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.i
 func ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTAlterStatementBase_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTAlterStatementBase_is_if_exists(arg0, arg1)
 }
 
@@ -10286,11 +10286,11 @@ func parser_ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, arg
 func ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateFunctionStatement_is_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateFunctionStatement_is_aggregate(arg0, arg1)
 }
 
@@ -10308,11 +10308,11 @@ func parser_ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 C
 func ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
 	parser_ASTCreateFunctionStatement_is_remote(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func parser_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
+func parser_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_parser_parser_ASTCreateFunctionStatement_is_remote(arg0, arg1)
 }
 
@@ -10584,7 +10584,7 @@ func parser_ASTLabel_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 
 //export export_zetasql_parser_parser_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_parser_parser_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
-func export_zetasql_parser_parser_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_cctz_FixedOffsetToName
 //go:linkname export_zetasql_parser_parser_cctz_FixedOffsetToName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetToName
@@ -10600,7 +10600,7 @@ func export_zetasql_parser_parser_cctz_detail_format(arg0 unsafe.Pointer, arg1 u
 
 //export export_zetasql_parser_parser_cctz_detail_parse
 //go:linkname export_zetasql_parser_parser_cctz_detail_parse github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_detail_parse
-func export_zetasql_parser_parser_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int)
+func export_zetasql_parser_parser_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char)
 
 //export export_zetasql_parser_parser_TimeZoneIf_Load
 //go:linkname export_zetasql_parser_parser_TimeZoneIf_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneIf_Load
@@ -10612,7 +10612,7 @@ func export_zetasql_parser_parser_time_zone_Impl_UTC(arg0 *unsafe.Pointer)
 
 //export export_zetasql_parser_parser_time_zone_Impl_LoadTimeZone
 //go:linkname export_zetasql_parser_parser_time_zone_Impl_LoadTimeZone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_LoadTimeZone
-func export_zetasql_parser_parser_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_time_zone_Impl_ClearTimeZoneMapTestOnly
 //go:linkname export_zetasql_parser_parser_time_zone_Impl_ClearTimeZoneMapTestOnly github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_ClearTimeZoneMapTestOnly
@@ -10624,7 +10624,7 @@ func export_zetasql_parser_parser_time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer)
 
 //export export_zetasql_parser_parser_TimeZoneInfo_Load
 //go:linkname export_zetasql_parser_parser_TimeZoneInfo_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_Load
-func export_zetasql_parser_parser_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_TimeZoneInfo_BreakTime
 //go:linkname export_zetasql_parser_parser_TimeZoneInfo_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_BreakTime
@@ -10644,11 +10644,11 @@ func export_zetasql_parser_parser_TimeZoneInfo_Description(arg0 unsafe.Pointer, 
 
 //export export_zetasql_parser_parser_TimeZoneInfo_NextTransition
 //go:linkname export_zetasql_parser_parser_TimeZoneInfo_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_NextTransition
-func export_zetasql_parser_parser_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_parser_parser_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_parser_parser_TimeZoneInfo_PrevTransition
 //go:linkname export_zetasql_parser_parser_TimeZoneInfo_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_PrevTransition
-func export_zetasql_parser_parser_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_parser_parser_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_parser_parser_TimeZoneLibC_BreakTime
 //go:linkname export_zetasql_parser_parser_TimeZoneLibC_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_BreakTime
@@ -10664,11 +10664,11 @@ func export_zetasql_parser_parser_TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1
 
 //export export_zetasql_parser_parser_TimeZoneLibC_NextTransition
 //go:linkname export_zetasql_parser_parser_TimeZoneLibC_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_NextTransition
-func export_zetasql_parser_parser_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_parser_parser_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_parser_parser_TimeZoneLibC_PrevTransition
 //go:linkname export_zetasql_parser_parser_TimeZoneLibC_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_PrevTransition
-func export_zetasql_parser_parser_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_parser_parser_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_parser_parser_time_zone_name
 //go:linkname export_zetasql_parser_parser_time_zone_name github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_name
@@ -10684,11 +10684,11 @@ func export_zetasql_parser_parser_time_zone_lookup2(arg0 unsafe.Pointer, arg1 un
 
 //export export_zetasql_parser_parser_time_zone_next_transition
 //go:linkname export_zetasql_parser_parser_time_zone_next_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_next_transition
-func export_zetasql_parser_parser_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_time_zone_prev_transition
 //go:linkname export_zetasql_parser_parser_time_zone_prev_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_prev_transition
-func export_zetasql_parser_parser_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_time_zone_version
 //go:linkname export_zetasql_parser_parser_time_zone_version github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_version
@@ -10700,7 +10700,7 @@ func export_zetasql_parser_parser_time_zone_description(arg0 unsafe.Pointer, arg
 
 //export export_zetasql_parser_parser_cctz_load_time_zone
 //go:linkname export_zetasql_parser_parser_cctz_load_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_load_time_zone
-func export_zetasql_parser_parser_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_parser_parser_cctz_utc_time_zone
 //go:linkname export_zetasql_parser_parser_cctz_utc_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_utc_time_zone
@@ -10716,4 +10716,4 @@ func export_zetasql_parser_parser_cctz_local_time_zone(arg0 *unsafe.Pointer)
 
 //export export_zetasql_parser_parser_cctz_ParsePosixSpec
 //go:linkname export_zetasql_parser_parser_cctz_ParsePosixSpec github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_ParsePosixSpec
-func export_zetasql_parser_parser_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_parser_parser_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)

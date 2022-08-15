@@ -39,11 +39,11 @@ func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bo
 	time_zone_cctz_FixedOffsetFromName(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_cctz_FixedOffsetFromName(arg0, arg1, arg2)
 }
 
@@ -91,11 +91,11 @@ func cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Poi
 		arg3,
 		arg4,
 		arg5,
-		(*C.int)(unsafe.Pointer(arg6)),
+		(*C.char)(unsafe.Pointer(arg6)),
 	)
 }
 
-func time_zone_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int) {
+func time_zone_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_cctz_detail_parse(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
 }
 
@@ -124,11 +124,11 @@ func time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 	time_zone_time_zone_Impl_LoadTimeZone(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_time_zone_Impl_LoadTimeZone(arg0, arg1, arg2)
 }
 
@@ -154,11 +154,11 @@ func TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	time_zone_TimeZoneInfo_Load(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_TimeZoneInfo_Load(arg0, arg1, arg2)
 }
 
@@ -213,11 +213,11 @@ func TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func time_zone_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func time_zone_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_TimeZoneInfo_NextTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -226,11 +226,11 @@ func TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func time_zone_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func time_zone_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_TimeZoneInfo_PrevTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -274,11 +274,11 @@ func TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func time_zone_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func time_zone_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_TimeZoneLibC_NextTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -287,11 +287,11 @@ func TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func time_zone_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func time_zone_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_TimeZoneLibC_PrevTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -333,11 +333,11 @@ func time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *b
 	time_zone_time_zone_next_transition(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_time_zone_next_transition(arg0, arg1, arg2)
 }
 
@@ -345,11 +345,11 @@ func time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *b
 	time_zone_time_zone_prev_transition(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_time_zone_prev_transition(arg0, arg1, arg2)
 }
 
@@ -379,11 +379,11 @@ func cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	time_zone_cctz_load_time_zone(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_cctz_load_time_zone(arg0, arg1, arg2)
 }
 
@@ -422,10 +422,10 @@ func cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	time_zone_cctz_ParsePosixSpec(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func time_zone_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func time_zone_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_absl_time_internal_cctz_time_zone_cctz_ParsePosixSpec(arg0, arg1, arg2)
 }

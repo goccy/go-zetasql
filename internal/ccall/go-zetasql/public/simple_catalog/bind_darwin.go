@@ -50,396 +50,396 @@ func simple_catalog_Type_Kind(arg0 unsafe.Pointer, arg1 *C.int) {
 func Type_IsInt32(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInt32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInt32(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInt32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInt32(arg0, arg1)
 }
 
 func Type_IsInt64(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInt64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInt64(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInt64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInt64(arg0, arg1)
 }
 
 func Type_IsUint32(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsUint32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsUint32(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsUint32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsUint32(arg0, arg1)
 }
 
 func Type_IsUint64(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsUint64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsUint64(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsUint64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsUint64(arg0, arg1)
 }
 
 func Type_IsBool(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsBool(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsBool(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsBool(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsBool(arg0, arg1)
 }
 
 func Type_IsFloat(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsFloat(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsFloat(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsFloat(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsFloat(arg0, arg1)
 }
 
 func Type_IsDouble(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsDouble(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsDouble(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsDouble(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsDouble(arg0, arg1)
 }
 
 func Type_IsString(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsString(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsString(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsString(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsString(arg0, arg1)
 }
 
 func Type_IsBytes(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsBytes(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsBytes(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsBytes(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsBytes(arg0, arg1)
 }
 
 func Type_IsDate(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsDate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsDate(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsDate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsDate(arg0, arg1)
 }
 
 func Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsTimestamp(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsTimestamp(arg0, arg1)
 }
 
 func Type_IsTime(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsTime(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsTime(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsTime(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsTime(arg0, arg1)
 }
 
 func Type_IsDatetime(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsDatetime(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsDatetime(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsDatetime(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsDatetime(arg0, arg1)
 }
 
 func Type_IsInterval(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInterval(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInterval(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInterval(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInterval(arg0, arg1)
 }
 
 func Type_IsNumericType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsNumericType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsNumericType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsNumericType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsNumericType(arg0, arg1)
 }
 
 func Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsBigNumericType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsBigNumericType(arg0, arg1)
 }
 
 func Type_IsJsonType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsJsonType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsJsonType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsJsonType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsJsonType(arg0, arg1)
 }
 
 func Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsFeatureV12CivilTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsFeatureV12CivilTimeType(arg0, arg1)
 }
 
 func Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_UsingFeatureV12CivilTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_UsingFeatureV12CivilTimeType(arg0, arg1)
 }
 
 func Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsCivilDateOrTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsCivilDateOrTimeType(arg0, arg1)
 }
 
 func Type_IsGeography(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsGeography(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsGeography(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsGeography(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsGeography(arg0, arg1)
 }
 
 func Type_IsJson(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsJson(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsJson(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsJson(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsJson(arg0, arg1)
 }
 
 func Type_IsEnum(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsEnum(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsEnum(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsEnum(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsEnum(arg0, arg1)
 }
 
 func Type_IsArray(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsArray(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsArray(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsArray(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsArray(arg0, arg1)
 }
 
 func Type_IsStruct(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsStruct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsStruct(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsStruct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsStruct(arg0, arg1)
 }
 
 func Type_IsProto(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsProto(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsProto(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsProto(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsProto(arg0, arg1)
 }
 
 func Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsStructOrProto(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsStructOrProto(arg0, arg1)
 }
 
 func Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsFloatingPoint(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsFloatingPoint(arg0, arg1)
 }
 
 func Type_IsNumerical(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsNumerical(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsNumerical(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsNumerical(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsNumerical(arg0, arg1)
 }
 
 func Type_IsInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInteger(arg0, arg1)
 }
 
 func Type_IsInteger32(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInteger32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInteger32(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInteger32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInteger32(arg0, arg1)
 }
 
 func Type_IsInteger64(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsInteger64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsInteger64(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsInteger64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsInteger64(arg0, arg1)
 }
 
 func Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsSignedInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsSignedInteger(arg0, arg1)
 }
 
 func Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsUnsignedInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsUnsignedInteger(arg0, arg1)
 }
 
 func Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsSimpleType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsSimpleType(arg0, arg1)
 }
 
 func Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_IsExtendedType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_IsExtendedType(arg0, arg1)
 }
 
@@ -501,44 +501,44 @@ func simple_catalog_Type_AsExtendedType(arg0 unsafe.Pointer, arg1 *unsafe.Pointe
 func Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_SupportsGrouping(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_SupportsGrouping(arg0, arg1)
 }
 
 func Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_SupportsPartitioning(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_SupportsPartitioning(arg0, arg1)
 }
 
 func Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_SupportsOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_SupportsOrdering(arg0, arg1)
 }
 
 func Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_SupportsEquality(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_SupportsEquality(arg0, arg1)
 }
 
@@ -546,11 +546,11 @@ func Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	simple_catalog_Type_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func simple_catalog_Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_Equals(arg0, arg1, arg2)
 }
 
@@ -558,11 +558,11 @@ func Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	simple_catalog_Type_Equivalent(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func simple_catalog_Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_Equivalent(arg0, arg1, arg2)
 }
 
@@ -619,11 +619,11 @@ func simple_catalog_Type_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsa
 func Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Type_HasAnyFields(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Type_HasAnyFields(arg0, arg1)
 }
 
@@ -1218,55 +1218,55 @@ func simple_catalog_Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *C.uint64
 func Value_is_null(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_is_null(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_is_null(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_is_null(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_is_null(arg0, arg1)
 }
 
 func Value_is_empty_array(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_is_empty_array(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_is_empty_array(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_is_empty_array(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_is_empty_array(arg0, arg1)
 }
 
 func Value_is_valid(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_is_valid(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_is_valid(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_is_valid(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_is_valid(arg0, arg1)
 }
 
 func Value_has_content(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_has_content(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_has_content(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_has_content(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_has_content(arg0, arg1)
 }
 
 func Value_int32_value(arg0 unsafe.Pointer, arg1 *int32) {
 	simple_catalog_Value_int32_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_public_simple_catalog_Value_int32_value(arg0, arg1)
 }
 
@@ -1284,11 +1284,11 @@ func simple_catalog_Value_int64_value(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 func Value_uint32_value(arg0 unsafe.Pointer, arg1 *uint32) {
 	simple_catalog_Value_uint32_value(
 		arg0,
-		(*C.uint)(unsafe.Pointer(arg1)),
+		(*C.uint32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint) {
+func simple_catalog_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint32_t) {
 	C.export_zetasql_public_simple_catalog_Value_uint32_value(arg0, arg1)
 }
 
@@ -1306,11 +1306,11 @@ func simple_catalog_Value_uint64_value(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 func Value_bool_value(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_bool_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_bool_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_bool_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_bool_value(arg0, arg1)
 }
 
@@ -1361,22 +1361,22 @@ func simple_catalog_Value_bytes_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer)
 func Value_date_value(arg0 unsafe.Pointer, arg1 *int32) {
 	simple_catalog_Value_date_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_date_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_date_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_public_simple_catalog_Value_date_value(arg0, arg1)
 }
 
 func Value_enum_value(arg0 unsafe.Pointer, arg1 *int32) {
 	simple_catalog_Value_enum_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_enum_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_enum_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_public_simple_catalog_Value_enum_value(arg0, arg1)
 }
 
@@ -1450,22 +1450,22 @@ func simple_catalog_Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *C.
 func Value_is_validated_json(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_is_validated_json(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_is_validated_json(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_is_validated_json(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_is_validated_json(arg0, arg1)
 }
 
 func Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_is_unparsed_json(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_is_unparsed_json(arg0, arg1)
 }
 
@@ -1562,11 +1562,11 @@ func simple_catalog_Value_FindFieldByName(arg0 unsafe.Pointer, arg1 unsafe.Point
 func Value_empty(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Value_empty(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Value_empty(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Value_empty(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_empty(arg0, arg1)
 }
 
@@ -1597,11 +1597,11 @@ func Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	simple_catalog_Value_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func simple_catalog_Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_Equals(arg0, arg1, arg2)
 }
 
@@ -1621,11 +1621,11 @@ func Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	simple_catalog_Value_LessThan(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func simple_catalog_Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_Value_LessThan(arg0, arg1, arg2)
 }
 
@@ -1767,22 +1767,22 @@ func simple_catalog_Column_Type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Column_IsPseudoColumn(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Column_IsPseudoColumn(arg0, arg1)
 }
 
 func Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Column_IsWritableColumn(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Column_IsWritableColumn(arg0, arg1)
 }
 
@@ -1919,11 +1919,11 @@ func simple_catalog_Table_FindColumnByName(arg0 unsafe.Pointer, arg1 unsafe.Poin
 func Table_IsValueTable(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Table_IsValueTable(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Table_IsValueTable(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Table_IsValueTable(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Table_IsValueTable(arg0, arg1)
 }
 
@@ -1966,11 +1966,11 @@ func simple_catalog_Table_GetAnonymizationInfo(arg0 unsafe.Pointer, arg1 *unsafe
 func Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Table_SupportsAnonymization(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Table_SupportsAnonymization(arg0, arg1)
 }
 
@@ -2013,11 +2013,11 @@ func simple_catalog_SimpleTable_set_is_value_table(arg0 unsafe.Pointer, arg1 C.i
 func SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_SimpleTable_AllowAnonymousColumnName(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_SimpleTable_AllowAnonymousColumnName(arg0, arg1)
 }
 
@@ -2036,11 +2036,11 @@ func simple_catalog_SimpleTable_set_allow_anonymous_column_name(arg0 unsafe.Poin
 func SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_SimpleTable_AllowDuplicateColumnNames(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_SimpleTable_AllowDuplicateColumnNames(arg0, arg1)
 }
 
@@ -2614,11 +2614,11 @@ func SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func simple_catalog_SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func simple_catalog_SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddTypeIfNotPresent(arg0, arg1, arg2, arg3)
 }
 
@@ -2972,22 +2972,22 @@ func simple_catalog_Function_Group(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_IsZetaSQLBuiltin(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_IsZetaSQLBuiltin(arg0, arg1)
 }
 
 func Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_ArgumentsAreCoercible(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_ArgumentsAreCoercible(arg0, arg1)
 }
 
@@ -3049,33 +3049,33 @@ func simple_catalog_Function_mode(arg0 unsafe.Pointer, arg1 *C.int) {
 func Function_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_IsScalar(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_IsScalar(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_IsScalar(arg0, arg1)
 }
 
 func Function_IsAggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_IsAggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_IsAggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_IsAggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_IsAggregate(arg0, arg1)
 }
 
 func Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_IsAnalytic(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_IsAnalytic(arg0, arg1)
 }
 
@@ -3107,132 +3107,132 @@ func simple_catalog_Function_GetSQL(arg0 unsafe.Pointer, arg1 unsafe.Pointer, ar
 func Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsOverClause(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsOverClause(arg0, arg1)
 }
 
 func Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsWindowOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsWindowOrdering(arg0, arg1)
 }
 
 func Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_RequiresWindowOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_RequiresWindowOrdering(arg0, arg1)
 }
 
 func Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsWindowFraming(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsWindowFraming(arg0, arg1)
 }
 
 func Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsOrderingArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsOrderingArguments(arg0, arg1)
 }
 
 func Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsLimitArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsLimitArguments(arg0, arg1)
 }
 
 func Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsNullHandlingModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsNullHandlingModifier(arg0, arg1)
 }
 
 func Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsSafeErrorMode(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsSafeErrorMode(arg0, arg1)
 }
 
 func Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsHavingModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsHavingModifier(arg0, arg1)
 }
 
 func Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsDistinctModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsDistinctModifier(arg0, arg1)
 }
 
 func Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_SupportsClampedBetweenModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_SupportsClampedBetweenModifier(arg0, arg1)
 }
 
 func Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_Function_IsDeprecated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_Function_IsDeprecated(arg0, arg1)
 }
 
@@ -3262,33 +3262,33 @@ func simple_catalog_FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Po
 func FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_required(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_required(arg0, arg1)
 }
 
 func FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_repeated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_repeated(arg0, arg1)
 }
 
 func FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_optional(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_optional(arg0, arg1)
 }
 
@@ -3306,22 +3306,22 @@ func simple_catalog_FunctionArgumentType_cardinality(arg0 unsafe.Pointer, arg1 *
 func FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_must_be_constant(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_must_be_constant(arg0, arg1)
 }
 
 func FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_has_argument_name(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_has_argument_name(arg0, arg1)
 }
 
@@ -3404,110 +3404,110 @@ func simple_catalog_FunctionArgumentType_labmda(arg0 unsafe.Pointer, arg1 *unsaf
 func FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsConcrete(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsConcrete(arg0, arg1)
 }
 
 func FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsTemplated(arg0, arg1)
 }
 
 func FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsScalar(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsScalar(arg0, arg1)
 }
 
 func FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsRelation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsRelation(arg0, arg1)
 }
 
 func FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsModel(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsModel(arg0, arg1)
 }
 
 func FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsConnection(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsConnection(arg0, arg1)
 }
 
 func FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsLambda(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsLambda(arg0, arg1)
 }
 
 func FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsFixedRelation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsFixedRelation(arg0, arg1)
 }
 
 func FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsVoid(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsVoid(arg0, arg1)
 }
 
 func FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_IsDescriptor(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_IsDescriptor(arg0, arg1)
 }
 
@@ -3515,11 +3515,11 @@ func FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 int, 
 	simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_TemplatedKindIsRelated(arg0, arg1, arg2)
 }
 
@@ -3527,22 +3527,22 @@ func FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Poi
 	simple_catalog_FunctionArgumentType_AllowCoercionFrom(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func simple_catalog_FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_AllowCoercionFrom(arg0, arg1, arg2)
 }
 
 func FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionArgumentType_HasDefault(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionArgumentType_HasDefault(arg0, arg1)
 }
 
@@ -3687,22 +3687,22 @@ func simple_catalog_FunctionSignature_result_type(arg0 unsafe.Pointer, arg1 *uns
 func FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_IsConcrete(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_IsConcrete(arg0, arg1)
 }
 
 func FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_HasConcreteArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_HasConcreteArguments(arg0, arg1)
 }
 
@@ -3835,11 +3835,11 @@ func simple_catalog_FunctionSignature_GetSQLDeclaration(arg0 unsafe.Pointer, arg
 func FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_IsDeprecated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_IsDeprecated(arg0, arg1)
 }
 
@@ -3857,11 +3857,11 @@ func simple_catalog_FunctionSignature_SetIsDeprecated(arg0 unsafe.Pointer, arg1 
 func FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_IsInternal(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_IsInternal(arg0, arg1)
 }
 
@@ -3890,22 +3890,22 @@ func simple_catalog_FunctionSignature_SetConcreteResultType(arg0 unsafe.Pointer,
 func FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_IsTemplated(arg0, arg1)
 }
 
 func FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *bool) {
 	simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.int) {
+func simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_public_simple_catalog_FunctionSignature_AllArgumentsHaveDefaults(arg0, arg1)
 }
 
@@ -4115,7 +4115,7 @@ func simple_catalog_TableValuedFunction_anonymization_info(arg0 unsafe.Pointer, 
 
 //export export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
-func export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_cctz_FixedOffsetToName
 //go:linkname export_zetasql_public_simple_catalog_cctz_FixedOffsetToName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetToName
@@ -4131,7 +4131,7 @@ func export_zetasql_public_simple_catalog_cctz_detail_format(arg0 unsafe.Pointer
 
 //export export_zetasql_public_simple_catalog_cctz_detail_parse
 //go:linkname export_zetasql_public_simple_catalog_cctz_detail_parse github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_detail_parse
-func export_zetasql_public_simple_catalog_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int)
+func export_zetasql_public_simple_catalog_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char)
 
 //export export_zetasql_public_simple_catalog_TimeZoneIf_Load
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneIf_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneIf_Load
@@ -4143,7 +4143,7 @@ func export_zetasql_public_simple_catalog_time_zone_Impl_UTC(arg0 *unsafe.Pointe
 
 //export export_zetasql_public_simple_catalog_time_zone_Impl_LoadTimeZone
 //go:linkname export_zetasql_public_simple_catalog_time_zone_Impl_LoadTimeZone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_LoadTimeZone
-func export_zetasql_public_simple_catalog_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_time_zone_Impl_ClearTimeZoneMapTestOnly
 //go:linkname export_zetasql_public_simple_catalog_time_zone_Impl_ClearTimeZoneMapTestOnly github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_ClearTimeZoneMapTestOnly
@@ -4155,7 +4155,7 @@ func export_zetasql_public_simple_catalog_time_zone_Impl_UTCImpl(arg0 *unsafe.Po
 
 //export export_zetasql_public_simple_catalog_TimeZoneInfo_Load
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneInfo_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_Load
-func export_zetasql_public_simple_catalog_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_TimeZoneInfo_BreakTime
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneInfo_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_BreakTime
@@ -4175,11 +4175,11 @@ func export_zetasql_public_simple_catalog_TimeZoneInfo_Description(arg0 unsafe.P
 
 //export export_zetasql_public_simple_catalog_TimeZoneInfo_NextTransition
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneInfo_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_NextTransition
-func export_zetasql_public_simple_catalog_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_simple_catalog_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_simple_catalog_TimeZoneInfo_PrevTransition
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneInfo_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_PrevTransition
-func export_zetasql_public_simple_catalog_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_simple_catalog_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_simple_catalog_TimeZoneLibC_BreakTime
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneLibC_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_BreakTime
@@ -4195,11 +4195,11 @@ func export_zetasql_public_simple_catalog_TimeZoneLibC_Version(arg0 unsafe.Point
 
 //export export_zetasql_public_simple_catalog_TimeZoneLibC_NextTransition
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneLibC_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_NextTransition
-func export_zetasql_public_simple_catalog_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_simple_catalog_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_simple_catalog_TimeZoneLibC_PrevTransition
 //go:linkname export_zetasql_public_simple_catalog_TimeZoneLibC_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_PrevTransition
-func export_zetasql_public_simple_catalog_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_public_simple_catalog_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_public_simple_catalog_time_zone_name
 //go:linkname export_zetasql_public_simple_catalog_time_zone_name github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_name
@@ -4215,11 +4215,11 @@ func export_zetasql_public_simple_catalog_time_zone_lookup2(arg0 unsafe.Pointer,
 
 //export export_zetasql_public_simple_catalog_time_zone_next_transition
 //go:linkname export_zetasql_public_simple_catalog_time_zone_next_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_next_transition
-func export_zetasql_public_simple_catalog_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_time_zone_prev_transition
 //go:linkname export_zetasql_public_simple_catalog_time_zone_prev_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_prev_transition
-func export_zetasql_public_simple_catalog_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_time_zone_version
 //go:linkname export_zetasql_public_simple_catalog_time_zone_version github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_version
@@ -4231,7 +4231,7 @@ func export_zetasql_public_simple_catalog_time_zone_description(arg0 unsafe.Poin
 
 //export export_zetasql_public_simple_catalog_cctz_load_time_zone
 //go:linkname export_zetasql_public_simple_catalog_cctz_load_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_load_time_zone
-func export_zetasql_public_simple_catalog_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_public_simple_catalog_cctz_utc_time_zone
 //go:linkname export_zetasql_public_simple_catalog_cctz_utc_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_utc_time_zone
@@ -4247,4 +4247,4 @@ func export_zetasql_public_simple_catalog_cctz_local_time_zone(arg0 *unsafe.Poin
 
 //export export_zetasql_public_simple_catalog_cctz_ParsePosixSpec
 //go:linkname export_zetasql_public_simple_catalog_cctz_ParsePosixSpec github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_ParsePosixSpec
-func export_zetasql_public_simple_catalog_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_public_simple_catalog_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)

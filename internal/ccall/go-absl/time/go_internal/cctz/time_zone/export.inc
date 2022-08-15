@@ -18,7 +18,7 @@ namespace absl {
     namespace cctz {
 
       bool FixedOffsetFromName(const std::string& name, seconds* offset) {
-        int v;
+        char v;
         GO_EXPORT(cctz_FixedOffsetFromName)((void *)name.c_str(), (void *)offset, &v);
         return (bool)v;
       }
@@ -51,7 +51,7 @@ namespace absl {
         }
 
         bool parse(const std::string& format, const std::string& input, const time_zone& tz, time_point<seconds>* sec, detail::femtoseconds* fs, std::string* err) {
-          int v;
+          char v;
           GO_EXPORT(cctz_detail_parse)((void *)format.c_str(), (void *)input.c_str(), (void *)&tz, (void *)sec, (void *)fs, (void *)err, &v);
           return (bool)v;
         }
@@ -90,7 +90,7 @@ namespace absl {
       }
 
       bool time_zone::Impl::LoadTimeZone(const std::string& name, time_zone* tz) {
-        int v;
+        char v;
         GO_EXPORT(time_zone_Impl_LoadTimeZone)((void *)name.c_str(), (void *)tz, &v);
         return (bool)v;
       }
@@ -117,7 +117,7 @@ namespace absl {
     namespace cctz {
 
       bool TimeZoneInfo::Load(const std::string& name) {
-        int v;
+        char v;
         GO_EXPORT(TimeZoneInfo_Load)((void *)this, (void *)name.c_str(), &v);
         return (bool)v;
       }
@@ -147,13 +147,13 @@ namespace absl {
       }
 
       bool TimeZoneInfo::NextTransition(const time_point<seconds>& tp, time_zone::civil_transition* trans) const {
-        int v;
+        char v;
         GO_EXPORT(TimeZoneInfo_NextTransition)((void *)this, (void *)&tp, (void *)trans, &v);
         return (bool)v;
       }
 
       bool TimeZoneInfo::PrevTransition(const time_point<seconds>& tp, time_zone::civil_transition* trans) const {
-        int v;
+        char v;
         GO_EXPORT(TimeZoneInfo_PrevTransition)((void *)this, (void *)&tp, (void *)trans, &v);
         return (bool)v;
       }
@@ -182,13 +182,13 @@ namespace absl {
       }
 
       bool TimeZoneLibC::NextTransition(const time_point<seconds>& a0, time_zone::civil_transition* a1) const {
-        int v;
+        char v;
         GO_EXPORT(TimeZoneLibC_NextTransition)((void *)this, (void *)&a0, (void *)a1, &v);
         return (bool)v;
       }
 
       bool TimeZoneLibC::PrevTransition(const time_point<seconds>& a0, time_zone::civil_transition* a1) const {
-        int v;
+        char v;
         GO_EXPORT(TimeZoneLibC_PrevTransition)((void *)this, (void *)&a0, (void *)a1, &v);
         return (bool)v;
       }
@@ -229,13 +229,13 @@ namespace absl {
       }
 
       bool time_zone::next_transition(const time_point<seconds>& tp, civil_transition* trans) const {
-        int v;
+        char v;
         GO_EXPORT(time_zone_next_transition)((void *)&tp, (void *)trans, &v);
         return (bool)v;
       }
 
       bool time_zone::prev_transition(const time_point<seconds>& tp, civil_transition* trans) const {
-        int v;
+        char v;
         GO_EXPORT(time_zone_prev_transition)((void *)&tp, (void *)trans, &v);
         return (bool)v;
       }
@@ -257,7 +257,7 @@ namespace absl {
       }
 
       bool load_time_zone(const std::string& name, time_zone* tz) {
-        int v;
+        char v;
         GO_EXPORT(cctz_load_time_zone)((void *)name.c_str(), (void *)tz, &v);
         return (bool)v;
       }
@@ -289,7 +289,7 @@ namespace absl {
     namespace cctz {
 
       bool ParsePosixSpec(const std::string& spec, PosixTimeZone* res) {
-        int v;
+        char v;
         GO_EXPORT(cctz_ParsePosixSpec)((void *)spec.c_str(), (void *)res, &v);
         return (bool)v;
       }

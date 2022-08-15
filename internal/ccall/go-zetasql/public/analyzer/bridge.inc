@@ -905,7 +905,7 @@ void GO_EXPORT(LanguageOptions_new)(void ** arg0){
   *arg0 = (void *)(new zetasql::LanguageOptions());
 }
 
-void GO_EXPORT(LanguageOptions_SupportsStatementKind)(void * arg0,int arg1,int* arg2){
+void GO_EXPORT(LanguageOptions_SupportsStatementKind)(void * arg0,int arg1,char* arg2){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg2 = opt->SupportsStatementKind((zetasql::ResolvedNodeKind)arg1);
 }
@@ -931,7 +931,7 @@ void GO_EXPORT(LanguageOptions_AddSupportedStatementKind)(void * arg0,int arg1){
   opt->AddSupportedStatementKind((zetasql::ResolvedNodeKind)arg1);
 }
 
-void GO_EXPORT(LanguageOptions_LanguageFeatureEnabled)(void * arg0,int arg1,int* arg2){
+void GO_EXPORT(LanguageOptions_LanguageFeatureEnabled)(void * arg0,int arg1,char* arg2){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg2 = opt->LanguageFeatureEnabled((zetasql::LanguageFeature)arg1);
 }
@@ -1012,7 +1012,7 @@ void GO_EXPORT(LanguageOptions_product_mode)(void * arg0,int* arg1){
   *arg1 = opt->product_mode();
 }
 
-void GO_EXPORT(LanguageOptions_SupportsProtoTypes)(void * arg0,int* arg1){
+void GO_EXPORT(LanguageOptions_SupportsProtoTypes)(void * arg0,char* arg1){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg1 = opt->SupportsProtoTypes();
 }
@@ -1022,7 +1022,7 @@ void GO_EXPORT(LanguageOptions_set_error_on_deprecated_syntax)(void * arg0,int a
   opt->set_error_on_deprecated_syntax(arg1);
 }
 
-void GO_EXPORT(LanguageOptions_error_on_deprecated_syntax)(void * arg0,int* arg1){
+void GO_EXPORT(LanguageOptions_error_on_deprecated_syntax)(void * arg0,char* arg1){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg1 = opt->error_on_deprecated_syntax();
 }
@@ -1032,12 +1032,12 @@ void GO_EXPORT(LanguageOptions_SetSupportedGenericEntityTypes)(void * arg0,void 
   SET_LIST(opt->SetSupportedGenericEntityTypes, std::string, arg1);
 }
 
-void GO_EXPORT(LanguageOptions_GenericEntityTypeSupported)(void * arg0,void * arg1,int* arg2){
+void GO_EXPORT(LanguageOptions_GenericEntityTypeSupported)(void * arg0,void * arg1,char* arg2){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg2 = opt->GenericEntityTypeSupported((char *)arg1);
 }
 
-void GO_EXPORT(LanguageOptions_IsReservedKeyword)(void * arg0,void * arg1,int* arg2){
+void GO_EXPORT(LanguageOptions_IsReservedKeyword)(void * arg0,void * arg1,char* arg2){
   zetasql::LanguageOptions *opt = (zetasql::LanguageOptions *)arg0;
   *arg2 = opt->IsReservedKeyword((char *)arg1);
 }
@@ -1151,7 +1151,7 @@ void GO_EXPORT(AnalyzerOptions_expression_columns)(void * arg0,void ** arg1){
   *arg1 = (void *)slice;
 }
 
-void GO_EXPORT(AnalyzerOptions_has_in_scope_expression_column)(void * arg0,int* arg1){
+void GO_EXPORT(AnalyzerOptions_has_in_scope_expression_column)(void * arg0,char* arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = opt->has_in_scope_expression_column();
 }
@@ -1201,7 +1201,7 @@ void GO_EXPORT(AnalyzerOptions_set_create_new_column_for_each_projected_output)(
   opt->set_create_new_column_for_each_projected_output(arg1);
 }
 
-void GO_EXPORT(AnalyzerOptions_create_new_column_for_each_projected_output)(void * arg0,int* arg1){
+void GO_EXPORT(AnalyzerOptions_create_new_column_for_each_projected_output)(void * arg0,char* arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = opt->create_new_column_for_each_projected_output();
 }
@@ -1211,7 +1211,7 @@ void GO_EXPORT(AnalyzerOptions_set_allow_undeclared_parameters)(void * arg0,int 
   opt->set_allow_undeclared_parameters(arg1);
 }
 
-void GO_EXPORT(AnalyzerOptions_allow_undeclared_parameters)(void * arg0,int* arg1){
+void GO_EXPORT(AnalyzerOptions_allow_undeclared_parameters)(void * arg0,char* arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = opt->allow_undeclared_parameters();
 }
@@ -1231,7 +1231,7 @@ void GO_EXPORT(AnalyzerOptions_set_prune_unused_columns)(void * arg0,int arg1){
   opt->set_prune_unused_columns(arg1);
 }
 
-void GO_EXPORT(AnalyzerOptions_prune_unused_columns)(void * arg0,int* arg1){
+void GO_EXPORT(AnalyzerOptions_prune_unused_columns)(void * arg0,char* arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = opt->prune_unused_columns();
 }
@@ -1241,7 +1241,7 @@ void GO_EXPORT(AnalyzerOptions_set_preserve_column_aliases)(void * arg0,int arg1
   opt->set_preserve_column_aliases(arg1);
 }
 
-void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,int* arg1){
+void GO_EXPORT(AnalyzerOptions_preserve_column_aliases)(void * arg0,char* arg1){
   zetasql::AnalyzerOptions *opt = (zetasql::AnalyzerOptions *)arg0;
   *arg1 = opt->preserve_column_aliases();
 }
@@ -1271,7 +1271,7 @@ void GO_EXPORT(AnalyzeStatement)(void * arg0,void * arg1,void * arg2,void ** arg
   *arg4 = (void *)(new absl::Status(ret));
 }
 
-void GO_EXPORT(AnalyzeNextStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,int* arg4,void ** arg5)
+void GO_EXPORT(AnalyzeNextStatement)(void * arg0,void * arg1,void * arg2,void ** arg3,char* arg4,void ** arg5)
 {
   auto typeFactory = new zetasql::TypeFactory(); // FIXME: typeFactory will be leaked.
   zetasql::ParseResumeLocation *loc = (zetasql::ParseResumeLocation *)arg0;
@@ -1324,19 +1324,19 @@ void GO_EXPORT(ResolvedNode_node_kind)(void * arg0,int* arg1)
   *arg1 = node->node_kind();
 }
 
-void GO_EXPORT(ResolvedNode_IsScan)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedNode_IsScan)(void * arg0,char* arg1)
 {
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
   *arg1 = node->IsScan();
 }
 
-void GO_EXPORT(ResolvedNode_IsExpression)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedNode_IsExpression)(void * arg0,char* arg1)
 {
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
   *arg1 = node->IsExpression();
 }
 
-void GO_EXPORT(ResolvedNode_IsStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedNode_IsStatement)(void * arg0,char* arg1)
 {
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
   *arg1 = node->IsStatement();
@@ -1406,7 +1406,7 @@ void GO_EXPORT(ResolvedLiteral_set_value)(void * arg0,void * arg1)
   node->set_value(*(zetasql::Value *)arg1);
 }
 
-void GO_EXPORT(ResolvedLiteral_has_explicit_type)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedLiteral_has_explicit_type)(void * arg0,char* arg1)
 {
   zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
   *arg1 = node->has_explicit_type();
@@ -1430,7 +1430,7 @@ void GO_EXPORT(ResolvedLiteral_set_float_literal_id)(void * arg0,int arg1)
   node->set_float_literal_id(arg1);
 }
 
-void GO_EXPORT(ResolvedLiteral_preserve_in_literal_remover)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedLiteral_preserve_in_literal_remover)(void * arg0,char* arg1)
 {
   zetasql::ResolvedLiteral *node = (zetasql::ResolvedLiteral *)arg0;
   *arg1 = node->preserve_in_literal_remover();
@@ -1466,7 +1466,7 @@ void GO_EXPORT(ResolvedParameter_set_position)(void * arg0,int arg1)
   node->set_position(arg1);
 }
 
-void GO_EXPORT(ResolvedParameter_is_untyped)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedParameter_is_untyped)(void * arg0,char* arg1)
 {
   zetasql::ResolvedParameter *node = (zetasql::ResolvedParameter *)arg0;
   *arg1 = node->is_untyped();
@@ -1502,7 +1502,7 @@ void GO_EXPORT(ResolvedColumnRef_set_column)(void * arg0,void * arg1)
   node->set_column(*(zetasql::ResolvedColumn *)arg1);
 }
 
-void GO_EXPORT(ResolvedColumnRef_is_correlated)(void * arg0,int* arg1)
+void GO_EXPORT(ResolvedColumnRef_is_correlated)(void * arg0,char* arg1)
 {
   zetasql::ResolvedColumnRef *node = (zetasql::ResolvedColumnRef *)arg0;
   *arg1 = node->is_correlated();
@@ -1592,7 +1592,7 @@ void GO_EXPORT(ResolvedInlineLambda_set_body)(void * arg0,void * arg1)
   node->set_body(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedFilterFieldArg_include)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedFilterFieldArg_include)(void * arg0,char* arg1){
   zetasql::ResolvedFilterFieldArg *node = (zetasql::ResolvedFilterFieldArg *)arg0;
   *arg1 = node->include();
 }
@@ -1627,7 +1627,7 @@ void GO_EXPORT(ResolvedFilterField_add_filter_field_arg_list)(void * arg0,void *
   ADD_UNIQUE_PTR_LIST(node->add_filter_field_arg_list, ResolvedFilterFieldArg, arg1);
 }
 
-void GO_EXPORT(ResolvedFilterField_reset_cleared_required_fields)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedFilterField_reset_cleared_required_fields)(void * arg0,char* arg1){
   zetasql::ResolvedFilterField *node = (zetasql::ResolvedFilterField *)arg0;
   *arg1 = node->reset_cleared_required_fields();
 }
@@ -1739,7 +1739,7 @@ void GO_EXPORT(ResolvedFunctionCall_set_function_call_info)(void * arg0,void * a
   node->set_function_call_info(p);
 }
 
-void GO_EXPORT(ResolvedNonScalarFunctionCallBase_distinct)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedNonScalarFunctionCallBase_distinct)(void * arg0,char* arg1){
   zetasql::ResolvedNonScalarFunctionCallBase *node = (zetasql::ResolvedNonScalarFunctionCallBase *)arg0;
   *arg1 = node->distinct();
 }
@@ -1896,7 +1896,7 @@ void GO_EXPORT(ResolvedCast_set_expr)(void * arg0,void * arg1){
   node->set_expr(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedCast_return_null_on_error)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCast_return_null_on_error)(void * arg0,char* arg1){
   zetasql::ResolvedCast *node = (zetasql::ResolvedCast *)arg0;
   *arg1 = node->return_null_on_error();
 }
@@ -2036,7 +2036,7 @@ void GO_EXPORT(ResolvedGetProtoField_set_default_value)(void * arg0,void * arg1)
   node->set_default_value(*(zetasql::Value *)arg1);
 }
 
-void GO_EXPORT(ResolvedGetProtoField_get_has_bit)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedGetProtoField_get_has_bit)(void * arg0,char* arg1){
   zetasql::ResolvedGetProtoField *node = (zetasql::ResolvedGetProtoField *)arg0;
   *arg1 = node->get_has_bit();
 }
@@ -2056,7 +2056,7 @@ void GO_EXPORT(ResolvedGetProtoField_set_format)(void * arg0,int arg1){
   node->set_format((zetasql::FieldFormat::Format)arg1);
 }
 
-void GO_EXPORT(ResolvedGetProtoField_return_default_value_when_unset)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedGetProtoField_return_default_value_when_unset)(void * arg0,char* arg1){
   zetasql::ResolvedGetProtoField *node = (zetasql::ResolvedGetProtoField *)arg0;
   *arg1 = node->return_default_value_when_unset();
 }
@@ -2286,7 +2286,7 @@ void GO_EXPORT(ResolvedScan_add_hint_list)(void * arg0,void * arg1){
   ADD_UNIQUE_PTR_LIST(node->add_hint_list, ResolvedOption, arg1);
 }
 
-void GO_EXPORT(ResolvedScan_is_ordered)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedScan_is_ordered)(void * arg0,char* arg1){
   zetasql::ResolvedScan *node = (zetasql::ResolvedScan *)arg0;
   *arg1 = node->is_ordered();
 }
@@ -2481,7 +2481,7 @@ void GO_EXPORT(ResolvedArrayScan_set_join_expr)(void * arg0,void * arg1){
   node->set_join_expr(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedArrayScan_is_outer)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedArrayScan_is_outer)(void * arg0,char* arg1){
   zetasql::ResolvedArrayScan *node = (zetasql::ResolvedArrayScan *)arg0;
   *arg1 = node->is_outer();
 }
@@ -2901,7 +2901,7 @@ void GO_EXPORT(ResolvedOrderByItem_set_collation_name)(void * arg0,void * arg1){
   node->set_collation_name(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedOrderByItem_is_descending)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedOrderByItem_is_descending)(void * arg0,char* arg1){
   zetasql::ResolvedOrderByItem *node = (zetasql::ResolvedOrderByItem *)arg0;
   *arg1 = node->is_descending();
 }
@@ -2941,7 +2941,7 @@ void GO_EXPORT(ResolvedColumnAnnotations_set_collation_name)(void * arg0,void * 
   node->set_collation_name(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedColumnAnnotations_not_null)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedColumnAnnotations_not_null)(void * arg0,char* arg1){
   zetasql::ResolvedColumnAnnotations *node = (zetasql::ResolvedColumnAnnotations *)arg0;
   *arg1 = node->not_null();
 }
@@ -3061,7 +3061,7 @@ void GO_EXPORT(ResolvedColumnDefinition_set_annotations)(void * arg0,void * arg1
   SET_UNIQUE_PTR(node->set_annotations, ResolvedColumnAnnotations, arg1);
 }
 
-void GO_EXPORT(ResolvedColumnDefinition_is_hidden)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedColumnDefinition_is_hidden)(void * arg0,char* arg1){
   zetasql::ResolvedColumnDefinition *node = (zetasql::ResolvedColumnDefinition *)arg0;
   *arg1 = node->is_hidden();
 }
@@ -3131,7 +3131,7 @@ void GO_EXPORT(ResolvedPrimaryKey_add_option_list)(void * arg0,void * arg1){
   ADD_UNIQUE_PTR_LIST(node->add_option_list, ResolvedOption, arg1);
 }
 
-void GO_EXPORT(ResolvedPrimaryKey_unenforced)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedPrimaryKey_unenforced)(void * arg0,char* arg1){
   zetasql::ResolvedPrimaryKey *node = (zetasql::ResolvedPrimaryKey *)arg0;
   *arg1 = node->unenforced();
 }
@@ -3246,7 +3246,7 @@ void GO_EXPORT(ResolvedForeignKey_set_delete_action)(void * arg0,int arg1){
   node->set_delete_action((zetasql::ResolvedForeignKey::ActionOperation)arg1);
 }
 
-void GO_EXPORT(ResolvedForeignKey_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedForeignKey_enforced)(void * arg0,char* arg1){
   zetasql::ResolvedForeignKey *node = (zetasql::ResolvedForeignKey *)arg0;
   *arg1 = node->enforced();
 }
@@ -3306,7 +3306,7 @@ void GO_EXPORT(ResolvedCheckConstraint_set_expression)(void * arg0,void * arg1){
   node->set_expression(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedCheckConstraint_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCheckConstraint_enforced)(void * arg0,char* arg1){
   zetasql::ResolvedCheckConstraint *node = (zetasql::ResolvedCheckConstraint *)arg0;
   *arg1 = node->enforced();
 }
@@ -3594,7 +3594,7 @@ void GO_EXPORT(ResolvedQueryStmt_add_output_column_list)(void * arg0,void * arg1
   ADD_UNIQUE_PTR_LIST(node->add_output_column_list, ResolvedOutputColumn, arg1);
 }
 
-void GO_EXPORT(ResolvedQueryStmt_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedQueryStmt_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedQueryStmt *node = (zetasql::ResolvedQueryStmt *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -3689,7 +3689,7 @@ void GO_EXPORT(ResolvedIndexItem_set_column_ref)(void * arg0,void * arg1){
   SET_UNIQUE_PTR(node->set_column_ref, ResolvedColumnRef, arg1);
 }
 
-void GO_EXPORT(ResolvedIndexItem_descending)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedIndexItem_descending)(void * arg0,char* arg1){
   zetasql::ResolvedIndexItem *node = (zetasql::ResolvedIndexItem *)arg0;
   *arg1 = node->descending();
 }
@@ -3754,7 +3754,7 @@ void GO_EXPORT(ResolvedCreateIndexStmt_set_table_scan)(void * arg0,void * arg1){
   SET_UNIQUE_PTR(node->set_table_scan, ResolvedTableScan, arg1);
 }
 
-void GO_EXPORT(ResolvedCreateIndexStmt_is_unique)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateIndexStmt_is_unique)(void * arg0,char* arg1){
   zetasql::ResolvedCreateIndexStmt *node = (zetasql::ResolvedCreateIndexStmt *)arg0;
   *arg1 = node->is_unique();
 }
@@ -3764,7 +3764,7 @@ void GO_EXPORT(ResolvedCreateIndexStmt_set_is_unique)(void * arg0,int arg1){
   node->set_is_unique(arg1);
 }
 
-void GO_EXPORT(ResolvedCreateIndexStmt_is_search)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateIndexStmt_is_search)(void * arg0,char* arg1){
   zetasql::ResolvedCreateIndexStmt *node = (zetasql::ResolvedCreateIndexStmt *)arg0;
   *arg1 = node->is_search();
 }
@@ -3774,7 +3774,7 @@ void GO_EXPORT(ResolvedCreateIndexStmt_set_is_search)(void * arg0,int arg1){
   node->set_is_search(arg1);
 }
 
-void GO_EXPORT(ResolvedCreateIndexStmt_index_all_columns)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateIndexStmt_index_all_columns)(void * arg0,char* arg1){
   zetasql::ResolvedCreateIndexStmt *node = (zetasql::ResolvedCreateIndexStmt *)arg0;
   *arg1 = node->index_all_columns();
 }
@@ -3969,7 +3969,7 @@ void GO_EXPORT(ResolvedCreateTableStmtBase_add_check_constraint_list)(void * arg
   ADD_UNIQUE_PTR_LIST(node->add_check_constraint_list, ResolvedCheckConstraint, arg1);
 }
 
-void GO_EXPORT(ResolvedCreateTableStmtBase_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateTableStmtBase_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedCreateTableStmtBase *node = (zetasql::ResolvedCreateTableStmtBase *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -4234,7 +4234,7 @@ void GO_EXPORT(ResolvedCreateViewBase_add_output_column_list)(void * arg0,void *
   ADD_UNIQUE_PTR_LIST(node->add_output_column_list, ResolvedOutputColumn, arg1);
 }
 
-void GO_EXPORT(ResolvedCreateViewBase_has_explicit_columns)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateViewBase_has_explicit_columns)(void * arg0,char* arg1){
   zetasql::ResolvedCreateViewBase *node = (zetasql::ResolvedCreateViewBase *)arg0;
   *arg1 = node->has_explicit_columns();
 }
@@ -4274,7 +4274,7 @@ void GO_EXPORT(ResolvedCreateViewBase_set_sql_security)(void * arg0,int arg1){
   node->set_sql_security((zetasql::ResolvedCreateViewBase::SqlSecurity)arg1);
 }
 
-void GO_EXPORT(ResolvedCreateViewBase_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateViewBase_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedCreateViewBase *node = (zetasql::ResolvedCreateViewBase *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -4284,7 +4284,7 @@ void GO_EXPORT(ResolvedCreateViewBase_set_is_value_table)(void * arg0,int arg1){
   node->set_is_value_table(arg1);
 }
 
-void GO_EXPORT(ResolvedCreateViewBase_recursive)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateViewBase_recursive)(void * arg0,char* arg1){
   zetasql::ResolvedCreateViewBase *node = (zetasql::ResolvedCreateViewBase *)arg0;
   *arg1 = node->recursive();
 }
@@ -4434,7 +4434,7 @@ void GO_EXPORT(ResolvedExportDataStmt_add_output_column_list)(void * arg0,void *
   ADD_UNIQUE_PTR_LIST(node->add_output_column_list, ResolvedOutputColumn, arg1);
 }
 
-void GO_EXPORT(ResolvedExportDataStmt_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedExportDataStmt_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedExportDataStmt *node = (zetasql::ResolvedExportDataStmt *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -4629,7 +4629,7 @@ void GO_EXPORT(ResolvedDropStmt_set_object_type)(void * arg0,void * arg1){
   node->set_object_type((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropStmt *node = (zetasql::ResolvedDropStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4664,7 +4664,7 @@ void GO_EXPORT(ResolvedDropStmt_set_drop_mode)(void * arg0,int arg1){
   node->set_drop_mode((zetasql::ResolvedDropStmt::DropMode)arg1);
 }
 
-void GO_EXPORT(ResolvedDropMaterializedViewStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropMaterializedViewStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropMaterializedViewStmt *node = (zetasql::ResolvedDropMaterializedViewStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4689,7 +4689,7 @@ void GO_EXPORT(ResolvedDropMaterializedViewStmt_add_name_path)(void * arg0,void 
   node->add_name_path((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropSnapshotTableStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropSnapshotTableStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropSnapshotTableStmt *node = (zetasql::ResolvedDropSnapshotTableStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4769,7 +4769,7 @@ void GO_EXPORT(ResolvedWithScan_set_query)(void * arg0,void * arg1){
   node->set_query(make_unique_scan(arg1));
 }
 
-void GO_EXPORT(ResolvedWithScan_recursive)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedWithScan_recursive)(void * arg0,char* arg1){
   zetasql::ResolvedWithScan *node = (zetasql::ResolvedWithScan *)arg0;
   *arg1 = node->recursive();
 }
@@ -5679,7 +5679,7 @@ void GO_EXPORT(ResolvedAlterObjectStmt_add_alter_action_list)(void * arg0,void *
   ADD_UNIQUE_PTR_ACTION_LIST(node->add_alter_action_list, arg1);
 }
 
-void GO_EXPORT(ResolvedAlterObjectStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAlterObjectStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAlterObjectStmt *node = (zetasql::ResolvedAlterObjectStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5689,7 +5689,7 @@ void GO_EXPORT(ResolvedAlterObjectStmt_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ResolvedAlterColumnAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAlterColumnAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAlterColumnAction *node = (zetasql::ResolvedAlterColumnAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5724,7 +5724,7 @@ void GO_EXPORT(ResolvedSetOptionsAction_add_option_list)(void * arg0,void * arg1
   ADD_UNIQUE_PTR_LIST(node->add_option_list, ResolvedOption, arg1);
 }
 
-void GO_EXPORT(ResolvedAddColumnAction_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAddColumnAction_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAddColumnAction *node = (zetasql::ResolvedAddColumnAction *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -5744,7 +5744,7 @@ void GO_EXPORT(ResolvedAddColumnAction_set_column_definition)(void * arg0,void *
   SET_UNIQUE_PTR(node->set_column_definition, ResolvedColumnDefinition, arg1);
 }
 
-void GO_EXPORT(ResolvedAddConstraintAction_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAddConstraintAction_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAddConstraintAction *node = (zetasql::ResolvedAddConstraintAction *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -5774,7 +5774,7 @@ void GO_EXPORT(ResolvedAddConstraintAction_set_table)(void * arg0,void * arg1){
   node->set_table((const zetasql::Table *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropConstraintAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropConstraintAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropConstraintAction *node = (zetasql::ResolvedDropConstraintAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5794,7 +5794,7 @@ void GO_EXPORT(ResolvedDropConstraintAction_set_name)(void * arg0,void * arg1){
   node->set_name((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropPrimaryKeyAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropPrimaryKeyAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropPrimaryKeyAction *node = (zetasql::ResolvedDropPrimaryKeyAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5859,7 +5859,7 @@ void GO_EXPORT(ResolvedAlterColumnSetDefaultAction_set_default_value)(void * arg
   SET_UNIQUE_PTR(node->set_default_value, ResolvedColumnDefaultValue, arg1);
 }
 
-void GO_EXPORT(ResolvedDropColumnAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropColumnAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropColumnAction *node = (zetasql::ResolvedDropColumnAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5879,7 +5879,7 @@ void GO_EXPORT(ResolvedDropColumnAction_set_name)(void * arg0,void * arg1){
   node->set_name((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedRenameColumnAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedRenameColumnAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedRenameColumnAction *node = (zetasql::ResolvedRenameColumnAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -5969,7 +5969,7 @@ void GO_EXPORT(ResolvedAlterTableSetOptionsStmt_add_option_list)(void * arg0,voi
   ADD_UNIQUE_PTR_LIST(node->add_option_list, ResolvedOption, arg1);
 }
 
-void GO_EXPORT(ResolvedAlterTableSetOptionsStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAlterTableSetOptionsStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAlterTableSetOptionsStmt *node = (zetasql::ResolvedAlterTableSetOptionsStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6164,7 +6164,7 @@ void GO_EXPORT(ResolvedDropPrivilegeRestrictionStmt_set_object_type)(void * arg0
   node->set_object_type((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropPrivilegeRestrictionStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropPrivilegeRestrictionStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropPrivilegeRestrictionStmt *node = (zetasql::ResolvedDropPrivilegeRestrictionStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6204,7 +6204,7 @@ void GO_EXPORT(ResolvedDropPrivilegeRestrictionStmt_add_column_privilege_list)(v
   ADD_UNIQUE_PTR_LIST(node->add_column_privilege_list, ResolvedPrivilege, arg1);
 }
 
-void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_is_drop_all)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_is_drop_all)(void * arg0,char* arg1){
   zetasql::ResolvedDropRowAccessPolicyStmt *node = (zetasql::ResolvedDropRowAccessPolicyStmt *)arg0;
   *arg1 = node->is_drop_all();
 }
@@ -6214,7 +6214,7 @@ void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_set_is_drop_all)(void * arg0,int 
   node->set_is_drop_all(arg1);
 }
 
-void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropRowAccessPolicyStmt *node = (zetasql::ResolvedDropRowAccessPolicyStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6249,7 +6249,7 @@ void GO_EXPORT(ResolvedDropRowAccessPolicyStmt_add_target_name_path)(void * arg0
   node->add_target_name_path((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropSearchIndexStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropSearchIndexStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropSearchIndexStmt *node = (zetasql::ResolvedDropSearchIndexStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6314,7 +6314,7 @@ void GO_EXPORT(ResolvedRestrictToAction_add_restrictee_list)(void * arg0,void * 
   ADD_UNIQUE_PTR_EXPR_LIST(node->add_restrictee_list, arg1);
 }
 
-void GO_EXPORT(ResolvedAddToRestricteeListAction_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedAddToRestricteeListAction_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ResolvedAddToRestricteeListAction *node = (zetasql::ResolvedAddToRestricteeListAction *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -6339,7 +6339,7 @@ void GO_EXPORT(ResolvedAddToRestricteeListAction_add_restrictee_list)(void * arg
   ADD_UNIQUE_PTR_EXPR_LIST(node->add_restrictee_list, arg1);
 }
 
-void GO_EXPORT(ResolvedRemoveFromRestricteeListAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedRemoveFromRestricteeListAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedRemoveFromRestricteeListAction *node = (zetasql::ResolvedRemoveFromRestricteeListAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6399,7 +6399,7 @@ void GO_EXPORT(ResolvedRevokeFromAction_add_revokee_expr_list)(void * arg0,void 
   ADD_UNIQUE_PTR_EXPR_LIST(node->add_revokee_expr_list, arg1);
 }
 
-void GO_EXPORT(ResolvedRevokeFromAction_is_revoke_from_all)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedRevokeFromAction_is_revoke_from_all)(void * arg0,char* arg1){
   zetasql::ResolvedRevokeFromAction *node = (zetasql::ResolvedRevokeFromAction *)arg0;
   *arg1 = node->is_revoke_from_all();
 }
@@ -6489,7 +6489,7 @@ void GO_EXPORT(ResolvedCreateConstantStmt_set_expr)(void * arg0,void * arg1){
   node->set_expr(make_unique_expr(arg1));
 }
 
-void GO_EXPORT(ResolvedCreateFunctionStmt_has_explicit_return_type)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateFunctionStmt_has_explicit_return_type)(void * arg0,char* arg1){
   zetasql::ResolvedCreateFunctionStmt *node = (zetasql::ResolvedCreateFunctionStmt *)arg0;
   *arg1 = node->has_explicit_return_type();
 }
@@ -6534,7 +6534,7 @@ void GO_EXPORT(ResolvedCreateFunctionStmt_set_signature)(void * arg0,void * arg1
   node->set_signature(*(zetasql::FunctionSignature *)arg1);
 }
 
-void GO_EXPORT(ResolvedCreateFunctionStmt_is_aggregate)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateFunctionStmt_is_aggregate)(void * arg0,char* arg1){
   zetasql::ResolvedCreateFunctionStmt *node = (zetasql::ResolvedCreateFunctionStmt *)arg0;
   *arg1 = node->is_aggregate();
 }
@@ -6624,7 +6624,7 @@ void GO_EXPORT(ResolvedCreateFunctionStmt_set_determinism_level)(void * arg0,int
   node->set_determinism_level((zetasql::ResolvedCreateFunctionStmt::DeterminismLevel)arg1);
 }
 
-void GO_EXPORT(ResolvedCreateFunctionStmt_is_remote)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateFunctionStmt_is_remote)(void * arg0,char* arg1){
   zetasql::ResolvedCreateFunctionStmt *node = (zetasql::ResolvedCreateFunctionStmt *)arg0;
   *arg1 = node->is_remote();
 }
@@ -6746,7 +6746,7 @@ void GO_EXPORT(ResolvedCreateTableFunctionStmt_set_signature)(void * arg0,void *
   node->set_signature(*(zetasql::FunctionSignature *)arg1);
 }
 
-void GO_EXPORT(ResolvedCreateTableFunctionStmt_has_explicit_return_schema)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateTableFunctionStmt_has_explicit_return_schema)(void * arg0,char* arg1){
   zetasql::ResolvedCreateTableFunctionStmt *node = (zetasql::ResolvedCreateTableFunctionStmt *)arg0;
   *arg1 = node->has_explicit_return_schema();
 }
@@ -6816,7 +6816,7 @@ void GO_EXPORT(ResolvedCreateTableFunctionStmt_add_output_column_list)(void * ar
   ADD_UNIQUE_PTR_LIST(node->add_output_column_list, ResolvedOutputColumn, arg1);
 }
 
-void GO_EXPORT(ResolvedCreateTableFunctionStmt_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCreateTableFunctionStmt_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedCreateTableFunctionStmt *node = (zetasql::ResolvedCreateTableFunctionStmt *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -6846,7 +6846,7 @@ void GO_EXPORT(ResolvedRelationArgumentScan_set_name)(void * arg0,void * arg1){
   node->set_name((char *)arg1);
 }
 
-void GO_EXPORT(ResolvedRelationArgumentScan_is_value_table)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedRelationArgumentScan_is_value_table)(void * arg0,char* arg1){
   zetasql::ResolvedRelationArgumentScan *node = (zetasql::ResolvedRelationArgumentScan *)arg0;
   *arg1 = node->is_value_table();
 }
@@ -6881,7 +6881,7 @@ void GO_EXPORT(ResolvedFunctionSignatureHolder_set_signature)(void * arg0,void *
   node->set_signature(*(zetasql::FunctionSignature *)arg1);
 }
 
-void GO_EXPORT(ResolvedDropFunctionStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropFunctionStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropFunctionStmt *node = (zetasql::ResolvedDropFunctionStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -6926,7 +6926,7 @@ void GO_EXPORT(ResolvedDropFunctionStmt_set_signature)(void * arg0,void * arg1){
   node->set_signature(zetasql::MakeResolvedFunctionSignatureHolder(*(zetasql::FunctionSignature *)arg1));
 }
 
-void GO_EXPORT(ResolvedDropTableFunctionStmt_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedDropTableFunctionStmt_is_if_exists)(void * arg0,char* arg1){
   zetasql::ResolvedDropTableFunctionStmt *node = (zetasql::ResolvedDropTableFunctionStmt *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -7591,7 +7591,7 @@ void GO_EXPORT(ResolvedUnpivotScan_add_projected_input_column_list)(void * arg0,
   ADD_UNIQUE_PTR_LIST(node->add_projected_input_column_list, ResolvedComputedColumn, arg1);
 }
 
-void GO_EXPORT(ResolvedUnpivotScan_include_nulls)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedUnpivotScan_include_nulls)(void * arg0,char* arg1){
   zetasql::ResolvedUnpivotScan *node = (zetasql::ResolvedUnpivotScan *)arg0;
   *arg1 = node->include_nulls();
 }
@@ -7866,7 +7866,7 @@ void GO_EXPORT(ResolvedAuxLoadDataStmt_add_from_files_option_list)(void * arg0,v
   ADD_UNIQUE_PTR_LIST(node->add_from_files_option_list, ResolvedOption, arg1);
 }
 
-void GO_EXPORT(ResolvedColumn_IsInitialized)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedColumn_IsInitialized)(void * arg0,char* arg1){
   zetasql::ResolvedColumn *col = (zetasql::ResolvedColumn *)arg0;
   *arg1 = col->IsInitialized();
 }
@@ -7926,22 +7926,22 @@ void GO_EXPORT(ResolvedColumn_annotated_type)(void * arg0,void ** arg1){
   *arg1 = (void *)(new zetasql::AnnotatedType(col->annotated_type()));
 }
 
-void GO_EXPORT(ResolvedCollation_Empty)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCollation_Empty)(void * arg0,char* arg1){
   zetasql::ResolvedCollation *col = (zetasql::ResolvedCollation *)arg0;
   *arg1 = col->Empty();
 }
 
-void GO_EXPORT(ResolvedCollation_Equals)(void * arg0,void * arg1,int* arg2){
+void GO_EXPORT(ResolvedCollation_Equals)(void * arg0,void * arg1,char* arg2){
   zetasql::ResolvedCollation *col = (zetasql::ResolvedCollation *)arg0;
   *arg2 = col->Equals(*(zetasql::ResolvedCollation *)arg1);
 }
 
-void GO_EXPORT(ResolvedCollation_HasCompatibleStructure)(void * arg0,void * arg1,int* arg2){
+void GO_EXPORT(ResolvedCollation_HasCompatibleStructure)(void * arg0,void * arg1,char* arg2){
   zetasql::ResolvedCollation *col = (zetasql::ResolvedCollation *)arg0;
   *arg2 = col->HasCompatibleStructure((const zetasql::Type *)arg1);
 }
 
-void GO_EXPORT(ResolvedCollation_HasCollation)(void * arg0,int* arg1){
+void GO_EXPORT(ResolvedCollation_HasCollation)(void * arg0,char* arg1){
   zetasql::ResolvedCollation *col = (zetasql::ResolvedCollation *)arg0;
   *arg1 = col->HasCollation();
 }

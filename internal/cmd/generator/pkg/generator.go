@@ -896,12 +896,26 @@ func (g *Generator) toGoType(typ string) string {
 
 func (g *Generator) toCGOType(typ string) string {
 	switch typ {
-	case "int", "int8", "int16", "int32", "bool":
+	case "bool":
+		return "C.char"
+	case "int":
 		return "C.int"
-	case "uint", "uint8", "uint16", "uint32":
-		return "C.uint"
+	case "int8":
+		return "C.int8_t"
+	case "int16":
+		return "C.int16_t"
+	case "int32":
+		return "C.int32_t"
 	case "int64":
 		return "C.int64_t"
+	case "uint":
+		return "C.uint"
+	case "uint8":
+		return "C.uint8_t"
+	case "uint16":
+		return "C.uint16_t"
+	case "uint32":
+		return "C.uint32_t"
 	case "uint64":
 		return "C.uint64_t"
 	case "float32":
@@ -916,12 +930,26 @@ func (g *Generator) toCGOType(typ string) string {
 
 func (g *Generator) toCType(typ string) string {
 	switch typ {
-	case "int", "int8", "int16", "int32", "bool":
+	case "bool":
+		return "char"
+	case "int":
 		return "int"
-	case "uint", "uint8", "uint16", "uint32":
-		return "uint32_t"
+	case "int8":
+		return "int8_t"
+	case "int16":
+		return "int16_t"
+	case "int32":
+		return "int32_t"
 	case "int64":
 		return "int64_t"
+	case "uint":
+		return "uint"
+	case "uint8":
+		return "uint8_t"
+	case "uint16":
+		return "uint16_t"
+	case "uint32":
+		return "uint32_t"
 	case "uint64":
 		return "uint64_t"
 	case "float32":

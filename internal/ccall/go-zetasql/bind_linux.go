@@ -43,11 +43,11 @@ func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bo
 	zetasql_cctz_FixedOffsetFromName(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_cctz_FixedOffsetFromName(arg0, arg1, arg2)
 }
 
@@ -95,11 +95,11 @@ func cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Poi
 		arg3,
 		arg4,
 		arg5,
-		(*C.int)(unsafe.Pointer(arg6)),
+		(*C.char)(unsafe.Pointer(arg6)),
 	)
 }
 
-func zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int) {
+func zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char) {
 	C.export_zetasql_cctz_detail_parse(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
 }
 
@@ -128,11 +128,11 @@ func time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 	zetasql_time_zone_Impl_LoadTimeZone(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_time_zone_Impl_LoadTimeZone(arg0, arg1, arg2)
 }
 
@@ -158,11 +158,11 @@ func TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_TimeZoneInfo_Load(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_TimeZoneInfo_Load(arg0, arg1, arg2)
 }
 
@@ -217,11 +217,11 @@ func TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_TimeZoneInfo_NextTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -230,11 +230,11 @@ func TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_TimeZoneInfo_PrevTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -278,11 +278,11 @@ func TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_TimeZoneLibC_NextTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -291,11 +291,11 @@ func TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_TimeZoneLibC_PrevTransition(arg0, arg1, arg2, arg3)
 }
 
@@ -337,11 +337,11 @@ func time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *b
 	zetasql_time_zone_next_transition(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_time_zone_next_transition(arg0, arg1, arg2)
 }
 
@@ -349,11 +349,11 @@ func time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *b
 	zetasql_time_zone_prev_transition(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_time_zone_prev_transition(arg0, arg1, arg2)
 }
 
@@ -383,11 +383,11 @@ func cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_cctz_load_time_zone(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_cctz_load_time_zone(arg0, arg1, arg2)
 }
 
@@ -426,11 +426,11 @@ func cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_cctz_ParsePosixSpec(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_cctz_ParsePosixSpec(arg0, arg1, arg2)
 }
 
@@ -466,12 +466,12 @@ func ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.P
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 		arg4,
 	)
 }
 
-func zetasql_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+func zetasql_ParseNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.char, arg4 *unsafe.Pointer) {
 	C.export_zetasql_ParseNextStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
@@ -480,12 +480,12 @@ func ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *un
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 		arg4,
 	)
 }
 
-func zetasql_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+func zetasql_ParseNextScriptStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.char, arg4 *unsafe.Pointer) {
 	C.export_zetasql_ParseNextScriptStatement(arg0, arg1, arg2, arg3, arg4)
 }
 
@@ -540,11 +540,11 @@ func zetasql_ParseResumeLocation_FromStringView(arg0 unsafe.Pointer, arg1 *unsaf
 func Status_OK(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Status_OK(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Status_OK(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Status_OK(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Status_OK(arg0, arg1)
 }
 
@@ -850,132 +850,132 @@ func zetasql_ASTNode_set_end_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) 
 func ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsTableExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsTableExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsTableExpression(arg0, arg1)
 }
 
 func ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsQueryExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsQueryExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsQueryExpression(arg0, arg1)
 }
 
 func ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsExpression(arg0, arg1)
 }
 
 func ASTNode_IsType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsType(arg0, arg1)
 }
 
 func ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsLeaf(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsLeaf(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsLeaf(arg0, arg1)
 }
 
 func ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsStatement(arg0, arg1)
 }
 
 func ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsScriptStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsScriptStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsScriptStatement(arg0, arg1)
 }
 
 func ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsLoopStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsLoopStatement(arg0, arg1)
 }
 
 func ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsSqlStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsSqlStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsSqlStatement(arg0, arg1)
 }
 
 func ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsDdlStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsDdlStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsDdlStatement(arg0, arg1)
 }
 
 func ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsCreateStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsCreateStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsCreateStatement(arg0, arg1)
 }
 
 func ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNode_IsAlterStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNode_IsAlterStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNode_IsAlterStatement(arg0, arg1)
 }
 
@@ -1114,11 +1114,11 @@ func zetasql_ASTQueryExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.in
 func ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTQueryExpression_parenthesized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTQueryExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTQueryExpression_parenthesized(arg0, arg1)
 }
 
@@ -1136,11 +1136,11 @@ func zetasql_ASTQuery_set_is_nested(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTQuery_is_nested(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTQuery_is_nested(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTQuery_is_nested(arg0, arg1)
 }
 
@@ -1158,11 +1158,11 @@ func zetasql_ASTQuery_set_is_pivot_input(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTQuery_is_pivot_input(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTQuery_is_pivot_input(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTQuery_is_pivot_input(arg0, arg1)
 }
 
@@ -1224,11 +1224,11 @@ func zetasql_ASTSelect_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTSelect_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTSelect_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTSelect_distinct(arg0, arg1)
 }
 
@@ -1401,22 +1401,22 @@ func zetasql_ASTExpression_set_parenthesized(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTExpression_parenthesized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTExpression_parenthesized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTExpression_parenthesized(arg0, arg1)
 }
 
 func ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTExpression_IsAllowedInComparison(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTExpression_IsAllowedInComparison(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTExpression_IsAllowedInComparison(arg0, arg1)
 }
 
@@ -1445,11 +1445,11 @@ func zetasql_ASTLeaf_set_image(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 func ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTIntLiteral_is_hex(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTIntLiteral_is_hex(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTIntLiteral_is_hex(arg0, arg1)
 }
 
@@ -1523,12 +1523,12 @@ func zetasql_ASTPathExpression_name(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsaf
 func ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 uint32, arg2 *unsafe.Pointer) {
 	zetasql_ASTPathExpression_ToIdentifierPathString(
 		arg0,
-		C.uint(arg1),
+		C.uint32_t(arg1),
 		arg2,
 	)
 }
 
-func zetasql_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint, arg2 *unsafe.Pointer) {
+func zetasql_ASTPathExpression_ToIdentifierPathString(arg0 unsafe.Pointer, arg1 C.uint32_t, arg2 *unsafe.Pointer) {
 	C.export_zetasql_ASTPathExpression_ToIdentifierPathString(arg0, arg1, arg2)
 }
 
@@ -1667,11 +1667,11 @@ func zetasql_ASTBooleanLiteral_set_value(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTBooleanLiteral_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTBooleanLiteral_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTBooleanLiteral_value(arg0, arg1)
 }
 
@@ -1734,11 +1734,11 @@ func zetasql_ASTBinaryExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTBinaryExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTBinaryExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTBinaryExpression_is_not(arg0, arg1)
 }
 
@@ -2078,11 +2078,11 @@ func zetasql_ASTJoin_set_natural(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTJoin_natural(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTJoin_natural(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTJoin_natural(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTJoin_natural(arg0, arg1)
 }
 
@@ -2122,11 +2122,11 @@ func zetasql_ASTJoin_set_transformation_needed(arg0 unsafe.Pointer, arg1 C.int) 
 func ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTJoin_transformation_needed(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTJoin_transformation_needed(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTJoin_transformation_needed(arg0, arg1)
 }
 
@@ -2144,11 +2144,11 @@ func zetasql_ASTJoin_set_contains_comma_join(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTJoin_contains_comma_join(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTJoin_contains_comma_join(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTJoin_contains_comma_join(arg0, arg1)
 }
 
@@ -2276,11 +2276,11 @@ func zetasql_ASTWithClause_set_recursive(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTWithClause_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTWithClause_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTWithClause_recursive(arg0, arg1)
 }
 
@@ -2421,11 +2421,11 @@ func zetasql_ASTCastExpression_set_is_safe_cast(arg0 unsafe.Pointer, arg1 C.int)
 func ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCastExpression_is_safe_cast(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCastExpression_is_safe_cast(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCastExpression_is_safe_cast(arg0, arg1)
 }
 
@@ -2498,22 +2498,22 @@ func zetasql_ASTSelectAs_type_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTSelectAs_is_select_as_struct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTSelectAs_is_select_as_struct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTSelectAs_is_select_as_struct(arg0, arg1)
 }
 
 func ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTSelectAs_is_select_as_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTSelectAs_is_select_as_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTSelectAs_is_select_as_value(arg0, arg1)
 }
 
@@ -2576,11 +2576,11 @@ func zetasql_ASTFunctionCall_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionCall_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionCall_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionCall_distinct(arg0, arg1)
 }
 
@@ -2598,11 +2598,11 @@ func zetasql_ASTFunctionCall_set_is_current_date_time_without_parentheses(arg0 u
 func ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionCall_is_current_date_time_without_parentheses(arg0, arg1)
 }
 
@@ -2709,11 +2709,11 @@ func zetasql_ASTFunctionCall_argument(arg0 unsafe.Pointer, arg1 C.int, arg2 *uns
 func ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionCall_HasModifiers(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionCall_HasModifiers(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionCall_HasModifiers(arg0, arg1)
 }
 
@@ -2844,11 +2844,11 @@ func zetasql_ASTInExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTInExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTInExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTInExpression_is_not(arg0, arg1)
 }
 
@@ -2944,11 +2944,11 @@ func zetasql_ASTBetweenExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTBetweenExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTBetweenExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTBetweenExpression_is_not(arg0, arg1)
 }
 
@@ -3100,11 +3100,11 @@ func zetasql_ASTBitwiseShiftExpression_set_is_left_shift(arg0 unsafe.Pointer, ar
 func ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTBitwiseShiftExpression_is_left_shift(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTBitwiseShiftExpression_is_left_shift(arg0, arg1)
 }
 
@@ -3397,11 +3397,11 @@ func zetasql_ASTNullOrder_set_nulls_first(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTNullOrder_nulls_first(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTNullOrder_nulls_first(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTNullOrder_nulls_first(arg0, arg1)
 }
 
@@ -3520,11 +3520,11 @@ func zetasql_ASTSetOperation_set_distinct(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTSetOperation_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTSetOperation_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTSetOperation_distinct(arg0, arg1)
 }
 
@@ -3920,11 +3920,11 @@ func zetasql_ASTLikeExpression_set_is_not(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTLikeExpression_is_not(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTLikeExpression_is_not(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTLikeExpression_is_not(arg0, arg1)
 }
 
@@ -4096,11 +4096,11 @@ func zetasql_ASTStatementList_set_variable_declarations_allowed(arg0 unsafe.Poin
 func ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTStatementList_variable_declarations_allowed(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTStatementList_variable_declarations_allowed(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTStatementList_variable_declarations_allowed(arg0, arg1)
 }
 
@@ -4351,11 +4351,11 @@ func zetasql_ASTDropEntityStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C
 func ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropEntityStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropEntityStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropEntityStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4395,11 +4395,11 @@ func zetasql_ASTDropFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1
 func ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropFunctionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropFunctionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4439,11 +4439,11 @@ func zetasql_ASTDropTableFunctionStatement_set_is_if_exists(arg0 unsafe.Pointer,
 func ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropTableFunctionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropTableFunctionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4472,11 +4472,11 @@ func zetasql_ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(arg0 un
 func ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropAllRowAccessPoliciesStatement_has_access_keyword(arg0, arg1)
 }
 
@@ -4505,11 +4505,11 @@ func zetasql_ASTDropMaterializedViewStatement_set_is_if_exists(arg0 unsafe.Point
 func ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropMaterializedViewStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropMaterializedViewStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4538,11 +4538,11 @@ func zetasql_ASTDropSnapshotTableStatement_set_is_if_exists(arg0 unsafe.Pointer,
 func ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropSnapshotTableStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropSnapshotTableStatement_is_if_exists(arg0, arg1)
 }
 
@@ -4571,11 +4571,11 @@ func zetasql_ASTDropSearchIndexStatement_set_is_if_exists(arg0 unsafe.Pointer, a
 func ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropSearchIndexStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropSearchIndexStatement_is_if_exists(arg0, arg1)
 }
 
@@ -5459,11 +5459,11 @@ func zetasql_ASTCreateStatement_set_is_or_replace(arg0 unsafe.Pointer, arg1 C.in
 func ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_or_replace(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_or_replace(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_or_replace(arg0, arg1)
 }
 
@@ -5481,55 +5481,55 @@ func zetasql_ASTCreateStatement_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C
 func ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_if_not_exists(arg0, arg1)
 }
 
 func ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_default_scope(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_default_scope(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_default_scope(arg0, arg1)
 }
 
 func ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_private(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_private(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_private(arg0, arg1)
 }
 
 func ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_public(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_public(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_public(arg0, arg1)
 }
 
 func ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateStatement_is_temp(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateStatement_is_temp(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateStatement_is_temp(arg0, arg1)
 }
 
@@ -5569,11 +5569,11 @@ func zetasql_ASTFunctionParameter_set_is_not_aggregate(arg0 unsafe.Pointer, arg1
 func ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionParameter_is_not_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionParameter_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionParameter_is_not_aggregate(arg0, arg1)
 }
 
@@ -5646,22 +5646,22 @@ func zetasql_ASTFunctionParameter_default_value(arg0 unsafe.Pointer, arg1 *unsaf
 func ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionParameter_IsTableParameter(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionParameter_IsTableParameter(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionParameter_IsTableParameter(arg0, arg1)
 }
 
 func ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionParameter_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionParameter_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionParameter_IsTemplated(arg0, arg1)
 }
 
@@ -5713,11 +5713,11 @@ func zetasql_ASTFunctionDeclaration_parameters(arg0 unsafe.Pointer, arg1 *unsafe
 func ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFunctionDeclaration_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFunctionDeclaration_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFunctionDeclaration_IsTemplated(arg0, arg1)
 }
 
@@ -6257,11 +6257,11 @@ func zetasql_ASTCreateIndexStatement_set_is_unique(arg0 unsafe.Pointer, arg1 C.i
 func ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateIndexStatement_is_unique(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateIndexStatement_is_unique(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateIndexStatement_is_unique(arg0, arg1)
 }
 
@@ -6279,11 +6279,11 @@ func zetasql_ASTCreateIndexStatement_set_is_search(arg0 unsafe.Pointer, arg1 C.i
 func ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateIndexStatement_is_search(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateIndexStatement_is_search(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateIndexStatement_is_search(arg0, arg1)
 }
 
@@ -6822,11 +6822,11 @@ func zetasql_ASTPrimaryKeyColumnAttribute_set_enforced(arg0 unsafe.Pointer, arg1
 func ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTPrimaryKeyColumnAttribute_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTPrimaryKeyColumnAttribute_enforced(arg0, arg1)
 }
 
@@ -7644,11 +7644,11 @@ func zetasql_ASTPrivileges_privilege(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsa
 func ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTPrivileges_is_all_privileges(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTPrivileges_is_all_privileges(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTPrivileges_is_all_privileges(arg0, arg1)
 }
 
@@ -8053,11 +8053,11 @@ func zetasql_ASTAddConstraintAction_set_is_if_not_exists(arg0 unsafe.Pointer, ar
 func ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAddConstraintAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAddConstraintAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -8086,11 +8086,11 @@ func zetasql_ASTDropPrimaryKeyAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 
 func ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropPrimaryKeyAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropPrimaryKeyAction_is_if_exists(arg0, arg1)
 }
 
@@ -8108,11 +8108,11 @@ func zetasql_ASTDropConstraintAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 
 func ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropConstraintAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropConstraintAction_is_if_exists(arg0, arg1)
 }
 
@@ -8141,11 +8141,11 @@ func zetasql_ASTAlterConstraintEnforcementAction_set_is_if_exists(arg0 unsafe.Po
 func ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_if_exists(arg0, arg1)
 }
 
@@ -8163,11 +8163,11 @@ func zetasql_ASTAlterConstraintEnforcementAction_set_is_enforced(arg0 unsafe.Poi
 func ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterConstraintEnforcementAction_is_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterConstraintEnforcementAction_is_enforced(arg0, arg1)
 }
 
@@ -8196,11 +8196,11 @@ func zetasql_ASTAlterConstraintSetOptionsAction_set_is_if_exists(arg0 unsafe.Poi
 func ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterConstraintSetOptionsAction_is_if_exists(arg0, arg1)
 }
 
@@ -8240,11 +8240,11 @@ func zetasql_ASTAddColumnAction_set_is_if_not_exists(arg0 unsafe.Pointer, arg1 C
 func ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAddColumnAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAddColumnAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -8295,11 +8295,11 @@ func zetasql_ASTDropColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.in
 func ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -8328,11 +8328,11 @@ func zetasql_ASTRenameColumnAction_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.
 func ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTRenameColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTRenameColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -8372,11 +8372,11 @@ func zetasql_ASTAlterColumnTypeAction_set_is_if_exists(arg0 unsafe.Pointer, arg1
 func ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterColumnTypeAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterColumnTypeAction_is_if_exists(arg0, arg1)
 }
 
@@ -8427,11 +8427,11 @@ func zetasql_ASTAlterColumnOptionsAction_set_is_if_exists(arg0 unsafe.Pointer, a
 func ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterColumnOptionsAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterColumnOptionsAction_is_if_exists(arg0, arg1)
 }
 
@@ -8471,11 +8471,11 @@ func zetasql_ASTAlterColumnSetDefaultAction_set_is_if_exists(arg0 unsafe.Pointer
 func ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterColumnSetDefaultAction_is_if_exists(arg0, arg1)
 }
 
@@ -8515,11 +8515,11 @@ func zetasql_ASTAlterColumnDropDefaultAction_set_is_if_exists(arg0 unsafe.Pointe
 func ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterColumnDropDefaultAction_is_if_exists(arg0, arg1)
 }
 
@@ -8548,11 +8548,11 @@ func zetasql_ASTAlterColumnDropNotNullAction_set_is_if_exists(arg0 unsafe.Pointe
 func ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterColumnDropNotNullAction_is_if_exists(arg0, arg1)
 }
 
@@ -8581,11 +8581,11 @@ func zetasql_ASTGrantToClause_set_has_grant_keyword_and_parens(arg0 unsafe.Point
 func ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTGrantToClause_has_grant_keyword_and_parens(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTGrantToClause_has_grant_keyword_and_parens(arg0, arg1)
 }
 
@@ -8625,11 +8625,11 @@ func zetasql_ASTAddToRestricteeListClause_set_is_if_not_exists(arg0 unsafe.Point
 func ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAddToRestricteeListClause_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAddToRestricteeListClause_is_if_not_exists(arg0, arg1)
 }
 
@@ -8658,11 +8658,11 @@ func zetasql_ASTRemoveFromRestricteeListClause_set_is_if_exists(arg0 unsafe.Poin
 func ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTRemoveFromRestricteeListClause_is_if_exists(arg0, arg1)
 }
 
@@ -8691,11 +8691,11 @@ func zetasql_ASTFilterUsingClause_set_has_filter_keyword(arg0 unsafe.Pointer, ar
 func ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTFilterUsingClause_has_filter_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTFilterUsingClause_has_filter_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTFilterUsingClause_has_filter_keyword(arg0, arg1)
 }
 
@@ -8724,11 +8724,11 @@ func zetasql_ASTRevokeFromClause_set_is_revoke_from_all(arg0 unsafe.Pointer, arg
 func ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTRevokeFromClause_is_revoke_from_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTRevokeFromClause_is_revoke_from_all(arg0, arg1)
 }
 
@@ -8890,11 +8890,11 @@ func zetasql_ASTForeignKeyReference_set_enforced(arg0 unsafe.Pointer, arg1 C.int
 func ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTForeignKeyReference_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTForeignKeyReference_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTForeignKeyReference_enforced(arg0, arg1)
 }
 
@@ -9313,11 +9313,11 @@ func ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 int, arg2 *bool
 	zetasql_ASTColumnSchema_ContainsAttribute(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func zetasql_ASTColumnSchema_ContainsAttribute(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_ASTColumnSchema_ContainsAttribute(arg0, arg1, arg2)
 }
 
@@ -9368,11 +9368,11 @@ func zetasql_ASTPrimaryKey_set_enforced(arg0 unsafe.Pointer, arg1 C.int) {
 func ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTPrimaryKey_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTPrimaryKey_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTPrimaryKey_enforced(arg0, arg1)
 }
 
@@ -9445,11 +9445,11 @@ func zetasql_ASTCheckConstraint_set_is_enforced(arg0 unsafe.Pointer, arg1 C.int)
 func ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCheckConstraint_is_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCheckConstraint_is_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCheckConstraint_is_enforced(arg0, arg1)
 }
 
@@ -9578,11 +9578,11 @@ func zetasql_ASTRaiseStatement_message(arg0 unsafe.Pointer, arg1 *unsafe.Pointer
 func ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTRaiseStatement_is_rethrow(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTRaiseStatement_is_rethrow(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTRaiseStatement_is_rethrow(arg0, arg1)
 }
 
@@ -9679,11 +9679,11 @@ func zetasql_ASTBeginEndBlock_statement_list(arg0 unsafe.Pointer, arg1 C.int, ar
 func ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTBeginEndBlock_has_exception_handler(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTBeginEndBlock_has_exception_handler(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTBeginEndBlock_has_exception_handler(arg0, arg1)
 }
 
@@ -9856,11 +9856,11 @@ func zetasql_ASTDropPrivilegeRestrictionStatement_set_is_if_exists(arg0 unsafe.P
 func ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropPrivilegeRestrictionStatement_is_if_exists(arg0, arg1)
 }
 
@@ -9911,11 +9911,11 @@ func zetasql_ASTDropRowAccessPolicyStatement_set_is_if_exists(arg0 unsafe.Pointe
 func ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropRowAccessPolicyStatement_is_if_exists(arg0, arg1)
 }
 
@@ -9999,11 +9999,11 @@ func zetasql_ASTCreateRowAccessPolicyStatement_set_has_access_keyword(arg0 unsaf
 func ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateRowAccessPolicyStatement_has_access_keyword(arg0, arg1)
 }
 
@@ -10087,11 +10087,11 @@ func zetasql_ASTDropStatement_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.int) 
 func ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTDropStatement_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTDropStatement_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTDropStatement_is_if_exists(arg0, arg1)
 }
 
@@ -10439,11 +10439,11 @@ func zetasql_ASTLoopStatement_body(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTLoopStatement_IsLoopStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTLoopStatement_IsLoopStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTLoopStatement_IsLoopStatement(arg0, arg1)
 }
 
@@ -10505,11 +10505,11 @@ func zetasql_ASTAlterStatementBase_set_is_if_exists(arg0 unsafe.Pointer, arg1 C.
 func ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTAlterStatementBase_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTAlterStatementBase_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTAlterStatementBase_is_if_exists(arg0, arg1)
 }
 
@@ -10681,11 +10681,11 @@ func zetasql_ASTCreateFunctionStatement_set_is_aggregate(arg0 unsafe.Pointer, ar
 func ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateFunctionStatement_is_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateFunctionStatement_is_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateFunctionStatement_is_aggregate(arg0, arg1)
 }
 
@@ -10703,11 +10703,11 @@ func zetasql_ASTCreateFunctionStatement_set_is_remote(arg0 unsafe.Pointer, arg1 
 func ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ASTCreateFunctionStatement_is_remote(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ASTCreateFunctionStatement_is_remote(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ASTCreateFunctionStatement_is_remote(arg0, arg1)
 }
 
@@ -10991,11 +10991,11 @@ func LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 int, arg2 *
 	zetasql_LanguageOptions_SupportsStatementKind(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func zetasql_LanguageOptions_SupportsStatementKind(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_LanguageOptions_SupportsStatementKind(arg0, arg1, arg2)
 }
 
@@ -11035,11 +11035,11 @@ func LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 int, arg2 
 	zetasql_LanguageOptions_LanguageFeatureEnabled(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func zetasql_LanguageOptions_LanguageFeatureEnabled(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_LanguageOptions_LanguageFeatureEnabled(arg0, arg1, arg2)
 }
 
@@ -11175,11 +11175,11 @@ func zetasql_LanguageOptions_product_mode(arg0 unsafe.Pointer, arg1 *C.int) {
 func LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_LanguageOptions_SupportsProtoTypes(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_LanguageOptions_SupportsProtoTypes(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_LanguageOptions_SupportsProtoTypes(arg0, arg1)
 }
 
@@ -11197,11 +11197,11 @@ func zetasql_LanguageOptions_set_error_on_deprecated_syntax(arg0 unsafe.Pointer,
 func LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_LanguageOptions_error_on_deprecated_syntax(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_LanguageOptions_error_on_deprecated_syntax(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_LanguageOptions_error_on_deprecated_syntax(arg0, arg1)
 }
 
@@ -11220,11 +11220,11 @@ func LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe
 	zetasql_LanguageOptions_GenericEntityTypeSupported(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_LanguageOptions_GenericEntityTypeSupported(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_LanguageOptions_GenericEntityTypeSupported(arg0, arg1, arg2)
 }
 
@@ -11232,11 +11232,11 @@ func LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 	zetasql_LanguageOptions_IsReservedKeyword(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_LanguageOptions_IsReservedKeyword(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_LanguageOptions_IsReservedKeyword(arg0, arg1, arg2)
 }
 
@@ -11403,11 +11403,11 @@ func zetasql_AnalyzerOptions_expression_columns(arg0 unsafe.Pointer, arg1 *unsaf
 func AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_AnalyzerOptions_has_in_scope_expression_column(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_AnalyzerOptions_has_in_scope_expression_column(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_AnalyzerOptions_has_in_scope_expression_column(arg0, arg1)
 }
 
@@ -11513,11 +11513,11 @@ func zetasql_AnalyzerOptions_set_create_new_column_for_each_projected_output(arg
 func AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_AnalyzerOptions_create_new_column_for_each_projected_output(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_AnalyzerOptions_create_new_column_for_each_projected_output(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_AnalyzerOptions_create_new_column_for_each_projected_output(arg0, arg1)
 }
 
@@ -11535,11 +11535,11 @@ func zetasql_AnalyzerOptions_set_allow_undeclared_parameters(arg0 unsafe.Pointer
 func AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_AnalyzerOptions_allow_undeclared_parameters(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_AnalyzerOptions_allow_undeclared_parameters(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_AnalyzerOptions_allow_undeclared_parameters(arg0, arg1)
 }
 
@@ -11579,11 +11579,11 @@ func zetasql_AnalyzerOptions_set_prune_unused_columns(arg0 unsafe.Pointer, arg1 
 func AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_AnalyzerOptions_prune_unused_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_AnalyzerOptions_prune_unused_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_AnalyzerOptions_prune_unused_columns(arg0, arg1)
 }
 
@@ -11601,11 +11601,11 @@ func zetasql_AnalyzerOptions_set_preserve_column_aliases(arg0 unsafe.Pointer, ar
 func AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_AnalyzerOptions_preserve_column_aliases(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_AnalyzerOptions_preserve_column_aliases(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_AnalyzerOptions_preserve_column_aliases(arg0, arg1)
 }
 
@@ -11651,12 +11651,12 @@ func AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.
 		arg1,
 		arg2,
 		arg3,
-		(*C.int)(unsafe.Pointer(arg4)),
+		(*C.char)(unsafe.Pointer(arg4)),
 		arg5,
 	)
 }
 
-func zetasql_AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *C.int, arg5 *unsafe.Pointer) {
+func zetasql_AnalyzeNextStatement(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *unsafe.Pointer, arg4 *C.char, arg5 *unsafe.Pointer) {
 	C.export_zetasql_AnalyzeNextStatement(arg0, arg1, arg2, arg3, arg4, arg5)
 }
 
@@ -11714,33 +11714,33 @@ func zetasql_ResolvedNode_node_kind(arg0 unsafe.Pointer, arg1 *C.int) {
 func ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedNode_IsScan(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedNode_IsScan(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedNode_IsScan(arg0, arg1)
 }
 
 func ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedNode_IsExpression(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedNode_IsExpression(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedNode_IsExpression(arg0, arg1)
 }
 
 func ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedNode_IsStatement(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedNode_IsStatement(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedNode_IsStatement(arg0, arg1)
 }
 
@@ -11858,11 +11858,11 @@ func zetasql_ResolvedLiteral_set_value(arg0 unsafe.Pointer, arg1 unsafe.Pointer)
 func ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedLiteral_has_explicit_type(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedLiteral_has_explicit_type(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedLiteral_has_explicit_type(arg0, arg1)
 }
 
@@ -11902,11 +11902,11 @@ func zetasql_ResolvedLiteral_set_float_literal_id(arg0 unsafe.Pointer, arg1 C.in
 func ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedLiteral_preserve_in_literal_remover(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedLiteral_preserve_in_literal_remover(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedLiteral_preserve_in_literal_remover(arg0, arg1)
 }
 
@@ -11968,11 +11968,11 @@ func zetasql_ResolvedParameter_set_position(arg0 unsafe.Pointer, arg1 C.int) {
 func ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedParameter_is_untyped(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedParameter_is_untyped(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedParameter_is_untyped(arg0, arg1)
 }
 
@@ -12034,11 +12034,11 @@ func zetasql_ResolvedColumnRef_set_column(arg0 unsafe.Pointer, arg1 unsafe.Point
 func ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedColumnRef_is_correlated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedColumnRef_is_correlated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedColumnRef_is_correlated(arg0, arg1)
 }
 
@@ -12199,11 +12199,11 @@ func zetasql_ResolvedInlineLambda_set_body(arg0 unsafe.Pointer, arg1 unsafe.Poin
 func ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedFilterFieldArg_include(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedFilterFieldArg_include(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedFilterFieldArg_include(arg0, arg1)
 }
 
@@ -12276,11 +12276,11 @@ func zetasql_ResolvedFilterField_add_filter_field_arg_list(arg0 unsafe.Pointer, 
 func ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedFilterField_reset_cleared_required_fields(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedFilterField_reset_cleared_required_fields(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedFilterField_reset_cleared_required_fields(arg0, arg1)
 }
 
@@ -12518,11 +12518,11 @@ func zetasql_ResolvedFunctionCall_set_function_call_info(arg0 unsafe.Pointer, ar
 func ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedNonScalarFunctionCallBase_distinct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedNonScalarFunctionCallBase_distinct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedNonScalarFunctionCallBase_distinct(arg0, arg1)
 }
 
@@ -12859,11 +12859,11 @@ func zetasql_ResolvedCast_set_expr(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 func ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCast_return_null_on_error(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCast_return_null_on_error(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCast_return_null_on_error(arg0, arg1)
 }
 
@@ -13167,11 +13167,11 @@ func zetasql_ResolvedGetProtoField_set_default_value(arg0 unsafe.Pointer, arg1 u
 func ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedGetProtoField_get_has_bit(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedGetProtoField_get_has_bit(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedGetProtoField_get_has_bit(arg0, arg1)
 }
 
@@ -13211,11 +13211,11 @@ func zetasql_ResolvedGetProtoField_set_format(arg0 unsafe.Pointer, arg1 C.int) {
 func ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedGetProtoField_return_default_value_when_unset(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedGetProtoField_return_default_value_when_unset(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedGetProtoField_return_default_value_when_unset(arg0, arg1)
 }
 
@@ -13717,11 +13717,11 @@ func zetasql_ResolvedScan_add_hint_list(arg0 unsafe.Pointer, arg1 unsafe.Pointer
 func ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedScan_is_ordered(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedScan_is_ordered(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedScan_is_ordered(arg0, arg1)
 }
 
@@ -14146,11 +14146,11 @@ func zetasql_ResolvedArrayScan_set_join_expr(arg0 unsafe.Pointer, arg1 unsafe.Po
 func ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedArrayScan_is_outer(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedArrayScan_is_outer(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedArrayScan_is_outer(arg0, arg1)
 }
 
@@ -15070,11 +15070,11 @@ func zetasql_ResolvedOrderByItem_set_collation_name(arg0 unsafe.Pointer, arg1 un
 func ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedOrderByItem_is_descending(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedOrderByItem_is_descending(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedOrderByItem_is_descending(arg0, arg1)
 }
 
@@ -15158,11 +15158,11 @@ func zetasql_ResolvedColumnAnnotations_set_collation_name(arg0 unsafe.Pointer, a
 func ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedColumnAnnotations_not_null(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedColumnAnnotations_not_null(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedColumnAnnotations_not_null(arg0, arg1)
 }
 
@@ -15422,11 +15422,11 @@ func zetasql_ResolvedColumnDefinition_set_annotations(arg0 unsafe.Pointer, arg1 
 func ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedColumnDefinition_is_hidden(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedColumnDefinition_is_hidden(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedColumnDefinition_is_hidden(arg0, arg1)
 }
 
@@ -15576,11 +15576,11 @@ func zetasql_ResolvedPrimaryKey_add_option_list(arg0 unsafe.Pointer, arg1 unsafe
 func ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedPrimaryKey_unenforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedPrimaryKey_unenforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedPrimaryKey_unenforced(arg0, arg1)
 }
 
@@ -15829,11 +15829,11 @@ func zetasql_ResolvedForeignKey_set_delete_action(arg0 unsafe.Pointer, arg1 C.in
 func ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedForeignKey_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedForeignKey_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedForeignKey_enforced(arg0, arg1)
 }
 
@@ -15961,11 +15961,11 @@ func zetasql_ResolvedCheckConstraint_set_expression(arg0 unsafe.Pointer, arg1 un
 func ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCheckConstraint_enforced(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCheckConstraint_enforced(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCheckConstraint_enforced(arg0, arg1)
 }
 
@@ -16577,11 +16577,11 @@ func zetasql_ResolvedQueryStmt_add_output_column_list(arg0 unsafe.Pointer, arg1 
 func ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedQueryStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedQueryStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedQueryStmt_is_value_table(arg0, arg1)
 }
 
@@ -16786,11 +16786,11 @@ func zetasql_ResolvedIndexItem_set_column_ref(arg0 unsafe.Pointer, arg1 unsafe.P
 func ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedIndexItem_descending(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedIndexItem_descending(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedIndexItem_descending(arg0, arg1)
 }
 
@@ -16929,11 +16929,11 @@ func zetasql_ResolvedCreateIndexStmt_set_table_scan(arg0 unsafe.Pointer, arg1 un
 func ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateIndexStmt_is_unique(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateIndexStmt_is_unique(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateIndexStmt_is_unique(arg0, arg1)
 }
 
@@ -16951,11 +16951,11 @@ func zetasql_ResolvedCreateIndexStmt_set_is_unique(arg0 unsafe.Pointer, arg1 C.i
 func ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateIndexStmt_is_search(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateIndexStmt_is_search(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateIndexStmt_is_search(arg0, arg1)
 }
 
@@ -16973,11 +16973,11 @@ func zetasql_ResolvedCreateIndexStmt_set_is_search(arg0 unsafe.Pointer, arg1 C.i
 func ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateIndexStmt_index_all_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateIndexStmt_index_all_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateIndexStmt_index_all_columns(arg0, arg1)
 }
 
@@ -17402,11 +17402,11 @@ func zetasql_ResolvedCreateTableStmtBase_add_check_constraint_list(arg0 unsafe.P
 func ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateTableStmtBase_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateTableStmtBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateTableStmtBase_is_value_table(arg0, arg1)
 }
 
@@ -17985,11 +17985,11 @@ func zetasql_ResolvedCreateViewBase_add_output_column_list(arg0 unsafe.Pointer, 
 func ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateViewBase_has_explicit_columns(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateViewBase_has_explicit_columns(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateViewBase_has_explicit_columns(arg0, arg1)
 }
 
@@ -18073,11 +18073,11 @@ func zetasql_ResolvedCreateViewBase_set_sql_security(arg0 unsafe.Pointer, arg1 C
 func ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateViewBase_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateViewBase_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateViewBase_is_value_table(arg0, arg1)
 }
 
@@ -18095,11 +18095,11 @@ func zetasql_ResolvedCreateViewBase_set_is_value_table(arg0 unsafe.Pointer, arg1
 func ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateViewBase_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateViewBase_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateViewBase_recursive(arg0, arg1)
 }
 
@@ -18425,11 +18425,11 @@ func zetasql_ResolvedExportDataStmt_add_output_column_list(arg0 unsafe.Pointer, 
 func ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedExportDataStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedExportDataStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedExportDataStmt_is_value_table(arg0, arg1)
 }
 
@@ -18854,11 +18854,11 @@ func zetasql_ResolvedDropStmt_set_object_type(arg0 unsafe.Pointer, arg1 unsafe.P
 func ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropStmt_is_if_exists(arg0, arg1)
 }
 
@@ -18931,11 +18931,11 @@ func zetasql_ResolvedDropStmt_set_drop_mode(arg0 unsafe.Pointer, arg1 C.int) {
 func ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropMaterializedViewStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropMaterializedViewStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropMaterializedViewStmt_is_if_exists(arg0, arg1)
 }
 
@@ -18986,11 +18986,11 @@ func zetasql_ResolvedDropMaterializedViewStmt_add_name_path(arg0 unsafe.Pointer,
 func ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropSnapshotTableStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropSnapshotTableStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropSnapshotTableStmt_is_if_exists(arg0, arg1)
 }
 
@@ -19162,11 +19162,11 @@ func zetasql_ResolvedWithScan_set_query(arg0 unsafe.Pointer, arg1 unsafe.Pointer
 func ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedWithScan_recursive(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedWithScan_recursive(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedWithScan_recursive(arg0, arg1)
 }
 
@@ -21164,11 +21164,11 @@ func zetasql_ResolvedAlterObjectStmt_add_alter_action_list(arg0 unsafe.Pointer, 
 func ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAlterObjectStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAlterObjectStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAlterObjectStmt_is_if_exists(arg0, arg1)
 }
 
@@ -21186,11 +21186,11 @@ func zetasql_ResolvedAlterObjectStmt_set_is_if_exists(arg0 unsafe.Pointer, arg1 
 func ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAlterColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAlterColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAlterColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -21263,11 +21263,11 @@ func zetasql_ResolvedSetOptionsAction_add_option_list(arg0 unsafe.Pointer, arg1 
 func ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAddColumnAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAddColumnAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAddColumnAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -21307,11 +21307,11 @@ func zetasql_ResolvedAddColumnAction_set_column_definition(arg0 unsafe.Pointer, 
 func ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAddConstraintAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAddConstraintAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAddConstraintAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -21373,11 +21373,11 @@ func zetasql_ResolvedAddConstraintAction_set_table(arg0 unsafe.Pointer, arg1 uns
 func ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropConstraintAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropConstraintAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropConstraintAction_is_if_exists(arg0, arg1)
 }
 
@@ -21417,11 +21417,11 @@ func zetasql_ResolvedDropConstraintAction_set_name(arg0 unsafe.Pointer, arg1 uns
 func ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropPrimaryKeyAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropPrimaryKeyAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropPrimaryKeyAction_is_if_exists(arg0, arg1)
 }
 
@@ -21560,11 +21560,11 @@ func zetasql_ResolvedAlterColumnSetDefaultAction_set_default_value(arg0 unsafe.P
 func ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -21604,11 +21604,11 @@ func zetasql_ResolvedDropColumnAction_set_name(arg0 unsafe.Pointer, arg1 unsafe.
 func ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedRenameColumnAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedRenameColumnAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedRenameColumnAction_is_if_exists(arg0, arg1)
 }
 
@@ -21802,11 +21802,11 @@ func zetasql_ResolvedAlterTableSetOptionsStmt_add_option_list(arg0 unsafe.Pointe
 func ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAlterTableSetOptionsStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAlterTableSetOptionsStmt_is_if_exists(arg0, arg1)
 }
 
@@ -22231,11 +22231,11 @@ func zetasql_ResolvedDropPrivilegeRestrictionStmt_set_object_type(arg0 unsafe.Po
 func ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropPrivilegeRestrictionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -22319,11 +22319,11 @@ func zetasql_ResolvedDropPrivilegeRestrictionStmt_add_column_privilege_list(arg0
 func ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropRowAccessPolicyStmt_is_drop_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropRowAccessPolicyStmt_is_drop_all(arg0, arg1)
 }
 
@@ -22341,11 +22341,11 @@ func zetasql_ResolvedDropRowAccessPolicyStmt_set_is_drop_all(arg0 unsafe.Pointer
 func ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropRowAccessPolicyStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropRowAccessPolicyStmt_is_if_exists(arg0, arg1)
 }
 
@@ -22418,11 +22418,11 @@ func zetasql_ResolvedDropRowAccessPolicyStmt_add_target_name_path(arg0 unsafe.Po
 func ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropSearchIndexStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropSearchIndexStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropSearchIndexStmt_is_if_exists(arg0, arg1)
 }
 
@@ -22561,11 +22561,11 @@ func zetasql_ResolvedRestrictToAction_add_restrictee_list(arg0 unsafe.Pointer, a
 func ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedAddToRestricteeListAction_is_if_not_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedAddToRestricteeListAction_is_if_not_exists(arg0, arg1)
 }
 
@@ -22616,11 +22616,11 @@ func zetasql_ResolvedAddToRestricteeListAction_add_restrictee_list(arg0 unsafe.P
 func ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedRemoveFromRestricteeListAction_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedRemoveFromRestricteeListAction_is_if_exists(arg0, arg1)
 }
 
@@ -22748,11 +22748,11 @@ func zetasql_ResolvedRevokeFromAction_add_revokee_expr_list(arg0 unsafe.Pointer,
 func ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedRevokeFromAction_is_revoke_from_all(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedRevokeFromAction_is_revoke_from_all(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedRevokeFromAction_is_revoke_from_all(arg0, arg1)
 }
 
@@ -22946,11 +22946,11 @@ func zetasql_ResolvedCreateConstantStmt_set_expr(arg0 unsafe.Pointer, arg1 unsaf
 func ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateFunctionStmt_has_explicit_return_type(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateFunctionStmt_has_explicit_return_type(arg0, arg1)
 }
 
@@ -23045,11 +23045,11 @@ func zetasql_ResolvedCreateFunctionStmt_set_signature(arg0 unsafe.Pointer, arg1 
 func ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateFunctionStmt_is_aggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateFunctionStmt_is_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateFunctionStmt_is_aggregate(arg0, arg1)
 }
 
@@ -23243,11 +23243,11 @@ func zetasql_ResolvedCreateFunctionStmt_set_determinism_level(arg0 unsafe.Pointe
 func ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateFunctionStmt_is_remote(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateFunctionStmt_is_remote(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateFunctionStmt_is_remote(arg0, arg1)
 }
 
@@ -23475,11 +23475,11 @@ func zetasql_ResolvedCreateTableFunctionStmt_set_signature(arg0 unsafe.Pointer, 
 func ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateTableFunctionStmt_has_explicit_return_schema(arg0, arg1)
 }
 
@@ -23629,11 +23629,11 @@ func zetasql_ResolvedCreateTableFunctionStmt_add_output_column_list(arg0 unsafe.
 func ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCreateTableFunctionStmt_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCreateTableFunctionStmt_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCreateTableFunctionStmt_is_value_table(arg0, arg1)
 }
 
@@ -23695,11 +23695,11 @@ func zetasql_ResolvedRelationArgumentScan_set_name(arg0 unsafe.Pointer, arg1 uns
 func ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedRelationArgumentScan_is_value_table(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedRelationArgumentScan_is_value_table(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedRelationArgumentScan_is_value_table(arg0, arg1)
 }
 
@@ -23772,11 +23772,11 @@ func zetasql_ResolvedFunctionSignatureHolder_set_signature(arg0 unsafe.Pointer, 
 func ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropFunctionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropFunctionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -23871,11 +23871,11 @@ func zetasql_ResolvedDropFunctionStmt_set_signature(arg0 unsafe.Pointer, arg1 un
 func ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedDropTableFunctionStmt_is_if_exists(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedDropTableFunctionStmt_is_if_exists(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedDropTableFunctionStmt_is_if_exists(arg0, arg1)
 }
 
@@ -25334,11 +25334,11 @@ func zetasql_ResolvedUnpivotScan_add_projected_input_column_list(arg0 unsafe.Poi
 func ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedUnpivotScan_include_nulls(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedUnpivotScan_include_nulls(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedUnpivotScan_include_nulls(arg0, arg1)
 }
 
@@ -25939,11 +25939,11 @@ func zetasql_ResolvedAuxLoadDataStmt_add_from_files_option_list(arg0 unsafe.Poin
 func ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedColumn_IsInitialized(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedColumn_IsInitialized(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedColumn_IsInitialized(arg0, arg1)
 }
 
@@ -26070,11 +26070,11 @@ func zetasql_ResolvedColumn_annotated_type(arg0 unsafe.Pointer, arg1 *unsafe.Poi
 func ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCollation_Empty(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCollation_Empty(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCollation_Empty(arg0, arg1)
 }
 
@@ -26082,11 +26082,11 @@ func ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bo
 	zetasql_ResolvedCollation_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_ResolvedCollation_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_ResolvedCollation_Equals(arg0, arg1, arg2)
 }
 
@@ -26094,22 +26094,22 @@ func ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.P
 	zetasql_ResolvedCollation_HasCompatibleStructure(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_ResolvedCollation_HasCompatibleStructure(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_ResolvedCollation_HasCompatibleStructure(arg0, arg1, arg2)
 }
 
 func ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_ResolvedCollation_HasCollation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_ResolvedCollation_HasCollation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_ResolvedCollation_HasCollation(arg0, arg1)
 }
 
@@ -26171,396 +26171,396 @@ func zetasql_Type_Kind(arg0 unsafe.Pointer, arg1 *C.int) {
 func Type_IsInt32(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInt32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInt32(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInt32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInt32(arg0, arg1)
 }
 
 func Type_IsInt64(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInt64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInt64(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInt64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInt64(arg0, arg1)
 }
 
 func Type_IsUint32(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsUint32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsUint32(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsUint32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsUint32(arg0, arg1)
 }
 
 func Type_IsUint64(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsUint64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsUint64(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsUint64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsUint64(arg0, arg1)
 }
 
 func Type_IsBool(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsBool(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsBool(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsBool(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsBool(arg0, arg1)
 }
 
 func Type_IsFloat(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsFloat(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsFloat(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsFloat(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsFloat(arg0, arg1)
 }
 
 func Type_IsDouble(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsDouble(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsDouble(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsDouble(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsDouble(arg0, arg1)
 }
 
 func Type_IsString(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsString(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsString(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsString(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsString(arg0, arg1)
 }
 
 func Type_IsBytes(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsBytes(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsBytes(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsBytes(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsBytes(arg0, arg1)
 }
 
 func Type_IsDate(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsDate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsDate(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsDate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsDate(arg0, arg1)
 }
 
 func Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsTimestamp(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsTimestamp(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsTimestamp(arg0, arg1)
 }
 
 func Type_IsTime(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsTime(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsTime(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsTime(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsTime(arg0, arg1)
 }
 
 func Type_IsDatetime(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsDatetime(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsDatetime(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsDatetime(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsDatetime(arg0, arg1)
 }
 
 func Type_IsInterval(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInterval(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInterval(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInterval(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInterval(arg0, arg1)
 }
 
 func Type_IsNumericType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsNumericType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsNumericType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsNumericType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsNumericType(arg0, arg1)
 }
 
 func Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsBigNumericType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsBigNumericType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsBigNumericType(arg0, arg1)
 }
 
 func Type_IsJsonType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsJsonType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsJsonType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsJsonType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsJsonType(arg0, arg1)
 }
 
 func Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsFeatureV12CivilTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsFeatureV12CivilTimeType(arg0, arg1)
 }
 
 func Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_UsingFeatureV12CivilTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_UsingFeatureV12CivilTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_UsingFeatureV12CivilTimeType(arg0, arg1)
 }
 
 func Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsCivilDateOrTimeType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsCivilDateOrTimeType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsCivilDateOrTimeType(arg0, arg1)
 }
 
 func Type_IsGeography(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsGeography(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsGeography(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsGeography(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsGeography(arg0, arg1)
 }
 
 func Type_IsJson(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsJson(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsJson(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsJson(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsJson(arg0, arg1)
 }
 
 func Type_IsEnum(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsEnum(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsEnum(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsEnum(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsEnum(arg0, arg1)
 }
 
 func Type_IsArray(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsArray(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsArray(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsArray(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsArray(arg0, arg1)
 }
 
 func Type_IsStruct(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsStruct(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsStruct(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsStruct(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsStruct(arg0, arg1)
 }
 
 func Type_IsProto(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsProto(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsProto(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsProto(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsProto(arg0, arg1)
 }
 
 func Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsStructOrProto(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsStructOrProto(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsStructOrProto(arg0, arg1)
 }
 
 func Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsFloatingPoint(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsFloatingPoint(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsFloatingPoint(arg0, arg1)
 }
 
 func Type_IsNumerical(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsNumerical(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsNumerical(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsNumerical(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsNumerical(arg0, arg1)
 }
 
 func Type_IsInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInteger(arg0, arg1)
 }
 
 func Type_IsInteger32(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInteger32(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInteger32(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInteger32(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInteger32(arg0, arg1)
 }
 
 func Type_IsInteger64(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsInteger64(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsInteger64(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsInteger64(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsInteger64(arg0, arg1)
 }
 
 func Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsSignedInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsSignedInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsSignedInteger(arg0, arg1)
 }
 
 func Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsUnsignedInteger(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsUnsignedInteger(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsUnsignedInteger(arg0, arg1)
 }
 
 func Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsSimpleType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsSimpleType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsSimpleType(arg0, arg1)
 }
 
 func Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_IsExtendedType(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_IsExtendedType(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_IsExtendedType(arg0, arg1)
 }
 
@@ -26622,44 +26622,44 @@ func zetasql_Type_AsExtendedType(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_SupportsGrouping(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_SupportsGrouping(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_SupportsGrouping(arg0, arg1)
 }
 
 func Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_SupportsPartitioning(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_SupportsPartitioning(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_SupportsPartitioning(arg0, arg1)
 }
 
 func Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_SupportsOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_SupportsOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_SupportsOrdering(arg0, arg1)
 }
 
 func Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_SupportsEquality(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_SupportsEquality(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_SupportsEquality(arg0, arg1)
 }
 
@@ -26667,11 +26667,11 @@ func Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_Type_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_Type_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_Type_Equals(arg0, arg1, arg2)
 }
 
@@ -26679,11 +26679,11 @@ func Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_Type_Equivalent(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_Type_Equivalent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_Type_Equivalent(arg0, arg1, arg2)
 }
 
@@ -26740,11 +26740,11 @@ func zetasql_Type_DebugString(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Poin
 func Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Type_HasAnyFields(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Type_HasAnyFields(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Type_HasAnyFields(arg0, arg1)
 }
 
@@ -27339,55 +27339,55 @@ func zetasql_Value_physical_byte_size(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 func Value_is_null(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_is_null(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_is_null(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_is_null(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_is_null(arg0, arg1)
 }
 
 func Value_is_empty_array(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_is_empty_array(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_is_empty_array(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_is_empty_array(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_is_empty_array(arg0, arg1)
 }
 
 func Value_is_valid(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_is_valid(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_is_valid(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_is_valid(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_is_valid(arg0, arg1)
 }
 
 func Value_has_content(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_has_content(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_has_content(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_has_content(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_has_content(arg0, arg1)
 }
 
 func Value_int32_value(arg0 unsafe.Pointer, arg1 *int32) {
 	zetasql_Value_int32_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_int32_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_Value_int32_value(arg0, arg1)
 }
 
@@ -27405,11 +27405,11 @@ func zetasql_Value_int64_value(arg0 unsafe.Pointer, arg1 *C.int64_t) {
 func Value_uint32_value(arg0 unsafe.Pointer, arg1 *uint32) {
 	zetasql_Value_uint32_value(
 		arg0,
-		(*C.uint)(unsafe.Pointer(arg1)),
+		(*C.uint32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint) {
+func zetasql_Value_uint32_value(arg0 unsafe.Pointer, arg1 *C.uint32_t) {
 	C.export_zetasql_Value_uint32_value(arg0, arg1)
 }
 
@@ -27427,11 +27427,11 @@ func zetasql_Value_uint64_value(arg0 unsafe.Pointer, arg1 *C.uint64_t) {
 func Value_bool_value(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_bool_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_bool_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_bool_value(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_bool_value(arg0, arg1)
 }
 
@@ -27482,22 +27482,22 @@ func zetasql_Value_bytes_value(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Value_date_value(arg0 unsafe.Pointer, arg1 *int32) {
 	zetasql_Value_date_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_date_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_date_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_Value_date_value(arg0, arg1)
 }
 
 func Value_enum_value(arg0 unsafe.Pointer, arg1 *int32) {
 	zetasql_Value_enum_value(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.int32_t)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_enum_value(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_enum_value(arg0 unsafe.Pointer, arg1 *C.int32_t) {
 	C.export_zetasql_Value_enum_value(arg0, arg1)
 }
 
@@ -27571,22 +27571,22 @@ func zetasql_Value_ToPacked64DatetimeMicros(arg0 unsafe.Pointer, arg1 *C.int64_t
 func Value_is_validated_json(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_is_validated_json(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_is_validated_json(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_is_validated_json(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_is_validated_json(arg0, arg1)
 }
 
 func Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_is_unparsed_json(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_is_unparsed_json(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_is_unparsed_json(arg0, arg1)
 }
 
@@ -27683,11 +27683,11 @@ func zetasql_Value_FindFieldByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg
 func Value_empty(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Value_empty(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Value_empty(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Value_empty(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Value_empty(arg0, arg1)
 }
 
@@ -27718,11 +27718,11 @@ func Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_Value_Equals(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_Value_Equals(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_Value_Equals(arg0, arg1, arg2)
 }
 
@@ -27742,11 +27742,11 @@ func Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_Value_LessThan(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_Value_LessThan(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_Value_LessThan(arg0, arg1, arg2)
 }
 
@@ -27888,22 +27888,22 @@ func zetasql_Column_Type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Column_IsPseudoColumn(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Column_IsPseudoColumn(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Column_IsPseudoColumn(arg0, arg1)
 }
 
 func Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Column_IsWritableColumn(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Column_IsWritableColumn(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Column_IsWritableColumn(arg0, arg1)
 }
 
@@ -28040,11 +28040,11 @@ func zetasql_Table_FindColumnByName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, ar
 func Table_IsValueTable(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Table_IsValueTable(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Table_IsValueTable(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Table_IsValueTable(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Table_IsValueTable(arg0, arg1)
 }
 
@@ -28087,11 +28087,11 @@ func zetasql_Table_GetAnonymizationInfo(arg0 unsafe.Pointer, arg1 *unsafe.Pointe
 func Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Table_SupportsAnonymization(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Table_SupportsAnonymization(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Table_SupportsAnonymization(arg0, arg1)
 }
 
@@ -28134,11 +28134,11 @@ func zetasql_SimpleTable_set_is_value_table(arg0 unsafe.Pointer, arg1 C.int) {
 func SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_SimpleTable_AllowAnonymousColumnName(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_SimpleTable_AllowAnonymousColumnName(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_SimpleTable_AllowAnonymousColumnName(arg0, arg1)
 }
 
@@ -28157,11 +28157,11 @@ func zetasql_SimpleTable_set_allow_anonymous_column_name(arg0 unsafe.Pointer, ar
 func SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_SimpleTable_AllowDuplicateColumnNames(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_SimpleTable_AllowDuplicateColumnNames(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_SimpleTable_AllowDuplicateColumnNames(arg0, arg1)
 }
 
@@ -28735,11 +28735,11 @@ func SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 		arg0,
 		arg1,
 		arg2,
-		(*C.int)(unsafe.Pointer(arg3)),
+		(*C.char)(unsafe.Pointer(arg3)),
 	)
 }
 
-func zetasql_SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int) {
+func zetasql_SimpleCatalog_AddTypeIfNotPresent(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char) {
 	C.export_zetasql_SimpleCatalog_AddTypeIfNotPresent(arg0, arg1, arg2, arg3)
 }
 
@@ -29093,22 +29093,22 @@ func zetasql_Function_Group(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 func Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_IsZetaSQLBuiltin(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_IsZetaSQLBuiltin(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_IsZetaSQLBuiltin(arg0, arg1)
 }
 
 func Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_ArgumentsAreCoercible(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_ArgumentsAreCoercible(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_ArgumentsAreCoercible(arg0, arg1)
 }
 
@@ -29170,33 +29170,33 @@ func zetasql_Function_mode(arg0 unsafe.Pointer, arg1 *C.int) {
 func Function_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_IsScalar(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_IsScalar(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_IsScalar(arg0, arg1)
 }
 
 func Function_IsAggregate(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_IsAggregate(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_IsAggregate(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_IsAggregate(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_IsAggregate(arg0, arg1)
 }
 
 func Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_IsAnalytic(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_IsAnalytic(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_IsAnalytic(arg0, arg1)
 }
 
@@ -29228,132 +29228,132 @@ func zetasql_Function_GetSQL(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsa
 func Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsOverClause(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsOverClause(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsOverClause(arg0, arg1)
 }
 
 func Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsWindowOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsWindowOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsWindowOrdering(arg0, arg1)
 }
 
 func Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_RequiresWindowOrdering(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_RequiresWindowOrdering(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_RequiresWindowOrdering(arg0, arg1)
 }
 
 func Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsWindowFraming(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsWindowFraming(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsWindowFraming(arg0, arg1)
 }
 
 func Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsOrderingArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsOrderingArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsOrderingArguments(arg0, arg1)
 }
 
 func Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsLimitArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsLimitArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsLimitArguments(arg0, arg1)
 }
 
 func Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsNullHandlingModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsNullHandlingModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsNullHandlingModifier(arg0, arg1)
 }
 
 func Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsSafeErrorMode(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsSafeErrorMode(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsSafeErrorMode(arg0, arg1)
 }
 
 func Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsHavingModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsHavingModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsHavingModifier(arg0, arg1)
 }
 
 func Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsDistinctModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsDistinctModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsDistinctModifier(arg0, arg1)
 }
 
 func Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_SupportsClampedBetweenModifier(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_SupportsClampedBetweenModifier(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_SupportsClampedBetweenModifier(arg0, arg1)
 }
 
 func Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_Function_IsDeprecated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_Function_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_Function_IsDeprecated(arg0, arg1)
 }
 
@@ -29383,33 +29383,33 @@ func zetasql_FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, 
 func FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_required(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_required(arg0, arg1)
 }
 
 func FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_repeated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_repeated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_repeated(arg0, arg1)
 }
 
 func FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_optional(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_optional(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_optional(arg0, arg1)
 }
 
@@ -29427,22 +29427,22 @@ func zetasql_FunctionArgumentType_cardinality(arg0 unsafe.Pointer, arg1 *C.int) 
 func FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_must_be_constant(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_must_be_constant(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_must_be_constant(arg0, arg1)
 }
 
 func FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_has_argument_name(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_has_argument_name(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_has_argument_name(arg0, arg1)
 }
 
@@ -29525,110 +29525,110 @@ func zetasql_FunctionArgumentType_labmda(arg0 unsafe.Pointer, arg1 *unsafe.Point
 func FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsConcrete(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsConcrete(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsConcrete(arg0, arg1)
 }
 
 func FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsTemplated(arg0, arg1)
 }
 
 func FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsScalar(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsScalar(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsScalar(arg0, arg1)
 }
 
 func FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsRelation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsRelation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsRelation(arg0, arg1)
 }
 
 func FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsModel(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsModel(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsModel(arg0, arg1)
 }
 
 func FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsConnection(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsConnection(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsConnection(arg0, arg1)
 }
 
 func FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsLambda(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsLambda(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsLambda(arg0, arg1)
 }
 
 func FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsFixedRelation(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsFixedRelation(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsFixedRelation(arg0, arg1)
 }
 
 func FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsVoid(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsVoid(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsVoid(arg0, arg1)
 }
 
 func FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_IsDescriptor(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_IsDescriptor(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_IsDescriptor(arg0, arg1)
 }
 
@@ -29636,11 +29636,11 @@ func FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 int, 
 	zetasql_FunctionArgumentType_TemplatedKindIsRelated(
 		arg0,
 		C.int(arg1),
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.int) {
+func zetasql_FunctionArgumentType_TemplatedKindIsRelated(arg0 unsafe.Pointer, arg1 C.int, arg2 *C.char) {
 	C.export_zetasql_FunctionArgumentType_TemplatedKindIsRelated(arg0, arg1, arg2)
 }
 
@@ -29648,22 +29648,22 @@ func FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Poi
 	zetasql_FunctionArgumentType_AllowCoercionFrom(
 		arg0,
 		arg1,
-		(*C.int)(unsafe.Pointer(arg2)),
+		(*C.char)(unsafe.Pointer(arg2)),
 	)
 }
 
-func zetasql_FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int) {
+func zetasql_FunctionArgumentType_AllowCoercionFrom(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char) {
 	C.export_zetasql_FunctionArgumentType_AllowCoercionFrom(arg0, arg1, arg2)
 }
 
 func FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionArgumentType_HasDefault(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionArgumentType_HasDefault(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionArgumentType_HasDefault(arg0, arg1)
 }
 
@@ -29808,22 +29808,22 @@ func zetasql_FunctionSignature_result_type(arg0 unsafe.Pointer, arg1 *unsafe.Poi
 func FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_IsConcrete(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_IsConcrete(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_IsConcrete(arg0, arg1)
 }
 
 func FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_HasConcreteArguments(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_HasConcreteArguments(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_HasConcreteArguments(arg0, arg1)
 }
 
@@ -29956,11 +29956,11 @@ func zetasql_FunctionSignature_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 unsaf
 func FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_IsDeprecated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_IsDeprecated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_IsDeprecated(arg0, arg1)
 }
 
@@ -29978,11 +29978,11 @@ func zetasql_FunctionSignature_SetIsDeprecated(arg0 unsafe.Pointer, arg1 C.int) 
 func FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_IsInternal(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_IsInternal(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_IsInternal(arg0, arg1)
 }
 
@@ -30011,22 +30011,22 @@ func zetasql_FunctionSignature_SetConcreteResultType(arg0 unsafe.Pointer, arg1 u
 func FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_IsTemplated(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_IsTemplated(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_IsTemplated(arg0, arg1)
 }
 
 func FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *bool) {
 	zetasql_FunctionSignature_AllArgumentsHaveDefaults(
 		arg0,
-		(*C.int)(unsafe.Pointer(arg1)),
+		(*C.char)(unsafe.Pointer(arg1)),
 	)
 }
 
-func zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.int) {
+func zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0 unsafe.Pointer, arg1 *C.char) {
 	C.export_zetasql_FunctionSignature_AllArgumentsHaveDefaults(arg0, arg1)
 }
 
@@ -30248,7 +30248,7 @@ func zetasql_FormatSql(arg0 unsafe.Pointer, arg1 *unsafe.Pointer, arg2 *unsafe.P
 
 //export export_zetasql_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
-func export_zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_cctz_FixedOffsetToName
 //go:linkname export_zetasql_cctz_FixedOffsetToName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetToName
@@ -30264,7 +30264,7 @@ func export_zetasql_cctz_detail_format(arg0 unsafe.Pointer, arg1 unsafe.Pointer,
 
 //export export_zetasql_cctz_detail_parse
 //go:linkname export_zetasql_cctz_detail_parse github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_detail_parse
-func export_zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.int)
+func export_zetasql_cctz_detail_parse(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 unsafe.Pointer, arg4 unsafe.Pointer, arg5 unsafe.Pointer, arg6 *C.char)
 
 //export export_zetasql_TimeZoneIf_Load
 //go:linkname export_zetasql_TimeZoneIf_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneIf_Load
@@ -30276,7 +30276,7 @@ func export_zetasql_time_zone_Impl_UTC(arg0 *unsafe.Pointer)
 
 //export export_zetasql_time_zone_Impl_LoadTimeZone
 //go:linkname export_zetasql_time_zone_Impl_LoadTimeZone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_LoadTimeZone
-func export_zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_time_zone_Impl_LoadTimeZone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly
 //go:linkname export_zetasql_time_zone_Impl_ClearTimeZoneMapTestOnly github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_Impl_ClearTimeZoneMapTestOnly
@@ -30288,7 +30288,7 @@ func export_zetasql_time_zone_Impl_UTCImpl(arg0 *unsafe.Pointer)
 
 //export export_zetasql_TimeZoneInfo_Load
 //go:linkname export_zetasql_TimeZoneInfo_Load github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_Load
-func export_zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_TimeZoneInfo_Load(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_TimeZoneInfo_BreakTime
 //go:linkname export_zetasql_TimeZoneInfo_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_BreakTime
@@ -30308,11 +30308,11 @@ func export_zetasql_TimeZoneInfo_Description(arg0 unsafe.Pointer, arg1 *unsafe.P
 
 //export export_zetasql_TimeZoneInfo_NextTransition
 //go:linkname export_zetasql_TimeZoneInfo_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_NextTransition
-func export_zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_TimeZoneInfo_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_TimeZoneInfo_PrevTransition
 //go:linkname export_zetasql_TimeZoneInfo_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneInfo_PrevTransition
-func export_zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_TimeZoneInfo_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_TimeZoneLibC_BreakTime
 //go:linkname export_zetasql_TimeZoneLibC_BreakTime github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_BreakTime
@@ -30328,11 +30328,11 @@ func export_zetasql_TimeZoneLibC_Version(arg0 unsafe.Pointer, arg1 *unsafe.Point
 
 //export export_zetasql_TimeZoneLibC_NextTransition
 //go:linkname export_zetasql_TimeZoneLibC_NextTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_NextTransition
-func export_zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_TimeZoneLibC_NextTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_TimeZoneLibC_PrevTransition
 //go:linkname export_zetasql_TimeZoneLibC_PrevTransition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_TimeZoneLibC_PrevTransition
-func export_zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.int)
+func export_zetasql_TimeZoneLibC_PrevTransition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 unsafe.Pointer, arg3 *C.char)
 
 //export export_zetasql_time_zone_name
 //go:linkname export_zetasql_time_zone_name github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_name
@@ -30348,11 +30348,11 @@ func export_zetasql_time_zone_lookup2(arg0 unsafe.Pointer, arg1 unsafe.Pointer, 
 
 //export export_zetasql_time_zone_next_transition
 //go:linkname export_zetasql_time_zone_next_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_next_transition
-func export_zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_time_zone_next_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_time_zone_prev_transition
 //go:linkname export_zetasql_time_zone_prev_transition github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_prev_transition
-func export_zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_time_zone_prev_transition(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_time_zone_version
 //go:linkname export_zetasql_time_zone_version github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_time_zone_version
@@ -30364,7 +30364,7 @@ func export_zetasql_time_zone_description(arg0 unsafe.Pointer, arg1 *unsafe.Poin
 
 //export export_zetasql_cctz_load_time_zone
 //go:linkname export_zetasql_cctz_load_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_load_time_zone
-func export_zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_cctz_load_time_zone(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)
 
 //export export_zetasql_cctz_utc_time_zone
 //go:linkname export_zetasql_cctz_utc_time_zone github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_utc_time_zone
@@ -30380,4 +30380,4 @@ func export_zetasql_cctz_local_time_zone(arg0 *unsafe.Pointer)
 
 //export export_zetasql_cctz_ParsePosixSpec
 //go:linkname export_zetasql_cctz_ParsePosixSpec github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_ParsePosixSpec
-func export_zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.int)
+func export_zetasql_cctz_ParsePosixSpec(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)

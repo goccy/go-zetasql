@@ -23,7 +23,7 @@ void GO_EXPORT(ParseScript)(void * arg0,void * arg1,int arg2,void ** arg3,void *
   *arg4 = (void *)(new absl::Status(ret));
 }
 
-void GO_EXPORT(ParseNextStatement)(void * arg0,void * arg1,void ** arg2,int* arg3,void ** arg4)
+void GO_EXPORT(ParseNextStatement)(void * arg0,void * arg1,void ** arg2,char* arg3,void ** arg4)
 {
   zetasql::ParseResumeLocation *loc = (zetasql::ParseResumeLocation *)arg0;
   zetasql::ParserOptions opt;
@@ -38,7 +38,7 @@ void GO_EXPORT(ParseNextStatement)(void * arg0,void * arg1,void ** arg2,int* arg
   *arg4 = (void *)(new absl::Status(ret));
 }
 
-void GO_EXPORT(ParseNextScriptStatement)(void * arg0,void * arg1,void ** arg2,int* arg3,void ** arg4)
+void GO_EXPORT(ParseNextScriptStatement)(void * arg0,void * arg1,void ** arg2,char* arg3,void ** arg4)
 {
   zetasql::ParseResumeLocation *loc = (zetasql::ParseResumeLocation *)arg0;
   zetasql::ParserOptions opt;
@@ -89,7 +89,7 @@ void GO_EXPORT(ParseResumeLocation_FromStringView)(void * arg0,void ** arg1)
   *arg1 = new zetasql::ParseResumeLocation(ret);
 }
 
-void GO_EXPORT(Status_OK)(void * arg0,int* arg1){
+void GO_EXPORT(Status_OK)(void * arg0,char* arg1){
   absl::Status *status = (absl::Status *)arg0;
   *arg1 = status->ok();
 }
@@ -256,73 +256,73 @@ void GO_EXPORT(ASTNode_set_end_location)(void * arg0,void * arg1)
   node->set_end_location(*a1);
 }
 
-void GO_EXPORT(ASTNode_IsTableExpression)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsTableExpression)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsTableExpression();
 }
 
-void GO_EXPORT(ASTNode_IsQueryExpression)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsQueryExpression)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsQueryExpression();
 }
 
-void GO_EXPORT(ASTNode_IsExpression)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsExpression)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsExpression();
 }
 
-void GO_EXPORT(ASTNode_IsType)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsType)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsType();
 }
 
-void GO_EXPORT(ASTNode_IsLeaf)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsLeaf)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsLeaf();
 }
 
-void GO_EXPORT(ASTNode_IsStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsStatement();
 }
 
-void GO_EXPORT(ASTNode_IsScriptStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsScriptStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsScriptStatement();
 }
 
-void GO_EXPORT(ASTNode_IsLoopStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsLoopStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsLoopStatement();
 }
 
-void GO_EXPORT(ASTNode_IsSqlStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsSqlStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsSqlStatement();
 }
 
-void GO_EXPORT(ASTNode_IsDdlStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsDdlStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsDdlStatement();
 }
 
-void GO_EXPORT(ASTNode_IsCreateStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsCreateStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsCreateStatement();
 }
 
-void GO_EXPORT(ASTNode_IsAlterStatement)(void * arg0,int* arg1)
+void GO_EXPORT(ASTNode_IsAlterStatement)(void * arg0,char* arg1)
 {
   zetasql::ASTNode *node = (zetasql::ASTNode *)arg0;
   *arg1 = node->IsAlterStatement();
@@ -401,7 +401,7 @@ void GO_EXPORT(ASTQueryExpression_set_parenthesized)(void * arg0,int arg1)
   expr->set_parenthesized(arg1);
 }
 
-void GO_EXPORT(ASTQueryExpression_parenthesized)(void * arg0,int* arg1)
+void GO_EXPORT(ASTQueryExpression_parenthesized)(void * arg0,char* arg1)
 {
   zetasql::ASTQueryExpression *expr = (zetasql::ASTQueryExpression *)arg0;
   *arg1 = expr->parenthesized();
@@ -413,7 +413,7 @@ void GO_EXPORT(ASTQuery_set_is_nested)(void * arg0,int arg1)
   query->set_is_nested(arg1);
 }
 
-void GO_EXPORT(ASTQuery_is_nested)(void * arg0,int* arg1)
+void GO_EXPORT(ASTQuery_is_nested)(void * arg0,char* arg1)
 {
   zetasql::ASTQuery *query = (zetasql::ASTQuery *)arg0;
   *arg1 = query->is_nested();
@@ -425,7 +425,7 @@ void GO_EXPORT(ASTQuery_set_is_pivot_input)(void * arg0,int arg1)
   query->set_is_pivot_input(arg1);
 }
 
-void GO_EXPORT(ASTQuery_is_pivot_input)(void * arg0,int* arg1)
+void GO_EXPORT(ASTQuery_is_pivot_input)(void * arg0,char* arg1)
 {
   zetasql::ASTQuery *query = (zetasql::ASTQuery *)arg0;
   *arg1 = query->is_pivot_input();
@@ -461,7 +461,7 @@ void GO_EXPORT(ASTSelect_set_distinct)(void * arg0,int arg1)
   select->set_distinct(arg1);
 }
 
-void GO_EXPORT(ASTSelect_distinct)(void * arg0,int* arg1)
+void GO_EXPORT(ASTSelect_distinct)(void * arg0,char* arg1)
 {
   zetasql::ASTSelect *select = (zetasql::ASTSelect *)arg0;
   *arg1 = select->distinct();
@@ -557,13 +557,13 @@ void GO_EXPORT(ASTExpression_set_parenthesized)(void * arg0,int arg1)
   expr->set_parenthesized(arg1);
 }
 
-void GO_EXPORT(ASTExpression_parenthesized)(void * arg0,int* arg1)
+void GO_EXPORT(ASTExpression_parenthesized)(void * arg0,char* arg1)
 {
   zetasql::ASTExpression *expr = (zetasql::ASTExpression *)arg0;
   *arg1 = expr->parenthesized();
 }
 
-void GO_EXPORT(ASTExpression_IsAllowedInComparison)(void * arg0,int* arg1)
+void GO_EXPORT(ASTExpression_IsAllowedInComparison)(void * arg0,char* arg1)
 {
   zetasql::ASTExpression *expr = (zetasql::ASTExpression *)arg0;
   *arg1 = expr->IsAllowedInComparison();
@@ -581,7 +581,7 @@ void GO_EXPORT(ASTLeaf_set_image)(void * arg0,void * arg1)
   leaf->set_image((char *)arg1);
 }
 
-void GO_EXPORT(ASTIntLiteral_is_hex)(void * arg0,int* arg1)
+void GO_EXPORT(ASTIntLiteral_is_hex)(void * arg0,char* arg1)
 {
   zetasql::ASTIntLiteral *lit = (zetasql::ASTIntLiteral *)arg0;
   *arg1 = lit->is_hex();
@@ -701,7 +701,7 @@ void GO_EXPORT(ASTBooleanLiteral_set_value)(void * arg0,int arg1)
   lit->set_value(arg1);
 }
 
-void GO_EXPORT(ASTBooleanLiteral_value)(void * arg0,int* arg1)
+void GO_EXPORT(ASTBooleanLiteral_value)(void * arg0,char* arg1)
 {
   zetasql::ASTBooleanLiteral *lit = (zetasql::ASTBooleanLiteral *)arg0;
   *arg1 = lit->value();
@@ -737,7 +737,7 @@ void GO_EXPORT(ASTBinaryExpression_set_is_not)(void * arg0,int arg1)
   expr->set_is_not(arg1);
 }
 
-void GO_EXPORT(ASTBinaryExpression_is_not)(void * arg0,int* arg1)
+void GO_EXPORT(ASTBinaryExpression_is_not)(void * arg0,char* arg1)
 {
   zetasql::ASTBinaryExpression *expr = (zetasql::ASTBinaryExpression *)arg0;
   *arg1 = expr->is_not();
@@ -898,7 +898,7 @@ void GO_EXPORT(ASTJoin_set_natural)(void * arg0,int arg1){
   node->set_natural(arg1);
 }
 
-void GO_EXPORT(ASTJoin_natural)(void * arg0,int* arg1){
+void GO_EXPORT(ASTJoin_natural)(void * arg0,char* arg1){
   zetasql::ASTJoin *node = (zetasql::ASTJoin *)arg0;
   *arg1 = node->natural();
 }
@@ -918,7 +918,7 @@ void GO_EXPORT(ASTJoin_set_transformation_needed)(void * arg0,int arg1){
   node->set_transformation_needed(arg1);
 }
 
-void GO_EXPORT(ASTJoin_transformation_needed)(void * arg0,int* arg1){
+void GO_EXPORT(ASTJoin_transformation_needed)(void * arg0,char* arg1){
   zetasql::ASTJoin *node = (zetasql::ASTJoin *)arg0;
   *arg1 = node->transformation_needed();
 }
@@ -928,7 +928,7 @@ void GO_EXPORT(ASTJoin_set_contains_comma_join)(void * arg0,int arg1){
   node->set_contains_comma_join(arg1);
 }
 
-void GO_EXPORT(ASTJoin_contains_comma_join)(void * arg0,int* arg1){
+void GO_EXPORT(ASTJoin_contains_comma_join)(void * arg0,char* arg1){
   zetasql::ASTJoin *node = (zetasql::ASTJoin *)arg0;
   *arg1 = node->contains_comma_join();
 }
@@ -988,7 +988,7 @@ void GO_EXPORT(ASTWithClause_set_recursive)(void * arg0,int arg1){
   node->set_recursive(arg1);
 }
 
-void GO_EXPORT(ASTWithClause_recursive)(void * arg0,int* arg1){
+void GO_EXPORT(ASTWithClause_recursive)(void * arg0,char* arg1){
   zetasql::ASTWithClause *node = (zetasql::ASTWithClause *)arg0;
   *arg1 = node->recursive();
 }
@@ -1053,7 +1053,7 @@ void GO_EXPORT(ASTCastExpression_set_is_safe_cast)(void * arg0,int arg1){
   node->set_is_safe_cast(arg1);
 }
 
-void GO_EXPORT(ASTCastExpression_is_safe_cast)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCastExpression_is_safe_cast)(void * arg0,char* arg1){
   zetasql::ASTCastExpression *node = (zetasql::ASTCastExpression *)arg0;
   *arg1 = node->is_safe_cast();
 }
@@ -1088,12 +1088,12 @@ void GO_EXPORT(ASTSelectAs_type_name)(void * arg0,void ** arg1){
   *arg1 = (void *)node->type_name();
 }
 
-void GO_EXPORT(ASTSelectAs_is_select_as_struct)(void * arg0,int* arg1){
+void GO_EXPORT(ASTSelectAs_is_select_as_struct)(void * arg0,char* arg1){
   zetasql::ASTSelectAs *node = (zetasql::ASTSelectAs *)arg0;
   *arg1 = node->is_select_as_struct();
 }
 
-void GO_EXPORT(ASTSelectAs_is_select_as_value)(void * arg0,int* arg1){
+void GO_EXPORT(ASTSelectAs_is_select_as_value)(void * arg0,char* arg1){
   zetasql::ASTSelectAs *node = (zetasql::ASTSelectAs *)arg0;
   *arg1 = node->is_select_as_value();
 }
@@ -1123,7 +1123,7 @@ void GO_EXPORT(ASTFunctionCall_set_distinct)(void * arg0,int arg1){
   node->set_distinct(arg1);
 }
 
-void GO_EXPORT(ASTFunctionCall_distinct)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionCall_distinct)(void * arg0,char* arg1){
   zetasql::ASTFunctionCall *node = (zetasql::ASTFunctionCall *)arg0;
   *arg1 = node->distinct();
 }
@@ -1133,7 +1133,7 @@ void GO_EXPORT(ASTFunctionCall_set_is_current_date_time_without_parentheses)(voi
   node->set_is_current_date_time_without_parentheses(arg1);
 }
 
-void GO_EXPORT(ASTFunctionCall_is_current_date_time_without_parentheses)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionCall_is_current_date_time_without_parentheses)(void * arg0,char* arg1){
   zetasql::ASTFunctionCall *node = (zetasql::ASTFunctionCall *)arg0;
   *arg1 = node->is_current_date_time_without_parentheses();
 }
@@ -1183,7 +1183,7 @@ void GO_EXPORT(ASTFunctionCall_argument)(void * arg0,int arg1,void ** arg2){
   *arg2 = (void *)node->arguments(arg1);
 }
 
-void GO_EXPORT(ASTFunctionCall_HasModifiers)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionCall_HasModifiers)(void * arg0,char* arg1){
   zetasql::ASTFunctionCall *node = (zetasql::ASTFunctionCall *)arg0;
   *arg1 = node->HasModifiers();
 }
@@ -1243,7 +1243,7 @@ void GO_EXPORT(ASTInExpression_set_is_not)(void * arg0,int arg1){
   node->set_is_not(arg1);
 }
 
-void GO_EXPORT(ASTInExpression_is_not)(void * arg0,int* arg1){
+void GO_EXPORT(ASTInExpression_is_not)(void * arg0,char* arg1){
   zetasql::ASTInExpression *node = (zetasql::ASTInExpression *)arg0;
   *arg1 = node->is_not();
 }
@@ -1288,7 +1288,7 @@ void GO_EXPORT(ASTBetweenExpression_set_is_not)(void * arg0,int arg1){
   node->set_is_not(arg1);
 }
 
-void GO_EXPORT(ASTBetweenExpression_is_not)(void * arg0,int* arg1){
+void GO_EXPORT(ASTBetweenExpression_is_not)(void * arg0,char* arg1){
   zetasql::ASTBetweenExpression *node = (zetasql::ASTBetweenExpression *)arg0;
   *arg1 = node->is_not();
 }
@@ -1358,7 +1358,7 @@ void GO_EXPORT(ASTBitwiseShiftExpression_set_is_left_shift)(void * arg0,int arg1
   node->set_is_left_shift(arg1);
 }
 
-void GO_EXPORT(ASTBitwiseShiftExpression_is_left_shift)(void * arg0,int* arg1){
+void GO_EXPORT(ASTBitwiseShiftExpression_is_left_shift)(void * arg0,char* arg1){
   zetasql::ASTBitwiseShiftExpression *node = (zetasql::ASTBitwiseShiftExpression *)arg0;
   *arg1 = node->is_left_shift();
 }
@@ -1493,7 +1493,7 @@ void GO_EXPORT(ASTNullOrder_set_nulls_first)(void * arg0,int arg1){
   node->set_nulls_first(arg1);
 }
 
-void GO_EXPORT(ASTNullOrder_nulls_first)(void * arg0,int* arg1){
+void GO_EXPORT(ASTNullOrder_nulls_first)(void * arg0,char* arg1){
   zetasql::ASTNullOrder *node = (zetasql::ASTNullOrder *)arg0;
   *arg1 = node->nulls_first();
 }
@@ -1548,7 +1548,7 @@ void GO_EXPORT(ASTSetOperation_set_distinct)(void * arg0,int arg1){
   node->set_distinct(arg1);
 }
 
-void GO_EXPORT(ASTSetOperation_distinct)(void * arg0,int* arg1){
+void GO_EXPORT(ASTSetOperation_distinct)(void * arg0,char* arg1){
   zetasql::ASTSetOperation *node = (zetasql::ASTSetOperation *)arg0;
   *arg1 = node->distinct();
 }
@@ -1728,7 +1728,7 @@ void GO_EXPORT(ASTLikeExpression_set_is_not)(void * arg0,int arg1){
   node->set_is_not(arg1);
 }
 
-void GO_EXPORT(ASTLikeExpression_is_not)(void * arg0,int *arg1){
+void GO_EXPORT(ASTLikeExpression_is_not)(void * arg0,char *arg1){
   zetasql::ASTLikeExpression *node = (zetasql::ASTLikeExpression *)arg0;
   *arg1 = node->is_not();
 }
@@ -1808,7 +1808,7 @@ void GO_EXPORT(ASTStatementList_set_variable_declarations_allowed)(void * arg0,i
   node->set_variable_declarations_allowed(arg1);
 }
 
-void GO_EXPORT(ASTStatementList_variable_declarations_allowed)(void * arg0,int* arg1){
+void GO_EXPORT(ASTStatementList_variable_declarations_allowed)(void * arg0,char* arg1){
   zetasql::ASTStatementList *node = (zetasql::ASTStatementList *)arg0;
   *arg1 = node->variable_declarations_allowed();
 }
@@ -1923,7 +1923,7 @@ void GO_EXPORT(ASTDropEntityStatement_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropEntityStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropEntityStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropEntityStatement *node = (zetasql::ASTDropEntityStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -1943,7 +1943,7 @@ void GO_EXPORT(ASTDropFunctionStatement_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropFunctionStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropFunctionStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropFunctionStatement *node = (zetasql::ASTDropFunctionStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -1963,7 +1963,7 @@ void GO_EXPORT(ASTDropTableFunctionStatement_set_is_if_exists)(void * arg0,int a
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropTableFunctionStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropTableFunctionStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropTableFunctionStatement *node = (zetasql::ASTDropTableFunctionStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -1978,7 +1978,7 @@ void GO_EXPORT(ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword)(void
   node->set_has_access_keyword(arg1);
 }
 
-void GO_EXPORT(ASTDropAllRowAccessPoliciesStatement_has_access_keyword)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropAllRowAccessPoliciesStatement_has_access_keyword)(void * arg0,char* arg1){
   zetasql::ASTDropAllRowAccessPoliciesStatement *node = (zetasql::ASTDropAllRowAccessPoliciesStatement *)arg0;
   *arg1 = node->has_access_keyword();
 }
@@ -1993,7 +1993,7 @@ void GO_EXPORT(ASTDropMaterializedViewStatement_set_is_if_exists)(void * arg0,in
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropMaterializedViewStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropMaterializedViewStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropMaterializedViewStatement *node = (zetasql::ASTDropMaterializedViewStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -2008,7 +2008,7 @@ void GO_EXPORT(ASTDropSnapshotTableStatement_set_is_if_exists)(void * arg0,int a
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropSnapshotTableStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropSnapshotTableStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropSnapshotTableStatement *node = (zetasql::ASTDropSnapshotTableStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -2023,7 +2023,7 @@ void GO_EXPORT(ASTDropSearchIndexStatement_set_is_if_exists)(void * arg0,int arg
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropSearchIndexStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropSearchIndexStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropSearchIndexStatement *node = (zetasql::ASTDropSearchIndexStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -2423,7 +2423,7 @@ void GO_EXPORT(ASTCreateStatement_set_is_or_replace)(void * arg0,int arg1){
   node->set_is_or_replace(arg1);
 }
 
-void GO_EXPORT(ASTCreateStatement_is_or_replace)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_or_replace)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_or_replace();
 }
@@ -2432,27 +2432,27 @@ void GO_EXPORT(ASTCreateStatement_set_is_if_not_exists)(void * arg0,int arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
 }
 
-void GO_EXPORT(ASTCreateStatement_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_if_not_exists();
 }
 
-void GO_EXPORT(ASTCreateStatement_is_default_scope)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_default_scope)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_default_scope();
 }
 
-void GO_EXPORT(ASTCreateStatement_is_private)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_private)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_private();
 }
 
-void GO_EXPORT(ASTCreateStatement_is_public)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_public)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_public();
 }
 
-void GO_EXPORT(ASTCreateStatement_is_temp)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateStatement_is_temp)(void * arg0,char* arg1){
   zetasql::ASTCreateStatement *node = (zetasql::ASTCreateStatement *)arg0;
   *arg1 = node->is_temp();
 }
@@ -2472,7 +2472,7 @@ void GO_EXPORT(ASTFunctionParameter_set_is_not_aggregate)(void * arg0,int arg1){
   node->set_is_not_aggregate(arg1);
 }
 
-void GO_EXPORT(ASTFunctionParameter_is_not_aggregate)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionParameter_is_not_aggregate)(void * arg0,char* arg1){
   zetasql::ASTFunctionParameter *node = (zetasql::ASTFunctionParameter *)arg0;
   *arg1 = node->is_not_aggregate();
 }
@@ -2507,12 +2507,12 @@ void GO_EXPORT(ASTFunctionParameter_default_value)(void * arg0,void ** arg1){
   *arg1 = (void *)node->default_value();
 }
 
-void GO_EXPORT(ASTFunctionParameter_IsTableParameter)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionParameter_IsTableParameter)(void * arg0,char* arg1){
   zetasql::ASTFunctionParameter *node = (zetasql::ASTFunctionParameter *)arg0;
   *arg1 = node->IsTableParameter();
 }
 
-void GO_EXPORT(ASTFunctionParameter_IsTemplated)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionParameter_IsTemplated)(void * arg0,char* arg1){
   zetasql::ASTFunctionParameter *node = (zetasql::ASTFunctionParameter *)arg0;
   *arg1 = node->IsTemplated();
 }
@@ -2537,7 +2537,7 @@ void GO_EXPORT(ASTFunctionDeclaration_parameters)(void * arg0,void ** arg1){
   *arg1 = (void *)node->parameters();
 }
 
-void GO_EXPORT(ASTFunctionDeclaration_IsTemplated)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFunctionDeclaration_IsTemplated)(void * arg0,char* arg1){
   zetasql::ASTFunctionDeclaration *node = (zetasql::ASTFunctionDeclaration *)arg0;
   *arg1 = node->IsTemplated();
 }
@@ -2782,7 +2782,7 @@ void GO_EXPORT(ASTCreateIndexStatement_set_is_unique)(void * arg0,int arg1){
   node->set_is_unique(arg1);
 }
 
-void GO_EXPORT(ASTCreateIndexStatement_is_unique)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateIndexStatement_is_unique)(void * arg0,char* arg1){
   zetasql::ASTCreateIndexStatement *node = (zetasql::ASTCreateIndexStatement *)arg0;
   *arg1 = node->is_unique();
 }
@@ -2792,7 +2792,7 @@ void GO_EXPORT(ASTCreateIndexStatement_set_is_search)(void * arg0,int arg1){
   node->set_is_search(arg1);
 }
 
-void GO_EXPORT(ASTCreateIndexStatement_is_search)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateIndexStatement_is_search)(void * arg0,char* arg1){
   zetasql::ASTCreateIndexStatement *node = (zetasql::ASTCreateIndexStatement *)arg0;
   *arg1 = node->is_search();
 }
@@ -3037,7 +3037,7 @@ void GO_EXPORT(ASTPrimaryKeyColumnAttribute_set_enforced)(void * arg0,int arg1){
   node->set_enforced(arg1);
 }
 
-void GO_EXPORT(ASTPrimaryKeyColumnAttribute_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ASTPrimaryKeyColumnAttribute_enforced)(void * arg0,char* arg1){
   zetasql::ASTPrimaryKeyColumnAttribute *node = (zetasql::ASTPrimaryKeyColumnAttribute *)arg0;
   *arg1 = node->enforced();
 }
@@ -3407,7 +3407,7 @@ void GO_EXPORT(ASTPrivileges_privilege)(void * arg0,int arg1,void ** arg2){
   *arg2 = (void *)node->privileges(arg1);
 }
 
-void GO_EXPORT(ASTPrivileges_is_all_privileges)(void * arg0,int* arg1){
+void GO_EXPORT(ASTPrivileges_is_all_privileges)(void * arg0,char* arg1){
   zetasql::ASTPrivileges *node = (zetasql::ASTPrivileges *)arg0;
   *arg1 = node->is_all_privileges();
 }
@@ -3592,7 +3592,7 @@ void GO_EXPORT(ASTAddConstraintAction_set_is_if_not_exists)(void * arg0,int arg1
   node->set_is_if_not_exists(arg1);
 }
 
-void GO_EXPORT(ASTAddConstraintAction_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAddConstraintAction_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ASTAddConstraintAction *node = (zetasql::ASTAddConstraintAction *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -3607,7 +3607,7 @@ void GO_EXPORT(ASTDropPrimaryKeyAction_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropPrimaryKeyAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropPrimaryKeyAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropPrimaryKeyAction *node = (zetasql::ASTDropPrimaryKeyAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3617,7 +3617,7 @@ void GO_EXPORT(ASTDropConstraintAction_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropConstraintAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropConstraintAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropConstraintAction *node = (zetasql::ASTDropConstraintAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3632,7 +3632,7 @@ void GO_EXPORT(ASTAlterConstraintEnforcementAction_set_is_if_exists)(void * arg0
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterConstraintEnforcementAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterConstraintEnforcementAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterConstraintEnforcementAction *node = (zetasql::ASTAlterConstraintEnforcementAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3642,7 +3642,7 @@ void GO_EXPORT(ASTAlterConstraintEnforcementAction_set_is_enforced)(void * arg0,
   node->set_is_enforced(arg1);
 }
 
-void GO_EXPORT(ASTAlterConstraintEnforcementAction_is_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterConstraintEnforcementAction_is_enforced)(void * arg0,char* arg1){
   zetasql::ASTAlterConstraintEnforcementAction *node = (zetasql::ASTAlterConstraintEnforcementAction *)arg0;
   *arg1 = node->is_enforced();
 }
@@ -3657,7 +3657,7 @@ void GO_EXPORT(ASTAlterConstraintSetOptionsAction_set_is_if_exists)(void * arg0,
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterConstraintSetOptionsAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterConstraintSetOptionsAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterConstraintSetOptionsAction *node = (zetasql::ASTAlterConstraintSetOptionsAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3677,7 +3677,7 @@ void GO_EXPORT(ASTAddColumnAction_set_is_if_not_exists)(void * arg0,int arg1){
   node->set_is_if_not_exists(arg1);
 }
 
-void GO_EXPORT(ASTAddColumnAction_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAddColumnAction_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ASTAddColumnAction *node = (zetasql::ASTAddColumnAction *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -3702,7 +3702,7 @@ void GO_EXPORT(ASTDropColumnAction_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropColumnAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropColumnAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropColumnAction *node = (zetasql::ASTDropColumnAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3717,7 +3717,7 @@ void GO_EXPORT(ASTRenameColumnAction_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTRenameColumnAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTRenameColumnAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTRenameColumnAction *node = (zetasql::ASTRenameColumnAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3737,7 +3737,7 @@ void GO_EXPORT(ASTAlterColumnTypeAction_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterColumnTypeAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterColumnTypeAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterColumnTypeAction *node = (zetasql::ASTAlterColumnTypeAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3762,7 +3762,7 @@ void GO_EXPORT(ASTAlterColumnOptionsAction_set_is_if_exists)(void * arg0,int arg
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterColumnOptionsAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterColumnOptionsAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterColumnOptionsAction *node = (zetasql::ASTAlterColumnOptionsAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3782,7 +3782,7 @@ void GO_EXPORT(ASTAlterColumnSetDefaultAction_set_is_if_exists)(void * arg0,int 
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterColumnSetDefaultAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterColumnSetDefaultAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterColumnSetDefaultAction *node = (zetasql::ASTAlterColumnSetDefaultAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3802,7 +3802,7 @@ void GO_EXPORT(ASTAlterColumnDropDefaultAction_set_is_if_exists)(void * arg0,int
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterColumnDropDefaultAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterColumnDropDefaultAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterColumnDropDefaultAction *node = (zetasql::ASTAlterColumnDropDefaultAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3817,7 +3817,7 @@ void GO_EXPORT(ASTAlterColumnDropNotNullAction_set_is_if_exists)(void * arg0,int
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterColumnDropNotNullAction_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterColumnDropNotNullAction_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterColumnDropNotNullAction *node = (zetasql::ASTAlterColumnDropNotNullAction *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3832,7 +3832,7 @@ void GO_EXPORT(ASTGrantToClause_set_has_grant_keyword_and_parens)(void * arg0,in
   node->set_has_grant_keyword_and_parens(arg1);
 }
 
-void GO_EXPORT(ASTGrantToClause_has_grant_keyword_and_parens)(void * arg0,int* arg1){
+void GO_EXPORT(ASTGrantToClause_has_grant_keyword_and_parens)(void * arg0,char* arg1){
   zetasql::ASTGrantToClause *node = (zetasql::ASTGrantToClause *)arg0;
   *arg1 = node->has_grant_keyword_and_parens();
 }
@@ -3852,7 +3852,7 @@ void GO_EXPORT(ASTAddToRestricteeListClause_set_is_if_not_exists)(void * arg0,in
   node->set_is_if_not_exists(arg1);
 }
 
-void GO_EXPORT(ASTAddToRestricteeListClause_is_if_not_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAddToRestricteeListClause_is_if_not_exists)(void * arg0,char* arg1){
   zetasql::ASTAddToRestricteeListClause *node = (zetasql::ASTAddToRestricteeListClause *)arg0;
   *arg1 = node->is_if_not_exists();
 }
@@ -3867,7 +3867,7 @@ void GO_EXPORT(ASTRemoveFromRestricteeListClause_set_is_if_exists)(void * arg0,i
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTRemoveFromRestricteeListClause_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTRemoveFromRestricteeListClause_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTRemoveFromRestricteeListClause *node = (zetasql::ASTRemoveFromRestricteeListClause *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -3882,7 +3882,7 @@ void GO_EXPORT(ASTFilterUsingClause_set_has_filter_keyword)(void * arg0,int arg1
   node->set_has_filter_keyword(arg1);
 }
 
-void GO_EXPORT(ASTFilterUsingClause_has_filter_keyword)(void * arg0,int* arg1){
+void GO_EXPORT(ASTFilterUsingClause_has_filter_keyword)(void * arg0,char* arg1){
   zetasql::ASTFilterUsingClause *node = (zetasql::ASTFilterUsingClause *)arg0;
   *arg1 = node->has_filter_keyword();
 }
@@ -3897,7 +3897,7 @@ void GO_EXPORT(ASTRevokeFromClause_set_is_revoke_from_all)(void * arg0,int arg1)
   node->set_is_revoke_from_all(arg1);
 }
 
-void GO_EXPORT(ASTRevokeFromClause_is_revoke_from_all)(void * arg0,int* arg1){
+void GO_EXPORT(ASTRevokeFromClause_is_revoke_from_all)(void * arg0,char* arg1){
   zetasql::ASTRevokeFromClause *node = (zetasql::ASTRevokeFromClause *)arg0;
   *arg1 = node->is_revoke_from_all();
 }
@@ -3972,7 +3972,7 @@ void GO_EXPORT(ASTForeignKeyReference_set_enforced)(void * arg0,int arg1){
   node->set_enforced(arg1);
 }
 
-void GO_EXPORT(ASTForeignKeyReference_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ASTForeignKeyReference_enforced)(void * arg0,char* arg1){
   zetasql::ASTForeignKeyReference *node = (zetasql::ASTForeignKeyReference *)arg0;
   *arg1 = node->enforced();
 }
@@ -4162,7 +4162,7 @@ void GO_EXPORT(ASTColumnSchema_options_list)(void * arg0,void ** arg1){
   *arg1 = (void *)node->options_list();
 }
 
-void GO_EXPORT(ASTColumnSchema_ContainsAttribute)(void * arg0,int arg1,int* arg2){
+void GO_EXPORT(ASTColumnSchema_ContainsAttribute)(void * arg0,int arg1,char* arg2){
   zetasql::ASTColumnSchema *node = (zetasql::ASTColumnSchema *)arg0;
   *arg2 = node->ContainsAttribute((zetasql::ASTNodeKind)arg1);
 }
@@ -4187,7 +4187,7 @@ void GO_EXPORT(ASTPrimaryKey_set_enforced)(void * arg0,int arg1){
   node->set_enforced(arg1);
 }
 
-void GO_EXPORT(ASTPrimaryKey_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ASTPrimaryKey_enforced)(void * arg0,char* arg1){
   zetasql::ASTPrimaryKey *node = (zetasql::ASTPrimaryKey *)arg0;
   *arg1 = node->enforced();
 }
@@ -4222,7 +4222,7 @@ void GO_EXPORT(ASTCheckConstraint_set_is_enforced)(void * arg0,int arg1){
   node->set_is_enforced(arg1);
 }
 
-void GO_EXPORT(ASTCheckConstraint_is_enforced)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCheckConstraint_is_enforced)(void * arg0,char* arg1){
   zetasql::ASTCheckConstraint *node = (zetasql::ASTCheckConstraint *)arg0;
   *arg1 = node->is_enforced();
 }
@@ -4282,7 +4282,7 @@ void GO_EXPORT(ASTRaiseStatement_message)(void * arg0,void ** arg1){
   *arg1 = (void *)node->message();
 }
 
-void GO_EXPORT(ASTRaiseStatement_is_rethrow)(void * arg0,int* arg1){
+void GO_EXPORT(ASTRaiseStatement_is_rethrow)(void * arg0,char* arg1){
   zetasql::ASTRaiseStatement *node = (zetasql::ASTRaiseStatement *)arg0;
   *arg1 = node->is_rethrow();
 }
@@ -4327,7 +4327,7 @@ void GO_EXPORT(ASTBeginEndBlock_statement_list)(void * arg0,int arg1,void ** arg
   *arg2 = (void *)node->statement_list()[arg1];
 }
 
-void GO_EXPORT(ASTBeginEndBlock_has_exception_handler)(void * arg0,int* arg1){
+void GO_EXPORT(ASTBeginEndBlock_has_exception_handler)(void * arg0,char* arg1){
   zetasql::ASTBeginEndBlock *node = (zetasql::ASTBeginEndBlock *)arg0;
   *arg1 = node->has_exception_handler();
 }
@@ -4407,7 +4407,7 @@ void GO_EXPORT(ASTDropPrivilegeRestrictionStatement_set_is_if_exists)(void * arg
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropPrivilegeRestrictionStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropPrivilegeRestrictionStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropPrivilegeRestrictionStatement *node = (zetasql::ASTDropPrivilegeRestrictionStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4432,7 +4432,7 @@ void GO_EXPORT(ASTDropRowAccessPolicyStatement_set_is_if_exists)(void * arg0,int
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropRowAccessPolicyStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropRowAccessPolicyStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropRowAccessPolicyStatement *node = (zetasql::ASTDropRowAccessPolicyStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4472,7 +4472,7 @@ void GO_EXPORT(ASTCreateRowAccessPolicyStatement_set_has_access_keyword)(void * 
   node->set_has_access_keyword(arg1);
 }
 
-void GO_EXPORT(ASTCreateRowAccessPolicyStatement_has_access_keyword)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateRowAccessPolicyStatement_has_access_keyword)(void * arg0,char* arg1){
   zetasql::ASTCreateRowAccessPolicyStatement *node = (zetasql::ASTCreateRowAccessPolicyStatement *)arg0;
   *arg1 = node->has_access_keyword();
 }
@@ -4512,7 +4512,7 @@ void GO_EXPORT(ASTDropStatement_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTDropStatement_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTDropStatement_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTDropStatement *node = (zetasql::ASTDropStatement *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4672,7 +4672,7 @@ void GO_EXPORT(ASTLoopStatement_body)(void * arg0,void ** arg1){
   *arg1 = (void *)node->body();
 }
 
-void GO_EXPORT(ASTLoopStatement_IsLoopStatement)(void * arg0,int* arg1){
+void GO_EXPORT(ASTLoopStatement_IsLoopStatement)(void * arg0,char* arg1){
   zetasql::ASTLoopStatement *node = (zetasql::ASTLoopStatement *)arg0;
   *arg1 = node->IsLoopStatement();
 }
@@ -4702,7 +4702,7 @@ void GO_EXPORT(ASTAlterStatementBase_set_is_if_exists)(void * arg0,int arg1){
   node->set_is_if_exists(arg1);
 }
 
-void GO_EXPORT(ASTAlterStatementBase_is_if_exists)(void * arg0,int* arg1){
+void GO_EXPORT(ASTAlterStatementBase_is_if_exists)(void * arg0,char* arg1){
   zetasql::ASTAlterStatementBase *node = (zetasql::ASTAlterStatementBase *)arg0;
   *arg1 = node->is_if_exists();
 }
@@ -4782,7 +4782,7 @@ void GO_EXPORT(ASTCreateFunctionStatement_set_is_aggregate)(void * arg0,int arg1
   node->set_is_aggregate(arg1);
 }
 
-void GO_EXPORT(ASTCreateFunctionStatement_is_aggregate)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateFunctionStatement_is_aggregate)(void * arg0,char* arg1){
   zetasql::ASTCreateFunctionStatement *node =(zetasql::ASTCreateFunctionStatement *)arg0;
   *arg1 = node->is_aggregate();
 }
@@ -4792,7 +4792,7 @@ void GO_EXPORT(ASTCreateFunctionStatement_set_is_remote)(void * arg0,int arg1){
   node->set_is_remote(arg1);
 }
 
-void GO_EXPORT(ASTCreateFunctionStatement_is_remote)(void * arg0,int* arg1){
+void GO_EXPORT(ASTCreateFunctionStatement_is_remote)(void * arg0,char* arg1){
   zetasql::ASTCreateFunctionStatement *node =(zetasql::ASTCreateFunctionStatement *)arg0;
   *arg1 = node->is_remote();
 }

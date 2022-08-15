@@ -8,216 +8,216 @@ void GO_EXPORT(Type_Kind)(void * arg0,int* arg1)
   *arg1 = type->kind();
 }
 
-void GO_EXPORT(Type_IsInt32)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInt32)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInt32();
 }
 
-void GO_EXPORT(Type_IsInt64)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInt64)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInt64();
 }
 
-void GO_EXPORT(Type_IsUint32)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsUint32)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsUint32();
 }
 
-void GO_EXPORT(Type_IsUint64)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsUint64)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsUint64();
 }
 
-void GO_EXPORT(Type_IsBool)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsBool)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
 }
 
-void GO_EXPORT(Type_IsFloat)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsFloat)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsBool();
 }
 
-void GO_EXPORT(Type_IsDouble)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsDouble)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsDouble();
 }
 
-void GO_EXPORT(Type_IsString)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsString)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsString();
 }
 
-void GO_EXPORT(Type_IsBytes)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsBytes)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsBytes();
 }
 
-void GO_EXPORT(Type_IsDate)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsDate)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsDate();
 }
 
-void GO_EXPORT(Type_IsTimestamp)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsTimestamp)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsTimestamp();
 }
 
-void GO_EXPORT(Type_IsTime)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsTime)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsTime();
 }
 
-void GO_EXPORT(Type_IsDatetime)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsDatetime)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsDatetime();
 }
 
-void GO_EXPORT(Type_IsInterval)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInterval)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInterval();
 }
 
-void GO_EXPORT(Type_IsNumericType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsNumericType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsNumericType();
 }
 
-void GO_EXPORT(Type_IsBigNumericType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsBigNumericType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsBigNumericType();
 }
 
-void GO_EXPORT(Type_IsJsonType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsJsonType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsJsonType();
 }
 
-void GO_EXPORT(Type_IsFeatureV12CivilTimeType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsFeatureV12CivilTimeType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsFeatureV12CivilTimeType();
 }
 
-void GO_EXPORT(Type_UsingFeatureV12CivilTimeType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_UsingFeatureV12CivilTimeType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->UsingFeatureV12CivilTimeType();
 }
 
-void GO_EXPORT(Type_IsCivilDateOrTimeType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsCivilDateOrTimeType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsCivilDateOrTimeType();
 }
 
-void GO_EXPORT(Type_IsGeography)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsGeography)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsGeography();
 }
 
-void GO_EXPORT(Type_IsJson)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsJson)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsJson();
 }
 
-void GO_EXPORT(Type_IsEnum)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsEnum)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsEnum();
 }
 
-void GO_EXPORT(Type_IsArray)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsArray)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsArray();
 }
 
-void GO_EXPORT(Type_IsStruct)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsStruct)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsStruct();
 }
 
-void GO_EXPORT(Type_IsProto)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsProto)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsProto();
 }
 
-void GO_EXPORT(Type_IsStructOrProto)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsStructOrProto)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsStructOrProto();
 }
 
-void GO_EXPORT(Type_IsFloatingPoint)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsFloatingPoint)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsFloatingPoint();
 }
 
-void GO_EXPORT(Type_IsNumerical)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsNumerical)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsNumerical();
 }
 
-void GO_EXPORT(Type_IsInteger)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInteger)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInteger();
 }
 
-void GO_EXPORT(Type_IsInteger32)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInteger32)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInteger32();
 }
 
-void GO_EXPORT(Type_IsInteger64)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsInteger64)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsInteger64();
 }
 
-void GO_EXPORT(Type_IsSignedInteger)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsSignedInteger)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsSignedInteger();
 }
 
-void GO_EXPORT(Type_IsUnsignedInteger)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsUnsignedInteger)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsUnsignedInteger();
 }
 
-void GO_EXPORT(Type_IsSimpleType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsSimpleType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsSimpleType();
 }
 
-void GO_EXPORT(Type_IsExtendedType)(void * arg0,int* arg1)
+void GO_EXPORT(Type_IsExtendedType)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->IsExtendedType();
@@ -253,42 +253,42 @@ void GO_EXPORT(Type_AsExtendedType)(void * arg0,void ** arg1)
   *arg1 = (void *)type->AsExtendedType();
 }
 
-void GO_EXPORT(Type_SupportsGrouping)(void * arg0,int* arg1)
+void GO_EXPORT(Type_SupportsGrouping)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::LanguageOptions opt;
   *arg1 = type->SupportsGrouping(opt);
 }
 
-void GO_EXPORT(Type_SupportsPartitioning)(void * arg0,int* arg1)
+void GO_EXPORT(Type_SupportsPartitioning)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::LanguageOptions opt;
   *arg1 = type->SupportsPartitioning(opt);
 }
 
-void GO_EXPORT(Type_SupportsOrdering)(void * arg0,int* arg1)
+void GO_EXPORT(Type_SupportsOrdering)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::LanguageOptions opt;
   *arg1 = type->SupportsOrdering(opt, nullptr); // TODO
 }
 
-void GO_EXPORT(Type_SupportsEquality)(void * arg0,int* arg1)
+void GO_EXPORT(Type_SupportsEquality)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::LanguageOptions opt;
   *arg1 = type->SupportsEquality(opt);
 }
 
-void GO_EXPORT(Type_Equals)(void * arg0,void * arg1,int* arg2)
+void GO_EXPORT(Type_Equals)(void * arg0,void * arg1,char* arg2)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::Type *target = (zetasql::Type *)arg1;
   *arg2 = type->Equals(target);
 }
 
-void GO_EXPORT(Type_Equivalent)(void * arg0,void * arg1,int* arg2)
+void GO_EXPORT(Type_Equivalent)(void * arg0,void * arg1,char* arg2)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   zetasql::Type *target = (zetasql::Type *)arg1;
@@ -327,7 +327,7 @@ void GO_EXPORT(Type_DebugString)(void * arg0,int arg1,void ** arg2)
   *arg2 = (void *)((new std::string(type->DebugString(arg1)))->c_str());
 }
 
-void GO_EXPORT(Type_HasAnyFields)(void * arg0,int* arg1)
+void GO_EXPORT(Type_HasAnyFields)(void * arg0,char* arg1)
 {
   zetasql::Type *type = (zetasql::Type *)arg0;
   *arg1 = type->HasAnyFields();
@@ -663,25 +663,25 @@ void GO_EXPORT(Value_physical_byte_size)(void * arg0,uint64_t* arg1)
   *arg1 = value->physical_byte_size();
 }
 
-void GO_EXPORT(Value_is_null)(void * arg0,int* arg1)
+void GO_EXPORT(Value_is_null)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->is_null();
 }
 
-void GO_EXPORT(Value_is_empty_array)(void * arg0,int* arg1)
+void GO_EXPORT(Value_is_empty_array)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->is_empty_array();
 }
 
-void GO_EXPORT(Value_is_valid)(void * arg0,int* arg1)
+void GO_EXPORT(Value_is_valid)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->is_valid();
 }
 
-void GO_EXPORT(Value_has_content)(void * arg0,int* arg1)
+void GO_EXPORT(Value_has_content)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->has_content();
@@ -711,7 +711,7 @@ void GO_EXPORT(Value_uint64_value)(void * arg0,uint64_t* arg1)
   *arg1 = value->uint64_value();
 }
 
-void GO_EXPORT(Value_bool_value)(void * arg0,int* arg1)
+void GO_EXPORT(Value_bool_value)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->bool_value();
@@ -791,13 +791,13 @@ void GO_EXPORT(Value_ToPacked64DatetimeMicros)(void * arg0,int64_t* arg1)
   *arg1 = value->ToPacked64DatetimeMicros();
 }
 
-void GO_EXPORT(Value_is_validated_json)(void * arg0,int* arg1)
+void GO_EXPORT(Value_is_validated_json)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->is_validated_json();
 }
 
-void GO_EXPORT(Value_is_unparsed_json)(void * arg0,int* arg1)
+void GO_EXPORT(Value_is_unparsed_json)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->is_unparsed_json();
@@ -851,7 +851,7 @@ void GO_EXPORT(Value_FindFieldByName)(void * arg0,void * arg1,void ** arg2)
   *arg2 = (void *)(new zetasql::Value(value->FindFieldByName((char *)arg1)));
 }
 
-void GO_EXPORT(Value_empty)(void * arg0,int* arg1)
+void GO_EXPORT(Value_empty)(void * arg0,char* arg1)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg1 = value->empty();
@@ -869,7 +869,7 @@ void GO_EXPORT(Value_element)(void * arg0,int arg1,void ** arg2)
   *arg2 = (void *)(new zetasql::Value(value->element(arg1)));
 }
 
-void GO_EXPORT(Value_Equals)(void * arg0,void * arg1,int* arg2)
+void GO_EXPORT(Value_Equals)(void * arg0,void * arg1,char* arg2)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg2 = value->Equals(*(zetasql::Value *)arg1);
@@ -881,7 +881,7 @@ void GO_EXPORT(Value_SqlEquals)(void * arg0,void * arg1,void ** arg2)
   *arg2 = (void *)(new zetasql::Value(value->SqlEquals(*(zetasql::Value *)arg1)));
 }
 
-void GO_EXPORT(Value_LessThan)(void * arg0,void * arg1,int* arg2)
+void GO_EXPORT(Value_LessThan)(void * arg0,void * arg1,char* arg2)
 {
   zetasql::Value *value = (zetasql::Value *)arg0;
   *arg2 = value->LessThan(*(zetasql::Value *)arg1);
@@ -958,13 +958,13 @@ void GO_EXPORT(Column_Type)(void * arg0,void ** arg1)
   *arg1 = (void *)col->GetType();
 }
 
-void GO_EXPORT(Column_IsPseudoColumn)(void * arg0,int* arg1)
+void GO_EXPORT(Column_IsPseudoColumn)(void * arg0,char* arg1)
 {
   zetasql::Column *col = (zetasql::Column *)arg0;
   *arg1 = col->IsPseudoColumn();
 }
 
-void GO_EXPORT(Column_IsWritableColumn)(void * arg0,int* arg1)
+void GO_EXPORT(Column_IsWritableColumn)(void * arg0,char* arg1)
 {
   zetasql::Column *col = (zetasql::Column *)arg0;
   *arg1 = col->IsWritableColumn();
@@ -1046,7 +1046,7 @@ void GO_EXPORT(Table_FindColumnByName)(void * arg0,void * arg1,void ** arg2)
   *arg2 = (void *)table->FindColumnByName((char *)arg1);
 }
 
-void GO_EXPORT(Table_IsValueTable)(void * arg0,int* arg1)
+void GO_EXPORT(Table_IsValueTable)(void * arg0,char* arg1)
 {
   zetasql::Table *table = (zetasql::Table *)arg0;
   *arg1 = table->IsValueTable();
@@ -1083,7 +1083,7 @@ void GO_EXPORT(Table_GetAnonymizationInfo)(void * arg0,void ** arg1)
   }
 }
 
-void GO_EXPORT(Table_SupportsAnonymization)(void * arg0,int* arg1)
+void GO_EXPORT(Table_SupportsAnonymization)(void * arg0,char* arg1)
 {
   zetasql::Table *table = (zetasql::Table *)arg0;
   *arg1 = table->SupportsAnonymization();
@@ -1112,7 +1112,7 @@ void GO_EXPORT(SimpleTable_set_is_value_table)(void * arg0,int arg1)
   table->set_is_value_table(arg1);
 }
 
-void GO_EXPORT(SimpleTable_AllowAnonymousColumnName)(void * arg0,int* arg1)
+void GO_EXPORT(SimpleTable_AllowAnonymousColumnName)(void * arg0,char* arg1)
 {
   zetasql::SimpleTable *table = (zetasql::SimpleTable *)arg0;
   *arg1 = table->AllowAnonymousColumnName();
@@ -1124,7 +1124,7 @@ void GO_EXPORT(SimpleTable_set_allow_anonymous_column_name)(void * arg0,int arg1
   *arg2 = (void *)(new absl::Status(table->set_allow_anonymous_column_name(arg1)));
 }
 
-void GO_EXPORT(SimpleTable_AllowDuplicateColumnNames)(void * arg0,int* arg1)
+void GO_EXPORT(SimpleTable_AllowDuplicateColumnNames)(void * arg0,char* arg1)
 {
   zetasql::SimpleTable *table = (zetasql::SimpleTable *)arg0;
   *arg1 = table->AllowDuplicateColumnNames();
@@ -1615,7 +1615,7 @@ void GO_EXPORT(SimpleCatalog_AddType)(void * arg0,void * arg1,void * arg2)
   catalog->AddType((char *)arg1, (const zetasql::Type *)arg2);
 }
 
-void GO_EXPORT(SimpleCatalog_AddTypeIfNotPresent)(void * arg0,void * arg1,void * arg2,int* arg3)
+void GO_EXPORT(SimpleCatalog_AddTypeIfNotPresent)(void * arg0,void * arg1,void * arg2,char* arg3)
 {
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
   catalog->AddTypeIfNotPresent((char *)arg1, (const zetasql::Type *)arg2);
@@ -1803,13 +1803,13 @@ void GO_EXPORT(Function_Group)(void * arg0,void ** arg1)
   *arg1 = (void *)((new std::string(f->GetGroup()))->c_str());
 }
 
-void GO_EXPORT(Function_IsZetaSQLBuiltin)(void * arg0,int* arg1)
+void GO_EXPORT(Function_IsZetaSQLBuiltin)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->IsZetaSQLBuiltin();
 }
 
-void GO_EXPORT(Function_ArgumentsAreCoercible)(void * arg0,int* arg1)
+void GO_EXPORT(Function_ArgumentsAreCoercible)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->ArgumentsAreCoercible();
@@ -1845,19 +1845,19 @@ void GO_EXPORT(Function_mode)(void * arg0,int* arg1)
   *arg1 = f->mode();
 }
 
-void GO_EXPORT(Function_IsScalar)(void * arg0,int* arg1)
+void GO_EXPORT(Function_IsScalar)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->IsScalar();
 }
 
-void GO_EXPORT(Function_IsAggregate)(void * arg0,int* arg1)
+void GO_EXPORT(Function_IsAggregate)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->IsAggregate();
 }
 
-void GO_EXPORT(Function_IsAnalytic)(void * arg0,int* arg1)
+void GO_EXPORT(Function_IsAnalytic)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->IsAnalytic();
@@ -1876,73 +1876,73 @@ void GO_EXPORT(Function_GetSQL)(void * arg0,void * arg1,void * arg2,void ** arg3
   *arg3 = (void *)((new std::string(f->GetSQL(inputs, (const zetasql::FunctionSignature *)arg2)))->c_str());
 }
 
-void GO_EXPORT(Function_SupportsOverClause)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsOverClause)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsOverClause();
 }
 
-void GO_EXPORT(Function_SupportsWindowOrdering)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsWindowOrdering)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsWindowOrdering();
 }
 
-void GO_EXPORT(Function_RequiresWindowOrdering)(void * arg0,int* arg1)
+void GO_EXPORT(Function_RequiresWindowOrdering)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->RequiresWindowOrdering();
 }
 
-void GO_EXPORT(Function_SupportsWindowFraming)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsWindowFraming)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsWindowFraming();
 }
 
-void GO_EXPORT(Function_SupportsOrderingArguments)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsOrderingArguments)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsOrderingArguments();
 }
 
-void GO_EXPORT(Function_SupportsLimitArguments)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsLimitArguments)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsLimitArguments();
 }
 
-void GO_EXPORT(Function_SupportsNullHandlingModifier)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsNullHandlingModifier)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsNullHandlingModifier();
 }
 
-void GO_EXPORT(Function_SupportsSafeErrorMode)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsSafeErrorMode)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsSafeErrorMode();
 }
 
-void GO_EXPORT(Function_SupportsHavingModifier)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsHavingModifier)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsHavingModifier();
 }
 
-void GO_EXPORT(Function_SupportsDistinctModifier)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsDistinctModifier)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsDistinctModifier();
 }
 
-void GO_EXPORT(Function_SupportsClampedBetweenModifier)(void * arg0,int* arg1)
+void GO_EXPORT(Function_SupportsClampedBetweenModifier)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->SupportsClampedBetweenModifier();
 }
 
-void GO_EXPORT(Function_IsDeprecated)(void * arg0,int* arg1)
+void GO_EXPORT(Function_IsDeprecated)(void * arg0,char* arg1)
 {
   zetasql::Function *f = (zetasql::Function *)arg0;
   *arg1 = f->IsDeprecated();
@@ -1961,19 +1961,19 @@ void GO_EXPORT(FunctionArgumentType_new)(void * arg0,void * arg1,void ** arg2)
   *arg2 = (void *)(new zetasql::FunctionArgumentType((const zetasql::Type *)arg1, opt));
 }
 
-void GO_EXPORT(FunctionArgumentType_required)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_required)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->required();
 }
 
-void GO_EXPORT(FunctionArgumentType_repeated)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_repeated)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->repeated();
 }
 
-void GO_EXPORT(FunctionArgumentType_optional)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_optional)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->optional();
@@ -1985,13 +1985,13 @@ void GO_EXPORT(FunctionArgumentType_cardinality)(void * arg0,int* arg1)
   *arg1 = type->cardinality();
 }
 
-void GO_EXPORT(FunctionArgumentType_must_be_constant)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_must_be_constant)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->must_be_constant();
 }
 
-void GO_EXPORT(FunctionArgumentType_has_argument_name)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_has_argument_name)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->has_argument_name();
@@ -2039,79 +2039,79 @@ void GO_EXPORT(FunctionArgumentType_labmda)(void * arg0,void ** arg1)
   *arg1 = (void *)(new zetasql::FunctionArgumentType::ArgumentTypeLambda(type->lambda()));
 }
 
-void GO_EXPORT(FunctionArgumentType_IsConcrete)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsConcrete)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsConcrete();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsTemplated)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsTemplated)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsTemplated();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsScalar)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsScalar)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsScalar();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsRelation)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsRelation)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsRelation();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsModel)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsModel)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsModel();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsConnection)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsConnection)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsConnection();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsLambda)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsLambda)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsLambda();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsFixedRelation)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsFixedRelation)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsFixedRelation();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsVoid)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsVoid)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsVoid();
 }
 
-void GO_EXPORT(FunctionArgumentType_IsDescriptor)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_IsDescriptor)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->IsDescriptor();
 }
 
-void GO_EXPORT(FunctionArgumentType_TemplatedKindIsRelated)(void * arg0,int arg1,int* arg2)
+void GO_EXPORT(FunctionArgumentType_TemplatedKindIsRelated)(void * arg0,int arg1,char* arg2)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg2 = type->TemplatedKindIsRelated((zetasql::SignatureArgumentKind)arg1);
 }
 
-void GO_EXPORT(FunctionArgumentType_AllowCoercionFrom)(void * arg0,void * arg1,int* arg2)
+void GO_EXPORT(FunctionArgumentType_AllowCoercionFrom)(void * arg0,void * arg1,char* arg2)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg2 = type->AllowCoercionFrom((const zetasql::Type *)arg1);
 }
 
-void GO_EXPORT(FunctionArgumentType_HasDefault)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionArgumentType_HasDefault)(void * arg0,char* arg1)
 {
   zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
   *arg1 = type->HasDefault();
@@ -2201,13 +2201,13 @@ void GO_EXPORT(FunctionSignature_result_type)(void * arg0,void ** arg1)
   *arg1 = (void *)(new zetasql::FunctionArgumentType(sig->result_type()));
 }
 
-void GO_EXPORT(FunctionSignature_IsConcrete)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_IsConcrete)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->IsConcrete();
 }
 
-void GO_EXPORT(FunctionSignature_HasConcreteArguments)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_HasConcreteArguments)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->HasConcreteArguments();
@@ -2280,7 +2280,7 @@ void GO_EXPORT(FunctionSignature_GetSQLDeclaration)(void * arg0,void * arg1,int 
   *arg3 = (void *)((new std::string(sig->GetSQLDeclaration(names, (zetasql::ProductMode)arg2)))->c_str());
 }
 
-void GO_EXPORT(FunctionSignature_IsDeprecated)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_IsDeprecated)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->IsDeprecated();
@@ -2292,7 +2292,7 @@ void GO_EXPORT(FunctionSignature_SetIsDeprecated)(void * arg0,int arg1)
   sig->SetIsDeprecated(arg1);
 }
 
-void GO_EXPORT(FunctionSignature_IsInternal)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_IsInternal)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->IsInternal();
@@ -2310,13 +2310,13 @@ void GO_EXPORT(FunctionSignature_SetConcreteResultType)(void * arg0,void * arg1)
   sig->SetConcreteResultType((const zetasql::Type *)arg1);
 }
 
-void GO_EXPORT(FunctionSignature_IsTemplated)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_IsTemplated)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->IsTemplated();
 }
 
-void GO_EXPORT(FunctionSignature_AllArgumentsHaveDefaults)(void * arg0,int* arg1)
+void GO_EXPORT(FunctionSignature_AllArgumentsHaveDefaults)(void * arg0,char* arg1)
 {
   zetasql::FunctionSignature *sig = (zetasql::FunctionSignature *)arg0;
   *arg1 = sig->AllArgumentsHaveDefaults();

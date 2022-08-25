@@ -577,8 +577,16 @@ func (c *SimpleCatalog) AddConstantWithName(name string, cons Constant) {
 	internal.SimpleCatalog_AddConstantWithName(c.raw, helper.StringToPtr(name), cons.getRaw())
 }
 
-func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions() {
-	internal.SimpleCatalog_AddZetaSQLFunctions(c.raw)
+func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions(opt *BuiltinFunctionOptions) {
+	if opt == nil {
+		var langOpt unsafe.Pointer
+		internal.LanguageOptions_new(&langOpt)
+		internal.LanguageOptions_EnableMaximumLanguageFeaturesForDevelopment(langOpt)
+		var out unsafe.Pointer
+		internal.BuiltinFunctionOptions_new(langOpt, &out)
+		opt = &BuiltinFunctionOptions{raw: out}
+	}
+	internal.SimpleCatalog_AddZetaSQLFunctions(c.raw, opt.raw)
 }
 
 func getRawCatalog(c Catalog) unsafe.Pointer {

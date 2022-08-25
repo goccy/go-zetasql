@@ -20,6 +20,9 @@ func newType(unsafe.Pointer) types.Type
 //go:linkname getRawType github.com/goccy/go-zetasql/types.getRawType
 func getRawType(types.Type) unsafe.Pointer
 
+//go:linkname newBuiltinFunctionOptions github.com/goccy/go-zetasql/types.newBuiltinFunctionOptions
+func newBuiltinFunctionOptions(unsafe.Pointer) *types.BuiltinFunctionOptions
+
 //go:linkname newNode github.com/goccy/go-zetasql/ast.newNode
 func newNode(unsafe.Pointer) ast.Node
 

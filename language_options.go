@@ -228,3 +228,9 @@ func (o *LanguageOptions) EnableReservableKeyword(keyword string, reserved bool)
 func (o *LanguageOptions) EnableAllReservableKeywords(reserved bool) {
 	internal.LanguageOptions_EnableAllReservableKeywords(o.raw, helper.BoolToInt(reserved))
 }
+
+func (o *LanguageOptions) BuiltinFunctionOptions() *types.BuiltinFunctionOptions {
+	var v unsafe.Pointer
+	internal.BuiltinFunctionOptions_new(o.raw, &v)
+	return newBuiltinFunctionOptions(v)
+}

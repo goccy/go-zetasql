@@ -1680,11 +1680,12 @@ void GO_EXPORT(SimpleCatalog_AddConstantWithName)(void * arg0,void * arg1,void *
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
   catalog->AddConstant((char *)arg1, (zetasql::Constant *)arg2);
 }
-  
-void GO_EXPORT(SimpleCatalog_AddZetaSQLFunctions)(void * arg0)
+
+void GO_EXPORT(SimpleCatalog_AddZetaSQLFunctions)(void * arg0,void *arg1)
 {
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
-  catalog->AddZetaSQLFunctions();
+  zetasql::ZetaSQLBuiltinFunctionOptions *options = (zetasql::ZetaSQLBuiltinFunctionOptions *)arg1;
+  catalog->AddZetaSQLFunctions(*options);
 }
 
 void GO_EXPORT(Model_Name)(void * arg0,void ** arg1)
@@ -1758,6 +1759,11 @@ void GO_EXPORT(SimpleModel_AddOutput)(void * arg0,void * arg1,void ** arg2)
 {
   zetasql::SimpleModel *model = (zetasql::SimpleModel *)arg0;
   *arg2 = (void *)(new absl::Status(model->AddOutput((zetasql::Column *)arg1, false)));
+}
+
+void GO_EXPORT(BuiltinFunctionOptions_new)(void * arg0,void **arg1)
+{
+  *arg1 = (void *)(new zetasql::ZetaSQLBuiltinFunctionOptions(*(zetasql::LanguageOptions *)arg0));
 }
 
 void GO_EXPORT(Function_new)(void * arg0,void * arg1,int arg2,void * arg3,void ** arg4)

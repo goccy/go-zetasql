@@ -748,6 +748,10 @@ func (f *Function) AliasName() string {
 	return helper.PtrToString(v)
 }
 
+type BuiltinFunctionOptions struct {
+	raw unsafe.Pointer
+}
+
 // Functions in a nested catalog should use the constructor with the
 // <namePath>, identifying the full path name of the function
 // including its containing catalog names.
@@ -825,4 +829,8 @@ func newFunctionSignatureOptions(v unsafe.Pointer) *FunctionSignatureOptions {
 
 func getRawFunctionSignatureOptions(v *FunctionSignatureOptions) unsafe.Pointer {
 	return v.raw
+}
+
+func newBuiltinFunctionOptions(v unsafe.Pointer) *BuiltinFunctionOptions {
+	return &BuiltinFunctionOptions{raw: v}
 }

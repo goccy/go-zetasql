@@ -2737,14 +2737,15 @@ func simple_catalog_SimpleCatalog_AddConstantWithName(arg0 unsafe.Pointer, arg1 
 	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddConstantWithName(arg0, arg1, arg2)
 }
 
-func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
+func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 	simple_catalog_SimpleCatalog_AddZetaSQLFunctions(
 		arg0,
+		arg1,
 	)
 }
 
-func simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer) {
-	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0)
+func simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0, arg1)
 }
 
 func Model_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
@@ -2885,6 +2886,17 @@ func SimpleModel_AddOutput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsaf
 
 func simple_catalog_SimpleModel_AddOutput(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_SimpleModel_AddOutput(arg0, arg1, arg2)
+}
+
+func BuiltinFunctionOptions_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_BuiltinFunctionOptions_new(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_BuiltinFunctionOptions_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_BuiltinFunctionOptions_new(arg0, arg1)
 }
 
 func Function_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 int, arg3 unsafe.Pointer, arg4 *unsafe.Pointer) {

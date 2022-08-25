@@ -5932,6 +5932,7 @@
     - name: SimpleCatalog_AddZetaSQLFunctions
       args:
         - struct
+        - struct
     - name: Model_Name
       args:
         - struct
@@ -5997,6 +5998,11 @@
     - name: SimpleModel_AddOutput
       args:
         - struct
+        - struct
+      ret:
+        - struct
+    - name: BuiltinFunctionOptions_new
+      args:
         - struct
       ret:
         - struct

@@ -17,7 +17,7 @@ func TestAnalyzer(t *testing.T) {
 			types.NewSimpleColumn(tableName, "col2", types.StringType()),
 		}),
 	)
-	catalog.AddZetaSQLBuiltinFunctions()
+	catalog.AddZetaSQLBuiltinFunctions(nil)
 	langOpt := zetasql.NewLanguageOptions()
 	langOpt.SetNameResolutionMode(zetasql.NameResolutionDefault)
 	langOpt.SetProductMode(types.ProductExternal)
@@ -97,12 +97,12 @@ func TestAnalyzeMultiStatements(t *testing.T) {
 			types.NewSimpleColumn(tableName, "col2", types.StringType()),
 		}),
 	)
-	catalog.AddZetaSQLBuiltinFunctions()
 	langOpt := zetasql.NewLanguageOptions()
 	langOpt.SetNameResolutionMode(zetasql.NameResolutionDefault)
 	langOpt.SetProductMode(types.ProductExternal)
 	langOpt.EnableMaximumLanguageFeatures()
 	langOpt.SetSupportedStatementKinds([]ast.Kind{ast.CreateFunctionStmt, ast.QueryStmt})
+	catalog.AddZetaSQLBuiltinFunctions(langOpt.BuiltinFunctionOptions())
 	opt := zetasql.NewAnalyzerOptions()
 	opt.SetAllowUndeclaredParameters(true)
 	opt.SetLanguage(langOpt)

@@ -455,7 +455,7 @@ func (c *SimpleCatalog) Types() ([]Type, error) {
 	return ret, nil
 }
 
-func (c *SimpleCatalog) Catalog(name string) (Catalog, error) {
+func (c *SimpleCatalog) Catalog(name string) (*SimpleCatalog, error) {
 	var (
 		v      unsafe.Pointer
 		status unsafe.Pointer
@@ -465,7 +465,12 @@ func (c *SimpleCatalog) Catalog(name string) (Catalog, error) {
 	if !st.OK() {
 		return nil, st.Error()
 	}
-	return newBaseCatalog(v), nil
+	if v == nil {
+		return nil, nil
+	}
+	return &SimpleCatalog{
+		BaseEnumerableCatalog: newBaseEnumerableCatalog(v),
+	}, nil
 }
 
 func (c *SimpleCatalog) Catalogs() ([]Catalog, error) {

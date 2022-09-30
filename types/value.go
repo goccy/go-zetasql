@@ -339,9 +339,10 @@ func (v *value) EnumName() string {
 func (v *value) ToTime() time.Time {
 	var nanosec int64
 	internal.Value_ToTime(v.raw, &nanosec)
+	sec := nanosec / int64(time.Second)
 	return time.Unix(
-		nanosec/int64(time.Second),
-		nanosec%int64(time.Nanosecond),
+		sec,
+		nanosec-sec*int64(time.Second),
 	)
 }
 

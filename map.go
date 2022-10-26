@@ -30,11 +30,17 @@ func NewNodeMap(resolvedNode resolved_ast.Node, node ast.Node) *NodeMap {
 
 func (m *NodeMap) init() {
 	_ = ast.Walk(m.node, func(n ast.Node) error {
+		if n == nil {
+			return nil
+		}
 		locRange := n.ParseLocationRange().String()
 		m.locationToNodeMap[locRange] = append(m.locationToNodeMap[locRange], n)
 		return nil
 	})
 	_ = resolved_ast.Walk(m.resolvedNode, func(n resolved_ast.Node) error {
+		if n == nil {
+			return nil
+		}
 		for _, child := range n.ChildNodes() {
 			p := getRawResolvedNode(child)
 			m.resolvedNodeToParentMap[p] = append(m.resolvedNodeToParentMap[p], n)

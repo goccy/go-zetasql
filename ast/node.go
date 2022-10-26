@@ -6,16 +6,9 @@ import (
 	"unsafe"
 
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
+	"github.com/goccy/go-zetasql/internal/helper"
+	"github.com/goccy/go-zetasql/types"
 )
-
-import "C"
-
-func boolToInt(b bool) int {
-	if b {
-		return 1
-	}
-	return 0
-}
 
 type Node interface {
 	setRaw(unsafe.Pointer)
@@ -36,8 +29,8 @@ type Node interface {
 	MoveStartLocationBack(int)
 	SetStartLocationToEndLocation()
 	MoveEndLocationBack(int)
-	SetStartLocation(*ParseLocationPoint)
-	SetEndLocation(*ParseLocationPoint)
+	SetStartLocation(*types.ParseLocationPoint)
+	SetEndLocation(*types.ParseLocationPoint)
 	IsTableExpression() bool
 	IsQueryExpression() bool
 	IsExpression() bool
@@ -50,68 +43,8 @@ type Node interface {
 	IsDdlStatement() bool
 	IsCreateStatement() bool
 	IsAlterStatement() bool
-	ParseLocationRange() *ParseLocationRange
+	ParseLocationRange() *types.ParseLocationRange
 	LocationString() string
-}
-
-type ParseLocationPoint struct {
-	raw unsafe.Pointer
-}
-
-func (p *ParseLocationPoint) getRaw() unsafe.Pointer {
-	return p.raw
-}
-
-func (p *ParseLocationPoint) Filename() string {
-	var s unsafe.Pointer
-	internal.ParseLocationPoint_filename(p.getRaw(), &s)
-	return C.GoString((*C.char)(s))
-}
-
-func (p *ParseLocationPoint) ByteOffset() int {
-	var offset int
-	internal.ParseLocationPoint_GetByteOffset(p.getRaw(), &offset)
-	return offset
-}
-
-func (p *ParseLocationPoint) String() string {
-	var s unsafe.Pointer
-	internal.ParseLocationPoint_GetString(p.getRaw(), &s)
-	return C.GoString((*C.char)(s))
-}
-
-func newParseLocationPoint(raw unsafe.Pointer) *ParseLocationPoint {
-	return &ParseLocationPoint{raw: raw}
-}
-
-type ParseLocationRange struct {
-	raw unsafe.Pointer
-}
-
-func (r *ParseLocationRange) getRaw() unsafe.Pointer {
-	return r.raw
-}
-
-func (r *ParseLocationRange) Start() *ParseLocationPoint {
-	var p unsafe.Pointer
-	internal.ParseLocationRange_start(r.getRaw(), &p)
-	return newParseLocationPoint(p)
-}
-
-func (r *ParseLocationRange) End() *ParseLocationPoint {
-	var p unsafe.Pointer
-	internal.ParseLocationRange_end(r.getRaw(), &p)
-	return newParseLocationPoint(p)
-}
-
-func (r *ParseLocationRange) String() string {
-	var s unsafe.Pointer
-	internal.ParseLocationRange_GetString(r.getRaw(), &s)
-	return C.GoString((*C.char)(s))
-}
-
-func newParseLocationRange(raw unsafe.Pointer) *ParseLocationRange {
-	return &ParseLocationRange{raw: raw}
 }
 
 type StatementNode interface {
@@ -203,9 +136,9 @@ func (n *BaseNode) NumChildren() int {
 }
 
 func (n *BaseNode) SingleNodeDebugString() string {
-	var str unsafe.Pointer
-	internal.ASTNode_SingleNodeDebugString(n.getRaw(), &str)
-	return C.GoString((*C.char)(str))
+	var v unsafe.Pointer
+	internal.ASTNode_SingleNodeDebugString(n.getRaw(), &v)
+	return helper.PtrToString(v)
 }
 
 func (n *BaseNode) Child(i int) Node {
@@ -245,9 +178,9 @@ func (n *BaseNode) FindChildIndex(kind Kind) int {
 }
 
 func (n *BaseNode) DebugString(maxDepth int) string {
-	var str unsafe.Pointer
-	internal.ASTNode_DebugString(n.getRaw(), maxDepth, &str)
-	return C.GoString((*C.char)(str))
+	var v unsafe.Pointer
+	internal.ASTNode_DebugString(n.getRaw(), maxDepth, &v)
+	return helper.PtrToString(v)
 }
 
 func (n *BaseNode) MoveStartLocation(bytes int) {
@@ -266,12 +199,12 @@ func (n *BaseNode) MoveEndLocationBack(bytes int) {
 	internal.ASTNode_MoveEndLocationBack(n.getRaw(), bytes)
 }
 
-func (n *BaseNode) SetStartLocation(point *ParseLocationPoint) {
-	internal.ASTNode_set_start_location(n.getRaw(), point.getRaw())
+func (n *BaseNode) SetStartLocation(v *types.ParseLocationPoint) {
+	internal.ASTNode_set_start_location(n.getRaw(), getRawParseLocationPoint(v))
 }
 
-func (n *BaseNode) SetEndLocation(point *ParseLocationPoint) {
-	internal.ASTNode_set_end_location(n.getRaw(), point.getRaw())
+func (n *BaseNode) SetEndLocation(v *types.ParseLocationPoint) {
+	internal.ASTNode_set_end_location(n.getRaw(), getRawParseLocationPoint(v))
 }
 
 func (n *BaseNode) IsTableExpression() bool {
@@ -346,16 +279,16 @@ func (n *BaseNode) IsAlterStatement() bool {
 	return ret
 }
 
-func (n *BaseNode) ParseLocationRange() *ParseLocationRange {
-	var ret unsafe.Pointer
-	internal.ASTNode_GetParseLocationRange(n.getRaw(), &ret)
-	return newParseLocationRange(ret)
+func (n *BaseNode) ParseLocationRange() *types.ParseLocationRange {
+	var v unsafe.Pointer
+	internal.ASTNode_GetParseLocationRange(n.getRaw(), &v)
+	return newParseLocationRange(v)
 }
 
 func (n *BaseNode) LocationString() string {
-	var str unsafe.Pointer
-	internal.ASTNode_GetLocationString(n.getRaw(), &str)
-	return C.GoString((*C.char)(str))
+	var v unsafe.Pointer
+	internal.ASTNode_GetLocationString(n.getRaw(), &v)
+	return helper.PtrToString(v)
 }
 
 type StatementBaseNode struct {
@@ -380,7 +313,7 @@ type QueryExpressionBaseNode struct {
 }
 
 func (n *QueryExpressionBaseNode) SetParenthesized(parenthesized bool) {
-	internal.ASTQueryExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
+	internal.ASTQueryExpression_set_parenthesized(n.getRaw(), helper.BoolToInt(parenthesized))
 }
 
 func (n *QueryExpressionBaseNode) Parenthesized() bool {
@@ -394,7 +327,7 @@ type QueryNode struct {
 }
 
 func (n *QueryNode) SetIsNested(isNested bool) {
-	internal.ASTQuery_set_is_nested(n.getRaw(), boolToInt(isNested))
+	internal.ASTQuery_set_is_nested(n.getRaw(), helper.BoolToInt(isNested))
 }
 
 func (n *QueryNode) IsNested() bool {
@@ -404,7 +337,7 @@ func (n *QueryNode) IsNested() bool {
 }
 
 func (n *QueryNode) SetIsPivotInput(isPivotInput bool) {
-	internal.ASTQuery_set_is_pivot_input(n.getRaw(), boolToInt(isPivotInput))
+	internal.ASTQuery_set_is_pivot_input(n.getRaw(), helper.BoolToInt(isPivotInput))
 }
 
 func (n *QueryNode) IsPivotInput() bool {
@@ -454,7 +387,7 @@ type SelectNode struct {
 }
 
 func (n *SelectNode) SetDistinct(distinct bool) {
-	internal.ASTSelect_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTSelect_set_distinct(n.getRaw(), helper.BoolToInt(distinct))
 }
 
 func (n *SelectNode) Distinct() bool {
@@ -593,7 +526,7 @@ type ExpressionBaseNode struct {
 }
 
 func (n *ExpressionBaseNode) SetParenthesized(parenthesized bool) {
-	internal.ASTExpression_set_parenthesized(n.getRaw(), boolToInt(parenthesized))
+	internal.ASTExpression_set_parenthesized(n.getRaw(), helper.BoolToInt(parenthesized))
 }
 
 func (n *ExpressionBaseNode) Parenthesized() bool {
@@ -615,11 +548,11 @@ type LeafBaseNode struct {
 func (n *LeafBaseNode) Image() string {
 	var v unsafe.Pointer
 	internal.ASTLeaf_image(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 func (n *LeafBaseNode) SetImage(image string) {
-	internal.ASTLeaf_set_image(n.getRaw(), unsafe.Pointer(C.CString(image)))
+	internal.ASTLeaf_set_image(n.getRaw(), helper.StringToPtr(image))
 }
 
 type IntLiteralNode struct {
@@ -645,13 +578,13 @@ type IdentifierNode struct {
 }
 
 func (n *IdentifierNode) SetName(name string) {
-	internal.ASTIdentifier_SetIdentifier(n.getRaw(), unsafe.Pointer(C.CString(name)))
+	internal.ASTIdentifier_SetIdentifier(n.getRaw(), helper.StringToPtr(name))
 }
 
 func (n *IdentifierNode) Name() string {
 	var name unsafe.Pointer
 	internal.ASTIdentifier_GetAsString(n.getRaw(), &name)
-	return C.GoString((*C.char)(name))
+	return helper.PtrToString(name)
 }
 
 type AliasNode struct {
@@ -670,7 +603,7 @@ func (n *AliasNode) Identifier() *IdentifierNode {
 func (n *AliasNode) Name() string {
 	var v unsafe.Pointer
 	internal.ASTAlias_GetAsString(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type GeneralizedPathExpressionBaseNode struct {
@@ -701,7 +634,7 @@ func (n *PathExpressionNode) Names() []*IdentifierNode {
 func (n *PathExpressionNode) ToIdentifierPathString(maxPrefixSize uint32) string {
 	var v unsafe.Pointer
 	internal.ASTPathExpression_ToIdentifierPathString(n.getRaw(), maxPrefixSize, &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type TableExpressionBaseNode struct {
@@ -791,7 +724,7 @@ type BooleanLiteralNode struct {
 }
 
 func (n *BooleanLiteralNode) SetValue(value bool) {
-	internal.ASTBooleanLiteral_set_value(n.getRaw(), boolToInt(value))
+	internal.ASTBooleanLiteral_set_value(n.getRaw(), helper.BoolToInt(value))
 }
 
 func (n *BooleanLiteralNode) Value() bool {
@@ -899,7 +832,7 @@ func (n *BinaryExpressionNode) Op() BinaryOp {
 }
 
 func (n *BinaryExpressionNode) SetIsNot(isNot bool) {
-	internal.ASTBinaryExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTBinaryExpression_set_is_not(n.getRaw(), helper.BoolToInt(isNot))
 }
 
 func (n *BinaryExpressionNode) IsNot() bool {
@@ -923,7 +856,7 @@ func (n *BinaryExpressionNode) Rhs() ExpressionNode {
 func (n *BinaryExpressionNode) SQLForOperator() string {
 	var v unsafe.Pointer
 	internal.ASTBinaryExpression_GetSQLForOperator(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type StringLiteralNode struct {
@@ -933,11 +866,11 @@ type StringLiteralNode struct {
 func (n *StringLiteralNode) Value() string {
 	var v unsafe.Pointer
 	internal.ASTStringLiteral_string_value(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 func (n *StringLiteralNode) SetValue(value string) {
-	internal.ASTStringLiteral_set_string_value(n.getRaw(), unsafe.Pointer(C.CString(value)))
+	internal.ASTStringLiteral_set_string_value(n.getRaw(), helper.StringToPtr(value))
 }
 
 type StarNode struct {
@@ -1246,7 +1179,7 @@ func (n *JoinNode) JoinHint() JoinHint {
 }
 
 func (n *JoinNode) SetNatural(natural bool) {
-	internal.ASTJoin_set_natural(n.getRaw(), boolToInt(natural))
+	internal.ASTJoin_set_natural(n.getRaw(), helper.BoolToInt(natural))
 }
 
 func (n *JoinNode) Natural() bool {
@@ -1266,7 +1199,7 @@ func (n *JoinNode) UnmatchedJoinCount() int {
 }
 
 func (n *JoinNode) SetTransformationNeeded(needed bool) {
-	internal.ASTJoin_set_transformation_needed(n.getRaw(), boolToInt(needed))
+	internal.ASTJoin_set_transformation_needed(n.getRaw(), helper.BoolToInt(needed))
 }
 
 func (n *JoinNode) TransformationNeeded() bool {
@@ -1276,7 +1209,7 @@ func (n *JoinNode) TransformationNeeded() bool {
 }
 
 func (n *JoinNode) SetContainsCommaJoin(commaJoin bool) {
-	internal.ASTJoin_set_contains_comma_join(n.getRaw(), boolToInt(commaJoin))
+	internal.ASTJoin_set_contains_comma_join(n.getRaw(), helper.BoolToInt(commaJoin))
 }
 
 func (n *JoinNode) ContainsCommaJoin() bool {
@@ -1350,7 +1283,7 @@ func (e *JoinParseError) ErrorNode() Node {
 func (e *JoinParseError) Message() string {
 	var v unsafe.Pointer
 	internal.JoinParseError_message(e.raw, &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 func (e *JoinParseError) Error() string {
@@ -1369,13 +1302,13 @@ func (n *JoinNode) ParseError() *JoinParseError {
 func (n *JoinNode) SQLForJoinType() string {
 	var v unsafe.Pointer
 	internal.ASTJoin_GetSQLForJoinType(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 func (n *JoinNode) SQLForJoinHint() string {
 	var v unsafe.Pointer
 	internal.ASTJoin_GetSQLForJoinHint(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type WithClauseNode struct {
@@ -1383,7 +1316,7 @@ type WithClauseNode struct {
 }
 
 func (n *WithClauseNode) SetRecursive(recursive bool) {
-	internal.ASTWithClause_set_recursive(n.getRaw(), boolToInt(recursive))
+	internal.ASTWithClause_set_recursive(n.getRaw(), helper.BoolToInt(recursive))
 }
 
 func (n *WithClauseNode) Recursive() bool {
@@ -1446,7 +1379,7 @@ type SimpleTypeNode struct {
 func (n *SimpleTypeNode) TypeName() string {
 	var v unsafe.Pointer
 	internal.ASTSimpleType_type_name(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type ArrayTypeNode struct {
@@ -1505,7 +1438,7 @@ type CastExpressionNode struct {
 }
 
 func (n *CastExpressionNode) SetIsSafeCast(isSafe bool) {
-	internal.ASTCastExpression_set_is_safe_cast(n.getRaw(), boolToInt(isSafe))
+	internal.ASTCastExpression_set_is_safe_cast(n.getRaw(), helper.BoolToInt(isSafe))
 }
 
 func (n *CastExpressionNode) IsSafeCast() bool {
@@ -1650,7 +1583,7 @@ func (n *FunctionCallNode) NullHandlingModifier() NullHandlingModifier {
 }
 
 func (n *FunctionCallNode) SetDistinct(distinct bool) {
-	internal.ASTFunctionCall_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTFunctionCall_set_distinct(n.getRaw(), helper.BoolToInt(distinct))
 }
 
 func (n *FunctionCallNode) Distinct() bool {
@@ -1660,7 +1593,7 @@ func (n *FunctionCallNode) Distinct() bool {
 }
 
 func (n *FunctionCallNode) SetIsCurrentDateTimeWithoutParentheses(v bool) {
-	internal.ASTFunctionCall_set_is_current_date_time_without_parentheses(n.getRaw(), boolToInt(v))
+	internal.ASTFunctionCall_set_is_current_date_time_without_parentheses(n.getRaw(), helper.BoolToInt(v))
 }
 
 func (n *FunctionCallNode) IsCurrentDateTimeWithoutParentheses() bool {
@@ -1843,7 +1776,7 @@ type InExpressionNode struct {
 }
 
 func (n *InExpressionNode) SetIsNot(isNot bool) {
-	internal.ASTInExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTInExpression_set_is_not(n.getRaw(), helper.BoolToInt(isNot))
 }
 
 func (n *InExpressionNode) IsNot() bool {
@@ -1918,7 +1851,7 @@ type BetweenExpressionNode struct {
 }
 
 func (n *BetweenExpressionNode) SetIsNot(isNot bool) {
-	internal.ASTBetweenExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTBetweenExpression_set_is_not(n.getRaw(), helper.BoolToInt(isNot))
 }
 
 func (n *BetweenExpressionNode) IsNot() bool {
@@ -2096,7 +2029,7 @@ type BitwiseShiftExpressionNode struct {
 }
 
 func (n *BitwiseShiftExpressionNode) SetIsLeftShift(isLeftShift bool) {
-	internal.ASTBitwiseShiftExpression_set_is_left_shift(n.getRaw(), boolToInt(isLeftShift))
+	internal.ASTBitwiseShiftExpression_set_is_left_shift(n.getRaw(), helper.BoolToInt(isLeftShift))
 }
 
 func (n *BitwiseShiftExpressionNode) IsLeftShift() bool {
@@ -2387,7 +2320,7 @@ type NullOrderNode struct {
 }
 
 func (n *NullOrderNode) SetNullsFirst(nullsFirst bool) {
-	internal.ASTNullOrder_set_nulls_first(n.getRaw(), boolToInt(nullsFirst))
+	internal.ASTNullOrder_set_nulls_first(n.getRaw(), helper.BoolToInt(nullsFirst))
 }
 
 func (n *NullOrderNode) NullsFirst() bool {
@@ -2483,7 +2416,7 @@ func (n *SetOperationNode) OpType() SetOperationType {
 }
 
 func (n *SetOperationNode) SetDistinct(distinct bool) {
-	internal.ASTSetOperation_set_distinct(n.getRaw(), boolToInt(distinct))
+	internal.ASTSetOperation_set_distinct(n.getRaw(), helper.BoolToInt(distinct))
 }
 
 func (n *SetOperationNode) Distinct() bool {
@@ -2516,7 +2449,7 @@ func (n *SetOperationNode) Inputs() []QueryExpressionNode {
 func (n *SetOperationNode) SQLForOperation() string {
 	var v unsafe.Pointer
 	internal.ASTSetOperation_GetSQLForOperation(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type StarExceptListNode struct {
@@ -2702,7 +2635,7 @@ func (n *UnaryExpressionNode) Operand() ExpressionNode {
 func (n *UnaryExpressionNode) SQLForOperator() string {
 	var v unsafe.Pointer
 	internal.ASTUnaryExpression_GetSQLForOperator(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type UnnestExpressionNode struct {
@@ -2808,7 +2741,7 @@ func (n *WindowFrameNode) FrameUnit() WindowFrameUnit {
 func (n *WindowFrameNode) FrameUnitString() string {
 	var v unsafe.Pointer
 	internal.ASTWindowFrame_GetFrameUnitString(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type WindowFrameBoundaryType int
@@ -2865,7 +2798,7 @@ type LikeExpressionNode struct {
 }
 
 func (n *LikeExpressionNode) SetIsNot(isNot bool) {
-	internal.ASTLikeExpression_set_is_not(n.getRaw(), boolToInt(isNot))
+	internal.ASTLikeExpression_set_is_not(n.getRaw(), helper.BoolToInt(isNot))
 }
 
 func (n *LikeExpressionNode) IsNot() bool {
@@ -3021,7 +2954,7 @@ func (n *AnySomeAllOpNode) Op() AnySomeAllOpType {
 func (n *AnySomeAllOpNode) SQLForOperator() string {
 	var v unsafe.Pointer
 	internal.ASTAnySomeAllOp_GetSQLForOperator(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type ParameterExprBaseNode struct {
@@ -3033,7 +2966,7 @@ type StatementListNode struct {
 }
 
 func (n *StatementListNode) SetVariableDeclarationsAllowed(allowed bool) {
-	internal.ASTStatementList_set_variable_declarations_allowed(n.getRaw(), boolToInt(allowed))
+	internal.ASTStatementList_set_variable_declarations_allowed(n.getRaw(), helper.BoolToInt(allowed))
 }
 
 func (n *StatementListNode) VariableDeclarationsAllowed() bool {
@@ -3305,7 +3238,7 @@ type DropEntityStatementNode struct {
 }
 
 func (n *DropEntityStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropEntityStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropEntityStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropEntityStatementNode) IsIfExists() bool {
@@ -3337,7 +3270,7 @@ type DropFunctionStatementNode struct {
 }
 
 func (n *DropFunctionStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropFunctionStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropFunctionStatementNode) IsIfExists() bool {
@@ -3369,7 +3302,7 @@ type DropTableFunctionStatementNode struct {
 }
 
 func (n *DropTableFunctionStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropTableFunctionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropTableFunctionStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropTableFunctionStatementNode) IsIfExists() bool {
@@ -3392,7 +3325,7 @@ type DropAllRowAccessPoliciesStatementNode struct {
 }
 
 func (n *DropAllRowAccessPoliciesStatementNode) SetHasAccessKeyword(keyword bool) {
-	internal.ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(n.getRaw(), boolToInt(keyword))
+	internal.ASTDropAllRowAccessPoliciesStatement_set_has_access_keyword(n.getRaw(), helper.BoolToInt(keyword))
 }
 
 func (n *DropAllRowAccessPoliciesStatementNode) HasAccessKeyword() bool {
@@ -3415,7 +3348,7 @@ type DropMaterializedViewStatementNode struct {
 }
 
 func (n *DropMaterializedViewStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropMaterializedViewStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropMaterializedViewStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropMaterializedViewStatementNode) IsIfExists() bool {
@@ -3438,7 +3371,7 @@ type DropSnapshotTableStatementNode struct {
 }
 
 func (n *DropSnapshotTableStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropSnapshotTableStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropSnapshotTableStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropSnapshotTableStatementNode) IsIfExists() bool {
@@ -3461,7 +3394,7 @@ type DropSearchIndexStatementNode struct {
 }
 
 func (n *DropSearchIndexStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropSearchIndexStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropSearchIndexStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropSearchIndexStatementNode) IsIfExists() bool {
@@ -3636,7 +3569,7 @@ func (n *IntoAliasNode) Identifier() *IdentifierNode {
 func (n *IntoAliasNode) Name() string {
 	var v unsafe.Pointer
 	internal.ASTIntoAlias_GetAsString(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type UnnestExpressionWithOptAliasAndOffsetNode struct {
@@ -4288,7 +4221,7 @@ func (n *CreateStatementNode) Scope() CreateStatementScope {
 }
 
 func (n *CreateStatementNode) SetIsOrReplace(isOrReplace bool) {
-	internal.ASTCreateStatement_set_is_or_replace(n.getRaw(), boolToInt(isOrReplace))
+	internal.ASTCreateStatement_set_is_or_replace(n.getRaw(), helper.BoolToInt(isOrReplace))
 }
 
 func (n *CreateStatementNode) IsOrReplace() bool {
@@ -4298,7 +4231,7 @@ func (n *CreateStatementNode) IsOrReplace() bool {
 }
 
 func (n *CreateStatementNode) SetIsIfNotExists(isIfNotExists bool) {
-	internal.ASTCreateStatement_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTCreateStatement_set_is_if_not_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *CreateStatementNode) IsIfNotExists() bool {
@@ -4369,7 +4302,7 @@ func (n *FunctionParameterNode) ProcedureParameterMode() ProcedureParameterMode 
 }
 
 func (n *FunctionParameterNode) SetIsNotAggregate(isNotAggregate bool) {
-	internal.ASTFunctionParameter_set_is_not_aggregate(n.getRaw(), boolToInt(isNotAggregate))
+	internal.ASTFunctionParameter_set_is_not_aggregate(n.getRaw(), helper.BoolToInt(isNotAggregate))
 }
 
 func (n *FunctionParameterNode) IsNotAggregate() bool {
@@ -4970,7 +4903,7 @@ type CreateIndexStatementNode struct {
 }
 
 func (n *CreateIndexStatementNode) SetIsUnique(isUnique bool) {
-	internal.ASTCreateIndexStatement_set_is_unique(n.getRaw(), boolToInt(isUnique))
+	internal.ASTCreateIndexStatement_set_is_unique(n.getRaw(), helper.BoolToInt(isUnique))
 }
 
 func (n *CreateIndexStatementNode) IsUnique() bool {
@@ -4980,7 +4913,7 @@ func (n *CreateIndexStatementNode) IsUnique() bool {
 }
 
 func (n *CreateIndexStatementNode) SetIsSearch(isSearch bool) {
-	internal.ASTCreateIndexStatement_set_is_search(n.getRaw(), boolToInt(isSearch))
+	internal.ASTCreateIndexStatement_set_is_search(n.getRaw(), helper.BoolToInt(isSearch))
 }
 
 func (n *CreateIndexStatementNode) IsSearch() bool {
@@ -5501,7 +5434,7 @@ type PrimaryKeyColumnAttributeNode struct {
 }
 
 func (n *PrimaryKeyColumnAttributeNode) SetEnforced(enforced bool) {
-	internal.ASTPrimaryKeyColumnAttribute_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTPrimaryKeyColumnAttribute_set_enforced(n.getRaw(), helper.BoolToInt(enforced))
 }
 
 func (n *PrimaryKeyColumnAttributeNode) Enforced() bool {
@@ -5616,7 +5549,7 @@ func (n *GeneratedColumnInfoNode) Expression() ExpressionNode {
 func (n *GeneratedColumnInfoNode) SqlForStoredMode() string {
 	var v unsafe.Pointer
 	internal.ASTGeneratedColumnInfo_GetSqlForStoredMode(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type TableElementBaseNode struct {
@@ -5863,7 +5796,7 @@ func (n *InsertStatementNode) Returning() *ReturningClauseNode {
 func (n *InsertStatementNode) SQLForInsertMode() string {
 	var v unsafe.Pointer
 	internal.ASTInsertStatement_GetSQLForInsertMode(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type UpdateSetValueNode struct {
@@ -6136,7 +6069,7 @@ func (n *MergeWhenClauseNode) Action() *MergeActionNode {
 func (n *MergeWhenClauseNode) SQLForMatchType() string {
 	var v unsafe.Pointer
 	internal.ASTMergeWhenClause_GetSQLForMatchType(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type MergeWhenClauseListNode struct {
@@ -6403,7 +6336,7 @@ func (n *FilterFieldsArgNode) PathExpression() GeneralizedPathExpressionNode {
 func (n *FilterFieldsArgNode) SQLForOperator() string {
 	var v unsafe.Pointer
 	internal.ASTFilterFieldsArg_GetSQLForOperator(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type ReplaceFieldsArgNode struct {
@@ -6508,7 +6441,7 @@ func (n *SampleSizeNode) PartitionBy() *PartitionByNode {
 func (n *SampleSizeNode) SQLForUnit() string {
 	var v unsafe.Pointer
 	internal.ASTSampleSize_GetSQLForUnit(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type WithWeightNode struct {
@@ -6584,7 +6517,7 @@ type AlterActionBaseNode struct {
 func (n *AlterActionBaseNode) SQLForAlterAction() string {
 	var v unsafe.Pointer
 	internal.ASTAlterAction_GetSQLForAlterAction(n.getRaw(), &v)
-	return C.GoString((*C.char)(v))
+	return helper.PtrToString(v)
 }
 
 type SetOptionsActionNode struct {
@@ -6627,7 +6560,7 @@ type AddConstraintActionNode struct {
 }
 
 func (n *AddConstraintActionNode) SetIsIfNotExists(isIfNotExists bool) {
-	internal.ASTAddConstraintAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddConstraintAction_set_is_if_not_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AddConstraintActionNode) IsIfNotExists() bool {
@@ -6650,7 +6583,7 @@ type DropPrimaryKeyActionNode struct {
 }
 
 func (n *DropPrimaryKeyActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTDropPrimaryKeyAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropPrimaryKeyAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *DropPrimaryKeyActionNode) IsIfExists() bool {
@@ -6664,7 +6597,7 @@ type DropConstraintActionNode struct {
 }
 
 func (n *DropConstraintActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTDropConstraintAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropConstraintAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *DropConstraintActionNode) IsIfExists() bool {
@@ -6687,7 +6620,7 @@ type AlterConstraintEnforcementActionNode struct {
 }
 
 func (n *AlterConstraintEnforcementActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterConstraintEnforcementAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterConstraintEnforcementAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterConstraintEnforcementActionNode) IsIfExists() bool {
@@ -6697,7 +6630,7 @@ func (n *AlterConstraintEnforcementActionNode) IsIfExists() bool {
 }
 
 func (n *AlterConstraintEnforcementActionNode) SetIsEnforced(enforced bool) {
-	internal.ASTAlterConstraintEnforcementAction_set_is_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTAlterConstraintEnforcementAction_set_is_enforced(n.getRaw(), helper.BoolToInt(enforced))
 }
 
 func (n *AlterConstraintEnforcementActionNode) IsEnforced() bool {
@@ -6720,7 +6653,7 @@ type AlterConstraintSetOptionsActionNode struct {
 }
 
 func (n *AlterConstraintSetOptionsActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterConstraintSetOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterConstraintSetOptionsAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterConstraintSetOptionsActionNode) IsIfExists() bool {
@@ -6752,7 +6685,7 @@ type AddColumnActionNode struct {
 }
 
 func (n *AddColumnActionNode) SetIsIfNotExists(isIfNotExists bool) {
-	internal.ASTAddColumnAction_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddColumnAction_set_is_if_not_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AddColumnActionNode) IsIfNotExists() bool {
@@ -6793,7 +6726,7 @@ type DropColumnActionNode struct {
 }
 
 func (n *DropColumnActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTDropColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTDropColumnAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *DropColumnActionNode) IsIfExists() bool {
@@ -6816,7 +6749,7 @@ type RenameColumnActionNode struct {
 }
 
 func (n *RenameColumnActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTRenameColumnAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTRenameColumnAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *RenameColumnActionNode) IsIfExists() bool {
@@ -6848,7 +6781,7 @@ type AlterColumnTypeActionNode struct {
 }
 
 func (n *AlterColumnTypeActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterColumnTypeAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnTypeAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnTypeActionNode) IsIfExists() bool {
@@ -6889,7 +6822,7 @@ type AlterColumnOptionsActionNode struct {
 }
 
 func (n *AlterColumnOptionsActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterColumnOptionsAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnOptionsAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnOptionsActionNode) IsIfExists() bool {
@@ -6921,7 +6854,7 @@ type AlterColumnSetDefaultActionNode struct {
 }
 
 func (n *AlterColumnSetDefaultActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterColumnSetDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnSetDefaultAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnSetDefaultActionNode) IsIfExists() bool {
@@ -6953,7 +6886,7 @@ type AlterColumnDropDefaultActionNode struct {
 }
 
 func (n *AlterColumnDropDefaultActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterColumnDropDefaultAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnDropDefaultAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnDropDefaultActionNode) IsIfExists() bool {
@@ -6976,7 +6909,7 @@ type AlterColumnDropNotNullActionNode struct {
 }
 
 func (n *AlterColumnDropNotNullActionNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTAlterColumnDropNotNullAction_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAlterColumnDropNotNullAction_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AlterColumnDropNotNullActionNode) IsIfExists() bool {
@@ -6999,7 +6932,7 @@ type GrantToClauseNode struct {
 }
 
 func (n *GrantToClauseNode) SetHasGrantKeywordAndParens(v bool) {
-	internal.ASTGrantToClause_set_has_grant_keyword_and_parens(n.getRaw(), boolToInt(v))
+	internal.ASTGrantToClause_set_has_grant_keyword_and_parens(n.getRaw(), helper.BoolToInt(v))
 }
 
 func (n *GrantToClauseNode) HasGrantKeywordAndParens() bool {
@@ -7035,7 +6968,7 @@ type AddToRestricteeListClauseNode struct {
 }
 
 func (n *AddToRestricteeListClauseNode) SetIsIfNotExists(isIfNotExists bool) {
-	internal.ASTAddToRestricteeListClause_set_is_if_not_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTAddToRestricteeListClause_set_is_if_not_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *AddToRestricteeListClauseNode) IsIfNotExists() bool {
@@ -7058,7 +6991,7 @@ type RemoveFromRestricteeListClauseNode struct {
 }
 
 func (n *RemoveFromRestricteeListClauseNode) SetIsIfExists(isIfNotExists bool) {
-	internal.ASTRemoveFromRestricteeListClause_set_is_if_exists(n.getRaw(), boolToInt(isIfNotExists))
+	internal.ASTRemoveFromRestricteeListClause_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfNotExists))
 }
 
 func (n *RemoveFromRestricteeListClauseNode) IsIfExists() bool {
@@ -7081,7 +7014,7 @@ type FilterUsingClauseNode struct {
 }
 
 func (n *FilterUsingClauseNode) SetHasFilterKeyword(keyword bool) {
-	internal.ASTFilterUsingClause_set_has_filter_keyword(n.getRaw(), boolToInt(keyword))
+	internal.ASTFilterUsingClause_set_has_filter_keyword(n.getRaw(), helper.BoolToInt(keyword))
 }
 
 func (n *FilterUsingClauseNode) HasFilterKeyword() bool {
@@ -7104,7 +7037,7 @@ type RevokeFromClauseNode struct {
 }
 
 func (n *RevokeFromClauseNode) SetIsRevokeFromAll(v bool) {
-	internal.ASTRevokeFromClause_set_is_revoke_from_all(n.getRaw(), boolToInt(v))
+	internal.ASTRevokeFromClause_set_is_revoke_from_all(n.getRaw(), helper.BoolToInt(v))
 }
 
 func (n *RevokeFromClauseNode) IsRevokeFromAll() bool {
@@ -7268,7 +7201,7 @@ func (n *ForeignKeyReferenceNode) Match() ForeignKeyReferenceMatch {
 }
 
 func (n *ForeignKeyReferenceNode) SetEnforced(enforced bool) {
-	internal.ASTForeignKeyReference_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTForeignKeyReference_set_enforced(n.getRaw(), helper.BoolToInt(enforced))
 }
 
 func (n *ForeignKeyReferenceNode) Enforced() bool {
@@ -7684,7 +7617,7 @@ type PrimaryKeyNode struct {
 }
 
 func (n *PrimaryKeyNode) SetEnforced(enforced bool) {
-	internal.ASTPrimaryKey_set_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTPrimaryKey_set_enforced(n.getRaw(), helper.BoolToInt(enforced))
 }
 
 func (n *PrimaryKeyNode) Enforced() bool {
@@ -7747,7 +7680,7 @@ type CheckConstraintNode struct {
 }
 
 func (n *CheckConstraintNode) SetIsEnforced(enforced bool) {
-	internal.ASTCheckConstraint_set_is_enforced(n.getRaw(), boolToInt(enforced))
+	internal.ASTCheckConstraint_set_is_enforced(n.getRaw(), helper.BoolToInt(enforced))
 }
 
 func (n *CheckConstraintNode) IsEnforced() bool {
@@ -8097,7 +8030,7 @@ type DropPrivilegeRestrictionStatementNode struct {
 }
 
 func (n *DropPrivilegeRestrictionStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropPrivilegeRestrictionStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropPrivilegeRestrictionStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropPrivilegeRestrictionStatementNode) IsIfExists() bool {
@@ -8138,7 +8071,7 @@ type DropRowAccessPolicyStatementNode struct {
 }
 
 func (n *DropRowAccessPolicyStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropRowAccessPolicyStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropRowAccessPolicyStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropRowAccessPolicyStatementNode) IsIfExists() bool {
@@ -8210,7 +8143,7 @@ type CreateRowAccessPolicyStatementNode struct {
 }
 
 func (n *CreateRowAccessPolicyStatementNode) SetHasAccessKeyword(v bool) {
-	internal.ASTCreateRowAccessPolicyStatement_set_has_access_keyword(n.getRaw(), boolToInt(v))
+	internal.ASTCreateRowAccessPolicyStatement_set_has_access_keyword(n.getRaw(), helper.BoolToInt(v))
 }
 
 func (n *CreateRowAccessPolicyStatementNode) HasAccessKeyword() bool {
@@ -8290,7 +8223,7 @@ func (n *DropStatementNode) DropMode() DropMode {
 }
 
 func (n *DropStatementNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTDropStatement_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTDropStatement_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *DropStatementNode) IsIfExists() bool {
@@ -8677,7 +8610,7 @@ type AlterStatementBaseNode struct {
 }
 
 func (n *AlterStatementBaseNode) SetIsIfExists(isIfExists bool) {
-	internal.ASTAlterStatementBase_set_is_if_exists(n.getRaw(), boolToInt(isIfExists))
+	internal.ASTAlterStatementBase_set_is_if_exists(n.getRaw(), helper.BoolToInt(isIfExists))
 }
 
 func (n *AlterStatementBaseNode) IsIfExists() bool {
@@ -8866,7 +8799,7 @@ type CreateFunctionStatementNode struct {
 }
 
 func (n *CreateFunctionStatementNode) SetIsAggregate(isAggregate bool) {
-	internal.ASTCreateFunctionStatement_set_is_aggregate(n.getRaw(), boolToInt(isAggregate))
+	internal.ASTCreateFunctionStatement_set_is_aggregate(n.getRaw(), helper.BoolToInt(isAggregate))
 }
 
 func (n *CreateFunctionStatementNode) IsAggregate() bool {
@@ -8876,7 +8809,7 @@ func (n *CreateFunctionStatementNode) IsAggregate() bool {
 }
 
 func (n *CreateFunctionStatementNode) SetIsRemote(isRemote bool) {
-	internal.ASTCreateFunctionStatement_set_is_remote(n.getRaw(), boolToInt(isRemote))
+	internal.ASTCreateFunctionStatement_set_is_remote(n.getRaw(), helper.BoolToInt(isRemote))
 }
 
 func (n *CreateFunctionStatementNode) IsRemote() bool {
@@ -11466,6 +11399,9 @@ func newLabelNode(n unsafe.Pointer) *LabelNode {
 }
 
 func newNode(n unsafe.Pointer) Node {
+	if n == nil {
+		return nil
+	}
 	var kind int
 	internal.ASTNode_node_kind(n, &kind)
 	switch Kind(kind) {

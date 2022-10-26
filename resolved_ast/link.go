@@ -89,3 +89,9 @@ func newProcedure(unsafe.Pointer) types.Procedure
 
 //go:linkname getRawProcedure github.com/goccy/go-zetasql/types.getRawProcedure
 func getRawProcedure(types.Procedure) unsafe.Pointer
+
+//go:linkname newParseLocationRange github.com/goccy/go-zetasql/types.newParseLocationRange
+func newParseLocationRange(unsafe.Pointer) *types.ParseLocationRange
+
+//go:linkname getRawParseLocationRange github.com/goccy/go-zetasql/types.getRawParseLocationRange
+func getRawParseLocationRange(*types.ParseLocationRange) unsafe.Pointer

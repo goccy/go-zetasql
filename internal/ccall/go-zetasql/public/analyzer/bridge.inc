@@ -1364,6 +1364,12 @@ void GO_EXPORT(ResolvedNode_GetChildNode)(void * arg0,int arg1,void ** arg2)
   *arg2 = (void *)child_nodes[arg1];
 }
 
+void GO_EXPORT(ResolvedNode_GetParseLocationRangeOrNULL)(void * arg0,void ** arg1)
+{
+  zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;
+  *arg1 = (void *)node->GetParseLocationRangeOrNULL();
+}
+
 void GO_EXPORT(ResolvedNode_GetTreeDepth)(void * arg0,int* arg1)
 {
   zetasql::ResolvedNode *node = (zetasql::ResolvedNode *)arg0;

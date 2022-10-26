@@ -6923,6 +6923,11 @@
         - int
       ret:
         - struct
+    - name: ResolvedNode_GetParseLocationRangeOrNULL
+      args:
+        - struct
+      ret:
+        - struct
     - name: ResolvedNode_GetTreeDepth
       args:
         - struct

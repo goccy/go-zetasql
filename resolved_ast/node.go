@@ -40,7 +40,16 @@ type Node interface {
 	//ClearFieldsAccessed()
 	//MarkFieldsAccessed()
 
+	// Returns the previously recorded parsed location range or nil.
+	// Parse location ranges are only filled for some nodes (LiteralNodes in particular) and
+	// only if AnalyzerOption.SetParseLocationRecordType() is set.
+	ParseLocationRange() *types.ParseLocationRange
+
 	getRaw() unsafe.Pointer
+}
+
+func getRawNode(n Node) unsafe.Pointer {
+	return n.getRaw()
 }
 
 // ArgumentNode nodes are not self-contained nodes in the tree.
@@ -103,6 +112,12 @@ func (n *BaseNode) ChildNodes() []Node {
 		ret = append(ret, newNode(v))
 	}
 	return ret
+}
+
+func (n *BaseNode) ParseLocationRange() *types.ParseLocationRange {
+	var v unsafe.Pointer
+	internal.ResolvedNode_GetParseLocationRangeOrNULL(n.raw, &v)
+	return newParseLocationRange(v)
 }
 
 func (n *BaseNode) TreeDepth() int {

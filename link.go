@@ -14,6 +14,9 @@ func getRawCatalog(types.Catalog) unsafe.Pointer
 //go:linkname newResolvedNode github.com/goccy/go-zetasql/resolved_ast.newNode
 func newResolvedNode(unsafe.Pointer) resolved_ast.Node
 
+//go:linkname getRawResolvedNode github.com/goccy/go-zetasql/resolved_ast.getRawNode
+func getRawResolvedNode(resolved_ast.Node) unsafe.Pointer
+
 //go:linkname newType github.com/goccy/go-zetasql/types.newType
 func newType(unsafe.Pointer) types.Type
 

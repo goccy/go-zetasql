@@ -840,6 +840,17 @@ func analyzer_ResolvedNode_GetChildNode(arg0 unsafe.Pointer, arg1 C.int, arg2 *u
 	C.export_zetasql_public_analyzer_ResolvedNode_GetChildNode(arg0, arg1, arg2)
 }
 
+func ResolvedNode_GetParseLocationRangeOrNULL(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	analyzer_ResolvedNode_GetParseLocationRangeOrNULL(
+		arg0,
+		arg1,
+	)
+}
+
+func analyzer_ResolvedNode_GetParseLocationRangeOrNULL(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_analyzer_ResolvedNode_GetParseLocationRangeOrNULL(arg0, arg1)
+}
+
 func ResolvedNode_GetTreeDepth(arg0 unsafe.Pointer, arg1 *int) {
 	analyzer_ResolvedNode_GetTreeDepth(
 		arg0,

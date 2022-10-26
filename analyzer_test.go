@@ -41,6 +41,7 @@ func TestAnalyzer(t *testing.T) {
 	opt := zetasql.NewAnalyzerOptions()
 	opt.SetAllowUndeclaredParameters(true)
 	opt.SetLanguage(langOpt)
+	opt.SetParseLocationRecordType(zetasql.ParseLocationRecordFullNodeScope)
 
 	out, err := zetasql.AnalyzeStatement("SELECT * FROM z_table WHERE col1 = 1000", catalog, opt)
 	if err != nil {
@@ -48,7 +49,12 @@ func TestAnalyzer(t *testing.T) {
 	}
 	stmt := out.Statement()
 	if err := ast.Walk(stmt, func(n ast.Node) error {
-		t.Logf("%T %s", n, n.DebugString())
+		locRange := n.ParseLocationRange()
+		if locRange != nil {
+			t.Logf("%T[%s] %s", n, locRange, n.DebugString())
+		} else {
+			t.Logf("%T %s", n, n.DebugString())
+		}
 		return nil
 	}); err != nil {
 		t.Fatal(err)

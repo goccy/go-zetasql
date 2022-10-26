@@ -70,6 +70,7 @@ extern void GO_EXPORT(ResolvedNode_IsStatement)(void * arg0,char* arg1);
 extern void GO_EXPORT(ResolvedNode_DebugString)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedNode_GetChildNodes_num)(void * arg0,int* arg1);
 extern void GO_EXPORT(ResolvedNode_GetChildNode)(void * arg0,int arg1,void ** arg2);
+extern void GO_EXPORT(ResolvedNode_GetParseLocationRangeOrNULL)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedNode_GetTreeDepth)(void * arg0,int* arg1);
 extern void GO_EXPORT(ResolvedExpr_type)(void * arg0,void ** arg1);
 extern void GO_EXPORT(ResolvedExpr_set_type)(void * arg0,void * arg1);

@@ -2,6 +2,8 @@ package types
 
 import (
 	"fmt"
+	"runtime/cgo"
+	"sync"
 	"unsafe"
 
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
@@ -27,7 +29,6 @@ type Catalog interface {
 	SuggestFunction(mistypedPath []string) string
 	SuggestTableValuedFunction(mistypedPath []string) string
 	SuggestConstant(mistypedPath []string) string
-	getRaw() unsafe.Pointer
 }
 
 type EnumerableCatalog interface {
@@ -509,11 +510,11 @@ func (c *SimpleCatalog) ConstantNames() []string {
 }
 
 func (c *SimpleCatalog) AddTable(table Table) {
-	internal.SimpleCatalog_AddTable(c.raw, table.getRaw())
+	internal.SimpleCatalog_AddTable(c.raw, getRawTable(table))
 }
 
 func (c *SimpleCatalog) AddTableWithName(name string, table Table) {
-	internal.SimpleCatalog_AddTableWithName(c.raw, helper.StringToPtr(name), table.getRaw())
+	internal.SimpleCatalog_AddTableWithName(c.raw, helper.StringToPtr(name), getRawTable(table))
 }
 
 func (c *SimpleCatalog) AddModel(model Model) {
@@ -543,11 +544,11 @@ func (c *SimpleCatalog) AddTypeIfNotPresent(name string, typ Type) bool {
 }
 
 func (c *SimpleCatalog) AddCatalog(catalog Catalog) {
-	internal.SimpleCatalog_AddCatalog(c.raw, catalog.getRaw())
+	internal.SimpleCatalog_AddCatalog(c.raw, getRawCatalog(catalog))
 }
 
 func (c *SimpleCatalog) AddCatalogWithName(name string, catalog Catalog) {
-	internal.SimpleCatalog_AddCatalogWithName(c.raw, helper.StringToPtr(name), catalog.getRaw())
+	internal.SimpleCatalog_AddCatalogWithName(c.raw, helper.StringToPtr(name), getRawCatalog(catalog))
 }
 
 func (c *SimpleCatalog) AddFunction(fn *Function) {
@@ -594,6 +595,128 @@ func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions(opt *BuiltinFunctionOptions) 
 	internal.SimpleCatalog_AddZetaSQLFunctions(c.raw, opt.raw)
 }
 
+var (
+	catalogMap   = map[Catalog]unsafe.Pointer{}
+	catalogMapMu sync.Mutex
+)
+
 func getRawCatalog(c Catalog) unsafe.Pointer {
-	return c.getRaw()
+	switch cat := c.(type) {
+	case *SimpleCatalog:
+		return cat.getRaw()
+	}
+	catalogMapMu.Lock()
+	defer catalogMapMu.Unlock()
+
+	ptr, exists := catalogMap[c]
+	if exists {
+		return ptr
+	}
+
+	goCatalog := &internal.GoCatalog{
+		FullName: func() string {
+			return c.FullName()
+		},
+		FindTable: func(path []string) (unsafe.Pointer, error) {
+			table, err := c.FindTable(path)
+			if err != nil {
+				return nil, err
+			}
+			return getRawTable(table), nil
+		},
+		FindModel: func(path []string) (unsafe.Pointer, error) {
+			model, err := c.FindModel(path)
+			if err != nil {
+				return nil, err
+			}
+			return model.getRaw(), nil
+		},
+		FindConnection: func(path []string) (unsafe.Pointer, error) {
+			conn, err := c.FindConnection(path)
+			if err != nil {
+				return nil, err
+			}
+			return conn.getRaw(), nil
+		},
+		FindFunction: func(path []string) (unsafe.Pointer, error) {
+			fn, err := c.FindFunction(path)
+			if err != nil {
+				return nil, err
+			}
+			if fn == nil {
+				return nil, nil
+			}
+			return fn.raw, nil
+		},
+		FindTableValuedFunction: func(path []string) (unsafe.Pointer, error) {
+			fn, err := c.FindTableValuedFunction(path)
+			if err != nil {
+				return nil, err
+			}
+			return fn.getRaw(), nil
+		},
+		FindProcedure: func(path []string) (unsafe.Pointer, error) {
+			proc, err := c.FindProcedure(path)
+			if err != nil {
+				return nil, err
+			}
+			if proc == nil {
+				return nil, nil
+			}
+			return proc.raw, nil
+		},
+		FindType: func(path []string) (unsafe.Pointer, error) {
+			t, err := c.FindType(path)
+			if err != nil {
+				return nil, err
+			}
+			return t.getRaw(), nil
+		},
+		FindConstant: func(path []string) (unsafe.Pointer, error) {
+			constant, err := c.FindConstant(path)
+			if err != nil {
+				return nil, err
+			}
+			return constant.getRaw(), nil
+		},
+		FindConversion: func(from, to unsafe.Pointer) (unsafe.Pointer, error) {
+			conv, err := c.FindConversion(newType(from), newType(to))
+			if err != nil {
+				return nil, err
+			}
+			if conv == nil {
+				return nil, nil
+			}
+			// TODO
+			return nil, nil
+		},
+		ExtendedTypeSuperTypes: func(typ unsafe.Pointer) (unsafe.Pointer, error) {
+			if _, err := c.ExtendedTypeSuperTypes(newType(typ)); err != nil {
+				return nil, err
+			}
+			// TODO
+			return nil, nil
+		},
+		SuggestTable: func(mistypedPath []string) string {
+			return c.SuggestTable(mistypedPath)
+		},
+		SuggestModel: func(mistypedPath []string) string {
+			return c.SuggestModel(mistypedPath)
+		},
+		SuggestFunction: func(mistypedPath []string) string {
+			return c.SuggestFunction(mistypedPath)
+		},
+		SuggestTableValuedFunction: func(mistypedPath []string) string {
+			return c.SuggestTableValuedFunction(mistypedPath)
+		},
+		SuggestConstant: func(mistypedPath []string) string {
+			return c.SuggestConstant(mistypedPath)
+		},
+	}
+
+	h := cgo.NewHandle(goCatalog)
+	var ret unsafe.Pointer
+	internal.GoCatalog_new(unsafe.Pointer(&h), &ret)
+	catalogMap[c] = ret
+	return ret
 }

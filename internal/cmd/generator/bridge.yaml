@@ -4726,6 +4726,20 @@
         - struct
       ret:
         - struct
+
+- package: zetasql/public/catalog
+  methods:
+    - name: GoCatalog_new
+      args:
+        - struct
+      ret:
+        - struct
+    - name: GoTable_new
+      args:
+        - struct
+      ret:
+        - struct
+
 - package: zetasql/public/simple_catalog
   methods:
     - name: Type_Kind

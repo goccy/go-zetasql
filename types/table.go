@@ -2,6 +2,8 @@ package types
 
 import (
 	"reflect"
+	"runtime/cgo"
+	"sync"
 	"unsafe"
 
 	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
@@ -34,7 +36,6 @@ type Table interface {
 	AnonymizationInfo() *AnonymizationInfo
 	SupportsAnonymization() bool
 	TableTypeName(mode ProductMode) string
-	getRaw() unsafe.Pointer
 }
 
 type BaseTable struct {
@@ -237,6 +238,80 @@ func newTable(v unsafe.Pointer) Table {
 	return &SimpleTable{BaseTable: &BaseTable{raw: v}}
 }
 
+var (
+	tableMap   = map[Table]unsafe.Pointer{}
+	tableMapMu sync.Mutex
+)
+
 func getRawTable(v Table) unsafe.Pointer {
-	return v.getRaw()
+	if v == nil {
+		return nil
+	}
+	switch t := v.(type) {
+	case *SimpleTable:
+		return t.getRaw()
+	}
+
+	tableMapMu.Lock()
+	defer tableMapMu.Unlock()
+
+	ptr, exists := tableMap[v]
+	if exists {
+		return ptr
+	}
+
+	goTable := &internal.GoTable{
+		Name: func() string {
+			return v.Name()
+		},
+		FullName: func() string {
+			return v.FullName()
+		},
+		NumColumns: func() int {
+			return v.NumColumns()
+		},
+		Column: func(idx int) unsafe.Pointer {
+			c := v.Column(idx)
+			return c.getRaw()
+		},
+		PrimaryKey: func() []int {
+			return v.PrimaryKey()
+		},
+		FindColumnByName: func(name string) unsafe.Pointer {
+			c := v.FindColumnByName(name)
+			return c.getRaw()
+		},
+		IsValueTable: func() bool {
+			return v.IsValueTable()
+		},
+		SerializationID: func() int64 {
+			return v.SerializationID()
+		},
+		CreateEvaluatorTableIterator: func(columnIdxs []int) (unsafe.Pointer, error) {
+			iter, err := v.CreateEvaluatorTableIterator(columnIdxs)
+			if err != nil {
+				return nil, err
+			}
+			return iter.raw, nil
+		},
+		AnonymizationInfo: func() unsafe.Pointer {
+			ret := v.AnonymizationInfo()
+			if ret == nil {
+				return nil
+			}
+			return ret.raw
+		},
+		SupportsAnonymization: func() bool {
+			return v.SupportsAnonymization()
+		},
+		TableTypeName: func(mode int) string {
+			return v.TableTypeName(ProductMode(mode))
+		},
+	}
+
+	h := cgo.NewHandle(goTable)
+	var ret unsafe.Pointer
+	internal.GoTable_new(unsafe.Pointer(&h), &ret)
+	tableMap[v] = ret
+	return ret
 }

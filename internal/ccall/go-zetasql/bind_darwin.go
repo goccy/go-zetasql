@@ -26165,6 +26165,28 @@ func zetasql_ResolvedFunctionCallInfo_DebugString(arg0 unsafe.Pointer, arg1 *uns
 	C.export_zetasql_ResolvedFunctionCallInfo_DebugString(arg0, arg1)
 }
 
+func GoCatalog_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_GoCatalog_new(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_GoCatalog_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_GoCatalog_new(arg0, arg1)
+}
+
+func GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_GoTable_new(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_GoTable_new(arg0, arg1)
+}
+
 func Type_Kind(arg0 unsafe.Pointer, arg1 *int) {
 	zetasql_Type_Kind(
 		arg0,

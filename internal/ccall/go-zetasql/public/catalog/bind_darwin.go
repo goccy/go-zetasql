@@ -36,6 +36,28 @@ import (
 	"unsafe"
 )
 
+func GoCatalog_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	catalog_GoCatalog_new(
+		arg0,
+		arg1,
+	)
+}
+
+func catalog_GoCatalog_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_catalog_GoCatalog_new(arg0, arg1)
+}
+
+func GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	catalog_GoTable_new(
+		arg0,
+		arg1,
+	)
+}
+
+func catalog_GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_catalog_GoTable_new(arg0, arg1)
+}
+
 //export export_zetasql_public_catalog_cctz_FixedOffsetFromName
 //go:linkname export_zetasql_public_catalog_cctz_FixedOffsetFromName github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone.time_zone_cctz_FixedOffsetFromName
 func export_zetasql_public_catalog_cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *C.char)

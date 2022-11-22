@@ -21,7 +21,7 @@ type Catalog interface {
 	FindTableValuedFunction(path []string) (TableValuedFunction, error)
 	FindProcedure(path []string) (*Procedure, error)
 	FindType(path []string) (Type, error)
-	FindConstant(path []string) (Constant, error)
+	FindConstant(path []string) (Constant, int, error)
 	FindConversion(from, to Type) (Conversion, error)
 	ExtendedTypeSuperTypes(typ Type) (*TypeListView, error)
 	SuggestTable(mistypedPath []string) string
@@ -135,7 +135,7 @@ func (c *BaseCatalog) FindType(path []string) (Type, error) {
 		v      unsafe.Pointer
 		status unsafe.Pointer
 	)
-	internal.Catalog_FindType(c.raw, unsafe.Pointer(&path), &v, &status)
+	internal.Catalog_FindType(c.raw, helper.StringsToPtr(path), &v, &status)
 	st := helper.NewStatus(status)
 	if !st.OK() {
 		return nil, st.Error()
@@ -143,8 +143,18 @@ func (c *BaseCatalog) FindType(path []string) (Type, error) {
 	return newType(v), nil
 }
 
-func (c *BaseCatalog) FindConstant(path []string) (Constant, error) {
-	return nil, fmt.Errorf("unimplemented Catalog.FindConstant")
+func (c *BaseCatalog) FindConstant(path []string) (Constant, int, error) {
+	var (
+		constant unsafe.Pointer
+		num      int
+		status   unsafe.Pointer
+	)
+	internal.Catalog_FindConstant(c.raw, helper.StringsToPtr(path), &constant, &num, &status)
+	st := helper.NewStatus(status)
+	if !st.OK() {
+		return nil, 0, st.Error()
+	}
+	return newConstant(constant), num, nil
 }
 
 func (c *BaseCatalog) FindConversion(from, to Type) (Conversion, error) {
@@ -596,12 +606,16 @@ func (c *SimpleCatalog) AddZetaSQLBuiltinFunctions(opt *BuiltinFunctionOptions) 
 }
 
 var (
-	catalogMap   = map[Catalog]unsafe.Pointer{}
+	catalogMap   = map[Catalog]*helper.CPtrHolder{}
 	catalogMapMu sync.Mutex
 )
 
 func getRawCatalog(c Catalog) unsafe.Pointer {
 	switch cat := c.(type) {
+	case *BaseCatalog:
+		return cat.raw
+	case *BaseEnumerableCatalog:
+		return cat.getRaw()
 	case *SimpleCatalog:
 		return cat.getRaw()
 	}
@@ -610,7 +624,7 @@ func getRawCatalog(c Catalog) unsafe.Pointer {
 
 	ptr, exists := catalogMap[c]
 	if exists {
-		return ptr
+		return ptr.Ptr
 	}
 
 	goCatalog := &internal.GoCatalog{
@@ -672,12 +686,15 @@ func getRawCatalog(c Catalog) unsafe.Pointer {
 			}
 			return t.getRaw(), nil
 		},
-		FindConstant: func(path []string) (unsafe.Pointer, error) {
-			constant, err := c.FindConstant(path)
+		FindConstant: func(path []string) (unsafe.Pointer, int, error) {
+			constant, num, err := c.FindConstant(path)
 			if err != nil {
-				return nil, err
+				return nil, 0, err
 			}
-			return constant.getRaw(), nil
+			if constant == nil {
+				return nil, 0, nil
+			}
+			return constant.getRaw(), num, nil
 		},
 		FindConversion: func(from, to unsafe.Pointer) (unsafe.Pointer, error) {
 			conv, err := c.FindConversion(newType(from), newType(to))
@@ -715,8 +732,12 @@ func getRawCatalog(c Catalog) unsafe.Pointer {
 	}
 
 	h := cgo.NewHandle(goCatalog)
+	handlerPtr := unsafe.Pointer(&h)
 	var ret unsafe.Pointer
-	internal.GoCatalog_new(unsafe.Pointer(&h), &ret)
-	catalogMap[c] = ret
+	internal.GoCatalog_new(handlerPtr, &ret)
+	catalogMap[c] = &helper.CPtrHolder{
+		Ptr:     ret,
+		Handler: handlerPtr,
+	}
 	return ret
 }

@@ -2207,6 +2207,20 @@ func simple_catalog_Catalog_FindType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, a
 	C.export_zetasql_public_simple_catalog_Catalog_FindType(arg0, arg1, arg2, arg3)
 }
 
+func Catalog_FindConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *int, arg4 *unsafe.Pointer) {
+	simple_catalog_Catalog_FindConstant(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+		arg4,
+	)
+}
+
+func simple_catalog_Catalog_FindConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Catalog_FindConstant(arg0, arg1, arg2, arg3, arg4)
+}
+
 func Catalog_SuggestTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	simple_catalog_Catalog_SuggestTable(
 		arg0,
@@ -2749,6 +2763,61 @@ func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer)
 
 func simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 	C.export_zetasql_public_simple_catalog_SimpleCatalog_AddZetaSQLFunctions(arg0, arg1)
+}
+
+func Constant_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Constant_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Constant_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Constant_Name(arg0, arg1)
+}
+
+func Constant_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Constant_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Constant_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Constant_FullName(arg0, arg1)
+}
+
+func Constant_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Constant_type(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Constant_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Constant_type(arg0, arg1)
+}
+
+func Constant_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Constant_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Constant_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Constant_DebugString(arg0, arg1)
+}
+
+func Constant_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	simple_catalog_Constant_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func simple_catalog_Constant_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_public_simple_catalog_Constant_name_path(arg0, arg1)
 }
 
 func Model_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {

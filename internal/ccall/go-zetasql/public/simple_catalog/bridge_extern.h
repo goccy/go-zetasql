@@ -194,6 +194,7 @@ extern void GO_EXPORT(Catalog_FindFunction)(void * arg0,void * arg1,void ** arg2
 extern void GO_EXPORT(Catalog_FindTableValuedFunction)(void * arg0,void * arg1,void ** arg2,void ** arg3);
 extern void GO_EXPORT(Catalog_FindProcedure)(void * arg0,void * arg1,void ** arg2,void ** arg3);
 extern void GO_EXPORT(Catalog_FindType)(void * arg0,void * arg1,void ** arg2,void ** arg3);
+extern void GO_EXPORT(Catalog_FindConstant)(void * arg0,void * arg1,void ** arg2,int* arg3,void ** arg4);
 extern void GO_EXPORT(Catalog_SuggestTable)(void * arg0,void * arg1,void ** arg2);
 extern void GO_EXPORT(Catalog_SuggestModel)(void * arg0,void * arg1,void ** arg2);
 extern void GO_EXPORT(Catalog_SuggestFunction)(void * arg0,void * arg1,void ** arg2);
@@ -240,6 +241,11 @@ extern void GO_EXPORT(SimpleCatalog_AddProcedureWithName)(void * arg0,void * arg
 extern void GO_EXPORT(SimpleCatalog_AddConstant)(void * arg0,void * arg1);
 extern void GO_EXPORT(SimpleCatalog_AddConstantWithName)(void * arg0,void * arg1,void * arg2);
 extern void GO_EXPORT(SimpleCatalog_AddZetaSQLFunctions)(void * arg0,void * arg1);
+extern void GO_EXPORT(Constant_Name)(void * arg0,void ** arg1);
+extern void GO_EXPORT(Constant_FullName)(void * arg0,void ** arg1);
+extern void GO_EXPORT(Constant_type)(void * arg0,void ** arg1);
+extern void GO_EXPORT(Constant_DebugString)(void * arg0,void ** arg1);
+extern void GO_EXPORT(Constant_name_path)(void * arg0,void ** arg1);
 extern void GO_EXPORT(Model_Name)(void * arg0,void ** arg1);
 extern void GO_EXPORT(Model_FullName)(void * arg0,void ** arg1);
 extern void GO_EXPORT(Model_NumInputs)(void * arg0,int* arg1);

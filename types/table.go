@@ -234,30 +234,39 @@ func (t *SimpleTable) SetAllowDuplicateColumnNames(value bool) error {
 	return nil
 }
 
-func newTable(v unsafe.Pointer) Table {
-	return &SimpleTable{BaseTable: &BaseTable{raw: v}}
-}
-
 var (
-	tableMap   = map[Table]unsafe.Pointer{}
+	tableMap   = map[Table]*helper.CPtrHolder{}
 	tableMapMu sync.Mutex
 )
+
+func newTable(v unsafe.Pointer) Table {
+	tableMapMu.Lock()
+	defer tableMapMu.Unlock()
+
+	for t, holder := range tableMap {
+		if holder.Ptr == v {
+			return t
+		}
+	}
+	return &SimpleTable{BaseTable: &BaseTable{raw: v}}
+}
 
 func getRawTable(v Table) unsafe.Pointer {
 	if v == nil {
 		return nil
 	}
 	switch t := v.(type) {
+	case *BaseTable:
+		return t.raw
 	case *SimpleTable:
 		return t.getRaw()
 	}
-
 	tableMapMu.Lock()
 	defer tableMapMu.Unlock()
 
-	ptr, exists := tableMap[v]
+	holder, exists := tableMap[v]
 	if exists {
-		return ptr
+		return holder.Ptr
 	}
 
 	goTable := &internal.GoTable{
@@ -311,7 +320,11 @@ func getRawTable(v Table) unsafe.Pointer {
 
 	h := cgo.NewHandle(goTable)
 	var ret unsafe.Pointer
-	internal.GoTable_new(unsafe.Pointer(&h), &ret)
-	tableMap[v] = ret
+	handlerPtr := unsafe.Pointer(&h)
+	internal.GoTable_new(handlerPtr, &ret)
+	tableMap[v] = &helper.CPtrHolder{
+		Ptr:     ret,
+		Handler: handlerPtr,
+	}
 	return ret
 }

@@ -194,6 +194,28 @@ public:
   }
 
   absl::Status FindConstantWithPathPrefix(const absl::Span<const std::string> path, int* num_names_consumed, const Constant** constant, const FindOptions& options = FindOptions()) {
+    if (path.empty()) {
+      return EmptyNamePathInternalError("Constant");
+    }
+    GoSlice *path_slice = (GoSlice *)malloc(sizeof(GoSlice));
+    const char **data = (const char **)malloc(sizeof(void *) * path.size());
+    for (size_t i = 0; i < path.size(); i++) {
+      data[i] = path[i].c_str();
+    }
+    path_slice->data = (void *)data;
+    path_slice->len = path.size();
+    path_slice->cap = path.size();
+
+    void *constV = nullptr;
+    char *ret = nullptr;
+    GoCatalog_FindConstant(this->go_catalog_ptr, (void *)path_slice, num_names_consumed, &constV, &ret);
+    if (constV == nullptr) {
+      return ConstantNotFoundError(path);
+    }
+    if (ret != nullptr) {
+      return absl::InvalidArgumentError(ret);
+    }
+    *constant = (const Constant *)constV;
     return absl::OkStatus();
   }
     

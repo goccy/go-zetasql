@@ -1243,6 +1243,19 @@ void GO_EXPORT(Catalog_FindType)(void * arg0,void * arg1,void **arg2,void ** arg
   *arg3 = new absl::Status(ret);
 }
 
+void GO_EXPORT(Catalog_FindConstant)(void * arg0,void * arg1,void ** arg2, int *arg3, void ** arg4)
+{
+  zetasql::Catalog *catalog = (zetasql::Catalog *)arg0;
+  auto pathvec = simple_catalog_slice_to_strs(arg1);
+  const absl::Span<const std::string> path(pathvec);
+  const zetasql::Constant *constant = nullptr;
+  int num = 0;
+  absl::Status ret = catalog->FindConstantWithPathPrefix(path, &num, &constant);
+  *arg2 = (void *)constant;
+  *arg3 = num;
+  *arg4 = new absl::Status(ret);
+}
+
 void GO_EXPORT(Catalog_SuggestTable)(void * arg0,void * arg1,void ** arg2)
 {
   zetasql::Catalog *catalog = (zetasql::Catalog *)arg0;
@@ -1686,6 +1699,36 @@ void GO_EXPORT(SimpleCatalog_AddZetaSQLFunctions)(void * arg0,void *arg1)
   zetasql::SimpleCatalog *catalog = (zetasql::SimpleCatalog *)arg0;
   zetasql::ZetaSQLBuiltinFunctionOptions *options = (zetasql::ZetaSQLBuiltinFunctionOptions *)arg1;
   catalog->AddZetaSQLFunctions(*options);
+}
+
+void GO_EXPORT(Constant_Name)(void * arg0,void ** arg1)
+{
+  zetasql::Constant *constant = (zetasql::Constant *)arg0;
+  *arg1 = (void *)((new std::string(constant->Name()))->c_str());
+}
+
+void GO_EXPORT(Constant_FullName)(void * arg0,void ** arg1)
+{
+  zetasql::Constant *constant = (zetasql::Constant *)arg0;
+  *arg1 = (void *)((new std::string(constant->FullName()))->c_str());
+}
+
+void GO_EXPORT(Constant_type)(void * arg0,void ** arg1)
+{
+  zetasql::Constant *constant = (zetasql::Constant *)arg0;
+  *arg1 = (void *)constant->type();
+}
+
+void GO_EXPORT(Constant_DebugString)(void * arg0,void ** arg1)
+{
+  zetasql::Constant *constant = (zetasql::Constant *)arg0;
+  *arg1 = (void *)((new std::string(constant->DebugString()))->c_str());
+}
+
+void GO_EXPORT(Constant_name_path)(void * arg0,void ** arg1)
+{
+  zetasql::Constant *constant = (zetasql::Constant *)arg0;
+  SIMPLE_CATALOG_GET_STRS(constant->name_path, arg1);
 }
 
 void GO_EXPORT(Model_Name)(void * arg0,void ** arg1)

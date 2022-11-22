@@ -5697,6 +5697,14 @@
       ret:
         - struct
         - struct
+    - name: Catalog_FindConstant
+      args:
+        - struct
+        - struct
+      ret:
+        - struct
+        - int
+        - struct
     - name: Catalog_SuggestTable
       args:
         - struct
@@ -5946,6 +5954,31 @@
     - name: SimpleCatalog_AddZetaSQLFunctions
       args:
         - struct
+        - struct
+    - name: Constant_Name
+      args:
+        - struct
+      ret:
+        - string
+    - name: Constant_FullName
+      args:
+        - struct
+      ret:
+        - string
+    - name: Constant_type
+      args:
+        - struct
+      ret:
+        - struct
+    - name: Constant_DebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: Constant_name_path
+      args:
+        - struct
+      ret:
         - struct
     - name: Model_Name
       args:

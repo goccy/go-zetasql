@@ -68,3 +68,8 @@ func SliceToPtr(v interface{}, cb func(int) unsafe.Pointer) unsafe.Pointer {
 	}
 	return unsafe.Pointer(slice)
 }
+
+type CPtrHolder struct {
+	Ptr     unsafe.Pointer
+	Handler unsafe.Pointer
+}

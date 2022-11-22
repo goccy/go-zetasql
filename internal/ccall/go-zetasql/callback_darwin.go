@@ -48,7 +48,7 @@ type GoCatalog struct {
 	FindTableValuedFunction    func([]string) (unsafe.Pointer, error)
 	FindProcedure              func([]string) (unsafe.Pointer, error)
 	FindType                   func([]string) (unsafe.Pointer, error)
-	FindConstant               func([]string) (unsafe.Pointer, error)
+	FindConstant               func([]string) (unsafe.Pointer, int, error)
 	FindConversion             func(unsafe.Pointer, unsafe.Pointer) (unsafe.Pointer, error)
 	ExtendedTypeSuperTypes     func(unsafe.Pointer) (unsafe.Pointer, error)
 	SuggestTable               func([]string) string
@@ -202,17 +202,18 @@ func GoCatalog_FindType(v unsafe.Pointer, pathPtr unsafe.Pointer, typ *unsafe.Po
 }
 
 //export GoCatalog_FindConstant
-func GoCatalog_FindConstant(v unsafe.Pointer, pathPtr unsafe.Pointer, constant *unsafe.Pointer, ret **C.char) {
+func GoCatalog_FindConstant(v unsafe.Pointer, pathPtr unsafe.Pointer, numNamesConsumed *C.int, constant *unsafe.Pointer, ret **C.char) {
 	h := *(*cgo.Handle)(v)
 	cat := h.Value().(*GoCatalog)
 	var path []string
 	ptrToSlice(pathPtr, func(p unsafe.Pointer) {
 		path = append(path, C.GoString((*C.char)(p)))
 	})
-	consPtr, err := cat.FindConstant(path)
+	consPtr, num, err := cat.FindConstant(path)
 	if err != nil {
 		*ret = C.CString(err.Error())
 	} else {
+		*numNamesConsumed = C.int(num)
 		*constant = consPtr
 	}
 }
@@ -344,9 +345,9 @@ func GoTable_IsValueTable(v unsafe.Pointer) C.int {
 	h := *(*cgo.Handle)(v)
 	table := h.Value().(*GoTable)
 	if table.IsValueTable() {
-		return 0
+		return 1
 	}
-	return 1
+	return 0
 }
 
 //export GoTable_SerializationID
@@ -384,9 +385,9 @@ func GoTable_SupportsAnonymization(v unsafe.Pointer) C.int {
 	h := *(*cgo.Handle)(v)
 	table := h.Value().(*GoTable)
 	if table.SupportsAnonymization() {
-		return 0
+		return 1
 	}
-	return 1
+	return 0
 }
 
 //export GoTable_TableTypeName

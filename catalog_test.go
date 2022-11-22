@@ -58,8 +58,8 @@ func (c *myCatalog) FindType(path []string) (types.Type, error) {
 	return nil, nil
 }
 
-func (c *myCatalog) FindConstant(path []string) (types.Constant, error) {
-	return nil, nil
+func (c *myCatalog) FindConstant(path []string) (types.Constant, int, error) {
+	return nil, 0, nil
 }
 
 func (c *myCatalog) FindConversion(from, to types.Type) (types.Conversion, error) {

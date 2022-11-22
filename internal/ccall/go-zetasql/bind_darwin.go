@@ -28355,6 +28355,20 @@ func zetasql_Catalog_FindType(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *un
 	C.export_zetasql_Catalog_FindType(arg0, arg1, arg2, arg3)
 }
 
+func Catalog_FindConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *int, arg4 *unsafe.Pointer) {
+	zetasql_Catalog_FindConstant(
+		arg0,
+		arg1,
+		arg2,
+		(*C.int)(unsafe.Pointer(arg3)),
+		arg4,
+	)
+}
+
+func zetasql_Catalog_FindConstant(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer, arg3 *C.int, arg4 *unsafe.Pointer) {
+	C.export_zetasql_Catalog_FindConstant(arg0, arg1, arg2, arg3, arg4)
+}
+
 func Catalog_SuggestTable(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	zetasql_Catalog_SuggestTable(
 		arg0,
@@ -28897,6 +28911,61 @@ func SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer)
 
 func zetasql_SimpleCatalog_AddZetaSQLFunctions(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
 	C.export_zetasql_SimpleCatalog_AddZetaSQLFunctions(arg0, arg1)
+}
+
+func Constant_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Constant_Name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Constant_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Constant_Name(arg0, arg1)
+}
+
+func Constant_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Constant_FullName(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Constant_FullName(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Constant_FullName(arg0, arg1)
+}
+
+func Constant_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Constant_type(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Constant_type(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Constant_type(arg0, arg1)
+}
+
+func Constant_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Constant_DebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Constant_DebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Constant_DebugString(arg0, arg1)
+}
+
+func Constant_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_Constant_name_path(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_Constant_name_path(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_Constant_name_path(arg0, arg1)
 }
 
 func Model_Name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {

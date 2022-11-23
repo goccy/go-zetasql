@@ -7,6 +7,303 @@ import (
 	"github.com/goccy/go-zetasql/internal/helper"
 )
 
+// FunctionArgumentTypeOptions specifies options on a function argument, including
+// argument cardinality.  This includes some options that are used to specify
+// argument values that are illegal and should cause an analysis error.
+type FunctionArgumentTypeOptions struct {
+	raw unsafe.Pointer
+}
+
+func (o *FunctionArgumentTypeOptions) getRaw() unsafe.Pointer {
+	if o == nil {
+		return nil
+	}
+	return o.raw
+}
+
+func (o *FunctionArgumentTypeOptions) Cardinality() ArgumentCardinality {
+	var v int
+	internal.FunctionArgumentTypeOptions_cardinality(o.raw, &v)
+	return ArgumentCardinality(v)
+}
+
+func (o *FunctionArgumentTypeOptions) MustBeConstant() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_must_be_constant(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MustBeNonNull() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_must_be_non_null(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) IsNotAggregate() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_is_not_aggregate(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MustSupportEquality() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_must_support_equality(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MustSupportOrdering() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_must_support_ordering(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MustSupportGrouping() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_must_support_grouping(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) HasMinValue() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_has_min_value(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) HasMaxValue() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_has_max_value(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MinValue() int64 {
+	var v int64
+	internal.FunctionArgumentTypeOptions_min_value(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) MaxValue() int64 {
+	var v int64
+	internal.FunctionArgumentTypeOptions_max_value(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) HasRelationInputSchema() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_has_relation_input_schema(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) ResolveDescriptorNamesTableOffset() int {
+	var v int
+	internal.FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) ExtraRelationInputColumnsAllowed() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_extra_relation_input_columns_allowed(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) HasArgumentName() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_has_argument_name(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) ArgumentName() string {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_argument_name(o.raw, &v)
+	return helper.PtrToString(v)
+}
+
+func (o *FunctionArgumentTypeOptions) ArgumentNameIsMandatory() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_argument_name_is_mandatory(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) ProcedureArgumentMode() ProcedureArgumentMode {
+	var v int
+	internal.FunctionArgumentTypeOptions_procedure_argument_mode(o.raw, &v)
+	return ProcedureArgumentMode(v)
+}
+
+func (o *FunctionArgumentTypeOptions) SetCardinality(c ArgumentCardinality) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_cardinality(o.raw, int(c))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMustBeConstant(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_must_be_constant(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMustBeNonNull(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_must_be_non_null(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetIsNotAggregate(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_is_not_aggregate(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMustSupportEquality(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_must_support_equality(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMustSupportOrdering(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_must_support_ordering(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMustSupportGrouping(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_must_support_grouping(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMinValue(v int64) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_min_value(o.raw, v)
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetMaxValue(v int64) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_max_value(o.raw, v)
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetExtraRelationInputColumnsAllowed(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetArgumentName(name string) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_argument_name(o.raw, helper.StringToPtr(name))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetArgumentNameIsMandatory(value bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_argument_name_is_mandatory(o.raw, helper.BoolToInt(value))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetProcedureArgumentMode(mode ProcedureArgumentMode) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_procedure_argument_mode(o.raw, int(mode))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetResolveDescriptorNamesTableOffset(tableOffset int) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset(o.raw, tableOffset)
+	return o
+}
+
+// OptionsDebugString return a string describing the options (not including cardinality).
+// If no options are set, this returns an empty string.
+// Otherwise, includes a leading space.
+func (o *FunctionArgumentTypeOptions) OptionsDebugString() string {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_OptionsDebugString(o.raw, &v)
+	return helper.PtrToString(v)
+}
+
+// SQLDeclaration get the SQL declaration for these options.
+// The result is formatted as SQL that can be included inside a function
+// signature in CREATE FUNCTION, DROP FUNCTION, etc, if possible.
+func (o *FunctionArgumentTypeOptions) SQLDeclaration(mode ProductMode) string {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_GetSQLDeclaration(o.raw, int(mode), &v)
+	return helper.PtrToString(v)
+}
+
+// SetArgumentNameParseLocation sets the ParseLocationRange of the argument name.
+func (o *FunctionArgumentTypeOptions) SetArgumentNameParseLocation(locRange *ParseLocationRange) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_argument_name_parse_location(o.raw, locRange.raw)
+	return o
+}
+
+// ArgumentNameParseLocation gets the ParseLocationRange of the argument name.
+func (o *FunctionArgumentTypeOptions) ArgumentNameParseLocation() *ParseLocationRange {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_argument_name_parse_location(o.raw, &v)
+	return newParseLocationRange(v)
+}
+
+// SetArgumentTypeParseLocation sets the ParseLocationRange of the argument type.
+func (o *FunctionArgumentTypeOptions) SetArgumentTypeParseLocation(locRange *ParseLocationRange) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_argument_type_parse_location(o.raw, locRange.raw)
+	return o
+}
+
+// ArgumentTypeParseLocation gets the ParseLocationRange of the argument type.
+func (o *FunctionArgumentTypeOptions) ArgumentTypeParseLocation() *ParseLocationRange {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_argument_type_parse_location(o.raw, &v)
+	return newParseLocationRange(v)
+}
+
+// SetDefault sets the default value of this argument. Only optional arguments can
+// (optionally) have default values.
+// Restrictions on the default values:
+// - For fixed-typed arguments, the type of <default_value> must be Equals to
+//   the type of the argument.
+// - Non-expression-typed templated arguments (e.g., tables, connections,
+//   models, etc.) cannot have default values.
+//
+// Note that (in the near future), an optional argument that has a default
+// value and is omitted in a function call will be resolved as if the default
+// value is specified.
+//
+// Also note that the type of <default_value> must outlive this object as well
+// as all the FunctionSignature instances created using this object.
+func (o *FunctionArgumentTypeOptions) SetDefault(value Value) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_default(o.raw, value.getRaw())
+	return o
+}
+
+// HasDefault returns true if a default value has been defined for this argument.
+func (o *FunctionArgumentTypeOptions) HasDefault() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_has_default(o.raw, &v)
+	return v
+}
+
+// Default gets the default value of this argument.
+func (o *FunctionArgumentTypeOptions) Default() Value {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_get_default(o.raw, &v)
+	return newValue(v)
+}
+
+// ClearDefault clears the default argument value set to this object.
+func (o *FunctionArgumentTypeOptions) ClearDefault() *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_clear_default(o.raw)
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) ArgumentCollationMode() ArgumentCollationMode {
+	var v int
+	internal.FunctionArgumentTypeOptions_argument_collation_mode(o.raw, &v)
+	return ArgumentCollationMode(v)
+}
+
+func (o *FunctionArgumentTypeOptions) UsesArrayElementForCollation() bool {
+	var v bool
+	internal.FunctionArgumentTypeOptions_uses_array_element_for_collation(o.raw, &v)
+	return v
+}
+
+func (o *FunctionArgumentTypeOptions) SetUsesArrayElementForCollation(v bool) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_uses_array_element_for_collation(o.raw, helper.BoolToInt(v))
+	return o
+}
+
+func (o *FunctionArgumentTypeOptions) SetArgumentCollationMode(mode ArgumentCollationMode) *FunctionArgumentTypeOptions {
+	internal.FunctionArgumentTypeOptions_set_argument_collation_mode(o.raw, int(mode))
+	return o
+}
+
 // FunctionArgumentType a type for an argument or result value in a function signature.
 // Types can be fixed or templated.  Arguments can be marked as repeated (denoting
 // it can occur zero or more times in a function invocation) or optional.
@@ -20,6 +317,12 @@ import (
 // apply additional constraints on legal values for the argument.
 type FunctionArgumentType struct {
 	raw unsafe.Pointer
+}
+
+func (t *FunctionArgumentType) Options() *FunctionArgumentTypeOptions {
+	var v unsafe.Pointer
+	internal.FunctionArgumentType_options(t.raw, &v)
+	return newFunctionArgumentTypeOptions(v)
 }
 
 func (t *FunctionArgumentType) Required() bool {
@@ -782,10 +1085,28 @@ func NewFunctionSignature(resultType *FunctionArgumentType, args []*FunctionArgu
 	return newFunctionSignature(v)
 }
 
-func NewFunctionArgumentType(name string, typ Type) *FunctionArgumentType {
+func NewFunctionArgumentType(typ Type, opt *FunctionArgumentTypeOptions) *FunctionArgumentType {
+	if opt == nil {
+		opt = NewFunctionArgumentTypeOptions(RequiredArgumentCardinality)
+	}
 	var v unsafe.Pointer
-	internal.FunctionArgumentType_new(helper.StringToPtr(name), typ.getRaw(), &v)
+	internal.FunctionArgumentType_new(typ.getRaw(), opt.getRaw(), &v)
 	return newFunctionArgumentType(v)
+}
+
+func NewTemplatedFunctionArgumentType(kind SignatureArgumentKind, opt *FunctionArgumentTypeOptions) *FunctionArgumentType {
+	if opt == nil {
+		opt = NewFunctionArgumentTypeOptions(RequiredArgumentCardinality)
+	}
+	var v unsafe.Pointer
+	internal.FunctionArgumentType_new_templated_type(int(kind), opt.getRaw(), &v)
+	return newFunctionArgumentType(v)
+}
+
+func NewFunctionArgumentTypeOptions(cardinality ArgumentCardinality) *FunctionArgumentTypeOptions {
+	var v unsafe.Pointer
+	internal.FunctionArgumentTypeOptions_new(int(cardinality), &v)
+	return newFunctionArgumentTypeOptions(v)
 }
 
 //go:noinline
@@ -812,6 +1133,21 @@ func newFunctionArgumentType(v unsafe.Pointer) *FunctionArgumentType {
 }
 
 func getRawFunctionArgumentType(v *FunctionArgumentType) unsafe.Pointer {
+	return v.raw
+}
+
+//go:noinline
+func newFunctionArgumentTypeOptions(v unsafe.Pointer) *FunctionArgumentTypeOptions {
+	if v == nil {
+		return nil
+	}
+	return &FunctionArgumentTypeOptions{raw: v}
+}
+
+func getRawFunctionArgumentTypeOptions(v *FunctionArgumentTypeOptions) unsafe.Pointer {
+	if v == nil {
+		return nil
+	}
 	return v.raw
 }
 

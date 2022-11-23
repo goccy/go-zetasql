@@ -32,9 +32,12 @@ package zetasql
 */
 import "C"
 import (
-	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone"
 	"unsafe"
+
+	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone"
 )
+
+var _ int
 
 func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_cctz_FixedOffsetFromName(
@@ -29479,6 +29482,523 @@ func zetasql_Function_alias_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_Function_alias_name(arg0, arg1)
 }
 
+func FunctionArgumentTypeOptions_new(arg0 int, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_new(
+		C.int(arg0),
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_new(arg0 C.int, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_new(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_cardinality(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_FunctionArgumentTypeOptions_cardinality(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_cardinality(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_cardinality(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_must_be_constant(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_must_be_constant(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_must_be_constant(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_must_be_constant(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_must_be_non_null(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_must_be_non_null(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_must_be_non_null(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_must_be_non_null(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_is_not_aggregate(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_is_not_aggregate(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_is_not_aggregate(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_is_not_aggregate(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_must_support_equality(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_must_support_equality(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_must_support_equality(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_must_support_equality(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_must_support_ordering(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_must_support_ordering(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_must_support_ordering(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_must_support_ordering(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_must_support_grouping(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_must_support_grouping(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_must_support_grouping(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_must_support_grouping(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_has_min_value(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_has_min_value(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_has_min_value(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_has_min_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_has_max_value(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_has_max_value(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_has_max_value(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_has_max_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_min_value(arg0 unsafe.Pointer, arg1 *int64) {
+	zetasql_FunctionArgumentTypeOptions_min_value(
+		arg0,
+		(*C.int64_t)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_min_value(arg0 unsafe.Pointer, arg1 *C.int64_t) {
+	C.export_zetasql_FunctionArgumentTypeOptions_min_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_max_value(arg0 unsafe.Pointer, arg1 *int64) {
+	zetasql_FunctionArgumentTypeOptions_max_value(
+		arg0,
+		(*C.int64_t)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_max_value(arg0 unsafe.Pointer, arg1 *C.int64_t) {
+	C.export_zetasql_FunctionArgumentTypeOptions_max_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_has_relation_input_schema(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_has_relation_input_schema(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_has_relation_input_schema(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_has_relation_input_schema(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_extra_relation_input_columns_allowed(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_extra_relation_input_columns_allowed(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_extra_relation_input_columns_allowed(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_extra_relation_input_columns_allowed(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_has_argument_name(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_has_argument_name(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_has_argument_name(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_has_argument_name(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_argument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_argument_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_argument_name(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_argument_name(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_argument_name_is_mandatory(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_argument_name_is_mandatory(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_argument_name_is_mandatory(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_argument_name_is_mandatory(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_procedure_argument_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_FunctionArgumentTypeOptions_procedure_argument_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_procedure_argument_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_procedure_argument_mode(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_cardinality(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_cardinality(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_cardinality(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_cardinality(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_must_be_constant(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_must_be_constant(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_must_be_constant(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_must_be_constant(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_must_be_non_null(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_must_be_non_null(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_must_be_non_null(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_must_be_non_null(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_is_not_aggregate(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_is_not_aggregate(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_is_not_aggregate(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_must_support_equality(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_must_support_equality(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_must_support_equality(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_must_support_equality(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_must_support_ordering(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_must_support_ordering(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_must_support_ordering(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_must_support_ordering(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_must_support_grouping(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_must_support_grouping(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_must_support_grouping(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_must_support_grouping(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_min_value(arg0 unsafe.Pointer, arg1 int64) {
+	zetasql_FunctionArgumentTypeOptions_set_min_value(
+		arg0,
+		C.int64_t(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_min_value(arg0 unsafe.Pointer, arg1 C.int64_t) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_min_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_max_value(arg0 unsafe.Pointer, arg1 int64) {
+	zetasql_FunctionArgumentTypeOptions_set_max_value(
+		arg0,
+		C.int64_t(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_max_value(arg0 unsafe.Pointer, arg1 C.int64_t) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_max_value(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_argument_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_set_argument_name(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_argument_name(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_argument_name(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_argument_name_is_mandatory(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_argument_name_is_mandatory(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_argument_name_is_mandatory(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_argument_name_is_mandatory(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_procedure_argument_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_procedure_argument_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_procedure_argument_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_procedure_argument_mode(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_OptionsDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_OptionsDebugString(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_OptionsDebugString(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_OptionsDebugString(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 int, arg2 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_GetSQLDeclaration(
+		arg0,
+		C.int(arg1),
+		arg2,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_GetSQLDeclaration(arg0 unsafe.Pointer, arg1 C.int, arg2 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_GetSQLDeclaration(arg0, arg1, arg2)
+}
+
+func FunctionArgumentTypeOptions_set_argument_name_parse_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_set_argument_name_parse_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_argument_name_parse_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_argument_name_parse_location(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_argument_name_parse_location(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_argument_name_parse_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_argument_name_parse_location(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_argument_name_parse_location(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_argument_type_parse_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_set_argument_type_parse_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_argument_type_parse_location(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_argument_type_parse_location(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_argument_type_parse_location(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_argument_type_parse_location(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_argument_type_parse_location(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_argument_type_parse_location(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_default(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_set_default(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_default(arg0 unsafe.Pointer, arg1 unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_default(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_has_default(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_has_default(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_has_default(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_has_default(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_get_default(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_get_default(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_get_default(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_get_default(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_clear_default(arg0 unsafe.Pointer) {
+	zetasql_FunctionArgumentTypeOptions_clear_default(
+		arg0,
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_clear_default(arg0 unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentTypeOptions_clear_default(arg0)
+}
+
+func FunctionArgumentTypeOptions_argument_collation_mode(arg0 unsafe.Pointer, arg1 *int) {
+	zetasql_FunctionArgumentTypeOptions_argument_collation_mode(
+		arg0,
+		(*C.int)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_argument_collation_mode(arg0 unsafe.Pointer, arg1 *C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_argument_collation_mode(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_uses_array_element_for_collation(arg0 unsafe.Pointer, arg1 *bool) {
+	zetasql_FunctionArgumentTypeOptions_uses_array_element_for_collation(
+		arg0,
+		(*C.char)(unsafe.Pointer(arg1)),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_uses_array_element_for_collation(arg0 unsafe.Pointer, arg1 *C.char) {
+	C.export_zetasql_FunctionArgumentTypeOptions_uses_array_element_for_collation(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_uses_array_element_for_collation(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_uses_array_element_for_collation(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_uses_array_element_for_collation(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_uses_array_element_for_collation(arg0, arg1)
+}
+
+func FunctionArgumentTypeOptions_set_argument_collation_mode(arg0 unsafe.Pointer, arg1 int) {
+	zetasql_FunctionArgumentTypeOptions_set_argument_collation_mode(
+		arg0,
+		C.int(arg1),
+	)
+}
+
+func zetasql_FunctionArgumentTypeOptions_set_argument_collation_mode(arg0 unsafe.Pointer, arg1 C.int) {
+	C.export_zetasql_FunctionArgumentTypeOptions_set_argument_collation_mode(arg0, arg1)
+}
+
 func FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	zetasql_FunctionArgumentType_new(
 		arg0,
@@ -29489,6 +30009,29 @@ func FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *un
 
 func zetasql_FunctionArgumentType_new(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
 	C.export_zetasql_FunctionArgumentType_new(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_new_templated_type(arg0 int, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	zetasql_FunctionArgumentType_new_templated_type(
+		C.int(arg0),
+		arg1,
+		arg2,
+	)
+}
+
+func zetasql_FunctionArgumentType_new_templated_type(arg0 C.int, arg1 unsafe.Pointer, arg2 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentType_new_templated_type(arg0, arg1, arg2)
+}
+
+func FunctionArgumentType_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FunctionArgumentType_options(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FunctionArgumentType_options(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FunctionArgumentType_options(arg0, arg1)
 }
 
 func FunctionArgumentType_required(arg0 unsafe.Pointer, arg1 *bool) {

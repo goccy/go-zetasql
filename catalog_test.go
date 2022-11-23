@@ -152,6 +152,9 @@ func TestCatalog(t *testing.T) {
 	langOpt := zetasql.NewLanguageOptions()
 	langOpt.SetNameResolutionMode(zetasql.NameResolutionDefault)
 	langOpt.SetProductMode(types.ProductExternal)
+	langOpt.SetEnabledLanguageFeatures([]zetasql.LanguageFeature{
+		zetasql.FeatureTemplateFunctions,
+	})
 	langOpt.SetSupportedStatementKinds([]resolved_ast.Kind{resolved_ast.QueryStmt})
 	opt := zetasql.NewAnalyzerOptions()
 	opt.SetAllowUndeclaredParameters(true)
@@ -176,14 +179,22 @@ func TestCatalog(t *testing.T) {
 				types.ScalarMode,
 				[]*types.FunctionSignature{
 					types.NewFunctionSignature(
-						types.NewFunctionArgumentType("", types.StringType()),
-						nil,
+						types.NewFunctionArgumentType(
+							types.StringType(),
+							types.NewFunctionArgumentTypeOptions(types.RequiredArgumentCardinality),
+						),
+						[]*types.FunctionArgumentType{
+							types.NewTemplatedFunctionArgumentType(
+								types.ArgTypeAny1,
+								types.NewFunctionArgumentTypeOptions(types.RequiredArgumentCardinality),
+							),
+						},
 					),
 				},
 			),
 		},
 	}
-	query := `SELECT * FROM sample_table WHERE MY_FUNC() = 'foo'`
+	query := `SELECT * FROM sample_table WHERE MY_FUNC(1.0) = 'foo'`
 	if _, err := zetasql.AnalyzeStatement(query, catalog, opt); err != nil {
 		t.Fatal(err)
 	}

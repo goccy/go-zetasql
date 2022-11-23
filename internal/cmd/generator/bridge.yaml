@@ -6219,9 +6219,235 @@
         - struct
       ret:
         - string
+    - name: FunctionArgumentTypeOptions_new
+      args:
+        - int
+      ret:
+        - struct
+    - name: FunctionArgumentTypeOptions_cardinality
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentTypeOptions_must_be_constant
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_must_be_non_null
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_is_not_aggregate
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_must_support_equality
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_must_support_ordering
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_must_support_grouping
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_has_min_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_has_max_value
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_min_value
+      args:
+        - struct
+      ret:
+        - int64
+    - name: FunctionArgumentTypeOptions_max_value
+      args:
+        - struct
+      ret:
+        - int64
+    - name: FunctionArgumentTypeOptions_has_relation_input_schema
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentTypeOptions_extra_relation_input_columns_allowed
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_has_argument_name
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_argument_name
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentTypeOptions_argument_name_is_mandatory
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_procedure_argument_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentTypeOptions_set_cardinality
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_must_be_constant
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_must_be_non_null
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_is_not_aggregate
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_must_support_equality
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_must_support_ordering
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_must_support_grouping
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_min_value
+      args:
+        - struct
+        - int64
+    - name: FunctionArgumentTypeOptions_set_max_value
+      args:
+        - struct
+        - int64
+    - name: FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_argument_name
+      args:
+        - struct
+        - string
+    - name: FunctionArgumentTypeOptions_set_argument_name_is_mandatory
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_procedure_argument_mode
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_OptionsDebugString
+      args:
+        - struct
+      ret:
+        - string
+    - name: FunctionArgumentTypeOptions_GetSQLDeclaration
+      args:
+        - struct
+        - int
+      ret:
+        - string
+    - name: FunctionArgumentTypeOptions_set_argument_name_parse_location
+      args:
+        - struct
+        - struct
+    - name: FunctionArgumentTypeOptions_argument_name_parse_location
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentTypeOptions_set_argument_type_parse_location
+      args:
+        - struct
+        - struct
+    - name: FunctionArgumentTypeOptions_argument_type_parse_location
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentTypeOptions_set_default
+      args:
+        - struct
+        - struct
+    - name: FunctionArgumentTypeOptions_has_default
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_get_default
+      args:
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentTypeOptions_clear_default
+      args:
+        - struct
+    - name: FunctionArgumentTypeOptions_argument_collation_mode
+      args:
+        - struct
+      ret:
+        - int
+    - name: FunctionArgumentTypeOptions_uses_array_element_for_collation
+      args:
+        - struct
+      ret:
+        - bool
+    - name: FunctionArgumentTypeOptions_set_uses_array_element_for_collation
+      args:
+        - struct
+        - int
+    - name: FunctionArgumentTypeOptions_set_argument_collation_mode
+      args:
+        - struct
+        - int
     - name: FunctionArgumentType_new
       args:
-        - string
+        - struct
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_new_templated_type
+      args:
+        - int
+        - struct
+      ret:
+        - struct
+    - name: FunctionArgumentType_options
+      args:
         - struct
       ret:
         - struct

@@ -2003,11 +2003,313 @@ void GO_EXPORT(Function_alias_name)(void * arg0,void ** arg1)
   *arg1 = (void *)((new std::string(f->alias_name()))->c_str());
 }
 
+void GO_EXPORT(FunctionArgumentTypeOptions_new)(int arg0,void ** arg1)
+{
+  *arg1 = (void *)(new zetasql::FunctionArgumentTypeOptions((zetasql::FunctionArgumentTypeOptions::ArgumentCardinality)arg0));
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_cardinality)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->cardinality();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_must_be_constant)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->must_be_constant();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_must_be_non_null)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->must_be_non_null();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_is_not_aggregate)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->is_not_aggregate();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_must_support_equality)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->must_support_equality();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_must_support_ordering)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->must_support_ordering();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_must_support_grouping)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->must_support_grouping();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_has_min_value)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->has_min_value();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_has_max_value)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->has_max_value();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_min_value)(void * arg0,int64_t* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->min_value();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_max_value)(void * arg0,int64_t* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->max_value();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_has_relation_input_schema)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->has_relation_input_schema();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_get_resolve_descriptor_names_table_offset)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  auto ret = opt->get_resolve_descriptor_names_table_offset();
+  if (ret) {
+    *arg1 = ret.value();
+  }
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_extra_relation_input_columns_allowed)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->extra_relation_input_columns_allowed();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_has_argument_name)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->has_argument_name();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_argument_name)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = (void *)((new std::string(opt->argument_name()))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_argument_name_is_mandatory)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->argument_name_is_mandatory();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_procedure_argument_mode)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->procedure_argument_mode();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_cardinality)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_cardinality((zetasql::FunctionArgumentTypeOptions::ArgumentCardinality)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_must_be_constant)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_must_be_constant(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_must_be_non_null)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_must_be_non_null(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_is_not_aggregate)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_is_not_aggregate(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_must_support_equality)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_must_support_equality(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_must_support_ordering)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_must_support_ordering(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_must_support_grouping)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_must_support_grouping(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_min_value)(void * arg0,int64_t arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_min_value(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_max_value)(void * arg0,int64_t arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_max_value(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_extra_relation_input_columns_allowed)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_extra_relation_input_columns_allowed(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_argument_name)(void * arg0,void * arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_argument_name((char *)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_argument_name_is_mandatory)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_argument_name_is_mandatory(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_procedure_argument_mode)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_procedure_argument_mode((zetasql::FunctionArgumentTypeOptions::ProcedureArgumentMode)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_resolve_descriptor_names_table_offset)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_resolve_descriptor_names_table_offset(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_OptionsDebugString)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = (void *)((new std::string(opt->OptionsDebugString()))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_GetSQLDeclaration)(void * arg0,int arg1,void ** arg2)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg2 = (void *)((new std::string(opt->GetSQLDeclaration((zetasql::ProductMode)arg1)))->c_str());
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_argument_name_parse_location)(void * arg0,void * arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_argument_name_parse_location(*(zetasql::ParseLocationRange *)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_argument_name_parse_location)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  auto ret = opt->argument_name_parse_location();
+  if (ret) {
+    *arg1 = (void *)(new zetasql::ParseLocationRange(ret.value()));
+  }
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_argument_type_parse_location)(void * arg0,void * arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_argument_type_parse_location(*(zetasql::ParseLocationRange *)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_argument_type_parse_location)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  auto ret = opt->argument_type_parse_location();
+  if (ret) {
+    *arg1 = (void *)(new zetasql::ParseLocationRange(ret.value()));
+  }
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_default)(void * arg0,void * arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_default(*(zetasql::Value *)arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_has_default)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->has_default();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_get_default)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  auto ret = opt->get_default();
+  if (ret) {
+    *arg1 = (void *)(new zetasql::Value(ret.value()));
+  }
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_clear_default)(void * arg0)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->clear_default();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_argument_collation_mode)(void * arg0,int* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->argument_collation_mode();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_uses_array_element_for_collation)(void * arg0,char* arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  *arg1 = opt->uses_array_element_for_collation();
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_uses_array_element_for_collation)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_uses_array_element_for_collation(arg1);
+}
+
+void GO_EXPORT(FunctionArgumentTypeOptions_set_argument_collation_mode)(void * arg0,int arg1)
+{
+  zetasql::FunctionArgumentTypeOptions *opt = (zetasql::FunctionArgumentTypeOptions *)arg0;
+  opt->set_argument_collation_mode((zetasql::FunctionArgumentTypeOptions::ArgumentCollationMode)arg1);
+}
+
 void GO_EXPORT(FunctionArgumentType_new)(void * arg0,void * arg1,void ** arg2)
 {
-  zetasql::FunctionArgumentTypeOptions opt;
-  opt.set_argument_name((char *)arg0);
-  *arg2 = (void *)(new zetasql::FunctionArgumentType((const zetasql::Type *)arg1, opt));
+  *arg2 = (void *)(new zetasql::FunctionArgumentType((const zetasql::Type *)arg0, *(zetasql::FunctionArgumentTypeOptions *)arg1));
+}
+
+void GO_EXPORT(FunctionArgumentType_new_templated_type)(int arg0,void * arg1,void ** arg2)
+{
+  *arg2 = (void *)(new zetasql::FunctionArgumentType((zetasql::SignatureArgumentKind)arg0, *(zetasql::FunctionArgumentTypeOptions *)arg1));
+}
+
+void GO_EXPORT(FunctionArgumentType_options)(void * arg0,void ** arg1)
+{
+  zetasql::FunctionArgumentType *type = (zetasql::FunctionArgumentType *)arg0;
+  *arg1 = (void *)(new zetasql::FunctionArgumentTypeOptions(type->options()));
 }
 
 void GO_EXPORT(FunctionArgumentType_required)(void * arg0,char* arg1)

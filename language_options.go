@@ -52,7 +52,7 @@ func (o *LanguageOptions) SupportsStatementKind(kind resolved_ast.Kind) bool {
 // explicitly opt in to support other statements.
 func (o *LanguageOptions) SetSupportedStatementKinds(kinds []resolved_ast.Kind) {
 	internal.LanguageOptions_SetSupportedStatementKinds(o.raw, helper.SliceToPtr(kinds, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(uintptr(int(kinds[i])))
+		return helper.IntPtr(int(kinds[i]))
 	}))
 }
 
@@ -91,7 +91,7 @@ func (o *LanguageOptions) EnableLanguageFeature(feature LanguageFeature) {
 
 func (o *LanguageOptions) SetEnabledLanguageFeatures(features []LanguageFeature) {
 	internal.LanguageOptions_SetEnabledLanguageFeatures(o.raw, helper.SliceToPtr(features, func(i int) unsafe.Pointer {
-		return unsafe.Pointer(uintptr(int(features[i])))
+		return helper.IntPtr(int(features[i]))
 	}))
 }
 

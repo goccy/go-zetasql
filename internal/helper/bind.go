@@ -55,6 +55,10 @@ func PtrToSlice(p unsafe.Pointer, cb func(unsafe.Pointer)) {
 	}
 }
 
+func IntPtr(v int) unsafe.Pointer {
+	return *(*unsafe.Pointer)(unsafe.Pointer(&v))
+}
+
 func SliceToPtr(v interface{}, cb func(int) unsafe.Pointer) unsafe.Pointer {
 	rv := reflect.ValueOf(v)
 	slice := (*reflect.SliceHeader)(C.malloc(C.ulong(unsafe.Sizeof(reflect.SliceHeader{}))))

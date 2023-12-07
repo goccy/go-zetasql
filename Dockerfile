@@ -1,4 +1,4 @@
-FROM golang:1.17.8-bullseye
+FROM golang:1.21-bookworm
 
 RUN apt-get update && apt-get install -y --no-install-recommends clang
 

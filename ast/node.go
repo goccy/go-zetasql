@@ -1376,10 +1376,10 @@ type SimpleTypeNode struct {
 	*TypeBaseNode
 }
 
-func (n *SimpleTypeNode) TypeName() string {
+func (n *SimpleTypeNode) TypeName() *PathExpressionNode {
 	var v unsafe.Pointer
 	internal.ASTSimpleType_type_name(n.getRaw(), &v)
-	return helper.PtrToString(v)
+	return newPathExpressionNode(v)
 }
 
 type ArrayTypeNode struct {

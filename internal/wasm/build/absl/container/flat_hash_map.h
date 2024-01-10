@@ -64,7 +64,7 @@ struct FlatHashMapPolicy;
 //   `insert()`, provided that the map is provided a compatible heterogeneous
 //   hashing function and equality operator.
 // * Invalidates any references and pointers to elements within the table after
-//   `rehash()`.
+//   `rehash()` and when the table is moved.
 // * Contains a `capacity()` member function indicating the number of element
 //   slots (open, deleted, and empty) within the hash map.
 // * Returns `void` from the `erase(iterator)` overload.
@@ -75,6 +75,10 @@ struct FlatHashMapPolicy;
 // If your type is not yet supported by the `absl::Hash` framework, see
 // absl/hash/hash.h for information on extending Abseil hashing to user-defined
 // types.
+//
+// Using `absl::flat_hash_map` at interface boundaries in dynamically loaded
+// libraries (e.g. .dll, .so) is unsupported due to way `absl::Hash` values may
+// be randomized across dynamically loaded libraries.
 //
 // NOTE: A `flat_hash_map` stores its value types directly inside its
 // implementation array to avoid memory indirection. Because a `flat_hash_map`
@@ -231,7 +235,11 @@ class flat_hash_map : public absl::container_internal::raw_hash_map<
   // iterator erase(const_iterator first, const_iterator last):
   //
   //   Erases the elements in the open interval [`first`, `last`), returning an
-  //   iterator pointing to `last`.
+  //   iterator pointing to `last`. The special case of calling
+  //   `erase(begin(), end())` resets the reserved growth such that if
+  //   `reserve(N)` has previously been called and there has been no intervening
+  //   call to `clear()`, then after calling `erase(begin(), end())`, it is safe
+  //   to assume that inserting N elements will not cause a rehash.
   //
   // size_type erase(const key_type& key):
   //
@@ -357,8 +365,8 @@ class flat_hash_map : public absl::container_internal::raw_hash_map<
   // `flat_hash_map`.
   //
   //   iterator try_emplace(const_iterator hint,
-  //                        const init_type& k, Args&&... args):
-  //   iterator try_emplace(const_iterator hint, init_type&& k, Args&&... args):
+  //                        const key_type& k, Args&&... args):
+  //   iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args):
   //
   // Inserts (via copy or move) the element of the specified key into the
   // `flat_hash_map` using the position of `hint` as a non-binding suggestion
@@ -571,9 +579,9 @@ struct FlatHashMapPolicy {
   }
 
   template <class Allocator>
-  static void transfer(Allocator* alloc, slot_type* new_slot,
+  static auto transfer(Allocator* alloc, slot_type* new_slot,
                        slot_type* old_slot) {
-    slot_policy::transfer(alloc, new_slot, old_slot);
+    return slot_policy::transfer(alloc, new_slot, old_slot);
   }
 
   template <class F, class... Args>

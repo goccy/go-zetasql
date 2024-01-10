@@ -1,0 +1,5 @@
+cc_library(
+    name="json",
+    visibility=["//visibility:public"],
+    hdrs=["single_include/nlohmann/json.hpp"]
+)

@@ -1,0 +1,106 @@
+root: /
+targets:
+  - library: zetasql
+    path: zetasql/parser
+    name: parser
+  - library: zetasql
+    path: zetasql/public
+    name: analyzer
+  - library: zetasql
+    path: zetasql/public
+    name: catalog
+  - library: zetasql
+    path: zetasql/public
+    name: simple_catalog
+  - library: zetasql
+    path: zetasql/public
+    name: sql_formatter
+ignores:
+  - path: bazel
+    name: flex
+  - path: external
+    name: python_headers
+  - path: protobuf
+    name: timestamp_proto
+libraries:
+  - name: zetasql
+    root: zetasql
+  - name: com_google_absl
+    root: absl
+  - name: com_google_googletest
+    root: gtest
+  - name: com_github_google_benchmark
+  - name: com_google_protobuf
+    root: protobuf
+  - name: com_googleapis_googleapis
+    root: googleapis
+  - name: boringssl
+    root: boringssl
+  - name: com_googlesource_code_re2
+    root: re2
+  - name: icu
+    root: icu
+  - name: com_google_farmhash
+    root: farmhash
+  - name: json
+    root: json
+  - name: com_google_cc_differential_privacy
+  - name: com_google_file_based_test_driver
+  - name: com_github_grpc_grpc
+  - name: com_google_riegeli
+
+output: zetasql.wasm
+compiler: emcc
+
+include_paths:
+  - protobuf/src
+  - flex/src
+
+sources:
+  - bind.cc
+
+compiler_options:
+  - --no-entry
+  - -fno-exceptions
+  - -funsigned-char
+  - -std=c++1z
+  - -DU_COMMON_IMPLEMENTATION
+  - -DNAMESPACE_FOR_HASH_FUNCTIONS=farmhash
+  - -DHAVE_PTHREAD
+  - -Wall
+  - -Wextra
+  - -Wno-range-loop-construct
+  - -Wno-unused-variable
+  - -Wno-unused-but-set-variable
+  - -Wno-unused-private-field
+  - -Wno-unused-parameter
+  - -Wno-unused-but-set-parameter
+  - -Wno-unused-function
+  - -Wno-ignored-qualifiers
+  - -Wno-array-parameter
+  - -Wno-bitwise-instead-of-logical
+  - -Wno-implicit-function-declaration
+  - -Wno-incompatible-pointer-types-discards-qualifiers
+  - -Wno-missing-field-initializers
+  - -Wno-undef
+  - -Wno-final-dtor-non-final-class
+  - -Wno-implicit-const-int-float-conversion
+  - -Wno-char-subscripts
+  - -Wno-sign-compare
+  - -Wno-switch
+  - -Wno-deprecated-declarations
+  - -Wno-inconsistent-missing-override
+  - -Wno-unknown-attributes
+  - -Wno-macro-redefined
+  - -Wno-shift-count-overflow
+  - -Wno-enum-compare-switch
+  - -Wno-return-type
+  - -Wno-subobject-linkage
+  - -Wno-unknown-warning-option
+  - -Wno-deprecated
+  - -Wno-mismatched-tags
+
+linker_options:
+  - -sSTANDALONE_WASM
+  - -sEXPORT_ALL
+  - --emit-symbol-map

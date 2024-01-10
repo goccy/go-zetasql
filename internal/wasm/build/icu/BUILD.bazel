@@ -1,0 +1,153 @@
+#
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+"""
+Rules for adding './configure && make' style dependencies.
+"""
+
+load("@rules_foreign_cc//foreign_cc:configure.bzl", "configure_make")
+
+licenses(["notice"])  # Apache v2.0
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+# We need to label this for configure_make.
+filegroup(
+    name = "all",
+    srcs = glob(["**"]),
+)
+
+configure_make(
+    name = "icu",
+    configure_command = "source/configure",
+    env = select({
+        "@platforms//os:macos": {
+            "AR": "",
+            "CXXFLAGS": "-fPIC",  # For JNI
+            "CFLAGS": "-fPIC",  # For JNI
+        },
+        "//conditions:default": {
+            "CXXFLAGS": "-fPIC",  # For JNI
+            "CFLAGS": "-fPIC",  # For JNI
+        },
+    }),
+    configure_options = [
+        "--enable-option-checking",
+        "--enable-static",
+        "--enable-tools",  # needed to build data
+        "--disable-shared",
+        "--disable-dyload",
+        "--disable-extras",
+        "--disable-plugins",
+        "--disable-tests",
+        "--disable-samples",
+        "--with-data-packaging=static",
+    ],
+    lib_source = "@icu//:all",
+    out_static_libs = [
+        "libicui18n.a",
+        "libicuio.a",
+        "libicuuc.a",
+        "libicudata.a",
+    ],
+)
+
+cc_library(
+    name = "common",
+    srcs = [
+        "common/utf_impl.cpp",
+        "common/uniset.cpp",
+        "common/util.cpp",
+        "common/loadednormalizer2impl.cpp",
+        "common/normalizer2.cpp",
+        "common/patternprops.cpp",
+        "common/unifilt.cpp",
+        "common/unistr.cpp",
+        "common/unisetspan.cpp",
+        "common/bmpset.cpp",
+        "common/uobject.cpp",
+        "common/uvector.cpp",
+        "common/bytestream.cpp",
+        "common/bytesinkutil.cpp",
+        "common/errorcode.cpp",
+        "common/unifunct.cpp",
+        "common/characterproperties.cpp",
+        "common/uchar.cpp",
+        "common/ustring.cpp",
+        "common/cmemory.cpp",
+        "common/appendable.cpp",
+        "common/ustrcase.cpp",
+        "common/stringpiece.cpp",
+        "common/unistr_case.cpp",
+        "common/normalizer2impl.cpp",
+        "common/umutex.cpp",
+        "common/edits.cpp",
+        "common/ucase.cpp",
+        "common/uinvchar.cpp",
+        "common/ucptrie.cpp",
+        "common/udataswp.cpp",
+        "common/udatamem.cpp",
+        "common/uhash.cpp",
+        "common/uloc.cpp",
+        "common/ucasemap.cpp",
+        "common/locid.cpp",
+        "common/utypes.cpp",
+        "common/ustrtrns.cpp",
+        "common/ucln_cmn.cpp",
+        "common/ucmndata.cpp",
+        "common/udata.cpp",
+        "common/uenum.cpp",
+        "common/uloc_keytype.cpp",
+        "common/uloc_tag.cpp",
+        "common/cstring.cpp",
+        "common/locmap.cpp",
+        "common/umath.cpp",
+        "common/uarrsort.cpp",
+        "common/ustrcase_locale.cpp",
+        "common/utrie2.cpp",
+        "common/charstr.cpp",
+        "common/uresbund.cpp",
+        "common/uresdata.cpp",
+        "common/utrace.cpp",
+        "common/putil.cpp",
+        "common/umapfile.cpp",
+        "common/umutablecptrie.cpp",
+        "common/uprops.cpp",
+        "common/resource.cpp",
+        "common/ustrenum.cpp",
+        "common/ubidi_props.cpp",
+        "common/ucol_swp.cpp",
+        "common/loclikely.cpp",
+        "common/utrie_swap.cpp",
+        "common/propname.cpp",
+        "common/uscript_props.cpp",
+        "common/bytestrie.cpp",
+    ]
+)
+
+cc_library(
+    name = "headers",
+)
+
+cc_library(
+    name = "unicode",
+)
+
+exports_files([
+    "icu4c/LICENSE",
+])

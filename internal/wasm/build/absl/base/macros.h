@@ -103,17 +103,11 @@ ABSL_NAMESPACE_END
 // aborts the program in release mode (when NDEBUG is defined). The
 // implementation should abort the program as quickly as possible and ideally it
 // should not be possible to ignore the abort request.
-#if (ABSL_HAVE_BUILTIN(__builtin_trap) &&         \
-     ABSL_HAVE_BUILTIN(__builtin_unreachable)) || \
-    (defined(__GNUC__) && !defined(__clang__))
-#define ABSL_INTERNAL_HARDENING_ABORT() \
-  do {                                  \
-    __builtin_trap();                   \
-    __builtin_unreachable();            \
+#define ABSL_INTERNAL_HARDENING_ABORT()   \
+  do {                                    \
+    ABSL_INTERNAL_IMMEDIATE_ABORT_IMPL(); \
+    ABSL_INTERNAL_UNREACHABLE_IMPL();     \
   } while (false)
-#else
-#define ABSL_INTERNAL_HARDENING_ABORT() abort()
-#endif
 
 // ABSL_HARDENING_ASSERT()
 //
@@ -144,15 +138,16 @@ ABSL_NAMESPACE_END
 #define ABSL_INTERNAL_RETHROW do {} while (false)
 #endif  // ABSL_HAVE_EXCEPTIONS
 
-// `ABSL_INTERNAL_UNREACHABLE` is an unreachable statement.  A program which
-// reaches one has undefined behavior, and the compiler may optimize
-// accordingly.
-#if defined(__GNUC__) || ABSL_HAVE_BUILTIN(__builtin_unreachable)
-#define ABSL_INTERNAL_UNREACHABLE __builtin_unreachable()
-#elif defined(_MSC_VER)
-#define ABSL_INTERNAL_UNREACHABLE __assume(0)
+// Requires the compiler to prove that the size of the given object is at least
+// the expected amount.
+#if ABSL_HAVE_ATTRIBUTE(diagnose_if) && ABSL_HAVE_BUILTIN(__builtin_object_size)
+#define ABSL_INTERNAL_NEED_MIN_SIZE(Obj, N)                     \
+  __attribute__((diagnose_if(__builtin_object_size(Obj, 0) < N, \
+                             "object size provably too small "  \
+                             "(this would corrupt memory)",     \
+                             "error")))
 #else
-#define ABSL_INTERNAL_UNREACHABLE
+#define ABSL_INTERNAL_NEED_MIN_SIZE(Obj, N)
 #endif
 
 #endif  // ABSL_BASE_MACROS_H_

@@ -78,6 +78,10 @@ class NodeHashMapPolicy;
 // absl/hash/hash.h for information on extending Abseil hashing to user-defined
 // types.
 //
+// Using `absl::node_hash_map` at interface boundaries in dynamically loaded
+// libraries (e.g. .dll, .so) is unsupported due to way `absl::Hash` values may
+// be randomized across dynamically loaded libraries.
+//
 // Example:
 //
 //   // Create a node hash map of three strings (that map to strings)
@@ -222,7 +226,11 @@ class node_hash_map
   // iterator erase(const_iterator first, const_iterator last):
   //
   //   Erases the elements in the open interval [`first`, `last`), returning an
-  //   iterator pointing to `last`.
+  //   iterator pointing to `last`. The special case of calling
+  //   `erase(begin(), end())` resets the reserved growth such that if
+  //   `reserve(N)` has previously been called and there has been no intervening
+  //   call to `clear()`, then after calling `erase(begin(), end())`, it is safe
+  //   to assume that inserting N elements will not cause a rehash.
   //
   // size_type erase(const key_type& key):
   //
@@ -348,8 +356,8 @@ class node_hash_map
   // `node_hash_map`.
   //
   //   iterator try_emplace(const_iterator hint,
-  //                        const init_type& k, Args&&... args):
-  //   iterator try_emplace(const_iterator hint, init_type&& k, Args&&... args):
+  //                        const key_type& k, Args&&... args):
+  //   iterator try_emplace(const_iterator hint, key_type&& k, Args&&... args):
   //
   // Inserts (via copy or move) the element of the specified key into the
   // `node_hash_map` using the position of `hint` as a non-binding suggestion
@@ -400,7 +408,7 @@ class node_hash_map
   // for the past-the-end iterator, which is invalidated.
   //
   // `swap()` requires that the node hash map's hashing and key equivalence
-  // functions be Swappable, and are exchaged using unqualified calls to
+  // functions be Swappable, and are exchanged using unqualified calls to
   // non-member `swap()`. If the map's allocator has
   // `std::allocator_traits<allocator_type>::propagate_on_container_swap::value`
   // set to `true`, the allocators are also exchanged using an unqualified call

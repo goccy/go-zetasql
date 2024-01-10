@@ -26,35 +26,48 @@ libraries:
   - name: zetasql
     root: zetasql
   - name: com_google_absl
-    root: absl
+    root: external/com_google_absl
   - name: com_google_googletest
-    root: gtest
-  - name: com_github_google_benchmark
+    root: external/com_google_googletest
   - name: com_google_protobuf
-    root: protobuf
-  - name: com_googleapis_googleapis
-    root: googleapis
+    root: external/com_google_protobuf
+  - name: com_google_googleapis
+    root: external/com_google_googleapis
   - name: boringssl
-    root: boringssl
+    root: external/boringssl
   - name: com_googlesource_code_re2
-    root: re2
+    root: external/com_googlesource_code_re2
   - name: icu
-    root: icu
-  - name: com_google_farmhash
-    root: farmhash
+    root: external/icu
   - name: json
-    root: json
+    root: external/json
   - name: com_google_cc_differential_privacy
-  - name: com_google_file_based_test_driver
+    root: external/com_google_cc_differential_privacy
+  - name: utf8_range
+    root: external/utf8_range
   - name: com_github_grpc_grpc
+  - name: boost
+  - name: com_github_google_glog
+  - name: com_google_file_based_test_driver
+  - name: jsoncpp
+  - name: com_google_differential_privacy
+  - name: com_google_farmhash
+  - name: rules_ruby
   - name: com_google_riegeli
+  - name: com_github_google_benchmark
+  - name: upb
 
 output: zetasql.wasm
 compiler: emcc
 
 include_paths:
-  - protobuf/src
-  - flex/src
+  - /external/com_google_protobuf/src
+  - /external/flex_v2.6.4/src
+  - /external/com_google_googletest/googletest/include
+  - /external/icu/source/common
+  - /external/utf8_range
+  - /external/com_google_differential_privacy
+  - /external/boringssl/src/include
 
 sources:
   - bind.cc
@@ -69,6 +82,8 @@ compiler_options:
   - -DHAVE_PTHREAD
   - -Wall
   - -Wextra
+  - -Wno-defaulted-function-deleted
+  - -Wno-invalid-constexpr
   - -Wno-range-loop-construct
   - -Wno-unused-variable
   - -Wno-unused-but-set-variable

@@ -26,6 +26,25 @@ const char *u_getTimeZoneFilesDirectory_65(UErrorCode *status) {}
 
 #endif
 
+#include "unicode/putil.h"
+#include "unicode/udata.h"
+#include "unicode/uversion.h"
+#include "charstr.h"
+#include "cmemory.h"
+#include "cstring.h"
+#include "mutex.h"
+#include "putilimp.h"
+#include "restrace.h"
+#include "uassert.h"
+#include "ucln_cmn.h"
+#include "ucmndata.h"
+#include "udatamem.h"
+#include "uhash.h"
+#include "umapfile.h"
+#include "umutex.h"
+
+DataHeader U_DATA_API  U_ICUDATA_ENTRY_POINT[] = {};
+
 #if 1 //emscripten
 #include "zetasql/parser/ast_node.h"
 #include "zetasql/parser/ast_node_kind.h"

@@ -25,7 +25,7 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test                          && \
 
 WORKDIR /work
 
-RUN git clone --depth=1 https://github.com/google/zetasql zetasql
+COPY zetasql zetasql
 
 ENV BAZEL_ARGS="--config=g++"
 ENV CC=/usr/bin/gcc

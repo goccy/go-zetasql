@@ -1,3 +1,6 @@
 [submodule "internal/cmd/updater/zetasql"]
 	path = internal/cmd/updater/zetasql
 	url = https://github.com/google/zetasql.git
+[submodule "internal/wasm/build/zetasql"]
+	path = internal/wasm/build/zetasql
+	url = https://github.com/google/zetasql.git

@@ -1,5 +1,15 @@
 # go-zetasql
 
+> [!IMPORTANT]
+> **This project has moved to [go-googlesql](https://github.com/goccy/go-googlesql).**
+>
+> `go-zetasql` is no longer maintained and this repository is archived.
+> Please use [go-googlesql](https://github.com/goccy/go-googlesql) instead — it
+> is the successor project: a pure-Go (cgo-free) binding that runs GoogleSQL
+> inside WebAssembly and automatically tracks the latest upstream GoogleSQL
+> revision. It removes the cgo toolchain requirement and supports
+> cross-compilation (including linux/arm64) out of the box.
+
 ![Go](https://github.com/goccy/go-zetasql/workflows/Go/badge.svg)
 [![GoDoc](https://godoc.org/github.com/goccy/go-zetasql?status.svg)](https://pkg.go.dev/github.com/goccy/go-zetasql?tab=doc)
 
